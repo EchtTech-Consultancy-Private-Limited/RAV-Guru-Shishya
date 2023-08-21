@@ -299,7 +299,7 @@
 
 
                      <div class="col-lg-12 p-t-20 text-center">
-                        <button type="submit" class="btn btn-primary m-r-15">Submit</button>
+                        <button type="submit" class="btn btn-primary m-r-15" id="submit">Submit</button>
                         <a href="{{ route('login') }}" class="btn waves-effect" style="line-height:2;background-color:#888;color:#fff;">Back To Login</a>
                      </div>
                   </div>
@@ -309,8 +309,8 @@
       </div>
    </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/js/custom/sign-up.js') }}"></script>
-<script src="{{ asset('assets/js/custom/custom.js') }}"></script>
 <script src="{{ asset('assets/js/custom/password-policy.js') }}"></script>
 
 <!-- Add User -->
