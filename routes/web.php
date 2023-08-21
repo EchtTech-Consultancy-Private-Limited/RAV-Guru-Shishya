@@ -70,7 +70,9 @@ Route::get('/multi-stepform', function () {
 
 
 Route::get('/', function () {
-    return view('auth.login');
+    //return view('auth.login');
+
+    return view('auth.newlogin');
 });
 
 Route::get('/no-access', function () {
