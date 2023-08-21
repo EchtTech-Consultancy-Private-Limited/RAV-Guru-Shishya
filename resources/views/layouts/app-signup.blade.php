@@ -1,8 +1,7 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
-     <title>RAV Guru Shishya Parampara</title>
-   
+    <title>RAV Guru Shishya Parampara</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -22,17 +21,8 @@
     <link href="{{ asset('assets/css/styles/all-themes.css') }} " rel="stylesheet" />
     <!-- OLD LINK -->
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
-    <script type='text/javascript' src='#'></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script> -->
     
-    <script src="{{ asset('assets/js/pages/jquerylocal.js') }} "></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     
-
-    <!-- #region datatables files -->
-    <!-- <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" /> -->
-
+    
 </head>
 <body  class="light bg-img"  style="background-image: url({{ asset('assets/images/login_bg.jpg')}});z-index:999; background-attachment: fixed !important; background-color: none;">
      <!-- [ Pre-loader ] start -->
@@ -60,7 +50,8 @@
            
        <!-- [ Content ] End -->
        @include('layouts/partials.footer')
-       
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/js/pages/jquerylocal.js') }} "></script>       
 <script src="{{ asset('assets/js/app.min.js') }}"></script>
 <script src="{{ asset('assets/js/table.min.js') }} "></script>
 <!-- Custom Js -->
@@ -96,9 +87,7 @@
             placeholder: "Select only maximum 2 items",
             });
 });
-</script>
 
-<script>
      // disable alphate
      $('#mobile_no').keypress(function (e) {
           //alert("yes");
