@@ -1,5 +1,5 @@
 
-$(':input[type="submit"]').prop('disabled', true);
+//$(':input[type="submit"]').prop('disabled', true);
 let statepassword = false;
 let password = document.getElementById("password");
 let passwordStrength = document.getElementById("password-strength");
