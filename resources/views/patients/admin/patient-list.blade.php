@@ -72,9 +72,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                                                                                       
-                                                            
-                                                            
                                                             
                         @foreach($patientlist as $key=>$patientlist) 
                                                                                  
