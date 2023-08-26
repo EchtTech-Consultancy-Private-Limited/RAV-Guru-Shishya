@@ -953,7 +953,7 @@ class PatientController extends Controller
         if($phr_type=="In-Patient")
         {
             $patientlist=Patient::orderBy('id','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get();
-
+            //dd($patientlist);
         }
         elseif($phr_type=="OPD-Patient")
         {
