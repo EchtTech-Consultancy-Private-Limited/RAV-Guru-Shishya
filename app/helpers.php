@@ -69,15 +69,20 @@
 
         }
 
-         function get_user_name($id)
+        function get_user_name($id)
         {
             $userlist=App\Models\User::where('id',$id)->first();
-            //print_r($userlist->firstname);
-            $username = $userlist->firstname;
-            return $username;
+            if(!empty($userlist)){
+                $username = $userlist->firstname;
+                return $username;
+            }
+            else{
+                $username = "--";    
+                return $username;
+            }
         }
 
-         function get_profile_id($id)
+        function get_profile_id($id)
         {
             $profile=App\Models\ProfileBasicInfo::orderBy('id','desc')->where('user_id',$id)->first();
             if($profile)
