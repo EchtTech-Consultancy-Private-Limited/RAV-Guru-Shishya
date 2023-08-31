@@ -914,6 +914,26 @@ class PatientController extends Controller
 
     public function admin_update_patients(Request $request)
     {
+        $this->validate($request, [
+                'patient_name' => 'required',
+                'registration_no' => 'required',
+                'age' => 'required|numeric',
+                'patient_type' => 'required',
+                'gender' => 'required',
+                'age_group' => 'required',
+                'occupation' => 'required',
+                'marital_status' => 'required',
+        ],[
+            'patient_name' => 'Field is required',
+            'registration_no.required' => 'Field is required',
+            'age.required' => 'Field is required and must be integer',
+            'patient_type.required' => 'Field is required',
+            'gender.required' => 'Field is required',
+            'age_group.required' => 'Field is required',
+            'occupation.required' => 'Field is required',
+            'marital_status.required' => 'Field is required',
+            'city.required' => 'Field is required',
+        ]);
        
         $input = $request->all();
         $id=$request->patient_id;
@@ -943,7 +963,7 @@ class PatientController extends Controller
         //dd("yes");
         $drugpart = Patient::find($id);
         $drugpart->delete();
-        return redirect()->back()->with('success', 'Patient deleted successfully');
+        return redirect()->back()->with('success', 'Patient history deleted successfully');
     }
 
 

@@ -4,12 +4,7 @@
    @if (count($errors) > 0)
    <div class="alert alert-danger">
       <strong>Whoops!</strong> There were some problems with your input.<br><br>
-      <ul>
-         @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-         @endforeach
-      </ul>
-   </div>
+      </div>
    @endif
    <div class="container-fluid">
    <div class="block-header">
@@ -164,7 +159,9 @@
                                              value="{{ $patient->patient_name }}"
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)" maxlength="32">
-                                       </div>
+                                        @error('patient_name')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror</div>
                                     </div>
                                     <div
                                        class="col-md-6">
@@ -183,7 +180,9 @@
                                              value="{{ $patient->registration_no }}"
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)" maxlength="32">
-                                       </div>
+                                       @error('registration_no')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror</div></div>
                                     </div>
                                  </div>
                                  <div
@@ -204,7 +203,9 @@
                                              aria-label="Phone"
                                              value="{{ $patient->age }}"
                                              onfocus="focused(this)"
-                                             onfocusout="defocused(this)">
+                                             onfocusout="defocused(this)">@error('age')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                        </div>
                                     </div>
                                     <div
@@ -239,12 +240,9 @@
                                                    <option value="{{$value}}" {{$patient->patient_type == $value  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
-                                             @if ($errors->has('patient_type'))
-                                                 <span class="help-block">
-                                                     <strong style="color:red;">{{ $errors->first('patient_type') }}</strong>
-                                                 </span>
-                                             @endif
-                                       </div>
+                                             @error('patient_type')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                     </div>
                                  </div>
                                  <div
@@ -268,7 +266,9 @@
                                              @foreach(__('phr.gender') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
-                                          </select>
+                                          </select>@error('gender')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                        </div>
                                     </div>
                                     <div
@@ -288,7 +288,9 @@
                                              @foreach(__('phr.age_group') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->age_group == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
-                                          </select>
+                                          </select>@error('age_group')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                        </div>
                                     </div>
                                  </div>
@@ -314,7 +316,8 @@
                                             @foreach(__('phr.occupation') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->occupation == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
-                                          </select>
+                                          </select>@error('occupation')
+    <div class="alert alert-danger">{{ $message }}</div>@enderror
                                        </div>
                                     </div>
                                     <div
@@ -335,7 +338,9 @@
                                               @foreach(__('phr.marital_status') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
-                                          </select>
+                                          </select>@error('marital_status')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                        </div>
                                     </div>
                                  </div>

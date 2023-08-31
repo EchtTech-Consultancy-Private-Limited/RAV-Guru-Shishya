@@ -152,6 +152,7 @@
 
 <script>
 $(document).ready(function() {
+   
    if ( $.fn.dataTable.isDataTable( '#data_table' ) ) {
     table = $('#data_table').DataTable();
     table.destroy();

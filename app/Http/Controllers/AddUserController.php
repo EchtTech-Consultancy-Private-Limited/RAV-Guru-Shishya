@@ -237,13 +237,67 @@ class AddUserController extends Controller
 
     public function manage_profile_form(Request $request)
     {
-        $this->validate($request, [
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required',
-            'mobile_no' => 'required',
-            'title' => 'required',
+        $formId = $request->input('form_step_type');
+        if ($formId === 'step1') {
+            // Validate form 1 fields
+            $this->validate($request, [
+                'firstname' => ['required','max:250','regex:/^([a-zA-Z]+)+[a-z]{2,6}$/ix'],
+                'email' => 'required',
+                'date_of_birth' => 'required',
+                'age' => 'required|numeric',
+                'f_name' => 'required',
+                'address1' => 'required',
+                'address2' => 'required',
+                'country' => 'required',
+                'state' => 'required',
+                'city' => 'required',
+                'pincode' => 'required|numeric',
+                'per_address1' => 'required',
+                'per_address2' => 'required',
+                'per_country' => 'required',
+                'per_state' => 'required',
+                'per_city' => 'required',
+                'per_pincode' => 'required|numeric',
+                'aadhaar_no' => 'required|numeric',
+                'pan_no' => 'required',
+                'e_sign'   => 'required|mimes:jpeg,png,jpg|max:50|min:10',
+                'profile_image'   => 'required|mimes:jpeg,png,jpg|max:250|min:10',
+                'mobile_no' => 'required|min:10',
+                'title' => 'required',
+        ],[
+            'firstname.required' => 'Field is required',
+            'email' => 'Field is required',
+            'date_of_birth.required' => 'Field is required',
+            'age.required' => 'Field is required and must be integer',
+            'f_name.required' => 'Field is required',
+            'address1.required' => 'Field is required',
+            'address2.required' => 'Field is required',
+            'country.required' => 'Field is required',
+            'state.required' => 'Field is required',
+            'city.required' => 'Field is required',
+            'pincode.required' => 'Field is required and must be integer',
+            'per_address1.required' => 'Field is required',
+            'per_address2.required' => 'Field is required',
+            'per_country.required' => 'Field is required',
+            'per_state.required' => 'Field is required',
+            'per_city.required' => 'Field is required',
+            'per_pincode.required' => 'Field is required and must be integer',
+            'aadhaar_no.required' => 'Field is required and must be integer',
+            'pan_no.required' => 'Field is required last 4 digits only',
+            'e_sign.required'   => 'Field is required jpeg,png,jpg',
+            'profile_image.required|'   => 'Field is required jpeg,png,jpg',
+            'mobile_no.required' => 'Field is required and must be integer',
+            'title.required' => 'Field is required',
         ]);
+        } elseif ($formId === 'step2') {
+            $this->validate($request, [
+                'course_name' => 'required',
+                'institute_name' => 'max:200|min:2',
+        ],[
+            'course_name.required' => 'Field is required',
+            'institute_name.max' => 'Length should be maximum 200 and minium 2',
+        ]);
+        }
 
         //return $request->all();
         $profile_id=$request->profile_id;
@@ -457,7 +511,20 @@ class AddUserController extends Controller
     }
 
     public function manage_profile_form_step3(Request $request)
-    {   
+    { 
+        $this->validate($request, [
+                'name_of_board' => ['required','max:200','regex:/^([a-zA-Z]+)+[a-z]{2,6}$/ix'],
+                'regis_no' => 'required',
+                'year_of_regis' => 'required',
+                'name_of_clinic' => 'required|numeric',
+                'weekend_off' => 'required',
+        ],[
+            'firstname.required' => 'Field is required',
+            'regis_no.required' => 'Field is required',
+            'year_of_regis.required' => 'Field is required',
+            'name_of_clinic.required' => 'Field is required and must be integer',
+            'weekend_off.required' => 'Field is required',
+        ]);  
        // return $request->all();
         $clinical_id=$request->clinical_id;
         $input=$request->all();

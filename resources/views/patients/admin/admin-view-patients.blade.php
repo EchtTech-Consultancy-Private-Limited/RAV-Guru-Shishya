@@ -120,7 +120,7 @@
                                              class="text-danger">*</span></label><br>
                                          <label
                                          for="example-text-input"
-                                         class="form-control-label"><b>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</b></label>
+                                         class="form-control-label"><b>{{ $shishya->firstname }}</b></label>
                                           
                                        </div>
                                     </div>
@@ -1288,7 +1288,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Student's
+                                             class="form-control-label">Shishya's
                                           E-Sign</label><br>
                                           @if($shishya->e_sign!='')
                                           <img src="{{ asset('uploads/'.$shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">

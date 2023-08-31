@@ -73,7 +73,7 @@
                                 <li><a href="#">In Patients (Admited Patients)</a></li>
                             </li>
                             <li>
-                                <a href="#">Out Patients (O.P.D Patients)</a>
+                                <a href="#">Out Patients (OPD Patients)</a>
                             </li>
                             <li>
                                 <a href="#">Follow Up Patients</a>
