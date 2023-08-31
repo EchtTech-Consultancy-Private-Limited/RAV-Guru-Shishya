@@ -12,17 +12,7 @@
 
 <section class="content">
 
-           @if (count($errors) > 0)
-              <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                   @foreach ($errors->all() as $error)
-                     <li>{{ $error }}</li>
-                   @endforeach
-                </ul>
-              </div>
-            @endif
-            <div class="container-fluid">
+           <div class="container-fluid">
               <div class="block-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -131,7 +121,9 @@
                                 <!-- guru name -->
                                 <div class="form-group">
                                     <label>First Name<span class="text-danger">*</span></label>
-                                    <input type="text"  name="firstname"  class="form-control capitalize" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" >
+                                    <input type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" >@error('firstname')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
                          
@@ -153,14 +145,16 @@
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label >Email</label><span class="text-danger">*</span>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->email }} @else Auth::user()->email @endif" maxlength="50" >
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->email }} @else Auth::user()->email @endif" maxlength="50" readonly="readonly">
                                 </div>
                               </div>
                               
                               <div class="col-sm-12 col-md-4">                               
                                 <div class="form-group">
                                     <label >Mobile No.<span class="text-danger">*</span></label>
-                                    <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >
+                                    <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@error('mobile_no')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -168,14 +162,18 @@
 
                                 <div class="form-group">
                                     <label >Date of Birth<span class="text-danger">*</span></label>
-                                    <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth"  value="@if(isset($profile_record[0])){{ $profile_record[0]->date_of_birth }}@endif">
+                                    <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth"  value="@if(isset($profile_record[0])){{ $profile_record[0]->date_of_birth }}@endif">@error('date_of_birth')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
                               <div class="col-sm-12 col-md-4">                               
                                 <div class="form-group">
                                     <label>Age (as on 20-12-2022)<span class="text-danger">*</span></label>
-                                    <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif">
+                                    <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif">@error('age')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -183,7 +181,9 @@
                               <div class="col-sm-12 col-md-4">                               
                                 <div class="form-group">
                                     <label >Father's Name<span class="text-danger">*</span></label>
-                                    <input type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name"  value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">
+                                    <input type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name"  value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">@error('f_name')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -194,14 +194,18 @@
                               <div class="col-sm-12 col-md-6">                               
                                 <div class="form-group">
                                     <label >Address Line 1<span class="text-danger">*</span></label>
-                                    <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="@if(isset($profile_record[0])){{$profile_record[0]->address1}}@endif">
+                                    <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="@if(isset($profile_record[0])){{$profile_record[0]->address1}}@endif">@error('address1')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
                               <div class="col-sm-12 col-md-6">                               
                                 <div class="form-group">
                                     <label >Address Line 2<span class="text-danger">*</span></label>
-                                    <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="@if(isset($profile_record[0])){{ $profile_record[0]->address2 }}@endif">
+                                    <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="@if(isset($profile_record[0])){{ $profile_record[0]->address2 }}@endif">@error('address2')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -218,7 +222,9 @@
 
                                           @endforeach
                                       @endif
-                                    </select>
+                                    </select>@error('country')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
                               
@@ -229,7 +235,9 @@
                                        @if(isset($profile_record[0]))
                                          <option value="{{$profile_record[0]->state}}">{{ $profile_record[0]->state_name }}</option>
                                          @endif
-                                      </select>
+                                      </select>@error('state-dropdown')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -238,21 +246,25 @@
                                     <label>City <span class="text-danger">*</span></label>
                                     <select id="city-dropdown" class="form-control select2" name="city" >
                                       <option value="{{$profile_record[0]->city}}">{{ $profile_record[0]->city_name }}</option>
-                                     </select> 
+                                     </select>@error('city-dropdown')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror 
                                 </div>
                               </div>
 
                               <div class="col-sm-12 col-md-3">                               
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">
+                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
                              <div class="col-sm-12 col-md-12 mb-3">                               
                               <div class="form-check m-l-5 pb-2">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="checkbox" value=""> Same as Present Address
+                                      <input class="form-check-input" type="checkbox" id="same_as_present" value=""> Same as Present Address
                                       <span class="form-check-sign">
                                           <span class="check"></span>
                                       </span>
@@ -267,14 +279,18 @@
                               <div class="col-sm-12 col-md-6">                               
                                 <div class="form-group">
                                     <label >Address Line 1<span class="text-danger">*</span></label>
-                                    <input type="textarea" name="per_address1" id="per_address_Line1" class="form-control" placeholder="Permanent Address Line 1"  value="{{ $profile_record[0]->per_address1 }}">
+                                    <input type="textarea" name="per_address1" id="per_address_Line1" class="form-control" placeholder="Permanent Address Line 1"  value="{{ $profile_record[0]->per_address1 }}">@error('per_address_Line1')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
                               <div class="col-sm-12 col-md-6">                               
                                 <div class="form-group">
                                     <label >Address Line 2<span class="text-danger">*</span></label>
-                                    <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">
+                                    <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">@error('per_address_Line2')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -289,7 +305,9 @@
                                           </option>
 
                                           @endforeach
-                                    </select>
+                                    </select>@error('per_country')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -302,7 +320,9 @@
                                          <option value=" {{$per_profile_record[0]->per_state}}">{{ $per_profile_record[0]->per_state_name }}</option>
                                         @else
                                         @endif
-                                      </select>
+                                      </select>@error('per-state-dropdown')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -314,14 +334,18 @@
                                       <option value="{{$per_profile_record[0]->city}}">{{ $per_profile_record[0]->per_city_name }}</option>
                                       @else
                                         @endif
-                                     </select> 
+                                     </select>@error('per-city-dropdown')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror 
                                 </div>
                               </div>
 
                               <div class="col-sm-12 col-md-3">                               
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-                                    <input type="number" name="per_pincode" id="per_pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">
+                                    <input type="number" name="per_pincode" id="per_pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">@error('per_pincode')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -329,7 +353,9 @@
                               <div class="col-sm-12 col-md-6">                               
                                 <div class="form-group">
                                     <label >Aadhar Number<span class="text-danger">*</span></label>
-                                    <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->aadhaar_no }}">
+                                    <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->aadhaar_no }}">@error('aadhaar_no')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -337,7 +363,9 @@
                                                        
                                 <div class="form-group">
                                     <label >Pan Number<span class="text-danger">*</span></label>
-                                    <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->pan_no }}">
+                                    <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->pan_no }}">@error('pan_no')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                 </div>
                               </div>
 
@@ -470,7 +498,9 @@
                                 <div class="form-group">
                                     <label >E-Signature<span class="text-danger">*</span></label>
                                     <input type="file" name="e_sign" id="e_sign" class="form-control" >
-
+@error('e_sign')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                      @if($profile_record[0]->e_sign)
                                      <img src="{{ asset('uploads/'.$profile_record[0]->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                      @endif
@@ -482,7 +512,9 @@
                               <div class="col-sm-12 col-md-6">
                                 <div class="form-group ">
                                     <label >Profile Picture<span class="text-danger">*</span></label>
-                                    <input type="file" name="profile_image" id="profile_image" class="form-control" >
+                                    <input type="file" name="profile_image" id="profile_image" class="form-control" >@error('profile_image')
+    <div class="alert alert-danger">{{ $message }}</div>
+  @enderror
                                     @if($profile_record[0]->user_image)
                                      <img src="{{ asset('uploads/'.$profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
                                      @else
@@ -518,14 +550,14 @@
                               <div class="col-3">
                                   <div class="form-group">
                                     <label for="institute_name">Institute Name</label>
-                                    <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name">
+                                    <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" maxlength="200" minlength="2">
                                   </div>
                               </div>
                              
                               <div class="col-sm-12 col-md-3">                               
                                  <div class="form-group">
                                     <label>Course<span class="text-danger">*</span></label>
-                                    <select name="course_name" class="form-control">
+                                    <select name="course_name" class="form-control" required>
                                       <option value="">Select Course</option>
                                       @foreach(__('phr.education_course') as $key=>$value)
                                        <option  value="{{$value}}">{{$value}}</option>
@@ -1069,7 +1101,7 @@
                                         <option value="2" @if(isset($specific_details_record->any_teaching_exp))  {{ $specific_details_record->any_teaching_exp=='2'?'selected':'' }} @endif>No</option>
                                       </select>
 
- <input type="text"name="teaching_exp_input" id="teaching_exp_input" class="@if(isset($specific_details_record->any_teaching_exp)) @if($specific_details_record->any_teaching_exp!=1) d-none @endif @endif" placeholder="Teaching experience" value="@if(isset($specific_details_record->teaching_exp_input)) {{ $specific_details_record->teaching_exp_input }}@endif">
+ <input type="text"name="teaching_exp_input" id="teaching_exp_input" class="@if(isset($specific_details_record->any_teaching_exp)) @if($specific_details_record->any_teaching_exp!=1) d-none @endif @endif" value="@if(isset($specific_details_record->teaching_exp_input)) {{ $specific_details_record->teaching_exp_input }}@endif">
                                    </div>
                                  </div>
 
@@ -1100,7 +1132,7 @@
 
 
                                           <input type="text"name="honourar_attackment" id="Honourary_input" class="
-                                          @if(isset($specific_details_record->honourar_attachment_to_any_colg)) @if($specific_details_record->honourar_attachment_to_any_colg!=1) d-none @endif @endif" placeholder="Honourary attachments to any college/hospital/ on regular/part time basis" value="@if(isset($specific_details_record->honourar_attackment)) {{ $specific_details_record->honourar_attackment }}@endif">
+                                          @if(isset($specific_details_record->honourar_attachment_to_any_colg)) @if($specific_details_record->honourar_attachment_to_any_colg!=1) d-none @endif @endif" value="@if(isset($specific_details_record->honourar_attackment)) {{ $specific_details_record->honourar_attackment }}@endif">
                                    </div>
                                  </div>
 
@@ -1533,6 +1565,27 @@ $(document).ready(function(){
                     }
                 });
     </script>
+                    <script>
+    $(document).ready(function() {
+        $('#same_as_present').change(function() {
+            if ($(this).is(':checked')) {
+                $('#per_address_Line1').val($('#address1').val());
+                $('#per_address_Line2').val($('#address2').val());
+                $('#per-country-dropdown').val($('#country-dropdown').val());
+                $('#per-state-dropdown').val($('#state-dropdown').val());
+                $('#per-city-dropdown').val($('#city-dropdown').val());
+                $('#per_pincode').val($('#Pincode').val());
+            } else {
+                $('#per_address_Line1').val('');
+                $('#per_address_Line2').val('');
+                $('#per-country-dropdown').val('');
+                $('#per-state-dropdown').val('');
+                $('#per-city-dropdown').val('');
+                $('#per_pincode').val('');
+            }
+        });
+    });
+</script>
 
     <!-- Permanent address country state city -->
      @if(isset($per_profile_record[0]))
