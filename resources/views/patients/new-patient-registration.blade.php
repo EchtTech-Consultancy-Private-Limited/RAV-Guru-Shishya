@@ -53,7 +53,7 @@
                   <h2>
 
                   <ul style="float:right; overflow:hidden;">
-                                 <li style="float:left;clear:none; margin:10px;">Ragistration No.:
+                                 <li style="float:left;clear:none; margin:10px;">Registartion No.:
                                     </li><li style="float:left;clear:none; margin:10px;">
                                     <input type="text" name="prno" class="form-control" value="@if(request()->prno){{request()->prno}}@endif" maxlength="20" >
                                     </li> <li style="float:left;clear:none; margin:10px;">From:
@@ -98,7 +98,7 @@
                                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">System Reg. No </th>
                                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Email : activate to sort column ascending">Patient Reg. No </th>
                                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending"> Reg. Date </th>
-                                               <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">Patient </th>
+                                               <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Patients Name </th>
                                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Gender </th>
 
                                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Patients Type </th>

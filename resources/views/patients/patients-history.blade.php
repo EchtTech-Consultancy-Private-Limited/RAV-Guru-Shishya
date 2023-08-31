@@ -1880,8 +1880,7 @@
                                                                         class="form-group">
                                                                         <label
                                                                             for="example-text-input"
-                                                                            class="form-control-label">Student's
-                                                                            E-Sign</label>
+                                                                            class="form-control-label">Shishya's E-sign's</label>
                                                                         <input
                                                                             type="file"
                                                                             name="student_e_sign"

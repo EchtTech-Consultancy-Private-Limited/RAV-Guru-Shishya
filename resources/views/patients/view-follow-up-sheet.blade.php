@@ -189,7 +189,7 @@
                                              class="form-control"
                                              value=""
                                              aria-label="remark"
-                                             placeholder="Please enter remark" required>{{ old('remark') }}</textarea>
+                                             placeholder="Please enter remark" maxlength="200" required>{{ old('remark') }}</textarea>
                                              @error('remark')
                                                 <span class="invalid-feedback" role="alert">
                                                    <strong>{{ $message }}</strong>
@@ -1184,7 +1184,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Student's
+                                             class="form-control-label">Shishya's
                                           E-Sign</label><br>
                                           @if(!empty($shishya->id))
                                           @if($shishya->e_sign!='')

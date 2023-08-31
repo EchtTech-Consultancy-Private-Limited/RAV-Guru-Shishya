@@ -959,7 +959,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Student's
+                                             class="form-control-label">Shishya's
                                           E-Sign</label><br>
                                           @if(Auth::user()->e_sign!='')
                                           <img src="{{ asset('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
