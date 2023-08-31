@@ -25,9 +25,9 @@
                </li>
                <li class="breadcrumb-item bcrumb-1">
                   <a href="{{url('/new-patient-registration')}}">
-                  <i class="breadcrumb-item bcrumb-1"></i> New Patients</a>
+                  <i class="breadcrumb-item bcrumb-1"></i> New Patient</a>
                </li>
-               <li class="breadcrumb-item active">  New Patient History  </li>
+               <li class="breadcrumb-item active">   Edit Patient History  </li>
             </ul>
                @if ($message = Session::get('success'))
                 <div class="alert alert-success">
@@ -1298,7 +1298,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Student's
+                                             class="form-control-label">Shishya's
                                           E-Sign</label><br>
                                           @if(Auth::user()->e_sign!='')
                                           <img src="{{ asset('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">

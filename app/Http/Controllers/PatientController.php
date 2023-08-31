@@ -215,7 +215,7 @@ class PatientController extends Controller
             $data=$data->first();
             return Response::json(['id' =>encrypt($data->id) ,'firstname'=>$data->firstname,'middlename'=>$data->middlename,'lastname'=>$data->lastname ,'message'   => 'This registration no. is found in recorsd.']);
         } else {
-            return Response::json(['message'   => 'This registration no. is not found in recorsd.']);
+            return Response::json(['message'   => 'This registration no. is not found in record.']);
         }
 
     }
@@ -564,15 +564,15 @@ class PatientController extends Controller
         //dd("$request->patient_type1");
         $request->validate(
             [
-              'patient_name'   => 'required',
+              'patient_name'   => 'required|max:100|min:2',
               'patient_type' => ['required'],
               'registration_no' => ['required','unique:patients'],
-              'age'   => 'required',
+              'age'   => 'required|numeric',
               'gender'   => 'required',
               'age_group'   => 'required',
               'occupation'   => 'required',
               'marital_status'   => 'required',
-              'address'   => 'required',
+              'address'   => 'required|max:100',
             ]);
 
         $input = $request->all();
@@ -632,7 +632,7 @@ class PatientController extends Controller
         unset($input['_token']);
         unset($input['patient_id']);
         Patient::where('id',$id)->update($input);
-        return redirect('/new-patient-registration')->with('success', 'Patient Update Successfully');
+        return redirect('/new-patient-registration')->with('success', 'Patient History Updated successfully !');
 
     }
 

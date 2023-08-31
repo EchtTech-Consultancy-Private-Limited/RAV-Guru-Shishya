@@ -6,7 +6,7 @@
    <div class="col-sm-12">
       <div class="card">
          <div class="card-header">
-           <h2>Add New Patient</h2>
+           <h2>Add </h2>
          </div>
          <div id="alert-box" style="display:none;">
             <div class="card-body">

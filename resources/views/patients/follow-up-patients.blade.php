@@ -46,7 +46,7 @@
                   <h2>
                   <ul style="float:right;">
                        
-                        <li style="float:left;clear:none; margin:10px;">Ragistration No.:
+                        <li style="float:left;clear:none; margin:10px;">Registartion No.:
                         </li><li style="float:left;clear:none; margin:10px;">
                         <input type="text" name="prno" class="form-control" value="@if(request()->prno){{request()->prno}}@endif" maxlength="20" >
                         </li><li style="float:left;clear:none; margin:10px;">From:
