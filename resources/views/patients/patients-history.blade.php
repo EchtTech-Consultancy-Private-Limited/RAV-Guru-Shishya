@@ -656,7 +656,7 @@
                                                                             <option
                                                                                 value="Child">Private</option>
                                                                             <option
-                                                                                value="Young">Bussinesman</option>
+                                                                                value="Young">Businessman</option>
                                                                             <option
                                                                                 value="Old">Goverment</option>
                                                                             <option

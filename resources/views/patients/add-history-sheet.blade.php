@@ -1309,7 +1309,7 @@
                                           Pathya-Apathya
                                           (<span
                                              class="fs-12
-                                             text-info">Annexure-1</span>)</label>
+                                             text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span>)</label>
                                           <textarea
                                              cols="45"
                                              rows="2"
@@ -1343,8 +1343,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Guru's
-                                          E-Sign</label><br>
-                                          @if($guru->e_sign!='')
+                                          E-Sign</label><br>@if($guru->e_sign!='')
                                           <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                           @endif
                                        </div>

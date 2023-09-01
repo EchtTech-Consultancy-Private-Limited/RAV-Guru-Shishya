@@ -674,7 +674,7 @@ class PatientController extends Controller
 
         }
 
-        return redirect('/new-patient-registration')->with('success', 'This Multiple Record Send To Guru Successfully Now You Can Not Change This Record');
+        return redirect('/new-patient-registration')->with('success', 'This multiple record Sent to guru successfully! now you can not change this record');
     }
 
     public function send_patient_to_guru($id,$guru_id)
@@ -718,7 +718,7 @@ class PatientController extends Controller
             Mail::to($gurumail)->send(new SendPhr($phrData));
         //Mail sending script ends here
 
-        return redirect('/new-patient-registration')->with('success', 'This Record Send To Guru Successfully Now You Can Not Change This Record');
+        return redirect('/new-patient-registration')->with('success', 'This multiple record Sent to guru successfully! now you can not change this record');
     }
 
 

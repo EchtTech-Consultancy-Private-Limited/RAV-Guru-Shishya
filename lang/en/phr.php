@@ -23,7 +23,7 @@ return [
     ],
     'occupation' => [
         '1'=>'Private',
-        '2'=>'Bussinesman',
+        '2'=>'Businessman',
         '3'=>'Goverment',
         '3'=>'Semi Private',
         '4'=>'Others',
