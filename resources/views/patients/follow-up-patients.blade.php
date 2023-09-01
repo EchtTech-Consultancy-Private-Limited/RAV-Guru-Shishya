@@ -53,7 +53,7 @@
                         </li><li style="float:left;clear:none; margin:10px;"> 
                            <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"  max="{{date('Y-m-d',time())}}" >
                         </li><li style="float:left;clear:none; margin:10px;"> 
-                           TO:
+                           To:
                            </li><li style="float:left;clear:none; margin:10px;"> 
                            <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" >
                            </li><li style="float:left;clear:none; margin:10px;"> 

@@ -218,7 +218,7 @@
                                  name="password" type="password"
                                  placeholder="Enter your password" autocomplete="new-password" onpaste="return false" oncopy="return false">
 
-                                 <i class="fas fa-eye-slash field-icon" id="eye"></i>
+                                 <i class="fas fa-eye-slash field-icon" id="eye1"></i>
                               <span class="text-danger" id="password_error"></span>
                               <span class="show-pass" onclick="toggle()">
                               </span>
@@ -312,6 +312,30 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="{{ asset('assets/js/custom/sign-up.js') }}"></script>
 <script src="{{ asset('assets/js/custom/password-policy.js') }}"></script>
+    <script>
+       $(function(){
+
+            $('#eye1').click(function(){
+
+                    if($(this).hasClass('fa-eye-slash')){
+
+                    $(this).removeClass('fa-eye-slash');
+
+                    $(this).addClass('fa-eye');
+
+                    $('#checkPassword').attr('type','text');
+
+                    }else{
+
+                    $(this).removeClass('fa-eye');
+
+                    $(this).addClass('fa-eye-slash');
+
+                    $('#checkPassword').attr('type','password');
+                    }
+                });
+            });
+    </script>
 
 <!-- Add User -->
 

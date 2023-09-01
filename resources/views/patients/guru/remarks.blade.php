@@ -9,7 +9,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <ul class="breadcrumb breadcrumb-style ">
                   <li class="breadcrumb-item">
-                     <h4 class="page-title">PHR Form Registration <u>{{@format_patient_id($patient->id)}}</u> for Your Remarks</h4>
+                     <h4 class="page-title">Patients history remarks</h4>
                   </li>
                   <li class="breadcrumb-item bcrumb-1">
                      <a>
@@ -52,7 +52,19 @@
                @csrf
                <div class="body">
                   <div class="row clearfix">
-                     
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <div class="form-line">
+                              <label >Select User<span class="text-danger">*</span></label>
+                                 <select class="form-control" name="user_type" required>
+                                    <option value="">Select User</option>
+                                    <option value="1">Admin</option>
+                                    <option value="3">Shishya</option>
+                                 </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                      <div class="col-sm-8">
                         <div class="form-group">
                            <div class="form-line">
@@ -72,19 +84,6 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <div class="form-line">
-                              <label >Select User<span class="text-danger">*</span></label>
-                                 <select class="form-control" name="user_type" required>
-                                    <option value="">Select User</option>
-                                    <option value="1">Admin</option>
-                                    <option value="3">Shishya</option>
-                                 </select>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
                   
                   <div class="col-lg-12 p-t-20 text-center">
                      <button type="submit" class="btn btn-primary waves-effect m-r-15" >Submit</button>

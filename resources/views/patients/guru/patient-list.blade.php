@@ -26,7 +26,7 @@
                           
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
-                             <h6 class="page-title"> New Patients </h6>
+                             <h6 class="page-title"> Patients lists</h6>
                              
                           </li>
                           <li class="breadcrumb-item bcrumb-1">

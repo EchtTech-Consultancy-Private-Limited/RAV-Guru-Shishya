@@ -128,7 +128,7 @@
                                              class="form-control-label">Date of Report</label><br>
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label"><b>{{date('d-m-Y',strtotime($patient->date_of_report))}}<b></label>
+                                             class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
                                           
                                        </div>
                                     </div>
