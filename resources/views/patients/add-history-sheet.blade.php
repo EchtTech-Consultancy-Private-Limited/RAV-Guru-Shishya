@@ -1165,7 +1165,7 @@
                                              name="prayogashaliya_parikshana"
                                              class="form-control"
 
-                                             placeholder="Enter PrayogashaliyaParikshana"></textarea>
+                                             placeholder="Enter Prayogashaliya Parikshana"></textarea>
                                        </div>
                                     </div>
                                  </div>
