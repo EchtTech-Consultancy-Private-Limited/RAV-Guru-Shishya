@@ -51,6 +51,7 @@
                   <input type="hidden" name="patient_id" value="{{$patient->id}}">
                @csrf
                <div class="body">
+                     <div class="col-sm-8">
                   <div class="row clearfix">
                      <div class="col-sm-4">
                         <div class="form-group">
@@ -65,7 +66,6 @@
                         </div>
                      </div>
                   </div>
-                     <div class="col-sm-8">
                         <div class="form-group">
                            <div class="form-line">
                               <label

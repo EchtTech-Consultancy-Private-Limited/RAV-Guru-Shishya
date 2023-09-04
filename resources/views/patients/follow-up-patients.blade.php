@@ -19,7 +19,7 @@
                   
                <ul class="breadcrumb breadcrumb-style ">
                   <li class="breadcrumb-item">
-                     <h6 class="page-title"> Follow up Patients </h6>
+                     <h6 class="page-title"> Follow Up Patients </h6>
                      
                   </li>
                   <li class="breadcrumb-item bcrumb-1">
@@ -27,7 +27,7 @@
                      <i class="fas fa-home"></i> Home</a>
                   </li>
                   
-                  <li class="breadcrumb-item active"> Follow up Patients </li>
+                  <li class="breadcrumb-item active"> Follow Up Patients </li>
                </ul>
                @if ($message = Session::get('success'))
                          <div class="alert alert-success">
@@ -97,11 +97,11 @@
                                 <table class="table table-hover js-basic-example contact_list" id="data_table1">
                                     <thead>
                                         <tr>
-                                          <th class="center"> <label class="form-check-label form-check-input1">
+                                          <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">
                                               @if(Auth::user()->user_type==2 || Auth::user()->user_type==3)
                                               <input type="checkbox" class="form-check-input" name="checkall" id="checkall" value="1"> 
-                                              @endif
-                                              Select All</label> </th>
+                                              @endif<label for='selectAll'> </label></th>
+                                               <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
                                           <th class="center"> Registration No. </th>
                                             <th class="center"> Date </th>
                                             <th class="center"> Patient </th>
@@ -118,8 +118,8 @@
                                             <td class="center"><label class="form-check-label form-check-input1">
                                             @if(Auth::user()->user_type==2 || Auth::user()->user_type==3)
                                             <input name="followup_ids[]" type="checkbox"  class="form-check-input" value="{{$followup->id}}">
-                                            @endif
-                                            &nbsp {{($k+1)}}</label></td>
+                                            @endif</label></td>
+                                                   <td class="center sorting_1">{{($k+1)}}</td>
                                            
                                             <td class="center"><a href="{{url('follow-up-sheet/'.encrypt($followup->patient_id))}}@php if(request()->to_date){ echo '/'.date('Y-m-d',strtotime(request()->from_date));} else echo '/0'; if(request()->from_date){ echo '/'.date('Y-m-d',strtotime(request()->to_date));} else echo '/0'; if(request()->report_type){ echo '/'.request()->report_type;} else echo '/0'; @endphp">{{$followup->registration_no}}</a></td>
                                             <td class="center">{{date('d-m-Y',strtotime($followup->follow_up_date))}}</td>

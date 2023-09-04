@@ -130,7 +130,7 @@
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Middle Name</label>
-                                    <input type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                 </div>
                               </div>
                               <!-- student name -->
@@ -138,7 +138,7 @@
                                 <!-- guru name -->
                                 <div class="form-group">
                                     <label>Last Name</label>
-                                    <input type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                 </div>
                               </div>
                          
@@ -181,7 +181,7 @@
                               <div class="col-sm-12 col-md-4">                               
                                 <div class="form-group">
                                     <label >Father's Name<span class="text-danger">*</span></label>
-                                    <input type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name"  value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">@error('f_name')
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name"  value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">@error('f_name')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
                                 </div>
@@ -378,7 +378,7 @@
                               <div class="row language" id="language_body">
                                 <div class="col-sm-12 col-md-3"> 
                                   <div class="form-group mb-3">
-                                        <label><b>Languages</b></label>
+                                        <label><b>Language</b></label>
                                   </div>
                                 </div>
                                 <div class="col-sm-12 col-md-3"> 
@@ -550,7 +550,7 @@
                               <div class="col-3">
                                   <div class="form-group">
                                     <label for="institute_name">Institute Name</label>
-                                    <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" maxlength="200" minlength="2">
+                                    <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" maxlength="200">
                                   </div>
                               </div>
                              
@@ -578,7 +578,7 @@
                             <div class="col-3">
                               <div class="form-group ">
                                  <label >Upload Degree</label>
-                                   <input type="file" name="upload_degree" class="form-control" >
+                                   <input type="file" name="upload_degree" class="form-control" accept="application/pdf">
                                   
                               </div>
                            </div>
@@ -597,7 +597,7 @@
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Sr. No.</th>
+                                                    <th>S.No.</th>
                                                     <th>Institute Name</th>
                                                     <th>Course</th>
                                                     <th>Year of Passing</th>
@@ -700,7 +700,7 @@
                             <div class="col-4">
                               <div class="form-group">
                                 <label for="Name_Clinic">Name of Clinic</label>
-                                <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
+                                <input onkeydown="return /[a-z]/i.test(event.key)" type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
                               </div>
                             </div>
 
@@ -781,21 +781,21 @@
                               <div class="col-sm-12 col-md-6">                               
                                 <div class="form-group">
                                     <label >Address Line 1<span class="text-danger">*</span></label>
-                                    <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif">
+                                    <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif" required>
                                 </div>
                               </div>
 
                               <div class="col-sm-12 col-md-6">                               
                                 <div class="form-group">
                                     <label >Address Line 2<span class="text-danger">*</span></label>
-                                    <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2"  value="@if(isset($clinic->address2)){{$clinic->address2}}@endif">
+                                    <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2"  value="@if(isset($clinic->address2)){{$clinic->address2}}@endif" required>
                                 </div>
                               </div>
 
                               <div class="col-sm-12 col-md-3">                               
                                 <div class="form-group ">
                                     <label >Country <span class="text-danger">*</span></label>
-                                    <select name="country" class="form-control " id="country-dropdown-clinical">
+                                    <select name="country" class="form-control " id="country-dropdown-clinical" required>
                                       <option value="">Select Country</option>
                                       @foreach ($countries as $data)
                                         <option value="{{$data->id}}" @if(isset($clinic_record->country)) {{$data->id == $clinic_record->country  ? 'selected' : ''}} @endif>
@@ -812,7 +812,7 @@
                               <div class="col-sm-12 col-md-3">                               
                                 <div class="form-group">
                                     <label>State <span class="text-danger">*</span></label>
-                                    <select id="state-dropdown-clinical" class="form-control  state " name="state" >
+                                    <select id="state-dropdown-clinical" class="form-control  state " name="state"  required>
                                      
                                          <option  @if(isset($clinic_record->state)) value="{{$clinic_record->state}}" @endif>@if(isset($clinic_record->state_name)){{ $clinic_record->state_name }} @endif</option>
                                        
@@ -823,7 +823,7 @@
                               <div class="col-sm-12 col-md-3">                               
                                 <div class="form-group">
                                     <label>City<span class="text-danger">*</span></label>
-                                    <select id="city-dropdown-clinical" class="form-control state " name="city" >
+                                    <select id="city-dropdown-clinical" class="form-control state " name="city"  required>
                                       
                                          <option value="@if(isset($clinic_record->city)) {{$clinic_record->city}} @endif">@if(isset($clinic_record->city)){{ $clinic_record->city_name }}@endif</option>
                                         
@@ -834,7 +834,7 @@
                               <div class="col-sm-12 col-md-3">                               
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
+                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif" required>
                                 </div>
                               </div>
 
@@ -842,7 +842,7 @@
                               <div class="col-sm-12 col-md-4">                               
                                 <div class="form-group">
                                     <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
-                                    <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
+                                    <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif" required>
                                 </div>
                               </div>
 

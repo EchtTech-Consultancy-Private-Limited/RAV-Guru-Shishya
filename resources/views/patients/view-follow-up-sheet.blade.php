@@ -1208,7 +1208,7 @@
                                           <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                           @endif
                                           <br>
-                                            (@if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname.' '.$guru->middelname.' '.$guru->lastname}})
+                                            (@if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname}})
                                           @endif
                                        </div>
                                     </div>

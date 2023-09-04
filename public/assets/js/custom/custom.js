@@ -81,7 +81,7 @@ $(function(){
 $(function(){
   
   $('#eye1').click(function(){
-       
+       alert("HI");
         if($(this).hasClass('fa-eye-slash')){
            
           $(this).removeClass('fa-eye-slash');

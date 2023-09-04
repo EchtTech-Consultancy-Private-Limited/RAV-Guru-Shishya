@@ -271,7 +271,7 @@ class PatientController extends Controller
                 elseif(Auth::user()->user_type==3 && $data->read_by_shishya=='0')FollowUpPatient::where('id',$id)->update(['read_by_shishya'=>1]);
                 elseif(Auth::user()->user_type==1 && $data->read_by_admin=='0')FollowUpPatient::where('id',$id)->update(['read_by_admin'=>1]);
 
-                $guru=User::find($data->guru_id);
+                $guru=DB::table('users')->where('users.id',$data->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
                 $shishya=User::find($data->shishya_id);
 
                  $patient=Patient::find($data->patient_id);
@@ -766,7 +766,8 @@ class PatientController extends Controller
         //$guru=User::where('id',$patient->guru_id)->first();
 
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-        return view("patients.guru.guru-view-patients",compact('patient','guru'));
+        $shishya=DB::table('users')->join('patients','patients.shishya_id', '=', 'users.id')->first();
+        return view("patients.guru.guru-view-patients",compact('patient','guru','shishya'));
     }
 
     public function remarks_from_guru($id)
