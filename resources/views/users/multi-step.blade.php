@@ -121,7 +121,7 @@
                                 <!-- guru name -->
                                 <div class="form-group">
                                     <label>First Name<span class="text-danger">*</span></label>
-                                    <input type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" >@error('firstname')
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" >@error('firstname')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
                                 </div>
@@ -255,7 +255,7 @@
                               <div class="col-sm-12 col-md-3">                               
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
+                                    <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
                                 </div>
@@ -918,7 +918,7 @@
                               <div class="col-sm-12 col-md-12">                               
                                 <div class="form-group">
                                     <label>Any other</label>
-                                    <input type="textarea" name="any_other" class="form-control" placeholder="Any other"  value="@if(isset($clinic->any_other)) {{ $clinic->any_other }} @endif">
+                                    <input type="textarea" name="any_other" class="form-control" placeholder="Any other"  value="@if(isset($clinic->any_other)) {{ $clinic->any_other }} @endif" maxlength="200">
                                 </div>
                               </div>
 
@@ -937,7 +937,7 @@
                               <div class="col-sm-12 col-md-4">                               
                                 <div class="form-group">
                                     <label>Number of rooms</label>
-                                    <input type="text" name="no_of_rooms" id="no_of_rooms" class="form-control" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
+                                    <input type="number" name="no_of_rooms" id="no_of_rooms" class="form-control" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
                                 </div>
                               </div>
 
@@ -978,28 +978,28 @@
                              <div class="col-4">
                                  <div class="form-group">
                                    <label for="school_name">No. of case reports</label>
-                                   <input type="text"name="no_of_case_reports"  placeholder="No. of case reports">
+                                   <input type="number"name="no_of_case_reports"  placeholder="No. of case reports" maxlength="200">
                                  </div>
                              </div>
                             
                              <div class="col-4">
                                  <div class="form-group">
                                    <label for="school_name">Research Papers</label>
-                                   <input type="text"name="research_papers" placeholder="Research Papers">
+                                   <input type="number"name="research_papers" placeholder="Research Papers" maxlength="200">
                                  </div>
                              </div>
 
                              <div class="col-4">
                                  <div class="form-group">
                                    <label for="school_name">Books Published</label>
-                                   <input type="text"name="books_published"  placeholder="Books Published">
+                                   <input type="number"name="books_published"  placeholder="Books Published" maxlength="200">
                                  </div>
                              </div>
 
                              <div class="col-12">
                                  <div class="form-group">
                                    <label for="school_name">Number of Seminars / Conference / Workshops attended</label>
-                                   <input type="text"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended">
+                                   <input type="number"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended" maxlength="200">
                                  </div>
                              </div>
                            
@@ -1018,7 +1018,7 @@
                                        <table class="table table-bordered">
                                            <thead>
                                                <tr>
-                                                   <th>#</th>
+                                                   <th>S.No.</th>
                                                    <th>No. of case reports</th>
                                                    <th>Research Papers</th>
                                                    <th>Books Published</th>
@@ -1081,7 +1081,7 @@
                         <div class="row">
                              <div class="col-4">
                                  <div class="form-group">
-                                   <label for="school_name">Experience in Ayurvedic clinical practice</label>
+                                   <label for="school_name">Experience in ayurvedic clinical practice</label>
                                    <select name="exp_ayurvedic_clinical" class="form-control">
                                         <option value="">Select</option>
                                         <option value="1" @if(isset($specific_details_record->honourar_attachment_to_any_colg)) {{ $specific_details_record->honourar_attachment_to_any_colg=='1'?'selected':'' }} @endif>Yes</option>
@@ -1092,7 +1092,7 @@
                             
                              <div class="col-4">
                                  <div class="form-group">
-                                   <label for="school_name">Any Teaching experience</label>
+                                   <label for="school_name">Any teaching experience</label>
 
                                    <div class="d-flex justify-content-between show-form">
                                       <select name="any_teaching_exp" class="form-control" id="teaching_exp">
@@ -1227,7 +1227,7 @@
                             <div class="col-3">
                               <div class="form-group ">
                                  <label >Upload Degree</label>
-                                  <input type="file" name="upload_degree" class="form-control" > 
+                                  <input type="file" name="upload_degree" class="form-control"  accept="application/pdf"> 
                                     
                                     <div style="width:120px;height:80px;" >
                                         <!-- <img id="upload_degree" > -->
