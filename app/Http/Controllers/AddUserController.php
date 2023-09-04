@@ -242,8 +242,8 @@ class AddUserController extends Controller
             // Validate form 1 fields
             $this->validate($request, [
                 'firstname' => 'required|max:250',
-                'middlename' => 'max:250',
-                'lastname' => 'max:250',
+                'middlename' => 'max:200',
+                'lastname' => 'max:200',
                 'email' => 'required',
                 'date_of_birth' => 'required',
                 'age' => 'required|numeric',
@@ -256,8 +256,8 @@ class AddUserController extends Controller
                 'pincode' => 'required|numeric',
                 'aadhaar_no' => 'required|numeric',
                 'pan_no' => 'required',
-                'e_sign'   => 'required|mimes:jpeg,png,jpg|max:250',
-                'profile_image'   => 'mimes:jpeg,png,jpg|max:250',
+                'e_sign'   => 'required|mimes:jpeg,png,jpg|max:200',
+                'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
                 'mobile_no' => 'required|min:10',
                 'title' => 'required',
         ],[
@@ -503,17 +503,15 @@ class AddUserController extends Controller
     public function manage_profile_form_step3(Request $request)
     { 
         $this->validate($request, [
-                'name_of_board' => ['required','max:200','regex:/^([a-zA-Z]+)+[a-z]{2,6}$/ix'],
-                'regis_no' => 'required',
-                'year_of_regis' => 'required',
-                'name_of_clinic' => 'required',
                 'weekend_off' => 'required',
+                'address1' => 'required',
+                'address2' => 'required',
+                'country' => 'required',
         ],[
-            'firstname.required' => 'Field is required',
-            'regis_no.required' => 'Field is required',
-            'year_of_regis.required' => 'Field is required',
-            'name_of_clinic.required' => 'Field is required and must be integer',
-            'weekend_off.required' => 'Field is required',
+            'weekend_off.required' => 'Weekend Off is required',
+            'address1.required' => 'Address is required',
+            'address2.required' => 'Address is required',
+            'country.required' => 'Country is required',
         ]);  
        // return $request->all();
         $clinical_id=$request->clinical_id;
