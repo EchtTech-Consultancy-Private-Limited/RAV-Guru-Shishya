@@ -211,3 +211,76 @@ input.form-check-input {
 .show-form input {
     margin-left: 20px !important;
 }
+
+
+
+input#Pincode, input#per_pincode {
+    height: 30px;
+}
+
+/* .wizard .steps a:focus, .wizard .steps a:hover {
+margin-left: 0;
+} */
+
+.wizard .steps a:hover {
+    margin-left: 0;
+    cursor: pointer !important;
+    }
+
+.wizard .steps .active a {
+   cursor: pointer !important;
+}
+
+.wizard>.steps a {
+
+    padding: 1em 6px;
+
+}
+
+.wizard>.steps .disabled a:hover, .wizard>.steps .disabled a:active {
+
+
+    padding: 1rem 5px;
+}
+
+.new-patient ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.new-patient .card .body .col-xs-12, .card .body .col-sm-12, .card .body .col-md-12, .card .body .col-lg-12 {
+    margin-bottom: 0px;
+}
+
+.card .header {
+    color: #555;
+    padding: 15px 15px 0;
+    position: relative;
+}
+.next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
+    /* padding: 5px 28px; */
+    margin-left: 0px;
+}
+
+@media(max-width:768px){
+    .wizard>.steps>ul>li {
+        width: 100%;
+        float: left;
+    }
+
+    .wizard ul, .tabcontrol ul {
+        list-style: none !important;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .wizard>.steps a {
+        padding: 6px 10px;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        padding-left: 0;
+    }
+}

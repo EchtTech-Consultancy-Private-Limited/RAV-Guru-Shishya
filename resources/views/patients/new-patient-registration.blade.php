@@ -46,28 +46,28 @@
               </div>
             <div class="row">
          <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card">
+            <div class="card new-patient">
             <form role="form" method="POST" action="{{ url('/new-patient-registration') }}">
             @csrf
                <div class="header">
                   <h2>
 
-                  <ul style="float:right; overflow:hidden;">
-                                 <li style="float:left;clear:none; margin:10px;">Registartion No.:
-                                    </li><li style="float:left;clear:none; margin:10px;">
+                  <ul >
+                                 <li >Registration No.:
+                                    </li><li >
                                     <input type="text" name="prno" class="form-control" value="@if(request()->prno){{request()->prno}}@endif" maxlength="20" >
-                                    </li> <li style="float:left;clear:none; margin:10px;">From:
-                                    </li><li style="float:left;clear:none; margin:10px;">
+                                    </li> <li >From:
+                                    </li><li >
                                        <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"  max="{{date('Y-m-d',time())}}" >
-                                    </li><li style="float:left;clear:none; margin:10px;">
+                                    </li><li >
                                        To:
-                                       </li><li style="float:left;clear:none; margin:10px;">
+                                       </li><li >
                                        <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" >
-                                       </li><li style="float:left;clear:none; margin:10px;">
+                                       </li><li >
                                        <button type="submit"   class="btn btn-primary waves-effect" style="line-height:2;" > Filter </button>
                                        </li>
 
-                                        <li style="float:left;clear:none; margin:10px;">
+                                        <li >
                                          @if(Auth::user()->guru_id)
                                           <a type="button" href="{{url('/add-history-sheet')}}" class="btn btn-danger waves-effect" style="line-height:2;">+ Add PHR </a>
                                          @else
@@ -176,7 +176,7 @@
                                  <button type="submit"  class="btn btn-primary waves-effect" onclick="send_to_guru()"> &nbsp; Send To Guru  &nbsp;</button>
                               </form>
                           </div>
-                       
+
                      </div>
                </div>
             </div>

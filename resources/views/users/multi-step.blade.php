@@ -3,7 +3,7 @@
 
 <style>
 .card .body .col-sm-12{
-  margin-bottom:0px; 
+  margin-bottom:0px;
   }
   .card .header{
     padding:0px 10px;
@@ -16,7 +16,7 @@
               <div class="block-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          
+
                        <ul class="breadcrumb breadcrumb-style">
                           <li class="breadcrumb-item">
                              <h6 class="page-title"> @if(request()->path()=="profile") Manage Profile  @endif </h6>
@@ -26,10 +26,10 @@
                             <a href="{{url('/dashboard')}}">
                              <i class="fas fa-home"></i> Home</a>
                           </li>
-                          
+
                           <li class="breadcrumb-item active">  @if(request()->path()=="profile") Manage Profile  @endif   </li>
                        </ul>
-                       
+
                        @if ($message = Session::get('basic_info'))
                          <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <p>{{ $message }}</p>
@@ -53,13 +53,13 @@
                 </div>
               </div>
             <div class="row">
-        
+
 
           <div class="col-lg-12 col-md-12 col-sm-12">
 				   <div class="card">
 				      <div class="body p-5">
 				         <div class="wizard">
-				           
+
                  <div class="tab-content wizard">
 
                  <!-- Step buttons -->
@@ -95,12 +95,12 @@
 
 
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step1' || $form_step_type=='withour-session-step') active @endif @endif" role="tabpanel" id="step1">
-                        
+
                         <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
                               	@csrf
-  
+
 				                     <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step1">
-                
+
 				                     <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
 
 				                     <input type="hidden"  name="profile_id"  class="form-control capitalize" value="<?php echo get_profile_id(Auth::user()->id); ?>">
@@ -126,7 +126,7 @@
   @enderror
                                 </div>
                               </div>
-                         
+
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Middle Name</label>
@@ -141,15 +141,15 @@
                                     <input type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                 </div>
                               </div>
-                         
+
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label >Email</label><span class="text-danger">*</span>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="Email"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->email }} @else Auth::user()->email @endif" maxlength="50" readonly="readonly">
                                 </div>
                               </div>
-                              
-                              <div class="col-sm-12 col-md-4">                               
+
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label >Mobile No.<span class="text-danger">*</span></label>
                                     <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@error('mobile_no')
@@ -158,7 +158,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-4"> 
+                              <div class="col-sm-12 col-md-4">
 
                                 <div class="form-group">
                                     <label >Date of Birth<span class="text-danger">*</span></label>
@@ -168,7 +168,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Age (as on 20-12-2022)<span class="text-danger">*</span></label>
                                     <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif">@error('age')
@@ -178,7 +178,7 @@
                               </div>
 
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label >Father's Name<span class="text-danger">*</span></label>
                                     <input type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name"  value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">@error('f_name')
@@ -191,7 +191,7 @@
                                 <h2>Present Address </h2>
                                </div>
 
-                              <div class="col-sm-12 col-md-6">                               
+                              <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label >Address Line 1<span class="text-danger">*</span></label>
                                     <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="@if(isset($profile_record[0])){{$profile_record[0]->address1}}@endif">@error('address1')
@@ -200,7 +200,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-6">                               
+                              <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label >Address Line 2<span class="text-danger">*</span></label>
                                     <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="@if(isset($profile_record[0])){{ $profile_record[0]->address2 }}@endif">@error('address2')
@@ -209,7 +209,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>Country<span class="text-danger">*</span></label>
                                     <select name="country" class="form-control select2" id="country-dropdown" >
@@ -227,8 +227,8 @@
   @enderror
                                 </div>
                               </div>
-                              
-                              <div class="col-sm-12 col-md-3">                               
+
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>State <span class="text-danger">*</span></label>
                                     <select id="state-dropdown" class="form-control state select2" name="state">
@@ -241,27 +241,27 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>City <span class="text-danger">*</span></label>
                                     <select id="city-dropdown" class="form-control select2" name="city" >
                                       <option value="{{$profile_record[0]->city}}">{{ $profile_record[0]->city_name }}</option>
                                      </select>@error('city-dropdown')
     <div class="alert alert-danger">{{ $message }}</div>
-  @enderror 
+  @enderror
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
+                                    <input type="text" name="pincode" id="Pincode" class="form-control pincode" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
                                 </div>
                               </div>
 
-                             <div class="col-sm-12 col-md-12 mb-3">                               
+                             <div class="col-sm-12 col-md-12 mb-3">
                               <div class="form-check m-l-5 pb-2">
                                   <label class="form-check-label">
                                       <input class="form-check-input" type="checkbox" id="same_as_present" value=""> Same as Present Address
@@ -276,7 +276,7 @@
                                 <h2>Permanent Address </h2>
                                </div>
 
-                              <div class="col-sm-12 col-md-6">                               
+                              <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label >Address Line 1<span class="text-danger">*</span></label>
                                     <input type="textarea" name="per_address1" id="per_address_Line1" class="form-control" placeholder="Permanent Address Line 1"  value="{{ $profile_record[0]->per_address1 }}">@error('per_address_Line1')
@@ -285,7 +285,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-6">                               
+                              <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label >Address Line 2<span class="text-danger">*</span></label>
                                     <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">@error('per_address_Line2')
@@ -294,7 +294,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                   <label>Country <span class="text-danger">*</span></label>
                                      <select name="per_country" class="form-control select2" id="per-country-dropdown">
@@ -311,7 +311,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>State <span class="text-danger">*</span></label>
                                     <select id="per-state-dropdown" class="form-control state select2" name="per_state" >
@@ -326,7 +326,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>City <span class="text-danger">*</span></label>
                                     <select id="per-city-dropdown" class="form-control select2" name="per_city">
@@ -336,11 +336,11 @@
                                         @endif
                                      </select>@error('per-city-dropdown')
     <div class="alert alert-danger">{{ $message }}</div>
-  @enderror 
+  @enderror
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
                                     <input type="number" name="per_pincode" id="per_pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">@error('per_pincode')
@@ -349,8 +349,8 @@
                                 </div>
                               </div>
 
- 
-                              <div class="col-sm-12 col-md-6">                               
+
+                              <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label >Aadhar Number<span class="text-danger">*</span></label>
                                     <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->aadhaar_no }}">@error('aadhaar_no')
@@ -359,8 +359,8 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-6"> 
-                                                       
+                              <div class="col-sm-12 col-md-6">
+
                                 <div class="form-group">
                                     <label >Pan Number<span class="text-danger">*</span></label>
                                     <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->pan_no }}">@error('pan_no')
@@ -369,36 +369,36 @@
                                 </div>
                               </div>
 
-                             
+
 
                                                           <!-- Languages -->
 
                              <div class="col-md-12">
 
                               <div class="row language" id="language_body">
-                                <div class="col-sm-12 col-md-3"> 
+                                <div class="col-sm-12 col-md-3">
                                   <div class="form-group mb-3">
                                         <label><b>Languages</b></label>
                                   </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3"> 
+                                <div class="col-sm-12 col-md-3">
                                   <div class="form-group mb-3">
                                         <label><b>Reading</b></label>
                                   </div>
                                 </div>
-                                <div class="col-sm-12 col-md-3"> 
+                                <div class="col-sm-12 col-md-3">
                                   <div class="form-group mb-3">
                                         <label><b>Writing</b></label>
                                   </div>
                                 </div>
 
-                                <div class="col-sm-12 col-md-3"> 
+                                <div class="col-sm-12 col-md-3">
                                   <div class="form-group mb-3">
                                         <label><b>Speaking</b></label>
                                   </div>
                                 </div>
-                   
-                                
+
+
 
                                 @php $check='0'; @endphp
                                     @foreach($language_record as $language_records)
@@ -424,24 +424,24 @@
                               @if(isset($language_record))
                               @foreach($language_record as $key=>$language_records)
 
-                               <div class="col-sm-12 col-md-3"> 
+                               <div class="col-sm-12 col-md-3">
                                   <div class="form-group">
                                     <input type="hidden" class="form-control" placeholder="Add Language" name="lang_id[]" value="{{ $language_records->id }}">
 
 
-      
+
                                    <input type="text" class="form-control" placeholder="Add Language" name="lang_name[]" value="{{ $language_records->lang_name }}">
 
 
-                                                                    
+
                                   </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-3 mb-3">
-                                 
+
                                    <!-- <input type="checkbox"  class="form-check" name="reading[]"  @if($check==1) checked @endif>  -->
 
-                               
+
                                     <div class="form-group">
                                        <select name="reading[]" class="form-control">
                                           <option value="">Select </option>
@@ -452,7 +452,7 @@
 
                                  </div>
 
-                                <div class="col-sm-12 col-md-3 mb-3">                               
+                                <div class="col-sm-12 col-md-3 mb-3">
                                  <div class="form-group">
                                    <select name="writing[]" class="form-control">
                                       <option value="">Select</option>
@@ -470,17 +470,17 @@
                                       <option value="1" {{$language_records->speaking == 1 ?'selected':''}}>Yes</option>
                                       <option value="0" {{$language_records->speaking == 0 ?'selected':''}}>No</option>
                                     </select>
-                                   <a href="{{ url('language-delete/'.$language_records->id) }}" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></a> 
+                                   <a href="{{ url('language-delete/'.$language_records->id) }}" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></a>
                                  </div>
 
                               </div>
-                              
-                              
+
+
                                @endforeach
-                              
+
                                @endif
-                             
-                               
+
+
                                </div>
                                 <div class="add-btn-lang mb-3 mt-3">
                                    <a href="javascript:void();" class="btn lang bg-purple" id="Add_language">
@@ -492,7 +492,7 @@
                                     </a>
                                 </div>
                              </div>
-                        
+
                               <div class="col-sm-12 col-md-6">
                                 <!-- guru name -->
                                 <div class="form-group">
@@ -511,7 +511,7 @@
                               </div>
                               <div class="col-sm-12 col-md-6">
                                 <div class="form-group ">
-                                    <label >Profile Picture<span class="text-danger">*</span></label>
+                                    <label >Profile Picture<span class="text-danger"></span></label>
                                     <input type="file" name="profile_image" id="profile_image" class="form-control" >@error('profile_image')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
@@ -532,15 +532,15 @@
                         </form>
                     </div>
 
-                    
+
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
-                       
-                    
+
+
                          <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-  
+
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
-                
+
                              <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
 
                              <input type="hidden"  name="profile_id"  class="form-control capitalize" value="<?php echo get_profile_id_step2(Auth::user()->id); ?>">
@@ -553,8 +553,8 @@
                                     <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" maxlength="200" minlength="2">
                                   </div>
                               </div>
-                             
-                              <div class="col-sm-12 col-md-3">                               
+
+                              <div class="col-sm-12 col-md-3">
                                  <div class="form-group">
                                     <label>Course<span class="text-danger">*</span></label>
                                     <select name="course_name" class="form-control" required>
@@ -567,7 +567,7 @@
 
                                   </div>
                               </div>
-                       
+
                             <div class="col-3">
                               <div class="form-group">
                                 <label for="year_passing">Year of Passing</label>
@@ -579,11 +579,11 @@
                               <div class="form-group ">
                                  <label >Upload Degree</label>
                                    <input type="file" name="upload_degree" class="form-control" >
-                                  
+
                               </div>
                            </div>
 
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12 text-end">
                             <button type="submit" class="btn bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
                             </div>
 
@@ -592,7 +592,7 @@
 
                          <div class="row clearfix">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="card">                        
+                                <div class="card">
                                     <div class="body table-responsive p-0">
                                         <table class="table table-bordered">
                                             <thead>
@@ -624,22 +624,22 @@
                                                          @endif
                                                     </td>
                                                     <td class="d-flex justify-content-center">
-                                                       <a class="btn btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a> 
+                                                       <a class="btn btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
 
-                                 
+
                                                          <form action="{{ url('education-delete') }}" method="post">
                                                           @csrf
                                                           <input type="hidden" name="form_step_type" value="step2">
                                                           <input type="hidden" name="education_dlt_id" value="{{$educational_records->id}}">
 
-                                                        
 
-                                                          <button type="submit" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button> 
+
+                                                          <button type="submit" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                         </form>
-                                                      
+
                                                      </td>
                                                 </tr>
-                                              @endforeach                                               
+                                              @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -651,21 +651,21 @@
                               <li><button type="button" class="btn btn-danger prev-step mr-2">Previous</button></li>
                               <li><button type="button" class="btn btn-info next-step1">Next</button></li>
                           </ul>
-                        
+
                     </div>
 
 
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step3') active @endif @endif" role="tabpanel" id="step3">
-                      
+
                          <form action="{{ url('manage_profile_form_step3') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-  
+
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step4">
-                
+
                              <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
 
                               <input type="hidden"  name="clinical_id"  class="form-control capitalize" value="<?php echo get_clinical_id(Auth::user()->id); ?>">
-                        
+
                         <div class="row">
                             <div class="col-4">
                             <div class="form-group">
@@ -687,9 +687,9 @@
                               </div>
                             </div>
 
-                            
 
-                            <div class="col-sm-12 col-md-12 mb-3">                              
+
+                            <div class="col-sm-12 col-md-12 mb-3">
                               <div class="form-group d-flex">
                               <input type="checkbox"  name="any_done_services" id="any_done_services" class="checkbox"  value="0" @if(isset($clinic->any_done_services)) @if($clinic->any_done_services==1) checked @endif @endif>
                                 <label for="central"> Any service done under Central/State government</label>
@@ -762,7 +762,7 @@
                               </div>
                             </div>
 
-                            <div class="col-sm-12 col-md-4">                               
+                            <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Weekend Off <span class="text-danger">*</span></label>
                                     <select name="weekend_off" class="form-control" >
@@ -773,26 +773,26 @@
                                 </div>
                              </div>
 
-                           
+
                              <div class="header col-md-12 pt-0">
                                 <h2>Address of Practice place </h2>
                               </div>
 
-                              <div class="col-sm-12 col-md-6">                               
+                              <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label >Address Line 1<span class="text-danger">*</span></label>
                                     <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif">
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-6">                               
+                              <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label >Address Line 2<span class="text-danger">*</span></label>
                                     <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2"  value="@if(isset($clinic->address2)){{$clinic->address2}}@endif">
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group ">
                                     <label >Country <span class="text-danger">*</span></label>
                                     <select name="country" class="form-control " id="country-dropdown-clinical">
@@ -806,65 +806,65 @@
                                 </div>
                               </div>
 
-                              
-                         
 
-                              <div class="col-sm-12 col-md-3">                               
+
+
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>State <span class="text-danger">*</span></label>
                                     <select id="state-dropdown-clinical" class="form-control  state " name="state" >
-                                     
+
                                          <option  @if(isset($clinic_record->state)) value="{{$clinic_record->state}}" @endif>@if(isset($clinic_record->state_name)){{ $clinic_record->state_name }} @endif</option>
-                                       
+
                                       </select>
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>City<span class="text-danger">*</span></label>
                                     <select id="city-dropdown-clinical" class="form-control state " name="city" >
-                                      
+
                                          <option value="@if(isset($clinic_record->city)) {{$clinic_record->city}} @endif">@if(isset($clinic_record->city)){{ $clinic_record->city_name }}@endif</option>
-                                        
+
                                       </select>
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-3">                               
+                              <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
                                     <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
                                 </div>
                               </div>
 
-                            
-                              <div class="col-sm-12 col-md-4">                               
+
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
                                     <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Average number of occupancy ratio (Annually)</label>
                                     <input type="text" name="average_no_of_occupancy_annually" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_occupancy_annually)) {{ $clinic->average_no_of_occupancy_annually }} @endif">
                                 </div>
                               </div>
 
-                              
 
-                              <div class="col-sm-12 col-md-4">                               
+
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                   <label >Weather maintaining any IPD. If yes, number of beds </label>
-            
-                                   <div class="d-flex justify-content-between show-form"> 
+
+                                   <div class="d-flex justify-content-between show-form">
                                       <select name="weather_maintaining" class="form-control" id="mySelect">
                                         <option value="">Select</option>
                                            <option value="1" @if(isset($clinic->weather_maintaining)){{ $clinic->weather_maintaining=='1'?'selected':'' }} @endif>Yes</option>
 
-                                         
+
 
                                         <option value="2"  @if(isset($clinic->weather_maintaining)) {{ $clinic->weather_maintaining=='2'?'selected':'' }} @endif>No</option>
                                       </select>
@@ -872,7 +872,7 @@
 
 
 
-                                
+
                                     </div>
                                   </div>
                               </div>
@@ -882,7 +882,7 @@
                               </div>
 
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Medicine Manufacturing Section</label>
                                     <select name="medicine_manufacturing_section" class="form-control">
@@ -893,7 +893,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Panchakarma</label>
                                     <select name="panchakarma" class="form-control">
@@ -904,7 +904,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Ksharsutra</label>
                                     <select name="ksharsutra" class="form-control">
@@ -915,7 +915,7 @@
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-12">                               
+                              <div class="col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label>Any other</label>
                                     <input type="textarea" name="any_other" class="form-control" placeholder="Any other"  value="@if(isset($clinic->any_other)) {{ $clinic->any_other }} @endif">
@@ -926,38 +926,38 @@
                               <div class="header col-md-12 pt-0">
                                 <h2>Infrastructural details of the clinic/hospital</h2>
                               </div>
-                                    
-                              <div class="col-sm-12 col-md-4  ">                               
+
+                              <div class="col-sm-12 col-md-4  ">
                                 <div class="form-group">
                                     <label>Total Area</label>
                                     <input type="text" name="total_area" class="form-control" placeholder="Total Area"  value="@if(isset($clinic->total_area)) {{ $clinic->total_area }} @endif">
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Number of rooms</label>
                                     <input type="text" name="no_of_rooms" id="no_of_rooms" class="form-control" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-4">                               
+                              <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Number of wards and beds</label>
                                     <input type="text" name="no_of_wards_beds" class="form-control" placeholder="Number of wards and beds"  value="@if(isset($clinic->no_of_wards_beds)) {{ $clinic->no_of_wards_beds }} @endif">
                                 </div>
                               </div>
 
-                              <div class="col-sm-12 col-md-12">                               
+                              <div class="col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label>Facilities available</label>
                                     <input type="text" name="facilities_available" class="form-control" placeholder="Facilities available"  value="@if(isset($clinic->facilities_available)) {{ $clinic->facilities_available }} @endif">
                                 </div>
                               </div>
 
-                             
+
                          </div>
-                        
+
                         <ul class="list-inline pull-right">
                               <li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li>
                               <li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
@@ -966,14 +966,14 @@
                     </div>
 
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step4') active @endif @endif" role="tabpanel" id="step4">
-                      
+
                     <form action="{{ url('manage_profile_form_step4') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-  
+
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step4">
-                
+
                              <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
-                         
+
                          <div class="row">
                              <div class="col-4">
                                  <div class="form-group">
@@ -981,7 +981,7 @@
                                    <input type="text"name="no_of_case_reports"  placeholder="No. of case reports">
                                  </div>
                              </div>
-                            
+
                              <div class="col-4">
                                  <div class="form-group">
                                    <label for="school_name">Research Papers</label>
@@ -1002,7 +1002,7 @@
                                    <input type="text"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended">
                                  </div>
                              </div>
-                           
+
 
                            <div class="col-md-12 text-center mb-3">
                            <button type="submit" class="btn bg-indigo waves-effect">Save</button>
@@ -1013,7 +1013,7 @@
 
                         <div class="row clearfix">
                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                               <div class="card">                        
+                               <div class="card">
                                    <div class="body table-responsive p-0">
                                        <table class="table table-bordered">
                                            <thead>
@@ -1035,25 +1035,25 @@
                                                     <td>{{ $publication_record->books_published }}</td>
                                                     <td>{{ $publication_record->no_of_seminars }}</td>
 
-                                                   
+
                                                     <td class="d-flex justify-content-center">
 
-                                  <a class="btn btn-tbl-edit bg-primary update_publication"  data-id="{{$publication_record->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal_publication" ><i class="material-icons">edit</i></a> 
+                                  <a class="btn btn-tbl-edit bg-primary update_publication"  data-id="{{$publication_record->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal_publication" ><i class="material-icons">edit</i></a>
 
-                                 
+
                                                          <form action="{{ url('publication-delete') }}" method="post">
                                                           @csrf
                                                           <input type="hidden" name="form_step_type" value="step4">
                                                           <input type="hidden" name="publication_dlt_id" value="{{$publication_record->id}}">
 
-                                                        
 
-                                                          <button type="submit" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button> 
+
+                                                          <button type="submit" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                         </form>
-                                                      
+
                                                      </td>
                                                 </tr>
-                                              @endforeach                                                 
+                                              @endforeach
                                            </tbody>
                                        </table>
                                    </div>
@@ -1069,12 +1069,12 @@
                     </div>
 
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step5') active @endif @endif" role="tabpanel" id="step5">
-                       
+
                         <form action="{{ url('manage_profile_form_step5') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-  
+
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step5">
-                
+
                              <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
 
                               <input type="hidden"  name="specific_id"  class="form-control capitalize" value="<?php echo get_specific_detail_id(Auth::user()->id); ?>">
@@ -1089,7 +1089,7 @@
                                       </select>
                                  </div>
                              </div>
-                            
+
                              <div class="col-4">
                                  <div class="form-group">
                                    <label for="school_name">Any Teaching experience</label>
@@ -1153,9 +1153,9 @@
                                    <input type="textarea"name="any_other_speciality" class="form-control" placeholder="Any other speciality that supports you / your empanelment listing (Under 100 to 150 words)" value="@if(isset($specific_details_record->any_other_speciality)){{ $specific_details_record->any_other_speciality}}@endif">
                                  </div>
                              </div>
-                           
 
-                           
+
+
 
                         </div>
                           <ul class="list-inline pull-right">
@@ -1170,7 +1170,7 @@
                   </div>
                   </form>
                   </div>
-</div> 
+</div>
 				   </div>
 				</div>
 			</div>
@@ -1190,8 +1190,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                    
-                      
+
+
                           <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                              <input type="hidden"  name="education_id"  class="form-control capitalize" id="edit_educational_id">
@@ -1203,8 +1203,8 @@
                                     <input type="text" id="edit_institute_name" name="institute_name" placeholder="Institute Name">
                                   </div>
                               </div>
-                             
-                              <div class="col-sm-12 col-md-3">                               
+
+                              <div class="col-sm-12 col-md-3">
                                  <div class="form-group">
                                     <label>Course<span class="text-danger">*</span></label>
                                     <select name="course_name" class="form-control" id="edit_course_name">
@@ -1216,7 +1216,7 @@
                                     </select>
                                   </div>
                               </div>
-                       
+
                             <div class="col-3">
                               <div class="form-group">
                                 <label for="year_passing">Year of Passing</label>
@@ -1227,14 +1227,14 @@
                             <div class="col-3">
                               <div class="form-group ">
                                  <label >Upload Degree</label>
-                                  <input type="file" name="upload_degree" class="form-control" > 
-                                    
+                                  <input type="file" name="upload_degree" class="form-control" >
+
                                     <div style="width:120px;height:80px;" >
                                         <!-- <img id="upload_degree" > -->
 
                                         <a target="_blank" id="educational_document">Show Degree</a>
 
-                                         
+
                                    </div>
                               </div>
                            </div>
@@ -1245,9 +1245,9 @@
 
                          </div>
                          </form>
-                        
+
                   </div>
-                 
+
             </div>
         </div>
         </div>
@@ -1265,15 +1265,15 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                    
-                      
+
+
                           <form action="{{ url('manage_profile_form_step4') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                              <input type="hidden"  name="publication_id"  class="form-control capitalize" id="edit_publication_id">
                              <input type="hidden"  name="form_step_type" value="step4"  class="form-control capitalize">
                             <div class="row">
-                            
-                            
+
+
                              <div class="row">
                              <div class="col-4">
                                  <div class="form-group">
@@ -1281,7 +1281,7 @@
                                    <input type="text"name="no_of_case_reports" id="edit_no_of_case_reports"  placeholder="No. of case reports">
                                  </div>
                              </div>
-                            
+
                              <div class="col-4">
                                  <div class="form-group">
                                    <label for="school_name">Research Papers</label>
@@ -1309,9 +1309,9 @@
 
                          </div>
                          </form>
-                        
+
                   </div>
-                 
+
             </div>
             </div>
           </div>
@@ -1414,11 +1414,11 @@
   // Language Add Button code
 
 $(document).ready(function(){
-  
+
   $("#Add_language").click(function(e){
     e.preventDefault();
     $("#language_body").append('<div class="row delete-div"><div class="col-sm-12 col-md-3"><div class="form-group"><input type="hidden" class="form-control" placeholder="Add Language" name="lang_id[]" value="0"><input type="text" class="form-control" placeholder="Add Language" name="lang_name[]"></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="reading[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="writing[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="speaking[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div></div>');
-  
+
   $("#delete_language").removeClass('d-none');
   });
 
@@ -1427,7 +1427,7 @@ $(document).ready(function(){
     $(".delete-div").last('.delete-div').remove();
   });
 
-     
+
 });
 
 // Teaching Input
@@ -1435,7 +1435,7 @@ $(document).ready(function(){
     $('#teaching_exp').change(function(){
     if (this.value=='1')
     {
-    
+
     $("#teaching_exp_input").removeClass('d-none');
     }
     else {
@@ -1448,7 +1448,7 @@ $(document).ready(function(){
     $('#Honourary').change(function(){
     if (this.value=='1')
     {
-    
+
     $("#Honourary_input").removeClass('d-none');
     }
     else {
@@ -1463,7 +1463,7 @@ $(document).ready(function(){
         $(document).ready(function () {
 
             var idCountry = $('#country-dropdown').val();
-            
+
                 $("#state-dropdown").html('');
                 $.ajax({
                     url: "{{url('api/fetch-states')}}",
@@ -1483,8 +1483,8 @@ $(document).ready(function(){
                     }
                 });
 
-                
-  
+
+
             /*------------------------------------------
             --------------------------------------------
             Country Dropdown Change Event
@@ -1512,7 +1512,7 @@ $(document).ready(function(){
                     }
                 });
             });
-  
+
             /*------------------------------------------
             --------------------------------------------
             State Dropdown Change Event
@@ -1538,7 +1538,7 @@ $(document).ready(function(){
                     }
                 });
             });
-  
+
         });
     </script>
 
@@ -1590,11 +1590,11 @@ $(document).ready(function(){
     <!-- Permanent address country state city -->
      @if(isset($per_profile_record[0]))
     <script>
-       
+
         $(document).ready(function () {
 
             var idCountry = $('#per-country-dropdown').val();
-            
+
                 $("#per-state-dropdown").html('');
                 $.ajax({
                     url: "{{url('api/fetch-states')}}",
@@ -1616,8 +1616,8 @@ $(document).ready(function(){
 
         </script>
         @endif
-        <script>      
-  
+        <script>
+
             /*------------------------------------------
             --------------------------------------------
             Country Dropdown Change Event
@@ -1646,7 +1646,7 @@ $(document).ready(function(){
                     }
                 });
             });
-  
+
             /*------------------------------------------
             --------------------------------------------
             State Dropdown Change Event
@@ -1672,7 +1672,7 @@ $(document).ready(function(){
                     }
                 });
             });
-  
+
         });
     </script>
      @if(isset($per_profile_record[0]))
@@ -1701,13 +1701,13 @@ $(document).ready(function(){
     </script>
     @endif
 
-   
+
 
     <!-- clinical country state city -->
     @if(isset($clinic_record))
-    
+
     <script>
-         
+
         $(document).ready(function () {
 
 
@@ -1732,13 +1732,13 @@ $(document).ready(function(){
                     }
                 });
 
-          
-             });
-     </script> 
-      @endif
-     <script>     
 
-    
+             });
+     </script>
+      @endif
+     <script>
+
+
             /*------------------------------------------
             --------------------------------------------
             Country Dropdown Change Event
@@ -1759,7 +1759,7 @@ $(document).ready(function(){
                     },
                     dataType: 'json',
                     success: function (result) {
-                     
+
                         $('#state-dropdown-clinical').html('<option value="">-- Select State --</option>');
                         $.each(result.states, function (key, value) {
                             $("#state-dropdown-clinical").append('<option value="' + value
@@ -1769,7 +1769,7 @@ $(document).ready(function(){
                     }
                 });
             });
-  
+
             /*------------------------------------------
             --------------------------------------------
             State Dropdown Change Event
@@ -1795,8 +1795,8 @@ $(document).ready(function(){
                     }
                 });
             });
-  
-       
+
+
     </script>
  @if(isset($clinic_record))
     <script>
@@ -1823,7 +1823,7 @@ $(document).ready(function(){
                 });
     </script>
   @endif
-   
+
     <script>
     	$('#check_reading').on('change', function(){
 		   $('#hidden_read_check').val(this.checked ? 1 : 0);
@@ -1858,20 +1858,20 @@ $(document).ready(function(){
                  $('#successMsg').show();
                  //console.log(response);
                  if (response) {
-                     
+
                      //alert(response.upload_degree);
-                
+
                      $("#edit_educational_id").val(response.id);
                      $("#edit_institute_name").val(response.institute_name);
                      $("#edit_course_name").val(response.course_name);
                      $("#edit_year_of_passing").val(response.year_of_passing);
-                     
+
                      $('#upload_degree').attr('src', response.upload_degree);
 
                       $('#educational_document').attr('href', response.upload_degree);
 
-                     
-                   
+
+
                   }
 
 
@@ -1904,9 +1904,9 @@ $(document).ready(function(){
                  $('#successMsg').show();
                  //console.log(response);
                  if (response) {
-                     
+
                      //alert(response.upload_degree);
-                
+
                      $("#edit_no_of_case_reports").val(response.no_of_case_reports);
                      $("#edit_research_papers").val(response.research_papers);
                      $("#edit_books_published").val(response.books_published);
@@ -1935,21 +1935,21 @@ $(document).ready(function(){
       }
 
       return true;
- 
+
    }
 
   $("#any_done_services").change(function() {
     if(this.checked) {
         $('#output').html('Checkbox is checked');
-        var data=document.getElementById('any_done_services').value='1'; 
+        var data=document.getElementById('any_done_services').value='1';
 
         //alert(data);
     }
   else
     {
-         var data=document.getElementById('any_done_services').value='0'; 
+         var data=document.getElementById('any_done_services').value='0';
         //alert("unchecked");
-      
+
     }
 });
 </script>

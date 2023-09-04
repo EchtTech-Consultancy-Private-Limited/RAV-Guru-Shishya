@@ -78,7 +78,7 @@
                                                 @foreach(__('phr.titlename') as $key=>$value)
                                                    <option @if( $key==$userdata->title) SELECTED @endif value="{{$key}}">{{$value}}</option>
                                                 @endforeach
-                                               
+
                                           </select>
 		                                 </div>
                                  	</div>
@@ -126,7 +126,7 @@
                                  <div class="row">
                                  	<div class="col-sm-12 col-md-12">
                                  		<div class="form-group">
-		                                    
+
                                            <label >User Type<span class="text-danger">*</span></label>
                                             <select name="user_type" class="form-control">
                                                <option value="">Select User Type</option>
@@ -137,7 +137,7 @@
 		                                 </div>
                                  	</div>
 	                                 <!-- student name -->
-	                                 
+
                                  </div>
                                  <div class="row">
                                     <div class="col-sm-12 col-md-6">
@@ -152,8 +152,8 @@
                                              @endif
 
                                        </div>
-                                
-                                  
+
+
                                    </div>
                                  	<div class="col-sm-12 col-md-6">
 	                                    <div class="form-group ">
@@ -167,7 +167,7 @@
 		                             </div>
                                    </div>
 		                             <!-- <button type="submit" class="btn btn-primary"> Submit </button> -->
-                                
+
                                </form>
                            </div>
                         </div>
@@ -190,7 +190,7 @@
                                  <label for="school_board">Board of School</label>
                                  <input type="text" id="school_board">
                               </div>
-                           </div> 
+                           </div>
                            <div class="row">
                               <div class="col-6">
                                  <label for="year_passing">Year of Passing</label>
@@ -210,7 +210,7 @@
                                  <label for="upload_certificate">Upload Certificate</label>
                                  <input type="file" id="upload_certificate">
                               </div>
-                           </div>  
+                           </div>
 
                            <div class="row">
                              &nbsp;
@@ -230,7 +230,7 @@
                                  <label for="school_board">Board of School</label>
                                  <input type="text" id="school_board">
                               </div>
-                           </div> 
+                           </div>
                            <div class="row">
                               <div class="col-6">
                                  <label for="year_passing">Year of Passing</label>
@@ -250,7 +250,7 @@
                                  <label for="upload_certificate">Upload Certificate</label>
                                  <input type="file" id="upload_certificate">
                               </div>
-                           </div>  
+                           </div>
                            <div class="row">
                              &nbsp;
                            </div>
@@ -269,7 +269,7 @@
                                  <label for="school_board">University Name</label>
                                  <input type="text" id="school_board">
                               </div>
-                           </div> 
+                           </div>
                            <div class="row">
                               <div class="col-6">
                                  <label for="year_passing">Courses Name</label>
@@ -299,7 +299,7 @@
                                  <label for="upload_certificate">Upload Certificate</label>
                                  <input type="file" id="upload_certificate">
                               </div>
-                           </div>  
+                           </div>
                            <div class="row">
                               <div class="col-2 education_heading">
                               MB/MS Details
@@ -314,7 +314,7 @@
                                  <label for="school_board">University Name</label>
                                  <input type="text" id="school_board">
                               </div>
-                           </div> 
+                           </div>
                            <div class="row">
                               <div class="col-6">
                                  <label for="year_passing">Courses Name</label>
@@ -344,7 +344,7 @@
                                  <label for="upload_certificate">Upload Certificate</label>
                                  <input type="file" id="upload_certificate">
                               </div>
-                           </div>  
+                           </div>
                            </form>
                      </section>
                      <h2>Documents Details</h2>
@@ -360,11 +360,11 @@
                                  <label for="registration_no">Document Type</label>
                                  <input type="text" id="registration_no">
                               </div>
-                              
+
                               <label for="patient_name">Upload Document</label>
                               <input type="file" id="patient_name">
-                              
-                              
+
+
                         </div>
                      </form>
                      </div>
@@ -382,11 +382,11 @@
                                  <label for="registration_no">Document Type</label>
                                  <input type="text" id="registration_no">
                               </div>
-                              
+
                               <label for="patient_name">Upload Document</label>
                               <input type="file" id="patient_name">
-                              
-                              
+
+
                         </div>
                     </form>
                      </div>
@@ -396,21 +396,21 @@
                </div>
             </div>
          </div>
-      </section>  
+      </section>
 <script>
      jQuery.noConflict();
      // Use jQuery via jQuery() instead of via $()
      jQuery(document).ready(function(){
       jQuery('#btn').on("click",function(){ alert();});
-     });  
+     });
 </script>
 <script>
 //href="#next"
 
 
- 
+
 
 </script>
 
-      
+
 @endsection
