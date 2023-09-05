@@ -170,7 +170,7 @@
 
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label>Age (as on 20-12-2022)<span class="text-danger">*</span></label>
+                                    <label>Age<span class="text-danger">*</span></label>
                                     <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif">@error('age')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror

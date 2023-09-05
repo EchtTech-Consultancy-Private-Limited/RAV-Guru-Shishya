@@ -18,7 +18,7 @@
                   <li class="breadcrumb-item bcrumb-2">
                      <a href="#" onClick="return false;">PHR Form</a>
                   </li>
-                  
+
                </ul>
             </div>
          </div>
@@ -42,18 +42,18 @@
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="card">
                <div class="header">
-                  
+
                </div>
                <form  action="{{ url('guru-remarks') }}" method="post" enctype="multipart/form-data">
-                  
+
                   <input type="hidden" name="guru_id" value="{{ Auth::user()->id }}">
                   <input type="hidden" name="shishya_id" value="{{$patient->shishya_id}}">
                   <input type="hidden" name="patient_id" value="{{$patient->id}}">
                @csrf
                <div class="body">
-                     <div class="col-sm-8">
+                     <div class="col-sm-12">
                   <div class="row clearfix">
-                     <div class="col-sm-4">
+                     <div class="col-sm-6">
                         <div class="form-group">
                            <div class="form-line">
                               <label >Select User<span class="text-danger">*</span></label>
@@ -65,30 +65,34 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                     <div class="col-sm-6">
                         <div class="form-group">
-                           <div class="form-line">
-                              <label
-                                    for="examp
-                                    le-text-input"
-                                    class="form-control-label">Remarks/Feedback<span
-                                    class="text-danger">*</span></label>
-                                 <textarea
-                                    cols="45"
-                                    rows="2"
-                                    name="remarks"
-                                    class="form-control"
-                                    value=""
-                                    
-                                    placeholder="Remarks" maxlength="200" required></textarea>
-                           </div>
-                        </div>
-                     </div>
-                  
-                  <div class="col-lg-12 p-t-20 text-center">
-                     <button type="submit" class="btn btn-primary waves-effect m-r-15" >Submit</button>
-                     <button type="button" onclick="reset_form();" class="btn btn-danger waves-effect">Reset</button>
+                            <div class="form-line">
+                               <label
+                                     for="examp
+                                     le-text-input"
+                                     class="form-control-label">Remarks/Feedback<span
+                                     class="text-danger">*</span></label>
+                                  <textarea
+                                     cols="45"
+                                     rows="2"
+                                     name="remarks"
+                                     class="form-control"
+                                     value=""
+
+                                     placeholder="Remarks" maxlength="200" required></textarea>
+                            </div>
+                         </div>
+                      </div>
                   </div>
+
+                  <div class="col-sm-12 p-t-20 text-center">
+                    <button type="submit" class="btn btn-primary waves-effect m-r-15" >Submit</button>
+                    <button type="button" onclick="reset_form();" class="btn btn-danger waves-effect">Reset</button>
+                 </div>
+                     </div>
+
+
                </div>
                </form>
             </div>

@@ -382,7 +382,10 @@ p.change_link{
 	background: transparent;
 }
 
+.table tbody tr td, .table tbody tr th {
+    padding: 10px 0;
 
+}
 
 /* .form-group input#Pincode, input#per_pincode {
     height: 28px !important;

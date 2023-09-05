@@ -92,7 +92,7 @@
 
                                     </div>
                                     <div class="col-lg-3 col-md-3">
-                                        <div class="new-patient-input">
+                                        <div class="new-patient-input d-flex align-items-center h-100">
                                             <div>
                                                 <button type="submit" class="btn btn-primary waves-effect"
                                                     style="line-height:2;"> Filter </button>
