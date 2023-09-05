@@ -1119,7 +1119,7 @@
                                              class="form-control"
                                              value=""
                                              aria-label="prayogashaliya_parikshana"
-                                             placeholder="PrayogashaliyaParikshana" readonly>{{ $patient->prayogashaliya_parikshana }}</textarea>
+                                             placeholder="Prayogashaliya Parikshana" readonly>{{ $patient->prayogashaliya_parikshana }}</textarea>
                                        </div>
                                     </div>
                                  </div>

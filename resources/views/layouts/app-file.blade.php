@@ -133,7 +133,7 @@
   }
 
   function send_to_guru() {
-      if(!confirm("Are You Sure To Send This Record To Your Assigned Guru? \n Note: Once You Send This Record To Your Assigned Guru,\n You Can Not Edit This Record."))
+      if(!confirm("Are you sure to send this record to your assigned guru? \n Note: Once you send this record to your assigned guru,\n You can not edit this record."))
       event.preventDefault();
   }
 

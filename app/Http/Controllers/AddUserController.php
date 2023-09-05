@@ -241,7 +241,7 @@ class AddUserController extends Controller
         if ($formId === 'step1') {
             // Validate form 1 fields
             $this->validate($request, [
-                'firstname' => 'required|max:250',
+                'firstname' => 'required|max:250|min:2',
                 'middlename' => 'max:200',
                 'lastname' => 'max:200',
                 'email' => 'required',
@@ -251,8 +251,6 @@ class AddUserController extends Controller
                 'address1' => 'required',
                 'address2' => 'required',
                 'country' => 'required',
-                'state' => 'required',
-                'city' => 'required',
                 'pincode' => 'required|numeric',
                 'aadhaar_no' => 'required|numeric',
                 'pan_no' => 'required',
@@ -269,8 +267,6 @@ class AddUserController extends Controller
             'address1.required' => 'Address is required',
             'address2.required' => 'Address is required',
             'country.required' => 'Country is required',
-            'state.required' => 'State is required',
-            'city.required' => 'City is required',
             'pincode.required' => 'Pincode is required',
             'aadhaar_no.required' => 'Aadhar number is required',
             'pan_no.required' => 'Pan number is required',
