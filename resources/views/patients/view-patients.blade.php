@@ -43,7 +43,7 @@
          <div class="card">
             <div class="header">
             <h2><strong>Patient History</strong> Sheet
-               
+
          </h2>
 
                <ul class="header-dropdown m-r--5">
@@ -59,7 +59,7 @@
                         <li>
                            <a href="#" onClick="window.print();">Print</a>
                         </li>
-                       
+
                      </ul>
                   </li>
                </ul>
@@ -80,7 +80,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label><br>
+                                             class="text-danger"></span></label><br>
                                           @if(!empty($guru->id))
                                          <label
                                          for="example-text-input"
@@ -112,11 +112,11 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label><br>
+                                             class="text-danger"></span></label><br>
                                          <label
                                          for="example-text-input"
                                          class="form-control-label"><b>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</b></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -129,7 +129,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -144,7 +144,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Name of the Patient<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->patient_name}}</strong></label>
                                        </div>
                                     </div>
@@ -155,9 +155,9 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Registration No<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->registration_no}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -167,9 +167,9 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Patients Type<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->patient_type}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -182,9 +182,9 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Age<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->age}} Yrs.</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -195,7 +195,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Registration Date</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{date('Y-m-d',strtotime($patient->registration_date))}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
 
@@ -206,7 +206,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Patients Type</label>
-                                          
+
                                              <label  for="example-text-input" class="form-control-label"><strong>{{$patient->patient_type}} </strong></label>
                                        </div>
                                     </div>
@@ -220,7 +220,7 @@
                                           <label
                                              for="Gender"
                                              class="form-control-label">Gender<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.gender') as $key=>$value)
                                              {{$patient->gender == $key  ? $value : ''}}</option>
@@ -235,13 +235,13 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Age Group<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.age_group') as $key=>$value)
                                              {{$patient->age_group == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -254,13 +254,13 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Occupation<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.occupation') as $key=>$value)
                                              {{$patient->occupation == $key  ? $value : ''}}</option>
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -270,13 +270,13 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Marital Status<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.marital_status') as $key=>$value)
                                                 {{$patient->marital_status == $key  ? $value : ''}}</option>
                                              @endforeach
                                              </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -290,7 +290,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Aasan Sidhi</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->aasan_sidhi}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -301,7 +301,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Season</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->season}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -330,9 +330,9 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Address<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->address}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -356,7 +356,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Duration</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->said_by_patient_duration}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -380,7 +380,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Duration</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->complaint_as_said_by_family_duration}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -394,7 +394,7 @@
                                              for="example-text-input"
                                              class="form-control-label">3. Past illness</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->past_illness}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -407,7 +407,7 @@
                                           Family
                                           History</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->family_history}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -466,7 +466,7 @@
                                              {{$patient->nadi_place == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -481,7 +481,7 @@
                                              {{$patient->nails == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                  </div>
@@ -500,7 +500,7 @@
                                              {{$patient->anguli_sandhi == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -515,7 +515,7 @@
                                              {{$patient->netra == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -530,7 +530,7 @@
                                              {{$patient->adhovartma == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -545,7 +545,7 @@
                                              {{$patient->hastatala == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                  </div>
@@ -563,7 +563,7 @@
                                              {{$patient->jihwa == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -578,7 +578,7 @@
                                              {{$patient->aakriti == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -593,7 +593,7 @@
                                              {{$patient->shabda == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -608,7 +608,7 @@
                                              {{$patient->koshtha == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -626,7 +626,7 @@
                                              {{$patient->agni == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -643,7 +643,7 @@
                                              {{$patient->mala_pravritti == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -660,7 +660,7 @@
                                              {{$patient->mutra_pravritti == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -677,7 +677,7 @@
                                              {{$patient->vyavay_pravritti == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -695,7 +695,7 @@
                                              {{$patient->shukrakshana_pravritti == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -714,7 +714,7 @@
                                              {{$patient->aartava_pravratti_kala == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -729,7 +729,7 @@
                                              {{$patient->dehoshma == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -740,7 +740,7 @@
                                              for="Bhara">18)
                                           Bhara</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->bhara}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -758,7 +758,7 @@
                                              {{$patient->raktachapa == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -775,7 +775,7 @@
                                              {{$patient->hrid_gati == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -790,7 +790,7 @@
                                              {{$patient->shvasagati == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -806,7 +806,7 @@
                                              {{$patient->parkriti_parikshana == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -827,7 +827,7 @@
                                              {{$patient->examination_by_physician == $key  ? $value : ''}}
                                             @endforeach
                                             </strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -840,7 +840,7 @@
                                           Prayogashaliya
                                           Parikshana</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->prayogashaliya_parikshana}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -856,7 +856,7 @@
                                           Samprapti
                                           Vivarana</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->samprapti_vivarana}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -869,7 +869,7 @@
                                           Vibhedaka
                                           Pariksha</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->vibhedaka_pariksha}}</strong></label>
-                                         
+
                                        </div>
                                     </div>
                                  </div>
@@ -887,7 +887,7 @@
                                           Pramukh
                                           Nidana</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->roga_vinishchaya_pramukh_nidana}}</strong></label>
-                                         
+
                                        </div>
                                     </div>
                                  </div>
@@ -905,7 +905,7 @@
                                           Anupana
                                           Sahita</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->chikitsa_kalpana_anupana_sahita}}</strong></label>
-                                         
+
                                        </div>
                                     </div>
                                     <div
@@ -917,7 +917,7 @@
                                              class="form-control-label">Samshodhana
                                           Kriyas</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->samshodhana_kriyas}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -929,7 +929,7 @@
                                              class="form-control-label">Samshamana
                                           Kriyas</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->samshamana_kriyas}}</strong></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -947,7 +947,7 @@
                                              class="fs-12
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span>)</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->pathya_apathya}}</strong></label>
-                                         
+
                                        </div>
                                     </div>
                                  </div>
@@ -992,10 +992,10 @@
                                  <a href="{{ url('/new-patient-registration') }}"><button type="button"  class="btn btn-danger waves-effect"> &nbsp; Back  &nbsp;</button></a>
                               </div>
                               </div>
-                             
+
                             </div>
-                             
-                          
+
+
                         </div>
                      </div>
                   </section>
