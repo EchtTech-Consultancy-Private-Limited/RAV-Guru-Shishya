@@ -5,7 +5,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="https://www.equitrust.com/DependencyHandler.axd?s=L2Nzcy9saWJzL2Jvb3RzdHJhcC5taW4uY3NzOy9jc3Mvc3R5bGVzLmNzczsvY3NzL2NvcnBvcmF0ZS1zaXRlLXNwZWNpZmljLmNzczs&amp;t=Css&amp;cdv=1188174677" rel="stylesheet" type="text/css" />
 <style>
-   
+
 .stepwizard-step p {
     margin-top: 10px;
 }
@@ -99,7 +99,7 @@
 });
       </script>
 <div class="container top_margin">
-  
+
   <div class="stepwizard col-md-offset-3">
       <div class="stepwizard-row setup-panel">
         <div class="stepwizard-step">
@@ -124,7 +124,7 @@
         </div>
       </div>
     </div>
-    
+
     <form role="form" action="" method="post">
       <div class="row setup-content" id="step-1">
         <div class="col-xs-6 col-md-offset-3">
@@ -305,7 +305,7 @@
 
                                     </div>
                                           </form>
-                                        </div>      
+                                        </div>
                                                 <table class="table ">
                                                     <thead>
                                                         <tr>
@@ -1908,7 +1908,7 @@
                                                                 </div>
                                                             </div>
 
-                                                           
+
 
                                                         </div></form>
                                                 </div>
@@ -1923,7 +1923,7 @@
                   <div>
                   <div class="card">
                                             <div class="card-body">
-        
+
                                                   <form action="" class="form2 " style=" padding:25px ; padding-bottom: 50px; font-size: 17px;">
                                                     <h4 style="padding-bottom: 50px;">Proforma of Progressive (quaterly follow-up) Report: </h4>
                                                     <div>
@@ -1934,7 +1934,7 @@
                                                     <label for="daily_progress">Daily Progress</label>
                                                     <input type="text" id="daily_progress">
                                                     </div>
-                                                   
+
                                                     <label for="treatment_therapies">Treatment Therapies</label>
                                                     <input type="text" id="treatment_therapies">
                                                 <div>
@@ -1942,17 +1942,17 @@
                                                     <input type="text" id="weekly_progress">
                                                 </div>
 
-                                                
+
                                                 <div>
                                                     <label for="monthly_progress">Monthly Progress</label>
                                                     <input type="text" id="monthly_progress">
                                                 </div>
                                                 <div class="col-12 flex-row-reverse">
                                                 <button type="submit" class="btn-primary" style="padding: 5px 20px; border-radius: 5px; float: right;">Add </button>
-        
+
                                             </div>
                                                   </form>
-                                                      
+
                                                         <table class="table ">
                                                             <thead>
                                                                 <tr>
@@ -2043,9 +2043,9 @@
               </div>
             </div>
     </form>
-    
+
   </div>
-             
+
 
   <style>
 

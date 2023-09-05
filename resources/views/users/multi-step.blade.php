@@ -170,7 +170,7 @@
 
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
-                                    <label>Age (as on 20-12-2022)<span class="text-danger">*</span></label>
+                                    <label>Age<span class="text-danger">*</span></label>
                                     <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif">@error('age')
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
@@ -957,7 +957,11 @@
 
 
                          </div>
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 0fc82d96281c15c72ccd87b27b75000f69d4dfee
                         <ul class="list-inline pull-right"><li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li><li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
                           </ul>
                         </form>

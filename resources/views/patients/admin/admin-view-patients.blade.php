@@ -87,11 +87,11 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label><br>
+                                             class="text-danger"></span></label><br>
                                          <label
                                          for="example-text-input"
                                          class="form-control-label"><b>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</b></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -104,7 +104,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label"><b>{{$guru->city_name}}<b></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -117,11 +117,11 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label><br>
+                                             class="text-danger"></span></label><br>
                                          <label
                                          for="example-text-input"
                                          class="form-control-label"><b>{{ $shishya->firstname }}</b></label>
-                                          
+
                                        </div>
                                     </div>
                                     <div
@@ -134,7 +134,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
-                                          
+
                                        </div>
                                     </div>
                                  </div>
@@ -149,7 +149,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Name of the Patient<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <input
                                              type="text"
                                              name="patient_name"
@@ -168,7 +168,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Registration No<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <input
                                              type="text"
                                              name="registration_no"
@@ -190,7 +190,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Age<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <input
                                              type="text"
                                              name="age"
@@ -210,7 +210,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Registration Date</label>
                                           <input
-                                             type="date"
+                                             type="text"
                                              name="registration_date"
                                              class="form-control"
                                              placeholder="Date"
@@ -245,7 +245,7 @@
                                           <label
                                              for="Gender"
                                              class="form-control-label">Gender<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <select
                                              name="gender"
                                              id="Gender"
@@ -267,7 +267,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Age Group<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <select
                                              name="age_group"
                                              id="Age"
@@ -290,7 +290,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Occupation<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <select
                                              name="occupation"
                                              id="occupation"
@@ -299,7 +299,7 @@
                                                 value="">Please
                                                 select
                                              </option>
-                                             
+
                                             @foreach(__('phr.occupation') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->occupation == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
@@ -313,7 +313,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Marital Status<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <select
                                              name="marital_status"
                                              id="Marital
@@ -399,7 +399,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Address<span
-                                             class="text-danger">*</span></label>
+                                             class="text-danger"></span></label>
                                           <textarea
                                              cols="45"
                                              rows="2"
@@ -534,11 +534,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">5.
-                                          Examination
-                                          of
-                                          the
-                                          patient</label>
+                                             class="form-control-label">5. Examination of the patient</label>
                                        </div>
                                     </div>
                                  </div>
@@ -549,7 +545,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Skin">1)
+                                             for="Skin">i)
                                           Skin</label>
                                           <select
                                              name="skin"
@@ -562,7 +558,7 @@
                                             @foreach(__('phr.skin') as $key=>$skinvalue)
                                              <option value="{{$key}}" {{$patient->skin == $key  ? 'selected' : ''}}>{{$skinvalue}}</option>
                                             @endforeach
-                                             
+
                                           </select>
                                        </div>
                                     </div>
@@ -571,7 +567,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nadi">2)
+                                             for="Nadi">ii)
                                           Nadi</label>
                                           <select
                                              name="nadi"
@@ -592,7 +588,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Place">Place</label>
+                                             for="Place">iii)Place</label>
                                           <select
                                              name="nadi_place"
                                              id="Place"
@@ -612,7 +608,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nails">3)
+                                             for="Nails">iv)
                                           Nails</label>
                                           <select
                                              name="nails"
@@ -636,7 +632,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nails">4)
+                                             for="Nails">v)
                                           Anguli
                                           sandhi</label>
                                           <select
@@ -658,7 +654,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Netra">5)
+                                             for="Netra">vi)
                                           Netra</label>
                                           <select
                                              name="netra"
@@ -668,7 +664,7 @@
                                                 value="">Please
                                                 select
                                              </option>
-                                             
+
                                              @foreach(__('phr.netra') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->netra == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
@@ -680,7 +676,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Adhovartma">6)
+                                             for="Adhovartma">vii)
                                           Adhovartma</label>
                                           <select
                                              name="adhovartma"
@@ -701,7 +697,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Hastatala">7)
+                                             for="Hastatala">viii)
                                           Hastatala</label>
                                           <select
                                              name="hastatala"
@@ -725,7 +721,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Jihwa">8)
+                                             for="Jihwa">ix)
                                           Jihwa</label>
                                           <select
                                              name="jihwa"
@@ -746,7 +742,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Aakriti">9)
+                                             for="Aakriti">x)
                                           Aakriti</label>
                                           <select
                                              name="aakriti"
@@ -767,7 +763,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shabda">10)
+                                             for="Shabda">xi)
                                           Shabda</label>
                                           <select
                                              name="shabda"
@@ -788,7 +784,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Koshtha">11)
+                                             for="Koshtha">xii)
                                           Koshtha</label>
                                           <select
                                              name="koshtha"
@@ -812,7 +808,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Agni">12)
+                                             for="Agni">xiii)
                                           Agni</label>
                                           <select
                                              name="agni"
@@ -834,7 +830,7 @@
                                           class="form-group">
                                           <label
                                              for="Mala
-                                             Pravritti">13)
+                                             Pravritti">xiv)
                                           Mala
                                           Pravritti</label>
                                           <select
@@ -858,7 +854,7 @@
                                           class="form-group">
                                           <label
                                              for="Mutra
-                                             Pravritti">14)
+                                             Pravritti">xv)
                                           Mutra
                                           Pravritti</label>
                                           <select
@@ -882,7 +878,7 @@
                                           class="form-group">
                                           <label
                                              for="Vyavay
-                                             Pravritti">15)
+                                             Pravritti">xvi)
                                           Vyavay
                                           Pravritti</label>
                                           <select
@@ -931,7 +927,7 @@
                                           <label
                                              for="Aartava
                                              Pravritti
-                                             Kala">16)
+                                             Kala">xvii)
                                           Aartava
                                           Pravritti
                                           Kala</label>
@@ -955,7 +951,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Dehoshma">17)
+                                             for="Dehoshma">xviii)
                                           Dehoshma</label>
                                           <select
                                              name="dehoshma"
@@ -976,7 +972,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Bhara">18)
+                                             for="Bhara">xix)
                                           Bhara</label>
                                           <input
                                              type="text"
@@ -997,7 +993,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Raktachapa">19)
+                                             for="Raktachapa">xx)
                                           Raktachapa</label>
                                           <select
                                              name="raktachapa"
@@ -1019,7 +1015,7 @@
                                           class="form-group">
                                           <label
                                              for="Hrid
-                                             gati">20)
+                                             gati">xxi)
                                           Hrid
                                           gati</label>
                                           <select
@@ -1042,7 +1038,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shvasagati">21)
+                                             for="Shvasagati">xxii)
                                           Shvasagati</label>
                                           <select
                                              name="shvasagati"
@@ -1063,7 +1059,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="parkriti_parikshana">22)
+                                             for="parkriti_parikshana">xxiii)
                                           Parkriti
                                           Parikshana</label>
                                           <select
@@ -1311,7 +1307,7 @@
                                  </div>
                               </div>
                               <div class="col-lg-12 p-t-20 text-center">
-                                 
+
                                  <a href="{{ url('admin-patient-list') }}" type="button"  class="btn btn-primary waves-effect m-r-15">Back To Patient Record</a>
                               </div>
                            </form>

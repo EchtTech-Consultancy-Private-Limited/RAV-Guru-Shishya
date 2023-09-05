@@ -16,7 +16,7 @@
               <div class="block-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          
+
                        <ul class="breadcrumb breadcrumb-style">
                           <li class="breadcrumb-item">
                              <h6 class="page-title"> @if(request()->path()=="patients/In-Patient") In Patients @elseif(request()->path()=="patients/OPD-Patient") OPD Patients @elseif(request()->path()=="admin-patient-list") Patients @endif </h6>
@@ -26,7 +26,7 @@
                             <a href="{{url('/dashboard')}}">
                              <i class="fas fa-home"></i> Home</a>
                           </li>
-                          
+
                           <li class="breadcrumb-item active"> @if(request()->path()=="patients/In-Patient") In Patients @elseif(request()->path()=="patients/OPD-Patient") OPD Patients @elseif(request()->path()=="admin-patient-list") Patients @endif  </li>
                        </ul>
                        @if ($message = Session::get('success'))
@@ -38,18 +38,18 @@
                 </div>
               </div>
             <div class="row">
-        
+
 
         <div class="col-lg-12 col-md-12 col-sm-12">
 				   <div class="card">
 				      <div class="body p-5">
 				         <div class="wizard">
-				           
+
 				             <div class="tab-content">
 				                <div class="tab-pane active" role="tabpanel" id="step1">
 
  							   	<form role="form">
-  
+
 				                     <input type="hidden" name="_token" value="BDL0awP4AU5L2AV8sRje1DHejGdb5jXkAf4oX9oS">                              	<input type="hidden"  name="user_id"  class="form-control capitalize" value="2" placeholder="First Name">
 				                     <div class="row">
 				                        <div class="col-sm-12 col-md-6">
@@ -353,7 +353,7 @@
 		</div>
 	</div>
 </section>
- 
+
 <!-- step Tabs js -->
      <script>
          $(document).ready(function() {
