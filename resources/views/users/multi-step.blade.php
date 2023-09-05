@@ -130,7 +130,7 @@
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Middle Name</label>
-                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                 </div>
                               </div>
                               <!-- student name -->
@@ -138,7 +138,7 @@
                                 <!-- guru name -->
                                 <div class="form-group">
                                     <label>Last Name</label>
-                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                 </div>
                               </div>
 
@@ -536,7 +536,7 @@
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
 
 
-                         <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
+                         <form action="{{ url('manage_profile_form') }}" method="POST" id="step2" enctype="multipart/form-data">
                                 @csrf
 
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
@@ -812,7 +812,7 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>State <span class="text-danger">*</span></label>
-                                    <select id="state-dropdown-clinical" class="form-control  state " name="state"  required>
+                                    <select id="state-dropdown-clinical" class="form-control  state " name="state">
 
                                          <option  @if(isset($clinic_record->state)) value="{{$clinic_record->state}}" @endif>@if(isset($clinic_record->state_name)){{ $clinic_record->state_name }} @endif</option>
 
@@ -823,7 +823,7 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>City<span class="text-danger">*</span></label>
-                                    <select id="city-dropdown-clinical" class="form-control state " name="city"  required>
+                                    <select id="city-dropdown-clinical" class="form-control state " name="city">
 
                                          <option value="@if(isset($clinic_record->city)) {{$clinic_record->city}} @endif">@if(isset($clinic_record->city)){{ $clinic_record->city_name }}@endif</option>
 
@@ -834,7 +834,7 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif" required>
+                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
                                 </div>
                               </div>
 
@@ -842,7 +842,7 @@
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
-                                    <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif" required>
+                                    <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
                                 </div>
                               </div>
 
@@ -957,11 +957,6 @@
 
 
                          </div>
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 0fc82d96281c15c72ccd87b27b75000f69d4dfee
                         <ul class="list-inline pull-right"><li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li><li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
                           </ul>
                         </form>
@@ -1209,7 +1204,7 @@
                               <div class="col-sm-12 col-md-3">
                                  <div class="form-group">
                                     <label>Course<span class="text-danger">*</span></label>
-                                    <select name="course_name" class="form-control" id="edit_course_name">
+                                    <select name="course_name" class="form-control" id="edit_course_name" required>
                                       <option value="">Select Course</option>
                                       @foreach(__('phr.education_course') as $key=>$value)
                                        <option  value="{{$value}}">{{$value}}</option>
@@ -1458,6 +1453,23 @@ $(document).ready(function(){
     }
   });
 
+</script>
+                    <script>
+    $(document).ready(function () {
+
+    $('#step2').validate({ // initialize the plugin
+        rules: {
+            upload_degree: {
+                extension: "pdf": true
+            },
+        }
+    messages :{
+        "upload_degree" : {
+            extension : 'upload pdf'
+        }
+    });
+
+});
 </script>
 
     <script>
