@@ -957,11 +957,6 @@
 
 
                          </div>
-<<<<<<< HEAD
-
-=======
-
->>>>>>> 0fc82d96281c15c72ccd87b27b75000f69d4dfee
                         <ul class="list-inline pull-right"><li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li><li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
                           </ul>
                         </form>
