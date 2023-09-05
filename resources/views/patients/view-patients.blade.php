@@ -194,7 +194,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Registration Date</label>
-                                             <br><label  for="example-text-input" class="form-control-label"><strong>{{date('d-m-Y',strtotime($patient->registration_date))}}</strong></label>
+                                             <br><label  for="example-text-input" class="form-control-label"><strong>{{date('Y-m-d',strtotime($patient->registration_date))}}</strong></label>
 
                                        </div>
                                     </div>
