@@ -255,11 +255,7 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-<<<<<<< HEAD
-                                    <input type="text" name="pincode" id="Pincode" class="form-control pincode" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
-=======
                                     <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
->>>>>>> d78fd106857cc501a7d51e880a92fec4ff455482
     <div class="alert alert-danger">{{ $message }}</div>
   @enderror
                                 </div>
@@ -582,17 +578,12 @@
                             <div class="col-3">
                               <div class="form-group ">
                                  <label >Upload Degree</label>
-<<<<<<< HEAD
-                                   <input type="file" name="upload_degree" class="form-control" >
-
-=======
                                    <input type="file" name="upload_degree" class="form-control" accept="application/pdf">
-                                  
->>>>>>> d78fd106857cc501a7d51e880a92fec4ff455482
+
                               </div>
                            </div>
 
-                            <div class="col-md-12 text-end">
+                            <div class="col-md-12 text-center">
                             <button type="submit" class="btn bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
                             </div>
 
@@ -709,7 +700,7 @@
                             <div class="col-4">
                               <div class="form-group">
                                 <label for="Name_Clinic">Name of Clinic</label>
-                                <input onkeydown="return /[a-z]/i.test(event.key)" type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
+                                <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
                               </div>
                             </div>
 
@@ -821,13 +812,8 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>State <span class="text-danger">*</span></label>
-<<<<<<< HEAD
-                                    <select id="state-dropdown-clinical" class="form-control  state " name="state" >
-
-=======
                                     <select id="state-dropdown-clinical" class="form-control  state " name="state"  required>
-                                     
->>>>>>> d78fd106857cc501a7d51e880a92fec4ff455482
+
                                          <option  @if(isset($clinic_record->state)) value="{{$clinic_record->state}}" @endif>@if(isset($clinic_record->state_name)){{ $clinic_record->state_name }} @endif</option>
 
                                       </select>
@@ -837,13 +823,8 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>City<span class="text-danger">*</span></label>
-<<<<<<< HEAD
-                                    <select id="city-dropdown-clinical" class="form-control state " name="city" >
-
-=======
                                     <select id="city-dropdown-clinical" class="form-control state " name="city"  required>
-                                      
->>>>>>> d78fd106857cc501a7d51e880a92fec4ff455482
+
                                          <option value="@if(isset($clinic_record->city)) {{$clinic_record->city}} @endif">@if(isset($clinic_record->city)){{ $clinic_record->city_name }}@endif</option>
 
                                       </select>
@@ -977,9 +958,7 @@
 
                          </div>
 
-                        <ul class="list-inline pull-right">
-                              <li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li>
-                              <li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
+                        <ul class="list-inline pull-right"><li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li><li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
                           </ul>
                         </form>
                     </div>
@@ -1246,13 +1225,8 @@
                             <div class="col-3">
                               <div class="form-group ">
                                  <label >Upload Degree</label>
-<<<<<<< HEAD
-                                  <input type="file" name="upload_degree" class="form-control" >
+                                  <input type="file" name="upload_degree" class="form-control"  accept="application/pdf">
 
-=======
-                                  <input type="file" name="upload_degree" class="form-control"  accept="application/pdf"> 
-                                    
->>>>>>> d78fd106857cc501a7d51e880a92fec4ff455482
                                     <div style="width:120px;height:80px;" >
                                         <!-- <img id="upload_degree" > -->
 
@@ -1769,9 +1743,7 @@ $(document).ready(function(){
             --------------------------------------------
             --------------------------------------------*/
             $('#country-dropdown-clinical').on('change',function () {
-                alert("work proper");
                 var idCountry = this.value;
-                alert (idCountry);
                 $("#state-dropdown-clinical").html('');
                 $("#city-dropdown-clinical").html('');
                 $.ajax({
@@ -1968,8 +1940,7 @@ $(document).ready(function(){
         var data=document.getElementById('any_done_services').value='1';
 
         //alert(data);
-    }
-  else
+    }else
     {
          var data=document.getElementById('any_done_services').value='0';
         //alert("unchecked");

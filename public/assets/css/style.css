@@ -262,7 +262,60 @@ margin-left: 0;
     margin-left: 0px;
 }
 
+div#DataTables_Table_0_paginate {
+    padding: 10px 0 !important;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    /* margin: 0; */
+    white-space: nowrap;
+    text-align: right;
+    padding: 11px 0 0 !important;
+}
+
+
+.new-patient-input {
+    display: flex;
+    align-items: center;
+}
+
+.new-patient-ragistration {
+    font-weight: bold;
+    font-size: 15px;
+    padding-right: 29px;
+}
+
+button.btn.btn-primary.waves-effect {
+    margin-right: 10px;
+}
+.new-patient-input select{
+    cursor: pointer;
+}
+
+
+table.dataTable {
+
+    width: 100% !important;
+}
+.new-patient-checkbox{
+    float: left;
+    margin: 0 20px;
+}
+
+
 @media(max-width:768px){
+    div.dataTables_wrapper div.dataTables_length, div.dataTables_wrapper div.dataTables_filter, div.dataTables_wrapper div.dataTables_info, div.dataTables_wrapper div.dataTables_paginate {
+        text-align: left;
+        width: 100%;
+    }s
+    div.dataTables_wrapper div.dataTables_length, div.dataTables_wrapper div.dataTables_filter, div.dataTables_wrapper div.dataTables_info, div.dataTables_wrapper div.dataTables_paginate {
+        text-align: left;
+        width: 100%;
+    }
+    .new-patient-input {
+
+        padding: 10px 0;
+    }
     .wizard>.steps>ul>li {
         width: 100%;
         float: left;
