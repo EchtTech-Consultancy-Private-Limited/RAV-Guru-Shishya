@@ -292,7 +292,7 @@ class AddUserController extends Controller
         //return $request->all();
         $profile_id=$request->profile_id;
         $user_id=$request->user_id;
-        $input=$request->all();dd($request->all());
+        $input=$request->all();
 
             $form_step_type=$request->form_step_type;
        
