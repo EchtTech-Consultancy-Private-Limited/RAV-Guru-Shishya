@@ -130,7 +130,7 @@
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Middle Name</label>
-                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                 </div>
                               </div>
                               <!-- student name -->
@@ -138,7 +138,7 @@
                                 <!-- guru name -->
                                 <div class="form-group">
                                     <label>Last Name</label>
-                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
+                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                 </div>
                               </div>
 
@@ -536,7 +536,7 @@
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
 
 
-                         <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
+                         <form action="{{ url('manage_profile_form') }}" method="POST" id="step2" enctype="multipart/form-data">
                                 @csrf
 
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
@@ -1458,6 +1458,23 @@ $(document).ready(function(){
     }
   });
 
+</script>
+                    <script>
+    $(document).ready(function () {
+
+    $('#step2').validate({ // initialize the plugin
+        rules: {
+            upload_degree: {
+                extension: "pdf": true
+            },
+        }
+    messages :{
+        "upload_degree" : {
+            extension : 'upload pdf'
+        }
+    });
+
+});
 </script>
 
     <script>

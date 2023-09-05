@@ -397,8 +397,8 @@ return [
 
 'clinic_evening_timing' => [
         '0'=>'4pm to 5pm',
-        '1'=>'5pm to 6am',
-        '2'=>'6am to 7am',
+        '1'=>'5pm to 6pm',
+        '2'=>'6pm to 7pm',
         ],
 
 'clinic_morning_timing' => [
