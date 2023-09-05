@@ -812,7 +812,7 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>State <span class="text-danger">*</span></label>
-                                    <select id="state-dropdown-clinical" class="form-control  state " name="state"  required>
+                                    <select id="state-dropdown-clinical" class="form-control  state " name="state">
 
                                          <option  @if(isset($clinic_record->state)) value="{{$clinic_record->state}}" @endif>@if(isset($clinic_record->state_name)){{ $clinic_record->state_name }} @endif</option>
 
@@ -823,7 +823,7 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label>City<span class="text-danger">*</span></label>
-                                    <select id="city-dropdown-clinical" class="form-control state " name="city"  required>
+                                    <select id="city-dropdown-clinical" class="form-control state " name="city">
 
                                          <option value="@if(isset($clinic_record->city)) {{$clinic_record->city}} @endif">@if(isset($clinic_record->city)){{ $clinic_record->city_name }}@endif</option>
 
@@ -834,7 +834,7 @@
                               <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label >Pincode<span class="text-danger">*</span></label>
-                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif" required>
+                                    <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
                                 </div>
                               </div>
 
@@ -842,7 +842,7 @@
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
-                                    <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif" required>
+                                    <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
                                 </div>
                               </div>
 
@@ -1209,7 +1209,7 @@
                               <div class="col-sm-12 col-md-3">
                                  <div class="form-group">
                                     <label>Course<span class="text-danger">*</span></label>
-                                    <select name="course_name" class="form-control" id="edit_course_name">
+                                    <select name="course_name" class="form-control" id="edit_course_name" required>
                                       <option value="">Select Course</option>
                                       @foreach(__('phr.education_course') as $key=>$value)
                                        <option  value="{{$value}}">{{$value}}</option>
