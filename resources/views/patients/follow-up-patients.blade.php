@@ -94,13 +94,13 @@
                                     @csrf
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-hover js-basic-example contact_list" id="data_table1">
+                                <table class="table table-hover js-basic-example contact_list" id="data_table1" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                         <tr>
-                                          <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">
+                                          <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> <input id="addall" type="checkbox"><label for='selectAll'> </label>
                                               @if(Auth::user()->user_type==2 || Auth::user()->user_type==3)
                                               <input type="checkbox" class="form-check-input" name="checkall" id="checkall" value="1"> 
-                                              @endif<label for='selectAll'> </label></th>
+                                              @endif</th>
                                                <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
                                           <th class="center"> Registration No. </th>
                                             <th class="center"> Date </th>
@@ -115,9 +115,9 @@
                                     @foreach($data as $k=>$followup)
     <tr class="odd gradeX @if((Auth::user()->user_type==2 && $followup->read_by_guru=='0')||(Auth::user()->user_type==3 && $followup->read_by_shishya=='0')||(Auth::user()->user_type==1 && $followup->read_by_admin=='0'))active-row @endif">
                                             
-                                            <td class="center"><label class="form-check-label form-check-input1">
+                                            <td class="center sorting_1"><label class="form-check-label form-check-input1">
                                             @if(Auth::user()->user_type==2 || Auth::user()->user_type==3)
-                                            <input name="followup_ids[]" type="checkbox"  class="form-check-input" value="{{$followup->id}}">
+                                            <input name="followup_ids[]" type="checkbox"  class="add" value="{{$followup->id}}">
                                             @endif</label></td>
                                                    <td class="center sorting_1">{{($k+1)}}</td>
                                            

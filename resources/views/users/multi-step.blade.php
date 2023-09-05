@@ -700,7 +700,7 @@
                             <div class="col-4">
                               <div class="form-group">
                                 <label for="Name_Clinic">Name of Clinic</label>
-                                <input onkeydown="return /[a-z]/i.test(event.key)" type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
+                                <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
                               </div>
                             </div>
 
@@ -958,9 +958,7 @@
                              
                          </div>
                         
-                        <ul class="list-inline pull-right">
-                              <li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li>
-                              <li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
+                        <ul class="list-inline pull-right"><li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li><li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
                           </ul>
                         </form>
                     </div>
@@ -1745,9 +1743,7 @@ $(document).ready(function(){
             --------------------------------------------
             --------------------------------------------*/
             $('#country-dropdown-clinical').on('change',function () {
-                alert("work proper");
                 var idCountry = this.value;
-                alert (idCountry);
                 $("#state-dropdown-clinical").html('');
                 $("#city-dropdown-clinical").html('');
                 $.ajax({
@@ -1944,8 +1940,7 @@ $(document).ready(function(){
         var data=document.getElementById('any_done_services').value='1'; 
 
         //alert(data);
-    }
-  else
+    }else
     {
          var data=document.getElementById('any_done_services').value='0'; 
         //alert("unchecked");
