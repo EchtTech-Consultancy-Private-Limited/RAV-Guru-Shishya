@@ -419,11 +419,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">5.
-                                          Examination
-                                          of
-                                          the
-                                          patient</label>
+                                             class="form-control-label">5. Examination of the patient</label>
                                        </div>
                                     </div>
                                  </div>
@@ -433,7 +429,7 @@
                                        class="col-sm-3">
                                        <div
                                           class="form-group">
-                                          <label for="Skin">1) Skin</label>
+                                          <label for="Skin">i) Skin</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.skin') as $key=>$value)
                                              {{$patient->skin == $key  ? $value : ''}}
@@ -446,7 +442,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nadi">2)
+                                             for="Nadi">ii)
                                           Nadi</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.nadi') as $key=>$value)
@@ -460,7 +456,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Place">Place</label>
+                                             for="Place">iii)Place</label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.place') as $key=>$value)
                                              {{$patient->nadi_place == $key  ? $value : ''}}
@@ -474,7 +470,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nails">3)
+                                             for="Nails">iv)
                                           Nails</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.nails') as $key=>$value)
@@ -492,7 +488,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nails">4)
+                                             for="Nails">v)
                                           Anguli
                                           sandhi</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>
@@ -508,7 +504,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Netra">5)
+                                             for="Netra">vi)
                                           Netra</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.netra') as $key=>$value)
@@ -523,7 +519,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Adhovartma">6)
+                                             for="Adhovartma">vii)
                                           Adhovartma</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.adhovartma') as $key=>$value)
@@ -538,7 +534,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Hastatala">7)
+                                             for="Hastatala">viii)
                                           Hastatala</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.adhovartma') as $key=>$value)
@@ -556,7 +552,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Jihwa">8)
+                                             for="Jihwa">ix)
                                           Jihwa</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.jihwa') as $key=>$value)
@@ -571,7 +567,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Aakriti">9)
+                                             for="Aakriti">x)
                                           Aakriti</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.aakriti') as $key=>$value)
@@ -586,7 +582,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shabda">10)
+                                             for="Shabda">xi)
                                           Shabda</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.shabda') as $key=>$value)
@@ -601,7 +597,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Koshtha">11)
+                                             for="Koshtha">xii)
                                           Koshtha</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.koshtha') as $key=>$value)
@@ -619,7 +615,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Agni">12)
+                                             for="Agni">xiii)
                                           Agni</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.agni') as $key=>$value)
@@ -635,7 +631,7 @@
                                           class="form-group">
                                           <label
                                              for="Mala
-                                             Pravritti">13)
+                                             Pravritti">xiv)
                                           Mala
                                           Pravritti</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
@@ -652,7 +648,7 @@
                                           class="form-group">
                                           <label
                                              for="Mutra
-                                             Pravritti">14)
+                                             Pravritti">xv)
                                           Mutra
                                           Pravritti</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
@@ -669,7 +665,7 @@
                                           class="form-group">
                                           <label
                                              for="Vyavay
-                                             Pravritti">15)
+                                             Pravritti">xvi)
                                           Vyavay
                                           Pravritti</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
@@ -688,7 +684,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shukrakshanapravritti">Shukrakshana
+                                             for="Shukrakshanapravritti">xvii)Shukrakshana
                                           pravritti</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
@@ -705,7 +701,7 @@
                                           <label
                                              for="Aartava
                                              Pravritti
-                                             Kala">16)
+                                             Kala">xviii)
                                           Aartava
                                           Pravritti
                                           Kala</label>
@@ -722,7 +718,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Dehoshma">17)
+                                             for="Dehoshma">xix)
                                           Dehoshma</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.dehoshma') as $key=>$value)
@@ -751,7 +747,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Raktachapa">19)
+                                             for="Raktachapa">xx)
                                           Raktachapa</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.raktachapa') as $key=>$value)
@@ -767,7 +763,7 @@
                                           class="form-group">
                                           <label
                                              for="Hrid
-                                             gati">20)
+                                             gati">xxi)
                                           Hrid
                                           gati</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
@@ -783,7 +779,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shvasagati">21)
+                                             for="Shvasagati">xxii)
                                           Shvasagati</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.shvasagati') as $key=>$value)
@@ -798,7 +794,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="parkriti_parikshana">22)
+                                             for="parkriti_parikshana">xxiii)
                                           Parkriti
                                           Parikshana</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
