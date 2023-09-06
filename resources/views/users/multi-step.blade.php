@@ -583,7 +583,7 @@
                               </div>
                            </div>
 
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12 text-end">
                             <button type="submit" class="btn bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
                             </div>
 
@@ -647,7 +647,7 @@
                             </div>
                         </div>
 
-                          <ul class="list-inline pull-right mt-5">
+                          <ul class="list-inline pull-right ">
                               <li><button type="button" class="btn btn-danger prev-step mr-2">Previous</button></li>
                               <li><button type="button" class="btn btn-info next-step1">Next</button></li>
                           </ul>
