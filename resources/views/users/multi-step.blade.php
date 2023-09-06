@@ -536,7 +536,7 @@
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
 
 
-                         <form action="{{ url('manage_profile_form') }}" method="POST" id="step2" enctype="multipart/form-data">
+                         <form action="{{ url('manage_profile_form') }}" method="POST" id="profile_idstep" enctype="multipart/form-data">
                                 @csrf
 
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
@@ -1462,16 +1462,17 @@ $(document).ready(function(){
                     <script>
     $(document).ready(function () {
 
-    $('#step2').validate({ // initialize the plugin
+    $('#profile_idstep').validate({ // initialize the plugin
         rules: {
             upload_degree: {
                 extension: "pdf": true
             },
-        }
+        },
     messages :{
         "upload_degree" : {
             extension : 'upload pdf'
-        }
+        },
+        },
     });
 
 });
@@ -1635,6 +1636,65 @@ $(document).ready(function(){
 
         </script>
         @endif
+        <script>
+
+            /*------------------------------------------
+            --------------------------------------------
+            Country Dropdown Change Event
+            --------------------------------------------
+            --------------------------------------------*/
+          $(document).ready(function () {
+            $('#per-country-dropdown').on('change', function () {
+                var idCountry = this.value;
+                $("#per-state-dropdown").html('');
+                $("#per-city-dropdown").html('');
+                $.ajax({
+                    url: "{{url('api/fetch-states')}}",
+                    type: "POST",
+                    data: {
+                        country_id: idCountry,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#per-state-dropdown').html('<option value="">-- Select State --</option>');
+                        $.each(result.states, function (key, value) {
+                            $("#per-state-dropdown").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                        //$('#city-dropdown').html('<option value="">-- Select City --</option>');
+                    }
+                });
+            });
+
+            /*------------------------------------------
+            --------------------------------------------
+            State Dropdown Change Event
+            --------------------------------------------
+            --------------------------------------------*/
+            $('#per-state-dropdown').on('change', function () {
+                var idState = this.value;
+                $("#per-city-dropdown").html('');
+                $.ajax({
+                    url: "{{url('api/fetch-cities')}}",
+                    type: "POST",
+                    data: {
+                        state_id: idState,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (res) {
+                        $('#per-city-dropdown').html('<option value="">-- Select City --</option>');
+                        $.each(res.cities, function (key, value) {
+                            $("#per-city-dropdown").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
         <script>
 
             /*------------------------------------------

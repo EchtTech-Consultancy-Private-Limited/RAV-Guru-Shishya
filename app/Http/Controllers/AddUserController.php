@@ -242,8 +242,8 @@ class AddUserController extends Controller
             // Validate form 1 fields
             $this->validate($request, [
                 'firstname' => 'required|max:250|min:2',
-                'middlename' => 'max:200',
-                'lastname' => 'max:200',
+                'middlename' => 'max:200|min:2',
+                'lastname' => 'max:200|min:2',
                 'email' => 'required',
                 'date_of_birth' => 'required',
                 'age' => 'required|numeric',
@@ -499,11 +499,13 @@ class AddUserController extends Controller
     public function manage_profile_form_step3(Request $request)
     { 
         $this->validate($request, [
+                'regis_no' => array('regex:/^[a-zA-Z0-9\s-]+$/'),
                 'weekend_off' => 'required',
                 'address1' => 'required',
                 'address2' => 'required',
                 'country' => 'required',
         ],[
+            'regis_no.regex' => 'Registration number is required',
             'weekend_off.required' => 'Weekend Off is required',
             'address1.required' => 'Address is required',
             'address2.required' => 'Address is required',

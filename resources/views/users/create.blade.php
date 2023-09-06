@@ -260,7 +260,7 @@
                         <div class="form-group">
                            <div class="form-line">
                               <label>Confirm Password<span class="text-danger">*</span></label>
-                              <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password checkPassword" onkeyup='check()' maxlength="15" onpaste="return false" oncopy="return false">
+                              <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password" onkeyup='check()' maxlength="15" onpaste="return false" oncopy="return false">
                               <i class="fas fa-eye-slash field-icon" id="eye1"></i>
                               <span id="confirm_password_msg"></span>
                               <span id="confirm_password_error" class="text-danger"></span>
