@@ -536,7 +536,7 @@
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
 
 
-                         <form action="{{ url('manage_profile_form') }}" method="POST" id="profile_idstep" enctype="multipart/form-data">
+                         <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
@@ -578,7 +578,7 @@
                             <div class="col-3">
                               <div class="form-group ">
                                  <label >Upload Degree</label>
-                                   <input type="file" name="upload_degree" class="form-control" accept="application/pdf">
+                                   <input type="file" name="upload_degree" class="form-control" id="profile_idstep">
 
                               </div>
                            </div>
@@ -1455,22 +1455,22 @@ $(document).ready(function(){
 
 </script>
                     <script>
-    $(document).ready(function () {
+          var doc_file_edit3="";
+    $('#profile_idstep').on('change',function()
+       {
+          doc_file_edit3 = $("#profile_idstep").val();
+         // alert(doc_file1);
+          console.log(doc_file_edit3);
+          var doc_file = doc_file_edit3.split('.').pop();
+           if(doc_file=='pdf'){
+          // alert("File uploaded is pdf");
+           }
+          else{
+            alert("Only PDF are allowed");
+             $('#profile_idstep').val("");
+          }
 
-    $('#profile_idstep').validate({ // initialize the plugin
-        rules: {
-            upload_degree: {
-                extension: "pdf": true
-            },
-        },
-    messages :{
-        "upload_degree" : {
-            extension : 'upload pdf'
-        },
-        },
-    });
-
-});
+        });
 </script>
 
     <script>

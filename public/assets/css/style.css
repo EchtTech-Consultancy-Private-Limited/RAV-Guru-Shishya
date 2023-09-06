@@ -308,6 +308,14 @@ table.dataTable {
 
 }
 
+.input-checkbox{
+    float: left;
+    margin-left: 25%;
+}
+
+table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
+    padding-right: 0px;
+}
 
 @media(max-width:1300px) and (min-width:991px){
     .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {

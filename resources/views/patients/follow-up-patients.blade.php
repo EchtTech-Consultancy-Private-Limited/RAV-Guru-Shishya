@@ -139,10 +139,8 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label=" No : activate to sort column descending">
-                                                    @if (Auth::user()->user_type == 2 || Auth::user()->user_type == 3)
-                                                        <input type="checkbox" class="form-check-input" name="checkall"
-                                                            id="checkall" value="1">
-                                                    @endif
+                                                        <input type="checkbox" name="checkall"
+                                                            id="checkall" type="checkbox" value="1">
                                                     <label for='selectAll'>
                                                     </label>
                                                 </th>
@@ -167,12 +165,11 @@
                                                             (Auth::user()->user_type == 3 && $followup->read_by_shishya == '0') ||
                                                             (Auth::user()->user_type == 1 && $followup->read_by_admin == '0')) active-row @endif">
 
-                                                    <td class="center"><label class="form-check-label form-check-input1">
+                                                    <td class="center sorting_1 text-end p-0">
                                                             @if (Auth::user()->user_type == 2 || Auth::user()->user_type == 3)
-                                                                <input name="followup_ids[]" type="checkbox"
-                                                                    class="form-check-input" value="{{ $followup->id }}">
+                                                                <input name="followup_ids[]" type="checkbox" value="{{ $followup->id }}" class="input-checkbox">
                                                             @endif
-                                                        </label></td>
+                                                        </td>
                                                     <td class="center sorting_1">{{ $k + 1 }}</td>
 
                                                     <td class="center"><a
@@ -308,23 +305,13 @@
     </section>
 
     <script type="text/javascript">
-        $('#checkall').on('click', function() {
-            if (this.checked) {
-                $('.form-check-input').each(function() {
-                    this.checked = true;
-                });
-            } else {
-                $('.form-check-input').each(function() {
-                    this.checked = false;
-                });
-            }
+        $("#checkall").click(function() {
+            $(".input-checkbox").prop("checked", $(this).prop("checked"));
         });
 
-        $('.form-check-input').on('click', function() {
-            if ($('.form-check-input:checked').length == $('.form-check-input').length) {
-                $('#checkall').prop('checked', true);
-            } else {
-                $('#checkall').prop('checked', false);
+        $(".input-checkbox").click(function() {
+            if (!$(this).prop("checked")) {
+                $("#checkall").prop("checked", false);
             }
         });
 
