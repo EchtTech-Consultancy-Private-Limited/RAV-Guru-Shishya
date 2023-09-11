@@ -309,6 +309,15 @@ table.dataTable {
     text-align: center;
 }
 
+<<<<<<< HEAD
+.input-checkbox{
+    float: left;
+    margin-left: 25%;
+}
+
+table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
+    padding-right: 0px;
+=======
 input[type=email]:not(.browser-default)[readonly="readonly"]{
     border-bottom: 1px solid;
 }
@@ -387,6 +396,7 @@ a.btn.btn-primary.waves-effect {
         padding: 5px 10px;
         margin-left: 7px;
     }
+>>>>>>> aaa62e6e6cdf281ff461f08bbfe08f243f2ac027
 }
 
 @media(max-width:1300px) and (min-width:991px){

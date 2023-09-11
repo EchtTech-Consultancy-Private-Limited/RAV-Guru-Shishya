@@ -130,7 +130,7 @@
                               <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label>Middle Name</label>
-                                    <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
+                                    <input type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                 </div>
                               </div>
                               <!-- student name -->
@@ -536,7 +536,7 @@
                     <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
 
 
-                         <form action="{{ url('manage_profile_form') }}" method="POST" id="step2" enctype="multipart/form-data">
+                         <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                              <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
@@ -578,7 +578,7 @@
                             <div class="col-3">
                               <div class="form-group ">
                                  <label >Upload Degree</label>
-                                   <input type="file" name="upload_degree" class="form-control" accept="application/pdf">
+                                   <input type="file" name="upload_degree" class="form-control" id="profile_idstep">
 
                               </div>
                            </div>
@@ -1455,21 +1455,22 @@ $(document).ready(function(){
 
 </script>
                     <script>
-    $(document).ready(function () {
+          var doc_file_edit3="";
+    $('#profile_idstep').on('change',function()
+       {
+          doc_file_edit3 = $("#profile_idstep").val();
+         // alert(doc_file1);
+          console.log(doc_file_edit3);
+          var doc_file = doc_file_edit3.split('.').pop();
+           if(doc_file=='pdf'){
+          // alert("File uploaded is pdf");
+           }
+          else{
+            alert("Only PDF are allowed");
+             $('#profile_idstep').val("");
+          }
 
-    $('#step2').validate({ // initialize the plugin
-        rules: {
-            upload_degree: {
-                extension: "pdf": true
-            },
-        }
-    messages :{
-        "upload_degree" : {
-            extension : 'upload pdf'
-        }
-    });
-
-});
+        });
 </script>
 
     <script>
@@ -1585,9 +1586,8 @@ $(document).ready(function(){
             if ($(this).is(':checked')) {
                 $('#per_address_Line1').val($('#address1').val());
                 $('#per_address_Line2').val($('#address2').val());
-                $('#per-country-dropdown').val($('#country-dropdown').val());
-                $('#per-state-dropdown').val($('#state-dropdown').val());
-                $('#per-city-dropdown').val($('#city-dropdown').val());
+                $('#per-country-dropdown').val($('#country-dropdown').val()).change();
+                $('#per-state-dropdown').val($('#state-dropdown').val()).change();
                 $('#per_pincode').val($('#Pincode').val());
             } else {
                 $('#per_address_Line1').val('');
@@ -1653,9 +1653,13 @@ $(document).ready(function(){
                     success: function (result) {
                         $('#per-state-dropdown').html('<option value="">-- Select State --</option>');
                         $.each(result.states, function (key, value) {
-                            $("#per-state-dropdown").append('<option value="' + value
-                                .id + '">' + value.name + '</option>');
-                        });
+                            if($('#state-dropdown').val()==value.id){
+            $("#per-state-dropdown").append('<option value="' + value.id + '"SELECTED>' + value.name + '</option>');
+                        }
+          else{
+            $("#per-state-dropdown").append('<option value="' + value.id + '">' + value.name + '</option>');
+          }
+                });
                         //$('#city-dropdown').html('<option value="">-- Select City --</option>');
                     }
                 });
@@ -1667,7 +1671,9 @@ $(document).ready(function(){
             --------------------------------------------
             --------------------------------------------*/
             $('#per-state-dropdown').on('change', function () {
-                var idState = this.value;
+                if($("#same_as_present").is(':checked')){
+                 var idState = $('#state-dropdown').val(); 
+                }else{var idState = this.value;}
                 $("#per-city-dropdown").html('');
                 $.ajax({
                     url: "{{url('api/fetch-cities')}}",
@@ -1680,9 +1686,14 @@ $(document).ready(function(){
                     success: function (res) {
                         $('#per-city-dropdown').html('<option value="">-- Select City --</option>');
                         $.each(res.cities, function (key, value) {
-                            $("#per-city-dropdown").append('<option value="' + value
-                                .id + '">' + value.name + '</option>');
-                        });
+                            if($('#city-dropdown').val()==value.id){
+            $("#per-city-dropdown").append('<option value="' + value
+                                .id + '"SELECTED>' + value.name + '</option>');
+                        }
+          else{
+            $("#per-city-dropdown").append('<option value="' + value.id + '">' + value.name + '</option>');
+          }
+                });
                     }
                 });
             });

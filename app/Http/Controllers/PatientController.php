@@ -674,7 +674,7 @@ class PatientController extends Controller
 
         }
 
-        return redirect('/new-patient-registration')->with('success', 'This multiple record Sent to guru successfully! now you can not change this record');
+        return redirect('/new-patient-registration')->with('success', 'This record Sent to guru successfully! now you can not change this record');
     }
 
     public function send_patient_to_guru($id,$guru_id)
@@ -766,7 +766,7 @@ class PatientController extends Controller
         //$guru=User::where('id',$patient->guru_id)->first();
 
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-        $shishya=DB::table('users')->join('patients','patients.shishya_id', '=', 'users.id')->first();
+        $shishya=User::where('id',$patient->shishya_id)->first();
         return view("patients.guru.guru-view-patients",compact('patient','guru','shishya'));
     }
 

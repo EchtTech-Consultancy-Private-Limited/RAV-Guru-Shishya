@@ -203,7 +203,7 @@
                                                                 <td class="center sorting_1 text-end p-0"><input
                                                                         name="send_phr_to_guru[]"
                                                                         value="{{ $patientlist->id }}" type="checkbox"
-                                                                        class="add new-patient-checkbox"></td>
+                                                                        class="add"></td>
                                                                 <td class="center sorting_1">{{ ++$key }}</td>
                                                                 <td class="center"><a
                                                                         href="{{ url('view-patient/' . encrypt($patientlist->id)) }}">{{ @format_patient_id($patientlist->id) }}</a>

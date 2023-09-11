@@ -366,7 +366,7 @@
                                              class="text-danger"></span></label><br>
                                          <label
                                          for="example-text-input"
-                                         class="form-control-label"><b>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</b></label>
+                                         class="form-control-label"><b>{{$shishya->firstname}}</b></label>
 
                                        </div>
                                     </div>
