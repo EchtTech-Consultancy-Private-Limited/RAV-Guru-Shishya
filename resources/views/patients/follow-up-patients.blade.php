@@ -44,7 +44,7 @@
                             @csrf
                             <div class="header">
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-3">
+                                    <div class="col-lg-3 col-md-4">
                                         <div class="new-patient-input">
                                             <div class="new-patient-ragistration">Registartion No.:
                                             </div>
@@ -56,7 +56,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3 col-md-3">
+                                    <div class="col-lg-3 col-md-4">
                                         <div class="new-patient-input">
                                             <div class="new-patient-ragistration">From:
                                             </div>
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3 col-md-3">
+                                    <div class="col-lg-3 col-md-4">
                                         <div class="new-patient-input">
                                             <div class="new-patient-ragistration">
                                                 To:
@@ -83,8 +83,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-3 col-md-3">
-                                        <div class="new-patient-input">
+                                    <div class="col-lg-3 col-md-12">
+                                        <div class="new-patient-input justify-content-end">
                                             <div class="pe-2">
                                                 <select name="report_type" class="form-control active">
                                                     <option value="">Select Duration</option>

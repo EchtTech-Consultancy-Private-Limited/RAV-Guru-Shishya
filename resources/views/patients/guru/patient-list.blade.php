@@ -23,17 +23,17 @@
               <div class="block-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                          
+
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
                              <h6 class="page-title"> Patients lists</h6>
-                             
+
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
                             <a href="{{url('/dashboard')}}">
                              <i class="fas fa-home"></i> Home</a>
                           </li>
-                          
+
                           <li class="breadcrumb-item active">   New Patients </li>
                        </ul>
                        @if ($message = Session::get('success'))
@@ -70,48 +70,48 @@
                             </tr>
                         </thead>
                         <tbody>
-                                                                                       
-                                                            
-                                                            
-                                                            
-                        @foreach($patientlist as $key=>$patientlist) 
-                                                                                 
+
+
+
+
+                        @foreach($patientlist as $key=>$patientlist)
+
                         <tr class="gradeX odd @if($patientlist->read_by_guru=='0') active-row @endif">
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <td class="center sorting_1"><?php echo get_user_name($patientlist->shishya_id); ?></td>
                                  <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td>
                                  <td class="text-center">{{$patientlist->registration_no}}</td>
                                  <td class="center"> {{$patientlist->registration_date}} </td>
-                                 <td class="center"> {{$patientlist->patient_name}} </td> 
+                                 <td class="center"> {{$patientlist->patient_name}} </td>
                                  <td class="center">@if($patientlist->gender==1) Male @elseif($patientlist->gender==2) Female @elseif($patientlist->gender==3)Others @endif</td>
 
                                  <td class="center"> {{$patientlist->patient_type}} </td>
-                                 <td class="center"> {{$patientlist->age}} </td> 
-                                 <td class="left">
+                                 <td class="center"> {{$patientlist->age}} </td>
+                                 <td class="left patient-list-action">
 
                                     <a href="{{ url('guru-view-patient/'.encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title ="View Record">
                                                     <i class="material-icons">visibility</i>
                                     </a>
-                                    
+
                                     @if($patientlist->phr_a_status== 1 OR $patientlist->phr_s_status== 1)
                                     <!-- <a href="javascript:void(0);" class="btn btn-secondary" title="Edit Patient">
-                                        Remarks  
+                                        Remarks
                                     </a> -->
 
                                     @else
                                     <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
-                                        Remarks  
+                                        Remarks
                                     </a>
                                     @endif
                                     <a  href="{{ url('guru-remark-history/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Show History">
-                                        History  
+                                        History
                                     </a>
 
-                                    
+
                                  </td>
                         </tr>
                         @endforeach
-                        
+
                     </tbody>
                      </table>
                     </div></div>
@@ -132,5 +132,5 @@
          </div>
       </div>
    </div>
-</section>      
+</section>
 @endsection

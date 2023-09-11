@@ -165,10 +165,10 @@
                                                                             class="text-danger"></span></label>
                                                                     <textarea cols="45" rows="2" name="progress" class="form-control" value="" aria-label="progress"
                                                                         placeholder="Please enter progress" required>
-@if (!empty($data->progress))
-{{ $data->progress }}@else{{ old('progress') }}
-@endif
-</textarea>
+                                                                        @if (!empty($data->progress))
+                                                                        {{ $data->progress }}@else{{ old('progress') }}
+                                                                        @endif
+                                                                        </textarea>
                                                                     @error('progress')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -186,10 +186,10 @@
                                                                             class="text-danger"></span></label>
                                                                     <textarea cols="45" rows="2" name="treatment" class="form-control" value=""
                                                                         aria-label="treatment" placeholder="Please enter treatment/therapies" required>
-@if (!empty($data->treatment))
-{{ $data->treatment }}@else{{ old('treatment') }}
-@endif
-</textarea>
+                                                                    @if (!empty($data->treatment))
+                                                                    {{ $data->treatment }}@else{{ old('treatment') }}
+                                                                    @endif
+                                                                    </textarea>
                                                                     @error('treatment')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -215,7 +215,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="card-body">
+                                    <div class="card-body add-follow-up-patient-history-sheet">
                                         <div calss="row">
                                             <div class="col-sm-12 follow_up">
                                                 <span>Patient History Sheet </span>
@@ -224,7 +224,7 @@
                                         </div>
                                         <div class="card-body2" style="display:none;">
 
-                                            <div class="row clearfix pt-5">
+                                            <div class="row clearfix pt-5 p-1">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input" class="form-control-label">Name of
@@ -710,7 +710,7 @@
                                             <div class="row clearfix">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="Shukrakshanapravritti">Shukrakshana
+                                                        <label for="Shukrakshanapravritti">xvii)Shukrakshana
                                                             pravritti</label>
                                                         <br><label for="example-hastatala-input"
                                                             class="form-control-label"><strong>
@@ -726,7 +726,7 @@
                                                         <label
                                                             for="Aartava
                                              Pravritti
-                                             Kala">xvii)
+                                             Kala">xviii)
                                                             Aartava
                                                             Pravritti
                                                             Kala</label>
@@ -741,7 +741,7 @@
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="Dehoshma">xviii)
+                                                        <label for="Dehoshma">xix)
                                                             Dehoshma</label>
                                                         <br><label for="example-hastatala-input"
                                                             class="form-control-label"><strong>
@@ -754,7 +754,7 @@
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="Bhara">xix)
+                                                        <label for="Bhara">xx)
                                                             Bhara</label>
                                                         <br><label for="example-text-input"
                                                             class="form-control-label"><strong>{{ $patient->bhara }}</strong></label>
@@ -765,7 +765,7 @@
                                             <div class="row clearfix">
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="Raktachapa">xx)
+                                                        <label for="Raktachapa">xxi)
                                                             Raktachapa</label>
                                                         <br><label for="example-hastatala-input"
                                                             class="form-control-label"><strong>
@@ -780,7 +780,7 @@
                                                     <div class="form-group">
                                                         <label
                                                             for="Hrid
-                                             gati">xxi)
+                                             gati">xxii)
                                                             Hrid
                                                             gati</label>
                                                         <br><label for="example-hastatala-input"
@@ -794,7 +794,7 @@
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="Shvasagati">xxii)
+                                                        <label for="Shvasagati">xxiii)
                                                             Shvasagati</label>
                                                         <br><label for="example-hastatala-input"
                                                             class="form-control-label"><strong>
@@ -807,7 +807,7 @@
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <div class="form-group">
-                                                        <label for="parkriti_parikshana">xxiiiSSs)
+                                                        <label for="parkriti_parikshana">xxiv)
                                                             Parkriti
                                                             Parikshana</label>
                                                         <br><label for="example-hastatala-input"
