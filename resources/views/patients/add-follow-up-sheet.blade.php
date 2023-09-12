@@ -241,7 +241,7 @@
                                                             of the Guru</label><br>
                                                         @if (!empty($guru->id))
                                                             <label for="example-text-input"
-                                                                class="form-control-label"><b>{{ $guru->address }}<b></label>
+                                                                class="form-control-label"><b>{{$guru->city_name}}<b></label>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -252,7 +252,7 @@
                                                         <label for="example-text-input" class="form-control-label">Name of
                                                             the Shishya<span class="text-danger"></span></label><br>
                                                         <label for="example-text-input"
-                                                            class="form-control-label"><b>{{ Auth::user()->firstname . ' ' . Auth::user()->middlename . ' ' . Auth::user()->lastname }}</b></label>
+                                                            class="form-control-label"><b>{{$shishya->firstname}}</b></label>
 
                                                     </div>
                                                 </div>
@@ -261,7 +261,7 @@
                                                         <label for="example-text-input" class="form-control-label">Date of
                                                             Report</label><br>
                                                         <label for="example-text-input"
-                                                            class="form-control-label"><b>{{ date('d-m-Y', strtotime($patient->date_of_report)) }}<b></label>
+                                                            class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
 
                                                     </div>
                                                 </div>

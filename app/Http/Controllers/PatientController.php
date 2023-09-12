@@ -355,7 +355,7 @@ class PatientController extends Controller
                     'send_to_shishya' => '1',
                 ];
                 FollowUpPatient::create($data);
-                return redirect('/follow-up-patients')->with('success', 'Patient follow up registered successfully.');
+                return redirect('/follow-up-patients')->with('success', 'Patient follow up saved successfully! ');
             }
 
 
@@ -632,7 +632,7 @@ class PatientController extends Controller
         unset($input['_token']);
         unset($input['patient_id']);
         Patient::where('id',$id)->update($input);
-        return redirect('/new-patient-registration')->with('success', 'Patient History Updated successfully !');
+        return redirect('/new-patient-registration')->with('success', 'Patient history updated successfully !');
 
     }
 
@@ -718,7 +718,7 @@ class PatientController extends Controller
             Mail::to($gurumail)->send(new SendPhr($phrData));
         //Mail sending script ends here
 
-        return redirect('/new-patient-registration')->with('success', 'This multiple record Sent to guru successfully! now you can not change this record');
+        return redirect('/new-patient-registration')->with('success', 'This record Sent to guru successfully! now you can not change this record');
     }
 
 
@@ -861,7 +861,7 @@ class PatientController extends Controller
            $patient->phr_s_status=1;
            $patient->read_by_shishya=0;
            $patient->save();
-            return redirect('/guru-patient-list')->with('success', 'Your remark has been send to shishya successfully');
+            return redirect('/guru-patient-list')->with('success', 'Your remark has been sent to shishya successfully');
 
         }
 

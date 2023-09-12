@@ -281,7 +281,7 @@
                         <div class="form-group">
                             <div class="form-line">
                                 <input type="text" id="registration_no" class="form-control find-registration"
-                                    placeholder="Enter patient's registration no." minlength="4" maxlength="20">
+                                    placeholder="Enter patient registration no." minlength="4" maxlength="20">
                                 <span class="text-danger" id="registration_no-error"></span>
                             </div>
                         </div>
