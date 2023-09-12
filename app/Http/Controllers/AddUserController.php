@@ -239,15 +239,14 @@ class AddUserController extends Controller
     {
         $formId = $request->input('form_step_type');
         if ($formId === 'step1') {
-            // Validate form 1 fields
             $this->validate($request, [
-                'firstname' => 'required|max:250|min:2',
+                'firstname' => 'required|max:200|min:2',
                 'middlename' => 'max:200|min:2',
-                'lastname' => 'max:200|min:2',
+                'lastname' => 'required|max:200|min:2',
                 'email' => 'required',
                 'date_of_birth' => 'required',
                 'age' => 'required|numeric',
-                'f_name' => 'required',
+                'f_name' => 'required|max:200|min:2',
                 'address1' => 'required',
                 'address2' => 'required',
                 'country' => 'required',
@@ -260,10 +259,18 @@ class AddUserController extends Controller
                 'title' => 'required',
         ],[
             'firstname.required' => 'First name is required',
+            'firstname.max' => 'Maximum length not more than 200',
+            'firstname.min' => 'Minimum length at least 2',
+            'middlename.max' => 'Maximum length not more than 200',
+            'middlename.min' => 'Minimum length at least 2',
+            'lastname.max' => 'Maximum length not more than 200',
+            'lastname.min' => 'Minimum length at least 2',
             'email' => 'Email is required',
             'date_of_birth.required' => 'Date of birth is required',
             'age.required' => 'Age is required and must be integer',
             'f_name.required' => 'Father name is required',
+            'f_name.max' => 'Father name is should not be 200',
+            'f_name.min' =>'Minimum length at least 2',
             'address1.required' => 'Address is required',
             'address2.required' => 'Address is required',
             'country.required' => 'Country is required',
@@ -274,14 +281,6 @@ class AddUserController extends Controller
             'profile_image.required|'   => 'Profile is jpeg,png,jpg',
             'mobile_no.required' => 'Mobile number is required',
             'title.required' => 'Title is required',
-        ]);
-        } elseif ($formId === 'step2') {
-            $this->validate($request, [
-                'course_name' => 'required',
-                'institute_name' => 'max:200|min:2',
-        ],[
-            'course_name.required' => 'Field is required',
-            'institute_name.max' => 'Length should be maximum 200 and minium 2',
         ]);
         }
 
