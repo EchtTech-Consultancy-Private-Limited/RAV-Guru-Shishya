@@ -160,7 +160,7 @@
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)" maxlength="32">
                                         @error('patient_name')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="text-danger">{{ $message }}</div>
   @enderror</div>
                                     </div>
                                     <div
@@ -181,7 +181,7 @@
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)" maxlength="32">
                                        @error('registration_no')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="text-danger">{{ $message }}</div>
   @enderror</div></div>
                                     </div>
                                  </div>
@@ -204,7 +204,7 @@
                                              value="{{ $patient->age }}"
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)">@error('age')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="text-danger">{{ $message }}</div>
   @enderror
                                        </div>
                                     </div>
@@ -241,7 +241,7 @@
                                                 @endforeach
                                              </select>
                                              @error('patient_type')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="text-danger">{{ $message }}</div>
   @enderror
                                     </div>
                                  </div>
@@ -267,7 +267,7 @@
                                              <option value="{{$key}}" {{$patient->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
                                           </select>@error('gender')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="text-danger">{{ $message }}</div>
   @enderror
                                        </div>
                                     </div>
@@ -289,7 +289,7 @@
                                              <option value="{{$key}}" {{$patient->age_group == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
                                           </select>@error('age_group')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="text-danger">{{ $message }}</div>
   @enderror
                                        </div>
                                     </div>
@@ -317,7 +317,7 @@
                                              <option value="{{$key}}" {{$patient->occupation == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
                                           </select>@error('occupation')
-    <div class="alert alert-danger">{{ $message }}</div>@enderror
+    <div class="text-danger">{{ $message }}</div>@enderror
                                        </div>
                                     </div>
                                     <div
@@ -339,7 +339,7 @@
                                              <option value="{{$key}}" {{$patient->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
                                           </select>@error('marital_status')
-    <div class="alert alert-danger">{{ $message }}</div>
+    <div class="text-danger">{{ $message }}</div>
   @enderror
                                        </div>
                                     </div>
