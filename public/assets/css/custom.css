@@ -92,11 +92,23 @@
    .new-patient-input{
       margin: 7px 0 !important;
    }
+   .new-patient-input.d-flex.align-items-center.justify-content-end.h-100 {
+      justify-content: start !important;
+  }
 }
 @media(max-width:768px){
    .width-50{
       width: 50% !important;
    }
+   ul.list-inline.pull-right {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+td, th {
+   font-size: 13px;
+}
 }
 
 @media(max-width:370px){
@@ -111,4 +123,24 @@
 }
 }
 
+@media(max-width:991px){
+   .wizard>.steps a {
+      padding: 10px 4px;
+      font-size: 13px;
+  }
+  .wizard>.steps>ul>li {
+  width: auto !important;
+}
+.wizard ul{
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+}
 
+
+@media(max-width:380px){
+   .wizard>.steps>ul>li {
+      width: 100% !important;
+  }
+}

@@ -184,7 +184,7 @@
                                                         {{ $followup->shishya_firstname . ' ' . $followup->shishya_lastname }}
                                                     </td>
                                                     <td class="center">{{ $followup->report_type }}</td>
-                                                    <td class="left">
+                                                    <td >
                                                         <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                             class="btn btn-tbl-edit" title="View Record">
                                                             <i class="material-icons">visibility</i>
