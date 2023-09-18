@@ -82,4 +82,65 @@
    content: "Active";
 }
 
+@media(min-width:1199px) and (max-width:1400px){
+   .new-patient-input{
+      margin: 15px 0 !important;
+   }
+}
 
+@media(max-width:991px){
+   .new-patient-input{
+      margin: 7px 0 !important;
+   }
+   .new-patient-input.d-flex.align-items-center.justify-content-end.h-100 {
+      justify-content: start !important;
+  }
+}
+@media(max-width:768px){
+   .width-50{
+      width: 50% !important;
+   }
+   ul.list-inline.pull-right {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+}
+td, th {
+   font-size: 13px;
+}
+}
+
+@media(max-width:370px){
+   .new-patient-ragistration {
+
+      font-size: 13px;
+      padding-right: 7px !important;
+  }
+  .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
+   padding: 5px 17px;
+   margin-left: 15px;
+}
+}
+
+@media(max-width:991px){
+   .wizard>.steps a {
+      padding: 10px 4px;
+      font-size: 13px;
+  }
+  .wizard>.steps>ul>li {
+  width: auto !important;
+}
+.wizard ul{
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+}
+
+
+@media(max-width:380px){
+   .wizard>.steps>ul>li {
+      width: 100% !important;
+  }
+}
