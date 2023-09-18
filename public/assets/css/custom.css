@@ -82,4 +82,33 @@
    content: "Active";
 }
 
+@media(min-width:1199px) and (max-width:1400px){
+   .new-patient-input{
+      margin: 15px 0 !important;
+   }
+}
+
+@media(max-width:991px){
+   .new-patient-input{
+      margin: 7px 0 !important;
+   }
+}
+@media(max-width:768px){
+   .width-50{
+      width: 50% !important;
+   }
+}
+
+@media(max-width:370px){
+   .new-patient-ragistration {
+
+      font-size: 13px;
+      padding-right: 7px !important;
+  }
+  .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
+   padding: 5px 17px;
+   margin-left: 15px;
+}
+}
+
 
