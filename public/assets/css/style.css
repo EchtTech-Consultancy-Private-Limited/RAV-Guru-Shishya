@@ -407,7 +407,7 @@ td, th {
 
 .table tbody tr td, .table tbody tr th {
     padding: 5px 10px !important;
-    text-align: left;
+    text-align: center;
 }
 .form-group input.form-control{
     border-bottom: 1px solid #9e9e9e;
@@ -424,4 +424,26 @@ td, th {
     outline: 0;
     
     box-shadow: none !important;
+}
+
+button[type="submit"]{
+    text-align: right;
+}
+button.btn.bg-indigo.waves-effect {
+    /* text-align: right !important; */
+    display: flex;
+    justify-content: end;
+    float: right;
+    align-items: center;
+}
+.wizard .steps a {
+    border-radius: 5px;
+}
+
+
+.wizard>.steps .disabled a:hover, .wizard>.steps .disabled a:active {
+    color: #fff;
+    background-color: #009688;
+    padding: 14px 6px;
+    border-radius: 5px;
 }

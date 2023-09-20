@@ -109,6 +109,36 @@
 td, th {
    font-size: 13px;
 }
+.mob-width-50{
+   width: 50%;
+}
+button.btn.btn-primary.waves-effect {
+  margin-left: 0;
+}
+.dataTables_wrapper .row{
+   align-items: center;
+}
+.dataTables_wrapper .col-sm-12.col-md-6{
+   width: 50%;
+}
+.breadcrumb .page-title {
+   font-size: 15px;
+}
+.theme-black .breadcrumb li a {
+ 
+   font-size: 13px;
+}
+input, button, select, optgroup, textarea {
+   
+   margin: 0 !important;
+   font-size: 13px;
+}
+
+.form-group input{
+   
+   margin: 0 !important;
+   font-size: 13px !important;
+}
 }
 
 @media(max-width:370px){
@@ -119,13 +149,16 @@ td, th {
   }
   .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
    padding: 5px 17px;
-   margin-left: 15px;
+   margin-left: 15px !important;
+}
+.prev-step{
+   margin-left: 15px !important;
 }
 }
 
 @media(max-width:991px){
    .wizard>.steps a {
-      padding: 10px 4px;
+      padding: 4px 10px;
       font-size: 13px;
   }
   .wizard>.steps>ul>li {

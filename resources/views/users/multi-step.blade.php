@@ -160,7 +160,7 @@
                                        @enderror
                                     </div>
                                  </div>
-                                 <div class="header col-md-12 pt-0">
+                                 <div class="header col-md-12 pt-0">     
                                     <h2>Present Address </h2>
                                  </div>
                                  <div class="col-sm-12 col-md-6">
@@ -459,7 +459,7 @@
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <input type="hidden"  name="profile_id"  class="form-control capitalize" value="<?php echo get_profile_id_step2(Auth::user()->id); ?>">
                               <div class="row">
-                                 <div class="col-3">
+                                 <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                        <label for="institute_name">Institute Name</label>
                                        <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" maxlength="200">
@@ -476,13 +476,13 @@
                                        </select>
                                     </div>
                                  </div>
-                                 <div class="col-3">
+                                 <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                        <label for="year_passing">Year of Passing</label>
                                        <input type="date" id="year_of_passing" name="year_of_passing">
                                     </div>
                                  </div>
-                                 <div class="col-3">
+                                 <div class="col-lg-3 mb-0">
                                     <div class="form-group ">
                                        <label >Upload Degree</label>
                                        <input type="file" name="upload_degree" class="form-control" accept="application/pdf">

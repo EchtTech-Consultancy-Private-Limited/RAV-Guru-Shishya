@@ -63,7 +63,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-lg-3 col-md-3">
+                                    <div class="col-lg-3 col-md-3 mob-width-50">
                                         <div class="new-patient-input">
                                             <div class="new-patient-ragistration">From:
                                             </div>
@@ -77,7 +77,7 @@
 
 
                                     </div>
-                                    <div class="col-lg-3 col-md-3">
+                                    <div class="col-lg-3 col-md-3 mob-width-50">
                                         <div class="new-patient-input">
                                             <div class="new-patient-ragistration">
                                                 To:
