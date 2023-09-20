@@ -238,10 +238,10 @@ class AddUserController extends Controller
     public function manage_profile_form(Request $request)
     {
         $formId = $request->input('form_step_type');
+        
         if ($formId === 'step1') {
             $this->validate($request, [
                 'firstname' => 'required|max:200|min:2',
-                'middlename' => 'max:200|min:2',
                 'lastname' => 'max:200|min:2',
                 'email' => 'required',
                 'date_of_birth' => 'required',
@@ -261,8 +261,6 @@ class AddUserController extends Controller
             'firstname.required' => 'First name is required',
             'firstname.max' => 'Maximum length not more than 200',
             'firstname.min' => 'Minimum length at least 2',
-            'middlename.max' => 'Maximum length not more than 200',
-            'middlename.min' => 'Minimum length at least 2',
             'lastname.max' => 'Maximum length not more than 200',
             'lastname.min' => 'Minimum length at least 2',
             'email' => 'Email is required',
@@ -287,8 +285,11 @@ class AddUserController extends Controller
         //return $request->all();
         $profile_id=$request->profile_id;
         $user_id=$request->user_id;
-        $input=$request->all();
-
+        $input = $request->all();
+        
+        //dd($input);
+        
+        
             $form_step_type=$request->form_step_type;
        
             $id=Auth::user()->id;

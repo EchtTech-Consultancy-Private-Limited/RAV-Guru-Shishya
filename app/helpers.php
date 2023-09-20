@@ -1,6 +1,6 @@
 <?php
 
-    function format_user_id($type='',$id,$created_at=''){
+    function format_user_id($type='',$id='',$created_at=''){
         //1 admin, 2 guru, 3 shishya
         if($type==2) return "RAVGURU-$id".($created_at!=''? '-'.date("Y",strtotime($created_at)):'');
         elseif($type==3) return "RAVSH-$id".($created_at!=''? '-'.date("Y",strtotime($created_at)):'');
