@@ -200,7 +200,7 @@
                                                             <tr
                                                                 class="gradeX odd @if ($patientlist->read_by_shishya == '0') active-row @endif">
 
-                                                                <td class="center sorting_1 text-end p-0"><input
+                                                                <td class="center sorting_1  p-0"><input
                                                                         name="send_phr_to_guru[]"
                                                                         value="{{ $patientlist->id }}" type="checkbox"
                                                                         class="add"></td>
@@ -224,7 +224,7 @@
                                                                 </td>
                                                                 <td class="center"> {{ $patientlist->patient_type }} </td>
                                                                 <td class="center"> {{ $patientlist->age }} </td>
-                                                                <td class="left">
+                                                                <td>
 
                                                                     <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}"
                                                                         class="btn btn-tbl-edit" title="View Patient">
