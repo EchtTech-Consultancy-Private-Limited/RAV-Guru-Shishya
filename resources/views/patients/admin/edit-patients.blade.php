@@ -216,7 +216,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Registration Date</label>
                                           <input
-                                             type="date"
+                                             type="text"
                                              name="registration_date"
                                              class="form-control"
                                              placeholder="Date"

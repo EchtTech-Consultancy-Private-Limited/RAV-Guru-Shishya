@@ -242,7 +242,7 @@ class AddUserController extends Controller
             $this->validate($request, [
                 'firstname' => 'required|max:200|min:2',
                 'middlename' => 'max:200|min:2',
-                'lastname' => 'required|max:200|min:2',
+                'lastname' => 'max:200|min:2',
                 'email' => 'required',
                 'date_of_birth' => 'required',
                 'age' => 'required|numeric',
@@ -253,7 +253,7 @@ class AddUserController extends Controller
                 'pincode' => 'required|numeric',
                 'aadhaar_no' => 'required|numeric',
                 'pan_no' => 'required',
-                'e_sign'   => 'required|mimes:jpeg,png,jpg|max:200',
+                'e_sign'   => 'mimes:jpeg,png,jpg|max:200',
                 'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
                 'mobile_no' => 'required|min:10',
                 'title' => 'required',
@@ -277,8 +277,8 @@ class AddUserController extends Controller
             'pincode.required' => 'Pincode is required',
             'aadhaar_no.required' => 'Aadhar number is required',
             'pan_no.required' => 'Pan number is required',
-            'e_sign.required'   => 'E-signature is required jpeg,png,jpg',
-            'profile_image.required|'   => 'Profile is jpeg,png,jpg',
+            'e_sign.mimes'   => 'E-signature is required jpeg,png,jpg',
+            'profile_image.mimes'   => 'Profile is jpeg,png,jpg',
             'mobile_no.required' => 'Mobile number is required',
             'title.required' => 'Title is required',
         ]);
@@ -500,15 +500,9 @@ class AddUserController extends Controller
         $this->validate($request, [
                 'regis_no' => array('regex:/^[a-zA-Z0-9\s-]+$/'),
                 'weekend_off' => 'required',
-                'address1' => 'required',
-                'address2' => 'required',
-                'country' => 'required',
         ],[
-            'regis_no.regex' => 'Registration number is required',
+            'regis_no.regex' => 'Registration number is a-zA-Z0-9 -',
             'weekend_off.required' => 'Weekend Off is required',
-            'address1.required' => 'Address is required',
-            'address2.required' => 'Address is required',
-            'country.required' => 'Country is required',
         ]);  
        // return $request->all();
         $clinical_id=$request->clinical_id;

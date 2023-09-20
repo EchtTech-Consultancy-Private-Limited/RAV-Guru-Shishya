@@ -680,7 +680,9 @@
                             <div class="col-4">
                               <div class="form-group">
                                 <label for="Registration_Number">Registration Number</label>
-                                <input type="text" id="Registration_Number" placeholder="Registration Number" class="form-control" name="regis_no" value="@if(isset($clinic->regis_no)){{ $clinic->regis_no }}@endif">
+                                <input type="text" id="Registration_Number" placeholder="Registration Number" class="form-control" name="regis_no" value="@if(isset($clinic->regis_no)){{ $clinic->regis_no }}@endif">@error('regis_no')
+    <div class="text-danger">{{ $message }}</div>
+  @enderror
                               </div>
                             </div>
 
