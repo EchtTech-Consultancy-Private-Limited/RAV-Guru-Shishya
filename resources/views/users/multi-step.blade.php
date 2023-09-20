@@ -1475,6 +1475,104 @@
                             id="edit_educational_id">
                         <input type="hidden" name="form_step_type" value="step2" class="form-control capitalize">
                         <div class="row">
+                            <div class="col-4">
+                            <div class="form-group">
+                              <label for="NOB">Name of Board</label>
+                              <input type="text" id="NOB" placeholder="Name of Board" class="form-control" name="name_of_board" value="@if(isset($clinic->name_of_board)){{ $clinic->name_of_board }}@endif">
+                            </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="form-group">
+                                <label for="Registration_Number">Registration Number</label>
+                                <input type="text" id="Registration_Number" placeholder="Registration Number" class="form-control" name="regis_no" value="@if(isset($clinic->regis_no)){{ $clinic->regis_no }}@endif">@error('regis_no')
+    <div class="text-danger">{{ $message }}</div>
+  @enderror
+                              </div>
+                            </div>
+
+                            <div class="col-4">
+                              <div class="form-group">
+                                <label for="Registration_year">Year of Registration</label>
+                                <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="@if(isset($clinic->year_of_regis)){{ $clinic->year_of_regis }}@endif">
+                              </div>
+                            </div>
+
+
+
+                            <div class="col-sm-12 col-md-12 mb-3">
+                              <div class="form-group d-flex">
+                              <input type="checkbox"  name="any_done_services" id="any_done_services" class="checkbox"  value="0" @if(isset($clinic->any_done_services)) @if($clinic->any_done_services==1) checked @endif @endif>
+                                <label for="central"> Any service done under Central/State government</label>
+                              </div>
+                            </div>
+
+
+                            <div class="col-4">
+                              <div class="form-group">
+                                <label for="Name_Clinic">Name of Clinic</label>
+                                <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
+                              </div>
+                            </div>
+
+                            <div class="col-4">
+                              <div class="form-group mt-1">
+                                <label for="Registration_year">Working days </label>
+                                <div class="form-group default-select select2Style">
+                                        <select class="form-control select2 width" multiple="" data-placeholder="Select" name="working_days[]">
+                                            @foreach(__('phr.working_days') as $key=>$value)
+                                            @if(isset($clinic_working_record))
+                                               <option @if(in_array($value, $clinic_working_record))  selected @endif value="{{$value}}">{{$value}}</option>
+                                            @else
+                                            <option  value="{{$value}}">{{$value}}</option>
+                                            @endif
+                                            @endforeach
+                                          </select>
+                                    </div>
+                              </div>
+                            </div>
+
+                            <div class="header col-md-12 pt-0">
+                                <h2>Clinic Timings </h2>
+                            </div>
+
+                            <div class="col-4">
+                              <div class="form-group mt-1">
+                                <label for="Registration_year">Morning Shifts Timings</label>
+                                <div class="form-group default-select select2Style">
+                                        <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_morning_timing[]">
+                                            <option value="">Select Morning Timing</option>
+
+                                            @foreach(__('phr.clinic_morning_timing') as $key=>$value)
+                                            @if(isset($clinic_morning_timing))
+                                               <option @if(in_array($value, $clinic_morning_timing))  selected @endif value="{{$value}}">{{$value}}</option>
+                                             @else
+                                            <option  value="{{$value}}">{{$value}}</option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                              </div>
+                            </div>
+
+                            <div class="col-4">
+                              <div class="form-group mt-1">
+                                <label for="Registration_year">Evening Shifts Timings</label>
+                                <div class="form-group default-select select2Style">
+                                        <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_evening_timing[]">
+                                           <option value="">Select Morning Timing</option>
+                                             @foreach(__('phr.clinic_evening_timing') as $key=>$value)
+                                             @if(isset($clinic_evening_timing))
+                                               <option @if(in_array($value, $clinic_evening_timing))  selected @endif value="{{$value}}">{{$value}}</option>
+                                               @else
+                                                <option  value="{{$value}}">{{$value}}</option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                              </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4">
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="institute_name">Institute Name</label>
