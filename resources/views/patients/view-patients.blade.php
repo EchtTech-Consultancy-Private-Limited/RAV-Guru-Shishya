@@ -71,14 +71,11 @@
                         <div class="card">
                            <div class="card-body">
 
-                                 <div
-                                    class="row clearfix">
+                                 <div class="row clearfix">
                                     <div
-                                       class="col-sm-6">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
+                                       class="col-md-3">
+                                       <div class="form-group">
+                                          <label for="example-text-input"
                                              class="form-control-label">Name of the Guru<span
                                              class="text-danger"></span></label><br>
                                           @if(!empty($guru->id))
@@ -89,7 +86,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -98,15 +95,11 @@
                                           @if(!empty($guru->id))
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label"><b>{{$guru->city_name}}<b></label>
+                                             class="form-control-label"><b>{{$guru->city_name}}</b></label>
                                           @endif
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
-                                    <div
-                                       class="col-sm-6">
+                                    <div class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -120,7 +113,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -128,17 +121,22 @@
                                              class="form-control-label">Date of Report</label><br>
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
+                                             class="form-control-label"><b><?php echo date('Y-m-d'); ?></b></label>
 
                                        </div>
                                     </div>
+
+
+
+
+                                    
                                  </div>
+                              
                                  <hr
                                     style="height:2px;">
-                                 <div
-                                    class="row clearfix">
+                                 <div class="row clearfix">
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -149,7 +147,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -161,26 +159,22 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Patients Type<span
+                                             class="form-control-label">Patients Type-<span
                                              class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->patient_type}}</strong></label>
 
                                        </div>
                                     </div>
                                  </div>
-                                 <div
-                                    class="row clearfix">
-                                    <div
-                                       class="col-sm-6">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
+                                 <div  class="row clearfix">
+                                    <div class="col-sm-6">
+                                       <div  class="form-group">
+                                          <label for="example-text-input"
                                              class="form-control-label">Age<span
                                              class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->age}} Yrs.</strong></label>
@@ -205,22 +199,16 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Patients Type</label>
+                                             class="form-control-label">Patients Type-</label>
 
                                              <label  for="example-text-input" class="form-control-label"><strong>{{$patient->patient_type}} </strong></label>
                                        </div>
                                     </div>
                                  </div>
-                                 <div
-                                    class="row clearfix">
-                                    <div
-                                       class="col-sm-6">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="Gender"
-                                             class="form-control-label">Gender<span
-                                             class="text-danger"></span></label>
+                                 <div class="row clearfix">
+                                    <div class="col-md-4">
+                                       <div class="form-group">
+                                          <label  for="Gender" class="form-control-label">Gender<span class="text-danger"></span></label>
                                              <br><label  for="example-text-input" class="form-control-label"><strong>
                                              @foreach(__('phr.gender') as $key=>$value)
                                              {{$patient->gender == $key  ? $value : ''}}</option>
@@ -229,7 +217,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -244,11 +232,8 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -264,7 +249,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -279,11 +264,9 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
+
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -294,7 +277,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -304,11 +287,8 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -324,7 +304,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -335,11 +315,9 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
+
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -349,7 +327,7 @@
                                         </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -359,11 +337,8 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -373,7 +348,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -383,7 +358,11 @@
 
                                        </div>
                                     </div>
+
+
                                  </div>
+                                
+                                 
                                  <div
                                     class="row clearfix">
                                     <div
@@ -872,7 +851,7 @@
                                  <div
                                     class="row clearfix">
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -886,9 +865,6 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
                                     <div
                                        class="col-sm-4">
                                        <div
@@ -928,11 +904,8 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row clearfix">
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -946,11 +919,15 @@
 
                                        </div>
                                     </div>
+
+
                                  </div>
+                                 
+                                 
                                  <div
                                     class="row clearfix">
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -966,7 +943,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-sm-6">
+                                       class="col-md-6">
                                        <div
                                           class="form-group">
                                           <label

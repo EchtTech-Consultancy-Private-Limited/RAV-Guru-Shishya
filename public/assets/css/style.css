@@ -65,10 +65,18 @@ text-align:center;
 }
 
 .follow_up, .remarks{
-    background:#009688; color: #fff;
+    /* background:#009688; color: #fff; */
     font-weight: normal;
     padding:10px;
     border-radius:5px;
+    background: #f8f1ea;
+    color: #070707;
+    font-weight: normal;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #dbd7d7;
+    /* box-shadow: 0px 0px 4px #d2cfcf; */
+    cursor: pointer;
 }
 
 footer {
@@ -250,7 +258,7 @@ color: #fff;
 }
 
 .new-patient .card .body .col-xs-12, .card .body .col-sm-12, .card .body .col-md-12, .card .body .col-lg-12 {
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
 }
 
 .card .header {
@@ -288,11 +296,15 @@ div.dataTables_wrapper div.dataTables_paginate {
 
 button.btn.btn-primary.waves-effect {
     margin-right: 10px;
+    background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important;
 }
 .new-patient-input select{
     cursor: pointer;
 }
-
+.btn-danger {
+    
+    background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important;
+}
 
 table.dataTable {
 
@@ -438,12 +450,58 @@ button.btn.bg-indigo.waves-effect {
 }
 .wizard .steps a {
     border-radius: 5px;
+    background: #fff !important;
+    color: #4d4b4b !important;
+    cursor: default;
 }
 
 
 .wizard>.steps .disabled a:hover, .wizard>.steps .disabled a:active {
     color: #fff;
-    background-color: #009688;
+    /* background-color: #009688; */
     padding: 14px 6px;
     border-radius: 5px;
+}
+
+.wizard .steps .active a,.wizard>.steps .disabled a:hover, .wizard>.steps .disabled a:active {
+    /* background-color: #009688; */
+    background: linear-gradient(178deg,#e67e22 0,#ff5722 100%) !important;
+    color: #fff !important;
+}
+
+.wizard .steps .done a {
+    background-color: rgb(255 146 79);
+}
+
+.bg-indigo {
+    background-color: #3f51b5 !important;
+    color: #fff;
+    background: linear-gradient(180deg, #e14579 0%, #c09437 100%);
+}
+
+.btn-info {
+    color: #000;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;
+    background: linear-gradient(180deg, #e14579 0%, #c09437 100%);
+}
+
+.card {
+    background: #efefef;
+    
+}
+.form-group {
+    width: 100%;
+    /* margin-bottom: 15px; */
+    background: #fff;
+    padding: 11px 20px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+}
+.card .body .col-sm-12 {
+    margin-bottom: 25px !important;
+}
+.add-follow-up-patient-history-sheet{
+    box-shadow: 0px 0px 4px #cac7c7;
+    border-radius: 10px;
 }
