@@ -159,4 +159,11 @@ $(document).ready(function() {
             }
         });
     });
+
+
+
+
+    $(".col-sm-12.follow_up").click(function(){
+        $("i.fa.fa-plus.fa-x").toggleClass("fa-minus");
+    })
 });
