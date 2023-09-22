@@ -113,7 +113,7 @@ td, th {
    width: 50%;
 }
 button.btn.btn-primary.waves-effect {
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 .dataTables_wrapper .row{
    align-items: center;
@@ -178,4 +178,17 @@ input, button, select, optgroup, textarea {
    .wizard>.steps>ul>li {
       width: 100% !important;
   }
+}
+
+@media screen and (max-width: 767px){
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+ 
+    justify-content: start !important;
+}
+.page-item.disabled .page-link {
+   margin-left: 0 !important;
+}
+.card .body .col-sm-12 {
+   margin-bottom: 10px !important;
+}
 }

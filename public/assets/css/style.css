@@ -269,6 +269,7 @@ color: #fff;
 .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
     /* padding: 5px 28px; */
     margin-left: 3px;
+    line-height: 2;
 }
 
 div#DataTables_Table_0_paginate {
@@ -296,14 +297,15 @@ div.dataTables_wrapper div.dataTables_paginate {
 
 button.btn.btn-primary.waves-effect {
     margin-right: 10px;
-    background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important;
+    background: #E67E22 !important;
 }
 .new-patient-input select{
     cursor: pointer;
 }
 .btn-danger {
     
-    background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important;
+    /* background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important; */
+    background: #DB7821 !important;
 }
 
 table.dataTable {
@@ -465,25 +467,29 @@ button.btn.bg-indigo.waves-effect {
 
 .wizard .steps .active a,.wizard>.steps .disabled a:hover, .wizard>.steps .disabled a:active {
     /* background-color: #009688; */
-    background: linear-gradient(178deg,#e67e22 0,#ff5722 100%) !important;
+    background:linear-gradient(178deg,#E67E22 0,#C26A1D 100%)  !important;
     color: #fff !important;
 }
 
 .wizard .steps .done a {
-    background-color: rgb(255 146 79);
+    background-color: #ffcbac !important;
 }
 
 .bg-indigo {
-    background-color: #3f51b5 !important;
+    /* background-color: #3f51b5 !important;
     color: #fff;
-    background: linear-gradient(180deg, #e14579 0%, #c09437 100%);
+    background: linear-gradient(180deg, #e14579 0%, #c09437 100%); */
+   
+    background: #E67E22 !important;
 }
 
 .btn-info {
     color: #000;
     background-color: #0dcaf0;
     border-color: #0dcaf0;
-    background: linear-gradient(180deg, #e14579 0%, #c09437 100%);
+    /* background: linear-gradient(180deg, #e14579 0%, #c09437 100%); */
+    background: #50DCFA!important;
+    color: #070707 !important;
 }
 
 .card {
@@ -504,4 +510,80 @@ button.btn.bg-indigo.waves-effect {
 .add-follow-up-patient-history-sheet{
     box-shadow: 0px 0px 4px #cac7c7;
     border-radius: 10px;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+   
+    font-size: 13px !important;
+   
+}
+
+.table tbody tr td, .table tbody tr th {
+    padding: 10px 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    vertical-align: middle;
+}
+
+.btn-tbl-edit {
+    box-shadow: 0 0px 10px 0 rgba(0,0,0,0.2) !important;
+}
+
+.btn-secondary {
+    color: #fff;
+/*    
+    border-color: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important;
+    background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important; */
+    background: #E67E22;
+}
+
+.page-item.disabled .page-link {
+   background: grey !important;
+   color: #fff;
+   font-size: 13px !important;
+}
+.page-item .page-link {
+    background: #E67E22 !important;
+    color: #fff;
+    font-size: 13px !important;
+ }
+
+ .bg-purple {
+    background-color: #C26A1D!important;
+    color: #fff;
+}
+
+.wizard .steps a {
+    padding: 14px 20px;
+}
+.btn-danger:hover {
+    background-color: #ed7e35 !important;
+    color: #fff !important;
+}
+.form-control-label {
+    text-align: left !important;
+}
+
+
+.theme-black .btn-primary {
+    /* background-color: #353c48 !important;
+    color: #fff !important;
+    border-color: #353c48 !important; */
+    background: #ed7e35 !important;
+}
+.theme-black .page-item.active .page-link {
+  
+    border-color: #e67e22 !important;
+    
+}
+.pagination li {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+   margin: 5px;
+}
+
+.d-none.flex-sm-fill.d-sm-flex.align-items-sm-center.justify-content-sm-between p.small.text-muted{
+    padding: 0 20px;
 }
