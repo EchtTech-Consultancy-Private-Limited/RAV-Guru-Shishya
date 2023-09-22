@@ -79,7 +79,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -94,7 +94,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -103,15 +103,12 @@
                                           @if(!empty($guru->id))
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label"><b>{{$guru->city_name}}<b></label>
+                                             class="form-control-label"><b>{{$guru->city_name}}</b></label>
                                           @endif
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -125,7 +122,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -137,13 +134,25 @@
                                           
                                        </div>
                                     </div>
+                                    
+
+
+
                                  </div>
+
+
+
+
+
+                                 
                                  <hr
                                     style="height:2px;">
+                                
+                                 </div>
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -159,12 +168,13 @@
                                              value="{{ $patient->patient_name }}"
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)" maxlength="32">
-                                        @error('patient_name')
-    <div class="text-danger">{{ $message }}</div>
-  @enderror</div>
+                                         @error('patient_name')
+                                          <div class="text-danger">{{ $message }}</div>
+                                       @enderror
+                                    </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -181,14 +191,14 @@
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)" maxlength="32">
                                        @error('registration_no')
-    <div class="text-danger">{{ $message }}</div>
-  @enderror</div></div>
-                                    </div>
-                                 </div>
-                                 <div
-                                    class="row">
+                                          <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                      </div>
+                                       </div>
+
+
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -209,7 +219,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -231,7 +241,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Patients Type <span
+                                             class="form-control-label"><b>Patients Type</b> <span
                                              class="text-danger">*</span></label>
                                              <select class="form-control" name="patient_type" >
                                                 <option value="">Please Select</option>
@@ -241,14 +251,14 @@
                                                 @endforeach
                                              </select>
                                              @error('patient_type')
-    <div class="text-danger">{{ $message }}</div>
-  @enderror
+                                          <div class="text-danger">{{ $message }}</div>
+                                       @enderror
                                     </div>
                                  </div>
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -267,12 +277,12 @@
                                              <option value="{{$key}}" {{$patient->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
                                           </select>@error('gender')
-    <div class="text-danger">{{ $message }}</div>
-  @enderror
+                                             <div class="text-danger">{{ $message }}</div>
+                                          @enderror
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -288,16 +298,13 @@
                                              @foreach(__('phr.age_group') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->age_group == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
-                                          </select>@error('age_group')
-    <div class="text-danger">{{ $message }}</div>
-  @enderror
+                                                                                 </select>@error('age_group')
+                                          <div class="text-danger">{{ $message }}</div>
+                                       @enderror
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -317,11 +324,11 @@
                                              <option value="{{$key}}" {{$patient->occupation == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
                                           </select>@error('occupation')
-    <div class="text-danger">{{ $message }}</div>@enderror
+                                           <div class="text-danger">{{ $message }}</div>@enderror
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -339,15 +346,12 @@
                                              <option value="{{$key}}" {{$patient->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
                                           </select>@error('marital_status')
-    <div class="text-danger">{{ $message }}</div>
-  @enderror
+                                          <div class="text-danger">{{ $message }}</div>
+                                       @enderror
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -365,7 +369,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -383,11 +387,8 @@
                                              onfocusout="defocused(this)" maxlength="32">
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -409,7 +410,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -426,11 +427,8 @@
                                              placeholder="Street Address" maxlength="200">{{ $patient->address }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -447,7 +445,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -464,11 +462,8 @@
                                              onfocusout="defocused(this)" maxlength="32">
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -485,7 +480,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -502,11 +497,8 @@
                                              onfocusout="defocused(this)" maxlength="50">
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -523,7 +515,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -541,7 +533,16 @@
                                              placeholder="Family History" maxlength="40">{{ $patient->family_history }}</textarea>
                                        </div>
                                     </div>
+
+
                                  </div>
+
+
+
+
+
+                                
+                              
                                  <div
                                     class="row">
                                     <div
@@ -561,7 +562,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -583,7 +584,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -604,7 +605,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -624,7 +625,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -648,7 +649,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -670,7 +671,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -692,7 +693,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -713,7 +714,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -737,7 +738,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -758,7 +759,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -779,7 +780,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -800,7 +801,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -824,7 +825,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -845,7 +846,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -869,7 +870,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -893,7 +894,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -920,7 +921,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -941,7 +942,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -967,7 +968,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -988,7 +989,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1009,7 +1010,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1030,7 +1031,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1054,7 +1055,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1075,7 +1076,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-3">
+                                       class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1100,7 +1101,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1124,7 +1125,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1142,11 +1143,8 @@
                                              placeholder="PrayogashaliyaParikshana">{{ $patient->prayogashaliya_parikshana }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1165,7 +1163,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1183,11 +1181,8 @@
                                              placeholder="Vibhedaka Pariksha" maxlength="100">{{ $patient->vibhedaka_pariksha }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1207,9 +1202,7 @@
                                              placeholder="Roga Vinishchaya- Nidana" maxlength="100">{{ $patient->roga_vinishchaya_pramukh_nidana }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
+
                                     <div
                                        class="col-md-4">
                                        <div
@@ -1270,11 +1263,9 @@
                                              placeholder="Samshamana Kriyas" maxlength="100">{{ $patient->samshamana_kriyas }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
+
                                     <div
-                                       class="col-md-6">
+                                       class="col-lg-4 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -1295,7 +1286,11 @@
                                              placeholder=" Pathya-Apathya" maxlength="100">{{ $patient->pathya_apathya }}</textarea>
                                        </div>
                                     </div>
+
                                  </div>
+                               
+                              
+                                
                                  <div
                                     class="row">
                                     <div

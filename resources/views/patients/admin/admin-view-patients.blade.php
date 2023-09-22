@@ -78,14 +78,10 @@
                               <input type="hidden" name="guru_id" value="{{ $guru->id }}">
                               <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                               <div class="card-body">
-                                 <div
-                                    class="row">
-                                    <div
-                                       class="col-md-6">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
+                                 <div class="row">
+                                    <div class="col-md-3">
+                                       <div class="form-group">
+                                          <label for="example-text-input"
                                              class="form-control-label">Name of the Guru<span
                                              class="text-danger"></span></label><br>
                                          <label
@@ -95,7 +91,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -103,15 +99,13 @@
                                              class="form-control-label">Place of the Guru</label><br>
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label"><b>{{$guru->city_name}}<b></label>
+                                             class="form-control-label"><b>{{$guru->city_name}}</b></label>
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
+
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -125,7 +119,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -138,12 +132,15 @@
                                        </div>
                                     </div>
                                  </div>
+
+
+                             
                                  <hr
                                     style="height:2px;">
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -162,7 +159,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -180,11 +177,8 @@
                                              onfocusout="defocused(this)" maxlength="32" readonly>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -203,7 +197,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -219,14 +213,13 @@
                                              onfocusout="defocused(this)" readonly>
                                        </div>
                                     </div>
-
                                     <div
                                        class="col-md-12">
                                        <div
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Patients Type</label>
+                                             class="form-control-label"><b>Patients Type</b></label>
                                           <input
                                              type="text"
                                              class="form-control"
@@ -235,11 +228,8 @@
                                              onfocusout="defocused(this)" readonly>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -261,7 +251,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -280,11 +270,8 @@
                                           </select>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -307,7 +294,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -327,11 +314,8 @@
                                           </select>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -349,7 +333,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -367,11 +351,8 @@
                                              onfocusout="defocused(this)" maxlength="32" readonly>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -393,7 +374,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -410,11 +391,8 @@
                                              placeholder="Street Address" maxlength="200" readonly>{{ $patient->address }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -431,7 +409,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -448,11 +426,8 @@
                                              onfocusout="defocused(this)" maxlength="32" readonly>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -469,7 +444,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -486,11 +461,8 @@
                                              onfocusout="defocused(this)" maxlength="50" readonly>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -507,7 +479,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-3">
                                        <div
                                           class="form-group">
                                           <label
@@ -525,7 +497,12 @@
                                              placeholder="Family History" maxlength="40" readonly>{{ $patient->family_history }}</textarea>
                                        </div>
                                     </div>
+
+
+
                                  </div>
+
+                              
                                  <div
                                     class="row">
                                     <div
@@ -534,7 +511,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">5. Examination of the patient</label>
+                                             class="form-control-label"><b>5. Examination of the patient</b></label>
                                        </div>
                                     </div>
                                  </div>
@@ -1077,10 +1054,12 @@
                                        </div>
                                     </div>
                                  </div>
+
+
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -1104,7 +1083,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -1122,11 +1101,8 @@
                                              placeholder="Prayogashaliya Parikshana" readonly>{{ $patient->prayogashaliya_parikshana }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -1145,7 +1121,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -1163,11 +1139,8 @@
                                              placeholder="Vibhedaka Pariksha" maxlength="100" readonly>{{ $patient->vibhedaka_pariksha }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -1187,9 +1160,6 @@
                                              placeholder="Roga Vinishchaya- Nidana" maxlength="100" readonly>{{ $patient->roga_vinishchaya_pramukh_nidana }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
                                        class="col-md-4">
                                        <div
@@ -1250,11 +1220,8 @@
                                              placeholder="Samshamana Kriyas" maxlength="100" readonly>{{ $patient->samshamana_kriyas }}</textarea>
                                        </div>
                                     </div>
-                                 </div>
-                                 <div
-                                    class="row">
                                     <div
-                                       class="col-md-6">
+                                       class="col-md-4">
                                        <div
                                           class="form-group">
                                           <label
@@ -1275,7 +1242,12 @@
                                              placeholder=" Pathya-Apathya" maxlength="100" readonly>{{ $patient->pathya_apathya }}</textarea>
                                        </div>
                                     </div>
+
                                  </div>
+
+
+
+                                 
                                  <div
                                     class="row">
                                     <div

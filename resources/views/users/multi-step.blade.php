@@ -552,19 +552,19 @@
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <input type="hidden"  name="clinical_id"  class="form-control capitalize" value="<?php echo get_clinical_id(Auth::user()->id); ?>">
                               <div class="row">
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="NOB">Name of Board</label>
                                        <input type="text" id="NOB" placeholder="Name of Board" class="form-control" name="name_of_board" value="@if(isset($clinic->name_of_board)){{ $clinic->name_of_board }}@endif">
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="Registration_Number">Registration Number</label>
                                        <input type="text" id="Registration_Number" placeholder="Registration Number" class="form-control" name="regis_no" value="@if(isset($clinic->regis_no)){{ $clinic->regis_no }}@endif">
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="Registration_year">Year of Registration</label>
                                        <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="@if(isset($clinic->year_of_regis)){{ $clinic->year_of_regis }}@endif">
@@ -576,13 +576,13 @@
                                        <label for="central"> Any service done under Central/State government</label>
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="Name_Clinic">Name of Clinic</label>
                                        <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group mt-1">
                                        <label for="Registration_year">Working days </label>
                                        <div class="form-group default-select select2Style">
@@ -601,7 +601,7 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Clinic Timings </h2>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group mt-1">
                                        <label for="Registration_year">Morning Shifts Timings</label>
                                        <div class="form-group default-select select2Style">
@@ -618,7 +618,7 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group mt-1">
                                        <label for="Registration_year">Evening Shifts Timings</label>
                                        <div class="form-group default-select select2Style">
@@ -799,19 +799,19 @@
                               <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step4">
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <div class="row">
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">No. of case reports</label>
                                        <input type="number"name="no_of_case_reports"  placeholder="No. of case reports" maxlength="200">
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Research Papers</label>
                                        <input type="number"name="research_papers" placeholder="Research Papers" maxlength="200">
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Books Published</label>
                                        <input type="number"name="books_published"  placeholder="Books Published" maxlength="200">
@@ -880,7 +880,7 @@
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <input type="hidden"  name="specific_id"  class="form-control capitalize" value="<?php echo get_specific_detail_id(Auth::user()->id); ?>">
                               <div class="row">
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Experience in ayurvedic clinical practice</label>
                                        <select name="exp_ayurvedic_clinical" class="form-control">
@@ -890,7 +890,7 @@
                                        </select>
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Any teaching experience</label>
                                        <div class="d-flex justify-content-between show-form">
@@ -903,7 +903,7 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-4">
+                                 <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Area of specialization in practice</label>
                                        <select name="area_specialization" class="form-control">
@@ -913,7 +913,7 @@
                                        </select>
                                     </div>
                                  </div>
-                                 <div class="col-5">
+                                 <div class="col-md-5">
                                     <div class="form-group">
                                        <label for="school_name">Honourary attachments to any college/hospital/ on regular/part time basis</label>
                                        <div class="d-flex justify-content-between show-form">
@@ -927,13 +927,13 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-7">
+                                 <div class="col-md-7">
                                     <div class="form-group">
                                        <label>Any recognition/ award / honourary / position offered in recognition of your clinical expertise</label>
                                        <input type="textarea"name="any_recognition_award"  class="form-control" placeholder="Any recognition/ award / honourary / position offered in recognition of your clinical expertise" value="@if(isset($specific_details_record->any_recognition_award)){{ $specific_details_record->any_recognition_award }}@endif">
                                     </div>
                                  </div>
-                                 <div class="col-12">
+                                 <div class="col-md-12">
                                     <div class="form-group">
                                        <label>Any other speciality that supports you / your empanelment listing</label>
                                        <input type="textarea"name="any_other_speciality" class="form-control" placeholder="Any other speciality that supports you / your empanelment listing (Under 100 to 150 words)" value="@if(isset($specific_details_record->any_other_speciality)){{ $specific_details_record->any_other_speciality}}@endif">
@@ -1032,19 +1032,19 @@
                <input type="hidden"  name="form_step_type" value="step4"  class="form-control capitalize">
                <div class="row">
                   <div class="row">
-                     <div class="col-4">
+                     <div class="col-md-4">
                         <div class="form-group">
                            <label for="school_name">No. of case reports</label>
                            <input type="text"name="no_of_case_reports" id="edit_no_of_case_reports"  placeholder="No. of case reports">
                         </div>
                      </div>
-                     <div class="col-4">
+                     <div class="col-md-4">
                         <div class="form-group">
                            <label for="school_name">Research Papers</label>
                            <input type="text"name="research_papers" id="edit_research_papers" placeholder="Research Papers">
                         </div>
                      </div>
-                     <div class="col-4">
+                     <div class="col-md-4">
                         <div class="form-group">
                            <label for="school_name">Books Published</label>
                            <input type="text"name="books_published" id="edit_books_published"  placeholder="Books Published">
