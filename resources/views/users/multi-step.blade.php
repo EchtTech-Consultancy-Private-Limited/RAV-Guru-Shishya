@@ -583,9 +583,10 @@
                                     </div>
                                  </div>
                                  <div class="col-md-4">
-                                    <div class="form-group mt-1">
-                                       <label for="Registration_year">Working days </label>
+                                    
+                                      
                                        <div class="form-group default-select select2Style">
+                                       <label for="Registration_year">Working days </label>
                                           <select class="form-control select2 width" multiple="" data-placeholder="Select" name="working_days[]">
                                              @foreach(__('phr.working_days') as $key=>$value)
                                              @if(isset($clinic_working_record))
@@ -596,15 +597,16 @@
                                              @endforeach
                                           </select>
                                        </div>
-                                    </div>
+                                   
                                  </div>
                                  <div class="header col-md-12 pt-0">
                                     <h2>Clinic Timings </h2>
                                  </div>
                                  <div class="col-md-4">
-                                    <div class="form-group mt-1">
-                                       <label for="Registration_year">Morning Shifts Timings</label>
+                                  
+                                     
                                        <div class="form-group default-select select2Style">
+                                       <label for="Registration_year">Morning Shifts Timings</label>
                                           <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_morning_timing[]">
                                              <option value="">Select Morning Timing</option>
                                              @foreach(__('phr.clinic_morning_timing') as $key=>$value)
@@ -616,12 +618,13 @@
                                              @endforeach
                                           </select>
                                        </div>
-                                    </div>
+                                   
                                  </div>
                                  <div class="col-md-4">
-                                    <div class="form-group mt-1">
-                                       <label for="Registration_year">Evening Shifts Timings</label>
+                                    
+                                     
                                        <div class="form-group default-select select2Style">
+                                       <label for="Registration_year">Evening Shifts Timings</label>
                                           <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_evening_timing[]">
                                              <option value="">Select Morning Timing</option>
                                              @foreach(__('phr.clinic_evening_timing') as $key=>$value)
@@ -633,7 +636,7 @@
                                              @endforeach
                                           </select>
                                        </div>
-                                    </div>
+                                   
                                  </div>
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
