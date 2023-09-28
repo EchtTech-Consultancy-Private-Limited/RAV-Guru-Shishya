@@ -280,7 +280,7 @@
                         <label for="registration_no">Patient Registration No.</label>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" id="registration_no" class="form-control find-registration"
+                                <input type="text" id="registration_no" class="form-control"
                                     placeholder="Enter patient registration no." minlength="4" maxlength="20">
                                 <span class="text-danger" id="registration_no-error"></span>
                             </div>

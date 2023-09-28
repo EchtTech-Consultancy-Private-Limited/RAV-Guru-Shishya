@@ -218,7 +218,7 @@
                                  name="password" type="password"
                                  placeholder="Enter your password" autocomplete="new-password" onpaste="return false" oncopy="return false">
 
-                                 <i class="fas fa-eye-slash field-icon" id="eye1"></i>
+                                 <i class="fas fa-eye-slash field-icon eye1"></i>
                               <span class="text-danger" id="password_error"></span>
                               <span class="show-pass" onclick="toggle()">
                               </span>
@@ -269,32 +269,35 @@
                               <div class="form-line">
                                  <label>Confirm Password<span class="text-danger">*</span></label>
                                  <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password checkPassword" onkeyup='check()' onpaste="return false" oncopy="return false">
-                                 <i class="fas fa-eye-slash field-icon" id="eye1"></i>
+                                 <i class="fas fa-eye-slash field-icon eye2"></i>
                                  <span id="confirm_password_msg"></span>
                                  <span id="confirm_password_error" class="text-danger"></span>
                               </div>
                            </div>
                         </div>
 
-                        <div class="row clearfix">
-                           <div class="col-sm-12">
-                              <div class="form-group">
-                                    <div class="col-md-12">
-                                          <div class="captcha">
-                                          <span>{!! captcha_img('math') !!}</span>
-                                          <button type="button" class="btn btn-secondary btn-refresh"><i class="fa fa-refresh"></i></button>
-                                          </div>
-                                          <span class="text-danger">*</span>
-                                          <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha" required>
-                                          @if ($errors->has('captcha'))
-                                              <span class="help-block">
-                                                  <strong style="color:red;">{{ $errors->first('captcha') }}</strong>
-                                              </span>
-                                          @endif
-                                      </div>
-                              </div>
-                           </div>
+                        <div class="form-group mb-3 row align-items-center">
+
+                        <div class="col-md-5">
+                        <label for="password" class="sr-only">Captcha</label>
+                        <div class="captcha d-flex">
+                           <span>{!! captcha_img('math') !!}</span>
+                           <button type="button" class="btn btn-secondary btn-refresh ml-2">
+                              <i class="fa fa-refresh"></i>
+                           </button>
                         </div>
+                        </div>
+
+                        <div class="col-md-7 pl-0">
+                        <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
+                        @if ($errors->has('captcha'))
+                        <span class="help-block">
+                           <strong style="color:red;">{{ $errors->first('captcha') }}</strong>
+                        </span>
+                        @endif
+                        </div>
+
+                     </div>
                      </div>
 
 
@@ -317,8 +320,7 @@
 
          $(function(){
     
-    $('#eye1').click(function(){
-           
+    $('.eye1').click(function(){
           if($(this).hasClass('fa-eye-slash')){
                
             $(this).removeClass('fa-eye-slash');
@@ -336,6 +338,26 @@
             $('#password').attr('type','password');
           }
       });
+
+      $('.eye2').click(function(){
+          if($(this).hasClass('fa-eye-slash')){
+               
+            $(this).removeClass('fa-eye-slash');
+              
+            $(this).addClass('fa-eye');
+              
+            $('#checkPassword').attr('type','text');
+                
+          }else{
+             
+            $(this).removeClass('fa-eye');
+              
+            $(this).addClass('fa-eye-slash');  
+             
+            $('#checkPassword').attr('type','password');
+          }
+      });
+
   }); 
             });
     </script>
