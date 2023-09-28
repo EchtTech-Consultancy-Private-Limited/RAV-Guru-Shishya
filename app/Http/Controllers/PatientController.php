@@ -174,7 +174,6 @@ class PatientController extends Controller
 
     public function follow_up_patients(Request $request)
     {
-
         $data=FollowUpPatient::select('follow_up_patients.*','patients.patient_name', 'students.firstname as shishya_firstname','students.lastname as shishya_lastname', 'gurus.firstname as guru_firstname','gurus.lastname as guru_lastname')
         ->leftJoin('patients', 'patients.id', '=', 'follow_up_patients.patient_id')->leftJoin('users as students', 'students.id', '=', 'follow_up_patients.shishya_id')->leftJoin('users as gurus', 'gurus.id', '=', 'follow_up_patients.guru_id');
 
@@ -561,7 +560,6 @@ class PatientController extends Controller
     // add new patients
     public function register_patients(Request $request)
     {
-        //dd("$request->patient_type1");
         $request->validate(
             [
               'patient_name'   => 'required|max:100|min:2',
@@ -576,12 +574,12 @@ class PatientController extends Controller
             ]);
 
         $input = $request->all();
-        $input['phr_s_status']=1;
+        $input['phr_a_status']=1;
+        $input['phr_g_status']=1;
+        $input['phr_s_status']=1;        
         //dd($input['phr_s_status']);
         $patient = Patient::create($input);
         return redirect('/new-patient-registration')->with('success', 'Patient Registered Successfully');
-
-
     }
 
     public function view_patient(Request $request, $id)
@@ -970,7 +968,6 @@ class PatientController extends Controller
 
     public function in_patients($phr_type)
     {   
-
         if($phr_type=="In-Patient")
         {
             $patientlist=Patient::orderBy('id','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get();

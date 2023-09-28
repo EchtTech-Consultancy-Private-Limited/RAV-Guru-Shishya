@@ -87,12 +87,8 @@ class AddUserController extends Controller
                 'lastname' =>'required|max:32|min:2',
                 'email' => ['required','email','max:50','unique:users','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'mobile_no'=>'required|numeric|unique:users|min:10,mobile_no|digits:10',
-                'captcha'=> 'required|captcha',
-           ],
-           [
-            'captcha.captcha'=>"Invalid captcha code."
-           ]
-       );
+                // 'captcha' => 'required|captcha'
+           ]);
 
            //Userdetails for mail
 

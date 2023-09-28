@@ -82,6 +82,22 @@
    content: "Active";
 }
 
+
+/* ======================media queries==================== */
+@media(max-width:1400px){
+   .wizard .steps a {
+      padding: 14px 10px;
+   }
+}
+
+@media(min-width:991px) and (max-width:1300px){
+   .wizard .steps a {
+     
+      font-size: 13px;
+   }
+}
+
+
 @media(min-width:1199px) and (max-width:1400px){
    .new-patient-input{
       margin: 15px 0 !important;
@@ -180,7 +196,7 @@ input, button, select, optgroup, textarea {
   }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px){
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {
  
     justify-content: start !important;
@@ -190,5 +206,13 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 .card .body .col-sm-12 {
    margin-bottom: 10px !important;
+}
+.card .body {
+  
+   padding: 0px;
+}
+.breadcrumb {
+   font-size: 13px;
+   
 }
 }

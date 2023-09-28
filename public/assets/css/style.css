@@ -181,7 +181,7 @@ ul.list-inline.pull-right {
 }
 
 .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
-    padding: 5px 30px;
+    padding: 5px 10px;
     margin-left: 15px;
 }
 
@@ -337,6 +337,7 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
     .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
         padding: 5px 9px !important;
         margin-left: 3px;
+        font-weight: 500;
     }
 }
 
@@ -488,8 +489,8 @@ button.btn.bg-indigo.waves-effect {
     background-color: #0dcaf0;
     border-color: #0dcaf0;
     /* background: linear-gradient(180deg, #e14579 0%, #c09437 100%); */
-    background: #50DCFA!important;
-    color: #070707 !important;
+    background: #07819b!important;
+    color: #fff !important;
 }
 
 .card {
@@ -505,7 +506,7 @@ button.btn.bg-indigo.waves-effect {
     border-radius: 5px;
 }
 .card .body .col-sm-12 {
-    margin-bottom: 25px !important;
+    margin-bottom: 10px !important;
 }
 .add-follow-up-patient-history-sheet{
     box-shadow: 0px 0px 4px #cac7c7;
@@ -586,4 +587,37 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .d-none.flex-sm-fill.d-sm-flex.align-items-sm-center.justify-content-sm-between p.small.text-muted{
     padding: 0 20px;
+}
+
+.form-check, label {
+   
+    font-weight: 600;
+}
+.wizard>.steps .number {
+    font-size: 14px;
+}
+
+.wizard>.steps .disabled a {
+    background: #eee;
+    color: #aaa;
+    cursor: default;
+    font-weight: bold;
+}
+.card .body .col-xs-4, .card .body .col-sm-4, .card .body .col-md-4, .card .body .col-lg-4 {
+    margin-bottom: 10px;
+}
+input[type=text]:not(.browser-default),input[type=date]:not(.browser-default){
+     margin: 0;
+}
+
+.card .header h2 {
+    padding: 8px 0px 0 17px;
+}
+
+td.left.patient-list-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 8px 0 !important;
 }
