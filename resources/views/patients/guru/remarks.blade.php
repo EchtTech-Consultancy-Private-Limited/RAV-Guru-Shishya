@@ -88,7 +88,7 @@
 
                   <div class="col-sm-12 p-t-20 text-center">
                     <button type="submit" class="btn btn-primary waves-effect m-r-15" >Submit</button>
-                    <button type="button" onclick="reset_form();" class="btn btn-danger waves-effect">Reset</button>
+                    <button type="reset" onclick="refreshPage();" class="btn btn-danger waves-effect">Reset</button>
                  </div>
                      </div>
 
@@ -100,6 +100,4 @@
       </div>
    </div>
 </section>
-
-
 @endsection

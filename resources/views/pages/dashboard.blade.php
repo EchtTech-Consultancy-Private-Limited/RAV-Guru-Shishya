@@ -21,11 +21,11 @@
 
 
                 @if(Session::has('success'))
-                <div class="alert alert-success" style="padding: 15px;" role="alert">
+                <div class="alert alert-success" role="alert">                    
                     {{session::get('success')}}
                 </div>
                 @elseif(Session::has('fail'))
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" data-bs-dismiss="alert">
                     {{session::get('fail')}}
                 </div>
                 @endif

@@ -310,7 +310,6 @@ class PatientController extends Controller
     }
     public function save_follow_up_sheet(Request $request)
     {
-
         request()->validate([
             'guru_id' => 'required',
             'patient_id' => 'required',
@@ -570,9 +569,8 @@ class PatientController extends Controller
               'age_group'   => 'required',
               'occupation'   => 'required',
               'marital_status'   => 'required',
-              'address'   => 'required|max:100',
+              'address'   => 'required|max:250',
             ]);
-
         $input = $request->all();
         $input['phr_a_status']=1;
         $input['phr_g_status']=1;
