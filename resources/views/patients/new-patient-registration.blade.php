@@ -51,44 +51,8 @@
                         @csrf
                         <div class="header">
                             <div class="row">
-                                <div class="col-lg-3 col-md-3">
-                                    <div class="new-patient-input">
-                                        <div class="new-patient-ragistration">Registration No.:
-                                        </div>
-                                        <div>
-                                            <input type="text" name="prno" class="form-control" value="@if (request()->prno) {{ request()->prno }} @endif" maxlength="20">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-md-3 mob-width-50">
-                                    <div class="new-patient-input">
-                                        <div class="new-patient-ragistration">From:
-                                        </div>
-                                        <div>
-                                            <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if (request()->from_date) {{ date('Y-m-d', strtotime(request()->from_date)) }} @endif" max="{{ date('Y-m-d', time()) }}">
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="col-lg-3 col-md-3 mob-width-50">
-                                    <div class="new-patient-input">
-                                        <div class="new-patient-ragistration">
-                                            To:
-                                        </div>
-                                        <div>
-                                            <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if (request()->to_date) {{ date('Y-m-d', strtotime(request()->to_date)) }} @endif" max="{{ date('Y-m-d', time()) }}">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-lg-3 col-md-3">
+                                <div class="col-lg-12 col-md-12">
                                     <div class="new-patient-input d-flex align-items-center justify-content-end h-100">
-                                        <div>
-                                            <button type="submit" class="btn btn-primary waves-effect" style="line-height:2;"> Filter </button>
-                                        </div>
-
                                         <div>
                                             @if (Auth::user()->guru_id)
                                             <a type="button" href="{{ url('/add-history-sheet') }}" class="btn btn-danger waves-effect" style="line-height:2;">+ Add PHR
@@ -173,28 +137,20 @@
                                                         <td class="center"> {{ $patientlist->patient_type }} </td>
                                                         <td class="center"> {{ $patientlist->age }} </td>
                                                         <td>
-
                                                             <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="View Patient">
                                                                 <i class="material-icons">visibility</i>
                                                             </a>
-
-
-                                                            <!-- <a href="{{ url('edit-patient/' . $patientlist->id) }}" class="btn btn btn-tbl-edit" >
-                                                                 <i class="fa fa-edit " aria-hidden="true" style="line-height:0 !important"></i>
-                                                              </a> -->
-
                                                             @if ($patientlist->phr_s_status == 1)
-                                                            <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Edit Patient">
-                                                                <i class="material-icons">edit</i>
-                                                            </a>
-
-                                                            <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru Patient">
-                                                                <i class="material-icons">send</i>
-                                                            </a>
+                                                                <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Edit Patient">
+                                                                    <i class="material-icons">edit</i>
+                                                                </a>
+                                                                <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
+                                                                    <i class="material-icons">send</i>
+                                                                </a>
                                                             @if ($patientlist->phr_g_status != 1)
-                                                            <a href="{{ url('delete-phr/' . $patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
-                                                                <i class="material-icons">delete_forever</i>
-                                                            </a>
+                                                                <a href="{{ url('delete-phr/' . $patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                                    <i class="material-icons">delete_forever</i>
+                                                                </a>
                                                             @endif
                                                             @else
                                                             <!-- <a href="javascript:void(0);" class="btn btn-tbl-edit" title="Edit Patient">

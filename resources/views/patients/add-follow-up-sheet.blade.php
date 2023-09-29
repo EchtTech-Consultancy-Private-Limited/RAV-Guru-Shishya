@@ -102,12 +102,12 @@
                                                         <div class="form-group focused">
                                                             <div class="form-line">
                                                                 <label for="follow_up_date" class="form-control-label">Date of Follow up<span class="text-danger"></span></label>
-                                                                <input type="date" name="follow_up_date" class="form-control datetimepicker flatpickr-input active" placeholder="follow_up_date" aria-label="Name" value="@if (!empty($data->follow_up_date)) {{ date('Y-m-d', strtotime($data->follow_up_date)) }}@else{{ old('follow_up_date') }} @endif" required>
-                                                                @error('follow_up_date')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
+                                                                <input type="date" name="follow_up_date" value="{{ old('follow_up_date') }}" class="form-control datetimepicker flatpickr-input active" placeholder="follow_up_date" aria-label="Name" value="@if (!empty($data->follow_up_date)) {{ date('Y-m-d', strtotime($data->follow_up_date)) }}@else{{ old('follow_up_date') }} @endif" required>
+                                                                @if ($errors->has('follow_up_date'))
+                                                                <span class="help-block">
+                                                                    <strong style="color:red;">{{ $errors->first('follow_up_date') }}</strong>
                                                                 </span>
-                                                                @enderror
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -136,11 +136,11 @@
                                                                         Monthly Progress</option>
 
                                                                 </select>
-                                                                @error('report_type')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
+                                                                @if ($errors->has('report_type'))
+                                                                <span class="help-block">
+                                                                    <strong style="color:red;">{{ $errors->first('report_type') }}</strong>
                                                                 </span>
-                                                                @enderror
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -148,13 +148,12 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="progress" class="form-control-label">Progress<span class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" required>@if (!empty($data->progress))  {{ $data->progress }}@else{{ old('progress') }}@endif
-                                                            </textarea>
-                                                                @error('progress')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                                @enderror
+                                                                <textarea cols="45" rows="2" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" required>{{ old('progress') }}</textarea>
+                                                            @if($errors->has('progress'))
+                                                            <span class="help-block">
+                                                                <strong style="color:red;">{{ $errors->first('progress') }}</strong>
+                                                            </span>
+                                                            @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -162,13 +161,12 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="treatment" class="form-control-label">Treatment/Therapies<span class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>@if (!empty($data->treatment)){{ $data->treatment }}@else{{ old('treatment') }}@endif
-                                                                </textarea>
-                                                                @error('treatment')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
+                                                                <textarea cols="45" rows="2" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>{{ old('treatment') }}</textarea>
+                                                                @if ($errors->has('treatment'))
+                                                                <span class="help-block">
+                                                                    <strong style="color:red;">{{ $errors->first('treatment') }}</strong>
                                                                 </span>
-                                                                @enderror
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>

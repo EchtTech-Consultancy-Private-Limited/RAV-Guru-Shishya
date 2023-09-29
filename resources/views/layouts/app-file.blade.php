@@ -318,6 +318,13 @@ if ( $.fn.dataTable.isDataTable('#data_table1') ) {
              
             
          });
+
+    // sweet alert msg
+    window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 4000);
 </script>
 
 </body>

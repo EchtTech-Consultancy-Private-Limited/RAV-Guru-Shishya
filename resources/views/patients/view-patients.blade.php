@@ -154,7 +154,7 @@
                                              for="example-text-input"
                                              class="form-control-label">Registration No<span
                                              class="text-danger"></span></label>
-                                             <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->registration_no}}</strong></label>
+                                             <br><label  for="example-text-input" class="form-control-label"><strong>{{date('d-m-y',strtotime($patient->registration_date))}}</strong></label>
 
                                        </div>
                                     </div>
@@ -188,7 +188,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Registration Date</label>
-                                             <br><label  for="example-text-input" class="form-control-label"><strong>{{date('Y-m-d',strtotime($patient->registration_date))}}</strong></label>
+                                             <br><label  for="example-text-input" class="form-control-label"><strong>{{date('d-m-y',strtotime($patient->registration_date))}}</strong></label>
 
                                        </div>
                                     </div>
@@ -712,7 +712,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Bhara">18)
+                                             for="Bhara">xx)
                                           Bhara</label>
                                           <br><label  for="example-text-input" class="form-control-label"><strong>{{$patient->bhara}}</strong></label>
 
@@ -726,7 +726,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Raktachapa">xx)
+                                             for="Raktachapa">xxi)
                                           Raktachapa</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.raktachapa') as $key=>$value)
@@ -742,7 +742,7 @@
                                           class="form-group">
                                           <label
                                              for="Hrid
-                                             gati">xxi)
+                                             gati">xxii)
                                           Hrid
                                           gati</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
@@ -758,7 +758,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shvasagati">xxii)
+                                             for="Shvasagati">xxiii)
                                           Shvasagati</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
                                              @foreach(__('phr.shvasagati') as $key=>$value)
@@ -773,7 +773,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="parkriti_parikshana">xxiii)
+                                             for="parkriti_parikshana">xxiv)
                                           Parkriti
                                           Parikshana</label>
                                           <br><label  for="example-hastatala-input" class="form-control-label"><strong>
