@@ -69,6 +69,10 @@
        <div>
            @include('layouts/partials.sidebar')
        </div>
+       @elseif(Auth::user()->user_type==4)
+       <div>
+           @include('layouts/partials.sidebar')
+       </div>
        @endif
        <!-- [ Side-bar ] Start -->
 

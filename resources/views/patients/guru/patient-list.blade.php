@@ -97,6 +97,9 @@
                                     <!-- <a href="javascript:void(0);" class="btn btn-secondary" title="Edit Patient">
                                         Remarks
                                     </a> -->
+                                    <!-- <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
+                                        Remarks
+                                    </a> -->
 
                                     @else
                                     <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
@@ -106,7 +109,6 @@
                                     <a  href="{{ url('guru-remark-history/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Show History">
                                         History
                                     </a>
-
 
                                  </td>
                         </tr>

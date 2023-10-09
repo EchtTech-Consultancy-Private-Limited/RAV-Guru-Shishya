@@ -339,6 +339,7 @@ return [
 
     'user_type_model' => [
         '0'=>'All',
+        '4'=>'Super Admin',
         '1'=>'Admin',
         '2'=>'Guru',
         '3'=>'Shishya',

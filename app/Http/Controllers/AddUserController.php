@@ -623,9 +623,8 @@ class AddUserController extends Controller
 
     public function shishya_list(Request $request)
     {
-
-        $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3'];
-        if(Auth::user()->user_type=='1')
+        $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3','Super User'=>'4'];        
+        if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
             $data = User::orderBy('id','DESC')->where('user_type',"3")->get();
         else if(Auth::user()->user_type=='2')
             $data = User::orderBy('id','DESC')->where('guru_id',Auth::user()->id)->where('user_type',"3")->get();
@@ -642,8 +641,7 @@ class AddUserController extends Controller
 
     public function rav_admin(Request $request)
     {
-
-        $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3'];
+        $user_type_array=['Admin'=>'1','SuperAdmin'=>'4','Guru'=>'2','Shishya'=>'3'];
         $data = User::orderBy('id','DESC')->where('user_type',"1")->get();
         
         return view('users.index',compact('data','user_type_array'))

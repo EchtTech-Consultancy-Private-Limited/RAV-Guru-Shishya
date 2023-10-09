@@ -110,7 +110,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <strong>Email:</strong>
-                                            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                                            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control', 'readonly' => 'true' )) !!}
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                         <div class="form-line">
                                             <strong>Mobile No:</strong>
 
-                                           <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="{{ $user->mobile_no }}" maxlength="10">
+                                           <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="{{ $user->mobile_no }}" maxlength="10" readonly>
 
                                         </div>
                                     </div>

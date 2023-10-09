@@ -44,12 +44,11 @@
          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
                <div class="header">
-                  <h2>
-                     
-                    @if(Auth::user()->user_type==1)
+                  <h2>                    
+                    @if(Auth::user()->user_type==4 || Auth::user()->user_type==1)
                     <span style="float:right;" >
                         <form action="{{ route('users.create') }}" method="get">
-                           <input type="hidden" name="add_user_btn" value="@if(request()->path()=='rav-admin') {{$user_type_array['Admin']}} @elseif(request()->path()=='users') {{$user_type_array['Guru']}} @elseif(request()->path()=='shishya-list') {{$user_type_array['Shishya']}} @endif">
+                           <input type="hidden" name="add_user_btn" value="@if(request()->path()=='rav-admin' && Auth::user()->user_type==1) {{$user_type_array['Admin']}} @elseif(request()->path()=='rav-admin') {{$user_type_array['Admin']}} @elseif(request()->path()=='users') {{$user_type_array['Guru']}} @elseif(request()->path()=='shishya-list') {{$user_type_array['Shishya']}} @endif">
 
                            <input type="submit" value="+ Add @if(request()->path()=='users') Guru @elseif(request()->path()=='shishya-list') Shishya @elseif(request()->path()=='rav-admin') Admin @endif" class="btn btn-primary" style="padding:10px !important;">
                         </form>
@@ -89,7 +88,11 @@
 
                                     @if($user->user_type==1)
 
-                                    {{__('phr.user_type')[1]}} 
+                                    {{__('phr.user_type')[1]}}
+
+                                    @elseif($user->user_type==4)
+
+                                    {{__('phr.user_type')[4]}} 
 
                                     @elseif($user->user_type==2)
 
@@ -103,7 +106,7 @@
                                     {{ date('d-m-Y', strtotime($user->created_at)) }}
                                  </td>
                                  <td class="text-center">
-                                 @if(Auth::user()->user_type=='1')
+                                 @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
                                  <a href="{{ url('active-users/'.encrypt($user->id)) }}" class="@if($user->status==0) btn-tbl-disable @elseif($user->status==1) btn-tbl-edit @endif"   onclick="return confirm_option('change status')" title="Verify Users">
                                        <i class="fas fa-ban"></i>
                                     </a>
@@ -116,7 +119,7 @@
                                  <td class="center">
                                     <!-- <a class="btn btn-primary btn-sm" href="#"><i style="line-height:1.5 !important;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
 
-                                    <a href="{{ route('users.edit',encrypt($user->id)) }}" class="btn btn-tbl-edit" @if(Auth::user()->user_type=='1') title="Edit" @else  title="View" @endif onclick="return confirm_option('edit history sheet')">
+                                    <a href="{{ route('users.edit',encrypt($user->id)) }}" class="btn btn-tbl-edit" @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4') title="Edit" @else  title="View" @endif onclick="return confirm_option('edit history sheet')">
                                        <i class="material-icons">edit</i>
                                     </a>
                                     @if(Auth::user()->user_type=='2')
@@ -124,7 +127,7 @@
                                        <i class="material-icons">PHR</i>
                                     </a>
                                     @endif
-                                    @if(Auth::user()->user_type=='1')
+                                    @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
                                     <a  href="{{ url('delete-user/'.encrypt($user->id)) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                        <i class="material-icons">delete_forever</i>
                                     </a>

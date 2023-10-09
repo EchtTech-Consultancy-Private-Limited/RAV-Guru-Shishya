@@ -102,7 +102,7 @@
                                                         <div class="form-group focused">
                                                             <div class="form-line">
                                                                 <label for="follow_up_date" class="form-control-label">Date of Follow up<span class="text-danger"></span></label>
-                                                                <input type="date" name="follow_up_date" value="{{ old('follow_up_date') }}" class="form-control datetimepicker flatpickr-input active" placeholder="follow_up_date" aria-label="Name" value="@if (!empty($data->follow_up_date)) {{ date('Y-m-d', strtotime($data->follow_up_date)) }}@else{{ old('follow_up_date') }} @endif" required>
+                                                                <input type="text" name="follow_up_date" value="{{ date('d-m-Y') }}" class="form-control datetimepicker flatpickr-input active" placeholder="follow_up_date" aria-label="Name" value="@if (!empty($data->follow_up_date)) {{ date('Y-m-d', strtotime($data->follow_up_date)) }}@else{{ date('d-m-Y') }} @endif" readonly required>
                                                                 @if ($errors->has('follow_up_date'))
                                                                 <span class="help-block">
                                                                     <strong style="color:red;">{{ $errors->first('follow_up_date') }}</strong>

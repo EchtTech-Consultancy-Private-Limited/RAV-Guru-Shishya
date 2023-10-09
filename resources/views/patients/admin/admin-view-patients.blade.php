@@ -42,6 +42,11 @@
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                <div class="header">
+               <ul class="header-dropdown m-r-5">
+                  <li>
+                     <button style="margin-top:-15px;" type="button" class="btn btn-danger waves-effect" onclick="printDiv('printableArea')"> &nbsp; Download &nbsp;</button>
+                  </li>
+               </ul>
                   <ul class="header-dropdown m-r--5">
                      <li class="dropdown">
                         <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -63,7 +68,7 @@
                      </li>
                   </ul>
                </div>
-               <div class="body">
+               <div class="body" id="printableArea">
                   <div id="wizard_horizontal">
                      <!--<h2>New History Sheet</h2>-->
                      <section>
@@ -770,4 +775,16 @@
          </div>
       </div>
 </section>
+<script>
+   function printDiv(divName) {
+      var printContents = document.getElementById(divName).innerHTML;
+      var originalContents = document.body.innerHTML;
+
+      document.body.innerHTML = printContents;
+
+      window.print();
+
+      document.body.innerHTML = originalContents;
+   }
+</script>
 @endsection

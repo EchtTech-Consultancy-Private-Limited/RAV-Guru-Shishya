@@ -18,6 +18,7 @@ use App\Mail\PhrAdmin;
 use App\Mail\PhrGuruShishya2;
 use App\Mail\PhrGuruShishya;
 use Carbon\Carbon;
+use PDF;
 
 use DB;
 class PatientController extends Controller
@@ -303,7 +304,7 @@ class PatientController extends Controller
                 $data=FollowUpPatient::find($id);
             }
             return view("patients.add-follow-up-sheet",compact('guru','shishya','patient','data'));
-        } else {
+        } else {            
             return redirect('/follow-up-patients')->with('error', 'Patient registration not found.');
         }
 
@@ -572,8 +573,8 @@ class PatientController extends Controller
               'address'   => 'required|max:250',
             ]);
         $input = $request->all();
-        $input['phr_a_status']=1;
-        $input['phr_g_status']=1;
+        $input['phr_a_status']=0;
+        $input['phr_g_status']=0;
         $input['phr_s_status']=1;        
         //dd($input['phr_s_status']);
         $patient = Patient::create($input);
@@ -582,7 +583,7 @@ class PatientController extends Controller
 
     public function view_patient(Request $request, $id)
     {
-        if($id!=0)$id=decrypt($id);
+        if($id!=0)$id=decrypt($id);        
         $patient=Patient::find($id);
         $patient->read_by_shishya=1;
         $patient->save();
@@ -975,8 +976,7 @@ class PatientController extends Controller
         {
            $patientlist=Patient::orderBy('id','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get(); 
         }
-          return view("patients.admin.patient-list",compact("patientlist"));
-        
+          return view("patients.admin.patient-list",compact("patientlist"));      
          
     }
 

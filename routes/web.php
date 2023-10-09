@@ -84,7 +84,7 @@ Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::middleware(['CustomAuth'])->group(function () {
+    // Route::middleware(['CustomAuth'])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index']);
         //Route::get('shishya', [DashboardController::class, 'shishya']);
         //Route::resource('roles', RoleController::class);
@@ -129,7 +129,7 @@ Route::group(['middleware' => ['auth']], function() {
 
         /*Shishya List*/
         Route::post('register/patients', [PatientController::class, 'register_patients'])->name('register.patients');
-        Route::get('view-patient/{id}', [PatientController::class, 'view_patient']);
+        Route::get('view-patient/{id}', [PatientController::class, 'view_patient']);        
         Route::get('edit-patient/{id}', [PatientController::class, 'edit_patient']);
         Route::post('update/patients', [PatientController::class, 'update_patients'])->name('update.patients');
         Route::get('send-patient-toguru/{id}/{guru_id}', [PatientController::class, 'send_patient_to_guru']);
@@ -153,7 +153,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('attendance-list', [AttendanceController::class, 'index']);
         Route::get('add-attendance', [AttendanceController::class, 'add_attendance']);
         Route::post('add-attendance', [AttendanceController::class, 'update_attendance']);
-        Route::post('export-attendance', [AttendanceController::class, 'export_attendance']);
+        Route::get('export-attendance', [AttendanceController::class, 'export_attendance']);
 
 
 
@@ -236,7 +236,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
         Route::post('system-configration', [DashboardController::class, 'save_system_configration'])->name('system-configrations');
 
-    });
+    // });
 });
 
 Route::get('education/edit-company', [AddUserController::class, 'edit_manage_profile_education']);
