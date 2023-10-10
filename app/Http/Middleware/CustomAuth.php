@@ -31,7 +31,7 @@ class CustomAuth
 
       //dd($request->route());
 
-        if(isset(Auth::user()->id) && Auth::user()->id!==2){
+        if(isset(Auth::user()->id) && Auth::user()->id!==1){
             if(strpos(Route::currentRouteAction(),"@")!==false){                
                     $action=str_replace('App\Http\Controllers\\','',Route::currentRouteAction());
                     //dd([checkRoute($action,$request->route()->methods[0])]);

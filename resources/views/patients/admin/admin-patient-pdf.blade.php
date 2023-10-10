@@ -387,14 +387,11 @@
 
             <div class="fourth" >
                 <strong>Shishya's E-Sign</strong><br>
-                @if(Auth::user()->e_sign!='')
-                <img src="{{ public_path('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                @if($shishya->e_sign!='')
+                <img src="{{ public_path('uploads/'.$shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                 @endif
                 <br>
-                @if(Auth::user()->title>0)
-                {{__('phr.titlename.'.Auth::user()->title)}}
-                @endif
-                {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                ( @if($shishya->title>0) {{__('phr.titlename')[$shishya->title]}} @endif {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}})
             </div>
             <div class="fourth" >
                 <strong>Guru's E-Sign</strong><br>                

@@ -18,7 +18,16 @@
      opacity: 1;
     pointer-events: initial !important;
 }
+.form-control{
+    appearance: auto;
+}
 
+.breadcrumb .page-title{
+    text-transform: capitalize;
+}
+.form-check, label {
+    text-transform: capitalize;
+  }
 
 section.content1 {
     /* margin: 64px 15px 0 90px; */

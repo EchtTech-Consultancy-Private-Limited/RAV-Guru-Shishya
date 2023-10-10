@@ -104,7 +104,7 @@
                                     <i class="icons-history">&nbsp&nbsp&nbsp&nbsp</i>
                                     </a>
 
-                                    <a  href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                    <a  href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
 

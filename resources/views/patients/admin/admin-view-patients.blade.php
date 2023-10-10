@@ -230,7 +230,7 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">1. Main Complaint(As said by patient)</label>
+                                             <label for="example-text-input" class="form-control-label"> Main Complaint(As said by patient)</label>
                                              <textarea cols="45" rows="2" name="main_complaintsaid_by_patient" class="form-control" value="{{ $patient->main_complaintsaid_by_patient }}" aria-label="main_complaintsaid_by_patient" placeholder="Main Complaint" maxlength="100" readonly>{{ $patient->main_complaintsaid_by_patient }}</textarea>
                                           </div>
                                        </div>
@@ -242,7 +242,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">2. Main Complaint(As said by family member)</label>
+                                             <label for="example-text-input" class="form-control-label"> Main Complaint(As said by family member)</label>
                                              <textarea cols="45" rows="2" name="main_complaint_as_said_by_family" class="form-control" value="{{ $patient->main_complaint_as_said_by_family }}" aria-label="main_complaint_as_said_by_family" placeholder="Main Complaint" maxlength="100" readonly>{{ $patient->main_complaint_as_said_by_family }}</textarea>
                                           </div>
                                        </div>
@@ -254,13 +254,13 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">3. Past illness</label>
+                                             <label for="example-text-input" class="form-control-label"> Past illness</label>
                                              <textarea cols="45" rows="2" name="past_illness" class="form-control" value="{{ $patient->past_illness }}" aria-label="Address" placeholder="Past illness" maxlength="80" readonly>{{ $patient->past_illness }}</textarea>
                                           </div>
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">4.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Family
                                                 History</label>
                                              <textarea cols="45" rows="2" name="family_history" class="form-control" value="{{ $patient->family_history }}" aria-label="family_history" placeholder="Family History" maxlength="40" readonly>{{ $patient->family_history }}</textarea>
@@ -275,14 +275,14 @@
                                     <div class="row">
                                        <div class="col-md-12">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label"><b>5. Examination of the patient</b></label>
+                                             <label for="example-text-input" class="form-control-label"><b>Examination of the patient</b></label>
                                           </div>
                                        </div>
                                     </div>
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Skin">i)
+                                             <label for="Skin">
                                                 Skin</label>
                                              <select name="skin" id="Skin" class="form-control">
                                                 <option value="">Please
@@ -297,7 +297,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Nadi">ii)
+                                             <label for="Nadi">
                                                 Nadi</label>
                                              <select name="nadi" id="Nadi" class="form-control">
                                                 <option value="">Please
@@ -311,7 +311,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Place">iii)Place</label>
+                                             <label for="Place">Place</label>
                                              <select name="nadi_place" id="Place" class="form-control">
                                                 <option value="">Please
                                                    select
@@ -324,7 +324,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Nails">iv)
+                                             <label for="Nails">
                                                 Nails</label>
                                              <select name="nails" id="Nails" class="form-control">
                                                 <option value="">Please
@@ -340,7 +340,7 @@
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Nails">v)
+                                             <label for="Nails">
                                                 Anguli
                                                 sandhi</label>
                                              <select name="anguli_sandhi" id="Anguli
@@ -355,7 +355,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Netra">vi)
+                                             <label for="Netra">
                                                 Netra</label>
                                              <select name="netra" id="Netra" class="form-control">
                                                 <option value="">Please
@@ -370,7 +370,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Adhovartma">vii)
+                                             <label for="Adhovartma">
                                                 Adhovartma</label>
                                              <select name="adhovartma" id="Adhovartma" class="form-control">
                                                 <option value="">Please
@@ -384,7 +384,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Hastatala">viii)
+                                             <label for="Hastatala">
                                                 Hastatala</label>
                                              <select name="hastatala" id="Hastatala" class="form-control">
                                                 <option value="">Please
@@ -400,7 +400,7 @@
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Jihwa">ix)
+                                             <label for="Jihwa">
                                                 Jihwa</label>
                                              <select name="jihwa" id="Jihwa" class="form-control">
                                                 <option value="">Please
@@ -414,7 +414,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Aakriti">x)
+                                             <label for="Aakriti">
                                                 Aakriti</label>
                                              <select name="aakriti" id="Aakriti" class="form-control">
                                                 <option value="">Please
@@ -428,7 +428,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Shabda">xi)
+                                             <label for="Shabda">
                                                 Shabda</label>
                                              <select name="shabda" id="Shabda" class="form-control">
                                                 <option value="">Please
@@ -442,7 +442,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Koshtha">xii)
+                                             <label for="Koshtha">
                                                 Koshtha</label>
                                              <select name="koshtha" id="Koshtha" class="form-control">
                                                 <option value="">Please
@@ -458,7 +458,7 @@
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Agni">xiii)
+                                             <label for="Agni">
                                                 Agni</label>
                                              <select name="agni" id="Agni" class="form-control">
                                                 <option value="">Please
@@ -473,7 +473,7 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="Mala
-                                             Pravritti">xiv)
+                                             Pravritti">
                                                 Mala
                                                 Pravritti</label>
                                              <select name="mala_pravritti" id="Mala
@@ -490,7 +490,7 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="Mutra
-                                             Pravritti">xv)
+                                             Pravritti">
                                                 Mutra
                                                 Pravritti</label>
                                              <select name="mutra_pravritti" id="Mutra
@@ -507,7 +507,7 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="Vyavay
-                                             Pravritti">xvi)
+                                             Pravritti">
                                                 Vyavay
                                                 Pravritti</label>
                                              <select name="vyavay_pravritti" id="Vyavay
@@ -541,7 +541,7 @@
                                           <div class="form-group">
                                              <label for="Aartava
                                              Pravritti
-                                             Kala">xvii)
+                                             Kala">
                                                 Aartava
                                                 Pravritti
                                                 Kala</label>
@@ -558,7 +558,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Dehoshma">xviii)
+                                             <label for="Dehoshma">
                                                 Dehoshma</label>
                                              <select name="dehoshma" id="Dehoshma" class="form-control">
                                                 <option value="">Please
@@ -572,7 +572,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Bhara">xix)
+                                             <label for="Bhara">
                                                 Bhara</label>
                                              <input type="text" name="bhara" id="Bhara" value="{{ $patient->bhara }}" class="form-control" placeholder="Bhara" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="32" readonly>
                                           </div>
@@ -581,7 +581,7 @@
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Raktachapa">xx)
+                                             <label for="Raktachapa">
                                                 Raktachapa</label>
                                              <select name="raktachapa" id="Raktachapa" class="form-control">
                                                 <option value="">Please
@@ -596,7 +596,7 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="Hrid
-                                             gati">xxi)
+                                             gati">
                                                 Hrid
                                                 gati</label>
                                              <select name="hrid_gati" id="Hrid
@@ -612,7 +612,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="Shvasagati">xxii)
+                                             <label for="Shvasagati">
                                                 Shvasagati</label>
                                              <select name="shvasagati" id="shvasagati" class="form-control">
                                                 <option value="">Please
@@ -626,7 +626,7 @@
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
-                                             <label for="parkriti_parikshana">xxiii)
+                                             <label for="parkriti_parikshana">
                                                 Parkriti
                                                 Parikshana</label>
                                              <select name="parkriti_parikshana" id="parkriti_parikshana" class="form-control">
@@ -645,7 +645,7 @@
                                     <div class="row">
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">6.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Examination
                                                 by
                                                 Physician</label>
@@ -661,7 +661,7 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">7.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Prayogashaliya
                                                 Parikshana</label>
                                              <textarea cols="45" rows="2" name="prayogashaliya_parikshana" class="form-control" value="" aria-label="prayogashaliya_parikshana" placeholder="Prayogashaliya Parikshana" readonly>{{ $patient->prayogashaliya_parikshana }}</textarea>
@@ -669,7 +669,7 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">8.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Samprapti
                                                 Vivarana</label>
                                              <textarea cols="45" rows="2" name="samprapti_vivarana" class="form-control" value="" aria-label="samprapti_vivarana" placeholder="Samprapti Vivarana" maxlength="100" readonly>{{ $patient->samprapti_vivarana }}</textarea>
@@ -677,7 +677,7 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">9.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Vibhedaka
                                                 Pariksha</label>
                                              <textarea cols="45" rows="2" name="vibhedaka_pariksha" class="form-control" value="" aria-label="vibhedaka_pariksha" placeholder="Vibhedaka Pariksha" maxlength="100" readonly>{{ $patient->vibhedaka_pariksha }}</textarea>
@@ -685,7 +685,7 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">10.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Roga
                                                 Vinishchaya-
                                                 Pramukh
@@ -695,7 +695,7 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">11.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Chikitsa
                                                 Kalpana
                                                 Anupana
@@ -722,7 +722,7 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">12.
+                                             <label for="example-text-input" class="form-control-label">
                                                 Pathya-Apathya
                                                 (<span class="fs-12
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span>)</label>

@@ -50,7 +50,7 @@
                      </li>
                   </ul>
                </div>
-               <div class="body">
+               <div class="body" >
                   <div id="wizard_horizontal">
                      <section>
                         <div class="col-md-12">
@@ -212,7 +212,7 @@
 
                                     <div class="col-md-4">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">1. Main Complaint(As said by patient)</label>
+                                          <label for="example-text-input" class="form-control-label"> Main Complaint(As said by patient)</label>
                                           <br>{{$patient->main_complaintsaid_by_patient}}</label>
                                        </div>
                                     </div>
@@ -225,7 +225,7 @@
                                     </div>
                                     <div class="col-md-4">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">2. Main Complaint(As said by family member)</label>
+                                          <label for="example-text-input" class="form-control-label"> Main Complaint(As said by family member)</label>
                                           <br>{{$patient->main_complaint_as_said_by_family}}</label>
                                        </div>
                                     </div>
@@ -244,14 +244,14 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-6">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">3. Past illness</label>
+                                          <label for="example-text-input" class="form-control-label"> Past illness</label>
                                           <br>{{$patient->past_illness}}</label>
 
                                        </div>
                                     </div>
                                     <div class="col-sm-6">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">4.
+                                          <label for="example-text-input" class="form-control-label">
                                              Family
                                              History</label>
                                           <br>{{$patient->past_illness}}</label>
@@ -262,14 +262,14 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-12">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">5. Examination of the patient</label>
+                                          <label for="example-text-input" class="form-control-label"> Examination of the patient</label>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="row clearfix">
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Skin">i) Skin</label>
+                                          <label for="Skin">Skin</label>
                                           <br>@foreach(__('phr.skin') as $key=>$value)
                                           {{$patient->skin == $key  ? $value : ''}}
                                           @endforeach
@@ -278,7 +278,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Nadi">ii)
+                                          <label for="Nadi">
                                              Nadi</label>
                                           <br>@foreach(__('phr.nadi') as $key=>$value)
                                           {{$patient->nadi == $key  ? $value : ''}}
@@ -288,7 +288,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Place">iii)Place</label>
+                                          <label for="Place">Place</label>
                                           <br>@foreach(__('phr.place') as $key=>$value)
                                           {{$patient->nadi_place == $key  ? $value : ''}}
                                           @endforeach
@@ -298,7 +298,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Nails">iv)
+                                          <label for="Nails">
                                              Nails</label>
                                           <br>@foreach(__('phr.nails') as $key=>$value)
                                           {{$patient->nails == $key  ? $value : ''}}
@@ -311,7 +311,7 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Nails">v)
+                                          <label for="Nails">
                                              Anguli
                                              sandhi</label>
                                           <br>@foreach(__('phr.anguli_sandhi') as $key=>$value)
@@ -323,7 +323,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Netra">vi)
+                                          <label for="Netra">
                                              Netra</label>
                                           <br>@foreach(__('phr.netra') as $key=>$value)
                                           {{$patient->netra == $key  ? $value : ''}}
@@ -334,7 +334,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Adhovartma">vii)
+                                          <label for="Adhovartma">
                                              Adhovartma</label>
                                           <br>@foreach(__('phr.adhovartma') as $key=>$value)
                                           {{$patient->adhovartma == $key  ? $value : ''}}
@@ -345,7 +345,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Hastatala">viii)
+                                          <label for="Hastatala">
                                              Hastatala</label>
                                           <br>
                                           @foreach(__('phr.hastatala') as $key=>$value)
@@ -359,7 +359,7 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Jihwa">ix)
+                                          <label for="Jihwa">
                                              Jihwa</label>
                                           <br>
                                           @foreach(__('phr.jihwa') as $key=>$value)
@@ -371,7 +371,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Aakriti">x)
+                                          <label for="Aakriti">
                                              Aakriti</label>
                                           <br>
                                           @foreach(__('phr.aakriti') as $key=>$value)
@@ -383,7 +383,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Shabda">xi)
+                                          <label for="Shabda">
                                              Shabda</label>
                                           <br>
                                           @foreach(__('phr.shabda') as $key=>$value)
@@ -395,7 +395,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Koshtha">xii)
+                                          <label for="Koshtha">
                                              Koshtha</label>
                                           <br>
                                           @foreach(__('phr.koshtha') as $key=>$value)
@@ -409,7 +409,7 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Agni">xiii)
+                                          <label for="Agni">
                                              Agni</label>
                                           <br>
                                           @foreach(__('phr.agni') as $key=>$value)
@@ -422,7 +422,7 @@
                                     <div class="col-sm-3">
                                        <div class="form-group">
                                           <label for="Mala
-                                             Pravritti">xiv)
+                                             Pravritti">
                                              Mala
                                              Pravritti</label>
                                           <br>
@@ -436,7 +436,7 @@
                                     <div class="col-sm-3">
                                        <div class="form-group">
                                           <label for="Mutra
-                                             Pravritti">xv)
+                                             Pravritti">
                                              Mutra
                                              Pravritti</label>
                                           <br>
@@ -450,7 +450,7 @@
                                     <div class="col-sm-3">
                                        <div class="form-group">
                                           <label for="Vyavay
-                                             Pravritti">xvi)
+                                             Pravritti">
                                              Vyavay
                                              Pravritti</label>
                                           <br>
@@ -465,7 +465,7 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Shukrakshanapravritti">xvii)Shukrakshana
+                                          <label for="Shukrakshanapravritti">Shukrakshana
                                              pravritti</label>
                                           <br>
                                           @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
@@ -479,7 +479,7 @@
                                        <div class="form-group">
                                           <label for="Aartava
                                              Pravritti
-                                             Kala">xviii)
+                                             Kala">
                                              Aartava
                                              Pravritti
                                              Kala</label>
@@ -493,7 +493,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Dehoshma">xix)
+                                          <label for="Dehoshma">
                                              Dehoshma</label>
                                           <br>
                                           @foreach(__('phr.dehoshma') as $key=>$value)
@@ -505,7 +505,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Bhara">xx)
+                                          <label for="Bhara">
                                              Bhara</label>
                                           <br>{{$patient->bhara}}</label>
 
@@ -515,7 +515,7 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Raktachapa">xxi)
+                                          <label for="Raktachapa">
                                              Raktachapa</label>
                                           <br>
                                           @foreach(__('phr.raktachapa') as $key=>$value)
@@ -528,7 +528,7 @@
                                     <div class="col-sm-3">
                                        <div class="form-group">
                                           <label for="Hrid
-                                             gati">xxii)
+                                             gati">
                                              Hrid
                                              gati</label>
                                           <br>
@@ -541,7 +541,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="Shvasagati">xxiii)
+                                          <label for="Shvasagati">
                                              Shvasagati</label>
                                           <br>
                                           @foreach(__('phr.shvasagati') as $key=>$value)
@@ -553,7 +553,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                        <div class="form-group">
-                                          <label for="parkriti_parikshana">xxiv)
+                                          <label for="parkriti_parikshana">
                                              Parkriti
                                              Parikshana</label>
                                           <br>
@@ -568,7 +568,7 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-6">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">6.
+                                          <label for="example-text-input" class="form-control-label">
                                              Examination
                                              by
                                              Physician</label>
@@ -582,7 +582,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">7.
+                                          <label for="example-text-input" class="form-control-label">
                                              Prayogashaliya
                                              Parikshana</label>
                                           <br>{{$patient->prayogashaliya_parikshana}}</label>
@@ -593,7 +593,7 @@
                                  <div class="row clearfix">
                                     <div class="col-sm-6">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">8.
+                                          <label for="example-text-input" class="form-control-label">
                                              Samprapti
                                              Vivarana</label>
                                           <br>{{$patient->samprapti_vivarana}}</label>
@@ -602,7 +602,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">9.
+                                          <label for="example-text-input" class="form-control-label">
                                              Vibhedaka
                                              Pariksha</label>
                                           <br>{{$patient->vibhedaka_pariksha}}</label>
@@ -613,7 +613,7 @@
                                  <div class="row clearfix">
                                     <div class="col-md-4">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">10.
+                                          <label for="example-text-input" class="form-control-label">
                                              Roga
                                              Vinishchaya-
                                              Pramukh
@@ -624,7 +624,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">11.
+                                          <label for="example-text-input" class="form-control-label">
                                              Chikitsa
                                              Kalpana
                                              Anupana
@@ -651,7 +651,7 @@
                                     </div>
                                     <div class="col-md-4">
                                        <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">12.
+                                          <label for="example-text-input" class="form-control-label">
                                              Pathya-Apathya
                                              (<span class="fs-12
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span>)</label>

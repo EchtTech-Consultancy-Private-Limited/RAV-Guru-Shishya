@@ -71,7 +71,7 @@
 
                         <tr class="gradeX odd ">
                                  <td class="center sorting_1">{{ ++$key }}</td>
-                                 <td class="center"><a >{{$remark_history->created_at}}</a></td>
+                                 <td class="center"><a >{{ date('d-m-Y h:m:i', strtotime($remark_history->created_at)) }}</a></td>
                                  <td class="center sorting_1"> <?php echo get_user_name($remark_history->guru_id); ?></td>
                                  <td class="center sorting_1"><?php echo get_user_name($remark_history->shishya_id); ?></td>
                                  <td class="center"><a ><b>{{$remark_history->remarks}}</b></a></td>

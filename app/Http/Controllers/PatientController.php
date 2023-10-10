@@ -785,8 +785,8 @@ class PatientController extends Controller
         $patient->read_by_shishya=1;
         $patient->save();
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-         
-        $pdf = PDF::loadView('patients.guru.guru-patient-pdf', ['patient' => $patient,'guru' => $guru]);
+        $shishya=User::where('id',$patient->shishya_id)->first();
+        $pdf = PDF::loadView('patients.guru.guru-patient-pdf', ['patient' => $patient,'guru' => $guru,'shishya' => $shishya]);
     
         return $pdf->download('patient.pdf');
     }
@@ -985,8 +985,8 @@ class PatientController extends Controller
         $patient->read_by_shishya=1;
         $patient->save();
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-         
-        $pdf = PDF::loadView('patients.admin.admin-patient-pdf', ['patient' => $patient,'guru' => $guru]);
+        $shishya=User::where('id',$patient->shishya_id)->first();
+        $pdf = PDF::loadView('patients.admin.admin-patient-pdf', ['patient' => $patient,'guru' => $guru,'shishya' => $shishya]);
     
         return $pdf->download('patient.pdf');
     }

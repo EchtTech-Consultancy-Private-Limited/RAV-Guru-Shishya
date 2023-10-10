@@ -117,7 +117,7 @@
                                              class="text-danger">*</span></label><br>
                                          <label
                                          for="example-text-input"
-                                         class="form-control-label"><b>{{ $shishya->firstname }} </b></label>
+                                         class="form-control-label"><b>{{ $shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname }} </b></label>
                                           
                                        </div>
                                     </div>
@@ -130,7 +130,7 @@
                                              class="form-control-label">Date of Report</label><br>
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
+                                             class="form-control-label"><b><?php echo date('m-d-Y'); ?><b></label>
                                           
                                        </div>
                                     </div>
@@ -231,7 +231,7 @@
                                              class="form-control"
                                              placeholder="Date"
                                              aria-label="Date"
-                                             value="{{ $patient->registration_date }}" onfocus="focused(this)"
+                                             value="{{date('d-m-y',strtotime($patient->registration_date))}}" onfocus="focused(this)"
                                              onfocusout="defocused(this)" readonly>
                                        </div>
                                     </div>
@@ -433,7 +433,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">1. Main Complaint(As said by patient)</label>
+                                             class="form-control-label">Main Complaint(As said by patient)</label>
                                           <textarea
                                              cols="45"
                                              rows="2"
@@ -468,7 +468,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">2. Main Complaint(As said by family member)</label>
+                                             class="form-control-label">Main Complaint(As said by family member)</label>
                                           <textarea
                                              cols="45"
                                              rows="2"
@@ -503,7 +503,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">3. Past illness</label>
+                                             class="form-control-label">Past illness</label>
                                           <textarea
                                              cols="45"
                                              rows="2"
@@ -520,7 +520,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">4.
+                                             class="form-control-label">
                                           Family
                                           History</label>
                                           <textarea
@@ -551,7 +551,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">5.
+                                             class="form-control-label">
                                           Examination
                                           of
                                           the
@@ -566,7 +566,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Skin">1)
+                                             for="Skin">
                                           Skin</label>
                                           <select
                                              name="skin"
@@ -588,7 +588,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nadi">2)
+                                             for="Nadi">
                                           Nadi</label>
                                           <select
                                              name="nadi"
@@ -629,7 +629,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nails">3)
+                                             for="Nails">
                                           Nails</label>
                                           <select
                                              name="nails"
@@ -653,7 +653,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Nails">4)
+                                             for="Nails">
                                           Anguli
                                           sandhi</label>
                                           <select
@@ -675,7 +675,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Netra">5)
+                                             for="Netra">
                                           Netra</label>
                                           <select
                                              name="netra"
@@ -697,7 +697,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Adhovartma">6)
+                                             for="Adhovartma">
                                           Adhovartma</label>
                                           <select
                                              name="adhovartma"
@@ -718,7 +718,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Hastatala">7)
+                                             for="Hastatala">
                                           Hastatala</label>
                                           <select
                                              name="hastatala"
@@ -742,7 +742,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Jihwa">8)
+                                             for="Jihwa">
                                           Jihwa</label>
                                           <select
                                              name="jihwa"
@@ -763,7 +763,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Aakriti">9)
+                                             for="Aakriti">
                                           Aakriti</label>
                                           <select
                                              name="aakriti"
@@ -784,7 +784,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shabda">10)
+                                             for="Shabda">
                                           Shabda</label>
                                           <select
                                              name="shabda"
@@ -805,7 +805,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Koshtha">11)
+                                             for="Koshtha">
                                           Koshtha</label>
                                           <select
                                              name="koshtha"
@@ -829,7 +829,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Agni">12)
+                                             for="Agni">
                                           Agni</label>
                                           <select
                                              name="agni"
@@ -851,7 +851,7 @@
                                           class="form-group">
                                           <label
                                              for="Mala
-                                             Pravritti">13)
+                                             Pravritti">
                                           Mala
                                           Pravritti</label>
                                           <select
@@ -875,7 +875,7 @@
                                           class="form-group">
                                           <label
                                              for="Mutra
-                                             Pravritti">14)
+                                             Pravritti">
                                           Mutra
                                           Pravritti</label>
                                           <select
@@ -899,7 +899,7 @@
                                           class="form-group">
                                           <label
                                              for="Vyavay
-                                             Pravritti">15)
+                                             Pravritti">
                                           Vyavay
                                           Pravritti</label>
                                           <select
@@ -948,7 +948,7 @@
                                           <label
                                              for="Aartava
                                              Pravritti
-                                             Kala">16)
+                                             Kala">
                                           Aartava
                                           Pravritti
                                           Kala</label>
@@ -972,7 +972,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Dehoshma">17)
+                                             for="Dehoshma">
                                           Dehoshma</label>
                                           <select
                                              name="dehoshma"
@@ -993,7 +993,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Bhara">18)
+                                             for="Bhara">
                                           Bhara</label>
                                           <input
                                              type="text"
@@ -1014,7 +1014,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Raktachapa">19)
+                                             for="Raktachapa">
                                           Raktachapa</label>
                                           <select
                                              name="raktachapa"
@@ -1036,7 +1036,7 @@
                                           class="form-group">
                                           <label
                                              for="Hrid
-                                             gati">20)
+                                             gati">
                                           Hrid
                                           gati</label>
                                           <select
@@ -1059,7 +1059,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="Shvasagati">21)
+                                             for="Shvasagati">
                                           Shvasagati</label>
                                           <select
                                              name="shvasagati"
@@ -1080,7 +1080,7 @@
                                        <div
                                           class="form-group">
                                           <label
-                                             for="parkriti_parikshana">22)
+                                             for="parkriti_parikshana">
                                           Parkriti
                                           Parikshana</label>
                                           <select
@@ -1106,7 +1106,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">6.
+                                             class="form-control-label">
                                           Examination
                                           by
                                           Physician</label>
@@ -1130,7 +1130,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">7.
+                                             class="form-control-label">
                                           Prayogashaliya
                                           Parikshana</label>
                                           <textarea
@@ -1149,7 +1149,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">8.
+                                             class="form-control-label">
                                           Samprapti
                                           Vivarana</label>
                                           <textarea
@@ -1168,7 +1168,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">9.
+                                             class="form-control-label">
                                           Vibhedaka
                                           Pariksha</label>
                                           <textarea
@@ -1187,7 +1187,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">10.
+                                             class="form-control-label">
                                           Roga
                                           Vinishchaya-
                                           Pramukh
@@ -1199,7 +1199,7 @@
                                              class="form-control"
                                              value=""
                                              aria-label="roga_vinishchaya"
-                                             placeholder="Roga Vinishchaya- Nidana" maxlength="100">{{ $patient->roga_vinishchaya_pramukh_nidana }}</textarea>
+                                             placeholder="Roga Vinishchaya-Pramukh Nidana" maxlength="100">{{ $patient->roga_vinishchaya_pramukh_nidana }}</textarea>
                                        </div>
                                     </div>
 
@@ -1209,7 +1209,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">11.
+                                             class="form-control-label">
                                           Chikitsa
                                           Kalpana
                                           Anupana
@@ -1270,7 +1270,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">12.
+                                             class="form-control-label">
                                           Pathya-Apathya
                                           (<span
                                              class="fs-12
@@ -1303,6 +1303,8 @@
                                           E-Sign</label><br>
                                           @if($shishya->e_sign!='')
                                           <img src="{{ asset('uploads/'.$shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                          <br>
+                                             ( @if($shishya->title>0) {{__('phr.titlename')[$shishya->title]}} @endif {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}})
                                           @endif
                                        </div>
                                     </div>
@@ -1316,15 +1318,16 @@
                                           E-Sign</label><br>
                                           @if(!empty($guru->id))
                                           @if($guru->e_sign!='')
-                                          <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                          <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;"><br>
                                           @endif
+                                          ( @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}})
                                           @endif
                                        </div>
                                     </div>
                                  </div>
                               </div>
                               <div class="col-lg-12 p-t-20 text-center">
-                              <a href="{{ url('new-patient-registration') }}" type="button"  class="btn btn-danger waves-effect">Back</a>
+                              <a href="{{ url('patients/In-Patient') }}" type="button"  class="btn btn-danger waves-effect">Back</a>
                                  <button type="submit" class="btn btn-primary waves-effect m-r-15" >Update Patient Record</button>
                                  
                               </div>
