@@ -46,14 +46,11 @@
 
                   <ul class="header-dropdown m-r--5">
                      <li>
-                        <button type="button" class="btn btn-danger waves-effect" onclick="printDiv('printableArea')"> &nbsp; Download &nbsp;</button>
-                     </li>
-                     <li>
                      <a href="{{ route('generatePdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; PDF &nbsp;</button></a>
                      </li>
                   </ul>
                </div>
-               <div class="body" id="printableArea">
+               <div class="body">
                   <div id="wizard_horizontal">
                      <section>
                         <div class="col-md-12">
@@ -712,17 +709,4 @@
 </div>
 </div>
 </section>
-<script>
-   function printDiv(divName) {
-      var printContents = document.getElementById(divName).innerHTML;
-      var originalContents = document.body.innerHTML;
-
-      document.body.innerHTML = printContents;
-
-      window.print();
-
-      document.body.innerHTML = originalContents;
-   }
-</script>
-
 @endsection
