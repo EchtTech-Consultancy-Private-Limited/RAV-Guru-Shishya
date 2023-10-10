@@ -48,6 +48,9 @@
                      <li>
                         <button type="button" class="btn btn-danger waves-effect" onclick="printDiv('printableArea')"> &nbsp; Download &nbsp;</button>
                      </li>
+                     <li>
+                     <a href="{{ route('generatePdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; PDF &nbsp;</button></a>
+                     </li>
                   </ul>
                </div>
                <div class="body" id="printableArea">
@@ -84,15 +87,9 @@
                                     <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                          <?php echo date('Y-m-d'); ?>
-
+                                          {{date('d-m-y',strtotime($patient->registration_date))}}
                                        </div>
                                     </div>
-
-
-
-
-
                                  </div>
 
                                  <hr style="height:2px;">
@@ -260,7 +257,7 @@
                                           <label for="example-text-input" class="form-control-label">4.
                                              Family
                                              History</label>
-                                          <br>{{$patient->family_history}}</label>
+                                          <br>{{$patient->past_illness}}</label>
 
                                        </div>
                                     </div>
@@ -354,7 +351,7 @@
                                           <label for="Hastatala">viii)
                                              Hastatala</label>
                                           <br>
-                                          @foreach(__('phr.adhovartma') as $key=>$value)
+                                          @foreach(__('phr.hastatala') as $key=>$value)
                                           {{$patient->hastatala == $key  ? $value : ''}}
                                           @endforeach
 

@@ -594,6 +594,18 @@ class PatientController extends Controller
         return view("patients.view-patients",compact('patient','guru'));
     }
 
+    public function generatePdf($id)
+    {
+        $patient=Patient::find($id);
+        $patient->read_by_shishya=1;
+        $patient->save();
+        $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
+         
+        $pdf = PDF::loadView('patients.patient-pdf', ['patient' => $patient,'guru' => $guru]);
+    
+        return $pdf->download('patient.pdf');
+    }
+
     public function edit_patient(Request $request, $id)
     {
         if($id!=0)$id= decrypt($id);
@@ -765,6 +777,18 @@ class PatientController extends Controller
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
         $shishya=User::where('id',$patient->shishya_id)->first();
         return view("patients.guru.guru-view-patients",compact('patient','guru','shishya'));
+    }
+
+    public function generateGuruPdf($id)
+    {
+        $patient=Patient::find($id);
+        $patient->read_by_shishya=1;
+        $patient->save();
+        $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
+         
+        $pdf = PDF::loadView('patients.guru.guru-patient-pdf', ['patient' => $patient,'guru' => $guru]);
+    
+        return $pdf->download('patient.pdf');
     }
 
     public function remarks_from_guru($id)
@@ -953,6 +977,18 @@ class PatientController extends Controller
         //$guru=User::where('id',$patient->guru_id)->first();
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
         return view("patients.admin.admin-view-patients",compact('patient','guru','shishya'));
+    }
+
+    public function generateAdminPdf($id)
+    {
+        $patient=Patient::find($id);
+        $patient->read_by_shishya=1;
+        $patient->save();
+        $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
+         
+        $pdf = PDF::loadView('patients.admin.admin-patient-pdf', ['patient' => $patient,'guru' => $guru]);
+    
+        return $pdf->download('patient.pdf');
     }
 
 
