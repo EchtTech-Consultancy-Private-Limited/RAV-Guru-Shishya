@@ -84,7 +84,7 @@ Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::middleware(['CustomAuth'])->group(function () {
+    // Route::middleware(['CustomAuth'])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index']);
         //Route::get('shishya', [DashboardController::class, 'shishya']);
         //Route::resource('roles', RoleController::class);
@@ -130,6 +130,7 @@ Route::group(['middleware' => ['auth']], function() {
         /*Shishya List*/
         Route::post('register/patients', [PatientController::class, 'register_patients'])->name('register.patients');
         Route::get('view-patient/{id}', [PatientController::class, 'view_patient']);
+        Route::get('generate-Pdft/{id}', [PatientController::class, 'generatePdf'])->name('generatePdf');        
         Route::get('edit-patient/{id}', [PatientController::class, 'edit_patient']);
         Route::post('update/patients', [PatientController::class, 'update_patients'])->name('update.patients');
         Route::get('send-patient-toguru/{id}/{guru_id}', [PatientController::class, 'send_patient_to_guru']);
@@ -144,6 +145,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('guru-patient-list', [PatientController::class, 'guru_patient_list']);
         Route::get('notify-guru-patient-list', [PatientController::class, 'notify_guru_patient_list']);
         Route::get('guru-view-patient/{id}', [PatientController::class, 'guru_view_patient']);
+        Route::get('guru-generate-Pdft/{id}', [PatientController::class, 'generateGuruPdf'])->name('generateGuruPdf'); 
         Route::get('remarks-from-guru/{id}', [PatientController::class, 'remarks_from_guru']);
         Route::post('guru-remarks', [PatientController::class, 'guru_remarks']);
         Route::get('guru-remark-history/{phr_id}', [PatientController::class, 'guru_remark_history']);
@@ -153,7 +155,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('attendance-list', [AttendanceController::class, 'index']);
         Route::get('add-attendance', [AttendanceController::class, 'add_attendance']);
         Route::post('add-attendance', [AttendanceController::class, 'update_attendance']);
-        Route::post('export-attendance', [AttendanceController::class, 'export_attendance']);
+        Route::get('export-attendance', [AttendanceController::class, 'export_attendance']);
 
 
 
@@ -163,6 +165,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('patients/admin-edit-patient/{id}', [PatientController::class, 'admin_edit_patient']);
         Route::post('admin/update/patients', [PatientController::class, 'admin_update_patients'])->name('admin.update.patients');
         Route::get('admin-view-patient/{id}', [PatientController::class, 'admin_view_patient']);
+        Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
         Route::get('phr-history-sheet', [PatientController::class, 'guru_phr_history_sheet']);
         Route::get('admin-drug-report-history', [DrugController::class, 'admin_drug_report_history']);
         Route::post('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report']);
@@ -236,7 +239,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
         Route::post('system-configration', [DashboardController::class, 'save_system_configration'])->name('system-configrations');
 
-    });
+    // });
 });
 
 Route::get('education/edit-company', [AddUserController::class, 'edit_manage_profile_education']);

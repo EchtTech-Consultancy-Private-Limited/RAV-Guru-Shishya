@@ -120,10 +120,12 @@
                                    <label >Gender<span class="text-danger"> *</span></label>
                                    <select name="gender" class="form-control" id="gender">
                                       <option value="">Select Gender</option>
-
                                       @foreach(__('phr.gender') as $key=>$value)
-                                         <option value="{{$key}}">{{$value}}</option>
-                                      @endforeach
+                                          <option value="{{$key}}">{{$value}}</option>
+                                          @if($key == old('gender'))
+                                             <option value="{{ $key }}" selected>{{ $value }}</option>
+                                          @endif
+                                       @endforeach
                                     </select>
                                 </div>
                              </div>

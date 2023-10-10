@@ -41,14 +41,14 @@ $(document).ready(function() {
                     
 
                 },
-                'state': {
-                    required: true,
-                 },
-                'city': {
-                    required: true,
-                    maxlength: 40
+                // 'state': {
+                //     required: true,
+                //  },
+                // 'city': {
+                //     required: true,
+                //     maxlength: 40
 
-                },
+                // },
 
                 'email': {
                     required: true,

@@ -1,6 +1,5 @@
 @extends('layouts.app-file')
 @section('content')
-
       <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -14,14 +13,12 @@
                                 <a >
                                     <i class="fas fa-home"></i> Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Dashboard test </li>
+                            <li class="breadcrumb-item active">Dashboard </li>
                         </ul>
                     </div>
                 </div>
-
-
                 @if(Session::has('success'))
-                <div class="alert alert-success" role="alert">                    
+                <div class="alert alert-success" role="alert">
                     {{session::get('success')}}
                 </div>
                 @elseif(Session::has('fail'))
@@ -29,13 +26,7 @@
                     {{session::get('fail')}}
                 </div>
                 @endif
-
-
-
-
             </div>
-
-
             <div class="row ">
                 <div class="col-xl-3 col-sm-6">
                     <div class="card l-bg-purple">
@@ -47,9 +38,7 @@
                             <div class="row align-items-center mb-2 d-flex">
                                 <div class="col-8">
                                     <div class="col-4 text-end">
-                                        <h2 class="d-flex align-items-left mb-0">
-                                        5,300
-                                    </h2>
+                                        <h2 class="d-flex align-items-left mb-0">{{$patients}}</h2>
                                     </div>
 
                                 </div>
@@ -70,14 +59,9 @@
                             <div class="row align-items-center mb-2 d-flex">
                                 <div class="col-8">
                                 <div class="col-4 text-end">
-                                       <h2 class="d-flex align-items-left mb-0">
-                                       2,350
-                                    </h2>
-                                    </div>
-
+                                    <h2 class="d-flex align-items-left mb-0">{{$shishya}}</h2>
                                 </div>
-                                
-
+                                </div>
                             </div>
 
                         </div>
@@ -99,7 +83,6 @@
                                     </h2>
                                     </div>
                                 </div>
-
                             </div>
 
                         </div>
@@ -116,9 +99,7 @@
                                 <div class="col-8">
                                 <div class="col-4 text-end">
                                         <span class="span-width">&nbsp;</span>
-                                        <h2 class="d-flex align-items-left mb-0">
-                                        105
-                                    </h2>
+                                        <h2 class="d-flex align-items-left mb-0">{{$users}}</h2>
                                     </div>
                                 </div>
 
@@ -128,5 +109,4 @@
                     </div>
                 </div>
             </div>
-
 @endsection

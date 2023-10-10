@@ -28,7 +28,7 @@
                         <i class="breadcrumb-item bcrumb-1"></i> View Patients</a>
                   </li>
                   <li class="breadcrumb-item active"> View Patient History </li>
-               </ul>
+               </ul>               
                @if ($message = Session::get('success'))
                <div class="alert alert-success">
                   <p>{{ $message }}</p>
@@ -42,6 +42,11 @@
          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                <div class="header">
+               <ul class="header-dropdown m-r-5">
+                  <li>
+                     <a href="{{ route('generateGuruPdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect" style="margin-top: -15px;"> &nbsp; PDF &nbsp;</button></a>
+                  </li>
+               </ul>
                   <ul class="header-dropdown m-r--5">
                      <li class="dropdown">
                         <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -63,7 +68,7 @@
                      </li>
                   </ul>
                </div>
-               <div class="body">
+               <div class="body" id="printableArea">
                   <div id="wizard_horizontal">
                      <!--<h2>New History Sheet</h2>-->
                      <section>

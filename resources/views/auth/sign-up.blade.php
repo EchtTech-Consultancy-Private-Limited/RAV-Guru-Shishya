@@ -44,7 +44,10 @@
                                      <option value="">Select Title</option>
 
                                      @foreach(__('phr.titlename') as $key=>$value)
-                                        <option value="{{$key}}">{{$value}}</option>
+                                       <option value="{{$key}}">{{$value}}</option>
+                                       @if($key == old('title'))
+                                          <option value="{{ $key }}" selected>{{ $value }}</option>
+                                       @endif
                                      @endforeach
                                    </select>
                                </div>
@@ -116,7 +119,10 @@
                                       <option value="">Select Gender</option>
 
                                       @foreach(__('phr.gender') as $key=>$value)
-                                         <option value="{{$key}}">{{$value}}</option>
+                                          <option value="{{$key}}">{{$value}}</option>
+                                          @if($key == old('gender'))
+                                             <option value="{{ $key }}" selected>{{ $value }}</option>
+                                          @endif
                                       @endforeach
                                     </select>
                                 </div>
@@ -131,10 +137,11 @@
                               <select name="country" class="form-control select2" id="country-dropdown">
                                       <option value="">Select Country</option>
                                       @foreach ($countries as $data)
-                                        <option value="{{$data->id}}">
-                                            {{$data->name}}
-                                        </option>
-                                        @endforeach
+                                          @if($key == old('country'))
+                                          <option value="{{ $data->id }}" selected>{{ $data->name }}</option>
+                                          @endif
+                                       <option value="{{$data->id}}">{{$data->name}}</option>
+                                       @endforeach
                                     </select>
                            </div>
                         </div>
@@ -164,7 +171,10 @@
                                  <select name="user_type" class="form-control" id="user_type">
                                     <option value="">Select User Type</option>
                                     @foreach($user_type as $key=>$user_type)
-                                      <option value="{{ $key }}">{{ $user_type }}</option>
+                                       <option value="{{$key}}">{{$user_type}}</option>
+                                       @if($key == old('user_type'))
+                                          <option value="{{ $key }}" selected>{{ $user_type }}</option>
+                                       @endif
                                     @endforeach
                                   </select>
                               </div>
@@ -176,6 +186,9 @@
                                  <label >Select Guru Type<span class="text-danger">*</span></label>
                                  <select name="gurutype" class="form-control">
                                     <option value="">Select User Type</option>
+                                    @if($key == old('gurutype'))
+                                       <option value="{{ old('gurutype') }}" selected>old('gurutype')</option>
+                                    @endif
                                     <option value="Individual">Individual</option>
                                     <option value="Institutional">Institutional</option>
                                  </select>
@@ -188,6 +201,9 @@
                                  <label >Select Shishya Type<span class="text-danger">*</span></label>
                                  <select name="shishyatype" class="form-control">
                                     <option value="">Select User Type</option>
+                                    @if($key == old('shishyatype'))
+                                       <option value="{{ old('shishyatype') }}" selected>old('shishyatype')</option>
+                                    @endif
                                     <option value="Pharmacy">Pharmacy</option>
                                     <option value="Non Pharmacy">Non Pharmacy</option>
                                   </select>

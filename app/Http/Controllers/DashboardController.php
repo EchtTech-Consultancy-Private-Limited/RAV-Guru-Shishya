@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Models\SystemConfigration;
+use App\Models\User;
 use File;
 use Storage;
 
@@ -11,7 +13,10 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-       return view("pages.dashboard");
+       $shishya = User::where('user_type',3)->count();
+       $users = User::count();
+       $patients = Patient::count();
+       return view("pages.dashboard",compact('shishya','users','patients'));
     }
 
     public function shishya(Request $request)
