@@ -364,25 +364,20 @@ class PatientController extends Controller
 
     public function save_follow_up_remark(Request $request)
     {
-
         request()->validate([
             'guru_id' => 'required',
-            //'patient_id' => 'required',
             'shishya_id' => 'required',
             'followup_id' => 'required',
             'remark' => 'required',
         ]);
-
-        $data=[
-            'guru_id'=>$request->guru_id,
-            'shishya_id'=>$request->shishya_id,
-            //'patient_id'=>$request->patient_id,
-            'followup_id'=>$request->followup_id,
-            'remarks'=>$request->remark,
-            'send_to'=>$request->send_to,
-
+        $data = [
+            'guru_id' => $request->guru_id,
+            'shishya_id' => $request->shishya_id,
+            'followup_id' => $request->followup_id,
+            'remarks' => $request->remark,
+            'send_by' => Auth::user()->user_type,
+            'send_to' => $request->send_to,
         ];
-        //dd($data);
         Remark::create($data);
         if(Auth::user()->user_type==3){
             $data=FollowUpPatient::where('id',$request->followup_id)->where('shishya_id',Auth::user()->id)->where('send_to_shishya',1)->first();
