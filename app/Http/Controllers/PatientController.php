@@ -800,6 +800,7 @@ class PatientController extends Controller
         $remark->guru_id=$request->guru_id;
         $remark->shishya_id=$request->shishya_id;
         $remark->phr_id=$request->patient_id;
+        $remark->send_by=Auth::user()->user_type;
         $remark->send_to=$request->user_type;
 
         $remark->remarks=$request->remarks;
@@ -845,15 +846,13 @@ class PatientController extends Controller
            //Mail sending script ends here
 
            $patient->phr_a_status=1;
-           $patient->phr_g_status=1;
+           $patient->phr_g_status=0;
            $patient->phr_s_status=0;
            $patient->read_by_admin=0;
 
            $patient->save();
-           return redirect('/guru-patient-list')->with('success', 'Your remark has been send to admin successfully');
-        }
-        else
-        {
+           return redirect()->back()->with('success', 'Your remark has been send to admin successfully');
+        }else if($request->user_type==2){
             $guru_id=$patient->guru_id;
             $guru=User::find($guru_id);
             $guruname=$guru->firstname;
@@ -874,10 +873,38 @@ class PatientController extends Controller
             Mail::to($shishya->email)->send(new PhrGuruShishya($phrData));
 
            $patient->phr_g_status=1;
-           $patient->phr_s_status=1;
+           $patient->phr_s_status=0;
+           $patient->phr_a_status=0;
            $patient->read_by_shishya=0;
            $patient->save();
-            return redirect('/guru-patient-list')->with('success', 'Your remark has been sent to shishya successfully');
+           return redirect()->back()->with('success', 'Your remark has been sent to guru successfully');
+        }else
+        {
+            $guru_id=$patient->guru_id;
+            $guru=User::find($guru_id);
+            $guruname=$guru->firstname;
+
+            $patient_id=$patient->id;
+            $shishya_id=$patient->shishya_id;
+            $shishya=User::find($shishya_id);
+            $shishyaname=$shishya->firstname;
+
+           $phrData = [
+            'title' => 'Your Guru gives valuable feedbacks on your PHR  Number ('.format_patient_id($patient_id).').',
+            'send'=> $patient_id,
+            'body' => 'Dear ' .$shishyaname.',',
+            'paragraph' => 'Your Guru  '.$guruname.' give valuable feedback on your PHR  Number '.format_patient_id($patient_id).'.  Please login to the portal and check the Notifications section for further details.',
+            ];
+
+
+            Mail::to($shishya->email)->send(new PhrGuruShishya($phrData));
+
+           $patient->phr_g_status=0;
+           $patient->phr_s_status=1;
+           $patient->phr_a_status=0;
+           $patient->read_by_shishya=0;
+           $patient->save();
+           return redirect()->back()->with('success', 'Your remark has been sent to shishya successfully');
 
         }
 
@@ -905,7 +932,6 @@ class PatientController extends Controller
 
     public function admin_patient_list()
     {
-
         $guru_id=Auth::user()->id;
         $patientlist=Patient::orderBy('id','DESC')->where('phr_a_status',1)->get();
 

@@ -73,7 +73,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
-                                                            <label class="form-control-label">Registration No.</label>
+                                                            <label class="form-control-label">Patient Registration No.</label>
                                                             <br>
                                                             <label for="follow_up_date"
                                                                 class="form-control-label">{{$patient->registration_no}}</label>
@@ -314,7 +314,7 @@
                                                             <tr class="odd gradeX">
                                                                 <td class="center">{{($k+1)}}</td>
                                                                 <td class="center">
-                                                                    {{date('d-m-Y H:m:s',strtotime($remark->created_at))}}
+                                                                    {{date('d-m-Y',strtotime($remark->created_at))}}
                                                                 </td>
                                                                 <td class="center">@if($remark->send_by=='2')Guru
                                                                     @elseif($remark->send_by=='3')Shishya
@@ -406,7 +406,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Registration
+                                            <label for="example-text-input" class="form-control-label">Patient Registration
                                                 No<span class="text-danger"></span></label>
                                             <br><label for="example-text-input"
                                                 class="form-control-label"><strong>{{$patient->registration_no}}</strong></label>

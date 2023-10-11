@@ -46,7 +46,7 @@
                </div>
                <form  action="{{ url('guru-remarks') }}" method="post" enctype="multipart/form-data">
 
-                  <input type="hidden" name="guru_id" value="{{ Auth::user()->id }}">
+                  <input type="hidden" name="guru_id" value="{{$patient->shishya_id}}">
                   <input type="hidden" name="shishya_id" value="{{$patient->shishya_id}}">
                   <input type="hidden" name="patient_id" value="{{$patient->id}}">
                @csrf
@@ -59,8 +59,16 @@
                               <label >Select User<span class="text-danger">*</span></label>
                                  <select class="form-control" name="user_type" required>
                                     <option value="">Select User</option>
-                                    <option value="1">Admin</option>
-                                    <option value="3">Shishya</option>
+                                    @if(Auth::user()->user_type == 1)
+                                       <option value="2">Guru</option>
+                                    @endif
+                                    @if(Auth::user()->user_type == 2)
+                                       <option value="1">Admin</option>
+                                       <option value="3">Shishya</option>
+                                    @endif
+                                    @if(Auth::user()->user_type == 3)
+                                       <option value="2">Guru</option>
+                                    @endif
                                  </select>
                            </div>
                         </div>

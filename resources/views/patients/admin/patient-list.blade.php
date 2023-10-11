@@ -94,6 +94,11 @@
                                     <a href="{{ url('admin-view-patient/'.$patientlist->id) }}" class="btn btn-tbl-edit" title ="View Record">
                                                     <i class="material-icons">visibility</i>
                                     </a>
+                                    @if($patientlist->phr_a_status== 1)
+                                    <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
+                                        Remarks
+                                    </a>
+                                    @endif
 
                                     <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn btn-tbl-edit" title="Edit Patient">
                                           <i class="material-icons">edit</i>
