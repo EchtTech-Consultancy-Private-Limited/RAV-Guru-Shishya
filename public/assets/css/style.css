@@ -630,3 +630,25 @@ td.left.patient-list-action {
     height: 100%;
     padding: 8px 0 !important;
 }
+
+
+
+.sidebar .menu {
+    position: relative;
+    overflow-y: auto;
+    height: auto;
+}
+
+.side-closed .sidebar {
+    width: 0;
+}
+
+  .side-closed.submenu-closed .navbar-header {
+    width: 0;
+    margin-left: -25px;
+  }
+  .sidemenu-collapse {
+    height: 50px;
+    padding: 0 20px 0 33px;
+    line-height: 55px;
+}

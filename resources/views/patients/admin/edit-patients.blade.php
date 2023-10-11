@@ -75,7 +75,7 @@
                               @endif
                               <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                               <input type="hidden" name="previous_url" value="{{ url()->previous() }}">
-                              <div class="card-body">
+                              <div class="">
                                  <div
                                     class="row">
                                     <div
@@ -149,12 +149,9 @@
                                     style="height:2px;">
                                 
                                  </div>
-                                 <div
-                                    class="row">
-                                    <div
-                                       class="col-lg-3 col-md-6">
-                                       <div
-                                          class="form-group">
+                                 <div class="row">
+                                    <div class="col-lg-3 col-md-6">
+                                       <div   class="form-group">
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Name of the Patient<span
@@ -173,10 +170,8 @@
                                        @enderror
                                     </div>
                                     </div>
-                                    <div
-                                       class="col-lg-3 col-md-6">
-                                       <div
-                                          class="form-group">
+                                    <div class="col-lg-3 col-md-6">
+                                       <div  class="form-group">
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Registration No<span
@@ -197,8 +192,7 @@
                                        </div>
 
 
-                                    <div
-                                       class="col-lg-3 col-md-6">
+                                    <div class="col-lg-3 col-md-6">
                                        <div
                                           class="form-group">
                                           <label
@@ -214,14 +208,12 @@
                                              value="{{ $patient->age }}"
                                              onfocus="focused(this)"
                                              onfocusout="defocused(this)">@error('age')
-    <div class="text-danger">{{ $message }}</div>
-  @enderror
+                                       <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                        </div>
                                     </div>
-                                    <div
-                                       class="col-lg-3 col-md-6">
-                                       <div
-                                          class="form-group">
+                                    <div class="col-lg-3 col-md-6">
+                                       <div class="form-group">
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Registration Date</label>
@@ -235,8 +227,8 @@
                                              onfocusout="defocused(this)" readonly>
                                        </div>
                                     </div>
-                                     <div
-                                       class="col-md-12">
+
+                                     <div  class="col-md-12">
                                        <div
                                           class="form-group">
                                           <label
@@ -255,6 +247,8 @@
                                        @enderror
                                     </div>
                                  </div>
+
+                           </div>
                                  <div
                                     class="row">
                                     <div
