@@ -44,7 +44,7 @@
                <div class="header">
                <ul class="header-dropdown m-r-5">
                   <li>
-                     <a href="{{ route('generateGuruPdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect" style="margin-top: -15px;"> &nbsp; PDF &nbsp;</button></a>
+                     <a href="{{ route('generateGuruPdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect" style="margin-top: -15px;"> &nbsp; Print &nbsp;</button></a>
                   </li>
                </ul>
                   <ul class="header-dropdown m-r--5">
@@ -150,54 +150,36 @@
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="Gender" class="form-control-label">Gender<span class="text-danger"></span></label>
-                                             <select name="gender" id="Gender" class="form-control" readonly>
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.gender') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
+                                          <label for="Gender" class="form-control-label">Gender<span class="text-danger"></span></label>
+                                          <br>@foreach(__('phr.gender') as $key=>$value)
+                                          {{$patient->gender == $key  ? $value : ''}}</option>
+                                          @endforeach
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Age Group<span class="text-danger"></span></label>
-                                             <select name="age_group" id="Age" class="form-control">
-                                                <option value="">Please select</option>
-                                                @foreach(__('phr.age_group') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->age_group == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
+                                          <label for="example-text-input" class="form-control-label">Age Group<span class="text-danger"></span></label>
+                                          <br>@foreach(__('phr.age_group') as $key=>$value)
+                                          {{$patient->age_group == $key  ? $value : ''}}
+                                          @endforeach
                                           </div>
                                        </div>
                                     </div>
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Occupation<span class="text-danger"></span></label>
-                                             <select name="occupation" id="occupation" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-
-                                                @foreach(__('phr.occupation') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->occupation == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
+                                          <label for="example-text-input" class="form-control-label">Occupation<span class="text-danger"></span></label>
+                                          <br>@foreach(__('phr.occupation') as $key=>$value)
+                                          {{$patient->occupation == $key  ? $value : ''}}</option>
+                                          @endforeach
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Marital Status<span class="text-danger"></span></label>
-                                             <select name="marital_status" id="Marital
-                                             Status" class="form-control">
-                                                <option value="">Please select</option>
-                                                @foreach(__('phr.marital_status') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
+                                          <label for="example-text-input" class="form-control-label">Marital Status<span class="text-danger"></span></label>
+                                          <br>@foreach(__('phr.marital_status') as $key=>$value)
+                                          {{$patient->marital_status == $key  ? $value : ''}}</option>
+                                          @endforeach
                                           </div>
                                        </div>
                                     </div>
@@ -219,16 +201,11 @@
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="example-text-in
+                                          <label for="example-text-in
                                              put" class="form-control-label">Region of patient</label>
-                                             <select name="region_of_patient" id="Region
-                                             of
-                                             patient" class="form-control">
-                                                <option value="">Please select</option>
-                                                @foreach(__('phr.region_of_patient') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->region_of_patient == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
+                                          <br>@foreach(__('phr.region_of_patient') as $key=>$value)
+                                          {{$patient->region_of_patient == $key  ? $value : ''}}</option>
+                                          @endforeach
                                           </div>
                                        </div>
                                        <div class="col-md-6">
@@ -290,382 +267,316 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Skin">
-                                                Skin</label>
-                                             <select name="skin" id="Skin" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.skin') as $key=>$skinvalue)
-                                                <option value="{{$key}}" {{$patient->skin == $key  ? 'selected' : ''}}>{{$skinvalue}}</option>
-                                                @endforeach
+                                    <div class="row clearfix">
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Skin">Skin</label>
+                                          <br>@foreach(__('phr.skin') as $key=>$value)
+                                          {{$patient->skin == $key  ? $value : ''}}
+                                          @endforeach
 
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Nadi">
-                                                Nadi</label>
-                                             <select name="nadi" id="Nadi" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.nadi') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->nadi == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Place"> Place</label>
-                                             <select name="nadi_place" id="Place" class="form-control">
-                                                <option value=""> Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.place') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->nadi_place == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Nails">
-                                                Nails</label>
-                                             <select name="nails" id="Nails" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.nails') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->nails == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
                                        </div>
                                     </div>
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Nails">
-                                                Anguli
-                                                sandhi</label>
-                                             <select name="anguli_sandhi" id="Anguli
-                                             sandhi" class="form-control">
-                                                <option value="">Please select
-                                                </option>
-                                                @foreach(__('phr.anguli_sandhi') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->anguli_sandhi == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Netra">
-                                                Netra</label>
-                                             <select name="netra" id="Netra" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Nadi">
+                                             Nadi</label>
+                                          <br>@foreach(__('phr.nadi') as $key=>$value)
+                                          {{$patient->nadi == $key  ? $value : ''}}
+                                          @endforeach
 
-                                                @foreach(__('phr.netra') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->netra == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Adhovartma">
-                                                Adhovartma</label>
-                                             <select name="adhovartma" id="Adhovartma" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.adhovartma') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->adhovartma == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Hastatala">
-                                                Hastatala</label>
-                                             <select name="hastatala" id="Hastatala" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.hastatala') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->hastatala == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
                                        </div>
                                     </div>
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Jihwa">
-                                                Jihwa</label>
-                                             <select name="jihwa" id="Jihwa" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.jihwa') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->jihwa == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Aakriti">
-                                                Aakriti</label>
-                                             <select name="aakriti" id="Aakriti" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.aakriti') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->aakriti == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Shabda">
-                                                Shabda</label>
-                                             <select name="shabda" id="Shabda" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.shabda') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->shabda == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Koshtha">
-                                                Koshtha</label>
-                                             <select name="koshtha" id="Koshtha" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.koshtha') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->koshtha == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Place">Place</label>
+                                          <br>@foreach(__('phr.place') as $key=>$value)
+                                          {{$patient->nadi_place == $key  ? $value : ''}}
+                                          @endforeach
+
+
                                        </div>
                                     </div>
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Agni">
-                                                Agni</label>
-                                             <select name="agni" id="Agni" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.agni') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->agni == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Mala
-                                             Pravritti">
-                                                Mala
-                                                Pravritti</label>
-                                             <select name="mala_pravritti" id="Mala
-                                             Pravritti" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.mala_pravritti') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->mala_pravritti == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Mutra
-                                             Pravritti">
-                                                Mutra
-                                                Pravritti</label>
-                                             <select name="mutra_pravritti" id="Mutra
-                                             Pravritti" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.mutra_pravritti') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->mutra_pravritti == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Vyavay
-                                             Pravritti">
-                                                Vyavay
-                                                Pravritti</label>
-                                             <select name="vyavay_pravritti" id="Vyavay
-                                             Pravritti" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.vyavay_pravritti') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->vyavay_pravritti == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Nails">
+                                             Nails</label>
+                                          <br>@foreach(__('phr.nails') as $key=>$value)
+                                          {{$patient->nails == $key  ? $value : ''}}
+                                          @endforeach
+
+
                                        </div>
                                     </div>
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Shukrakshanapravritti">Shukrakshana
-                                                pravritti</label>
-                                             <select name="shukrakshana_pravritti" id="Shukrakshanapravritti" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->shukrakshana_pravritti == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
+                                 </div>
+                                 <div class="row clearfix">
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Nails">
+                                             Anguli
+                                             sandhi</label>
+                                          <br>@foreach(__('phr.anguli_sandhi') as $key=>$value)
+                                          {{$patient->anguli_sandhi == $key  ? $value : ''}}
+                                          @endforeach
+
+
                                        </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Aartava
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Netra">
+                                             Netra</label>
+                                          <br>@foreach(__('phr.netra') as $key=>$value)
+                                          {{$patient->netra == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Adhovartma">
+                                             Adhovartma</label>
+                                          <br>@foreach(__('phr.adhovartma') as $key=>$value)
+                                          {{$patient->adhovartma == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Hastatala">
+                                             Hastatala</label>
+                                          <br>
+                                          @foreach(__('phr.hastatala') as $key=>$value)
+                                          {{$patient->hastatala == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row clearfix">
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Jihwa">
+                                             Jihwa</label>
+                                          <br>
+                                          @foreach(__('phr.jihwa') as $key=>$value)
+                                          {{$patient->jihwa == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Aakriti">
+                                             Aakriti</label>
+                                          <br>
+                                          @foreach(__('phr.aakriti') as $key=>$value)
+                                          {{$patient->aakriti == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Shabda">
+                                             Shabda</label>
+                                          <br>
+                                          @foreach(__('phr.shabda') as $key=>$value)
+                                          {{$patient->shabda == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Koshtha">
+                                             Koshtha</label>
+                                          <br>
+                                          @foreach(__('phr.koshtha') as $key=>$value)
+                                          {{$patient->koshtha == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row clearfix">
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Agni">
+                                             Agni</label>
+                                          <br>
+                                          @foreach(__('phr.agni') as $key=>$value)
+                                          {{$patient->agni == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Mala
+                                             Pravritti">
+                                             Mala
+                                             Pravritti</label>
+                                          <br>
+                                          @foreach(__('phr.mala_pravritti') as $key=>$value)
+                                          {{$patient->mala_pravritti == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Mutra
+                                             Pravritti">
+                                             Mutra
+                                             Pravritti</label>
+                                          <br>
+                                          @foreach(__('phr.mutra_pravritti') as $key=>$value)
+                                          {{$patient->mutra_pravritti == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Vyavay
+                                             Pravritti">
+                                             Vyavay
+                                             Pravritti</label>
+                                          <br>
+                                          @foreach(__('phr.vyavay_pravritti') as $key=>$value)
+                                          {{$patient->vyavay_pravritti == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row clearfix">
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Shukrakshanapravritti">Shukrakshana
+                                             pravritti</label>
+                                          <br>
+                                          @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
+                                          {{$patient->shukrakshana_pravritti == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Aartava
                                              Pravritti
                                              Kala">
-                                                Aartava
-                                                Pravritti
-                                                Kala</label>
-                                             <select name="aartava_pravratti_kala" id="Aartava
+                                             Aartava
                                              Pravritti
-                                             Kala" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                   @foreach(__('phr.aartava_pravratti_kala') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->aartava_pravratti_kala == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Dehoshma">
-                                                Dehoshma</label>
-                                             <select name="dehoshma" id="Dehoshma" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.dehoshma') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->dehoshma == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Bhara">
-                                                Bhara</label>
-                                             <input type="text" name="bhara" id="Bhara" value="{{ $patient->bhara }}" class="form-control" placeholder="Bhara" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="32" readonly>
-                                          </div>
+                                             Kala</label>
+                                          <br>
+                                          @foreach(__('phr.aartava_pravratti_kala') as $key=>$value)
+                                          {{$patient->aartava_pravratti_kala == $key  ? $value : ''}}
+                                          @endforeach
+
+
                                        </div>
                                     </div>
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Raktachapa">
-                                                Raktachapa</label>
-                                             <select name="raktachapa" id="Raktachapa" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.raktachapa') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->raktachapa == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Dehoshma">
+                                             Dehoshma</label>
+                                          <br>
+                                          @foreach(__('phr.dehoshma') as $key=>$value)
+                                          {{$patient->dehoshma == $key  ? $value : ''}}
+                                          @endforeach
+
+
                                        </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Hrid
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Bhara">
+                                             Bhara</label>
+                                          <br>{{$patient->bhara}}</label>
+
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row clearfix">
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Raktachapa">
+                                             Raktachapa</label>
+                                          <br>
+                                          @foreach(__('phr.raktachapa') as $key=>$value)
+                                          {{$patient->raktachapa == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Hrid
                                              gati">
-                                                Hrid
-                                                gati</label>
-                                             <select name="hrid_gati" id="Hrid
-                                             gati" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.hrid_gati') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->hrid_gati == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="Shvasagati">
-                                                Shvasagati</label>
-                                             <select name="shvasagati" id="shvasagati" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.shvasagati') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->shvasagati == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="parkriti_parikshana">
-                                                Parkriti
-                                                Parikshana</label>
-                                             <select name="parkriti_parikshana" id="parkriti_parikshana" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.parkriti_parikshana') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->parkriti_parikshana == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
-                                          </div>
+                                             Hrid
+                                             gati</label>
+                                          <br>
+                                          @foreach(__('phr.hrid_gati') as $key=>$value)
+                                          {{$patient->hrid_gati == $key  ? $value : ''}}
+                                          @endforeach
+
+
                                        </div>
                                     </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="Shvasagati">
+                                             Shvasagati</label>
+                                          <br>
+                                          @foreach(__('phr.shvasagati') as $key=>$value)
+                                          {{$patient->shvasagati == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                       <div class="form-group">
+                                          <label for="parkriti_parikshana">
+                                             Parkriti
+                                             Parikshana</label>
+                                          <br>
+                                          @foreach(__('phr.parkriti_parikshana') as $key=>$value)
+                                          {{$patient->parkriti_parikshana == $key  ? $value : ''}}
+                                          @endforeach
+
+
+                                       </div>
+                                    </div>
+                                 </div>
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
-                                                Examination
-                                                by
-                                                Physician</label>
-                                             <select name="examination_by_physician" id="Skin" class="form-control">
-                                                <option value="">Please
-                                                   select
-                                                </option>
-                                                @foreach(__('phr.examination_by_physician') as $key=>$value)
-                                                <option value="{{$key}}" {{$patient->examination_by_physician == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                @endforeach
-                                             </select>
+                                          <label for="example-text-input" class="form-control-label">
+                                             Examination
+                                             by
+                                             Physician</label>
+                                          <br>
+                                          @foreach(__('phr.examination_by_physician') as $key=>$value)
+                                          {{$patient->examination_by_physician == $key  ? $value : ''}}
+                                          @endforeach
                                           </div>
                                        </div>
                                        <div class="col-md-6">

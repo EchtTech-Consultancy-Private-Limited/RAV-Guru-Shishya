@@ -137,10 +137,6 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('remark-history/{phr_id}', [PatientController::class, 'remark_history']);
         Route::post('send-php-to-guru', [PatientController::class, 'send_phr_to_guru']);
 
-
-
-
-
         /*Guru Url*/
         Route::get('guru-patient-list', [PatientController::class, 'guru_patient_list']);
         Route::get('notify-guru-patient-list', [PatientController::class, 'notify_guru_patient_list']);

@@ -70,7 +70,7 @@
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Name of the Guru<span class="text-danger">*</span></label><br>
+                                             <label for="example-text-input" class="form-control-label">Name of the Guru</label><br>
                                              @if(!empty($guru->id))
                                              <label for="example-text-input" class="form-control-label"><b>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</b></label>
                                              @endif
@@ -88,7 +88,7 @@
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Name of the Shishya<span class="text-danger">*</span></label><br>
+                                             <label for="example-text-input" class="form-control-label">Name of the Shishya</label><br>
                                              <label for="example-text-input" class="form-control-label"><b>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</b></label>
 
                                           </div>
