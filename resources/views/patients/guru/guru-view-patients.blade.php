@@ -83,15 +83,16 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Guru<span class="text-danger"></span></label><br>
-                                             <label for="example-text-input" class="form-control-label"><b>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</b></label>
+                                             <p>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</p>
+                                          
 
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Place of the Guru</label><br>
-                                             <label for="example-text-input" class="form-control-label"><b>{{$guru->city_name}}<b></label>
-
+                                             <p>{{$guru->city_name}}</p>
+                                             
                                           </div>
                                        </div>
                                     </div>
@@ -99,15 +100,14 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Shishya<span class="text-danger"></span></label><br>
-                                             <label for="example-text-input" class="form-control-label"><b>{{$shishya->firstname}} {{$shishya->lastname}}</b></label>
-
+                                             <p>{{$shishya->firstname}} {{$shishya->lastname}}</p>
+                                             
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                             <label for="example-text-input" class="form-control-label"><b><?php echo date('d-m-Y'); ?><b></label>
-
+                                             <p><?php echo date('d-m-Y'); ?></p>
                                           </div>
                                        </div>
                                     </div>
@@ -116,13 +116,15 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger"></span></label>
-                                             <input type="text" name="patient_name" class="form-control" placeholder="Patient Name" aria-label="Email" value="{{ $patient->patient_name }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="32" readonly>
+                                             <p>{{ $patient->patient_name }}</p>
+                                           
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration No<span class="text-danger"></span></label>
-                                             <input type="text" name="registration_no" class="form-control" placeholder="Registration No" aria-label="" value="{{ $patient->registration_no }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="32" readonly>
+                                             <p>{{ $patient->registration_no }}</p>
+                                            
                                           </div>
                                        </div>
                                     </div>
@@ -130,19 +132,22 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Age<span class="text-danger"></span></label>
-                                             <input type="text" name="age" class="form-control" placeholder="Age" aria-label="Phone" value="{{ $patient->age }}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
+                                             <p>{{ $patient->age }}</p>
+                                            
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration Date</label>
-                                             <input type="text" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{date('d-m-y',strtotime($patient->registration_date))}}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
+                                             <p>{{date('d-m-y',strtotime($patient->registration_date))}}</p>
+                                            
                                           </div>
                                        </div>
                                        <div class="col-md-12">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Patients Type</label>
-                                             <input type="text" class="form-control" name="patient_type" value="{{ $patient->patient_type }}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
+                                             <p>{{ $patient->patient_type }}</p>
+                                             
                                           </div>
                                        </div>
 
@@ -187,14 +192,15 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Aasan Sidhi</label>
-                                             <input type="text" name="aasan_sidhi" class="form-control" placeholder="Aasan Sidhi" aria-label="Aasan Sidhi" value="{{ $patient->aasan_sidhi }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="32" readonly>
+                                             <p>{{ $patient->aasan_sidhi }}</p>
+                                            
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Season</label>
-                                             <input type="text" name="season" class="form-control" placeholder="Season" aria-label="Aasan
-                                             Sidhi" value="{{ $patient->season }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="32" readonly>
+                                             <p>{{ $patient->season }}</p>
+                                            
                                           </div>
                                        </div>
                                     </div>
@@ -211,7 +217,8 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Address<span class="text-danger"></span></label>
-                                             <textarea cols="45" rows="2" name="address" class="form-control" value="{{ $patient->address }}" aria-label="Address" placeholder="Street Address" maxlength="200" readonly>{{ $patient->address }}</textarea>
+                                             <p>{{ $patient->address }}</p>
+                                            
                                           </div>
                                        </div>
                                     </div>
@@ -219,13 +226,15 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Main Complaint(As said by patient)</label>
-                                             <textarea cols="45" rows="2" name="main_complaintsaid_by_patient" class="form-control" value="{{ $patient->main_complaintsaid_by_patient }}" aria-label="main_complaintsaid_by_patient" placeholder="Main Complaint" maxlength="100" readonly>{{ $patient->main_complaintsaid_by_patient }}</textarea>
+                                             <p>{{ $patient->main_complaintsaid_by_patient }}</p>
+                                           
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Duration</label>
-                                             <input type="text" name="said_by_patient_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->said_by_patient_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="32" readonly>
+                                             <p>{{ $patient->said_by_patient_duration }}</p>
+                                           
                                           </div>
                                        </div>
                                     </div>
@@ -233,13 +242,15 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label"> Main Complaint(As said by family member)</label>
-                                             <textarea cols="45" rows="2" name="main_complaint_as_said_by_family" class="form-control" value="{{ $patient->main_complaint_as_said_by_family }}" aria-label="main_complaint_as_said_by_family" placeholder="Main Complaint" maxlength="100" readonly>{{ $patient->main_complaint_as_said_by_family }}</textarea>
+                                             <p>{{ $patient->main_complaint_as_said_by_family }}</p>
+                                           
                                           </div>
                                        </div>
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Duration</label>
-                                             <input type="text" name="complaint_as_said_by_family_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->complaint_as_said_by_family_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="50" readonly>
+                                             <p>{{ $patient->complaint_as_said_by_family_duration }}</p>
+                                           
                                           </div>
                                        </div>
                                     </div>
@@ -247,7 +258,8 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Past Illness</label>
-                                             <textarea cols="45" rows="2" name="past_illness" class="form-control" value="{{ $patient->past_illness }}" aria-label="Address" placeholder="Past illness" maxlength="80" readonly>{{ $patient->past_illness }}</textarea>
+                                             <p>{{ $patient->past_illness }}</p>
+                                            
                                           </div>
                                        </div>
                                        <div class="col-md-6">
@@ -255,7 +267,8 @@
                                              <label for="example-text-input" class="form-control-label">
                                                 Family
                                                 History</label>
-                                             <textarea cols="45" rows="2" name="family_history" class="form-control" value="{{ $patient->family_history }}" aria-label="family_history" placeholder="Family History" maxlength="40" readonly>{{ $patient->family_history }}</textarea>
+                                                <p>{{ $patient->family_history }}</p>
+                                             
                                           </div>
                                        </div>
                                     </div>
@@ -584,7 +597,8 @@
                                              <label for="example-text-input" class="form-control-label">
                                                 Prayogashaliya
                                                 Parikshana</label>
-                                             <textarea cols="45" rows="2" name="prayogashaliya_parikshana" class="form-control" value="" aria-label="prayogashaliya_parikshana" placeholder="PrayogashaliyaParikshana" readonly>{{ $patient->prayogashaliya_parikshana }}</textarea>
+                                                <p>{{ $patient->prayogashaliya_parikshana }}</p>
+                                            
                                           </div>
                                        </div>
                                     </div>
@@ -594,7 +608,8 @@
                                              <label for="example-text-input" class="form-control-label">
                                                 Samprapti
                                                 Vivarana</label>
-                                             <textarea cols="45" rows="2" name="samprapti_vivarana" class="form-control" value="" aria-label="samprapti_vivarana" placeholder="Samprapti Vivarana" maxlength="100" readonly>{{ $patient->samprapti_vivarana }}</textarea>
+                                                <p>{{ $patient->samprapti_vivarana }}</p>
+                                            
                                           </div>
                                        </div>
                                        <div class="col-md-6">
@@ -602,7 +617,8 @@
                                              <label for="example-text-input" class="form-control-label">
                                                 Vibhedaka
                                                 Pariksha</label>
-                                             <textarea cols="45" rows="2" name="vibhedaka_pariksha" class="form-control" value="" aria-label="vibhedaka_pariksha" placeholder="Vibhedaka Pariksha" maxlength="100" readonly>{{ $patient->vibhedaka_pariksha }}</textarea>
+                                                <p>{{ $patient->vibhedaka_pariksha }}</p>
+                                        
                                           </div>
                                        </div>
                                     </div>
@@ -614,7 +630,8 @@
                                                 Vinishchaya-
                                                 Pramukh
                                                 Nidana</label>
-                                             <textarea cols="45" rows="2" name="roga_vinishchaya_pramukh_nidana" class="form-control" value="" aria-label="roga_vinishchaya" placeholder="Roga Vinishchaya- Nidana" maxlength="100" readonly>{{ $patient->roga_vinishchaya_pramukh_nidana }}</textarea>
+                                                <p>{{ $patient->roga_vinishchaya_pramukh_nidana }}</p>
+                                            
                                           </div>
                                        </div>
                                     </div>
@@ -626,24 +643,24 @@
                                                 Kalpana
                                                 Anupana
                                                 Sahita</label>
-                                             <textarea cols="45" rows="2" name="chikitsa_kalpana_anupana_sahita" class="form-control" value="" aria-label="chikitsa_kalpana_anupana_sahita
-                                             " placeholder="Chikitsa Kalpana Anupana Sahita" maxlength="100" readonly>{{ $patient->chikitsa_kalpana_anupana_sahita }}</textarea>
+                                                <p>{{ $patient->chikitsa_kalpana_anupana_sahita }}</p>
+                                           
                                           </div>
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="samshodhana_kriyas" class="form-control-label">Samshodhana
                                                 Kriyas</label>
-                                             <textarea cols="45" rows="2" name="samshodhana_kriyas" class="form-control" value="" aria-label="samshodhana_kriyas
-                                             " placeholder="Samshodhana Kriyas" maxlength="100" readonly>{{ $patient->samshodhana_kriyas }}</textarea>
+                                                <p>{{ $patient->samshodhana_kriyas }}</p>
+                                             
                                           </div>
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="samshamana_kriyas" class="form-control-label">Samshamana
                                                 Kriyas</label>
-                                             <textarea cols="45" rows="2" name="samshamana_kriyas" class="form-control" value="" aria-label="samshamana_kriyas
-                                             " placeholder="Samshamana Kriyas" maxlength="100" readonly>{{ $patient->samshamana_kriyas }}</textarea>
+                                                <p>{{ $patient->samshamana_kriyas }}</p>
+                                             
                                           </div>
                                        </div>
                                     </div>
@@ -654,8 +671,8 @@
                                                 Pathya-Apathya
                                                 (<span class="fs-12
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span>)</label>
-                                             <textarea cols="45" rows="2" name="pathya_apathya" class="form-control" value="" aria-label="pathya_apathya
-                                             " placeholder=" Pathya-Apathya" maxlength="100" readonly>{{ $patient->pathya_apathya }}</textarea>
+                                             <p>{{ $patient->pathya_apathya }}</p>
+                                      
                                           </div>
                                        </div>
                                     </div>
