@@ -84,8 +84,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label><br>
+                                             class="form-control-label">Name of the Guru</label><br>
                                           @if(!empty($guru->id))
                                          <label
                                          for="example-text-input"
@@ -113,8 +112,7 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label><br>
+                                             class="form-control-label">Name of the Shishya</label><br>
                                          <label
                                          for="example-text-input"
                                          class="form-control-label"><b>{{ $shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname }} </b></label>

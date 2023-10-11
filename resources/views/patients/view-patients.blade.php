@@ -46,7 +46,7 @@
 
                   <ul class="header-dropdown m-r--5">
                      <li>
-                     <a href="{{ route('generatePdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; PDF &nbsp;</button></a>
+                     <a href="{{ route('generatePdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; Print &nbsp;</button></a>
                      </li>
                   </ul>
                </div>
