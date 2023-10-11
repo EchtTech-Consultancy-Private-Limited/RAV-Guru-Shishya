@@ -135,7 +135,7 @@
                                     <table class="table table-hover js-basic-example contact_list" id="data_table1">
                                         <thead>
                                             <tr>
-                                                <th class="center sorting sorting_asc" tabindex="0"
+                                                <!-- <th class="center sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label=" No : activate to sort column descending">
@@ -143,14 +143,14 @@
                                                             id="checkall" type="checkbox" value="1">
                                                     <label for='selectAll'>
                                                     </label>
-                                                </th>
+                                                </th> -->
                                                 <th class="center sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label=" No : activate to sort column descending"> S.No. </th>
-                                                <th class="center"> Registration No. </th>
+                                                <th class="center"> Patient Registration No. </th>
                                                 <th class="center"> Date </th>
-                                                <th class="center"> Patient </th>
+                                                <th class="center"> Patient Name </th>
                                                 <th class="center"> Guru Name </th>
                                                 <th class="center"> Shishya Name </th>
                                                 <th class="center"> Progress Duration </th>
@@ -165,11 +165,11 @@
                                                             (Auth::user()->user_type == 3 && $followup->read_by_shishya == '0') ||
                                                             (Auth::user()->user_type == 1 && $followup->read_by_admin == '0')) active-row @endif">
 
-                                                    <td class="center sorting_1 text-end p-0">
+                                                    <!-- <td class="center sorting_1 text-end p-0">
                                                             @if (Auth::user()->user_type == 2 || Auth::user()->user_type == 3)
                                                                 <input name="followup_ids[]" type="checkbox" value="{{ $followup->id }}" class="input-checkbox">
                                                             @endif
-                                                        </td>
+                                                        </td> -->
                                                     <td class="center sorting_1">{{ $k + 1 }}</td>
 
                                                     <td class="center"><a
@@ -318,7 +318,7 @@
 
         $(".find-registration").click(function() {
             if ($("#registration_no").val() == '') {
-                $("#registration_no-error").html('Enter registration no.');
+                $("#registration_no-error").html('Enter patient registration no.');
                 return false;
             } else $("#registration_no-error").html('');
 

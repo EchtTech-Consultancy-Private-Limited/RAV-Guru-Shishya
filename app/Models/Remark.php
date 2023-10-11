@@ -12,6 +12,7 @@ class Remark extends Model
         'guru_id',
         'shishya_id',
         'phr_id',
+        'send_by',
          'send_to',
          'remarks',
          'followup_id',

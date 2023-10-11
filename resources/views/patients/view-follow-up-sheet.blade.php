@@ -73,7 +73,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
-                                                            <label class="form-control-label">Registration No.</label>
+                                                            <label class="form-control-label">Patient Registration No.</label>
                                                             <br>
                                                             <label for="follow_up_date"
                                                                 class="form-control-label">{{$patient->registration_no}}</label>
@@ -99,7 +99,7 @@
                                                             <label class="form-control-label">Date of Follow up</label>
                                                             <br>
                                                             <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->follow_up_date)){{date('Y-m-d',strtotime($data->follow_up_date))}}@endif</label>
+                                                                class="form-control-label">@if(!empty($data->follow_up_date)){{date('d-m-Y',strtotime($data->follow_up_date))}}@endif</label>
 
                                                         </div>
                                                     </div>
@@ -303,6 +303,7 @@
                                                             <tr>
                                                                 <th class="center">S.No#</th>
                                                                 <th class="center"> Date </th>
+                                                                <th class="center"> Send By </th>
                                                                 <th class="center"> Send To </th>
                                                                 <th class="center"> Remarks </th>
 
@@ -313,8 +314,11 @@
                                                             <tr class="odd gradeX">
                                                                 <td class="center">{{($k+1)}}</td>
                                                                 <td class="center">
-                                                                    {{date('d-m-Y H:m:s',strtotime($remark->created_at))}}
+                                                                    {{date('d-m-Y',strtotime($remark->created_at))}}
                                                                 </td>
+                                                                <td class="center">@if($remark->send_by=='2')Guru
+                                                                    @elseif($remark->send_by=='3')Shishya
+                                                                    @elseif($remark->send_by=='1')Admin @endif</td>
                                                                 <td class="center">@if($remark->send_to=='2')Guru
                                                                     @elseif($remark->send_to=='3')Shishya
                                                                     @elseif($remark->send_to=='1')Admin @endif</td>
@@ -375,7 +379,7 @@
                                             <label for="example-text-input" class="form-control-label">Name of the
                                                 Shishya<span class="text-danger"></span></label><br>
                                             <label for="example-text-input"
-                                                class="form-control-label"><b>{{$shishya->firstname}}</b></label>
+                                                class="form-control-label"><b>{{$shishya->firstname.' '.$shishya->lastname}}</b></label>
 
                                         </div>
                                     </div>
@@ -384,7 +388,7 @@
                                             <label for="example-text-input" class="form-control-label">Date of
                                                 Report</label><br>
                                             <label for="example-text-input"
-                                                class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
+                                                class="form-control-label"><b><?php echo date('d-m-Y'); ?><b></label>
 
                                         </div>
                                     </div>
@@ -402,7 +406,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Registration
+                                            <label for="example-text-input" class="form-control-label">Patient Registration
                                                 No<span class="text-danger"></span></label>
                                             <br><label for="example-text-input"
                                                 class="form-control-label"><strong>{{$patient->registration_no}}</strong></label>
