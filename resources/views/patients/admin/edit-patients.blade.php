@@ -126,9 +126,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Date of Report</label><br>
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label"><b><?php echo date('m-d-Y'); ?><b></label>
+                                          <label><?php echo date('m-d-Y'); ?></label>
                                           
                                        </div>
                                     </div>

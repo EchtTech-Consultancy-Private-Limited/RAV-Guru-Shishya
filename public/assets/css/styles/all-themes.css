@@ -892,7 +892,7 @@
 }
 
 .theme-black .btn-primary {
-    background-color: #353c48 !important;
+    background-color: #353c48 ;
     color: #fff !important;
     border-color: #353c48 !important
 }
