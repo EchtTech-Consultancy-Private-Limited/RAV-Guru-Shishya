@@ -105,7 +105,7 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                             <p><?php echo date('Y-m-d'); ?></p>
+                                             <p><?php echo date('d-m-Y'); ?></p>
 
                                           </div>
                                        </div>

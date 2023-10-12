@@ -246,35 +246,14 @@ class AddUserController extends Controller
                 'address1' => 'required',
                 'address2' => 'required',
                 'country' => 'required',
-                'pincode' => 'required|numeric',
-                'aadhaar_no' => 'required|numeric',
-                'pan_no' => 'required',
+                'pincode' => 'required|max:6',
+                'per_pincode' => 'max:6',
+                'aadhaar_no' => 'required|max:12',
+                'pan_no' => 'required|max:15',
                 'e_sign'   => 'mimes:jpeg,png,jpg|max:200',
                 'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
-                'mobile_no' => 'required|min:10',
+                'mobile_no' => 'required|digits:10',
                 'title' => 'required',
-        ],[
-            'firstname.required' => 'First name is required',
-            'firstname.max' => 'Maximum length not more than 200',
-            'firstname.min' => 'Minimum length at least 2',
-            'lastname.max' => 'Maximum length not more than 200',
-            'lastname.min' => 'Minimum length at least 2',
-            'email' => 'Email is required',
-            'date_of_birth.required' => 'Date of birth is required',
-            'age.required' => 'Age is required and must be integer',
-            'f_name.required' => 'Father name is required',
-            'f_name.max' => 'Father name is should not be 200',
-            'f_name.min' =>'Minimum length at least 2',
-            'address1.required' => 'Address is required',
-            'address2.required' => 'Address is required',
-            'country.required' => 'Country is required',
-            'pincode.required' => 'Pincode is required',
-            'aadhaar_no.required' => 'Aadhar number is required',
-            'pan_no.required' => 'Pan number is required',
-            'e_sign.mimes'   => 'E-signature is required jpeg,png,jpg',
-            'profile_image.mimes'   => 'Profile is jpeg,png,jpg',
-            'mobile_no.required' => 'Mobile number is required',
-            'title.required' => 'Title is required',
         ]);
         }
 
@@ -494,14 +473,6 @@ class AddUserController extends Controller
 
     public function manage_profile_form_step3(Request $request)
     { 
-        $this->validate($request, [
-                'regis_no' => array('regex:/^[a-zA-Z0-9\s-]+$/'),
-                'weekend_off' => 'required',
-        ],[
-            'regis_no.regex' => 'Registration number is a-zA-Z0-9 -',
-            'weekend_off.required' => 'Weekend Off is required',
-        ]);  
-       // return $request->all();
         $clinical_id=$request->clinical_id;
         $input=$request->all();
         if($clinical_id!='' && $request->form_step_type=="step4")

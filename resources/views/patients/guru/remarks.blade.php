@@ -97,7 +97,19 @@
                   <div class="col-sm-12 p-t-20 text-center">
                     <button type="submit" class="btn btn-primary waves-effect m-r-15" >Submit</button>
                     <button type="reset" onclick="refreshPage();" class="btn btn-danger waves-effect">Reset</button>
-                 </div>
+                  </div>
+                  <div id="non-printable" class="col-sm-12 p-t-20 text-left no-printme">
+                     @if(Auth::user()->user_type == 1)
+                     <a href="{{ url('/patients/In-Patient') }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
+                     @endif
+                     @if(Auth::user()->user_type == 2)
+                     <a href="{{ url('/guru-patient-list') }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
+                     @endif
+                     @if(Auth::user()->user_type == 3)
+                     <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
+                     @endif
+                     
+                  </div>
                      </div>
 
 

@@ -43,7 +43,7 @@
             </div>
             <div class="third" >
                 <strong>Name of the Shishya</strong>
-                <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
+                <p>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}</p>
             </div>
             <div class="fourth" >
                 <strong>Date of Report</strong>

@@ -84,7 +84,7 @@
                                     <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                          {{date('d-m-y',strtotime($patient->registration_date))}}
+                                          {{date('d-m-Y',strtotime($patient->registration_date))}}
                                        </div>
                                     </div>
                                  </div>
@@ -125,14 +125,6 @@
                                           <label for="example-text-input" class="form-control-label">Registration Date</label>
                                           <br>{{date('d-m-y',strtotime($patient->registration_date))}}</label>
 
-                                       </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                       <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">Patients Type-</label>
-
-                                          {{$patient->patient_type}} </label>
                                        </div>
                                     </div>
                                  </div>
@@ -254,7 +246,7 @@
                                           <label for="example-text-input" class="form-control-label">
                                              Family
                                              History</label>
-                                          <br>{{$patient->past_illness}}</label>
+                                          <br>{{$patient->family_history}}</label>
 
                                        </div>
                                     </div>

@@ -89,7 +89,7 @@
                               <div class="row">
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
-                                       <label >Title<span class="text-danger">*</span></label>
+                                       <label >Title</label>
                                        <select name="title" class="form-control" >
                                           <option>Select Title </option>
                                           @foreach(__('phr.titlename') as $key=>$value)
@@ -224,7 +224,8 @@
                                  <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">@error('Pincode')
+                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">
+                                       @error('pincode')
                                        <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
                                     </div>
@@ -514,7 +515,7 @@
                                                 <th scope="row">{{++$key}}</th>
                                                 <td>{{ $educational_records->institute_name }}</td>
                                                 <td>{{ $educational_records->course_name }} </td>
-                                                <td>{{ $educational_records->year_of_passing }}</td>
+                                                <td>{{ date('d-m-Y', strtotime($educational_records->year_of_passing)) }}</td>
                                                 <td class="text-center">
                                                    @if($educational_records->upload_degree)
                                                    <!--  <img src="{{ asset('uploads/'.$educational_records->upload_degree) }}" alt="E-Sign" width="100px;" height="80px;"> -->

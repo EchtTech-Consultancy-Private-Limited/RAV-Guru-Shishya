@@ -190,15 +190,24 @@ class PatientController extends Controller
             if(isset($request->guru_id)) $data->where('follow_up_patients.guru_id',$request->guru_id);
             $data->where('follow_up_patients.send_to_admin',1);
         }
-
-        if(!empty($request->prno))$data->where('follow_up_patients.registration_no',$request->prno);
-        if(!empty($request->from_date))$data->where('follow_up_patients.follow_up_date','>=',date("Y-m-d",strtotime($request->from_date)));
-        if(!empty($request->to_date))$data->where('follow_up_patients.follow_up_date','<=',date("Y-m-d",strtotime($request->to_date)));
-        if(!empty($request->report_type))$data->where('follow_up_patients.report_type',$request->report_type);
-
-
+        
+        if(!empty($request->prno)){            
+            $data->where('follow_up_patients.registration_no',$request->prno);
+        }
+       
+        if(!empty($request->from_date)){
+            $data->where('follow_up_patients.follow_up_date','>=',date("d-m-Y",strtotime($request->from_date)));
+        }
+       
+        if(!empty($request->to_date)){
+            $data->where('follow_up_patients.follow_up_date','<=',date("d-m-Y",strtotime($request->to_date)));
+        }
+        if(!empty($request->report_type))
+        {
+            $data->where('follow_up_patients.report_type',$request->report_type);
+        }
         $data=$data->orderby('id','Desc')->paginate(10);
-
+       
         $guru=get_guru_list(Auth::user()->guru_id);
         $gurus=get_guru_list();
         return view("patients.follow-up-patients",['guru'=>$guru,'gurus'=>$gurus,'data'=>$data])->with('i', (request()->input('page', 1) - 1) * 10);;
@@ -916,8 +925,8 @@ class PatientController extends Controller
 
     public function guru_remark_history(Request $request,$phr_id)
     {
-        if($phr_id!=0)$phr_id= decrypt($phr_id);
-        $remark_history=Remark::where('phr_id',$phr_id)->get();
+        if($phr_id!=0)$phr_id= decrypt($phr_id);        
+        $remark_history=Remark::orderby('id','Desc')->where('phr_id',$phr_id)->get();
         return view('patients.guru.remark-history',compact('remark_history'));
 
     }
@@ -925,7 +934,7 @@ class PatientController extends Controller
      public function remark_history(Request $request,$phr_id)
     {
         if($phr_id!=0)$phr_id= decrypt($phr_id);
-        $remark_history=Remark::where('phr_id',$phr_id)->get();
+        $remark_history=Remark::orderby('id','Desc')->where('phr_id',$phr_id)->get();
         return view('patients.remark-history',compact('remark_history'));
 
     }
@@ -966,16 +975,7 @@ class PatientController extends Controller
                 'age_group' => 'required',
                 'occupation' => 'required',
                 'marital_status' => 'required',
-        ],[
-            'patient_name' => 'Field is required',
-            'registration_no.required' => 'Field is required',
-            'age.required' => 'Field is required and must be integer',
-            'patient_type.required' => 'Field is required',
-            'gender.required' => 'Field is required',
-            'age_group.required' => 'Field is required',
-            'occupation.required' => 'Field is required',
-            'marital_status.required' => 'Field is required',
-            'city.required' => 'Field is required',
+                'address' => 'required',
         ]);
        
         $input = $request->all();

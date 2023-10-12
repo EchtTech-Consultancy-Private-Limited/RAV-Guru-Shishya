@@ -43,7 +43,7 @@
                 <div class="card">
                     <div class="header">
                         <h2><strong>View</strong> Follow Up </h2>
-                        <ul class="header-dropdown m-r--5">
+                        <!-- <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
                                     role="button" aria-haspopup="true" aria-expanded="false">
@@ -56,7 +56,7 @@
 
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="body">
                         <div id="wizard_horizontal">
@@ -428,7 +428,7 @@
                                             <label for="example-text-input" class="form-control-label">Registration
                                                 Date</label>
                                             <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{date('Y-m-d',strtotime($patient->registration_date))}}</strong></label>
+                                                class="form-control-label"><strong>{{date('d-m-Y',strtotime($patient->registration_date))}}</strong></label>
 
                                         </div>
                                     </div>
@@ -519,7 +519,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label fw-boldxc">1. Main
+                                            <label for="example-text-input" class="form-control-label fw-boldxc">Main
                                                 Complaint(As said by patient)</label>
                                             <br><label for="example-text-input"
                                                 class="form-control-label fw-bold"><strong>{{$patient->main_complaintsaid_by_patient}}</strong></label>
@@ -535,7 +535,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label fw-bold">2. Main
+                                            <label for="example-text-input" class="form-control-label fw-bold">Main
                                                 Complaint(As said by family member)</label>
                                             <br><label for="example-text-input"
                                                 class="form-control-label"><strong>{{$patient->main_complaint_as_said_by_family}}</strong></label>
@@ -552,7 +552,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">3. Past
+                                            <label for="example-text-input" class="form-control-label"> Past
                                                 illness</label>
                                             <br><label for="example-text-input"
                                                 class="form-control-label"><strong>{{$patient->past_illness}}</strong></label>
@@ -561,7 +561,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">4.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Family
                                                 History</label>
                                             <br><label for="example-text-input"
@@ -579,7 +579,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label fw-bold">5.
+                                            <label for="example-text-input" class="form-control-label fw-bold">
                                                 Examination
                                                 of
                                                 the
@@ -590,7 +590,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Skin">i) Skin</label>
+                                            <label for="Skin"> Skin</label>
                                             <br><label for="example-text-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.skin') as $key=>$value)
                                                     {{$patient->skin == $key  ? $value : ''}}
@@ -600,7 +600,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Nadi">ii)
+                                            <label for="Nadi">
                                                 Nadi</label>
                                             <br><label for="example-text-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.nadi') as $key=>$value)
@@ -611,7 +611,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Place">iii) Place</label>
+                                            <label for="Place"> Place</label>
                                             <br><label for="example-text-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.place') as $key=>$value)
                                                     {{$patient->nadi_place == $key  ? $value : ''}}
@@ -622,7 +622,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Nails">iv)
+                                            <label for="Nails">
                                                 Nails</label>
                                             <br><label for="example-text-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.nails') as $key=>$value)
@@ -636,7 +636,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Nails">v)
+                                            <label for="Nails">
                                                 Anguli
                                                 sandhi</label>
                                             <br><label for="example-text-input" class="form-control-label"><strong>
@@ -649,7 +649,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Netra">vi)
+                                            <label for="Netra">
                                                 Netra</label>
                                             <br><label for="example-text-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.netra') as $key=>$value)
@@ -661,7 +661,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Adhovartma">vii)
+                                            <label for="Adhovartma">
                                                 Adhovartma</label>
                                             <br><label for="example-text-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.adhovartma') as $key=>$value)
@@ -673,7 +673,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Hastatala">viii)
+                                            <label for="Hastatala">
                                                 Hastatala</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.adhovartma') as $key=>$value)
@@ -687,7 +687,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Jihwa">ix)
+                                            <label for="Jihwa">
                                                 Jihwa</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.jihwa') as $key=>$value)
@@ -699,7 +699,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Aakriti">x)
+                                            <label for="Aakriti">
                                                 Aakriti</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.aakriti') as $key=>$value)
@@ -711,7 +711,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Shabda">xi)
+                                            <label for="Shabda">
                                                 Shabda</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.shabda') as $key=>$value)
@@ -723,7 +723,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Koshtha">xii)
+                                            <label for="Koshtha">
                                                 Koshtha</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.koshtha') as $key=>$value)
@@ -737,7 +737,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Agni">xiii)
+                                            <label for="Agni">
                                                 Agni</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.agni') as $key=>$value)
@@ -750,7 +750,7 @@
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="Mala
-                                             Pravritti">xiv)
+                                             Pravritti">
                                                 Mala
                                                 Pravritti</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
@@ -764,7 +764,7 @@
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="Mutra
-                                             Pravritti">xv)
+                                             Pravritti">
                                                 Mutra
                                                 Pravritti</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
@@ -778,7 +778,7 @@
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="Vyavay
-                                             Pravritti">xvi)
+                                             Pravritti">
                                                 Vyavay
                                                 Pravritti</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
@@ -807,7 +807,7 @@
                                         <div class="form-group">
                                             <label for="Aartava
                                              Pravritti
-                                             Kala">xvii)
+                                             Kala">
                                                 Aartava
                                                 Pravritti
                                                 Kala</label>
@@ -821,7 +821,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Dehoshma">xviii)
+                                            <label for="Dehoshma">
                                                 Dehoshma</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.dehoshma') as $key=>$value)
@@ -833,7 +833,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Bhara">xix)
+                                            <label for="Bhara">
                                                 Bhara</label>
                                             <br><label for="example-text-input"
                                                 class="form-control-label"><strong>{{$patient->bhara}}</strong></label>
@@ -844,7 +844,7 @@
                                 <div class="row clearfix">
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Raktachapa">xx)
+                                            <label for="Raktachapa">
                                                 Raktachapa</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.raktachapa') as $key=>$value)
@@ -857,7 +857,7 @@
                                     <div class="col-sm-3">
                                         <div class="form-group">
                                             <label for="Hrid
-                                             gati">xxi)
+                                             gati">
                                                 Hrid
                                                 gati</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
@@ -870,7 +870,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="Shvasagati">xxii)
+                                            <label for="Shvasagati">
                                                 Shvasagati</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
                                                     @foreach(__('phr.shvasagati') as $key=>$value)
@@ -882,7 +882,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label for="parkriti_parikshana">xxiii)
+                                            <label for="parkriti_parikshana">
                                                 Parkriti
                                                 Parikshana</label>
                                             <br><label for="example-hastatala-input" class="form-control-label"><strong>
@@ -897,7 +897,7 @@
                                 <div class="row clearfix">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">6.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Examination
                                                 by
                                                 Physician</label>
@@ -911,7 +911,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">7.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Prayogashaliya
                                                 Parikshana</label>
                                             <br><label for="example-text-input"
@@ -921,7 +921,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">8.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Samprapti
                                                 Vivarana</label>
                                             <br><label for="example-text-input"
@@ -931,7 +931,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">9.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Vibhedaka
                                                 Pariksha</label>
                                             <br><label for="example-text-input"
@@ -942,7 +942,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">10.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Roga
                                                 Vinishchaya-
                                                 Pramukh
@@ -955,7 +955,7 @@
 
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">11.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Chikitsa
                                                 Kalpana
                                                 Anupana
@@ -986,7 +986,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">12.
+                                            <label for="example-text-input" class="form-control-label">
                                                 Pathya-Apathya
                                                 (<a href="{{url('/annexure-file.pdf')}}" target="_blank"><span
                                                         class="fs-12 text-info">Annexure-1</span></a>)</label>
@@ -1024,7 +1024,7 @@
                                             @endif
                                             <br>
                                             (@if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif
-                                            {{$guru->firstname}})
+                                            {{$guru->firstname.' '.$guru->lastname}})
                                             @endif
                                         </div>
                                     </div>
