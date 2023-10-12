@@ -164,6 +164,11 @@
 
                                                         </td>
                                                         <td class="center">
+                                                        @if($patientlist->phr_s_status== 1)
+                                                            <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
+                                                                Remarks
+                                                            </a>
+                                                        @endif
                                                             <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="View Remarks">
                                                                 <i class="material-icons">visibility</i>
                                                             </a>

@@ -72,7 +72,7 @@
                                  <div class="row">
                                  	<div class="col-sm-12 col-md-6">
                                  		<div class="form-group">
-		                                    <label >Title<span class="text-danger">*</span></label>
+		                                    <label >Title</label>
 			                                 <select name="title" class="form-control">
                                                 <option>Select Title </option>
                                                 @foreach(__('phr.titlename') as $key=>$value)
