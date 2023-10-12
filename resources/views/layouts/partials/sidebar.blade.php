@@ -8,7 +8,7 @@
 
                    <img src="{{ asset('assets/images/rav-logo.png') }}" alt="" />
 
-                    <img src="{{ asset('assets/images/rav-logo.png') }}" alt="" />
+                    <!-- <img src="{{ asset('assets/images/rav-logo.png') }}" alt="" /> -->
 
                     <p class="logo-name">RAV Guru Shishya </p>
                 </div>

@@ -89,10 +89,13 @@ text-align:center;
 }
 
 footer {
-    position: relative;
-    height: 20;
+    position: fixed;
+    height: 30px;
     bottom: 0;
     width: 100%;
+    left: 0;
+    padding: 0;
+    background-color: #f1f2f7;
 }
 footer p{
     text-align:center;
@@ -277,7 +280,7 @@ color: #fff;
 }
 .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
     /* padding: 5px 28px; */
-    margin-left: 3px;
+    margin: 2px;
     line-height: 2;
 }
 
@@ -345,7 +348,7 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
 @media(max-width:1300px) and (min-width:991px){
     .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
         padding: 5px 9px !important;
-        margin-left: 3px;
+        margin: 1px;
         font-weight: 500;
     }
 }
@@ -640,11 +643,11 @@ td.left.patient-list-action {
 }
 
 .side-closed .sidebar {
-    width: 0;
+    width: 0px;
 }
 
   .side-closed.submenu-closed .navbar-header {
-    width: 0;
+    width: 0px;
     margin-left: -25px;
   }
   .sidemenu-collapse {
@@ -663,4 +666,33 @@ td.left.patient-list-action {
     margin: 0px !important;
     font-size: 13px;
     font-weight: 400;
+}
+body{
+    margin-bottom: 40px;
+}
+
+/* .side-closed .sidebar .logo-brand {
+   
+    height: 100px;
+    padding: 6px 9px;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    width: 100px;
+    overflow: hidden;
+    color: #000!important;
+    clear: both;
+} */
+
+
+/* .side-closed .sidebar .logo-name{
+    display: none;
+} */
+
+
+table.dataTable>thead .sorting:before, table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:before, table.dataTable>thead .sorting_desc_disabled:after {
+    position: absolute;
+    bottom: 0.9em;
+    display: block;
+    opacity: 1;
 }
