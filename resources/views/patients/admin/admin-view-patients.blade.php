@@ -674,7 +674,10 @@
                                              <img src="{{ asset('uploads/'.$shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                              @endif
                                              <br>
-                                             ( @if($shishya->title>0) {{__('phr.titlename')[$shishya->title]}} @endif {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}})
+                                             @if($shishya->title>0 && $shishya->title != "Select Title")
+                                                   {{__('phr.titlename')[$shishya->title]}}
+                                             @endif
+                                             {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}
                                           </div>
                                        </div>
                                        <div class="col-md-6">
@@ -685,7 +688,7 @@
                                              <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                              @endif
                                              <br>
-                                             ( @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}})
+                                             @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
                                           </div>
                                        </div>
                                     </div>

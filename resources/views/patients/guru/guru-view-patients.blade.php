@@ -139,7 +139,7 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration Date</label>
-                                             <p>{{date('d-m-y',strtotime($patient->registration_date))}}</p>
+                                             <p>{{date('d-m-Y',strtotime($patient->registration_date))}}</p>
                                             
                                           </div>
                                        </div>
@@ -685,7 +685,10 @@
                                              <img src="{{ asset('uploads/'.$shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                              @endif
                                              <br>
-                                             ( @if($shishya->title>0) {{__('phr.titlename')[$shishya->title]}} @endif {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}})
+                                             @if($shishya->title>0 && $shishya->title != "Select Title")
+                                                   {{__('phr.titlename')[$shishya->title]}}
+                                                @endif 
+                                                {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}
                                           </div>
                                        </div>
                                        <div class="col-md-6">
@@ -696,8 +699,8 @@
                                              <img src="{{ asset('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                              @endif
                                              <br>
-                                             ( @if(Auth::user()->title>0) {{__('phr.titlename')[Auth::user()->title]}} @endif
-                                             {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}})
+                                             @if(Auth::user()->title>0) {{__('phr.titlename')[Auth::user()->title]}} @endif
+                                             {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                        </div>
                                     </div>
                                  </div>

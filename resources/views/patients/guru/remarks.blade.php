@@ -46,7 +46,7 @@
                </div>
                <form  action="{{ url('guru-remarks') }}" method="post" enctype="multipart/form-data">
 
-                  <input type="hidden" name="guru_id" value="{{$patient->shishya_id}}">
+                  <input type="hidden" name="guru_id" value="{{$patient->guru_id}}">
                   <input type="hidden" name="shishya_id" value="{{$patient->shishya_id}}">
                   <input type="hidden" name="patient_id" value="{{$patient->id}}">
                @csrf

@@ -307,7 +307,7 @@ class PatientController extends Controller
 
         if(isset($patient)){
             $data=Array();
-            $guru=User::find($patient->guru_id);
+            $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
             $shishya=User::find($patient->shishya_id);
             if($id>0){
                 $data=FollowUpPatient::find($id);

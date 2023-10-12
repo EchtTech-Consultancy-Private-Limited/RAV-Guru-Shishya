@@ -43,7 +43,7 @@
                 <div class="card">
                     <div class="header">
                         <h2><strong>Add</strong> Follow Up </h2>
-                        <ul class="header-dropdown m-r--5">
+                        <!-- <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">more_vert</i>
@@ -55,7 +55,7 @@
 
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="body">
                         <div id="wizard_horizontal">
@@ -205,7 +205,7 @@
                                                     <label for="example-text-input" class="form-control-label">Name of
                                                         the Guru<span class="text-danger"></span></label><br>
                                                     @if (!empty($guru->id))
-                                                    <label for="example-text-input" class="form-control-label"><b>{{ $guru->firstname . ' ' . $guru->middlename . ' ' . $guru->lastname }}</b></label>
+                                                    <label for="example-text-input" class="form-control-label"><b>{{ $guru->firstname . ' ' . $guru->lastname }}</b></label>
                                                     @endif
                                                 </div>
                                             </div>
@@ -213,9 +213,7 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Place
                                                         of the Guru</label><br>
-                                                    @if (!empty($guru->id))
-                                                    <label for="example-text-input" class="form-control-label"><b>{{$guru->city_name}}</b></label>
-                                                    @endif
+                                                    <label for="example-text-input" class="form-control-label"><b>{{@$guru->city_name}}</b></label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -850,7 +848,7 @@
                                                     (@if ($guru->title > 0)
                                                     {{ __('phr.titlename')[$guru->title] }}
                                                     @endif
-                                                    {{ $guru->firstname . ' ' . $guru->middelname . ' ' . $guru->lastname }})
+                                                    {{ $guru->firstname . ' ' . $guru->lastname }})
                                                     @endif
 
                                                 </div>
