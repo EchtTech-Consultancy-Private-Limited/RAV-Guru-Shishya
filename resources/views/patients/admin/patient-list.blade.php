@@ -55,16 +55,13 @@
                         <thead>
                            <tr role="row">
                                 <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
-                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">System Reg. No </th>
+                                <!-- <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">System Reg. No </th> -->
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Email : activate to sort column ascending">Patient Reg. No </th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending"> Reg. Date </th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">Patient Name</th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Gender </th>
 
-                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Patients Type </th>
-
-                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Age </th>
-
+                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Patients Type </th>                               
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Guru Name </th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Shishya Name </th>
 
@@ -77,15 +74,12 @@
                                                                                  
                         <tr class="gradeX odd @if($patientlist->read_by_admin=='0') active-row @endif">
                                  <td class="center sorting_1">{{ ++$key }}</td>
-                                 <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td>
+                                 <!-- <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td> -->
                                  <td class="text-center">{{$patientlist->registration_no}}</td>
                                  <td class="center"> {{$patientlist->registration_date}} </td>
                                  <td class="center"> {{$patientlist->patient_name}} </td> 
                                  <td class="center">@if($patientlist->gender==1) Male @elseif($patientlist->gender==2) Female @elseif($patientlist->gender==3)Others @endif</td>
                                  <td class="center"> {{$patientlist->patient_type}} </td>
-                                 
-                                 <td class="center"> {{$patientlist->age}} </td> 
-
                                  <td class="center sorting_1"> <?php echo get_user_name($patientlist->guru_id); ?></td>
                                  <td class="center sorting_1"><?php echo get_user_name($patientlist->shishya_id); ?></td>
 
@@ -93,6 +87,15 @@
 
                                     <a href="{{ url('admin-view-patient/'.$patientlist->id) }}" class="btn btn-tbl-edit" title ="View Record">
                                                     <i class="material-icons">visibility</i>
+                                    </a>                                   
+
+                                    <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn btn-tbl-edit" title="Edit Patient">
+                                          <i class="material-icons">edit</i>
+                                    </a>
+
+                                    
+                                    <a target="_blank" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn btn-tbl-edit" title="Check Remark">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
                                     </a>
                                     @if($patientlist->phr_a_status== 1)
                                     <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
@@ -100,22 +103,9 @@
                                     </a>
                                     @endif
 
-                                    <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn btn-tbl-edit" title="Edit Patient">
-                                          <i class="material-icons">edit</i>
-                                    </a>
-
-                                    
-                                    <a target="_blank" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn btn-tbl-edit" title="Remark History of Patient">
-                                    <i class="icons-history">&nbsp&nbsp&nbsp&nbsp</i>
-                                    </a>
-
                                     <a  href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
-                                    </a>
-
-
-
-                                    
+                                    </a>                             
 
                                     
                                  </td>

@@ -61,10 +61,7 @@
                                             <div class="new-patient-ragistration">From:
                                             </div>
                                             <div>
-                                                <input type="date" name="from_date"
-                                                    class="form-control datetimepicker flatpickr-input active"
-                                                    value="@if (request()->from_date) {{ date('Y-m-d', strtotime(request()->from_date)) }} @endif"
-                                                    max="{{ date('Y-m-d', time()) }}">
+                                                <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}">
                                             </div>
                                         </div>
                                     </div>
@@ -75,10 +72,7 @@
                                                 To:
                                             </div>
                                             <div>
-                                                <input type="date" name="to_date"
-                                                    class="form-control datetimepicker flatpickr-input active"
-                                                    value="@if (request()->to_date) {{ date('Y-m-d', strtotime(request()->to_date)) }} @endif"
-                                                    max="{{ date('Y-m-d', time()) }}">
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}">
                                             </div>
                                         </div>
                                     </div>
