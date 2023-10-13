@@ -147,8 +147,8 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <div class="form-line">
-                                                                <label for="progress" class="form-control-label">Progress<span class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" required>{{ old('progress') }}</textarea>
+                                                                <label for="progress" class="form-control-label">Progress <span class="text-danger"></span></label>
+                                                                <textarea cols="45" rows="2" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" required>{{ (@$data->progress)?$data->progress:old('progress') }}</textarea>
                                                             @if($errors->has('progress'))
                                                             <span class="help-block">
                                                                 <strong style="color:red;">{{ $errors->first('progress') }}</strong>
@@ -161,7 +161,7 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="treatment" class="form-control-label">Treatment/Therapies<span class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>{{ old('treatment') }}</textarea>
+                                                                <textarea cols="45" rows="2" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>{{ (@$data->treatment)?$data->treatment:old('treatment') }}</textarea>
                                                                 @if ($errors->has('treatment'))
                                                                 <span class="help-block">
                                                                     <strong style="color:red;">{{ $errors->first('treatment') }}</strong>

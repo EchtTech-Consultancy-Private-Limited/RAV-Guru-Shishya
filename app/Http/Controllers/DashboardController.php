@@ -6,17 +6,19 @@ use App\Models\Patient;
 use Illuminate\Http\Request;
 use App\Models\SystemConfigration;
 use App\Models\User;
+use App\Models\ChurnaYoga;
 use File;
+use Illuminate\Support\Facades\Auth;
 use Storage;
 
 class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-       $shishya = User::where('user_type',3)->count();
-       $users = User::count();
-       $patients = Patient::count();
-       return view("pages.dashboard",compact('shishya','users','patients'));
+        $shishya = User::where('user_type',3)->count();
+        $users = User::count();
+        $patients = Patient::count();
+        return view("pages.dashboard",compact('shishya','users','patients'));
     }
 
     public function shishya(Request $request)

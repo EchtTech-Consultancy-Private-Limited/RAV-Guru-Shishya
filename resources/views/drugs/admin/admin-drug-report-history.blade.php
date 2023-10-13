@@ -92,14 +92,14 @@
 
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">From:</label>
-                                                    <input type="date" name="from_date" class="form-control" required>
+                                                    <label class="form-control-label">From:</label>                                                  
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">To:</label>
-                                                    <input type="date" name="to_date" class="form-control" required>
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}">
 
                                                 </div>
                                             </div>

@@ -214,11 +214,14 @@ class PatientController extends Controller
     }
 
     public function find_phr_registration(Request $request)
-    {
+    {        
         if(empty($request->registration_no)){
             return Response::json(['message'   => 'Enter registration no.']);
         }
-
+        $alreayFollowUp = FollowUpPatient::where('registration_no',$request->registration_no)->where('shishya_id',Auth::user()->id)->first();
+        if($alreayFollowUp){
+            return Response::json(['message'   => 'This registration no. already follow !']);
+        }
         $data=Patient::where('registration_no',$request->registration_no)->where('shishya_id',Auth::user()->id)->get();
         if(count($data)>0){
             $data=$data->first();
@@ -932,7 +935,7 @@ class PatientController extends Controller
     }
 
      public function remark_history(Request $request,$phr_id)
-    {
+    {   
         if($phr_id!=0)$phr_id= decrypt($phr_id);
         $remark_history=Remark::orderby('id','Desc')->where('phr_id',$phr_id)->get();
         return view('patients.remark-history',compact('remark_history'));
