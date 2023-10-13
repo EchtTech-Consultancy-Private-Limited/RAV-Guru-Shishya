@@ -107,6 +107,7 @@
                                             <div>
                                                 <button type="submit" class="btn btn-primary waves-effect"
                                                     style="line-height:2;"> Filter </button>
+                                                    <button type="reset" onclick="refreshPage();" class="btn btn-danger waves-effect">Reset</button>
                                             </div>
                                             @if (Auth::user()->user_type == 3)
                                                 <div>
