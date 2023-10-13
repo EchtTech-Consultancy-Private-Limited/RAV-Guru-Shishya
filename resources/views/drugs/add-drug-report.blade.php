@@ -74,17 +74,9 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label>
+                                             class="form-control-label">Name of the Guru</label>
                                           @if(Auth::user()->guru_id)
-                                          <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="@if($guru->firstname){{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}} @endif"
-                                             readonly>
+                                          <p>@if($guru->firstname){{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}} @endif</p>
                                               @endif
                                        </div>
                                     </div>
@@ -94,16 +86,9 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="text"
-                                             name="name_of_the_shishya"
-                                             class="form-control"
-                                             placeholder="Name of the Shishya"
-                                             aria-label="Name"
-                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}"
-                                             readonly>
+                                             class="form-control-label">Name of the Shishya</label>
+                                             <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
+                                         
                                        </div>
                                     </div>
                                     <div
@@ -112,16 +97,8 @@
                                           class="form-group">
                                           <label
                                              for="example-text-input"
-                                             class="form-control-label">Date of Report<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="date"
-                                             name="date"
-                                             class="form-control"
-                                             placeholder="Date"
-                                             aria-label="Name"
-                                             value="<?php echo date('Y-m-d'); ?>"
-                                             >
+                                             class="form-control-label">Date of Report</label>
+                                       <p><?php echo date('Y-m-d'); ?></p>
                                        </div>
                                     </div>
 
@@ -205,26 +182,31 @@
 
 
                 <div class="row">
-                    <div class="form-group">
+                  <div class="col-md-12">
+                  <div class="form-group text-center ">
                        <h5 class="text-center">1 – CHURNA YOGAS</h5>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group ">
                        <h5 class="text-center">Name of the Drug</h5>
                     </div>
-                    <div class="form-group">
+
+                    <div class="form-group ">
                        <h5 class="text">
                           Reference
-                          <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                          <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
                        </h5>
                     </div>
+                  </div>
+             
+                   
                 </div>
-                 <p class="text-uppercase text-sm">Composition</p>
+                 <p class="text-capatilize text-sm py-3 m-0">Composition</p>
 
                  <div class="page-content page-container" id="page-content">
                     <div class="padding">
-                        <div class="row container d-flex justify-content-center">
-                            <div class="col-lg-12 grid-margin stretch-card">
-                                <div class="card">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-12 grid-margin stretch-card p-0">
+                                <div class="card p-0">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table id="faqs" class="table table-hover">
@@ -257,7 +239,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
+                                        <div class="text-end d-flex justify-content-end"><button  onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -502,10 +484,9 @@
                 <div class="row">
                     <div class="col-md-6">
                        <div class="form-group ">
-                          <label class="control-label col-sm-2 requiredField" for="date">(i) Starting Date<span class="text-danger">*</span>
+                          <label class="control-label requiredField" for="date">(i) Starting Date<span class="text-danger">*</span>
                           </label>
-                          <div class="input-group">
-                          </div>
+                          
                           <input class="form-control" id="date" name="starting_date" placeholder="MM/DD/YYYY" type="date"  value="{{ old('(i)   Starting Date') }}" >@error('(i) Starting Date')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
@@ -513,17 +494,16 @@
                     </div>
                     <div class="col-md-6">
                        <div class="form-group ">
-                          <label class="control-label col-sm-2 requiredField" for="date">(ii)  Ending Date<span class="text-danger">*</span>
+                          <label class="control-label requiredField" for="date">(ii)  Ending Date<span class="text-danger">*</span>
                           </label>
-                          <div class="input-group">
-                          </div>
+                         
                           <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY" type="date" aria-label="(i)  Ending Date" value="{{ old('(i)   Starting Date') }}" >@error('(i) Ending Date')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
                        </div>
                     </div>
                 </div>
-                 <button type="submit" class="btn btn-secondary">Add Churna Yogas</button>
+                 <button type="submit" class="btn btn-secondary mb-4">Add Churna Yogas</button>
             </form>
         </div>
 
@@ -536,18 +516,20 @@
                 <input type="hidden" name="date_of_yogas" value="<?php echo date('Y-m-d'); ?>">
                 <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
               <div class="row">
+               <div class="col-md-12">
+                  <div class="form-group">
                   <div class="h-100">
                      <h5 class="text text-center">
                         2- RASA YOGAS
                      </h5>
                   </div>
                </div>
-               <div class="row">
-                  <div class="h-100">
-                     <h5 class="text text-center">Name of the Drug</h5>
-                  </div>
-               </div>
                <div class="form-group">
+                     <div class="h-100">
+                     <h6 class="text ">Name of the Drug</h6>
+                  </div>
+                     </div>
+                     <div class="form-group">
                   <div class="col-auto my-auto">
                      <div class="h-100">
                         <h5 class="mb-1">
@@ -555,7 +537,12 @@
                            <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
                         </h5>
                      </div>
+                    </div>
                   </div>
+                  </div>
+              
+               </div>
+          
                   <div class="col-auto my-auto">
                      <div class="h-100">
                         <h5 class="mb-1">
@@ -566,9 +553,9 @@
 
                   <div class="page-content page-container" id="page-content">
                     <div class="padding">
-                        <div class="row container d-flex justify-content-center">
-                            <div class="col-lg-12 grid-margin stretch-card">
-                                <div class="card">
+                        <div class="row  d-flex justify-content-center">
+                            <div class="col-lg-12 grid-margin stretch-card mb-0">
+                                <div class="card mb-0">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table id="faqs" class="table table-hover">
@@ -605,14 +592,20 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
+                                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                  <p class="text-uppercase text-sm">I Herbal</p>
+                
+                <div class="col-md-12">
+                <p class="text-uppercase text-sm">(I) Herbal</p>
+                </div>
+        
+                
+                 
                   <div class="row">
                      <div class="col-md-12">
                        <div class="form-group">
@@ -640,7 +633,14 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">II Mineral</p>
+                  
+                  <div class="col-md-12">
+                     
+                     <p class="text-uppercase text-sm">(II) Mineral</p>
+                     </div>
+
+            
+               
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group">
@@ -660,7 +660,10 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">III Metal</p>
+                  <div class="col-md-12">
+                     
+                     <p class="text-uppercase text-sm">(III) Metal</p>
+                     </div>
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group">
@@ -680,7 +683,10 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">IV Animal</p>
+                  <div class="col-md-12">
+                     
+                     <p class="text-uppercase text-sm">(IV) Animal</p>
+                     </div>
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group">
@@ -700,7 +706,10 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">V Bhavana Dravyas</p>
+                  <div class="col-md-12">
+
+                     <p class="text-uppercase text-sm">(V) Bhavana Dravyas</p>
+                  </div>
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group">
@@ -788,7 +797,8 @@
                <input type="hidden" name="date_of_yogas" value="<?php echo date('Y-m-d'); ?>">
                <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
               <div class="row">
-                  <div class="form-group">
+               <div class="col-md-12">
+               <div class="form-group">
                      <h5 class="text-center">3 – VATI YOGAS</h5>
                   </div>
                   <div class="form-group">
@@ -797,15 +807,21 @@
                   <div class="form-group">
                      <h5 class="text">
                         Reference
-                        <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                        <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
                      </h5>
                   </div>
-                  <div class="form-group">
+
+               </div>
+            <div class="col-md-12">
+            <div class="form-group">
                      <h5 class="text">Composition</h5>
                   </div>
-                  <p class="text-uppercase text-sm">Information</p>
-                  <div class="row">
-                     <div class="card">
+            </div>
+            <div class="col-md-12">
+                  <p class="text-uppercase text-sm mb-0">Information</p>
+            </div>
+                  <div class="row pb-0 mb-0">
+                     <div class="card mb-0">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="faqs" class="table table-hover">
@@ -842,11 +858,11 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
+                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
                         </div>
                     </div>
                   </div>
-                  <p class="text-uppercase text-sm">Method of Preparation (SOP)</p>
+                  <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
                   <div class="row">
                      <div class="col-md-12">
                           <div class="form-group">
@@ -1081,7 +1097,7 @@
                      </div>
                   </div>
               </div>
-              <button type="submit" class="btn btn-secondary">Add Vati Yogas</button>
+              <button type="submit" class="btn btn-secondary mb-4">Add Vati Yogas</button>
          </form>
       </div>
          <!-- vati_yogas end -->
@@ -1092,6 +1108,7 @@
                <input type="hidden" name="date_of_yogas" value="<?php echo date('Y-m-d'); ?>">
                <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
             <div class="row">
+               <div class="col-md-12">
                <div class="form-group">
                   <h5 class="text text-center">
                      4 – TALIA YOGAS
@@ -1103,17 +1120,21 @@
                <div class="form-group">
                   <h5 class="text">
                      Reference
-                     <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
+                     <p class=' text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
                   </h5>
                </div>
+               </div>
+               <div class="col-md-12">
                <div class="form-group">
                   <h5 class="mb-1">Composition</h5>
                </div>
+               </div>
+              
             </div>
             <div class="row">
 
-               <div class="row">
-                     <div class="card">
+               <div class="row mb-0 pb-0">
+                     <div class="card mb-0 pb-0">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table id="faqs" class="table table-hover">
@@ -1150,12 +1171,15 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
+                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
                         </div>
                     </div>
                   </div>
             </div>
-            <p class="text-uppercase text-sm">I Kalka dravyas</p>
+            <div class="col-md-12">
+
+               <p class="text-uppercase text-sm">(I) Kalka dravyas</p>
+            </div>
             <div class="row">
                <div class="col-md-12">
                     <div class="form-group">
@@ -1193,7 +1217,11 @@
                   </div>
                </div>
             </div>
-            <p class="text-uppercase text-sm">II Taila/ghrita dravys</p>
+            <div class="col-md-12">
+            <p class="text-uppercase text-sm">(II) Taila/ghrita dravys</p>
+
+            </div>
+
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
@@ -1222,7 +1250,11 @@
                   </div>
                </div>
             </div>
-            <p class="text-uppercase text-sm">III Kvatha/drava dravyas</p>
+            <div class="col-md-12">
+            <p class="text-uppercase text-sm">(III) Kvatha/drava dravyas</p>
+
+            </div>
+
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
@@ -1508,7 +1540,7 @@
                   </div>
                </div>
             </div>
-            <button type="submit" class="btn btn-secondary">Add Talia Yogas</button>
+            <button type="submit" class="btn btn-secondary mb-0">Add Talia Yogas</button>
          </form>
         </div>
 
@@ -1520,6 +1552,7 @@
             <input type="hidden" name="date_of_yogas" value="<?php echo date('Y-m-d'); ?>">
             <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
          <div class="row">
+            <div class="col-md-12">
             <div class="form-group">
                <h5 class="text-center">5 – ASAVA/ARISHTA YOGAS</h5>
             </div>
@@ -1529,16 +1562,20 @@
             <div class="form-group">
                <h5 class="text">
                   Reference
-                  <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
+                  <p class=' text-xs pt-1 m-0'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
                </h5>
             </div>
+            </div>
+           
          </div>
-         <p class="text-uppercase text-sm">Composition</p>
+        <div class="col-md-12">
+        <p class="text-capatilized text-sm">Composition</p>
+        </div>
          <div class="row">
 
             <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card mb-0 p-0">
+                    <div class="card-body mb-0 p-0">
                         <div class="table-responsive">
                             <table id="faqs" class="table table-hover">
                                 <thead>
@@ -1574,12 +1611,15 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
+                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
                     </div>
                 </div>
             </div>
          </div>
-         <p class="text-uppercase text-sm">I Main ingredients</p>
+         <div class="col-md-12">
+         <p class="text-uppercase text-sm">(I) Main ingredients</p>
+         </div>
+         
          <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
@@ -1619,7 +1659,10 @@
                </div>
             </div>
          </div>
-         <p class="text-uppercase text-sm">II    Sandhana dravyas</p>
+         <div class="col-md-12">
+         <p class="text-uppercase text-sm">(II) Sandhana dravyas</p>
+            </div>
+        
          <div class="row">
             <div class="col-md-6">
                <div class="form-group">
@@ -1647,7 +1690,9 @@
                </div>
             </div>
          </div>
-         <p class="text-uppercase text-sm">III Prakshepa dravyas</p>
+         <div class="col-md-12">
+         <p class="text-uppercase text-sm">(III) Prakshepa dravyas</p>
+            </div>
          <div class="row">
             <div class="col-md-6">
                <div class="form-group">
@@ -1917,7 +1962,7 @@
                </div>
             </div>
          </div>
-         <button type="submit" class="btn btn-secondary">Add ASAVA/ARISHTA Yogas</button>
+         <button type="submit" class="btn btn-secondary mb-4">Add ASAVA/ARISHTA Yogas</button>
         </form>
       </div>
       <!-- asva_yogas end -->
