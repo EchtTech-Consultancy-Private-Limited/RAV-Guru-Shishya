@@ -139,7 +139,7 @@
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration Date</label>
-                                             <input type="text" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{date('d-m-y',strtotime($patient->registration_date))}}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
+                                             <input type="text" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{date('d-m-Y',strtotime($patient->registration_date))}}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                           </div>
                                        </div>
 
@@ -819,7 +819,7 @@
                                     </div>
                                  </div>
                                  <div class="col-lg-12 p-t-20 text-center">
-                                    <button type="submit" class="btn btn-primary waves-effect m-r-15">Update Patient Record</button>
+                                    <button type="submit" class="btn  waves-effect m-r-15 submit">Update Patient Record</button>
                                     <a href="{{ url('new-patient-registration') }}" type="button" class="btn btn-danger waves-effect">Back</a>
                                  </div>
                               </form>

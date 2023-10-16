@@ -35,7 +35,7 @@
         <div class="main_container" >
             <div class="first" >
                 <strong>Name of the Guru</strong>
-                <p>{{ @$guru->firstname.' '.@$guru->middlename.' '.@$guru->lastname}}</p>
+                <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
             </div>
             <div class="second" >
                 <strong>Place of the Guru</strong>
@@ -43,7 +43,7 @@
             </div>
             <div class="third" >
                 <strong>Name of the Shishya</strong>
-                <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
+                <p>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}</p>
             </div>
             <div class="fourth" >
                 <strong>Date of Report</strong>

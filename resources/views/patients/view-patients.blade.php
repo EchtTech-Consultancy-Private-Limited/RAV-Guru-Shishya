@@ -687,7 +687,7 @@
                                     </div>
                                  </div>
                                  <div id="non-printable" class="col-sm-12 p-t-20 text-left no-printme">
-                                    <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
+                                    <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
                                  </div>
                               </div>
                            </div>

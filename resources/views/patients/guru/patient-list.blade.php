@@ -89,7 +89,7 @@
                                     <a href="{{ url('guru-view-patient/'.encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title ="View Record">
                                                     <i class="material-icons">visibility</i>
                                     </a>
-                                    <a  href="{{ url('guru-remark-history/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Check Remark"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                                    <a  href="{{ url('guru-remark-history/'.encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Check Remark"><i class="fa fa-comment" aria-hidden="true"></i></a>
                                     @if($patientlist->phr_a_status== 1 OR $patientlist->phr_s_status== 1)
                                     <!-- <a href="javascript:void(0);" class="btn btn-secondary" title="Edit Patient">
                                         Remarks

@@ -3,7 +3,7 @@
 <section class="content">
     @if (count($errors) > 0)
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        Whoops! There were some problems with your input.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -45,7 +45,8 @@
                         <h2><strong>Add</strong> Follow Up </h2>
                         <!-- <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
-                                <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">more_vert</i>
                                 </a>
                                 <ul class="dropdown-menu float-start">
@@ -62,7 +63,8 @@
                             <section>
                                 <div class="col-sm-12">
                                     <div class="card">
-                                        <form role="form" method="POST" action="{{ url('/add-follow-up-sheet') }}" enctype="multipart/form-data">
+                                        <form role="form" method="POST" action="{{ url('/add-follow-up-sheet') }}"
+                                            enctype="multipart/form-data">
                                             @csrf
                                             @if (!empty($data->id))
                                             <input type="hidden" name="id" value="{{ $data->id }}">
@@ -72,7 +74,8 @@
                                             @endif
                                             <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                                             <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
-                                            <input type="hidden" name="registration_no" value="{{ $patient->registration_no }}">
+                                            <input type="hidden" name="registration_no"
+                                                value="{{ $patient->registration_no }}">
 
                                             <div class="card-body">
 
@@ -83,7 +86,8 @@
                                                                 <label class="form-control-label">Registration
                                                                     No.</label>
                                                                 <br>
-                                                                <label for="follow_up_date" class="form-control-label">{{ $patient->registration_no }}</label>
+                                                                <label for="follow_up_date"
+                                                                    class="form-control-label">{{ $patient->registration_no }}</label>
 
                                                             </div>
                                                         </div>
@@ -93,7 +97,8 @@
                                                             <div class="form-line">
                                                                 <label class="form-control-label">Patient Name</label>
                                                                 <br>
-                                                                <label for="follow_up_date" class="form-control-label">{{ $patient->patient_name }}</label>
+                                                                <label for="follow_up_date"
+                                                                    class="form-control-label">{{ $patient->patient_name }}</label>
 
                                                             </div>
                                                         </div>
@@ -101,11 +106,19 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group focused">
                                                             <div class="form-line">
-                                                                <label for="follow_up_date" class="form-control-label">Date of Follow up<span class="text-danger"></span></label>
-                                                                <input type="text" name="follow_up_date" value="{{ date('d-m-Y') }}" class="form-control datetimepicker flatpickr-input active" placeholder="follow_up_date" aria-label="Name" value="@if (!empty($data->follow_up_date)) {{ date('Y-m-d', strtotime($data->follow_up_date)) }}@else{{ date('d-m-Y') }} @endif" readonly required>
+                                                                <label for="follow_up_date"
+                                                                    class="form-control-label">Date of Follow up<span
+                                                                        class="text-danger"></span></label>
+                                                                <input type="text" name="follow_up_date"
+                                                                    value="{{ date('d-m-Y') }}"
+                                                                    class="form-control datetimepicker flatpickr-input active"
+                                                                    placeholder="follow_up_date" aria-label="Name"
+                                                                    value="@if (!empty($data->follow_up_date)) {{ date('Y-m-d', strtotime($data->follow_up_date)) }}@else{{ date('d-m-Y') }} @endif"
+                                                                    readonly required>
                                                                 @if ($errors->has('follow_up_date'))
                                                                 <span class="help-block">
-                                                                    <strong style="color:red;">{{ $errors->first('follow_up_date') }}</strong>
+                                                                    <strong
+                                                                        style="color:red;">{{ $errors->first('follow_up_date') }}
                                                                 </span>
                                                                 @endif
                                                             </div>
@@ -116,8 +129,11 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
 
-                                                                <label for="report_type" class="form-control-label">Progress Duration<span class="text-danger"></span></label>
-                                                                <select name="report_type" id="report_type" class="form-control" required>
+                                                                <label for="report_type"
+                                                                    class="form-control-label">Progress Duration<span
+                                                                        class="text-danger"></span></label>
+                                                                <select name="report_type" id="report_type"
+                                                                    class="form-control" required>
                                                                     <option value="Daily" @if (!empty($data->
                                                                         report_type) && $data->report_type == 'Daily')
                                                                         SELECTED @elseif(old('report_type') &&
@@ -138,7 +154,8 @@
                                                                 </select>
                                                                 @if ($errors->has('report_type'))
                                                                 <span class="help-block">
-                                                                    <strong style="color:red;">{{ $errors->first('report_type') }}</strong>
+                                                                    <strong
+                                                                        style="color:red;">{{ $errors->first('report_type') }}
                                                                 </span>
                                                                 @endif
                                                             </div>
@@ -164,7 +181,8 @@
                                                                 <textarea cols="45" rows="2" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>{{ (@$data->treatment)?$data->treatment:old('treatment') }}</textarea>
                                                                 @if ($errors->has('treatment'))
                                                                 <span class="help-block">
-                                                                    <strong style="color:red;">{{ $errors->first('treatment') }}</strong>
+                                                                    <strong
+                                                                        style="color:red;">{{ $errors->first('treatment') }}
                                                                 </span>
                                                                 @endif
                                                             </div>
@@ -176,10 +194,12 @@
                                                 </div>
 
                                                 <div class="row clearfix">
-                                                    <div class="col-sm-12 p-t-20 text-left">
-                                                        <a href="{{ url('/follow-up-patients') }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; Back
+                                                    <div class="col-sm-12  text-left">
+                                                        <a href="{{ url('/follow-up-patients') }}"><button type="button"
+                                                                class="btn btn-danger waves-effect"> &nbsp; Back
                                                                 &nbsp;</button></a>
-                                                        <button type="submit" class="btn btn-primary waves-effect m-r-15"> &nbsp;Save
+                                                        <button type="submit"
+                                                            class="btn btn-primary waves-effect m-r-15"> &nbsp;Save
                                                             &nbsp; </button>
 
                                                     </div>
@@ -220,7 +240,8 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Name of
                                                         the Shishya<span class="text-danger"></span></label><br>
-                                                    <label for="example-text-input" class="form-control-label"><b>{{$shishya->firstname}}</b></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label"><b>{{$shishya->firstname}}</b></label>
 
                                                 </div>
                                             </div>
@@ -228,7 +249,8 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Date of
                                                         Report</label><br>
-                                                    <label for="example-text-input" class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
 
                                                 </div>
                                             </div>
@@ -243,62 +265,69 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Name of
                                                         the Patient<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->patient_name }}</strong></label>
+                                                    <p> {{ $patient->patient_name  }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Registration No<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->registration_no }}</strong></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Registration No<span
+                                                            class="text-danger"></span></label>
+                                                    <p> {{ $patient->registration_no  }}</p>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Age<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->age }}
-                                                            Yrs.</strong></label>
+                                                    <label for="example-text-input" class="form-control-label">Age<span
+                                                            class="text-danger"></span></label>
+                                                    <p> {{ $patient->age }}
+                                                        Yrs. </label>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Registration Date</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ date('Y-m-d', strtotime($patient->registration_date)) }}</strong></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Registration Date</label>
+                                                    <p> {{ date('Y-m-d', strtotime($patient->registration_date))  }}</p>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="Gender" class="form-control-label">Gender<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.gender') as $key => $value)
-                                                            {{ $patient->gender == $key ? $value : '' }}</option>
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <label for="Gender" class="form-control-label">Gender<span
+                                                            class="text-danger"></span></label>
+                                                    <p>
+                                                        @foreach (__('phr.gender') as $key => $value)
+                                                        {{ $patient->gender == $key ? $value : '' }}</option>
+                                                        @endforeach
+                                                        </label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Age
                                                         Group<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.age_group') as $key => $value)
-                                                            {{ $patient->age_group == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.age_group') as $key => $value)
+                                                        {{ $patient->age_group == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Occupation<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.occupation') as $key => $value)
-                                                            {{ $patient->occupation == $key ? $value : '' }}
-                                                            </option>
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Occupation<span
+                                                            class="text-danger"></span></label>
+                                                    <p>
+                                                        @foreach (__('phr.occupation') as $key => $value)
+                                                        {{ $patient->occupation == $key ? $value : '' }}
+                                                        </option>
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -306,27 +335,27 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Marital
                                                         Status<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.marital_status') as $key => $value)
-                                                            {{ $patient->marital_status == $key ? $value : '' }}
-                                                            </option>
-                                                            @endforeach
-                                                        </strong></label>
-
+                                                    <p>
+                                                        @foreach (__('phr.marital_status') as $key => $value)
+                                                        {{ $patient->marital_status == $key ? $value : '' }}
+                                                        </option>
+                                                        @endforeach
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Aasan
                                                         Sidhi</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->aasan_sidhi }}</strong></label>
+                                                    <p> {{ $patient->aasan_sidhi  }}</p>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Season</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->season }}</strong></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Season</label>
+                                                    <p> {{ $patient->season  }}</p>
 
                                                 </div>
                                             </div>
@@ -334,19 +363,21 @@
                                                 <div class="form-group">
                                                     <label for="example-text-in
                                              put" class="form-control-label">Region of patient</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.region_of_patient') as $key => $value)
-                                                            {{ $patient->region_of_patient == $key ? $value : '' }}
-                                                            </option>
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.region_of_patient') as $key => $value)
+                                                        {{ $patient->region_of_patient == $key ? $value : '' }}
+                                                        </option>
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Address<span class="text-danger"></span></label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->address }}</strong></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Address<span
+                                                            class="text-danger"></span></label>
+                                                    <p> {{ $patient->address  }}</p>
 
                                                 </div>
                                             </div>
@@ -354,13 +385,14 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">1. Main
                                                         Complaint(As said by patient)</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->main_complaintsaid_by_patient }}</strong></label>
+                                                    <p> {{ $patient->main_complaintsaid_by_patient  }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Duration</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->said_by_patient_duration }}</strong></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Duration</label>
+                                                    <p> {{ $patient->said_by_patient_duration  }}</p>
 
                                                 </div>
                                             </div>
@@ -368,13 +400,14 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">2. Main
                                                         Complaint(As said by family member)</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->main_complaint_as_said_by_family }}</strong></label>
+                                                    <p> {{ $patient->main_complaint_as_said_by_family  }}</p>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Duration</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->complaint_as_said_by_family_duration }}</strong></label>
+                                                    <label for="example-text-input"
+                                                        class="form-control-label">Duration</label>
+                                                    <p> {{ $patient->complaint_as_said_by_family_duration  }}</p>
 
                                                 </div>
                                             </div>
@@ -382,7 +415,7 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">3. Past
                                                         illness</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->past_illness }}</strong></label>
+                                                    <p> {{ $patient->past_illness  }}</p>
 
                                                 </div>
                                             </div>
@@ -391,7 +424,7 @@
                                                     <label for="example-text-input" class="form-control-label">4.
                                                         Family
                                                         History</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->family_history }}</strong></label>
+                                                    <p> {{ $patient->family_history  }}</p>
 
                                                 </div>
                                             </div>
@@ -415,32 +448,32 @@
                                             <div class="col-sm-3">
                                                 <div class="form-group">
                                                     <label for="Skin">i) Skin</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.skin') as $key => $value)
-                                                            {{ $patient->skin == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.skin') as $key => $value)
+                                                        {{ $patient->skin == $key ? $value : '' }}
+                                                        @endforeach
+                                                        </label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
                                                     <label for="Nadi">ii)
                                                         Nadi</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.nadi') as $key => $value)
-                                                            {{ $patient->nadi == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.nadi') as $key => $value)
+                                                        {{ $patient->nadi == $key ? $value : '' }}
+                                                        @endforeach
+                                                        </label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="form-group">
                                                     <label for="Place">iii)Place</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.place') as $key => $value)
-                                                            {{ $patient->nadi_place == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.place') as $key => $value)
+                                                        {{ $patient->nadi_place == $key ? $value : '' }}
+                                                        @endforeach
+                                                        </label>
 
                                                 </div>
                                             </div>
@@ -448,11 +481,11 @@
                                                 <div class="form-group">
                                                     <label for="Nails">iv)
                                                         Nails</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.nails') as $key => $value)
-                                                            {{ $patient->nails == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.nails') as $key => $value)
+                                                        {{ $patient->nails == $key ? $value : '' }}
+                                                        @endforeach
+                                                        </label>
 
                                                 </div>
                                             </div>
@@ -463,11 +496,11 @@
                                                     <label for="Nails">v)
                                                         Anguli
                                                         sandhi</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.anguli_sandhi') as $key => $value)
-                                                            {{ $patient->anguli_sandhi == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.anguli_sandhi') as $key => $value)
+                                                        {{ $patient->anguli_sandhi == $key ? $value : '' }}
+                                                        @endforeach
+                                                        </label>
 
                                                 </div>
                                             </div>
@@ -475,11 +508,11 @@
                                                 <div class="form-group">
                                                     <label for="Netra">vi)
                                                         Netra</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.netra') as $key => $value)
-                                                            {{ $patient->netra == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.netra') as $key => $value)
+                                                        {{ $patient->netra == $key ? $value : '' }}
+                                                        @endforeach
+                                                        </label>
 
                                                 </div>
                                             </div>
@@ -487,11 +520,11 @@
                                                 <div class="form-group">
                                                     <label for="Adhovartma">vii)
                                                         Adhovartma</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.adhovartma') as $key => $value)
-                                                            {{ $patient->adhovartma == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <p>
+                                                        @foreach (__('phr.adhovartma') as $key => $value)
+                                                        {{ $patient->adhovartma == $key ? $value : '' }}
+                                                        @endforeach
+                                                        </label>
 
                                                 </div>
                                             </div>
@@ -499,11 +532,13 @@
                                                 <div class="form-group">
                                                     <label for="Hastatala">viii)
                                                         Hastatala</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.adhovartma') as $key => $value)
-                                                            {{ $patient->hastatala == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.adhovartma') as $key => $value)
+                                                        {{ $patient->hastatala == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
+
 
                                                 </div>
                                             </div>
@@ -513,11 +548,12 @@
                                                 <div class="form-group">
                                                     <label for="Jihwa">ix)
                                                         Jihwa</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.jihwa') as $key => $value)
-                                                            {{ $patient->jihwa == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.jihwa') as $key => $value)
+                                                        {{ $patient->jihwa == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -525,11 +561,12 @@
                                                 <div class="form-group">
                                                     <label for="Aakriti">x)
                                                         Aakriti</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.aakriti') as $key => $value)
-                                                            {{ $patient->aakriti == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.aakriti') as $key => $value)
+                                                        {{ $patient->aakriti == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -537,11 +574,12 @@
                                                 <div class="form-group">
                                                     <label for="Shabda">xi)
                                                         Shabda</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.shabda') as $key => $value)
-                                                            {{ $patient->shabda == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.shabda') as $key => $value)
+                                                        {{ $patient->shabda == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -549,11 +587,12 @@
                                                 <div class="form-group">
                                                     <label for="Koshtha">xii)
                                                         Koshtha</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.koshtha') as $key => $value)
-                                                            {{ $patient->koshtha == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.koshtha') as $key => $value)
+                                                        {{ $patient->koshtha == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -563,11 +602,12 @@
                                                 <div class="form-group">
                                                     <label for="Agni">xii)
                                                         Agni</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.agni') as $key => $value)
-                                                            {{ $patient->agni == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.agni') as $key => $value)
+                                                        {{ $patient->agni == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -577,11 +617,12 @@
                                              Pravritti">xiv)
                                                         Mala
                                                         Pravritti</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.mala_pravritti') as $key => $value)
-                                                            {{ $patient->mala_pravritti == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.mala_pravritti') as $key => $value)
+                                                        {{ $patient->mala_pravritti == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -591,11 +632,12 @@
                                              Pravritti">xv)
                                                         Mutra
                                                         Pravritti</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.mutra_pravritti') as $key => $value)
-                                                            {{ $patient->mutra_pravritti == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.mutra_pravritti') as $key => $value)
+                                                        {{ $patient->mutra_pravritti == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -605,11 +647,12 @@
                                              Pravritti">xvi)
                                                         Vyavay
                                                         Pravritti</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.vyavay_pravritti') as $key => $value)
-                                                            {{ $patient->vyavay_pravritti == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.vyavay_pravritti') as $key => $value)
+                                                        {{ $patient->vyavay_pravritti == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -619,12 +662,13 @@
                                                 <div class="form-group">
                                                     <label for="Shukrakshanapravritti">xvii)Shukrakshana
                                                         pravritti</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.shukrakshana_pravritti') as $key =>
-                                                            $value)
-                                                            {{ $patient->shukrakshana_pravritti == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.shukrakshana_pravritti') as $key =>
+                                                        $value)
+                                                        {{ $patient->shukrakshana_pravritti == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -636,12 +680,13 @@
                                                         Aartava
                                                         Pravritti
                                                         Kala</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.aartava_pravratti_kala') as $key =>
-                                                            $value)
-                                                            {{ $patient->aartava_pravratti_kala == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.aartava_pravratti_kala') as $key =>
+                                                        $value)
+                                                        {{ $patient->aartava_pravratti_kala == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -649,11 +694,12 @@
                                                 <div class="form-group">
                                                     <label for="Dehoshma">xix)
                                                         Dehoshma</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.dehoshma') as $key => $value)
-                                                            {{ $patient->dehoshma == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.dehoshma') as $key => $value)
+                                                        {{ $patient->dehoshma == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -661,7 +707,7 @@
                                                 <div class="form-group">
                                                     <label for="Bhara">xx)
                                                         Bhara</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->bhara }}</strong></label>
+                                                    <p> {{ $patient->bhara  }}</p>
 
                                                 </div>
                                             </div>
@@ -671,11 +717,12 @@
                                                 <div class="form-group">
                                                     <label for="Raktachapa">xxi)
                                                         Raktachapa</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.raktachapa') as $key => $value)
-                                                            {{ $patient->raktachapa == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.raktachapa') as $key => $value)
+                                                        {{ $patient->raktachapa == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -685,11 +732,12 @@
                                              gati">xxii)
                                                         Hrid
                                                         gati</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.hrid_gati') as $key => $value)
-                                                            {{ $patient->hrid_gati == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.hrid_gati') as $key => $value)
+                                                        {{ $patient->hrid_gati == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -697,11 +745,12 @@
                                                 <div class="form-group">
                                                     <label for="Shvasagati">xxiii)
                                                         Shvasagati</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.shvasagati') as $key => $value)
-                                                            {{ $patient->shvasagati == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.shvasagati') as $key => $value)
+                                                        {{ $patient->shvasagati == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -710,11 +759,12 @@
                                                     <label for="parkriti_parikshana">xxiv)
                                                         Parkriti
                                                         Parikshana</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.parkriti_parikshana') as $key => $value)
-                                                            {{ $patient->parkriti_parikshana == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.parkriti_parikshana') as $key => $value)
+                                                        {{ $patient->parkriti_parikshana == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -730,12 +780,13 @@
                                                         Examination
                                                         by
                                                         Physician</label>
-                                                    <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                            @foreach (__('phr.examination_by_physician') as $key =>
-                                                            $value)
-                                                            {{ $patient->examination_by_physician == $key ? $value : '' }}
-                                                            @endforeach
-                                                        </strong></label>
+                                                    <br>
+                                                    <p>
+                                                        @foreach (__('phr.examination_by_physician') as $key =>
+                                                        $value)
+                                                        {{ $patient->examination_by_physician == $key ? $value : '' }}
+                                                        @endforeach
+                                                    </p>
 
                                                 </div>
                                             </div>
@@ -744,7 +795,7 @@
                                                     <label for="example-text-input" class="form-control-label">7.
                                                         Prayogashaliya
                                                         Parikshana</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->prayogashaliya_parikshana }}</strong></label>
+                                                    <p> {{ $patient->prayogashaliya_parikshana  }}</p>
 
                                                 </div>
                                             </div>
@@ -753,7 +804,7 @@
                                                     <label for="example-text-input" class="form-control-label">8.
                                                         Samprapti
                                                         Vivarana</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->samprapti_vivarana }}</strong></label>
+                                                    <p> {{ $patient->samprapti_vivarana  }}</p>
 
                                                 </div>
                                             </div>
@@ -762,7 +813,7 @@
                                                     <label for="example-text-input" class="form-control-label">9.
                                                         Vibhedaka
                                                         Pariksha</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->vibhedaka_pariksha }}</strong></label>
+                                                    <p> {{ $patient->vibhedaka_pariksha  }}</p>
 
                                                 </div>
                                             </div>
@@ -773,7 +824,7 @@
                                                         Vinishchaya-
                                                         Pramukh
                                                         Nidana</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->roga_vinishchaya_pramukh_nidana }}</strong></label>
+                                                    <p> {{ $patient->roga_vinishchaya_pramukh_nidana  }}</p>
 
                                                 </div>
                                             </div>
@@ -784,15 +835,16 @@
                                                         Kalpana
                                                         Anupana
                                                         Sahita</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->chikitsa_kalpana_anupana_sahita }}</strong></label>
+                                                    <p> {{ $patient->chikitsa_kalpana_anupana_sahita  }}</p>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="samshodhana_kriyas" class="form-control-label">Samshodhana
+                                                    <label for="samshodhana_kriyas"
+                                                        class="form-control-label">Samshodhana
                                                         Kriyas</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->samshodhana_kriyas }}</strong></label>
+                                                    <p> {{ $patient->samshodhana_kriyas  }}</p>
 
                                                 </div>
                                             </div>
@@ -800,7 +852,7 @@
                                                 <div class="form-group">
                                                     <label for="samshamana_kriyas" class="form-control-label">Samshamana
                                                         Kriyas</label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->samshamana_kriyas }}</strong></label>
+                                                    <p> {{ $patient->samshamana_kriyas  }}</p>
 
                                                 </div>
                                             </div>
@@ -808,9 +860,10 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">12.
                                                         Pathya-Apathya
-                                                        (<a href="{{ url('/annexure-file.pdf') }}" target="_blank"><span class="fs-12 text-info">Annexure-1</span></a>)
+                                                        (<a href="{{ url('/annexure-file.pdf') }}" target="_blank"><span
+                                                                class="fs-12 text-info">Annexure-1</span></a>)
                                                     </label>
-                                                    <br><label for="example-text-input" class="form-control-label"><strong>{{ $patient->pathya_apathya }}</strong></label>
+                                                    <p> {{ $patient->pathya_apathya  }}</p>
 
                                                 </div>
                                             </div>
@@ -826,7 +879,8 @@
                                                         E-Sign</label><br>
                                                     @if (!empty($shishya->id))
                                                     @if ($shishya->e_sign != '')
-                                                    <img src="{{ asset('uploads/' . $shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                                    <img src="{{ asset('uploads/' . $shishya->e_sign) }}" alt="E-Sign"
+                                                        width="100px;" height="80px;">
                                                     @endif
                                                     <br>
                                                     (@if ($shishya->title > 0)
@@ -842,7 +896,8 @@
                                                         E-Sign</label><br>
                                                     @if (!empty($guru->id))
                                                     @if ($guru->e_sign != '')
-                                                    <img src="{{ asset('uploads/' . $guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                                    <img src="{{ asset('uploads/' . $guru->e_sign) }}" alt="E-Sign"
+                                                        width="100px;" height="80px;">
                                                     @endif
                                                     <br>
                                                     (@if ($guru->title > 0)
@@ -855,7 +910,8 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-12 p-t-20 text-left">
-                                            <a href="{{ url('/follow-up-patients') }}"><button type="button" class="btn btn-danger waves-effect"> &nbsp; Back
+                                            <a href="{{ url('/follow-up-patients') }}"><button type="button"
+                                                    class="btn btn-danger waves-effect"> &nbsp; Back
                                                     &nbsp;</button></a>
                                         </div>
                                     </div>
@@ -871,10 +927,10 @@
 </div>
 </section>
 <script>
-    $(document).ready(function() {
-        $(".follow_up").click(function() {
-            $(".card-body2").slideToggle();
-        });
+$(document).ready(function() {
+    $(".follow_up").click(function() {
+        $(".card-body2").slideToggle();
     });
+});
 </script>
 @endsection

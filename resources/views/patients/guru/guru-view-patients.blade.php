@@ -705,7 +705,7 @@
                                     </div>
                                  </div>
                                  <div class="col-lg-12 p-t-20 text-center">
-                                    <a href="{{ url('guru-patient-list') }}"><button type="button" class="btn btn-danger waves-effect" style="margin-top: -15px;"> &nbsp; Back To Patient Record &nbsp;</button></a>
+                                    <a href="{{ url('guru-patient-list') }}"><button type="button" class="btn btn-primary waves-effect submit float-right" style="margin-top: -15px;"> &nbsp; Back To Patient Record &nbsp;</button></a>
                                  </div>
                               </form>
                            </div>

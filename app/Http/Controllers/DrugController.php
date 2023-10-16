@@ -656,19 +656,17 @@ class DrugController extends Controller
 
     public function admin_filter_drug_report(Request $request)
     {
-
        $shishya=User::where('user_type',3)->get();
        $shishya_id=$request->shishya_id;
        $from_date=$request->from_date;
        $to_date=$request->to_date;
        $yogas_type=$request->yogas_type;
-
+       
             if(request()->yogas_type==1)
             {
                 /* $drugslist = ChurnaYoga::whereBetween('created_at',[$from_date,$to_date])->where('shishya_id',$shishya_id)->get();*/
-                $drugslist = ChurnaYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
+                $drugslist = ChurnaYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
-
             }
 
             elseif(request()->yogas_type==2)
@@ -691,8 +689,7 @@ class DrugController extends Controller
                 $drugslist = ArishtaYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
-
-
+            
            return view('drugs.admin.admin-drug-report-history',compact('drugslist','shishya'));
 
 
