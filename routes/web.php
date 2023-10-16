@@ -165,7 +165,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
         Route::get('phr-history-sheet', [PatientController::class, 'guru_phr_history_sheet']);
         Route::get('admin-drug-report-history', [DrugController::class, 'admin_drug_report_history']);
-        Route::post('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report']);
+        Route::get('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report']);
         Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr']);
 
         Route::get('patients/{phr_type}', [PatientController::class, 'in_patients']);
@@ -197,7 +197,7 @@ Route::group(['middleware' => ['auth']], function() {
 
         /*churna yoga Drug Details*/
         Route::post('add-drug-details', [DrugController::class, 'add_drug_details']);
-        Route::post('filter-drug-report', [DrugController::class, 'filter_drug_report']);
+        Route::get('filter-drug-report', [DrugController::class, 'filter_drug_report']);
         Route::get('edit-drugs/{id}', [DrugController::class, 'edit_drugs']);
         Route::post('update-drug-details', [DrugController::class, 'update_drug_details']);
         Route::get('delete-churan-yoga-part/{id}', [DrugController::class, 'delete_churan_yoga_part']);

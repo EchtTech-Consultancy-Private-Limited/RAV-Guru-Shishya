@@ -71,7 +71,7 @@
                    <div id="wizard_horizontal1">
 
                         <div class="card">
-                            <form role="form" method="POST" action="{{ url('filter-drug-report') }}" enctype="multipart/form-data">
+                            <form role="form" method="get" action="{{ url('filter-drug-report') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
@@ -91,13 +91,13 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">From:</label>
-                                                    <input type="date" name="from_date" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('d-m-Y',time())}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">To:</label>
-                                                    <input type="date" name="to_date" class="form-control" required>
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('d-m-Y',time())}}" required>
 
                                                 </div>
                                             </div>
@@ -110,13 +110,18 @@
                                                   <select class="form-control" id="yogas_type" name="yogas_type" required>
                                                      <option value="">Please Select </option>
                                                      @foreach(__('phr.yogas') as $key=>$value)
+                                                        @if($key == request()->yogas_type)
+                                                            <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                        @endif
                                                      <option value="{{$key}}">{{$value}}</option>
                                                     @endforeach
                                                   </select>
                                                </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <button style="float:right;" class="btn btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
+                                                <button  class="btn btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
+                                                <a href="{{url('drug-report-history')}}"> <button type="button" class="btn btn-primary btn-sm ms-auto nextBtn">Reset</button></a>
+                                                
                                             </div>
                                     </div>
 
@@ -367,7 +372,6 @@
       </div>
    </div>
       </section>
-
 @endsection
 
 
