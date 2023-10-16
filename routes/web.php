@@ -110,6 +110,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('find-phr-registration', [PatientController::class, 'find_phr_registration']);
         Route::get('delete-follow-up/{id}', [PatientController::class, 'delete_follow_up_sheet']);
         Route::get('view-follow-up-sheet/{id}', [PatientController::class, 'view_follow_up_sheet']);
+        Route::get('follow-up-remark-history/{id}', [PatientController::class, 'viewFollowUpRemarKHistory']);
         Route::post('save-follow-up-remark', [PatientController::class, 'save_follow_up_remark']);
 
 

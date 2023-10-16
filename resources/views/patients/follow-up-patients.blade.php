@@ -145,9 +145,17 @@
                                                     aria-label=" No : activate to sort column descending"> S.No. </th>
                                                 <th class="center"> Patient Registration No. </th>
                                                 <th class="center"> Date </th>
-                                                <th class="center"> Patient Name </th>
+                                                <th class="center"> Patient Name </th>  
+                                                @if(Auth::user()->user_type == 1)
                                                 <th class="center"> Guru Name </th>
                                                 <th class="center"> Shishya Name </th>
+                                                @endif
+                                                @if(Auth::user()->user_type == 2)
+                                                <th class="center"> Shishya Name </th>
+                                                @endif
+                                                @if(Auth::user()->user_type == 3)
+                                                <th class="center"> Guru Name </th>
+                                                @endif
                                                 <th class="center"> Progress Duration </th>
                                                 <th class="center"> Action </th>
                                             </tr>
@@ -173,17 +181,32 @@
                                                     <td class="center">
                                                         {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                                     <td class="center">{{ $followup->patient_name }}</td>
+                                                    @if(Auth::user()->user_type == 1)
                                                     <td class="center">
-                                                        {{ $followup->guru_firstname . ' ' . $followup->guru_lastname }}</td>
+                                                        {{ $followup->guru_firstname . ' ' . $followup->guru_lastname }}
+                                                    </td>
                                                     <td class="center">
                                                         {{ $followup->shishya_firstname . ' ' . $followup->shishya_lastname }}
                                                     </td>
+                                                    @endif
+                                                    @if(Auth::user()->user_type == 2)
+                                                    <td class="center">
+                                                        {{ $followup->shishya_firstname . ' ' . $followup->shishya_lastname }}
+                                                    </td>
+                                                    @endif
+                                                    @if(Auth::user()->user_type == 3)
+                                                    <td class="center">
+                                                        {{ $followup->shishya_firstname . ' ' . $followup->shishya_lastname }}
+                                                    </td>
+                                                    @endif
+                                                   
                                                     <td class="center">{{ $followup->report_type }}</td>
                                                     <td >
                                                         <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                             class="btn btn-tbl-edit" title="View Record">
                                                             <i class="material-icons">visibility</i>
                                                         </a>
+                                                        <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i>
                                                         @if (
                                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||

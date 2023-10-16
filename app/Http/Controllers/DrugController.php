@@ -666,29 +666,29 @@ class DrugController extends Controller
             if(request()->yogas_type==1)
             {
                 /* $drugslist = ChurnaYoga::whereBetween('created_at',[$from_date,$to_date])->where('shishya_id',$shishya_id)->get();*/
-                $drugslist = ChurnaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = ChurnaYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
 
             }
 
             elseif(request()->yogas_type==2)
             {
-                $drugslist = RasaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = RasaYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==3)
             {
-                $drugslist = VatiYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = VatiYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==4)
             {
-                $drugslist = TaliaYogas::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = TaliaYogas::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==5)
             {
-                $drugslist = ArishtaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = ArishtaYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
 
