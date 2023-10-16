@@ -419,6 +419,7 @@ input[name="send_phr_to_guru[]"] {
 .table thead tr th {
    
     white-space: nowrap;
+    text-align: left;
 }
 
 td, th {
@@ -734,3 +735,13 @@ table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before
 .dashboard .card{
     height: 133px;
 }
+
+
+.table thead tr th [type="checkbox"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin-left: 22%;
+}
+
+ 

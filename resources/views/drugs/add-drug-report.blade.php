@@ -526,15 +526,16 @@
                </div>
                <div class="form-group">
                      <div class="h-100">
-                     <h6 class="text ">Name of the Drug</h6>
+                     <h5 class="text ">Name of the Drug</h5>
+                     
                   </div>
                      </div>
                      <div class="form-group">
-                  <div class="col-auto my-auto">
+                  <div class="">
                      <div class="h-100">
                         <h5 class="mb-1">
                            Reference
-                           <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
+                           <p class=' text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
                         </h5>
                      </div>
                     </div>

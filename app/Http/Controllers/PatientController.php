@@ -271,11 +271,8 @@ class PatientController extends Controller
     }
     public function view_follow_up_sheet(Request $request,$id=0)
     {
-
         if($id!=0)$id=decrypt($id);
-
            $data=Array();
-
             if($id>0){
                 $data=FollowUpPatient::find($id);
 
@@ -290,6 +287,31 @@ class PatientController extends Controller
                  $remarks=Remark::where('followup_id',$id)->orderby('id','Desc')->get();
 
                  return view("patients.view-follow-up-sheet",compact('guru','shishya','patient','data','remarks'));
+
+
+            } else {
+                return redirect('/follow-up-patients')->with('error', 'Patient registration not found.');
+            }
+
+    }
+    public function viewFollowUpRemarKHistory(Request $request,$id=0)
+    {
+        if($id!=0)$id=decrypt($id);
+           $data=Array();
+            if($id>0){
+                $data=FollowUpPatient::find($id);
+
+                if(Auth::user()->user_type==2 && $data->read_by_guru=='0')FollowUpPatient::where('id',$id)->update(['read_by_guru'=>1]);
+                elseif(Auth::user()->user_type==3 && $data->read_by_shishya=='0')FollowUpPatient::where('id',$id)->update(['read_by_shishya'=>1]);
+                elseif(Auth::user()->user_type==1 && $data->read_by_admin=='0')FollowUpPatient::where('id',$id)->update(['read_by_admin'=>1]);
+
+                $guru=DB::table('users')->where('users.id',$data->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
+                $shishya=User::find($data->shishya_id);
+
+                 $patient=Patient::find($data->patient_id);
+                 $remarks=Remark::where('followup_id',$id)->orderby('id','Desc')->get();
+
+                 return view("patients.view-follow-up-remark-history",compact('guru','shishya','patient','data','remarks'));
 
 
             } else {
