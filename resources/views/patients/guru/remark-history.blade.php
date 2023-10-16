@@ -54,10 +54,12 @@
                             <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                         <thead>
                            <tr role="row">
-                                <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
-                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Date </th>
-                                <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Guru Name </th>
+                                <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>                                
+                                <!-- <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Guru Name </th> -->
                                 <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">  Shishya Name  </th>
+                                <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">  Send By </th>
+                                <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">  Send To  </th>
+                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Date </th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Remark </th>
                                 
                             </tr>
@@ -70,10 +72,20 @@
                         @foreach($remark_history as $key=>$remark_history) 
                                                                                  
                         <tr class="gradeX odd ">
-                                 <td class="center sorting_1">{{ ++$key }}</td>
-                                 <td class="center">{{ date('d-m-Y', strtotime($remark_history->created_at)) }}</td>
-                                 <td class="center sorting_1"> <?php echo get_user_name($remark_history->guru_id); ?></td>
+                                 <td class="center sorting_1">{{ ++$key }}</td>                                 
+                                 <!-- <td class="center sorting_1"> <?php //echo get_user_name($remark_history->guru_id); ?></td> -->
                                  <td class="center sorting_1"><?php echo get_user_name($remark_history->shishya_id); ?></td>
+                                 <td class="center">
+                                    @if(@$remark_history->send_by=='2')Guru
+                                    @elseif(@$remark_history->send_by=='3')Shishya
+                                    @elseif(@$remark_history->send_by=='1')Admin @endif
+                                 </td>
+                                 <td class="center">
+                                    @if(@$remark_history->send_to=='2')Guru
+                                    @elseif(@$remark_history->send_to=='3')Shishya
+                                    @elseif(@$remark_history->send_to=='1')Admin @endif
+                                 </td>
+                                 <td class="center">{{ date('d-m-Y', strtotime($remark_history->created_at)) }}</td>
                                  <td class="center"><a ><b>{{$remark_history->remarks}}</b></a></td>
                         </tr>
                         @endforeach

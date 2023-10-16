@@ -190,26 +190,38 @@ class PatientController extends Controller
             if(isset($request->guru_id)) $data->where('follow_up_patients.guru_id',$request->guru_id);
             $data->where('follow_up_patients.send_to_admin',1);
         }
-
-        if(!empty($request->prno))$data->where('follow_up_patients.registration_no',$request->prno);
-        if(!empty($request->from_date))$data->where('follow_up_patients.follow_up_date','>=',date("Y-m-d",strtotime($request->from_date)));
-        if(!empty($request->to_date))$data->where('follow_up_patients.follow_up_date','<=',date("Y-m-d",strtotime($request->to_date)));
-        if(!empty($request->report_type))$data->where('follow_up_patients.report_type',$request->report_type);
-
-
+        
+        if(!empty($request->prno)){            
+            $data->where('follow_up_patients.registration_no',$request->prno);
+        }
+       
+        if(!empty($request->from_date)){
+            $data->where('follow_up_patients.follow_up_date','>=',date("d-m-Y",strtotime($request->from_date)));
+        }
+       
+        if(!empty($request->to_date)){
+            $data->where('follow_up_patients.follow_up_date','<=',date("d-m-Y",strtotime($request->to_date)));
+        }
+        if(!empty($request->report_type))
+        {
+            $data->where('follow_up_patients.report_type',$request->report_type);
+        }
         $data=$data->orderby('id','Desc')->paginate(10);
-
+       
         $guru=get_guru_list(Auth::user()->guru_id);
         $gurus=get_guru_list();
         return view("patients.follow-up-patients",['guru'=>$guru,'gurus'=>$gurus,'data'=>$data])->with('i', (request()->input('page', 1) - 1) * 10);;
     }
 
     public function find_phr_registration(Request $request)
-    {
+    {        
         if(empty($request->registration_no)){
             return Response::json(['message'   => 'Enter registration no.']);
         }
-
+        $alreayFollowUp = FollowUpPatient::where('registration_no',$request->registration_no)->where('shishya_id',Auth::user()->id)->first();
+        if($alreayFollowUp){
+            return Response::json(['message'   => 'This registration no. already follow !']);
+        }
         $data=Patient::where('registration_no',$request->registration_no)->where('shishya_id',Auth::user()->id)->get();
         if(count($data)>0){
             $data=$data->first();
@@ -298,7 +310,7 @@ class PatientController extends Controller
 
         if(isset($patient)){
             $data=Array();
-            $guru=User::find($patient->guru_id);
+            $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
             $shishya=User::find($patient->shishya_id);
             if($id>0){
                 $data=FollowUpPatient::find($id);
@@ -916,16 +928,16 @@ class PatientController extends Controller
 
     public function guru_remark_history(Request $request,$phr_id)
     {
-        if($phr_id!=0)$phr_id= decrypt($phr_id);
-        $remark_history=Remark::where('phr_id',$phr_id)->get();
+        if($phr_id!=0)$phr_id= decrypt($phr_id);        
+        $remark_history=Remark::orderby('id','Desc')->where('phr_id',$phr_id)->get();
         return view('patients.guru.remark-history',compact('remark_history'));
 
     }
 
      public function remark_history(Request $request,$phr_id)
-    {
+    {   
         if($phr_id!=0)$phr_id= decrypt($phr_id);
-        $remark_history=Remark::where('phr_id',$phr_id)->get();
+        $remark_history=Remark::orderby('id','Desc')->where('phr_id',$phr_id)->get();
         return view('patients.remark-history',compact('remark_history'));
 
     }
@@ -966,16 +978,7 @@ class PatientController extends Controller
                 'age_group' => 'required',
                 'occupation' => 'required',
                 'marital_status' => 'required',
-        ],[
-            'patient_name' => 'Field is required',
-            'registration_no.required' => 'Field is required',
-            'age.required' => 'Field is required and must be integer',
-            'patient_type.required' => 'Field is required',
-            'gender.required' => 'Field is required',
-            'age_group.required' => 'Field is required',
-            'occupation.required' => 'Field is required',
-            'marital_status.required' => 'Field is required',
-            'city.required' => 'Field is required',
+                'address' => 'required',
         ]);
        
         $input = $request->all();

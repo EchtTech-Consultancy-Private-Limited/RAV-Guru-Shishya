@@ -335,7 +335,8 @@
                                               @foreach(__('phr.marital_status') as $key=>$value)
                                              <option value="{{$key}}" {{$patient->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
                                             @endforeach
-                                          </select>@error('marital_status')
+                                          </select>
+                                       @error('marital_status')
                                           <div class="text-danger">{{ $message }}</div>
                                        @enderror
                                        </div>
@@ -415,6 +416,9 @@
                                              value="{{ $patient->address }}"
                                              aria-label="Address"
                                              placeholder="Street Address" maxlength="200">{{ $patient->address }}</textarea>
+                                             @error('address')
+                                                <div class="text-danger">{{ $message }}</div>
+                                             @enderror
                                        </div>
                                     </div>
                                     <div

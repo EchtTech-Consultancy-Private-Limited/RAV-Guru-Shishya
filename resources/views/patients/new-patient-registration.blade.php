@@ -87,8 +87,8 @@
 
                                                         <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No.
                                                         </th>
-                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">
-                                                            System Reg. No </th>
+                                                        <!-- <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">
+                                                            System Reg. No </th> -->
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Email : activate to sort column ascending">
                                                             Patient Reg. No </th>
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending">
@@ -100,9 +100,6 @@
 
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
                                                             Patients Type </th>
-
-                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
-                                                            Age </th>
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
                                                             Action </th>
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=""> Remarks </th>
@@ -118,8 +115,8 @@
 
                                                         <!-- <td class="center sorting_1  p-0"><input name="send_phr_to_guru[]" value="{{ $patientlist->id }}" type="checkbox" class="add"></td> -->
                                                         <td class="center sorting_1">{{ ++$key }}</td>
-                                                        <td class="center"><a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}">{{ @format_patient_id($patientlist->id) }}</a>
-                                                        </td>
+                                                        <!-- <td class="center"><a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}">{{ @format_patient_id($patientlist->id) }}</a>
+                                                        </td> -->
                                                         <td class="text-center">
                                                             {{ $patientlist->registration_no }}
                                                         </td>
@@ -135,7 +132,6 @@
                                                             @endif
                                                         </td>
                                                         <td class="center"> {{ $patientlist->patient_type }} </td>
-                                                        <td class="center"> {{ $patientlist->age }} </td>
                                                         <td>
                                                             <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="View Patient">
                                                                 <i class="material-icons">visibility</i>
@@ -144,9 +140,9 @@
                                                                 <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Edit Patient">
                                                                     <i class="material-icons">edit</i>
                                                                 </a>
-                                                                <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
+                                                                <!-- <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
                                                                     <i class="material-icons">send</i>
-                                                                </a>
+                                                                </a> -->
                                                             @if ($patientlist->phr_g_status != 1)
                                                                 <a href="{{ url('delete-phr/' . $patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                                                     <i class="material-icons">delete_forever</i>
@@ -164,9 +160,12 @@
 
                                                         </td>
                                                         <td class="center">
-                                                            <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="View Remarks">
-                                                                <i class="material-icons">visibility</i>
+                                                        <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                                                        @if($patientlist->phr_s_status== 1)
+                                                            <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
+                                                                Remarks
                                                             </a>
+                                                        @endif                                                            
                                                         </td>
                                                     </tr>
                                                     @endforeach

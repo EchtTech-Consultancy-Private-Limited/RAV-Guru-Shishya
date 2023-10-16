@@ -84,7 +84,7 @@
                                     <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                          {{date('d-m-y',strtotime($patient->registration_date))}}
+                                          {{date('d-m-Y',strtotime($patient->registration_date))}}
                                        </div>
                                     </div>
                                  </div>
@@ -123,16 +123,8 @@
                                     <div class="col-sm-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Registration Date</label>
-                                          <br>{{date('d-m-y',strtotime($patient->registration_date))}}</label>
+                                          <br>{{date('d-m-Y',strtotime($patient->registration_date))}}</label>
 
-                                       </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                       <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">Patients Type-</label>
-
-                                          {{$patient->patient_type}} </label>
                                        </div>
                                     </div>
                                  </div>
@@ -254,7 +246,7 @@
                                           <label for="example-text-input" class="form-control-label">
                                              Family
                                              History</label>
-                                          <br>{{$patient->past_illness}}</label>
+                                          <br>{{$patient->family_history}}</label>
 
                                        </div>
                                     </div>
@@ -673,8 +665,8 @@
                                           <img src="{{ asset('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                           @endif
                                           <br>
-                                          @if(Auth::user()->title>0)
-                                          {{__('phr.titlename.'.Auth::user()->title)}}
+                                          @if(Auth::user()->title>0 && Auth::user()->title != "Select Title")
+                                             {{__('phr.titlename.'.Auth::user()->title)}}
                                           @endif
                                           {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                        </div>
@@ -688,7 +680,7 @@
                                           <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                           @endif
                                           <br>
-                                          ( @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}})
+                                          @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
 
                                           @endif
                                        </div>

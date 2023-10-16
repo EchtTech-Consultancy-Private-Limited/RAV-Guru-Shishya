@@ -42,8 +42,8 @@
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2> Add Follow Up </h2>
-                        <ul class="header-dropdown m-r--5">
+                        <h2><strong>Add</strong> Follow Up </h2>
+                        <!-- <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
                                     role="button" aria-haspopup="true" aria-expanded="false">
@@ -56,7 +56,7 @@
 
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="body">
                         <div id="wizard_horizontal">
@@ -164,32 +164,21 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <div class="form-line">
-                                                                <label for="progress"
-                                                                    class="form-control-label">Progress<span
-                                                                        class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="progress"
-                                                                    class="form-control" value="" aria-label="progress"
-                                                                    placeholder="Please enter progress"
-                                                                    required>{{ old('progress') }}</textarea>
-                                                                @if($errors->has('progress'))
-                                                                <span class="help-block">
-                                                                    <strong
-                                                                        style="color:red;">{{ $errors->first('progress') }}
-                                                                </span>
-                                                                @endif
+                                                                <label for="progress" class="form-control-label">Progress <span class="text-danger"></span></label>
+                                                                <textarea cols="45" rows="2" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" required>{{ (@$data->progress)?$data->progress:old('progress') }}</textarea>
+                                                            @if($errors->has('progress'))
+                                                            <span class="help-block">
+                                                                <strong style="color:red;">{{ $errors->first('progress') }}</strong>
+                                                            </span>
+                                                            @endif
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <div class="form-line">
-                                                                <label for="treatment"
-                                                                    class="form-control-label">Treatment/Therapies<span
-                                                                        class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="treatment"
-                                                                    class="form-control" value="" aria-label="treatment"
-                                                                    placeholder="Please enter treatment/therapies"
-                                                                    required>{{ old('treatment') }}</textarea>
+                                                                <label for="treatment" class="form-control-label">Treatment/Therapies<span class="text-danger"></span></label>
+                                                                <textarea cols="45" rows="2" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>{{ (@$data->treatment)?$data->treatment:old('treatment') }}</textarea>
                                                                 @if ($errors->has('treatment'))
                                                                 <span class="help-block">
                                                                     <strong
@@ -236,8 +225,7 @@
                                                     <label for="example-text-input" class="form-control-label">Name of
                                                         the Guru<span class="text-danger"></span></label><br>
                                                     @if (!empty($guru->id))
-                                                    <label for="example-text-input"
-                                                        class="form-control-label"><b>{{ $guru->firstname . ' ' . $guru->middlename . ' ' . $guru->lastname }}</b></label>
+                                                    <label for="example-text-input" class="form-control-label"><b>{{ $guru->firstname . ' ' . $guru->lastname }}</b></label>
                                                     @endif
                                                 </div>
                                             </div>
@@ -245,10 +233,7 @@
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Place
                                                         of the Guru</label><br>
-                                                    @if (!empty($guru->id))
-                                                    <label for="example-text-input"
-                                                        class="form-control-label"><b>{{$guru->city_name}}</b></label>
-                                                    @endif
+                                                    <label for="example-text-input" class="form-control-label"><b>{{@$guru->city_name}}</b></label>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -918,7 +903,7 @@
                                                     (@if ($guru->title > 0)
                                                     {{ __('phr.titlename')[$guru->title] }}
                                                     @endif
-                                                    {{ $guru->firstname . ' ' . $guru->middelname . ' ' . $guru->lastname }})
+                                                    {{ $guru->firstname . ' ' . $guru->lastname }})
                                                     @endif
 
                                                 </div>

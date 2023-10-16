@@ -83,7 +83,7 @@
                                                     <select class="form-control" id="shishya_id" name="shishya_id" required>
                                                          <option value="">Please Select </option>
                                                          @foreach($shishya as $key=>$value)
-                                                         <option value="{{$value->id}}">{{$value->firstname}}</option>
+                                                         <option value="{{$value->id}}">{{$value->firstname}} ({{$value->email}})</option>
                                                         @endforeach
                                                     </select>
 
@@ -92,14 +92,14 @@
 
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">From:</label>
-                                                    <input type="date" name="from_date" class="form-control" required>
+                                                    <label class="form-control-label">From:</label>                                                  
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">To:</label>
-                                                    <input type="date" name="to_date" class="form-control" required>
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}">
 
                                                 </div>
                                             </div>
@@ -121,7 +121,8 @@
 
 
                                     </div>
-                                    <button style="float:right;" class="btn btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
+                                    <button class="btn btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
+                                    <button type="reset" onclick="refreshPage();" class="btn btn-danger waves-effect">Reset</button>    
 
                                 </div>
                             </form>
