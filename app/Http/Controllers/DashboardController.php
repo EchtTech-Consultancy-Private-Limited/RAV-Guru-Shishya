@@ -16,9 +16,10 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $shishya = User::where('user_type',3)->count();
+        $guru = User::where('user_type',2)->count();
         $users = User::count();
         $patients = Patient::count();
-        return view("pages.dashboard",compact('shishya','users','patients'));
+        return view("pages.dashboard",compact('shishya','guru','users','patients'));
     }
 
     public function shishya(Request $request)

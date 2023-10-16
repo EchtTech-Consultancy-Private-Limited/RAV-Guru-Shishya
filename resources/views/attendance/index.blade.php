@@ -88,6 +88,7 @@
                            </li>
                            <li style="float:left;clear:none; margin:10px;">
                               <button type="submit" class="btn btn-primary waves-effect" style="line-height:2;"> Filter </button>
+                              <button type="reset" onclick="refreshPage();" class="btn btn-danger waves-effect">Reset</button>
                            </li>
                </form>
                <li style="float:left;clear:none; margin:10px;">

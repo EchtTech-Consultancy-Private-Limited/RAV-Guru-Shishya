@@ -798,8 +798,9 @@
                                                 E-Sign</label><br>
                                              @if(Auth::user()->e_sign!='')
                                              <img src="{{ asset('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                             <br>
                                              @endif
-                                             {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                             ({{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}})
                                           </div>
                                        </div>
                                        <div class="col-md-6">

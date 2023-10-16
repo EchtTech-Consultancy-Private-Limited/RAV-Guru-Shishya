@@ -81,9 +81,9 @@
                                             <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                                 <thead>
                                                     <tr role="row">
-                                                        <!-- <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">
+                                                        <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">
                                                             <input id="addall" type="checkbox"><label for='selectAll'> </label>
-                                                        </th> -->
+                                                        </th>
 
                                                         <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No.
                                                         </th>
@@ -113,7 +113,7 @@
                                                     @foreach ($patientlist as $key => $patientlist)
                                                     <tr class="gradeX odd @if ($patientlist->read_by_shishya == '0') active-row @endif">
 
-                                                        <!-- <td class="center sorting_1  p-0"><input name="send_phr_to_guru[]" value="{{ $patientlist->id }}" type="checkbox" class="add"></td> -->
+                                                        <td class="center sorting_1  p-0"><input name="send_phr_to_guru[]" value="{{ $patientlist->id }}" type="checkbox" class="add"></td>
                                                         <td class="center sorting_1">{{ ++$key }}</td>
                                                         <!-- <td class="center"><a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}">{{ @format_patient_id($patientlist->id) }}</a>
                                                         </td> -->
