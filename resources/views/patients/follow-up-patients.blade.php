@@ -107,7 +107,7 @@
                                             <div>
                                                 <button type="submit" class="btn btn-primary waves-effect"
                                                     style="line-height:2;"> Filter </button>
-                                                    <button type="reset" onclick="refreshPage();" class="btn btn-danger waves-effect">Reset</button>
+                                                    <a href="{{ url('follow-up-patients') }}"><button type="button" class="btn btn-primary waves-effect">Reset</button></a>
                                             </div>
                                             @if (Auth::user()->user_type == 3)
                                                 <div>
@@ -207,6 +207,14 @@
                                                             <i class="material-icons">visibility</i>
                                                         </a>
                                                         <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i>
+                                                        @if (
+                                                            (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
+                                                                (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
+                                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
+                                                                <a target="_blank" href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}" class="btn btn-secondary" title="Remarks">
+                                                                Remarks
+                                                            </a>
+                                                        @endif
                                                         @if (
                                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||

@@ -151,7 +151,6 @@ class PatientController extends Controller
     public function new_patient_registration(Request $request)
     {
         $data=Patient::where('shishya_id',Auth::user()->id);
-
         if(!empty($request->prno))$data->where('patients.registration_no',$request->prno);
         if(!empty($request->from_date))$data->where('patients.registration_date','>=',date("Y-m-d",strtotime($request->from_date)));
         if(!empty($request->to_date))$data->where('patients.registration_date','<=',date("Y-m-d",strtotime($request->to_date)));
@@ -676,8 +675,9 @@ class PatientController extends Controller
 
     public function send_phr_to_guru(Request $request)
     {
-        $phrarray=$request->send_phr_to_guru;        
+        $phrarray=$request->send_phr_to_guru;
         if(!empty($phrarray)){
+            
             foreach($phrarray as $key=>$phrarrayvalues)
             {
                 $patient=Patient::where('id',$phrarrayvalues)->where('phr_s_status',1)->first();
@@ -709,9 +709,8 @@ class PatientController extends Controller
 
                     Mail::to($gurumail)->send(new SendPhr($phrData));
                 }
-                return redirect('/new-patient-registration')->with('success', 'This record Sent to guru successfully! now you can not change this record');
-
-            }            
+            }
+            return redirect('/new-patient-registration')->with('success', 'This record Sent to guru successfully! now you can not change this record');          
         }
         return redirect('/new-patient-registration')->with('error', 'Please select a patient !');
        

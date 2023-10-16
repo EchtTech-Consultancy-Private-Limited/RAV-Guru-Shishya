@@ -72,7 +72,7 @@
                    <div id="wizard_horizontal1">
 
                         <div class="card">
-                            <form role="form" method="POST" action="{{ url('admin-filter-drug-report') }}" enctype="multipart/form-data">
+                            <form role="form" method="GET" action="{{ url('admin-filter-drug-report') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
@@ -83,7 +83,8 @@
                                                     <select class="form-control" id="shishya_id" name="shishya_id" required>
                                                          <option value="">Please Select </option>
                                                          @foreach($shishya as $key=>$value)
-                                                         <option value="{{$value->id}}">{{$value->firstname}} ({{$value->email}})</option>
+                                                       
+                                                         <option value="{{$value->id == request()->shishya_id ? $value->id:$value->id}}" {{$value->id == request()->shishya_id ? 'selected':''}}>{{$value->firstname}} ({{$value->email}})</option>
                                                         @endforeach
                                                     </select>
 
@@ -112,6 +113,9 @@
                                                       <select class="form-control" id="yogas_type" name="yogas_type" required>
                                                          <option value="">Please Select </option>
                                                          @foreach(__('phr.yogas') as $key=>$value)
+                                                         @if($key == request()->yogas_type)
+                                                            <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                        @endif
                                                          <option value="{{$key}}">{{$value}}</option>
                                                         @endforeach
                                                       </select>
@@ -122,7 +126,7 @@
 
                                     </div>
                                     <button class="btn btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
-                                    <button type="reset" onclick="refreshPage();" class="btn btn-danger waves-effect">Reset</button>    
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn btn-primary btn-sm ms-auto nextBtn">Reset</button>    
 
                                 </div>
                             </form>
