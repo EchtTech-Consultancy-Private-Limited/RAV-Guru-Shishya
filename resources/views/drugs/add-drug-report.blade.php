@@ -859,7 +859,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
+                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                         </div>
                     </div>
                   </div>

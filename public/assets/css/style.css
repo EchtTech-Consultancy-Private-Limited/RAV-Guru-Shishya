@@ -537,7 +537,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
     vertical-align: middle;
-    text-align: left;
+
+    text-align: left !important; 
 }
 
 .btn-tbl-edit {
@@ -745,3 +746,31 @@ table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before
 }
 
  
+.table thead tr th {
+    padding: 5px 10px !important;
+    border-bottom: 1px solid #eee;
+}
+
+table.dataTable>thead .sorting:after{
+    content: '' !important;
+}
+table.dataTable>thead .sorting:before, table.dataTable>thead{
+    content: '' !important;
+}
+
+
+button[type="submit"]{
+    background-color: #D15200 !important;
+}
+.btn[type="submit"] {
+    background-color: #D15200 !important;
+  }
+
+  .submit{
+    background-color: #D15200 !important;
+    color: #fff;
+  }
+
+  .btn.btn-primary.waves-effect.submit {
+    background: #d15200 !important;
+  }

@@ -693,9 +693,9 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-lg-12 p-t-20 text-center">
+                                 <div class="col-lg-12  text-center">
 
-                                    <a href="{{ url('admin-patient-list') }}" type="button" class="btn btn-primary waves-effect m-r-15">Back To Patient Record</a>
+                                    <a href="{{ url('admin-patient-list') }}" type="button" class="btn btn-primary waves-effect submit float-right">Back To Patient Record</a>
                                  </div>
                               </form>
                            </div>
