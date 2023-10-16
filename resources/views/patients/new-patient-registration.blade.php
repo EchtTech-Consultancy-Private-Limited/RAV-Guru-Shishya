@@ -41,6 +41,11 @@
                         <p>{{ $message }}</p>
                     </div>
                     @endif
+                    @if ($message = Session::get('error'))
+                    <div class="alert alert-danger">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -113,7 +118,7 @@
                                                     @foreach ($patientlist as $key => $patientlist)
                                                     <tr class="gradeX odd @if ($patientlist->read_by_shishya == '0') active-row @endif">
 
-                                                        <td class="center sorting_1  p-0"><input name="send_phr_to_guru[]" value="{{ $patientlist->id }}" type="checkbox" class="add"></td>
+                                                        <td class="center sorting_1  p-0"><input name="send_phr_to_guru[]" value="{{ $patientlist->id }}" id="find-table" type="checkbox" class="add"></td>
                                                         <td class="center sorting_1">{{ ++$key }}</td>
                                                         <!-- <td class="center"><a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}">{{ @format_patient_id($patientlist->id) }}</a>
                                                         </td> -->

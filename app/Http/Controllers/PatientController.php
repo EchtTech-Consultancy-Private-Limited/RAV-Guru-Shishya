@@ -676,43 +676,45 @@ class PatientController extends Controller
 
     public function send_phr_to_guru(Request $request)
     {
-        $phrarray=$request->send_phr_to_guru;
-        foreach($phrarray as $key=>$phrarrayvalues)
-        {
-            $patient=Patient::where('id',$phrarrayvalues)->where('phr_s_status',1)->first();
-            if($patient)
+        $phrarray=$request->send_phr_to_guru;        
+        if(!empty($phrarray)){
+            foreach($phrarray as $key=>$phrarrayvalues)
             {
-                //dd("$patient");
-                $patient->phr_g_status=1;
-                $patient->phr_s_status=0;
-                $patient->read_by_guru=0;
-                $patient->save();
+                $patient=Patient::where('id',$phrarrayvalues)->where('phr_s_status',1)->first();
+                if($patient)
+                {
+                    //dd("$patient");
+                    $patient->phr_g_status=1;
+                    $patient->phr_s_status=0;
+                    $patient->read_by_guru=0;
+                    $patient->save();
 
-                /*phr mail to guru*/
-                $patient_id=$patient->id;
-                $guru_id=$patient->guru_id;
-                $guru=User::find($guru_id);
-                $guruname=$guru->firstname;
-                $gurumail=$guru->email;
+                    /*phr mail to guru*/
+                    $patient_id=$patient->id;
+                    $guru_id=$patient->guru_id;
+                    $guru=User::find($guru_id);
+                    $guruname=$guru->firstname;
+                    $gurumail=$guru->email;
 
-                $shishya_id=$patient->shishya_id;
-                $shishya=User::find($shishya_id);
-                $shishyaname=$shishya->firstname;
+                    $shishya_id=$patient->shishya_id;
+                    $shishya=User::find($shishya_id);
+                    $shishyaname=$shishya->firstname;
 
-                $phrData = [
-                'title' => 'Your Shishya shared a PHR ('.format_patient_id($patient_id).') with you.',
-                'send'=> $patient_id,
-                'body' => 'Dear ' .$guruname.',',
-                'paragraph' => 'Your Shishya '.' '.$shishyaname.' '.'shared a PHR having No. '.format_patient_id($patient_id).' with you. Kindly have a look at it and provide your valuable feedback',
-                ];
+                    $phrData = [
+                    'title' => 'Your Shishya shared a PHR ('.format_patient_id($patient_id).') with you.',
+                    'send'=> $patient_id,
+                    'body' => 'Dear ' .$guruname.',',
+                    'paragraph' => 'Your Shishya '.' '.$shishyaname.' '.'shared a PHR having No. '.format_patient_id($patient_id).' with you. Kindly have a look at it and provide your valuable feedback',
+                    ];
 
-                Mail::to($gurumail)->send(new SendPhr($phrData));
-            }
+                    Mail::to($gurumail)->send(new SendPhr($phrData));
+                }
+                return redirect('/new-patient-registration')->with('success', 'This record Sent to guru successfully! now you can not change this record');
 
-
+            }            
         }
-
-        return redirect('/new-patient-registration')->with('success', 'This record Sent to guru successfully! now you can not change this record');
+        return redirect('/new-patient-registration')->with('error', 'Please select a patient !');
+       
     }
 
     public function send_patient_to_guru($id,$guru_id)
