@@ -175,9 +175,9 @@
                                                         </td>
                                                     <td class="center sorting_1">{{ $k + 1 }}</td>
 
-                                                    <td class="center"><a
-                                                            href="{{ url('follow-up-sheet/' . encrypt($followup->patient_id)) }}@php if(request()->to_date){ echo '/'.date('Y-m-d',strtotime(request()->from_date));} else echo '/0'; if(request()->from_date){ echo '/'.date('Y-m-d',strtotime(request()->to_date));} else echo '/0'; if(request()->report_type){ echo '/'.request()->report_type;} else echo '/0'; @endphp">{{ $followup->registration_no }}</a>
-                                                    </td>
+                                                    <!-- <td class="center"><a
+                                                            href="{{ url('follow-up-sheet/' . encrypt($followup->patient_id)) }}@php if(request()->to_date){ echo '/'.date('Y-m-d',strtotime(request()->from_date));} else echo '/0'; if(request()->from_date){ echo '/'.date('Y-m-d',strtotime(request()->to_date));} else echo '/0'; if(request()->report_type){ echo '/'.request()->report_type;} else echo '/0'; @endphp">{{ $followup->registration_no }}</a> -->
+                                                    <td>{{ $followup->registration_no }}</td>
                                                     <td class="center">
                                                         {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                                     <td class="center">{{ $followup->patient_name }}</td>
@@ -196,7 +196,7 @@
                                                     @endif
                                                     @if(Auth::user()->user_type == 3)
                                                     <td class="center">
-                                                        {{ $followup->shishya_firstname . ' ' . $followup->shishya_lastname }}
+                                                        {{ $followup->guru_firstname . ' ' . $followup->guru_lastname }}
                                                     </td>
                                                     @endif
                                                    

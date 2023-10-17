@@ -126,8 +126,8 @@ class DrugController extends Controller
         $churandrug = ChurnaYoga::find($id);
         $churandrugpart=DrugChuranPart::where('drug_id',$id)->get();
 
-        if($user_type==1)
-        {
+        if($user_type==1 || $user_type==2)
+        {            
             $id=$churandrug->shishya_id;
             $shishyarecord=User::find($id);
             $guru_id=$shishyarecord->guru_id;
@@ -139,9 +139,29 @@ class DrugController extends Controller
             $guru=get_guru_list(Auth::user()->guru_id);
             return view("drugs.edit-churan-drugs",compact('churandrug','guru','churandrugpart'));
         }
+    }
 
+    public function viewDrugs(Request $request,$id)
+    {
+        $user_type=Auth::user()->user_type;
+        $id= decrypt($id);
 
+        $churandrug = ChurnaYoga::find($id);
+        $churandrugpart=DrugChuranPart::where('drug_id',$id)->get();
 
+        if($user_type==1 || $user_type==2)
+        {            
+            $id=$churandrug->shishya_id;
+            $shishyarecord=User::find($id);
+            $guru_id=$shishyarecord->guru_id;
+            $guru=User::where('id',$guru_id)->first();
+            return view("drugs.view-churan-drugs",compact('churandrug','guru','churandrugpart','shishyarecord'));
+        }
+        else
+        {
+            $guru=get_guru_list(Auth::user()->guru_id);
+            return view("drugs.view-churan-drugs",compact('churandrug','guru','churandrugpart'));
+        }
     }
 
     public function edit_rasa_drugs(Request $request,$id)
@@ -166,9 +186,30 @@ class DrugController extends Controller
             $guru=get_guru_list(Auth::user()->guru_id);
             return view("drugs.edit-rasa-drugs",compact('rasadrug','guru','drugrasapart'));
         }
+    }
 
+    public function view_rasa_drugs(Request $request,$id)
+    {
+        $user_type=Auth::user()->user_type;
+        $id= decrypt($id);
+        $guru=get_guru_list(Auth::user()->guru_id);
+        $rasadrug = RasaYoga::find($id);
 
+        $drugrasapart=DrugRasaPart::where('drug_rasayoga_id',$id)->get();
 
+        if($user_type==1)
+        {
+            $id=$rasadrug->shishya_id;
+            $shishyarecord=User::find($id);
+            $guru_id=$shishyarecord->guru_id;
+            $guru=User::where('id',$guru_id)->first();
+            return view("drugs.view-rasa-drugs",compact('rasadrug','guru','drugrasapart','shishyarecord'));
+        }
+        else
+        {
+            $guru=get_guru_list(Auth::user()->guru_id);
+            return view("drugs.view-rasa-drugs",compact('rasadrug','guru','drugrasapart'));
+        }
     }
 
     public function update_drug_details(Request $request)
@@ -363,9 +404,29 @@ class DrugController extends Controller
             $guru=get_guru_list(Auth::user()->guru_id);
             return view("drugs.edit-vati-drugs",compact('drug','guru','vatitype'));
         }
+    }
 
+    public function view_vati_drugs(Request $request,$id)
+    {
+        $user_type=Auth::user()->user_type;
+        $id= decrypt($id);
+        $guru=get_guru_list(Auth::user()->guru_id);
+        $drug = VatiYoga::find($id);
 
-
+        $vatitype=VatiYogaType::where('drug_vatiyoga_id',$id)->get();
+        if($user_type==1)
+        {
+            $id=$drug->shishya_id;
+            $shishyarecord=User::find($id);
+            $guru_id=$shishyarecord->guru_id;
+            $guru=User::where('id',$guru_id)->first();
+            return view("drugs.view-vati-drugs",compact('drug','guru','vatitype','shishyarecord'));
+        }
+        else
+        {
+            $guru=get_guru_list(Auth::user()->guru_id);
+            return view("drugs.view-vati-drugs",compact('drug','guru','vatitype'));
+        }
     }
 
      public function update_vatiyoga_details(Request $request)
@@ -701,7 +762,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = ChurnaYoga::find($id);
         $drug->delete();
-        return redirect('/admin-drug-report-history')->with('Error', 'ChurnaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'ChurnaYoga  Deleted Successfully');
     }
 
     public function delete_rasa_yoga($id)
@@ -709,7 +770,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = RasaYoga::find($id);
         $drug->delete();
-        return redirect('/admin-drug-report-history')->with('Error', 'RasaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'RasaYoga  Deleted Successfully');
     }
 
     public function delete_vati_yoga($id)
@@ -717,7 +778,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = VatiYoga::find($id);
         $drug->delete();
-        return redirect('/admin-drug-report-history')->with('Error', 'VatiYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'VatiYoga  Deleted Successfully');
     }
 
     public function delete_talia_yoga($id)
@@ -725,7 +786,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = TaliaYogas::find($id);
         $drug->delete();
-        return redirect('/admin-drug-report-history')->with('Error', 'TaliaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'TaliaYoga  Deleted Successfully');
     }
 
     public function delete_arishta_yoga($id)
@@ -733,7 +794,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = ArishtaYoga::find($id);
         $drug->delete();
-        return redirect('/admin-drug-report-history')->with('Error', 'ArishtaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'ArishtaYoga  Deleted Successfully');
     }
 
 }

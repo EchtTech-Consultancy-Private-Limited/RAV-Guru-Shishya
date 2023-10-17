@@ -27,6 +27,30 @@
 
     @endif
    <div class="container-fluid">
+   <div class="block-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                       <ul class="breadcrumb breadcrumb-style ">
+                          <li class="breadcrumb-item">
+                             <h6 class="page-title">Edit Drug Details </h6>
+
+                          </li>
+                          <li class="breadcrumb-item bcrumb-1">
+                            <a href="{{url('/dashboard')}}">
+                             <i class="fas fa-home"></i> Home</a>
+                          </li>
+
+                          <li class="breadcrumb-item active">Edit Drug Details </li>
+                       </ul>
+                       @if ($message = Session::get('success'))
+                         <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                         </div>
+                      @endif
+                    </div>
+                </div>
+              </div>
    <!-- Basic Example | Horizontal Layout -->
    <div class="row clearfix">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

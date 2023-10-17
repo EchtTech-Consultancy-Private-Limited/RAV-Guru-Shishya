@@ -25,6 +25,12 @@
 .breadcrumb .page-title{
     text-transform: capitalize;
 }
+th {
+    text-transform: capitalize;
+  }
+.actions.clearfix {
+    display: none;
+  }
 .form-check, label {
     text-transform: capitalize;
   }
