@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header text-center fs-5">{{ __('Reset Password') }}</div>
                 <p class="text-center p-2">Please Enter Your Email Address to Search Your Account</p>
                 <div class="card-body">
                     @if (session('status'))

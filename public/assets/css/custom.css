@@ -88,6 +88,13 @@
    .wizard .steps a {
       padding: 14px 10px;
    }
+
+   table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
+  
+      text-align: left !important;
+      font-size: 12px !important;
+  }
+  
 }
 
 @media(min-width:991px) and (max-width:1300px){
@@ -113,6 +120,20 @@
   }
 }
 @media(max-width:768px){
+   .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
+      /* padding: 5px 28px; */
+      margin: 2px;
+      line-height: 2;
+  }
+   table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:after {
+      right: 0.5em;
+      content: "";
+  }
+
+  table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_desc_disabled:before {
+   right: 1em;
+   content: "";
+}
    .width-50{
       width: 50% !important;
    }
@@ -215,4 +236,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
    font-size: 13px;
    
 }
+}
+
+label[for="example-hastatala-input"]{
+   font-weight: normal !important;
 }

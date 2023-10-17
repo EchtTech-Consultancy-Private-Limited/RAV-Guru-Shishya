@@ -89,14 +89,17 @@ text-align:center;
 }
 
 footer {
-    position: relative;
-    height: 20;
+    position: fixed;
+    height: 30px;
     bottom: 0;
     width: 100%;
+    left: 0;
+    padding: 0;
+    background-color: #f1f2f7;
 }
 footer p{
     text-align:center;
-    color:#ccc;
+    color:#8d8c8c;
 }
 
 
@@ -277,7 +280,7 @@ color: #fff;
 }
 .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
     /* padding: 5px 28px; */
-    margin-left: 3px;
+    margin: 2px;
     line-height: 2;
 }
 
@@ -345,7 +348,7 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
 @media(max-width:1300px) and (min-width:991px){
     .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
         padding: 5px 9px !important;
-        margin-left: 3px;
+        margin: 1px;
         font-weight: 500;
     }
 }
@@ -416,6 +419,7 @@ input[name="send_phr_to_guru[]"] {
 .table thead tr th {
    
     white-space: nowrap;
+    text-align: left;
 }
 
 td, th {
@@ -431,7 +435,7 @@ td, th {
 
 .table tbody tr td, .table tbody tr th {
     padding: 5px 10px !important;
-    text-align: center;
+    text-align: left;
 }
 .form-group input.form-control{
     border-bottom: 1px solid #9e9e9e;
@@ -533,6 +537,8 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
     vertical-align: middle;
+
+    text-align: left !important; 
 }
 
 .btn-tbl-edit {
@@ -640,11 +646,11 @@ td.left.patient-list-action {
 }
 
 .side-closed .sidebar {
-    width: 0;
+    width: 0px;
 }
 
   .side-closed.submenu-closed .navbar-header {
-    width: 0;
+    width: 0px;
     margin-left: -25px;
   }
   .sidemenu-collapse {
@@ -664,3 +670,107 @@ td.left.patient-list-action {
     font-size: 13px;
     font-weight: 400;
 }
+body{
+    margin-bottom: 40px;
+}
+
+/* .side-closed .sidebar .logo-brand {
+   
+    height: 100px;
+    padding: 6px 9px;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    width: 100px;
+    overflow: hidden;
+    color: #000!important;
+    clear: both;
+} */
+
+
+/* .side-closed .sidebar .logo-name{
+    display: none;
+} */
+
+
+table.dataTable>thead .sorting:before, table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:before, table.dataTable>thead .sorting_desc_disabled:after {
+    position: absolute;
+    bottom: 0.9em;
+    display: block;
+    opacity: 1;
+}
+
+
+
+table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:after {
+    
+    content: "" !important ;
+}
+
+table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_desc_disabled:before {
+    
+    content: "" !important;
+}
+
+
+.form-control {
+    padding: 6px 5px !important;
+}
+
+
+.form-group h5{
+    display: inline-block;
+}
+
+.add-button{
+    background: #ff8213;
+    color: #fff;
+    
+}
+.add-button:hover{
+   background-color: #fb7600;
+    color: #fff;
+    
+}
+
+.dashboard .card{
+    height: 133px;
+}
+
+
+.table thead tr th [type="checkbox"] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin-left: 22%;
+}
+
+ 
+.table thead tr th {
+    padding: 5px 10px !important;
+    border-bottom: 1px solid #eee;
+}
+
+table.dataTable>thead .sorting:after{
+    content: '' !important;
+}
+table.dataTable>thead .sorting:before, table.dataTable>thead{
+    content: '' !important;
+}
+
+
+button[type="submit"]{
+    background-color: #D15200 !important;
+}
+.btn[type="submit"] {
+    background-color: #D15200 !important;
+  }
+
+  .submit{
+    background-color: #D15200 !important;
+    color: #fff;
+  }
+
+  .btn.btn-primary.waves-effect.submit {
+    background: #d15200 !important;
+  }
