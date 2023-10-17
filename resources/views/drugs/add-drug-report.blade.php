@@ -13,7 +13,7 @@
    </div>
    @endif
 
-   @if ($message = Session::get('success'))
+   <!-- @if ($message = Session::get('success'))
     <div class="alert alert-success">
      <p>{{ $message }}</p>
     </div>
@@ -24,8 +24,32 @@
      <p>{{ $message }}</p>
     </div>
 
-    @endif
+    @endif -->
    <div class="container-fluid">
+   <div class="block-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                       <ul class="breadcrumb breadcrumb-style ">
+                          <li class="breadcrumb-item">
+                             <h6 class="page-title"> Add Drug Details </h6>
+
+                          </li>
+                          <li class="breadcrumb-item bcrumb-1">
+                            <a href="{{url('/dashboard')}}">
+                             <i class="fas fa-home"></i> Home</a>
+                          </li>
+
+                          <li class="breadcrumb-item active">Add Drug Details </li>
+                       </ul>
+                       @if ($message = Session::get('success'))
+                         <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                         </div>
+                      @endif
+                    </div>
+                </div>
+              </div>
    <!-- Basic Example | Horizontal Layout -->
    <div class="row clearfix">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -98,7 +122,7 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Date of Report</label>
-                                       <p><?php echo date('Y-m-d'); ?></p>
+                                       <p><?php echo date('d-m-Y'); ?></p>
                                        </div>
                                     </div>
 
@@ -137,11 +161,15 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Student's
-                                          E-Sign</label>
+                                          E-Sign</label><br>
 
                                           @if(Auth::user()->e_sign)
-                                          <img src="{{ asset('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                          <img src="{{ asset('uploads/'.Auth::user()->e_sign) }}" alt="E-Sign" width="100px;" height="80px;"><br>
                                           @endif
+                                          (@if(Auth::user()->title>0 && Auth::user()->title != "Select Title")
+                                             {{__('phr.titlename.'.Auth::user()->title)}}
+                                          @endif
+                                          {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}})
 
                                        </div>
                                     </div>
@@ -152,12 +180,13 @@
                                           <label
                                              for="example-text-input"
                                              class="form-control-label">Guru's
-                                          E-Sign</label>
+                                          E-Sign</label><br>
                                           @if(Auth::user()->guru_id)
                                           @if($guru->e_sign!='')
-                                          <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                          <img src="{{ asset('uploads/'.$guru->e_sign) }}" alt="E-Sign" width="100px;" height="80px;"><br>
                                           @endif
                                           @endif
+                                          (@if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}})
                                        </div>
                                     </div>
                                  </div>
@@ -786,9 +815,10 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               
                <button type="submit" class="btn btn-secondary">Add Rasa Yogas</button>
-         </form>
+            </form>
+         </div>
       </div>
       <!-- rasa_yogas end -->
       <div id="vati_yogas" style="display:none;">

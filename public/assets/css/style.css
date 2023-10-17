@@ -25,6 +25,12 @@
 .breadcrumb .page-title{
     text-transform: capitalize;
 }
+th {
+    text-transform: capitalize;
+  }
+.actions.clearfix {
+    display: none;
+  }
 .form-check, label {
     text-transform: capitalize;
   }
@@ -703,13 +709,13 @@ table.dataTable>thead .sorting:before, table.dataTable>thead .sorting:after, tab
 
 
 table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:after {
-    right: 0px;
-    content: "↓"
+    
+    content: "" !important ;
 }
 
 table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_desc_disabled:before {
-    right: -5px;
-    content: "↑";
+    
+    content: "" !important;
 }
 
 
@@ -774,4 +780,3 @@ button[type="submit"]{
   .btn.btn-primary.waves-effect.submit {
     background: #d15200 !important;
   }
-}

@@ -75,7 +75,7 @@
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  
                                  <td class="center sorting_1"> <?php echo get_user_name($remark_history->guru_id); ?>
-                                    @if($remark_history->send_to==1) <b style="color:green;">(Send to Admin) </b>@endif
+                                    @if($remark_history->send_to==1)@endif
                                  </td>
                                  <td class="center sorting_1"><?php echo get_user_name($remark_history->shishya_id); ?></td>
                                  <td class="center">
