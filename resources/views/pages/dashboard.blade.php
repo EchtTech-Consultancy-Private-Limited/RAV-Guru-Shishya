@@ -195,7 +195,7 @@
             </div>
         </div>
         @endif
-        @if(Auth::user()->user_type == 1)
+        @if(Auth::user()->user_type == 1 || Auth::user()->user_type == 4)
         <div class="row ">
             <div class="col-xl-3 col-sm-6">
                 <div class="card l-bg-purple">
