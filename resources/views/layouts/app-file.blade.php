@@ -21,14 +21,13 @@
     <!-- You can choose a theme from css/styles instead of get all themes -->
     <link href="{{ asset('assets/css/styles/all-themes.css') }} " rel="stylesheet" />
     <!-- OLD LINK -->
+    <link href="{{ asset('assets/plugins/font-awesome.min.css') }} " rel="stylesheet" />
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
     <script type='text/javascript' src='#'></script>
 
     <script src="{{ asset('assets/js/pages/jquerylocal.js') }} "></script>
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script> -->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 

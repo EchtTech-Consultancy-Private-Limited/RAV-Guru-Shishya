@@ -173,7 +173,7 @@ class DrugController extends Controller
 
         $drugrasapart=DrugRasaPart::where('drug_rasayoga_id',$id)->get();
 
-        if($user_type==1)
+        if($user_type==1 || $user_type==2)
         {
             $id=$rasadrug->shishya_id;
             $shishyarecord=User::find($id);
@@ -197,7 +197,7 @@ class DrugController extends Controller
 
         $drugrasapart=DrugRasaPart::where('drug_rasayoga_id',$id)->get();
 
-        if($user_type==1)
+        if($user_type==1 || $user_type==2)
         {
             $id=$rasadrug->shishya_id;
             $shishyarecord=User::find($id);
@@ -391,7 +391,7 @@ class DrugController extends Controller
         $drug = VatiYoga::find($id);
 
         $vatitype=VatiYogaType::where('drug_vatiyoga_id',$id)->get();
-        if($user_type==1)
+        if($user_type==1 || $user_type==2)
         {
             $id=$drug->shishya_id;
             $shishyarecord=User::find($id);
@@ -414,7 +414,7 @@ class DrugController extends Controller
         $drug = VatiYoga::find($id);
 
         $vatitype=VatiYogaType::where('drug_vatiyoga_id',$id)->get();
-        if($user_type==1)
+        if($user_type==1 || $user_type==2)
         {
             $id=$drug->shishya_id;
             $shishyarecord=User::find($id);
@@ -520,7 +520,7 @@ class DrugController extends Controller
 
         $taliatype=TaliaYogasType::where('drug_taliayogas_id',$id)->get();
 
-        if($user_type==1)
+        if($user_type==1 || $user_type==2)
         {
             $id=$drug->shishya_id;
             $shishyarecord=User::find($id);
@@ -534,6 +534,30 @@ class DrugController extends Controller
             return view("drugs.edit-talia-drugs",compact('drug','guru','taliatype'));
         }
 
+    }
+
+    public function view_talia_drugs(Request $request,$id)
+    {
+        $user_type=Auth::user()->user_type;
+        $id= decrypt($id);
+        $guru=get_guru_list(Auth::user()->guru_id);
+        $drug = TaliaYogas::find($id);
+
+        $taliatype=TaliaYogasType::where('drug_taliayogas_id',$id)->get();
+
+        if($user_type==1 || $user_type==2)
+        {
+            $id=$drug->shishya_id;
+            $shishyarecord=User::find($id);
+            $guru_id=$shishyarecord->guru_id;
+            $guru=User::where('id',$guru_id)->first();
+            return view("drugs.view-talia-drugs",compact('drug','guru','taliatype','shishyarecord'));
+        }
+        else
+        {
+            $guru=get_guru_list(Auth::user()->guru_id);
+            return view("drugs.view-talia-drugs",compact('drug','guru','taliatype'));
+        }
 
     }
 
@@ -633,7 +657,7 @@ class DrugController extends Controller
 
         $arishtatype=ArishtaYogaType::where('drug_arishtayogas_id',$id)->get();
 
-        if($user_type==1)
+        if($user_type==1 || $user_type==2)
         {
             $id=$drug->shishya_id;
             $shishyarecord=User::find($id);
@@ -645,6 +669,30 @@ class DrugController extends Controller
         {
             $guru=get_guru_list(Auth::user()->guru_id);
             return view("drugs.edit-arishtatype-drugs",compact('drug','guru','arishtatype'));
+        }
+    }
+
+    public function view_arishta_drugs(Request $request,$id)
+    {
+        $id= decrypt($id);
+        $user_type=Auth::user()->user_type;
+        $guru=get_guru_list(Auth::user()->guru_id);
+        $drug = ArishtaYoga::find($id);
+
+        $arishtatype=ArishtaYogaType::where('drug_arishtayogas_id',$id)->get();
+
+        if($user_type==1 || $user_type==2)
+        {
+            $id=$drug->shishya_id;
+            $shishyarecord=User::find($id);
+            $guru_id=$shishyarecord->guru_id;
+            $guru=User::where('id',$guru_id)->first();
+            return view("drugs.view-arishtatype-drugs",compact('drug','guru','arishtatype','shishyarecord'));
+        }
+        else
+        {
+            $guru=get_guru_list(Auth::user()->guru_id);
+            return view("drugs.view-arishtatype-drugs",compact('drug','guru','arishtatype'));
         }
     }
 
@@ -722,7 +770,6 @@ class DrugController extends Controller
        $from_date=$request->from_date;
        $to_date=$request->to_date;
        $yogas_type=$request->yogas_type;
-       
             if(request()->yogas_type==1)
             {
                 /* $drugslist = ChurnaYoga::whereBetween('created_at',[$from_date,$to_date])->where('shishya_id',$shishya_id)->get();*/
@@ -732,22 +779,22 @@ class DrugController extends Controller
 
             elseif(request()->yogas_type==2)
             {
-                $drugslist = RasaYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
+                $drugslist = RasaYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==3)
             {
-                $drugslist = VatiYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
+                $drugslist = VatiYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==4)
             {
-                $drugslist = TaliaYogas::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
+                $drugslist = TaliaYogas::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==5)
             {
-                $drugslist = ArishtaYoga::where('date_of_yogas','>=',date("d-m-Y",strtotime($from_date)))->where('date_of_yogas','<=',date("d-m-Y",strtotime($to_date)))
+                $drugslist = ArishtaYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             
