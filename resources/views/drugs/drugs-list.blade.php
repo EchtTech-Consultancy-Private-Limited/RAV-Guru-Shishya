@@ -130,10 +130,11 @@
             </div>
         </div>
     </div>
+    
 </div>
 </section>
 
-    <section class="content">
+    <section class="content filter-drug">
            @if (count($errors) > 0)
               <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -167,6 +168,8 @@
 
                                             <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Yogas Name </th>
 
+                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Reg. Date</th>
+
                                             <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Action </th>
                                         </tr>
                                     </thead>
@@ -177,6 +180,7 @@
 
                                                  <td class="text-center">@if($drug->yoga_type==1) {{__('phr.yogas')[1]}} @endif</td>
                                                  <td class="center"> {{$drug->churna_yoga_type_individual}}  </td>
+                                                 <td class="center">{{ date('d-m-Y', strtotime($drug->date_of_yogas)) }}</td>
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
