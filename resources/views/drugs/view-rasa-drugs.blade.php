@@ -60,8 +60,6 @@
             </div>
             <div class="body">
                <div id="wizard_horizontal">
-                  <h2>New Drug Report</h2>
-
                   <section>
                      <div class="col-md-12">
                         <div class="card">
@@ -88,6 +86,16 @@
                                              value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
                                              >
                                              @endif
+                                             @if(Auth::user()->user_type==2)
+                                             <input
+                                             type="text"
+                                             name="name_of_the_guru"
+                                             class="form-control"
+                                             placeholder="Name of the Guru"
+                                             aria-label="Name"
+                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
+                                             >
+                                             @endif
                                        </div>
                                     </div>
                                     <div
@@ -98,13 +106,14 @@
                                              for="example-text-input"
                                              class="form-control-label">Name of the Shishya<span
                                              class="text-danger">*</span></label>
-                                          <input
+                                             <input
                                              type="text"
                                              name="name_of_the_shishya"
                                              class="form-control"
                                              placeholder="Name of the Shishya"
                                              aria-label="Name"
-                                             value="@if(Auth::user()->user_type==1) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                             value=
+                                             "@if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                              @endif" readonly
                                              >
                                        </div>
@@ -129,8 +138,6 @@
                                     </div>
 
                                  </div>
-
-                                 <hr style="height:2px;">
                                 <!--  <div class="row" readonly>
 
                                     <div
@@ -239,17 +246,11 @@
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
                                                         </td>
-                                                        <td class="mt-10">
-                                                         <a  href="{{ url('delete-rasayoga-part/'.$drugrasaparts->id) }}" class="btn btn-tbl-delete">
-                                                              <i class="material-icons">delete_forever</i>
-                                                         </a>
-                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
                                     </div>
                                 </div>
                             </div>

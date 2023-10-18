@@ -236,17 +236,11 @@
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
                                                         </td>
-                                                        <td class="mt-10">
-                                                         <a  href="{{ url('delete-churan-yoga-part/'.$churandrugpartdata->id) }}" class="btn btn-tbl-delete">
-                                                              <i class="material-icons">delete_forever</i>
-                                                         </a>
-                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
                                     </div>
                                 </div>
                             </div>

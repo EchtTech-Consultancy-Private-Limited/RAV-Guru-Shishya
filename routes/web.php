@@ -226,12 +226,14 @@ Route::group(['middleware' => ['auth']], function() {
         /*talia yoga Drug Details*/
         Route::post('talia-yogas-details', [DrugController::class, 'talia_yoga_details']);
         Route::get('edit-talia-drugs/{id}', [DrugController::class, 'edit_talia_drugs']);
+        Route::get('view-talia-drugs/{id}', [DrugController::class, 'view_talia_drugs']);
         Route::post('update-taliayoga-details', [DrugController::class, 'update_taliayoga_details']);
         Route::get('delete-taliyayoga-type/{id}', [DrugController::class, 'delete_taliyayoga_type']);
 
         /*arishtayoga yoga Drug Details*/
         Route::post('add-arishtayoga-details', [DrugController::class, 'arishta_yoga_details']);
         Route::get('edit-arishta-drugs/{id}', [DrugController::class, 'edit_arishta_drugs']);
+        Route::get('view-arishta-drugs/{id}', [DrugController::class, 'view_arishta_drugs']);
         Route::post('update-arishtayogas-details', [DrugController::class, 'update_arishta_details']);
         Route::get('delete-arishtayoga-type/{id}', [DrugController::class, 'delete_arishta_type']);
 

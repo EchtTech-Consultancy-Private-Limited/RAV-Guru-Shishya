@@ -345,7 +345,7 @@
                                              <label><b>Writing</b></label>
                                           </div>
                                        </div>
-                                       <div class="col-sm-12 col-md-3">
+                                       <div class="col-sm-12 col-md-2">
                                           <div class="form-group mb-3">
                                              <label><b>Speaking</b></label>
                                           </div>
@@ -395,16 +395,18 @@
                                              </select>
                                           </div>
                                        </div>
-                                       <div class="col-sm-12 col-md-3 mb-3">
+                                       <div class="col-sm-12 col-md-2 mb-3">
                                           <!-- <input type="checkbox" name="speaking[]" @if($speaking==1) checked @endif/> -->
                                           <div class="form-group d-flex justify-content-between">
                                              <select name="speaking[]" class="form-control">
                                                 <option value="">Select</option>
                                                 <option value="1" {{$language_records->speaking == 1 ?'selected':''}}>Yes</option>
                                                 <option value="0" {{$language_records->speaking == 0 ?'selected':''}}>No</option>
-                                             </select>
-                                             <a href="{{ url('language-delete/'.$language_records->id) }}" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></a>
+                                             </select>                                             
                                           </div>
+                                       </div>
+                                       <div class="col-sm-12 col-md-1 mb-3">
+                                          <a href="{{ url('language-delete/'.$language_records->id) }}" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></a>
                                        </div>
                                        @endforeach
                                        @endif
@@ -1164,12 +1166,12 @@ Session::forget('session_for_redirections');
     // Language Add Button code
 
    $(document).ready(function(){
-
+      var language_row = 0;
      $("#Add_language").click(function(e){
-       e.preventDefault();
-       $("#language_body").append('<div class="row delete-div"><div class="col-sm-12 col-md-3"><div class="form-group"><input type="hidden" class="form-control" placeholder="Add Language" name="lang_id[]" value="0"><input type="text" class="form-control" placeholder="Add Language" name="lang_name[]"></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="reading[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="writing[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="speaking[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div></div>');
+       e.preventDefault();       
+       $("#language_body").append('<div id="faqs-row' + language_row + '" class="row delete-div"><div class="col-sm-12 col-md-3"><div class="form-group"><input type="hidden" class="form-control" placeholder="Add Language" name="lang_id[]" value="0"><input type="text" class="form-control" placeholder="Add Language" name="lang_name[]"></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="reading[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="writing[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-2 mb-3"><div class="form-group"><select name="speaking[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-1"><button class="btn btn-danger" onclick="$(\'#faqs-row' + language_row + '\').remove();"><i class="fa fa-trash"></i></button></div></div>');
 
-       $("#delete_language").removeClass('d-none');
+       language_row++;
     });
 
      $("#delete_language").click(function(e){

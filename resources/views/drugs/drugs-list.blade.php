@@ -110,10 +110,7 @@
                                                   <select class="form-control" id="yogas_type" name="yogas_type" required>
                                                      <option value="">Please Select </option>
                                                      @foreach(__('phr.yogas') as $key=>$value)
-                                                        @if($key == request()->yogas_type)
-                                                            <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                        @endif
-                                                     <option value="{{$key}}">{{$value}}</option>
+                                                     <option value="{{$key}}" {{ ($key == request()->yogas_type) ? 'selected' : '' }}>{{$value}}</option>
                                                     @endforeach
                                                   </select>
                                                </div>
@@ -315,6 +312,10 @@
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-talia-drugs/'.encrypt($drug->id)) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
+
+                                                    <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
+
                                                     <a  href="{{ url('delete-taliayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a>
@@ -358,6 +359,10 @@
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-arishta-drugs/'.encrypt($drug->id)) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
+
+                                                    <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
+
                                                     <a  href="{{ url('delete-arishtayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a>
