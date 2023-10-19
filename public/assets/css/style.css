@@ -499,10 +499,10 @@ button.btn.bg-indigo.waves-effect {
 
 .btn-info {
     color: #000;
-    background-color: #0dcaf0;
-    border-color: #0dcaf0;
+    /* background-color: #0dcaf0; */
+    /* border-color: #0dcaf0; */
     /* background: linear-gradient(180deg, #e14579 0%, #c09437 100%); */
-    background: #07819b!important;
+    background: #e67e22!important;
     color: #fff !important;
 }
 
@@ -773,4 +773,14 @@ button[type="submit"]{
 
   .btn.btn-primary.waves-effect.submit {
     background: #d15200 !important;
+  }
+
+  .btn-info {
+    background-color:#e67e22 !important;
+    color: #fff !important;
+}
+
+.btn-info:hover {
+    background-color: #d15200 !important;
+    color: #fff !important;
   }

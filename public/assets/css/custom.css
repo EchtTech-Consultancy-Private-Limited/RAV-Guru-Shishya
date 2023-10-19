@@ -241,3 +241,9 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 label[for="example-hastatala-input"]{
    font-weight: normal !important;
 }
+
+.login .card-header {
+   text-align: center;
+   font-weight: bold;
+   padding: 15px 0 !important;
+}

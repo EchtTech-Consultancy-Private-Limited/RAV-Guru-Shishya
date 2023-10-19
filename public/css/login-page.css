@@ -208,3 +208,9 @@
   height:auto;
   margin: auto;
 }
+
+.login .card-header {
+  text-align: center;
+  font-weight: bold;
+  padding: 15px 0 !important;
+}
