@@ -139,8 +139,6 @@
                                              class="form-control-label">Select Yogas<span
                                              class="text-danger">*</span></label>
                                           <select class="form-control" id="yogas_select" onclick="yogas_select_change();">
-
-
                                              <option value="">Please Select </option>
                                              @foreach(__('phr.yogas') as $key=>$value)
                                              <option value="{{$key}}">{{$value}}</option>
@@ -251,16 +249,16 @@
                                                     <tr>
                                                         <td>
 
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" aria-label="Name of the ingredients" value="{{ old('name_of_the_ingredients') }}" >
+                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" minlength="3" value="{{ old('name_of_the_ingredients[]') }}" >
                                                         
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value="{{ old('part_used') }}" >
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" maxlength="200" minlength="3" value="{{ old('part_used[]') }}" >
                                                         
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity') }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" minlength="3" value="{{ old('quantity[]') }}" >
                                                        
                                                         </td>
                                                         <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
@@ -279,8 +277,8 @@
                 <div class="row">
                      <div class="col-md-12">
                        <div class="form-group">
-                          <label  class="form-control-label">Enter Yogas Name</label>
-                          <input type="text" name="churna_yoga_type_individual" class="form-control"  placeholder="Enter Churna Yoga  Name"  value="{{ old('churna_yoga_type_individual') }}" maxlength="50" minlength="3">@if ($errors->has('churna_yoga_type_individual'))
+                          <label  class="form-control-label">Enter Yogas Name<span class="text-danger">*</span></label>
+                          <input type="text" name="churna_yoga_type_individual" class="form-control"  placeholder="Enter Churna Yoga  Name"  value="{{ old('churna_yoga_type_individual') }}" maxlength="50" minlength="3" required>@if ($errors->has('churna_yoga_type_individual'))
                             <span class="help-block">
                                 <strong style="color:red;">{{ $errors->first('churna_yoga_type_individual') }}</strong>
                             </span>
@@ -600,19 +598,19 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                          <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal') }}" >
+                                                          <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
                                                             @error('name_of_the_ingredients_mineral_metal')
                                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                             @enderror
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used') }}" >@error('part_used')
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity') }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                                          @error('quantity')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
@@ -640,7 +638,7 @@
                      <div class="col-md-12">
                        <div class="form-group">
                           <label  class="form-control-label">Enter Yogas Name</label>
-                          <input type="text" name="rasa_yoga_type_individual" class="form-control" placeholder="Rasa Yoga Type Individual"  value="{{ old('rasa_yoga_type_individual') }}" maxlength="30" >@error('step_first')
+                          <input type="text" name="rasa_yoga_type_individual" class="form-control" placeholder="Rasa Yoga Type Individual"  value="{{ old('rasa_yoga_type_individual') }}" maxlength="30" required>@error('step_first')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
                        </div>
@@ -867,19 +865,19 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal') }}" >
+                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
                                                 @error('name_of_the_ingredients_mineral_metal')
                                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                 @enderror
                                              </td>
 
                                             <td>
-                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used') }}" >@error('part_used')
+                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -898,7 +896,7 @@
                      <div class="col-md-12">
                           <div class="form-group">
                              <label  class="form-control-label">Enter Yogas Name</label>
-                             <input type="text" name="vati_yoga_type_individual" class="form-control" placeholder="Vati Yoga Type Individual"  value="{{ old('vati_yoga_type_individual') }}" maxlength="50" >@error('vati_yoga_type_individual')
+                             <input type="text" name="vati_yoga_type_individual" class="form-control" placeholder="Vati Yoga Type Individual"  value="{{ old('vati_yoga_type_individual') }}" maxlength="50" required>@error('vati_yoga_type_individual')
                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                              @enderror
                           </div>
@@ -1180,19 +1178,19 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal') }}" >
+                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
                                                 @error('name_of_the_ingredients_mineral_metal')
                                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                 @enderror
                                              </td>
 
                                             <td>
-                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used') }}" >@error('part_used')
+                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -1215,7 +1213,7 @@
                <div class="col-md-12">
                     <div class="form-group">
                        <label  class="form-control-label">Enter Yogas Name</label>
-                       <input type="text" name="talia_yoga_type_individual" class="form-control" placeholder="Talia Yoga Type Individual"  value="{{ old('talia_yoga_type_individual') }}" maxlength="50" >
+                       <input type="text" name="talia_yoga_type_individual" class="form-control" placeholder="Talia Yoga Type Individual"  value="{{ old('talia_yoga_type_individual') }}" maxlength="50" required>
                        @error('talia_yoga_type_individual')
                        <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                        @enderror
@@ -1620,19 +1618,19 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                          <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal') }}" >
+                                          <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
                                             @error('name_of_the_ingredients_mineral_metal')
                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                             @enderror
                                          </td>
 
                                         <td>
-                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used') }}" >@error('part_used')
+                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                          @enderror
                                         </td>
                                         <td class="text-warning mt-10">
-                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity') }}" >
+                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                          @error('quantity')
                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                          @enderror
@@ -1655,7 +1653,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                    <label  class="form-control-label">Enter Yogas Name</label>
-                   <input type="text" name="arishtayoga_type_individual" class="form-control" placeholder="Churna Yoga Type Individual"  value="{{ old('churna_yoga_type_individual') }}" maxlength="50" >
+                   <input type="text" name="arishtayoga_type_individual" class="form-control" placeholder="Churna Yoga Type Individual"  value="{{ old('churna_yoga_type_individual') }}" maxlength="50" required>
 
                   @if ($errors->has('churna_yoga_type_individual'))
                       <span class="help-block">
@@ -2025,9 +2023,9 @@
 var faqs_row = 0;
 function addfaqs() {
 html = '<tr id="faqs-row' + faqs_row + '">';
-    html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="quantity" aria-label="quantity" value=""></td>';
+    html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="quantity" value=""></td>';
     html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value=""></td>';
-    html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value=""></td>';
+    html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value=""></td>';
     html += '<td class="mt-10"><button class="btn btn-danger" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="fa fa-trash"></i> Delete</button></td>';
 
     html += '</tr>';
@@ -2036,39 +2034,5 @@ $('#faqs tbody').append(html);
 
 faqs_row++;
 }
-</script>
-
-<script>
-   
-   $(document).ready(function() {
-$("#basic-form").validate({
- 
-rules: {
-name : {
-: true,
-minlength: 3
-},
-age: {
-: true,
-number: true,
-min: 18
-},
-email: {
-: true,
-email: true
-},
-weight: {
-: {
-depends: function(elem) {
-return $("#age").val() > 50
-}
-},
-number: true,
-min: 0
-}
-}
-});
-});
-   
 </script>
 @endsection

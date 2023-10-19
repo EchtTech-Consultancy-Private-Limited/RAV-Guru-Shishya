@@ -523,6 +523,4 @@
                     }
                 });
     </script>
-
-
 @endsection

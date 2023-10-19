@@ -1007,7 +1007,6 @@
                         <label >Upload Degree</label>
                         <input type="file" name="upload_degree" class="form-control"  accept="application/pdf">
                         <div style="width:120px;height:80px;" >
-                           <!-- <img id="upload_degree" > -->
                            <a target="_blank" id="educational_document">Show Degree</a>
                         </div>
                      </div>

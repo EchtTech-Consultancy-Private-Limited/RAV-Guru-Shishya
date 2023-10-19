@@ -46,7 +46,6 @@ class DrugController extends Controller
 
     public function add_drug_details(Request $request)
     {
-        //dd("yes");
         $input = $request->all();
         $drug = ChurnaYoga::create($input);
 
@@ -65,7 +64,7 @@ class DrugController extends Controller
 
         }
 
-       return redirect('add-drug-report')->with('success', 'You ChurnaYoga Drug Report Added Successfully');
+       return redirect()->back()->with('success', 'You ChurnaYoga Drug Report Added Successfully');
     }
 
     public function filter_drug_report(Request $request)

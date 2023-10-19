@@ -23,7 +23,6 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-
         $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3'];
         $data = User::orderBy('id','DESC')->where('user_type',2)->get();
 
@@ -164,8 +163,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        dd("show");
+    {        
         $user = User::find($id);
         return view('users.show',compact('user'));
     }
@@ -177,17 +175,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, $id)
-    {   
+    {        
         $id= decrypt($id);
-          //$user = User::find($id);
         $countries = Country::get(["name", "id"]);
-
-
         $user=DB::table('users')->where('users.id',$id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-       // dd($user);
-      
-        //return $user;
-        //dd("$user->user_type");
         return view('users.edit',compact('user','countries'));
     }
 
@@ -349,15 +340,4 @@ class UserController extends Controller
         return redirect()->route('users.index')
                         ->with('success','User deleted successfully');
     }
-
-
-
-
-
-
-
-
-
-
-
 }
