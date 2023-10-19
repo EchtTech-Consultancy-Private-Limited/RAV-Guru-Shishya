@@ -127,8 +127,8 @@
                             @csrf
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-hover js-basic-example contact_list" id="data_table1">
-                                        <thead>
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
                                             <tr>
                                                 <th class="center sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -247,9 +247,6 @@
                                         </tbody>
 
                                     </table>
-
-                                    {{ $data->links('pagination::bootstrap-5') }}
-
                                 </div>
 
 
