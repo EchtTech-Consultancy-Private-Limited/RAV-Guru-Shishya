@@ -127,8 +127,8 @@
                             @csrf
                             <div class="body">
                                 <div class="table-responsive">
-                                    <table class="table table-hover js-basic-example contact_list" id="data_table1">
-                                        <thead>
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
                                             <tr>
                                                 <th class="center sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -175,9 +175,9 @@
                                                         </td>
                                                     <td class="center sorting_1">{{ $k + 1 }}</td>
 
-                                                    <td class="center"><a
-                                                            href="{{ url('follow-up-sheet/' . encrypt($followup->patient_id)) }}@php if(request()->to_date){ echo '/'.date('Y-m-d',strtotime(request()->from_date));} else echo '/0'; if(request()->from_date){ echo '/'.date('Y-m-d',strtotime(request()->to_date));} else echo '/0'; if(request()->report_type){ echo '/'.request()->report_type;} else echo '/0'; @endphp">{{ $followup->registration_no }}</a>
-                                                    </td>
+                                                    <!-- <td class="center"><a
+                                                            href="{{ url('follow-up-sheet/' . encrypt($followup->patient_id)) }}@php if(request()->to_date){ echo '/'.date('Y-m-d',strtotime(request()->from_date));} else echo '/0'; if(request()->from_date){ echo '/'.date('Y-m-d',strtotime(request()->to_date));} else echo '/0'; if(request()->report_type){ echo '/'.request()->report_type;} else echo '/0'; @endphp">{{ $followup->registration_no }}</a> -->
+                                                    <td>{{ $followup->registration_no }}</td>
                                                     <td class="center">
                                                         {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                                     <td class="center">{{ $followup->patient_name }}</td>
@@ -196,7 +196,7 @@
                                                     @endif
                                                     @if(Auth::user()->user_type == 3)
                                                     <td class="center">
-                                                        {{ $followup->shishya_firstname . ' ' . $followup->shishya_lastname }}
+                                                        {{ $followup->guru_firstname . ' ' . $followup->guru_lastname }}
                                                     </td>
                                                     @endif
                                                    
@@ -206,15 +206,7 @@
                                                             class="btn btn-tbl-edit" title="View Record">
                                                             <i class="material-icons">visibility</i>
                                                         </a>
-                                                        <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i>
-                                                        @if (
-                                                            (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
-                                                                (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
-                                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
-                                                                <a target="_blank" href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}" class="btn btn-secondary" title="Remarks">
-                                                                Remarks
-                                                            </a>
-                                                        @endif
+                                                        
                                                         @if (
                                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
@@ -238,6 +230,15 @@
                                                                 <i class="material-icons">delete_forever</i>
                                                             </a>
                                                         @endif
+                                                        <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i>
+                                                        @if (
+                                                            (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
+                                                                (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
+                                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
+                                                                <a target="_blank" href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}" class="btn btn-secondary" title="Remarks">
+                                                                Remarks
+                                                            </a>
+                                                        @endif
 
 
                                                     </td>
@@ -246,9 +247,6 @@
                                         </tbody>
 
                                     </table>
-
-                                    {{ $data->links('pagination::bootstrap-5') }}
-
                                 </div>
 
 

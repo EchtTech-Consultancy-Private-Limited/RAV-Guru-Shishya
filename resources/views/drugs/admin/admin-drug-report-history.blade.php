@@ -20,7 +20,7 @@
 
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
-                             <h6 class="page-title"> Drug Details </h6>
+                             <h6 class="page-title">List of Drug Details </h6>
 
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
@@ -28,7 +28,7 @@
                              <i class="fas fa-home"></i> Home</a>
                           </li>
 
-                          <li class="breadcrumb-item active">Drug Details </li>
+                          <li class="breadcrumb-item active">List of Drug Details </li>
                        </ul>
                        @if ($message = Session::get('success'))
                          <div class="alert alert-success">
@@ -113,10 +113,7 @@
                                                       <select class="form-control" id="yogas_type" name="yogas_type" required>
                                                          <option value="">Please Select </option>
                                                          @foreach(__('phr.yogas') as $key=>$value)
-                                                         @if($key == request()->yogas_type)
-                                                            <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                        @endif
-                                                         <option value="{{$key}}">{{$value}}</option>
+                                                            <option value="{{$key}}" {{ ($key == request()->yogas_type) ? 'selected' : '' }}>{{$value}}</option>
                                                         @endforeach
                                                       </select>
                                                </div>
@@ -203,6 +200,8 @@
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
+                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
                                                     <a  href="{{ url('delete-churnayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                      <i class="material-icons">delete_forever</i>
                                                      </a>
@@ -244,6 +243,8 @@
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-rasa-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
+                                                    <a href="{{ url('view-rasa-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
                                                     <a  href="{{ url('delete-rasayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a>
@@ -284,7 +285,8 @@
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-vati-drugs/'.encrypt($drug->id)) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
-
+                                                    <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
                                                     <a  href="{{ url('delete-vatiyogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a>
@@ -328,6 +330,8 @@
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-talia-drugs/'.encrypt($drug->id)) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
+                                                    <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
                                                     <a  href="{{ url('delete-taliayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
                                                     </a>
@@ -369,6 +373,8 @@
                                                  <td class="center"> {{$drug->arishtayoga_type_individual}}  </td>
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-arishta-drugs/'.encrypt($drug->id)) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
+                                                    </a>
+                                                    <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-arishtayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>

@@ -71,9 +71,8 @@ Route::get('/multi-stepform', function () {
 
 Route::get('/', function () {
     //return view('auth.login');
-
     return view('auth.newlogin');
-});
+})->middleware('guest');
 
 Route::get('/no-access', function () {
     return view('permission.notaccess');
@@ -199,6 +198,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('add-drug-details', [DrugController::class, 'add_drug_details']);
         Route::get('filter-drug-report', [DrugController::class, 'filter_drug_report']);
         Route::get('edit-drugs/{id}', [DrugController::class, 'edit_drugs']);
+        Route::get('view-drugs/{id}', [DrugController::class, 'viewDrugs']);
         Route::post('update-drug-details', [DrugController::class, 'update_drug_details']);
         Route::get('delete-churan-yoga-part/{id}', [DrugController::class, 'delete_churan_yoga_part']);
 
@@ -213,23 +213,27 @@ Route::group(['middleware' => ['auth']], function() {
         /*rasa yoga Drug Details*/
         Route::post('add-rasayoga-details', [DrugController::class, 'add_rasayoga_details']);
         Route::get('edit-rasa-drugs/{id}', [DrugController::class, 'edit_rasa_drugs']);
+        Route::get('view-rasa-drugs/{id}', [DrugController::class, 'view_rasa_drugs']);
         Route::post('update-rasayoga-details', [DrugController::class, 'update_rasayoga_details']);
         Route::get('delete-rasayoga-part/{id}', [DrugController::class, 'delete_rasayoga_part']);
         /*vati yoga Drug Details*/
         Route::post('vati-yoga-details', [DrugController::class, 'vati_yoga_details']);
         Route::get('edit-vati-drugs/{id}', [DrugController::class, 'edit_vati_drugs']);
+        Route::get('view-vati-drugs/{id}', [DrugController::class, 'view_vati_drugs']);
         Route::post('update-vatiyoga-details', [DrugController::class, 'update_vatiyoga_details']);
         Route::get('delete-vatiyoga-type/{id}', [DrugController::class, 'delete_vatiyoga_type']);
 
         /*talia yoga Drug Details*/
         Route::post('talia-yogas-details', [DrugController::class, 'talia_yoga_details']);
         Route::get('edit-talia-drugs/{id}', [DrugController::class, 'edit_talia_drugs']);
+        Route::get('view-talia-drugs/{id}', [DrugController::class, 'view_talia_drugs']);
         Route::post('update-taliayoga-details', [DrugController::class, 'update_taliayoga_details']);
         Route::get('delete-taliyayoga-type/{id}', [DrugController::class, 'delete_taliyayoga_type']);
 
         /*arishtayoga yoga Drug Details*/
         Route::post('add-arishtayoga-details', [DrugController::class, 'arishta_yoga_details']);
         Route::get('edit-arishta-drugs/{id}', [DrugController::class, 'edit_arishta_drugs']);
+        Route::get('view-arishta-drugs/{id}', [DrugController::class, 'view_arishta_drugs']);
         Route::post('update-arishtayogas-details', [DrugController::class, 'update_arishta_details']);
         Route::get('delete-arishtayoga-type/{id}', [DrugController::class, 'delete_arishta_type']);
 

@@ -155,7 +155,7 @@ class PatientController extends Controller
         if(!empty($request->from_date))$data->where('patients.registration_date','>=',date("Y-m-d",strtotime($request->from_date)));
         if(!empty($request->to_date))$data->where('patients.registration_date','<=',date("Y-m-d",strtotime($request->to_date)));
 
-        $patientlist=$data->orderby('id','Desc')->get();
+        $patientlist=$data->orderby('updated_at','Desc')->get();
 
 
         $guru=get_guru_list(Auth::user()->guru_id);
@@ -205,7 +205,7 @@ class PatientController extends Controller
         {
             $data->where('follow_up_patients.report_type',$request->report_type);
         }
-        $data=$data->orderby('id','Desc')->paginate(10);
+        $data=$data->orderby('updated_at','Desc')->paginate(10);
        
         $guru=get_guru_list(Auth::user()->guru_id);
         $gurus=get_guru_list();
@@ -764,7 +764,7 @@ class PatientController extends Controller
     public function guru_patient_list()
     {
         $guru_id=Auth::user()->id;
-        $patientlist=Patient::orderBy('id','DESC')->where('phr_g_status',1)->where('guru_id',$guru_id)->get();
+        $patientlist=Patient::orderby('updated_at','Desc')->where('phr_g_status',1)->where('guru_id',$guru_id)->get();
          
         return view("patients.guru.patient-list",compact("patientlist"));
     }

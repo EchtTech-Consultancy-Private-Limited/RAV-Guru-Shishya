@@ -27,6 +27,30 @@
 
     @endif
    <div class="container-fluid">
+   <div class="block-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                       <ul class="breadcrumb breadcrumb-style ">
+                          <li class="breadcrumb-item">
+                             <h6 class="page-title">Edit Drug Details </h6>
+
+                          </li>
+                          <li class="breadcrumb-item bcrumb-1">
+                            <a href="{{url('/dashboard')}}">
+                             <i class="fas fa-home"></i> Home</a>
+                          </li>
+
+                          <li class="breadcrumb-item active">Edit Drug Details </li>
+                       </ul>
+                       @if ($message = Session::get('success'))
+                         <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                         </div>
+                      @endif
+                    </div>
+                </div>
+              </div>
    <!-- Basic Example | Horizontal Layout -->
    <div class="row clearfix">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -87,6 +111,16 @@
                                              value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
                                              >
                                              @endif
+                                             @if(Auth::user()->user_type==2)
+                                             <input
+                                             type="text"
+                                             name="name_of_the_guru"
+                                             class="form-control"
+                                             placeholder="Name of the Guru"
+                                             aria-label="Name"
+                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
+                                             >
+                                             @endif
                                        </div>
                                     </div>
                                     <div
@@ -97,13 +131,14 @@
                                              for="example-text-input"
                                              class="form-control-label">Name of the Shishya<span
                                              class="text-danger">*</span></label>
-                                          <input
+                                             <input
                                              type="text"
                                              name="name_of_the_shishya"
                                              class="form-control"
                                              placeholder="Name of the Shishya"
                                              aria-label="Name"
-                                             value="@if(Auth::user()->user_type==1) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                             value=
+                                             "@if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                              @endif" readonly
                                              >
                                        </div>
