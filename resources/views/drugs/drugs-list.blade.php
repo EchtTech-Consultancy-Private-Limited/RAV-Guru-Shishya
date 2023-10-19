@@ -19,7 +19,7 @@
 
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
-                             <h6 class="page-title"> Drug Details </h6>
+                             <h6 class="page-title">List of Drug Details </h6>
 
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
@@ -27,7 +27,7 @@
                              <i class="fas fa-home"></i> Home</a>
                           </li>
 
-                          <li class="breadcrumb-item active">Drug Details </li>
+                          <li class="breadcrumb-item active">List of Drug Details </li>
                        </ul>
                        @if ($message = Session::get('success'))
                          <div class="alert alert-success">
@@ -91,13 +91,13 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">From:</label>
-                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('d-m-Y',time())}}" required>
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">To:</label>
-                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('d-m-Y',time())}}" required>
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
 
                                                 </div>
                                             </div>
@@ -130,10 +130,11 @@
             </div>
         </div>
     </div>
+    
 </div>
 </section>
 
-    <section class="content">
+    <section class="content filter-drug">
            @if (count($errors) > 0)
               <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -167,6 +168,8 @@
 
                                             <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Yogas Name </th>
 
+                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Reg. Date</th>
+
                                             <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Action </th>
                                         </tr>
                                     </thead>
@@ -177,6 +180,7 @@
 
                                                  <td class="text-center">@if($drug->yoga_type==1) {{__('phr.yogas')[1]}} @endif</td>
                                                  <td class="center"> {{$drug->churna_yoga_type_individual}}  </td>
+                                                 <td class="center">{{ date('d-m-Y', strtotime($drug->date_of_yogas)) }}</td>
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>

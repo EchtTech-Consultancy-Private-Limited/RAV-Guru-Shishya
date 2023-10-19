@@ -20,7 +20,7 @@
 
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
-                             <h6 class="page-title"> Drug Details </h6>
+                             <h6 class="page-title">List of Drug Details </h6>
 
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
@@ -28,7 +28,7 @@
                              <i class="fas fa-home"></i> Home</a>
                           </li>
 
-                          <li class="breadcrumb-item active">Drug Details </li>
+                          <li class="breadcrumb-item active">List of Drug Details </li>
                        </ul>
                        @if ($message = Session::get('success'))
                          <div class="alert alert-success">
