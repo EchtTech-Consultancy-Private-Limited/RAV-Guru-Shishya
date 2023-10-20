@@ -103,15 +103,18 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>First Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" >@error('firstname')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30"> 
+                                       @if($errors->has('firstname'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label>Middle Name</label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                     </div>
                                  </div>
                                  <!-- student name -->
@@ -119,7 +122,7 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>Last Name</label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-4">
@@ -131,33 +134,44 @@
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label >Mobile No.<span class="text-danger">*</span></label>
-                                       <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@error('mobile_no')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No." value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label >Date of Birth<span class="text-danger">*</span></label>
-                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth"  value="@if(isset($profile_record[0])){{ $profile_record[0]->date_of_birth }}@endif">@error('date_of_birth')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth"  value="@if(isset($profile_record[0])){{ $profile_record[0]->date_of_birth }}@endif">
+                                       @if($errors->has('date_of_birth'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label>Age<span class="text-danger">*</span></label>
-                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif">@error('age')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif"> 
+                                       @if($errors->has('age'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('age') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label >Father's Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name"  value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">@error('f_name')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">
+                                       @if($errors->has('f_name'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="header col-md-12 pt-0">     
@@ -166,17 +180,22 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="@if(isset($profile_record[0])){{$profile_record[0]->address1}}@endif">@error('address1')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="@if(isset($profile_record[0])){{$profile_record[0]->address1}}@endif">
+                                       @if($errors->has('address1'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('address1') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="@if(isset($profile_record[0])){{ $profile_record[0]->address2 }}@endif">@error('address2')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="@if(isset($profile_record[0])){{ $profile_record[0]->address2 }}@endif">@if($errors->has('Address'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('Address') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-3">
@@ -192,9 +211,11 @@
                                           @endforeach
                                           @endif
                                        </select>
-                                       @error('country')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('country'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('country') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-3">
@@ -205,9 +226,11 @@
                                           <option value="{{$profile_record[0]->state}}">{{ $profile_record[0]->state_name }}</option>
                                           @endif
                                        </select>
-                                       @error('state-dropdown')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('state'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('state') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-3">
@@ -216,18 +239,22 @@
                                        <select id="city-dropdown" class="form-control select2" name="city" >
                                           <option value="{{$profile_record[0]->city}}">{{ $profile_record[0]->city_name }}</option>
                                        </select>
-                                       @error('city-dropdown')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('city'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('city') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
                                        <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">
-                                       @error('pincode')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('pincode'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('pincode') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-12 mb-3">
@@ -246,9 +273,12 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="per_address1" id="per_address_Line1" class="form-control" placeholder="Permanent Address Line 1"  value="{{ $profile_record[0]->per_address1 }}">@error('per_address_Line1')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="textarea" name="per_address1" id="per_address_Line1" class="form-control" placeholder="Permanent Address Line 1"  value="{{ $profile_record[0]->per_address1 }}">
+                                       @if($errors->has('per_address1'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_address1') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-6">
