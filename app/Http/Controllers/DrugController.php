@@ -64,7 +64,7 @@ class DrugController extends Controller
 
         }
 
-       return redirect()->back()->with('success', 'You ChurnaYoga Drug Report Added Successfully');
+       return redirect()->back()->with('success', 'Drug Report Added Successfully');
     }
 
     public function filter_drug_report(Request $request)
@@ -356,7 +356,7 @@ class DrugController extends Controller
 
         }
 
-       return redirect('add-drug-report')->with('success', 'You Rasa Yogas Drug Report Added Successfully');
+       return redirect('add-drug-report')->with('success', 'Drug Report Added Successfully');
     }
 
     /*vati yoga*/
@@ -379,7 +379,7 @@ class DrugController extends Controller
 
         }
 
-       return redirect('add-drug-report')->with('success', 'You Vati Yogas Drug Report Added Successfully');
+       return redirect('add-drug-report')->with('success', 'Drug Report Added Successfully');
     }
 
     public function edit_vati_drugs(Request $request,$id)
@@ -507,7 +507,7 @@ class DrugController extends Controller
            $taliatype->save();
 
         }
-        return redirect()->back()->with('success', 'TaliaYogas records added successfully');
+        return redirect()->back()->with('success', 'Drug Report Added Successfully');
     }
 
     public function edit_talia_drugs(Request $request,$id)
@@ -644,7 +644,7 @@ class DrugController extends Controller
            $arishtatype->save();
 
         }
-        return redirect()->back()->with('success', 'ArishtaYoga records added successfully');
+        return redirect()->back()->with('success', 'Drug Report Added Successfully');
     }
 
     public function edit_arishta_drugs(Request $request,$id)

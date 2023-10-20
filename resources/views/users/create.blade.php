@@ -135,14 +135,14 @@
                   <div class="row clearfix">
                       <div class="col-sm-4">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">E-Sign<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label">E-Sign</label>
                            <input type="file" class="form-control" name="e_sign"  placeholder="E-Sign">
                            <span id="esign_error" class="text-danger"></span>
                         </div>
                      </div>
                      <div class="col-sm-4">
                         <div class="form-group ">
-                           <label >Profile Picture<span class="text-danger">*</span></label>
+                           <label >Profile Picture</label>
                              <input type="file" name="profile_image" id="profile_image" class="form-control" >
                              
                         </div>
@@ -188,7 +188,7 @@
                         </div>
                         <div class="col-sm-4">
                            <div class="form-group default-select select2Style">
-                              <label >State<span class="text-danger"> *</span></label>
+                              <label >State</label>
                               <select id="state-dropdown" class="form-control select2" name="state">
                                  <option value=""> Select State </option>
                               </select>
@@ -196,7 +196,7 @@
                         </div>
                         <div class="col-sm-4">
                            <div class="form-group default-select select2Style">
-                              <label >City<span class="text-danger"> *</span></label>
+                              <label >City</label>
                               <select id="city-dropdown" class="form-control select2" name="city">
                                   <option value=""> Select City </option>
                               </select>
