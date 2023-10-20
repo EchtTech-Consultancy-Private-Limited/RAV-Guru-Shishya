@@ -212,6 +212,7 @@ line-height: 0.42857 !important;
     padding: 10px;
     margin-bottom: 20px;
     color: #fff;
+    float: right !important;
 }
 
 .add-btn-lang a.btn.lang i{
@@ -794,3 +795,28 @@ button[type="submit"]{
   .content.filter-drug {
     margin: 15px 15px 0 276px;
   }
+
+  label[for="example-hastatala-input"]{
+    font-weight: normal !important;
+ }
+ 
+ .login .card-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 15px 0 !important;
+ }
+ 
+ 
+ section.content {
+    margin: 10px 15px 0 276px !important;
+    
+ }
+ 
+ .dashboard .card h2{
+    position: absolute;
+    bottom: 7px;
+}
+.add-btn-lang {
+    float: right !important;
+  }
+

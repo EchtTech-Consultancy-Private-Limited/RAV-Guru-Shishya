@@ -214,3 +214,11 @@
   font-weight: bold;
   padding: 15px 0 !important;
 }
+
+a#user_login {
+  padding: 17px;
+  text-decoration: none;
+}
+a{
+  text-decoration: none !important;
+} 
