@@ -213,7 +213,7 @@
                                              <label >User Type<span class="text-danger">*</span></label>
                                              <select name="user_type" id="user_type" class="form-control">
                                                 <option value="">Select User Type</option>
-                                                @foreach(__('phr.user_type_without_admin') as $key=>$value)
+                                                @foreach(__('phr.user_type') as $key=>$value)
                                                    <option @if( $key==$user->user_type) SELECTED @endif value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                                </select>
