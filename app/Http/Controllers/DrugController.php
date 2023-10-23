@@ -798,9 +798,6 @@ class DrugController extends Controller
             }
             
            return view('drugs.admin.admin-drug-report-history',compact('drugslist','shishya'));
-
-
-
     }
 
     public function delete_churan_yoga($id)
