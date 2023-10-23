@@ -234,14 +234,13 @@ class AddUserController extends Controller
     public function manage_profile_form(Request $request)
     {
         $formId = $request->input('form_step_type');
-        
         if ($formId === 'step1') {
             $this->validate($request, [
                 'firstname' => 'required|max:200|min:2',
                 'lastname' => 'max:200|min:2',
                 'email' => 'required',
                 'date_of_birth' => 'required',
-                'age' => 'required|numeric',
+                'age' => 'required|numeric|digits:3',
                 'f_name' => 'required|max:200|min:2',
                 'address1' => 'required',
                 'address2' => 'required',

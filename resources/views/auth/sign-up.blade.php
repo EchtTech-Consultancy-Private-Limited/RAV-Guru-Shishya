@@ -1,11 +1,6 @@
 @extends('layouts.app-signup')
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-   <p>{{ $message }}</p>
-</div>
-@endif
 
 <section class="content1" style="margin: 50px;">
    <div class="container-fluid">
