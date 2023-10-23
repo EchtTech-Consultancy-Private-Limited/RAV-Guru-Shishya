@@ -7,7 +7,7 @@
 </div>
 @endif
 
-<section class="content1" style="margin: 50px;">
+<section class="content1" >
    <div class="container-fluid">
      <div class="col-md-12">
         <img style="max-width: 300px;" src="{{asset('/assets/images/guru-shishya-parampara-logo.png')}}" class="login-logo mx-auto d-block">
@@ -297,7 +297,7 @@
                         <div class="col-md-5">
                         <label for="password" class="sr-only">Captcha</label>
                         <div class="captcha d-flex">
-                           <span>{!! captcha_img('math') !!}</span>
+                           <span class="me-2">{!! captcha_img('math') !!}</span>
                            <button type="button" class="btn btn-secondary btn-refresh ml-2">
                               <i class="fa fa-refresh"></i>
                            </button>
@@ -318,8 +318,8 @@
 
 
                      <div class="col-lg-12 p-t-20 text-center">
-                        <button type="submit" class="btn btn-primary m-r-15" id="submit">Submit</button>
                         <a href="{{ route('login') }}" class="btn waves-effect" style="line-height:2;background-color:#888;color:#fff;">Back To Login</a>
+                        <button type="submit" class="btn btn-primary m-r-15" id="submit">Submit</button>
                      </div>
                   </div>
                </form>
