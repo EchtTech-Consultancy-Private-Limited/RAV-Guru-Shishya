@@ -52,7 +52,7 @@
                      <div class="col-sm-12">
                         <div class="form-group">
                            <div class="form-line">
-                              <label >Title<span class="text-danger">*</span></label>
+                              <label >Title</label>
                                  <select name="title" class="form-control">
                                     <option>Select Title</option>
                                     @foreach(__('phr.titlename') as $key=>$value)
@@ -97,12 +97,11 @@
                            <div class="form-line">
                               <label >Email</label><span class="text-danger">*</span><!-- <span style="font-size: 10px;"> (All communication from RAV Accredatitation will sent on this email id)</span> -->
                               <input type="email" name="email" id="email" class="form-control" placeholder="Email"  value="{{ old('email') }}" maxlength="50">
-                              @if ($errors->has('email'))
+                                 @if ($errors->has('email'))
                                      <span class="help-block">
                                          <strong style="color:red;">{{ $errors->first('email') }}</strong>
                                      </span>
                                  @endif
-                              <span id="email_error" class="text-danger"></span>
                            </div>
                         </div>
                      </div>
@@ -111,6 +110,11 @@
                            <div class="form-line">
                               <label >Mobile No.<span class="text-danger">*</span></label>
                               <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="{{ old('mobile_no') }}" maxlength="10">
+                              @if ($errors->has('mobile_no'))
+                                     <span class="help-block">
+                                         <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
+                                     </span>
+                                 @endif
                            </div>
                         </div>
                      </div>
@@ -188,7 +192,7 @@
                         </div>
                         <div class="col-sm-4">
                            <div class="form-group default-select select2Style">
-                              <label >State</label>
+                              <label >State<span class="text-danger"> *</span></label>
                               <select id="state-dropdown" class="form-control select2" name="state">
                                  <option value=""> Select State </option>
                               </select>
@@ -196,7 +200,7 @@
                         </div>
                         <div class="col-sm-4">
                            <div class="form-group default-select select2Style">
-                              <label >City</label>
+                              <label >City<span class="text-danger"> *</span></label>
                               <select id="city-dropdown" class="form-control select2" name="city">
                                   <option value=""> Select City </option>
                               </select>
