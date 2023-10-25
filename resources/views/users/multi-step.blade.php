@@ -443,7 +443,7 @@
                                        @endif
                                     </div>
                                     <div class="add-btn-lang mb-3 mt-3">
-                                       <a href="javascript:void();" class="btn lang bg-purple" id="Add_language">
+                                       <a href="javascript:void();" class="btn lang bg-success" id="Add_language">
                                           <i class="fa fa-plus"></i>
                                        </a>
                                        <a href="javascript:void();" class="btn lang bg-red d-none" id="delete_language">
