@@ -123,7 +123,7 @@
                                        <i class="material-icons">edit</i>
                                     </a>
                                     @if(Auth::user()->user_type=='2')
-                                    <a  href="{{ url('/new-patient-registration') }}" class="btn btn-tbl-delete"  title="Daily History SHeet" >
+                                    <a  href="{{ url('/new-patient-registration/'.$user->id) }}" class="btn btn-tbl-delete"  title="Daily History SHeet" >
                                        <i class="material-icons">PHR</i>
                                     </a>
                                     @endif
