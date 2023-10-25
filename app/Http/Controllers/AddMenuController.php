@@ -47,7 +47,7 @@ class AddMenuController extends Controller
     }
 
     public function edit_menu(Request $request,$id)
-    {   
+    {
         $menu=Menu::find($id);
         $menulist=Menu::where('is_parent',0)->get();
         return view("menu.edit",compact("menu","menulist"));

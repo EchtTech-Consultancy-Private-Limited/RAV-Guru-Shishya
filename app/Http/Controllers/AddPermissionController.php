@@ -8,7 +8,7 @@ use App\Models\UserPermission;
 class AddPermissionController extends Controller
 {
     public function add_permissions(Request $request)
-    {    
+    {
         
          $permission=UserPermission::where('menu_id',$request->menu_id)->first();
          
