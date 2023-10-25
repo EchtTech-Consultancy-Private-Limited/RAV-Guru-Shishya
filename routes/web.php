@@ -95,7 +95,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('delete-user/{id}', [UserController::class, 'user_delete']);
         //Route::get('patients-history', [PatientController::class, 'patients_history']);
         //Route::get('manage-history-sheet', [PatientController::class, 'manage_history_sheet']);
-        Route::get('new-patient-registration', [PatientController::class, 'new_patient_registration']);
+        Route::get('new-patient-registration/{id?}', [PatientController::class, 'new_patient_registration']);
         Route::post('new-patient-registration', [PatientController::class, 'new_patient_registration']);
         Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet']);
         Route::get('follow-up-patients', [PatientController::class, 'follow_up_patients']);

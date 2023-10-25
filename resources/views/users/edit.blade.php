@@ -22,16 +22,7 @@
                     </div>
                 </div>
             </div>
-            @if (count($errors) > 0)
-              <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                   @foreach ($errors->all() as $error)
-                     <li>{{ $error }}</li>
-                   @endforeach
-                </ul>
-              </div>
-            @endif
+           
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
@@ -66,7 +57,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
 
-                                            <strong>Title:</strong>
+                                            <strong>Title</strong>
                                             <select name="title" class="form-control">
                                                 <option>Select Title </option>
                                                 @foreach(__('phr.titlename') as $key=>$value)
@@ -81,15 +72,20 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <strong>Name:</strong>
+                                            <strong>First Name<span class="text-danger"> *</span></strong>
                                              {!! Form::text('firstname', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                                             @if ($errors->has('firstname'))
+                                            <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
+                                            </span>
+                                 @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <strong>Middle Name:</strong>
+                                            <strong>Middle Name</strong>
                                              {!! Form::text('middlename', null, array('placeholder' => 'Middle Name','class' => 'form-control')) !!}
                                         </div>
                                     </div>
@@ -97,8 +93,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <strong>Last Name:</strong>
+                                            <strong>Last Name<span class="text-danger"> *</span></strong>
                                             {!! Form::text('lastname', null, array('placeholder' => 'Lastname','class' => 'form-control')) !!}
+                                            @if ($errors->has('lastname'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('lastname') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -109,17 +110,27 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <strong>Email:</strong>
+                                            <strong>Email<span class="text-danger"> *</span></strong>
                                             {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control', 'readonly' => 'true' )) !!}
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <strong>Mobile No:</strong>
+                                            <strong>Mobile No<span class="text-danger"> *</span></strong>
 
                                            <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="{{ $user->mobile_no }}" maxlength="10" readonly>
+                                           @if ($errors->has('mobile_no'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
+                                                </span>
+                                            @endif
 
                                         </div>
                                     </div>
@@ -141,6 +152,11 @@
                                             <option value="{{$key}}" {{$user->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
                                         @endforeach
                                         </select>
+                                        @if ($errors->has('gender'))
+                                            <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('gender') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +165,7 @@
                                 <div class="col-sm-4">
                                    <div class="form-group">
                                       <label >Country<span class="text-danger"> *</span></label>
-                                      <select  id="country-dropdown" class="form-control" name="country">
+                                      <select  id="country-dropdown" class="form-control select2" name="country">
 
                                           <option value=""> Select Country </option>
                                           @foreach ($countries as $data)
@@ -159,23 +175,38 @@
 
                                           @endforeach
                                       </select>
+                                      @if ($errors->has('country'))
+                                            <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('country') }}</strong>
+                                            </span>
+                                        @endif
                                    </div>
                                 </div>
                                 <div class="col-sm-4">
                                    <div class="form-group">
                                       <label >State<span class="text-danger"> *</span></label>
-                                      <select id="state-dropdown" class="form-control state" name="state" >
+                                      <select id="state-dropdown" class="form-control select2 state" name="state" >
                                          <option value="{{ $user->state }}"> {{ $user->state_name }} </option>
-                                      </select>
+                                      </select>@if ($errors->has('state'))
+                                            <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('state') }}</strong>
+                                            </span>
+                                        @endif
                                   </div>
                                 </div>
                                 <div class="col-sm-4">
                                    <div class="form-group">
-                                      <label >City <span class="text-danger"> *</span></label>
+                                      <label >City<span class="text-danger"> *</span></label>
 
-                                      <select id="city-dropdown" class="form-control" name="city">
+                                        <select id="city-dropdown" class="form-control select2" name="city">
                                           <option value="{{ $user->city }}"> {{ $user->city_name }} </option>
-                                      </select>  
+                                        </select>
+                                        @if ($errors->has('city'))
+                                            <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('city') }}</strong>
+                                            </span>
+                                        @endif
+
                                   </div>
                                 </div>
                              </div>

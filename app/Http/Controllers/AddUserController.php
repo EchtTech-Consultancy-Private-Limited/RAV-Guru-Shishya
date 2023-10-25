@@ -600,8 +600,6 @@ class AddUserController extends Controller
             $data = User::orderBy('id','DESC')->where('guru_id',Auth::user()->id)->where('user_type',"3")->get();
         else
             abort(404);
-
-         //dd("$data");
         return view('users.index',compact('data','user_type_array'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }

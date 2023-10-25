@@ -594,7 +594,7 @@
                                                          @enderror
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                                          @error('quantity')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
@@ -828,7 +828,7 @@
                   </div>
             </div>
             <div class="col-md-12">
-                  <p class="text-capitalize text-sm mb-0">Information</p>
+                  <!-- <p class="text-uppercase text-sm mb-0">Information</p> -->
             </div>
                   <div class="row pb-0 mb-0">
                      <div class="card mb-0">
@@ -858,7 +858,7 @@
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -1166,7 +1166,7 @@
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -1602,7 +1602,7 @@
                                          @enderror
                                         </td>
                                         <td class="text-warning mt-10">
-                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                          @error('quantity')
                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                          @enderror
