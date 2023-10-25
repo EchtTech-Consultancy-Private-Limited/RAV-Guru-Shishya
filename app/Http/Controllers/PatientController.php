@@ -148,16 +148,14 @@ class PatientController extends Controller
         return view("patients.manage-history-sheet",['guru'=>$guru]);
     }*/
 
-    public function new_patient_registration(Request $request)
+    public function new_patient_registration(Request $request , $id ='')
     {
-        $data=Patient::where('shishya_id',Auth::user()->id);
+        $shishyaId = ($id == '' ? Auth::user()->id : $id);
+        $data=Patient::where('shishya_id',$shishyaId);
         if(!empty($request->prno))$data->where('patients.registration_no',$request->prno);
         if(!empty($request->from_date))$data->where('patients.registration_date','>=',date("Y-m-d",strtotime($request->from_date)));
         if(!empty($request->to_date))$data->where('patients.registration_date','<=',date("Y-m-d",strtotime($request->to_date)));
-
         $patientlist=$data->orderby('updated_at','Desc')->get();
-
-
         $guru=get_guru_list(Auth::user()->guru_id);
         return view("patients.new-patient-registration",['guru'=>$guru],compact("patientlist"));
     }

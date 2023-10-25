@@ -24,10 +24,8 @@ use App\Models\ArishtaYoga;
 use App\Models\ArishtaYogaType;
 use Auth;
 
-
 class DrugController extends Controller
 {
-
     public function add_drug_report()
     {
         $guru=get_guru_list(Auth::user()->guru_id);
@@ -82,9 +80,7 @@ class DrugController extends Controller
                 /* $drugslist = ChurnaYoga::whereBetween('created_at',[$from_date,$to_date])->where('shishya_id',$shishya_id)->get();*/
                 $drugslist = ChurnaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
                 ->where('shishya_id',$shishya_id)->get();
-
             }
-
             elseif(request()->yogas_type==2)
             {
                 $drugslist = RasaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
@@ -111,10 +107,6 @@ class DrugController extends Controller
             //dd("$drugslist");
             //return $drugslist[0]->yoga_type;
            return view('drugs.drugs-list',compact('drugslist','guru'));
-
-
-
-
     }
 
     public function edit_drugs(Request $request,$id)
@@ -717,10 +709,8 @@ class DrugController extends Controller
                 continue;
                }
                $id=$drug_part_id[$i];
-
                if($id==0)
                {
-
                    $arishta=new ArishtaYogaType;
                    $arishta->name_of_the_ingredients=$name_of_the_ingredients[$i];
                    $arishta->part_used=$part_used[$i];

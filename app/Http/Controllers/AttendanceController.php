@@ -48,7 +48,7 @@ class AttendanceController extends Controller
         if(!empty($request->from_date))$data->where('attendances.attendance_date','>=',date("Y-m-d",strtotime($request->from_date)));
         if(!empty($request->to_date))$data->where('attendances.attendance_date','<=',date("Y-m-d",strtotime($request->to_date)));
         if(!empty($request->attendance))$data->where('attendances.attendance',$request->attendance);
-        $data=$data->orderby('id','Desc')->paginate(10);
+        $data=$data->orderby('attendance_date','Desc')->paginate(10);
         $data->appends(['guru_id' => $request->guru_id,'shishya_id' => $request->shishya_id,'from_date' => $request->from_date,'to_date' => $request->to_date,'attendance' => $request->attendance]);
         return view('attendance.index',compact('data','gurus','shishyas'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
@@ -81,7 +81,7 @@ class AttendanceController extends Controller
         if(!empty($request->from_date))$data->where('attendances.attendance_date','>=',date("Y-m-d",strtotime($request->from_date)));
         if(!empty($request->to_date))$data->where('attendances.attendance_date','<=',date("Y-m-d",strtotime($request->to_date)));
         if(!empty($request->attendance))$data->where('attendances.attendance',$request->attendance);
-        $data=$data->orderby('id','Desc')->get();
+        $data=$data->orderby('attendance_date','Desc')->get();
         foreach($data as $attendance)
         {
             $data_array[] = array(
