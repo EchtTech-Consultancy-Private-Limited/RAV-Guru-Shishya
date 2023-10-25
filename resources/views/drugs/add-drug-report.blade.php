@@ -227,7 +227,7 @@
              
                    
                 </div>
-                 <p class="text-capatilize text-sm py-3 m-0">Composition</p>
+                 <h5 class="text-capatilize text-sm py-3 m-0">Composition</h5>
 
                  <div class="page-content page-container" id="page-content">
                     <div class="padding">
@@ -610,7 +610,7 @@
                                                          @enderror
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                                          @error('quantity')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
@@ -847,7 +847,7 @@
                   </div>
             </div>
             <div class="col-md-12">
-                  <p class="text-uppercase text-sm mb-0">Information</p>
+                  <!-- <p class="text-uppercase text-sm mb-0">Information</p> -->
             </div>
                   <div class="row pb-0 mb-0">
                      <div class="card mb-0">
@@ -877,7 +877,7 @@
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -1190,7 +1190,7 @@
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -1598,7 +1598,7 @@
            
          </div>
         <div class="col-md-12">
-        <p class="text-capatilized text-sm">Composition</p>
+        <h5 class="text-capatilized text-sm">Composition</h5>
         </div>
          <div class="row">
 
@@ -1630,7 +1630,7 @@
                                          @enderror
                                         </td>
                                         <td class="text-warning mt-10">
-                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
                                          @error('quantity')
                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                          @enderror

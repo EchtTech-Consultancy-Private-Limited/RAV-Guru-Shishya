@@ -38,7 +38,6 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        //dd("$request->add_user_btn");
         $countries = Country::get(["name", "id"]);
         $add_user_btn=$request->add_user_btn;
         return view('users.create',compact('add_user_btn','countries'));
@@ -52,8 +51,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //dd("store");
-
         if($request->user_type==2)
         {
 
@@ -75,12 +72,17 @@ class UserController extends Controller
         }
 
         $this->validate($request, [
+            'firstname'=>'required',
+            'lastname'=>'lastname',
+            'gender'=>'required',
             'profile_image' => 'required|mimes:jpeg,png,jpg|max:200',
-            'lastname' =>'required|max:32|min:2',
             'e_sign'   => 'mimes:jpeg,png,jpg',
             'profile_image'   => 'mimes:jpeg,png,jpg',
             'email' => ['required','email','max:50','unique:users','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
             'mobile_no'=>'required|numeric|unique:users|min:10,mobile_no|digits:10',
+            'country'=>'required',
+            'state'=>'required',
+            'city'=>'required',
 
         ]);
 
