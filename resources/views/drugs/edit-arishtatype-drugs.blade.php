@@ -29,7 +29,7 @@
    <div class="container-fluid">
    <div class="block-header">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mb-2 mb-2 col-lg-12">
 
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
@@ -53,7 +53,7 @@
               </div>
    <!-- Basic Example | Horizontal Layout -->
    <div class="row clearfix">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-12 col-md-12 mb-2 mb-2 col-sm-12 col-xs-12">
          <div class="card">
             <div class="header">
                <ul class="header-dropdown m-r--5">
@@ -86,7 +86,7 @@
                   <h2>New Drug Report</h2>
 
                   <section>
-                     <div class="col-md-12">
+                     <div class="col-md-12 mb-2 mb-2">
                         <div class="card">
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
@@ -94,7 +94,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2 mb-2">
                                        <div
                                           class="form-group">
                                           <label
@@ -124,7 +124,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2 mb-2">
                                        <div
                                           class="form-group">
                                           <label
@@ -144,7 +144,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2 mb-2">
                                        <div
                                           class="form-group">
                                           <label
@@ -168,7 +168,7 @@
                                 <!--  <div class="row" >
 
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2 mb-2">
                                        <div class="form-group">
                                           <label
                                              for="example-text-input"
@@ -184,7 +184,7 @@
                                           </select>
                                        </div>
                                     </div>
-                                    <div class="col-md-8"></div>
+                                    <div class="col-md-8 mb-2 mb-2"></div>
                                  </div> -->
                                  <div id="yogas_type">
                                  </div>
@@ -205,26 +205,22 @@
                 @csrf
                <input type="hidden" name="drug_id" value="{{ $drug->id }}">
               <div class="row">
-                  <div class="h-100">
-                     <h5 class="text text-center">
-                        3- TAILA – GHRITA YOGAS
-                     </h5>
-                  </div>
+               <div class="col-md-12 mb-2" >
+               <div class="form-group  ">
+                       <h5 class="text-center d-flex justify-content-center">3- ARISHTA – GHRITA YOGAS</h5>
+                       <h5 class="d-block text-left">Name of the Drug</h5>
+                       <h5 class="d-block text-left">
+                          Reference
+                          <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                       </h5>
+                    </div>
                </div>
-               <div class="row">
-                  <div class="h-100">
-                     <h5 class="text text-center">Name of the Drug</h5>
-                  </div>
+                   
+                  
                </div>
-               <div class="form-group">
-                  <div class="col-auto my-auto">
-                     <div class="h-100">
-                        <h5 class="mb-1">
-                           Reference
-                           <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
-                        </h5>
-                     </div>
-                  </div>
+              
+              
+                  
                   <div class="col-auto my-auto">
                      <div class="h-100">
                         <h5 class="mb-1">
@@ -290,9 +286,9 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-uppercase text-sm">I Main ingredients</p>
+                <p class="text-capatilize text-sm">I Main ingredients</p>
                 <div class="row">
-                   <div class="col-md-12">
+                   <div class="col-md-12 mb-2 mb-2">
                        <div class="form-group">
                           <label  class="form-control-label">Enter Yogas Name</label>
                           <input type="text" name="arishtayoga_type_individual" class="form-control" placeholder="Churna Yoga Type Individual"  value="{{ $drug->arishtayoga_type_individual }}" maxlength="50">@error('churna_yoga_type_individual')
@@ -300,7 +296,7 @@
                           @enderror
                        </div>
                     </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step I</label>
                          <input type="text" name="main_ingredients_step_one" class="form-control" placeholder="1" aria-label="1" value="{{ $drug->main_ingredients_step_one }}" >@error('1')
@@ -308,7 +304,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step II</label>
                          <input type="text" name="main_ingredients_step_two" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $drug->main_ingredients_step_two }}" >
@@ -317,7 +313,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step III</label>
                          <input type="text" name="main_ingredients_step_three" class="form-control" placeholder="3" aria-label="Step 1" value="{{ $drug->main_ingredients_step_three }}" >@error('1')
@@ -326,9 +322,9 @@
                       </div>
                    </div>
                 </div>
-                <p class="text-uppercase text-sm">II    Sandhana dravyas</p>
+                <p class="text-capatilize text-sm">II    Sandhana dravyas</p>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step I</label>
                          <input type="text" name="prakshepa_dravyas_step_one" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $drug->prakshepa_dravyas_step_one }}" >@error('1')
@@ -336,7 +332,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step II</label>
                          <input type="text" name="prakshepa_dravyas_step_two" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $drug->prakshepa_dravyas_step_two }}" >
@@ -345,7 +341,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step III</label>
                          <input type="text" name="prakshepa_dravyas_step_three" class="form-control" placeholder="3" aria-label="Step 1" value="{{ $drug->prakshepa_dravyas_step_three }}" >@error('1')
@@ -354,9 +350,9 @@
                       </div>
                    </div>
                 </div>
-                <p class="text-uppercase text-sm">III Prakshepa dravyas</p>
+                <p class="text-capatilize text-sm">III Prakshepa dravyas</p>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step I</label>
                          <input type="text" name="method_of_preparation" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $drug->method_of_preparation }}" >@error('1')
@@ -364,7 +360,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step II</label>
                          <input type="text" name="packing" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $drug->packing }}" >
@@ -373,7 +369,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">3</label>
                          <input type="text" name="storage" class="form-control" placeholder="3" aria-label="Step 1" value="{{ $drug->storage }}" >@error('1')
@@ -382,9 +378,9 @@
                       </div>
                    </div>
                 </div>
-                <p class="text-uppercase text-sm">Method of Preparation (SOP)</p>
+                <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Step 1</label>
                          <input type="text" name="method_of_administration" class="form-control" placeholder="Step 1" aria-label="Step 1" value="{{ $drug->method_of_administration }}" >@error('Step 1')
@@ -392,7 +388,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Packing</label>
                          <input type="text" name="packing" class="form-control" placeholder="Packing" aria-label="Packing" value="{{ $drug->packing }}" >@error('Packing')
@@ -402,7 +398,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Storage</label>
                          <input type="text" name="storage" class="form-control" placeholder="Storage" aria-label="Storage" value="{{ $drug->storage }}" >
@@ -411,7 +407,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Method of Administration</label>
                          <input type="text" name="method_of_administration" class="form-control" placeholder="Method of Administration" value="{{ $drug->method_of_administration }}" >
@@ -422,7 +418,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Time of administration</label>
                          <input type="text" name="time_of_administration" class="form-control" placeholder="Time of administration"  value="{{ $drug->time_of_administration }}" >
@@ -431,7 +427,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Dose</label>
                          <input type="text" name="dose" class="form-control" placeholder="Dose" aria-label="Dose" value="{{ $drug->dose }}" >@error('Dose')
@@ -441,7 +437,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Vehicle (Anupana)</label>
                          <input type="text" name="vehicle" class="form-control" placeholder="Vehicle (Anupana)" value="{{ $drug->vehicle }}" >
@@ -450,7 +446,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Indications</label>
                          <input type="text" name="indications" class="form-control" placeholder="Indications" value="{{ $drug->indications }}" >
@@ -461,7 +457,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Contra indications</label>
                          <input type="text" name="contra_indications" class="form-control" placeholder="Contra indications"  value="{{ $drug->contra_indications }}" >
@@ -470,7 +466,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Duration of Therapy</label>
                          <input type="text" name="duration_of_therapy" class="form-control" placeholder="Duration of Therapy"  value="{{ $drug->duration_of_therapy }}" >
@@ -481,7 +477,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Wholesome diet</label>
                          <input type="text" name="wholesome_diet" class="form-control" placeholder="Wholesome diet" aria-label="Wholesome diet" value="{{ $drug->wholesome_diet }}" >
@@ -490,7 +486,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Wholesome activities</label>
                          <input type="text" name="wholesome_activities" class="form-control" placeholder="Wholesome activities"  value="{{ $drug->wholesome_activities }}" >@error('Wholesome activities')
@@ -498,7 +494,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Wholesome behavior</label>
                          <input type="text" name="wholesome_behavior" class="form-control" placeholder="Wholesome behavior"  value="{{ $drug->wholesome_behavior }}" >
@@ -508,9 +504,9 @@
                       </div>
                    </div>
                 </div>
-                <p class="text-uppercase text-sm">Observations</p>
+                <p class="text-capatilize text-sm">Observations</p>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Quantity of Raw Material</label>
                          <input type="text" name="quantity_of_raw_material" class="form-control" placeholder="Quantity of Raw Material"  value="{{ $drug->quantity_of_raw_material }}" >@error('Quantity of Raw Material')
@@ -518,7 +514,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Quantity of finished product</label>
                          <input type="text" name="quantity_of_finished_product" class="form-control" placeholder="Quantity of finished product"  value="{{ $drug->quantity_of_finished_product }}" >
@@ -529,7 +525,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Loss</label>
                          <input type="text" name="loss" class="form-control" placeholder="Loss"  value="{{ $drug->loss }}" >
@@ -538,7 +534,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Reasons for Loss</label>
                          <input type="text" name="reasons_for_loss" class="form-control" placeholder="Reasons for Loss"  value="{{ $drug->reasons_for_loss }}" >
@@ -549,7 +545,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Organoleptic properties of raw materials</label>
                          <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control" placeholder="Organoleptic properties of raw materials"  value="{{ $drug->organoleptic_properties_of_raw_materials }}" >
@@ -558,7 +554,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Organoleptic properties of finished product</label>
                          <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Date"  value="{{ $drug->organoleptic_properties_of_finished_product }}" >
@@ -569,7 +565,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Time taken for the sandhana process</label>
                          <input type="text" name="time_taken_sandhana" class="form-control" placeholder="Time taken for the sandhana process"  value="{{ $drug->time_taken_sandhana }}" >
@@ -578,7 +574,7 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Duration required for the entire experiment</label>
                          <input type="text" name="duration_for_entire_experiment" class="form-control" placeholder="Duration required for the entire experiment"  value="{{ $drug->duration_for_entire_experiment }}" >
@@ -589,7 +585,7 @@
                    </div>
                 </div>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label">Tests performed during experiment</label>
                          <input type="text" name="tests_performed_during_experiment" class="form-control" placeholder="Tests performed during experiment"  value="{{ $drug->tests_performed_during_experiment }}" >
@@ -599,11 +595,11 @@
                       </div>
                    </div>
                 </div>
-                <p class="text-uppercase text-sm">Time taken for the experiment</p>
+                <p class="text-capatilize text-sm">Time taken for the experiment</p>
                 <div class="row">
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group ">
-                         <label class="control-label col-sm-2 requiredField" for="date">(i) Starting Date
+                         <label class="control-label   requiredField" for="date">(i) Starting Date
                          </label>
                          <div class="input-group">
                          </div>
@@ -612,9 +608,9 @@
                          @enderror
                       </div>
                    </div>
-                   <div class="col-md-6">
+                   <div class="col-md-6 mb-2 mb-2">
                       <div class="form-group ">
-                         <label class="control-label col-sm-2 requiredField" for="date">(ii)  Ending Date
+                         <label class="control-label   requiredField" for="date">(ii)  Ending Date
                          </label>
                          <div class="input-group">
                          </div>

@@ -210,24 +210,20 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                  <div class="form-group text-center ">
-                       <h5 class="text-center">1 – CHURNA YOGAS</h5>
-                    </div>
-                    <div class="form-group ">
-                       <h5 class="text-center">Name of the Drug</h5>
-                    </div>
-
-                    <div class="form-group ">
-                       <h5 class="text">
+                    <div class="form-group  ">
+                       <h5 class="text-center d-flex justify-content-center">1 – CHURNA YOGAS</h5>
+                       <h5 class="d-block text-left">Name of the Drug</h5>
+                       <h5 class="d-block text-left">
                           Reference
                           <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
                        </h5>
                     </div>
+                   
                   </div>
              
                    
                 </div>
-                 <p class="text-capatilize text-sm py-3 m-0">Composition</p>
+                 <h5 class="text-capitalize text-sm py-3 m-0">Composition</h5>
 
                  <div class="page-content page-container" id="page-content">
                     <div class="padding">
@@ -266,14 +262,14 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="text-end d-flex justify-content-end"><button  onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
+                                        <div class="text-end d-flex justify-content-end"><button  onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center btn-success"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                 <p class="text-uppercase text-sm">Method of Preparation (SOP)</p>
+                 <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
                 <div class="row">
                      <div class="col-md-12">
                        <div class="form-group">
@@ -432,7 +428,7 @@
                        </div>
                     </div>
                 </div>
-                 <p class="text-uppercase text-sm">Observations</p>
+                 <p class="text-capitalize text-sm">Observations</p>
                 <div class="row">
                     <div class="col-md-6">
                        <div class="form-group">
@@ -507,7 +503,7 @@
                        </div>
                     </div>
                 </div>
-                 <p class="text-uppercase text-sm">Duration  for the experiment</p>
+                 <p class="text-capitalize text-sm">Duration  for the experiment</p>
                 <div class="row">
                     <div class="col-md-6">
                        <div class="form-group ">
@@ -544,29 +540,17 @@
                 <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
               <div class="row">
                <div class="col-md-12">
-                  <div class="form-group">
-                  <div class="h-100">
-                     <h5 class="text text-center">
-                        2- RASA YOGAS
-                     </h5>
-                  </div>
-               </div>
-               <div class="form-group">
-                     <div class="h-100">
-                     <h5 class="text ">Name of the Drug</h5>
-                     
-                  </div>
-                     </div>
-                     <div class="form-group">
-                  <div class="">
-                     <div class="h-100">
-                        <h5 class="mb-1">
-                           Reference
-                           <p class=' text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
-                        </h5>
-                     </div>
+                   <div class="form-group  ">
+                       <h5 class="text-center d-flex justify-content-center"> 2- RASA YOGAS</h5>
+                       <h5 class="d-block text-left">Name of the Drug</h5>
+                       <h5 class="d-block text-left">
+                          Reference
+                          <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                       </h5>
                     </div>
-                  </div>
+                 
+             
+                  
                   </div>
               
                </div>
@@ -620,7 +604,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
+                                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -629,7 +613,7 @@
                 </div>
                 
                 <div class="col-md-12">
-                <p class="text-uppercase text-sm">(I) Herbal</p>
+                <p class="text-capitalize text-sm">(I) Herbal</p>
                 </div>
         
                 
@@ -664,7 +648,7 @@
                   
                   <div class="col-md-12">
                      
-                     <p class="text-uppercase text-sm">(II) Mineral</p>
+                     <p class="text-capitalize text-sm">(II) Mineral</p>
                      </div>
 
             
@@ -690,7 +674,7 @@
                   </div>
                   <div class="col-md-12">
                      
-                     <p class="text-uppercase text-sm">(III) Metal</p>
+                     <p class="text-capitalize text-sm">(III) Metal</p>
                      </div>
                   <div class="row">
                      <div class="col-md-6">
@@ -713,7 +697,7 @@
                   </div>
                   <div class="col-md-12">
                      
-                     <p class="text-uppercase text-sm">(IV) Animal</p>
+                     <p class="text-capitalize text-sm">(IV) Animal</p>
                      </div>
                   <div class="row">
                      <div class="col-md-6">
@@ -736,7 +720,7 @@
                   </div>
                   <div class="col-md-12">
 
-                     <p class="text-uppercase text-sm">(V) Bhavana Dravyas</p>
+                     <p class="text-capitalize text-sm">(V) Bhavana Dravyas</p>
                   </div>
                   <div class="row">
                      <div class="col-md-6">
@@ -760,16 +744,16 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">VI Changes seen during bhavana therapy</label>
-                           <input type="text" name="changes_seen_during_bhavana_therapy" class="form-control" placeholder="VI Changes seen during bhavana therapy" aria-label="Dose" value="{{ old('changes_seen_during_bhavana_therapy') }}" maxlength="50">@error('changes_seen_during_bhavana_therapy')
+                           <label for="example-text-input" class="form-control-label"> Changes seen during bhavana therapy</label>
+                           <input type="text" name="changes_seen_during_bhavana_therapy" class="form-control" placeholder=" Changes seen during bhavana therapy" aria-label="Dose" value="{{ old('changes_seen_during_bhavana_therapy') }}" maxlength="50">@error('changes_seen_during_bhavana_therapy')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                            @enderror
                         </div>
                      </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">VII Organoleptic properties of raw material</label>
-                           <input type="text" name="organoleptic_properties_of_raw_material" class="form-control" placeholder="VII Organoleptic properties of raw material" aria-label="VII" value="{{ old('organoleptic_properties_of_raw_material') }}" maxlength="50">
+                           <label for="example-text-input" class="form-control-label"> Organoleptic properties of raw material</label>
+                           <input type="text" name="organoleptic_properties_of_raw_material" class="form-control" placeholder=" Organoleptic properties of raw material" aria-label="VII" value="{{ old('organoleptic_properties_of_raw_material') }}" maxlength="50">
                            @error('VII Organoleptic properties of raw material')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                            @enderror
@@ -777,8 +761,8 @@
                      </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">VIII organoleptic_properties_of_raw_material</label>
-                           <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="VIII" aria-label="Duration of Therapy" value="{{ old('organoleptic_properties_of_finished_product') }}" maxlength="50">
+                           <label for="example-text-input" class="form-control-label"> organoleptic_properties_of_raw_material</label>
+                           <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="" aria-label="Duration of Therapy" value="{{ old('organoleptic_properties_of_finished_product') }}" maxlength="50">
                            @error('organoleptic_properties_of_finished_product')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                            @enderror
@@ -786,7 +770,7 @@
                      </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">IX Time taken for the experiment</label>
+                           <label for="example-text-input" class="form-control-label"> Time taken for the experiment</label>
                            <input type="text" name="time_taken_for_the_experiment" class="form-control" placeholder="Wholesome diet" aria-label="Wholesome diet" value="{{ old('time_taken_for_the_experiment') }}" maxlength="50">
                            @error('time_taken_for_the_experiment')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -797,7 +781,7 @@
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">X Starting date of experiment</label>
+                           <label for="example-text-input" class="form-control-label"> Starting date of experiment</label>
                            <input type="text" name="starting_date_of_experiment" class="form-control" placeholder="Wholesome activities" aria-label="Wholesome activities" value="{{ old('starting_date_of_experiment') }}" maxlength="50">@error('starting_date_of_experiment')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                            @enderror
@@ -805,8 +789,8 @@
                      </div>
                      <div class="col-md-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">XI Ending date of experiment</label>
-                           <input type="text" name="ending_date_of_experiment" class="form-control" placeholder="XI Ending date of experiment" aria-label="Wholesome behavior" value="{{ old('ending_date_of_experiment') }}" maxlength="50">
+                           <label for="example-text-input" class="form-control-label"> Ending date of experiment</label>
+                           <input type="text" name="ending_date_of_experiment" class="form-control" placeholder=" Ending date of experiment" aria-label="Wholesome behavior" value="{{ old('ending_date_of_experiment') }}" maxlength="50">
                            @error('ending_date_of_experiment')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                            @enderror
@@ -814,7 +798,7 @@
                      </div>
                   </div>
                
-               <button type="submit" class="btn btn-secondary">Add Rasa Yogas</button>
+               <button type="submit" class="btn btn-secondary mb-4">Add Rasa Yogas</button>
             </form>
          </div>
       </div>
@@ -827,18 +811,15 @@
                <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
               <div class="row">
                <div class="col-md-12">
-               <div class="form-group">
-                     <h5 class="text-center">3 – VATI YOGAS</h5>
-                  </div>
-                  <div class="form-group">
-                     <h5 class="text-center">Name of the Drug</h5>
-                  </div>
-                  <div class="form-group">
-                     <h5 class="text">
-                        Reference
-                        <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
-                     </h5>
-                  </div>
+                 <div class="form-group  ">
+                       <h5 class="text-center d-flex justify-content-center">3 – VATI YOGAS</h5>
+                       <h5 class="d-block text-left">Name of the Drug</h5>
+                       <h5 class="d-block text-left">
+                          Reference
+                          <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                       </h5>
+                    </div>
+              
 
                </div>
             <div class="col-md-12">
@@ -847,7 +828,7 @@
                   </div>
             </div>
             <div class="col-md-12">
-                  <p class="text-uppercase text-sm mb-0">Information</p>
+                  <p class="text-capitalize text-sm mb-0">Information</p>
             </div>
                   <div class="row pb-0 mb-0">
                      <div class="card mb-0">
@@ -891,7 +872,7 @@
                         </div>
                     </div>
                   </div>
-                  <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
+                  <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
                   <div class="row">
                      <div class="col-md-12">
                           <div class="form-group">
@@ -1025,7 +1006,7 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">Observations</p>
+                  <p class="text-capitalize text-sm">Observations</p>
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group">
@@ -1100,7 +1081,7 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">Time taken for the practical</p>
+                  <p class="text-capitalize text-sm">Time taken for the practical</p>
                   <div class="row">
                      <div class="col-md-6">
                         <div class="form-group ">
@@ -1138,20 +1119,15 @@
                <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
             <div class="row">
                <div class="col-md-12">
-               <div class="form-group">
-                  <h5 class="text text-center">
-                     4 – TALIA YOGAS
-                  </h5>
-               </div>
-               <div class="form-group">
-                  <h5 class="text-center">Name of the Drug</h5>
-               </div>
-               <div class="form-group">
-                  <h5 class="text">
-                     Reference
-                     <p class=' text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
-                  </h5>
-               </div>
+                   <div class="form-group  ">
+                       <h5 class="text-center d-flex justify-content-center"> 4 – TALIA YOGAS</h5>
+                       <h5 class="d-block text-left">Name of the Drug</h5>
+                       <h5 class="d-block text-left">
+                          Reference
+                          <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                       </h5>
+                    </div>
+              
                </div>
                <div class="col-md-12">
                <div class="form-group">
@@ -1200,14 +1176,14 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
+                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                         </div>
                     </div>
                   </div>
             </div>
             <div class="col-md-12">
 
-               <p class="text-uppercase text-sm">(I) Kalka dravyas</p>
+               <p class="text-capitalize text-sm">(I) Kalka dravyas</p>
             </div>
             <div class="row">
                <div class="col-md-12">
@@ -1247,7 +1223,7 @@
                </div>
             </div>
             <div class="col-md-12">
-            <p class="text-uppercase text-sm">(II) Taila/ghrita dravys</p>
+            <p class="text-capitalize text-sm">(II) Taila/ghrita dravys</p>
 
             </div>
 
@@ -1280,7 +1256,7 @@
                </div>
             </div>
             <div class="col-md-12">
-            <p class="text-uppercase text-sm">(III) Kvatha/drava dravyas</p>
+            <p class="text-capitalize text-sm">(III) Kvatha/drava dravyas</p>
 
             </div>
 
@@ -1311,7 +1287,7 @@
                   </div>
                </div>
             </div>
-            <p class="text-uppercase text-sm">Method of Preparation (SOP)</p>
+            <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
@@ -1475,7 +1451,7 @@
                   </div>
                </div>
             </div>
-            <p class="text-uppercase text-sm">Observations</p>
+            <p class="text-capitalize text-sm">Observations</p>
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group">
@@ -1542,7 +1518,7 @@
                   </div>
                </div>
             </div>
-            <p class="text-uppercase text-sm">Time taken for the experiment</p>
+            <p class="text-capitalize text-sm">Time taken for the experiment</p>
             <div class="row">
                <div class="col-md-6">
                   <div class="form-group ">
@@ -1569,7 +1545,7 @@
                   </div>
                </div>
             </div>
-            <button type="submit" class="btn btn-secondary mb-0">Add Talia Yogas</button>
+            <button type="submit" class="btn btn-secondary mb-4">Add Talia Yogas</button>
          </form>
         </div>
 
@@ -1582,23 +1558,19 @@
             <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
          <div class="row">
             <div class="col-md-12">
-            <div class="form-group">
-               <h5 class="text-center">5 – ASAVA/ARISHTA YOGAS</h5>
-            </div>
-            <div class="form-group">
-               <h5 class="text-center">Name of the Drug</h5>
-            </div>
-            <div class="form-group">
-               <h5 class="text">
-                  Reference
-                  <p class=' text-xs pt-1 m-0'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
-               </h5>
-            </div>
+                   <div class="form-group  ">
+                       <h5 class="text-center d-flex justify-content-center">5 – ASAVA/ARISHTA YOGAS</h5>
+                       <h5 class="d-block text-left">Name of the Drug</h5>
+                       <h5 class="d-block text-left">
+                          Reference
+                          <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                       </h5>
+                    </div>
             </div>
            
          </div>
         <div class="col-md-12">
-        <p class="text-capatilized text-sm">Composition</p>
+        <h5 class="text-capitalized text-sm">Composition</h5>
         </div>
          <div class="row">
 
@@ -1640,13 +1612,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD NEW</button></div>
+                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                     </div>
                 </div>
             </div>
          </div>
          <div class="col-md-12">
-         <p class="text-uppercase text-sm">(I) Main ingredients</p>
+         <p class="text-capitalize text-sm">(I) Main ingredients</p>
          </div>
          
          <div class="row">
@@ -1689,7 +1661,7 @@
             </div>
          </div>
          <div class="col-md-12">
-         <p class="text-uppercase text-sm">(II) Sandhana dravyas</p>
+         <p class="text-capitalize text-sm">(II) Sandhana dravyas</p>
             </div>
         
          <div class="row">
@@ -1720,7 +1692,7 @@
             </div>
          </div>
          <div class="col-md-12">
-         <p class="text-uppercase text-sm">(III) Prakshepa dravyas</p>
+         <p class="text-capitalize text-sm">(III) Prakshepa dravyas</p>
             </div>
          <div class="row">
             <div class="col-md-6">
@@ -1749,7 +1721,7 @@
                </div>
             </div>
          </div>
-         <p class="text-uppercase text-sm">Method of Preparation (SOP)</p>
+         <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
          <div class="row">
             <div class="col-md-6">
                <div class="form-group">
@@ -1875,7 +1847,7 @@
                </div>
             </div>
          </div>
-         <p class="text-uppercase text-sm">Observations</p>
+         <p class="text-capitalize text-sm">Observations</p>
          <div class="row">
             <div class="col-md-6">
                <div class="form-group">
@@ -1966,7 +1938,7 @@
                </div>
             </div>
          </div>
-         <p class="text-uppercase text-sm">Time taken for the experiment</p>
+         <p class="text-capitalize text-sm">Time taken for the experiment</p>
          <div class="row">
             <div class="col-md-6">
                <div class="form-group ">
@@ -2026,7 +1998,7 @@ html = '<tr id="faqs-row' + faqs_row + '">';
     html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="quantity" value=""></td>';
     html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value=""></td>';
     html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value=""></td>';
-    html += '<td class="mt-10"><button class="btn btn-danger" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="fa fa-trash"></i> Delete</button></td>';
+    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i> </button></td>';
 
     html += '</tr>';
 

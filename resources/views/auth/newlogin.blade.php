@@ -72,9 +72,9 @@
 
             <div class="col-md-5">
               <label for="password" class="sr-only">Captcha</label>
-              <div class="captcha d-flex justify-content-space-between">
+              <div class="captcha d-flex justify-content-between">
                 <span>{!! captcha_img('math') !!}</span>
-                <button type="button" class="btn btn-secondary btn-refresh ml-2">
+                <button type="button" class="btn btn-secondary btn-refresh me-2">
                   <i class="fa fa-refresh"></i>
                 </button>
               </div>

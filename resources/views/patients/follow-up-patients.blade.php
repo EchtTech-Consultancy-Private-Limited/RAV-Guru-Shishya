@@ -251,7 +251,7 @@
 
 
 
-                                <div class="col-sm-12 p-t-20 text-left">
+                                <div class="col-sm-12 p-t-2 text-left">
 
                                     <input type="hidden"
                                         value="@if (request()->patientid) {{ request()->patientid }} @endif"
@@ -266,7 +266,7 @@
                                         value="@if (request()->rtype) {{ request()->rtype }} @endif"
                                         name="rtype">
                                     @if (Auth::user()->user_type == 3)
-                                        <button type="submit" class="btn btn-primary waves-effect"
+                                        <button type="submit" class="btn btn-primary waves-effect float-right mb-2"
                                             onclick="return confirm_option('Send selected followup list to Guru');"> &nbsp;
                                             Send To Guru &nbsp;</button>
                                     @elseif(Auth::user()->user_type == 2)
