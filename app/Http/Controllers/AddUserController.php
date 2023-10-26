@@ -240,7 +240,7 @@ class AddUserController extends Controller
                 'lastname' => 'max:200|min:2',
                 'email' => 'required',
                 'date_of_birth' => 'required',
-                'age' => 'required|numeric|digits:3',
+                'age' => 'required|numeric|digits:2',
                 'f_name' => 'required|max:200|min:2',
                 'address1' => 'required',
                 'address2' => 'required',

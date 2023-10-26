@@ -134,10 +134,12 @@
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
                                                     aria-label=" No : activate to sort column descending">
+                                                    @if (Auth::user()->user_type == 2 || Auth::user()->user_type == 3)
                                                         <input type="checkbox" name="checkall"
                                                             id="checkall" type="checkbox" value="1">
                                                     <label for='selectAll'>
                                                     </label>
+                                                    @endif
                                                 </th>
                                                 <th class="center sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"

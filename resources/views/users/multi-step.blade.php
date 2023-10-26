@@ -143,8 +143,8 @@
                                  </div>
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
-                                       <label >Date of Birth<span class="text-danger">*</span></label>
-                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth"  value="@if(isset($profile_record[0])){{ $profile_record[0]->date_of_birth }}@endif">
+                                       <label for="date_of_birth">Date of Birth:</label>
+                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
                                        @if($errors->has('date_of_birth'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
@@ -155,7 +155,7 @@
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label>Age<span class="text-danger">*</span></label>
-                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif"> 
+                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}"> 
                                        @if($errors->has('age'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('age') }}</strong>
@@ -166,7 +166,7 @@
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label >Father's Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
                                        @if($errors->has('f_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
@@ -180,7 +180,7 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="@if(isset($profile_record[0])){{$profile_record[0]->address1}}@endif">
+                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="{{ old('address1', $profile_record[0]->address1) }}">
                                        @if($errors->has('address1'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('address1') }}</strong>
@@ -191,9 +191,9 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="@if(isset($profile_record[0])){{ $profile_record[0]->address2 }}@endif">@if($errors->has('Address'))
+                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="{{ old('address2', $profile_record[0]->address2) }}">@if($errors->has('address2'))
                                        <span class="help-block">
-                                          <strong style="color:red;">{{ $errors->first('Address') }}</strong>
+                                          <strong style="color:red;">{{ $errors->first('address2') }}</strong>
                                        </span>
                                        @endif
                                     </div>
@@ -249,7 +249,7 @@
                                  <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">
+                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ old('pincode', $profile_record[0]->pincode) }}">
                                        @if($errors->has('pincode'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('pincode') }}</strong>
@@ -344,7 +344,7 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->aadhaar_no }}">@error('aadhaar_no')
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
                                        <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
                                     </div>
@@ -352,7 +352,7 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->pan_no }}">@error('pan_no')
+                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">@error('pan_no')
                                        <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
                                     </div>
