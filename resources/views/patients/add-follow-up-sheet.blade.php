@@ -199,7 +199,7 @@
                                                                 class="btn back btn-danger waves-effect"> &nbsp; Back
                                                                 &nbsp;</button></a>
                                                         <button type="submit"
-                                                            class="btn save btn-primary waves-effect m-r-15"> &nbsp;Save
+                                                            class="btn save  waves-effect m-r-15"> &nbsp;Save
                                                             &nbsp; </button>
 
                                                     </div>
