@@ -4,7 +4,7 @@
 
 
 
-<div class="container">
+<div class="container login">
     <div class="row justify-content-center">
         
         <div class="col-md-8">
@@ -62,11 +62,12 @@
                        
                             <div class="row mb-3" style="margin-left:150px;">
                                     <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }} ">
-                                      <label for="password" class="col-md-4 control-label">Captcha<span class="text-danger">*</span></label>
+                                     
                                       
 
                                       <div class="col-md-8">
                                           <div class="captcha">
+                                              <label for="password" class="col-md-4 control-label">Captcha<span class="text-danger">*</span></label>
                                           <span>{!! captcha_img('math') !!}</span>
                                           <button type="button" class="btn btn-secondary btn-refresh"><i class="fa fa-refresh"></i></button>
                                           </div>
@@ -81,7 +82,7 @@
                                       </div>
                                     </div>
                                 </div>
-
+<!-- 
                             <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -91,18 +92,19 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                             <input type="button" value="{{ __('Login') }}" class="btn btn-secondary" id="user_login" onclick="return encrypt()">
+                            <br>
                               
-                                <a href="{{ url('user-signup') }}" class="btn btn-secondary" id="user_login">
+                                <a href="{{ url('user-signup') }}" class="p-2" id="user_login">
                                     {{ __('Create New Account') }}
                                 </a>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-secondary" href="{{ route('password.request') }}">
+                                    <a class="" href="{{ route('password.request') }}">
                                         {{ __('Reset Password') }}
                                     </a>
                                 @endif

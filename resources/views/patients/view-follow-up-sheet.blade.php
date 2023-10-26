@@ -62,10 +62,10 @@
                         <div id="wizard_horizontal">
                             <section>
 
-                                <div class="col-sm-12 pt-5">
-                                    <div class="card">
+                                <div class="col-sm-12 pb-0">
+                                    <div class="card mb-0">
 
-                                        <div class="card-body">
+                                        <div class="card-body pb-0">
 
 
 
@@ -153,10 +153,10 @@
                         </div>
 
                         <div class="col-sm-12">
-                            <div class="header">
+                            <div class="header pt-0">
                                 <h2><strong>Add</strong> Remark </h2>
                             </div>
-                            <div class="card">
+                            <div class="card mb-0">
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -294,7 +294,7 @@
                                     <div class="col-sm-12">
 
 
-                                        <div class="card">
+                                        <div class="card mb-0">
 
                                             <div class="body">
                                                 <div class="table-responsive">
@@ -352,7 +352,7 @@
                             </div>
                             <div class="card-body2" style="display:none;">
 
-                                <div class="row clearfix p-1 pt-5">
+                                <div class="row clearfix p-1 pt-1">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Name of the

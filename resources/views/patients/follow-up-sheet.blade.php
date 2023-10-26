@@ -1043,7 +1043,7 @@
                                  @foreach($data as $k=>$followup)
                                     <input type="hidden" value="{{$followup->id}}" name="followup_ids[]">
                                  @endforeach
-                                    <input type="hidden" value="@if(request()->patientid){{request()->patientid}}@endif" name="patientid">
+                                    <input type="hidden" value="@if(request()->patientid){{request()->patientid}}@endif" name="patientid" >
                                     <input type="hidden" value="@if(request()->fdate){{request()->fdate}}@endif" name="fdate">
                                     <input type="hidden" value="@if(request()->tdate){{request()->tdate}}@endif" name="tdate">
                                     <input type="hidden" value="@if(request()->rtype){{request()->rtype}}@endif" name="rtype">

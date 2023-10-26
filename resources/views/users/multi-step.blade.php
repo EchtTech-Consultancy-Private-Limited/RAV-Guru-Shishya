@@ -443,7 +443,7 @@
                                        @endif
                                     </div>
                                     <div class="add-btn-lang mb-3 mt-3">
-                                       <a href="javascript:void();" class="btn lang bg-purple" id="Add_language">
+                                       <a href="javascript:void();" class="btn lang bg-success" id="Add_language">
                                           <i class="fa fa-plus"></i>
                                        </a>
                                        <a href="javascript:void();" class="btn lang bg-red d-none" id="delete_language">
@@ -557,13 +557,13 @@
                                                    </a>
                                                    @endif
                                                 </td>
-                                                <td class="d-flex justify-content-center">
+                                                <td class="d-flex justify-content-start">
                                                    <a class="btn btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
                                                    <form action="{{ url('education-delete') }}" method="post">
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step2">
                                                       <input type="hidden" name="education_dlt_id" value="{{$educational_records->id}}">
-                                                      <button type="submit" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
+                                                      <button type="submit" class="btn btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                    </form>
                                                 </td>
                                              </tr>
@@ -854,7 +854,7 @@
                                        <input type="number"name="books_published"  placeholder="Books Published" maxlength="200">
                                     </div>
                                  </div>
-                                 <div class="col-12">
+                                 <div class="col-md-12">
                                     <div class="form-group">
                                        <label for="school_name">Number of Seminars / Conference / Workshops attended</label>
                                        <input type="number"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended" maxlength="200">
@@ -894,7 +894,7 @@
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step4">
                                                       <input type="hidden" name="publication_dlt_id" value="{{$publication_record->id}}">
-                                                      <button type="submit" class="btn btn-tbl-edit bg-danger" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
+                                                      <button type="submit" class="btn btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                    </form>
                                                 </td>
                                              </tr>

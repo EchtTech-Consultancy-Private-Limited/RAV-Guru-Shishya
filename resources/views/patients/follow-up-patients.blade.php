@@ -127,7 +127,7 @@
                             @csrf
                             <div class="body">
                                 <div class="table-responsive">
-                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer table-arrow" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                             <tr>
                                                 <th class="center sorting sorting_asc" tabindex="0"
@@ -142,22 +142,22 @@
                                                 <th class="center sorting sorting_asc" tabindex="0"
                                                     aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                                     aria-sort="ascending"
-                                                    aria-label=" No : activate to sort column descending"> S.No. </th>
-                                                <th class="center"> Patient Registration No. </th>
-                                                <th class="center"> Date </th>
-                                                <th class="center"> Patient Name </th>  
+                                                    aria-label=" No : activate to sort column descending"> S.No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                <th class="center"> Patient Registration No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                <th class="center"> Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                <th class="center"> Patient Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>  
                                                 @if(Auth::user()->user_type == 1)
-                                                <th class="center"> Guru Name </th>
-                                                <th class="center"> Shishya Name </th>
+                                                <th class="center"> Guru Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                <th class="center"> Shishya Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                                 @endif
                                                 @if(Auth::user()->user_type == 2)
-                                                <th class="center"> Shishya Name </th>
+                                                <th class="center"> Shishya Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                                 @endif
                                                 @if(Auth::user()->user_type == 3)
-                                                <th class="center"> Guru Name </th>
+                                                <th class="center"> Guru Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                                 @endif
-                                                <th class="center"> Progress Duration </th>
-                                                <th class="center"> Action </th>
+                                                <th class="center"> Progress Duration <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                <th class="center"> Action <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -251,7 +251,7 @@
 
 
 
-                                <div class="col-sm-12 p-t-20 text-left">
+                                <div class="col-sm-12 p-t-2 text-left">
 
                                     <input type="hidden"
                                         value="@if (request()->patientid) {{ request()->patientid }} @endif"
@@ -266,7 +266,7 @@
                                         value="@if (request()->rtype) {{ request()->rtype }} @endif"
                                         name="rtype">
                                     @if (Auth::user()->user_type == 3)
-                                        <button type="submit" class="btn btn-primary waves-effect"
+                                        <button type="submit" class="btn btn-primary waves-effect float-right mb-2"
                                             onclick="return confirm_option('Send selected followup list to Guru');"> &nbsp;
                                             Send To Guru &nbsp;</button>
                                     @elseif(Auth::user()->user_type == 2)

@@ -212,6 +212,7 @@ line-height: 0.42857 !important;
     padding: 10px;
     margin-bottom: 20px;
     color: #fff;
+    float: right !important;
 }
 
 .add-btn-lang a.btn.lang i{
@@ -323,7 +324,7 @@ button.btn.btn-primary.waves-effect {
 .btn-danger {
     
     /* background: linear-gradient(135deg,#8e4cf1 0,#c554bc 100%) !important; */
-    background: #DB7821 !important;
+    /* background: #DB7821 !important; */
 }
 
 table.dataTable {
@@ -421,6 +422,7 @@ input[name="send_phr_to_guru[]"] {
 #DataTables_Table_0 td input{
     display: flex;
     margin: -13% !important;
+    margin-left: -18% !important;
 }
 .table thead tr th {
    
@@ -505,15 +507,15 @@ button.btn.bg-indigo.waves-effect {
 
 .btn-info {
     color: #000;
-    background-color: #0dcaf0;
-    border-color: #0dcaf0;
+    /* background-color: #0dcaf0; */
+    /* border-color: #0dcaf0; */
     /* background: linear-gradient(180deg, #e14579 0%, #c09437 100%); */
-    background: #07819b!important;
+    background: #e67e22!important;
     color: #fff !important;
 }
 
 .card {
-    background: #efefef;
+    /* background: #efefef; */
     
 }
 .form-group {
@@ -541,13 +543,23 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 .table tbody tr td, .table tbody tr th {
     padding: 10px 0;
     border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #eee;
     vertical-align: middle;
 
     text-align: left !important; 
 }
 
 .btn-tbl-edit {
+    border-radius: 50% !important;
+    background-color: #4fab52;
+    padding: 0px !important;
+    height: 30px;
+    text-align: center;
+    width: 30px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    color: #fff;
     box-shadow: 0 0px 10px 0 rgba(0,0,0,0.2) !important;
 }
 
@@ -733,8 +745,23 @@ table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before
     color: #fff;
     
 }
+.add-button:focus{
+   background-color: #fb7600 !important;
+    color: #fff;
+    
+}
 .add-button:hover{
    background-color: #fb7600;
+    color: #fff;
+    
+}
+.btn-success:hover{
+   background-color: #fb7600;
+    color: #fff;
+    
+}
+.add-button.btn-success:focus{
+   background-color:#18ce0f !important;
     color: #fff;
     
 }
@@ -780,8 +807,78 @@ button[type="submit"]{
   .btn.btn-primary.waves-effect.submit {
     background: #d15200 !important;
   }
-  
+
+  .btn-info {
+    background-color:#e67e22 !important;
+    color: #fff !important;
+}
+
+.btn-info:hover {
+    background-color: #d15200 !important;
+    color: #fff !important;
+}
 
   .content.filter-drug {
     margin: 15px 15px 0 276px;
   }
+
+  label[for="example-hastatala-input"]{
+    font-weight: normal !important;
+ }
+ 
+ .login .card-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 15px 0 !important;
+ }
+ 
+
+ 
+ .dashboard .card h2{
+    position: absolute;
+    bottom: 7px;
+}
+.add-btn-lang {
+    display: flex;
+    justify-content: end;
+    margin-right: 5%;
+  }
+
+  input[type=text]:not(.browser-default){
+    height:2.2rem !important;
+  }
+
+  .btn-tbl-edit {
+    height: 30px;
+    width: 30px;
+}
+.material-icons{
+    height: auto !important;
+    line-height: 30px !important;
+}
+
+.btn-tbl-edit i.fa.fa-comment {
+    line-height: 30px !important;
+}
+
+.btn-tbl-delete .material-icons {
+    line-height: 14px !important;
+    font-size: 18px;
+}
+
+.btn:hover {
+    color: #fff !important;
+}
+
+.btn.btn-tbl-edit.bg-danger{
+    background:#dc3545 !important;
+}
+
+.delete{
+    background:#dc3545;
+}
+
+.wizard .content {
+   min-height: auto;
+    
+}

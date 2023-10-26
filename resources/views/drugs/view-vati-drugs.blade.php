@@ -7,7 +7,7 @@
    <div class="container-fluid">
    <div class="block-header">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mb-2 col-lg-12">
 
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
@@ -31,7 +31,7 @@
               </div>
    <!-- Basic Example | Horizontal Layout -->
    <div class="row clearfix">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-12 col-md-12 mb-2 col-sm-12 col-xs-12">
          <div class="card">
             <div class="header">
                <ul class="header-dropdown m-r--5">
@@ -62,7 +62,7 @@
             <div class="body">
                <div id="wizard_horizontal">
                   <section>
-                     <div class="col-md-12">
+                     <div class="col-md-12 mb-2">
                         <div class="card">
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
@@ -70,7 +70,7 @@
                                  <div
                                     class="row">
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2">
                                        <div
                                           class="form-group">
                                           <label
@@ -100,7 +100,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2">
                                        <div
                                           class="form-group">
                                           <label
@@ -120,7 +120,7 @@
                                        </div>
                                     </div>
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2">
                                        <div
                                           class="form-group">
                                           <label
@@ -143,7 +143,7 @@
                                 <!--  <div class="row" readonly>
 
                                     <div
-                                       class="col-md-4">
+                                       class="col-md-4 mb-2">
                                        <div class="form-group">
                                           <label
                                              for="example-text-input"
@@ -159,7 +159,7 @@
                                           </select>
                                        </div>
                                     </div>
-                                    <div class="col-md-8"></div>
+                                    <div class="col-md-8 mb-2"></div>
                                  </div> -->
                                  <div id="yogas_type">
                                  </div>
@@ -180,26 +180,22 @@
                 @csrf
                <input readonly type="hidden" name="drug_id" value="{{ $drug->id }}">
               <div class="row">
-                  <div class="h-100">
-                     <h5 class="text text-center">
-                        3- Vati YOGAS
-                     </h5>
-                  </div>
+               <div class="col-md-12 mb-2">
+               <div class="form-group  ">
+                       <h5 class="text-center d-flex justify-content-center">1 – CHURNA YOGAS</h5>
+                       <h5 class="d-block text-left">Name of the Drug</h5>
+                       <h5 class="d-block text-left">
+                          Reference
+                          <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
+                       </h5>
+                    </div>
                </div>
-               <div class="row">
-                  <div class="h-100">
-                     <h5 class="text text-center">Name of the Drug</h5>
-                  </div>
+                  
+                
                </div>
-               <div class="form-group">
-                  <div class="col-auto my-auto">
-                     <div class="h-100">
-                        <h5 class="mb-1">
-                           Reference
-                           <p class='text-danger text-xs pt-1'>Text, Chapter, Sloka – to -  (Published by, Edition, Writers/Translator)</p>
-                        </h5>
-                     </div>
-                  </div>
+              
+               <div class="">
+                 
                   <div class="col-auto my-auto">
                      <div class="h-100">
                         <h5 class="mb-1">
@@ -259,9 +255,9 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-uppercase text-sm">Method of Preparation (SOP)</p>
+                <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
                   <div class="row">
-                     <div class="col-md-12">
+                     <div class="col-md-12 mb-2">
                           <div class="form-group">
                              <label  class="form-control-label">Enter Yogas Name</label>
                              <input readonly type="text" name="vati_yoga_type_individual" class="form-control" placeholder="Vati Yoga Type Individual"  value="{{ $drug->vati_yoga_type_individual }}" maxlength="50">@error('vati_yoga_type_individual')
@@ -269,7 +265,7 @@
                              @enderror
                           </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label  class="form-control-label">Step 1<span class="text-danger">*</span></label>
                            <input readonly type="text" name="step_first" class="form-control" placeholder="Step 1" aria-label="Step 1" value="{{ $drug->step_first }}" maxlength="50">
@@ -278,7 +274,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Packing<span class="text-danger">*</span></label>
                            <input readonly type="text" name="packing" class="form-control" placeholder="Packing" aria-label="Packing" value="{{ $drug->packing }}" maxlength="50">
@@ -289,7 +285,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Storage<span class="text-danger">*</span></label>
                            <input readonly type="text" name="storage" class="form-control" placeholder="Storage" value="{{ $drug->storage }}" maxlength="50">
@@ -298,7 +294,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Method of Administration<span class="text-danger">*</span></label>
                            <input readonly type="text" name="method_of_administration" class="form-control" placeholder="Method of Administration"  value="{{ $drug->method_of_administration }}" maxlength="50">
@@ -309,7 +305,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Dose<span class="text-danger">*</span></label>
                            <input readonly type="text" name="dose" class="form-control" placeholder="Dose" aria-label="Dose" value="{{ $drug->dose }}" maxlength="50">
@@ -318,7 +314,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Time of administration<span class="text-danger">*</span></label>
                            <input readonly type="text" name="time_of_administration" class="form-control" placeholder="Time of administration" value="{{ $drug->time_of_administration }}" maxlength="50">
@@ -329,7 +325,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Duration of Therapy<span class="text-danger">*</span></label>
                            <input readonly type="text" name="duration_of_therapy" class="form-control" placeholder="Duration of Therapy"  value="{{ $drug->duration_of_therapy }}" maxlength="50">
@@ -338,7 +334,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Vehicle<span class="text-danger">*</span></label>
                            <input readonly type="text" name="vehicle" class="form-control" placeholder="Vehicle" aria-label="Vehicle" value="{{ $drug->vehicle }}" maxlength="50">
@@ -349,7 +345,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Indications<span class="text-danger">*</span></label>
                            <input readonly type="text" name="indicationsduration_of_therapy" class="form-control" placeholder="Indications" aria-label="Duration of Therapy" value="{{ $drug->indicationsduration_of_therapy }}" maxlength="50">
@@ -358,7 +354,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Contra indications<span class="text-danger">*</span></label>
                            <input readonly type="text" name="contraindicationsduration_of_therapy" class="form-control" placeholder="Contra indications"  value="{{ $drug->contraindicationsduration_of_therapy }}" maxlength="50">
@@ -369,7 +365,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Wholesome diet<span class="text-danger">*</span></label>
                            <input readonly type="text" name="wholesome_diet" class="form-control" placeholder="Wholesome diet" value="{{ $drug->wholesome_diet }}" maxlength="50">
@@ -378,7 +374,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Whole some activities<span class="text-danger">*</span></label>
                            <input readonly type="text" name="wholesome_activities" class="form-control" placeholder="Whole some activities"  value="{{ $drug->wholesome_activities }}" readonly>
@@ -387,7 +383,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Wholesome behavior<span class="text-danger">*</span></label>
                            <input readonly type="text" name="wholesome_behavior" class="form-control" placeholder="Wholesome behavior" aria-label="Wholesome behavior" value="{{ $drug->wholesome_behavior }}" readonly>
@@ -397,9 +393,9 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">Observations</p>
+                  <p class="text-capatilize text-sm">Observations</p>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Quantity of Raw Material<span class="text-danger">*</span></label>
                            <input readonly type="text" name="quantity_of_raw_material" class="form-control" placeholder="Quantity of Raw Material"  value="{{ $drug->quantity_of_raw_material }}" readonly>
@@ -408,7 +404,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Quantity of finished product<span class="text-danger">*</span></label>
                            <input readonly type="text" name="quantity_of_finished_product" class="form-control" placeholder="Quantity of finished product"  value="{{ $drug->quantity_of_finished_product }}" readonly>
@@ -417,7 +413,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Loss<span class="text-danger">*</span></label>
                            <input readonly type="text" name="loss" class="form-control" placeholder="Loss" aria-label="Loss" value="{{ $drug->loss }}" readonly>
@@ -426,7 +422,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Reasons for Loss<span class="text-danger">*</span></label>
                            <input readonly type="text" name="reasons_for_loss" class="form-control" placeholder="Reasons for Loss" aria-label="Name" value="{{ $drug->reasons_for_loss }}" readonly>
@@ -437,7 +433,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">(i)<span class="text-danger">*</span></label>
                            <input readonly type="text" name="reasons_for_loss_first" class="form-control" placeholder="(i)" aria-label="(i)" value="{{ $drug->reasons_for_loss_first }}" readonly>@error('reasons_for_loss_first')
@@ -445,7 +441,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">(ii)<span class="text-danger">*</span></label>
                            <input readonly type="text" name="reasons_for_loss_second" class="form-control" placeholder="(ii)" aria-label="Name" value="{{ $drug->reasons_for_loss_second }}" maxlength="50">
@@ -454,7 +450,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Organoleptic properties of raw materials<span class="text-danger">*</span></label>
                            <input readonly type="text" name="organoleptic_properties_of_raw_materials" class="form-control" placeholder="Organoleptic properties of raw materials" value="{{ $drug->organoleptic_properties_of_raw_materials }}" readonly>
@@ -463,7 +459,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Organoleptic properties of finished product<span class="text-danger">*</span></label>
                            <input readonly type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Organoleptic properties of finished product" value="{{ $drug->organoleptic_properties_of_finished_product }}" maxlength="50">
@@ -473,11 +469,11 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-uppercase text-sm">Time taken for the practical</p>
+                  <p class="text-capatilize text-sm">Time taken for the practical</p>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group ">
-                           <label class="control-label col-sm-2 requiredField" for="date">(i) Starting Date<span class="text-danger">*</span>
+                           <label class="control-label   requiredField" for="date">(i) Starting Date<span class="text-danger">*</span>
                            </label>
                            <div class="input-group">
                            </div>
@@ -486,9 +482,9 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mb-2">
                         <div class="form-group ">
-                           <label class="control-label col-sm-2 requiredField" for="date">(ii)  Ending Date<span class="text-danger">*</span>
+                           <label class="control-label   requiredField" for="date">(ii)  Ending Date<span class="text-danger">*</span>
                            </label>
                            <div class="input-group">
                            </div>

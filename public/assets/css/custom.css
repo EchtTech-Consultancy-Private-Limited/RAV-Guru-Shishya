@@ -84,6 +84,19 @@
 
 
 /* ======================media queries==================== */
+@media(min-width:1300px){
+
+section.content1 {
+   margin: 0px;
+   width: 60%;
+   display: flex;
+   top: 50%;
+   left: 50%;
+   position: relative;
+   transform: translate(-50%, 0%);
+}
+
+}
 @media(max-width:1400px){
    .wizard .steps a {
       padding: 14px 10px;
@@ -98,6 +111,15 @@
 }
 
 @media(min-width:991px) and (max-width:1300px){
+   section.content1 {
+      margin: 20px;
+      width: 80%;
+      display: flex;
+      top: 50%;
+      left: 50%;
+      position: relative;
+      transform: translate(-50%, 0%);
+   }
    .wizard .steps a {
      
       font-size: 13px;
@@ -112,6 +134,15 @@
 }
 
 @media(max-width:991px){
+   section.content1 {
+      margin: 20px;
+      width: 95%;
+      display: flex;
+      top: 50%;
+      left: 50%;
+      position: static;
+      transform: none;
+   }
    .new-patient-input{
       margin: 7px 0 !important;
    }
@@ -238,6 +269,3 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 }
 }
 
-label[for="example-hastatala-input"]{
-   font-weight: normal !important;
-}
