@@ -34,7 +34,7 @@
 		                        <h5>List All Users</h5>
 		                     </div>
 		                     <div class="col-sm-6 text-end">
-                                <button class="btn btn-success btn-sm btn-round has-ripple" data-bs-toggle="modal" data-bs-target="#modal-report"><i class="feather icon-plus"></i> Add User</button>
+                                <button class="btn add btn-success btn-sm btn-round has-ripple" data-bs-toggle="modal" data-bs-target="#modal-report"><i class="feather icon-plus"></i> Add User</button>
                             </div>
 		                  </div>
 		               </div>
@@ -159,7 +159,7 @@
 		                           </div>
 		                        </div>
 		                        <div class="text-right">
-		                           <button type="button" id="update_circular_btn" class="btn btn-primary save">Save
+		                           <button type="button" id="update_circular_btn" class="btn save btn-primary save">Save
 		                           </button>
 		                           <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">
 		                           Close
@@ -224,8 +224,8 @@
 			                        
 			                      
 			                        <div class="col-sm-12">
-			                            <button type="submit" class="btn btn-primary">Submit</button>
-			                            <button class="btn btn-danger">Clear</button>
+			                            <button type="submit" class="btn submit btn-primary">Submit</button>
+			                            <button class="btn clear btn-danger">Clear</button>
 			                        </div>
 			                    </div>
 			                </form>

@@ -101,7 +101,7 @@
                </div>
             </div>
          </div>
-         <a style="line-height:2;" type="button" class="btn btn-secondary" href="{{ url('admin-patient-list') }}">Back To PHR Records</a>
+         <a style="line-height:2;" type="button" class="btn back btn-secondary" href="{{ url('admin-patient-list') }}">Back To PHR Records</a>
       </div>
    </div>
 </section>      

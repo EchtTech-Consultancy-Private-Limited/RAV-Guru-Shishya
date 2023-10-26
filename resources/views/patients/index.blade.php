@@ -77,7 +77,7 @@
                     @csrf
                     @method('DELETE')
                     @can('product-delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn delete btn-danger">Delete</button>
                     @endcan
                 </form>
 	        </td>

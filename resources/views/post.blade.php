@@ -70,7 +70,7 @@
 
                               
                             <div class="text-center" style="margin-top: 10px;">
-                                <button type="submit" class="btn btn-success">Save</button>
+                                <button type="submit" class="btn save btn-success">Save</button>
                             </div>
                         </form>
                     </div>

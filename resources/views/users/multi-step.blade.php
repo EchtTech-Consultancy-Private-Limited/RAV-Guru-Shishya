@@ -143,8 +143,8 @@
                                  </div>
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
-                                       <label >Date of Birth<span class="text-danger">*</span></label>
-                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth"  value="@if(isset($profile_record[0])){{ $profile_record[0]->date_of_birth }}@endif">
+                                       <label for="date_of_birth">Date of Birth:</label>
+                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
                                        @if($errors->has('date_of_birth'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
@@ -155,7 +155,7 @@
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label>Age<span class="text-danger">*</span></label>
-                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="@if(isset($profile_record[0])){{ $profile_record[0]->age }}@endif"> 
+                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}"> 
                                        @if($errors->has('age'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('age') }}</strong>
@@ -166,7 +166,7 @@
                                  <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                        <label >Father's Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="@if(isset($profile_record[0])){{ $profile_record[0]->f_name }}@endif">
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
                                        @if($errors->has('f_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
@@ -180,7 +180,7 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="@if(isset($profile_record[0])){{$profile_record[0]->address1}}@endif">
+                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="{{ old('address1', $profile_record[0]->address1) }}">
                                        @if($errors->has('address1'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('address1') }}</strong>
@@ -191,9 +191,9 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="@if(isset($profile_record[0])){{ $profile_record[0]->address2 }}@endif">@if($errors->has('Address'))
+                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="{{ old('address2', $profile_record[0]->address2) }}">@if($errors->has('address2'))
                                        <span class="help-block">
-                                          <strong style="color:red;">{{ $errors->first('Address') }}</strong>
+                                          <strong style="color:red;">{{ $errors->first('address2') }}</strong>
                                        </span>
                                        @endif
                                     </div>
@@ -249,7 +249,7 @@
                                  <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->pincode }}">
+                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ old('pincode', $profile_record[0]->pincode) }}">
                                        @if($errors->has('pincode'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('pincode') }}</strong>
@@ -344,7 +344,7 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->aadhaar_no }}">@error('aadhaar_no')
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
                                        <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
                                     </div>
@@ -352,7 +352,7 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ $profile_record[0]->pan_no }}">@error('pan_no')
+                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">@error('pan_no')
                                        <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
                                     </div>
@@ -480,8 +480,8 @@
                               </div>
                               <ul class="list-inline pull-right">
                                  <li>
-                                    <button type="submit" class="btn bg-indigo">Submit</button>
-                                    <button type="button" class="btn btn-info next-step">Next</button>
+                                    <button type="submit" class="btn submit bg-indigo">Submit</button>
+                                    <button type="button" class="btn next btn-info next-step">Next</button>
                                  </li>
                               </ul>
                            </form>
@@ -523,7 +523,7 @@
                                     </div>
                                  </div>
                                  <div class="col-md-12 text-end">
-                                    <button type="submit" class="btn bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
+                                    <button type="submit" class="btn save bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
                                  </div>
                               </div>
                            </form>
@@ -558,12 +558,12 @@
                                                    @endif
                                                 </td>
                                                 <td class="d-flex justify-content-start">
-                                                   <a class="btn btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
+                                                   <a class="btn edit btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
                                                    <form action="{{ url('education-delete') }}" method="post">
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step2">
                                                       <input type="hidden" name="education_dlt_id" value="{{$educational_records->id}}">
-                                                      <button type="submit" class="btn btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
+                                                      <button type="submit" class="btn delete btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                    </form>
                                                 </td>
                                              </tr>
@@ -575,8 +575,8 @@
                               </div>
                            </div>
                            <ul class="list-inline pull-right ">
-                              <li><button type="button" class="btn btn-danger prev-step mr-2">Previous</button></li>
-                              <li><button type="button" class="btn btn-info next-step1">Next</button></li>
+                              <li><button type="button" class="btn previous btn-danger prev-step mr-2">Previous</button></li>
+                              <li><button type="button" class="btn next btn-info next-step1">Next</button></li>
                            </ul>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step3') active @endif @endif" role="tabpanel" id="step3">
@@ -825,8 +825,8 @@
                                  </div>
                               </div>
                               <ul class="list-inline pull-right">
-                                 <li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li>
-                                 <li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
+                                 <li><button type="button" class="btn previous btn-danger prev-step1 mr-2">Previous</button></li>
+                                 <li><button type="submit" class="btn next btn-info btn-info-full">Next</button></li>
                               </ul>
                            </form>
                         </div>
@@ -861,7 +861,7 @@
                                     </div>
                                  </div>
                                  <div class="col-md-12 text-center mb-3">
-                                    <button type="submit" class="btn bg-indigo waves-effect">Save</button>
+                                    <button type="submit" class="btn save bg-indigo waves-effect">Save</button>
                                  </div>
                               </div>
                            </form>
@@ -894,7 +894,7 @@
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step4">
                                                       <input type="hidden" name="publication_dlt_id" value="{{$publication_record->id}}">
-                                                      <button type="submit" class="btn btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
+                                                      <button type="submit" class="btn delete btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                    </form>
                                                 </td>
                                              </tr>
@@ -906,8 +906,8 @@
                               </div>
                            </div>
                            <ul class="list-inline pull-right">
-                              <li><button type="button" class="btn btn-danger prev-step2 mr-2">Previous</button></li>
-                              <li><button type="button" class="btn btn-info btn-info-full next-step3">Next</button></li>
+                              <li><button type="button" class="btn previous btn-danger prev-step2 mr-2">Previous</button></li>
+                              <li><button type="button" class="btn next btn-info btn-info-full next-step3">Next</button></li>
                            </ul>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step5') active @endif @endif" role="tabpanel" id="step5">
@@ -978,8 +978,8 @@
                                  </div>
                               </div>
                               <ul class="list-inline pull-right">
-                                 <li><button type="button" class="btn btn-danger prev-step3 mr-2">Previous</button></li>
-                                 <li><button type="submit" class="btn btn-info btn-info-full next-step4">Submit</button></li>
+                                 <li><button type="button" class="btn previous btn-danger prev-step3 mr-2">Previous</button></li>
+                                 <li><button type="submit" class="btn submit next btn-info btn-info-full next-step4">Submit</button></li>
                               </ul>
                            </form>
                         </div>
@@ -1042,7 +1042,7 @@
                      </div>
                   </div>
                   <div class="col-md-12 text-center">
-                     <button type="submit" class="btn bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
+                     <button type="submit" class="btn save bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
                   </div>
                </div>
             </form>
@@ -1093,7 +1093,7 @@
                         </div>
                      </div>
                      <div class="col-md-12 text-center">
-                        <button type="submit" class="btn bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
+                        <button type="submit" class="btn save bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
                      </div>
                   </div>
                </div>

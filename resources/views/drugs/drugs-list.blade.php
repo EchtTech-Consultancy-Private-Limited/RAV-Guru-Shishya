@@ -118,8 +118,8 @@
                                             </div>
                                             <div class="col-md-6 d-flex align-items-center">
                                                 <div>
-                                                <button  class="btn btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
-                                                <a href="{{url('drug-report-history')}}"> <button type="button" class="btn btn-primary btn-sm ms-auto nextBtn">Reset</button></a>
+                                                <button  class="btn filter btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
+                                                <a href="{{url('drug-report-history')}}"> <button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn">Reset</button></a>
                                                 </div>
                                                 
                                                 

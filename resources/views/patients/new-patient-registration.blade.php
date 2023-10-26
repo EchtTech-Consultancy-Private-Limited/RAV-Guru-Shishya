@@ -61,7 +61,7 @@
                                     <div class="new-patient-input d-flex align-items-center justify-content-end h-100">
                                         <div>
                                             @if (Auth::user()->guru_id)
-                                            <a type="button" href="{{ url('/add-history-sheet') }}" class="btn btn-danger waves-effect" style="line-height:2;">+ Add PHR
+                                            <a type="button" href="{{ url('/add-history-sheet') }}" class="btn add  waves-effect " >+ Add PHR
                                             </a>
                                             @endif
                                         </div>
@@ -82,7 +82,7 @@
                                                 <thead>
                                                     <tr role="row">
                                                         <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">
-                                                            <input id="addall" type="checkbox"> <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i><label for='selectAll'> </label>
+                                                            <input id="addall" type="checkbox"><label for='selectAll'> </label>
                                                         </th>
 
                                                         <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
@@ -121,7 +121,7 @@
                                                         <td class="text-center">
                                                             {{ $patientlist->registration_no }}
                                                         </td>
-                                                        <td class="center"> {{ date('d-m-Y', strtotime($patientlist->registration_date)) }}</td>
+                                                        <td class="center date" > {{ date('d-m-Y', strtotime($patientlist->registration_date)) }}</td>
                                                         <td class="center"> {{ $patientlist->patient_name }} </td>
                                                         <td class="center">
                                                             @if ($patientlist->gender == 1)
@@ -160,10 +160,10 @@
 
 
                                                         </td>
-                                                        <td class="center">
+                                                        <td class="center d-flex">
                                                         <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i></a>
                                                         @if($patientlist->phr_s_status== 1)
-                                                            <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
+                                                            <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary remark" title="Remarks">
                                                                 Remarks
                                                             </a>
                                                         @endif                                                            
@@ -173,7 +173,7 @@
 
                                                 </tbody>
                                             </table>
-                                            <button type="submit" class="btn btn-primary waves-effect" onclick="send_to_guru()" class="pt-2"> &nbsp; Send To Guru
+                                            <button type="submit" class="btn send  waves-effect " onclick="send_to_guru()" class="pt-2"> &nbsp; Send To Guru
                                                 &nbsp;</button>
                                         </form>
                                     </div>

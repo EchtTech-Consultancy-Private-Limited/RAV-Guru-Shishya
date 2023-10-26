@@ -50,7 +50,7 @@
                         <form action="{{ route('users.create') }}" method="get">
                            <input type="hidden" name="add_user_btn" value="@if(request()->path()=='rav-admin' && Auth::user()->user_type==1) {{$user_type_array['Admin']}} @elseif(request()->path()=='rav-admin') {{$user_type_array['Admin']}} @elseif(request()->path()=='users') {{$user_type_array['Guru']}} @elseif(request()->path()=='shishya-list') {{$user_type_array['Shishya']}} @endif">
 
-                           <input type="submit" value="+ Add @if(request()->path()=='users') Guru @elseif(request()->path()=='shishya-list') Shishya @elseif(request()->path()=='rav-admin') Admin @endif" class="btn btn-primary" style="padding:10px !important;">
+                           <input type="submit" value="+ Add @if(request()->path()=='users') Guru @elseif(request()->path()=='shishya-list') Shishya @elseif(request()->path()=='rav-admin') Admin @endif" class="btn add">
                         </form>
                      </span>
                     
@@ -65,14 +65,14 @@
                         <thead>
                            <tr>
                               
-                              <th class="center"> No </th>
-                              <th class="center"> Registration No. </th>
-                              <th class="center"> Name </th>
-                              <th class="center"> Email </th>
-                              <th class="center"> User Type </th>
-                              <th class="center">Created Date </th>
-                              <th class="center"> Status </th>
-                              <th class="center"> Action </th>
+                              <th class="center"> No <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center"> Registration No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center"> Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center"> Email <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center"> User Type <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center">Created Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center"> Status <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center"> Action <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
                            </tr>
                         </thead>
                         <tbody>
@@ -107,11 +107,11 @@
                                  </td>
                                  <td class="text-center">
                                  @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
-                                 <a href="{{ url('active-users/'.encrypt($user->id)) }}" class="@if($user->status==0) btn-tbl-disable @elseif($user->status==1) btn-tbl-edit @endif"   onclick="return confirm_option('change status')" title="Verify Users">
+                                 <a href="{{ url('active-users/'.encrypt($user->id)) }}" class="@if($user->status==0) btn-tbl-disable status @elseif($user->status==1) btn-tbl-edit status @endif"   onclick="return confirm_option('change status')" title="Verify Users">
                                        <i class="fas fa-ban"></i>
                                     </a>
                                  @else
-                                 <a href="javascript:void(0);" class="@if($user->status==0) btn-tbl-disable @elseif($user->status==1) btn-tbl-edit @endif" title="Status">
+                                 <a href="javascript:void(0);" class="@if($user->status==0) btn-tbl-disable status @elseif($user->status==1) btn-tbl-edit status @endif" title="Status">
                                        <i class="fas fa-ban"></i>
                                     </a>
                                  @endif

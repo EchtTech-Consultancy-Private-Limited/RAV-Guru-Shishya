@@ -311,12 +311,12 @@ div.dataTables_wrapper div.dataTables_paginate {
 .new-patient-ragistration {
     font-weight: bold;
     font-size: 15px;
-    padding-right: 29px;
+    padding-right: 16px;
 }
 
 button.btn.btn-primary.waves-effect {
     margin-right: 10px;
-    background: #E67E22 !important;
+    background-color: #E67E22 !important;
 }
 .new-patient-input select{
     cursor: pointer;
@@ -353,11 +353,16 @@ table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:
 }
 
 @media(max-width:1300px) and (min-width:991px){
-    .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
-        padding: 5px 9px !important;
+     .btn-tbl-edit, .btn-tbl-delete {
+      
+        padding: 0px !important;
+    }
+    .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn {
+        padding: 6px 13px ;
         margin: 1px;
         font-weight: 500;
     }
+   
 }
 
 
@@ -489,7 +494,8 @@ button.btn.bg-indigo.waves-effect {
 
 .wizard .steps .active a,.wizard>.steps .disabled a:hover, .wizard>.steps .disabled a:active {
     /* background-color: #009688; */
-    background:linear-gradient(178deg,#E67E22 0,#C26A1D 100%)  !important;
+    /* background:linear-gradient(178deg,#E67E22 0,#C26A1D 100%)  !important; */
+    background: #66615c !important;
     color: #fff !important;
 }
 
@@ -635,6 +641,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     color: #aaa;
     cursor: default;
     font-weight: bold;
+    border: 1px solid #ddd;
 }
 .card .body .col-xs-4, .card .body .col-sm-4, .card .body .col-md-4, .card .body .col-lg-4 {
     margin-bottom: 10px;
@@ -848,10 +855,16 @@ button[type="submit"]{
     height:2.2rem !important;
   }
 
-  .btn-tbl-edit {
+  .btn-tbl-edit, .btn-tbl-delete {
     height: 30px;
     width: 30px;
+    padding: 0px !important;
+    display: inline-block;
 }
+.btn-tbl-edit i{
+    line-height: 30px !important;
+}
+
 .material-icons{
     height: auto !important;
     line-height: 30px !important;
@@ -862,7 +875,7 @@ button[type="submit"]{
 }
 
 .btn-tbl-delete .material-icons {
-    line-height: 14px !important;
+    line-height: 30px !important;
     font-size: 18px;
 }
 
@@ -882,3 +895,126 @@ button[type="submit"]{
    min-height: auto;
     
 }
+
+.remark {
+    padding: 0px 9px !important;
+    display: block;
+    line-height: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.btn.btn-secondary.remark {
+    /* display: block;
+    padding: 7px 6px !important;
+    line-height: 1; */
+}
+a.btn.waves-effect.add-phr{
+    line-height: 2 !important; 
+    padding: 4px !important;
+}
+
+.date{
+    white-space: nowrap !important;
+}
+
+.content.content-section {
+    padding: 0px;
+    margin: 0 15px 0 276px;
+  }
+
+  input#checkall {
+    /* margin: 0; */
+}
+
+
+/* *************************************button colo start******************************** */
+button.btn.save, button.btn.next, button.btn.previous, button.btn.submit, button.btn.filter, button.btn.reset, button.btn.add, .btn.add, button.btn.send{
+    border-radius: 20px !important;
+    padding: 0 23px !important;
+}
+
+.btn.add {
+    display: flex;
+    align-items: center;
+}
+button.btn.save {
+    background: #5C4E3F !important;
+    color: #fff;
+}
+button.btn.next{
+   background: #3F545C !important;
+   color: #fff;
+}
+button.btn.previous{
+  background:  #866C52 !important;
+  color: #fff;
+}
+button.btn.filter{
+     background: #3F545C !important;
+     color: #fff;
+}
+button.btn.add{
+     background: #659EA3 !important;
+     color: #fff;
+}
+a.btn.add {
+    background: #659EA3 !important;
+    color: #fff;
+    border-radius: 20px !important;
+    padding: 0 23px !important;
+    
+}
+button.btn.reset{
+     background:#615B54 !important;
+     color: #fff;
+}
+.paginate_button.page-item.previous .page-link{
+    background:  #866C52 !important;
+  color: #fff;
+  border-radius: 20px;
+}
+.paginate_button.page-item.next .page-link{
+    background: #3F545C !important;
+    color: #fff;
+    border-radius: 20px;
+}
+
+button.btn.send {
+    float: right;
+    background: #21545C !important;
+    color: #fff;
+}
+
+
+.btn.remark {
+    background: #615B54;
+    display: inline-block;
+    color: #fff;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+button.btn.submit {
+    background: #5C4E3F !important;
+    color: #fff;
+}
+
+.page-item.active .page-link{
+    background-color: #605f5f !important;
+}
+.page-item .page-link{
+    background-color: #353c4870 !important;
+}
+
+.btn.add{
+    background: #659EA3 !important;
+    color: #fff;
+    border-radius: 20px !important;
+    padding: 0 23px !important;
+}
+/* *************************************button colo end******************************** */

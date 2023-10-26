@@ -262,7 +262,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="text-end d-flex justify-content-end"><button  onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center btn-success"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
+                                        <div class="text-end d-flex justify-content-end"><button  onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center btn-success"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -526,7 +526,7 @@
                        </div>
                     </div>
                 </div>
-                 <button type="submit" class="btn btn-secondary mb-4">Add Churna Yogas</button>
+                 <button type="submit" class="btn add btn-secondary mb-4">Add Churna Yogas</button>
             </form>
         </div>
 
@@ -604,7 +604,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
+                                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -798,7 +798,7 @@
                      </div>
                   </div>
                
-               <button type="submit" class="btn btn-secondary mb-4">Add Rasa Yogas</button>
+               <button type="submit" class="btn add btn-secondary mb-4">Add Rasa Yogas</button>
             </form>
          </div>
       </div>
@@ -868,7 +868,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
+                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                         </div>
                     </div>
                   </div>
@@ -1107,7 +1107,7 @@
                      </div>
                   </div>
               </div>
-              <button type="submit" class="btn btn-secondary mb-4">Add Vati Yogas</button>
+              <button type="submit" class="btn add btn-secondary mb-4">Add Vati Yogas</button>
          </form>
       </div>
          <!-- vati_yogas end -->
@@ -1176,7 +1176,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
+                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                         </div>
                     </div>
                   </div>
@@ -1545,7 +1545,7 @@
                   </div>
                </div>
             </div>
-            <button type="submit" class="btn btn-secondary mb-4">Add Talia Yogas</button>
+            <button type="submit" class="btn add btn-secondary mb-4">Add Talia Yogas</button>
          </form>
         </div>
 
@@ -1612,7 +1612,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn  add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
+                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
                     </div>
                 </div>
             </div>
@@ -1963,7 +1963,7 @@
                </div>
             </div>
          </div>
-         <button type="submit" class="btn btn-secondary mb-4">Add ASAVA/ARISHTA Yogas</button>
+         <button type="submit" class="btn add btn-secondary mb-4">Add ASAVA/ARISHTA Yogas</button>
         </form>
       </div>
       <!-- asva_yogas end -->

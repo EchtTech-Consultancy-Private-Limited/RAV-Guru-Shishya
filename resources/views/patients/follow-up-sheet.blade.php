@@ -1039,7 +1039,7 @@
                                     @csrf
                                  <div class="col-sm-12 p-t-20 text-left">
                                  
-                                 <a href="{{ url('/follow-up-patients') }}"><button type="button"  class="btn btn-danger waves-effect"> &nbsp; Back  &nbsp;</button></a>
+                                 <a href="{{ url('/follow-up-patients') }}"><button type="button"  class="btn back btn-danger waves-effect"> &nbsp; Back  &nbsp;</button></a>
                                  @foreach($data as $k=>$followup)
                                     <input type="hidden" value="{{$followup->id}}" name="followup_ids[]">
                                  @endforeach
@@ -1048,9 +1048,9 @@
                                     <input type="hidden" value="@if(request()->tdate){{request()->tdate}}@endif" name="tdate">
                                     <input type="hidden" value="@if(request()->rtype){{request()->rtype}}@endif" name="rtype">
                                     @if(Auth::user()->user_type==3)
-                                       <button type="submit"  class="btn btn-primary waves-effect" onclick="return confirm_option('Send selected followup list to Guru');"> &nbsp; Send To Guru  &nbsp;</button>
+                                       <button type="submit"  class="btn send btn-primary waves-effect" onclick="return confirm_option('Send selected followup list to Guru');"> &nbsp; Send To Guru  &nbsp;</button>
                                     @elseif(Auth::user()->user_type==2)
-                                       <button type="submit"  class="btn btn-primary waves-effect" onclick="return confirm_option('Send selected followup list to Admin');"> &nbsp; Send To Admin  &nbsp;</button>
+                                       <button type="submit"  class="btn send btn-primary waves-effect" onclick="return confirm_option('Send selected followup list to Admin');"> &nbsp; Send To Admin  &nbsp;</button>
                                     @endif
                                 
                               </div>

@@ -74,8 +74,8 @@
                   
                  
                   <div class="col-lg-12 p-t-20 text-center">
-                     <button type="submit" class="btn btn-primary waves-effect m-r-15">Submit</button>
-                     <button type="button" class="btn btn-danger waves-effect">Cancel</button>
+                     <button type="submit" class="btn submit btn-primary waves-effect m-r-15">Submit</button>
+                     <button type="button" class="btn delete btn-danger waves-effect">Cancel</button>
                   </div>
                </div>
                </form>
