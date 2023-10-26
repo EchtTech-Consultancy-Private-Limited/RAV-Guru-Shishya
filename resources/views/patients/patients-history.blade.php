@@ -275,7 +275,7 @@
                                                 </form>
                                             </div>
                                         </div>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+            <button class="btn next btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
           </div>
         </div>
       </div>
@@ -301,7 +301,7 @@
                                             <input type="text" id="Diagnosis">
                                         </div>
                                         <div class="col-12 flex-row-reverse">
-                                        <button type="submit" type="btn" class="btn-primary" style="padding: 5px 20px; border-radius: 5px; float: right;">Add </button>
+                                        <button type="submit" type="btn" class="btn add btn-primary" >Add </button>
 
                                     </div>
                                           </form>
@@ -402,7 +402,7 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+            <button class="btn next btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
           </div>
         </div>
       </div>
@@ -1912,7 +1912,7 @@
 
                                                         </div></form>
                                                 </div>
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                <button class="btn next btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
           </div>
         </div>
       </div>
@@ -1948,7 +1948,7 @@
                                                     <input type="text" id="monthly_progress">
                                                 </div>
                                                 <div class="col-12 flex-row-reverse">
-                                                <button type="submit" class="btn-primary" style="padding: 5px 20px; border-radius: 5px; float: right;">Add </button>
+                                                <button type="submit" class="btn add btn-primary" >Add </button>
 
                                             </div>
                                                   </form>
@@ -2030,7 +2030,7 @@
                                                         </table>
                                                     </div></section>
 </div>
-                  <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                  <button class="btn next btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
                 </div>
               </div>
             </div>
@@ -2038,7 +2038,7 @@
               <div class="col-xs-6 col-md-offset-3">
                 <div class="col-md-12">
                   <h3> Step 5</h3>
-                  <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+                  <button class="btn submit btn-success btn-lg pull-right" type="submit">Submit</button>
                 </div>
               </div>
             </div>

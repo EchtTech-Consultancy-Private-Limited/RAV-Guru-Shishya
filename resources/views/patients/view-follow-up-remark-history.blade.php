@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-                <a style="line-height:2;" type="button" class="btn btn-secondary" href="{{ url('follow-up-patients') }}">Back To Follow Up Patients</a>
+                <a style="line-height:2;" type="button" class="btn back btn-secondary" href="{{ url('follow-up-patients') }}">Back To Follow Up Patients</a>
             </div>
         </div>
 </section>

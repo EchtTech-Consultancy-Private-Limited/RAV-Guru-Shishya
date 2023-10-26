@@ -480,8 +480,8 @@
                               </div>
                               <ul class="list-inline pull-right">
                                  <li>
-                                    <button type="submit" class="btn bg-indigo">Submit</button>
-                                    <button type="button" class="btn btn-info next-step">Next</button>
+                                    <button type="submit" class="btn submit bg-indigo">Submit</button>
+                                    <button type="button" class="btn next btn-info next-step">Next</button>
                                  </li>
                               </ul>
                            </form>
@@ -523,7 +523,7 @@
                                     </div>
                                  </div>
                                  <div class="col-md-12 text-end">
-                                    <button type="submit" class="btn bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
+                                    <button type="submit" class="btn save bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
                                  </div>
                               </div>
                            </form>
@@ -558,12 +558,12 @@
                                                    @endif
                                                 </td>
                                                 <td class="d-flex justify-content-start">
-                                                   <a class="btn btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
+                                                   <a class="btn edit btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
                                                    <form action="{{ url('education-delete') }}" method="post">
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step2">
                                                       <input type="hidden" name="education_dlt_id" value="{{$educational_records->id}}">
-                                                      <button type="submit" class="btn btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
+                                                      <button type="submit" class="btn delete btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                    </form>
                                                 </td>
                                              </tr>
@@ -575,8 +575,8 @@
                               </div>
                            </div>
                            <ul class="list-inline pull-right ">
-                              <li><button type="button" class="btn btn-danger prev-step mr-2">Previous</button></li>
-                              <li><button type="button" class="btn btn-info next-step1">Next</button></li>
+                              <li><button type="button" class="btn previous btn-danger prev-step mr-2">Previous</button></li>
+                              <li><button type="button" class="btn next btn-info next-step1">Next</button></li>
                            </ul>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step3') active @endif @endif" role="tabpanel" id="step3">
@@ -825,8 +825,8 @@
                                  </div>
                               </div>
                               <ul class="list-inline pull-right">
-                                 <li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li>
-                                 <li><button type="submit" class="btn btn-info btn-info-full">Next</button></li>
+                                 <li><button type="button" class="btn previous btn-danger prev-step1 mr-2">Previous</button></li>
+                                 <li><button type="submit" class="btn next btn-info btn-info-full">Next</button></li>
                               </ul>
                            </form>
                         </div>
@@ -861,7 +861,7 @@
                                     </div>
                                  </div>
                                  <div class="col-md-12 text-center mb-3">
-                                    <button type="submit" class="btn bg-indigo waves-effect">Save</button>
+                                    <button type="submit" class="btn save bg-indigo waves-effect">Save</button>
                                  </div>
                               </div>
                            </form>
@@ -894,7 +894,7 @@
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step4">
                                                       <input type="hidden" name="publication_dlt_id" value="{{$publication_record->id}}">
-                                                      <button type="submit" class="btn btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
+                                                      <button type="submit" class="btn delete btn-tbl-edit bg-danger d-flex justify-content-center delete" onclick="return confirm_option('delete')"><i class="material-icons">delete</i></button>
                                                    </form>
                                                 </td>
                                              </tr>
@@ -906,8 +906,8 @@
                               </div>
                            </div>
                            <ul class="list-inline pull-right">
-                              <li><button type="button" class="btn btn-danger prev-step2 mr-2">Previous</button></li>
-                              <li><button type="button" class="btn btn-info btn-info-full next-step3">Next</button></li>
+                              <li><button type="button" class="btn previous btn-danger prev-step2 mr-2">Previous</button></li>
+                              <li><button type="button" class="btn next btn-info btn-info-full next-step3">Next</button></li>
                            </ul>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step5') active @endif @endif" role="tabpanel" id="step5">
@@ -978,8 +978,8 @@
                                  </div>
                               </div>
                               <ul class="list-inline pull-right">
-                                 <li><button type="button" class="btn btn-danger prev-step3 mr-2">Previous</button></li>
-                                 <li><button type="submit" class="btn btn-info btn-info-full next-step4">Submit</button></li>
+                                 <li><button type="button" class="btn previous btn-danger prev-step3 mr-2">Previous</button></li>
+                                 <li><button type="submit" class="btn submit next btn-info btn-info-full next-step4">Submit</button></li>
                               </ul>
                            </form>
                         </div>
@@ -1042,7 +1042,7 @@
                      </div>
                   </div>
                   <div class="col-md-12 text-center">
-                     <button type="submit" class="btn bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
+                     <button type="submit" class="btn save bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
                   </div>
                </div>
             </form>
@@ -1093,7 +1093,7 @@
                         </div>
                      </div>
                      <div class="col-md-12 text-center">
-                        <button type="submit" class="btn bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
+                        <button type="submit" class="btn save bg-indigo waves-effect text-white" name="educational" value="educational-form">Save</button>
                      </div>
                   </div>
                </div>

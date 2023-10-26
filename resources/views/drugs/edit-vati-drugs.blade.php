@@ -276,7 +276,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
+                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn add btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -523,7 +523,7 @@
                      </div>
                   </div>
                </div>
-               <button type="submit" class="btn btn-secondary">Update Vati Yogas</button>
+               <button type="submit" class="btn add btn-secondary">Update Vati Yogas</button>
          </form>
         </div>
    </div>

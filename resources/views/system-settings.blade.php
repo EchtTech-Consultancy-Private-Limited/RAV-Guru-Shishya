@@ -186,8 +186,8 @@
                     
                      
                          <div class="col-sm-12">
-                            <button type="submit" class="btn btn-info waves-effect" style="line-height:2;"> Submit </button>
-                            <button type="reset" class="btn btn-danger waves-effect" style="line-height:2;"> Reset </button>
+                            <button type="submit" class="btn submit btn-info waves-effect" style="line-height:2;"> Submit </button>
+                            <button type="reset" class="btn reset btn-danger waves-effect" style="line-height:2;"> Reset </button>
                         </div>
 
                       </div>

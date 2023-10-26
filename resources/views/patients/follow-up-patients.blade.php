@@ -105,15 +105,15 @@
                                                 </div>
                                             @endif
                                             <div>
-                                                <button type="submit" class="btn btn-primary waves-effect"
+                                                <button type="submit" class="btn filter  waves-effect"
                                                     style="line-height:2;"> Filter </button>
-                                                    <a href="{{ url('follow-up-patients') }}"><button type="button" class="btn btn-primary waves-effect">Reset</button></a>
+                                                    <a href="{{ url('follow-up-patients') }}"><button type="button" class="btn reset  waves-effect">Reset</button></a>
                                             </div>
                                             @if (Auth::user()->user_type == 3)
                                                 <div>
                                                     <a type="button" href="javascript:void(0);" data-bs-toggle="modal"
                                                         data-bs-target="#add-follow-up-sheet-model"
-                                                        class="btn btn-danger waves-effect" style="line-height:2;">+ Add Follow
+                                                        class="btn add btn-danger waves-effect" >+ Add Follow
                                                         Up </a>
                                                 </div>
                                             @endif
@@ -235,7 +235,7 @@
                                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
                                                                 (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
-                                                                <a target="_blank" href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}" class="btn btn-secondary" title="Remarks">
+                                                                <a target="_blank" href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}" class="btn remark" title="Remarks">
                                                                 Remarks
                                                             </a>
                                                         @endif
@@ -266,11 +266,11 @@
                                         value="@if (request()->rtype) {{ request()->rtype }} @endif"
                                         name="rtype">
                                     @if (Auth::user()->user_type == 3)
-                                        <button type="submit" class="btn btn-primary waves-effect float-right mb-2"
+                                        <button type="submit" class="btn send  waves-effect float-right mb-2"
                                             onclick="return confirm_option('Send selected followup list to Guru');"> &nbsp;
                                             Send To Guru &nbsp;</button>
                                     @elseif(Auth::user()->user_type == 2)
-                                        <button type="submit" class="btn btn-primary waves-effect"
+                                        <button type="submit" class="btn send  waves-effect"
                                             onclick="return confirm_option('Send selected followup list to Admin');">
                                             &nbsp; Send To Admin &nbsp;</button>
                                     @endif
@@ -312,7 +312,7 @@
 
 
                         <br>
-                        <button type="button" class="btn btn-primary m-t-15 waves-effect find-registration">Find</button>
+                        <button type="button" class="btn filter btn-primary m-t-15 waves-effect find-registration">Find</button>
 
 
                     </div>

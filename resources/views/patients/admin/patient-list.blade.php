@@ -98,7 +98,7 @@
                                     <i class="fa fa-comment" aria-hidden="true"></i>
                                     </a>
                                     @if($patientlist->phr_a_status== 1)
-                                    <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary" title="Remarks">
+                                    <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn remark" title="Remarks">
                                         Remarks
                                     </a>
                                     @endif

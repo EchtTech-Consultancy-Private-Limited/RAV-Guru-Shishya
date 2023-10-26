@@ -122,8 +122,8 @@
 
 
                                     </div>
-                                    <button class="btn btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
-                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn btn-primary btn-sm ms-auto nextBtn">Reset</button>    
+                                    <button class="btn filter btn-primary btn-sm ms-auto " type="submit" >Filter Drug Report</button>
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn">Reset</button>    
 
                                 </div>
                             </form>
@@ -136,7 +136,7 @@
 </div>
 </section>
 
-    <section class="content">
+    <section class="content content-section">
            @if (count($errors) > 0)
               <div class="alert alert-danger">
                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
