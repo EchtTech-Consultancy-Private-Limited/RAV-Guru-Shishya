@@ -313,7 +313,7 @@
 
 
                      <div class="col-lg-12 p-t-20 text-center">
-                        <a href="{{ route('login') }}" class="btn waves-effect" style="line-height:2;background-color:#888;color:#fff;">Back To Login</a>
+                        <a href="{{ route('newLogin') }}" class="btn waves-effect" style="line-height:2;background-color:#888;color:#fff;">Back To Login</a>
                         <button type="submit" class="btn btn-primary m-r-15" id="submit">Submit</button>
                      </div>
                   </div>

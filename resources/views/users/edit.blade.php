@@ -218,16 +218,26 @@
                                        <div class="form-group">
                                           <label >E-Signature<span class="text-danger">*</span></label>
                                             <input type="file" name="e_sign" id="e_sign" class="form-control" >
-
+                                            @if ($errors->has('e_sign'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
+                                                </span>
+                                            @endif
                                              @if($user->e_sign)
                                              <img src="{{ asset('uploads/'.$user->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                              @endif
+                                             
                                          </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group ">
                                             <label >Profile Picture<span class="text-danger">*</span></label>
                                             <input type="file" name="profile_image" id="profile_image" class="form-control" >
+                                            @if ($errors->has('profile_image'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
+                                                </span>
+                                            @endif
                                             @if($user->user_image)
                                              <img src="{{ asset('uploads/'.$user->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
                                              @else
