@@ -87,7 +87,7 @@
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <input type="hidden"  name="profile_id"  class="form-control capitalize" value="<?php echo get_profile_id(Auth::user()->id); ?>">
                               <div class="row">
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label >Title</label>
                                        <select name="title" class="form-control" >
@@ -99,7 +99,7 @@
                                     </div>
                                  </div>
                                  <!-- student name -->
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>First Name<span class="text-danger">*</span></label>
@@ -111,27 +111,27 @@
                                        @endif
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Middle Name</label>
                                        <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                     </div>
                                  </div>
                                  <!-- student name -->
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>Last Name</label>
                                        <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Email</label><span class="text-danger">*</span>
                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->email }} @else Auth::user()->email @endif" maxlength="50" readonly="readonly">
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-2 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mobile No.<span class="text-danger">*</span></label>
                                        <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No." value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
@@ -141,7 +141,7 @@
                                        @endif
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-2 col-md-6 col-6">
                                     <div class="form-group">
                                        <label for="date_of_birth">Date of Birth:</label>
                                        <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
@@ -152,7 +152,7 @@
                                        @endif
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-2 col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Age<span class="text-danger">*</span></label>
                                        <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}"> 
@@ -163,7 +163,7 @@
                                        @endif
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Father's Name<span class="text-danger">*</span></label>
                                        <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
@@ -177,7 +177,7 @@
                                  <div class="header col-md-12 pt-0">     
                                     <h2>Present Address </h2>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
                                        <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="{{ old('address1', $profile_record[0]->address1) }}">
@@ -188,7 +188,7 @@
                                        @endif
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
                                        <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="{{ old('address2', $profile_record[0]->address2) }}">@if($errors->has('address2'))
@@ -270,7 +270,7 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Permanent Address </h2>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
                                        <input type="textarea" name="per_address1" id="per_address_Line1" class="form-control" placeholder="Permanent Address Line 1"  value="{{ $profile_record[0]->per_address1 }}">
@@ -281,7 +281,7 @@
                                        @endif
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
                                        <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">@error('per_address_Line2')
@@ -333,7 +333,7 @@
                                        @enderror
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-3">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
                                        <input type="number" name="per_pincode" id="per_pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">@error('per_pincode')
@@ -341,7 +341,7 @@
                                        @enderror
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
                                        <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
@@ -349,7 +349,7 @@
                                        @enderror
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
                                        <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">@error('pan_no')
@@ -545,7 +545,7 @@
                                           <tbody>
                                              @foreach($educational_record as $key=>$educational_records)
                                              <tr>
-                                                <th scope="row">{{++$key}}</th>
+                                                <td scope="row">{{++$key}}</td>
                                                 <td>{{ $educational_records->institute_name }}</td>
                                                 <td>{{ $educational_records->course_name }} </td>
                                                 <td>{{ date('d-m-Y', strtotime($educational_records->year_of_passing)) }}</td>
@@ -672,7 +672,7 @@
                                        </div>
                                    
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Weekend Off <span class="text-danger">*</span></label>
                                        <select name="weekend_off" class="form-control" >
@@ -685,13 +685,13 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Address of Practice place </h2>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
                                        <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif" required>
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-6">
+                                 <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
                                        <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2"  value="@if(isset($clinic->address2)){{$clinic->address2}}@endif" required>
@@ -732,19 +732,19 @@
                                        <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
                                        <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Average number of occupancy ratio (Annually)</label>
                                        <input type="text" name="average_no_of_occupancy_annually" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_occupancy_annually)) {{ $clinic->average_no_of_occupancy_annually }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label >Weather maintaining any IPD. If yes, number of beds </label>
                                        <div class="d-flex justify-content-between show-form">
@@ -760,7 +760,7 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Other units available in the clinic </h2>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Medicine Manufacturing Section</label>
                                        <select name="medicine_manufacturing_section" class="form-control">
@@ -770,7 +770,7 @@
                                        </select>
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Panchakarma</label>
                                        <select name="panchakarma" class="form-control">
@@ -780,7 +780,7 @@
                                        </select>
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Ksharsutra</label>
                                        <select name="ksharsutra" class="form-control">
@@ -799,19 +799,19 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Infrastructural details of the clinic/hospital</h2>
                                  </div>
-                                 <div class="col-sm-12 col-md-4  ">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6  ">
                                     <div class="form-group">
                                        <label>Total Area</label>
                                        <input type="text" name="total_area" class="form-control" placeholder="Total Area"  value="@if(isset($clinic->total_area)) {{ $clinic->total_area }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of rooms</label>
                                        <input type="number" name="no_of_rooms" id="no_of_rooms" class="form-control" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-sm-12 col-md-4">
+                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of wards and beds</label>
                                        <input type="text" name="no_of_wards_beds" class="form-control" placeholder="Number of wards and beds"  value="@if(isset($clinic->no_of_wards_beds)) {{ $clinic->no_of_wards_beds }} @endif">

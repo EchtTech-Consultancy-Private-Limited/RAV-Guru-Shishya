@@ -51,6 +51,293 @@
                   </ul>
                </div>
                <div class="body" >
+                  <table class="mt-5">
+                     <thead>
+                        <tr>
+                              <th>Name of the Guru </th>
+                              <th>Place of the Guru </th>
+                              <th>Name of the Shishya </th>
+                              <th>Date of Report </th>
+                        </tr>
+                       
+                     </thead>
+
+                     <tbody>
+                        <tr>
+                           <td> @if(!empty($guru->id))
+                                          {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                          @endif </td>
+                           <td>  @if(!empty($guru->id))
+                                          {{$guru->city_name}}
+                                          @endif </td>
+                           <td>  {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                              </td>
+                           <td>  {{date('d-m-Y',strtotime($patient->registration_date))}} </td>
+                        </tr>
+                     </tbody>
+                  </table>
+
+                  <table class="view-table mt-5">
+                     <thead>
+                        <tr>
+                             <th> Title </th>
+                             <th> Value </th>
+                        </tr>
+                       
+                     </thead>
+
+                     <tbody>
+                        <tr>
+                          <td>Name of the Patient </td>
+                          <td>{{$patient->patient_name}} </td>
+                        </tr>
+
+                        <tr>
+                           <td> Patient Registration No</td>
+                           <td> {{ $patient->registration_no }}</td>
+                        </tr>
+                        <tr>
+                           <td>Patients Type </td>
+                           <td>{{$patient->patient_type}} </td>
+                        </tr>
+                        <tr>
+                           <td>Gender </td>
+                           <td>@foreach(__('phr.gender') as $key=>$value)
+                                          {{$patient->gender == $key  ? $value : ''}}</option>
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Age Group </td>
+                           <td>@foreach(__('phr.age_group') as $key=>$value)
+                                          {{$patient->age_group == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Occupation </td>
+                           <td> @foreach(__('phr.occupation') as $key=>$value)
+                                          {{$patient->occupation == $key  ? $value : ''}}</option>
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Marital Status</td>
+                           <td> @foreach(__('phr.marital_status') as $key=>$value)
+                                          {{$patient->marital_status == $key  ? $value : ''}}</option>
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Aasan Sidhi</td>
+                           <td> {{$patient->aasan_sidhi}}</td>
+                        </tr>
+                        <tr>
+                           <td> Season</td>
+                           <td>{{$patient->season}} </td>
+                        </tr>
+                        <tr>
+                           <td>Region of patient </td>
+                           <td> >@foreach(__('phr.region_of_patient') as $key=>$value)
+                                          {{$patient->region_of_patient == $key  ? $value : ''}}</option>
+                                          @endforeach
+</td>
+                        </tr>
+                        <tr>
+                           <td>Address </td>
+                           <td>{{$patient->address}} </td>
+                        </tr>
+                        <tr>
+                           <td> Main Complaint(As said by patient) </td>
+                           <td>{{$patient->main_complaintsaid_by_patient}} </td>
+                        </tr>
+                        <tr>
+                           <td>Duration </td>
+                           <td> {{$patient->said_by_patient_duration}}</td>
+                        </tr>
+                        <tr>
+                           <td> Main Complaint(As said by family member) </td>
+                           <td> {{$patient->main_complaint_as_said_by_family}}</td>
+                        </tr>
+                        <tr>
+                           <td> Duration</td>
+                           <td> {{$patient->complaint_as_said_by_family_duration}}</td>
+                        </tr>
+                        <tr>
+                           <td>  Past illness</td>
+                           <td>{{$patient->past_illness}} </td>
+                        </tr>
+                        <tr>
+                           <td>  Family History</td>
+                           <td>{{$patient->family_history}} </td>
+                        </tr>
+                        <tr>
+                           <td> Examination of the patient</td>
+                           <td> </td>
+                        </tr>
+                        <tr>
+                           <td> Skin</td>
+                           <td>@foreach(__('phr.skin') as $key=>$value)
+                                          {{$patient->skin == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Nadi</td>
+                           <td> @foreach(__('phr.nadi') as $key=>$value)
+                                          {{$patient->nadi == $key  ? $value : ''}}
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Place </td>
+                           <td> @foreach(__('phr.place') as $key=>$value)
+                                          {{$patient->nadi_place == $key  ? $value : ''}}
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Nails</td>
+                           <td>@foreach(__('phr.nails') as $key=>$value)
+                                          {{$patient->nails == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Anguli  sandhi </td>
+                           <td> @foreach(__('phr.anguli_sandhi') as $key=>$value)
+                                          {{$patient->anguli_sandhi == $key  ? $value : ''}}
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Netra </td>
+                           <td>@foreach(__('phr.netra') as $key=>$value)
+                                          {{$patient->netra == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Adhovartma </td>
+                           <td>@foreach(__('phr.adhovartma') as $key=>$value)
+                                          {{$patient->adhovartma == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Hastatala </td>
+                           <td>    @foreach(__('phr.hastatala') as $key=>$value)
+                                          {{$patient->hastatala == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Jihwa </td>
+                           <td> @foreach(__('phr.jihwa') as $key=>$value)
+                                          {{$patient->jihwa == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Aakriti </td>
+                           <td>   @foreach(__('phr.aakriti') as $key=>$value)
+                                          {{$patient->aakriti == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Shabda </td>
+                           <td>   @foreach(__('phr.shabda') as $key=>$value)
+                                          {{$patient->shabda == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Koshtha </td>
+                           <td> @foreach(__('phr.koshtha') as $key=>$value)
+                                          {{$patient->koshtha == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>  Mala
+                                             Pravritti</td>
+                           <td>   @foreach(__('phr.mala_pravritti') as $key=>$value)
+                                          {{$patient->mala_pravritti == $key  ? $value : ''}}
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Mutra
+                                             Pravritti </td>
+                           <td>   @foreach(__('phr.mutra_pravritti') as $key=>$value)
+                                          {{$patient->mutra_pravritti == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>  Vyavay
+                                             Pravritti</td>
+                           <td> @foreach(__('phr.vyavay_pravritti') as $key=>$value)
+                                          {{$patient->vyavay_pravritti == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Shukrakshana
+                                             pravritti</td>
+                           <td>  @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
+                                          {{$patient->shukrakshana_pravritti == $key  ? $value : ''}}
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Raktachapa </td>
+                           <td>  @foreach(__('phr.raktachapa') as $key=>$value)
+                                          {{$patient->raktachapa == $key  ? $value : ''}}
+                                          @endforeach
+</td>
+                        </tr>
+                        <tr>
+                           <td>Hrid
+                                             gati </td>
+                           <td> @foreach(__('phr.hrid_gati') as $key=>$value)
+                                          {{$patient->hrid_gati == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Shvasagati </td>
+                           <td>  @foreach(__('phr.shvasagati') as $key=>$value)
+                                          {{$patient->shvasagati == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Parkriti
+                                             Parikshana </td>
+                           <td>  @foreach(__('phr.parkriti_parikshana') as $key=>$value)
+                                          {{$patient->parkriti_parikshana == $key  ? $value : ''}}
+                                          @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>  Examination
+                                             by
+                                             Physician<</td>
+                           <td> @foreach(__('phr.examination_by_physician') as $key=>$value)
+                                          {{$patient->examination_by_physician == $key  ? $value : ''}}
+                                          @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Samprapti
+                                             Vivarana </td>
+                           <td> {{$patient->samprapti_vivarana}}</td>
+                        </tr>
+                        <tr>
+                           <td>Vibhedaka
+                                             Pariksha </td>
+                           <td> {{$patient->vibhedaka_pariksha}}</td>
+                        </tr>
+                        <tr>
+                           <td>  Roga   Vinishchaya-  Pramukh    Nidana</td>
+                           <td>{{$patient->roga_vinishchaya_pramukh_nidana}} </td>
+                        </tr>
+                        <tr>
+                           <td>   Chikitsa
+                                             Kalpana
+                                             Anupana
+                                             Sahita</td>
+                           <td> {{$patient->chikitsa_kalpana_anupana_sahita}}</td>
+                        </tr>
+                        <tr>
+                           <td> Samshamana Kriyas</td>
+                           <td>{{$patient->samshamana_kriyas}} </td>
+                        </tr>
+                        <tr>
+                           <td>    Pathya-Apathya</td>
+                           <td>{{$patient->pathya_apathya}} </td>
+                        </tr>
+                       
+                     </tbody>
+                  </table>
                   <div id="wizard_horizontal">
                      <section>
                         <div class="col-md-12">
@@ -74,6 +361,7 @@
                                           @endif
                                        </div>
                                     </div>
+
                                     <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Name of the Shishya<span class="text-danger"></span></label><br>
@@ -241,6 +529,7 @@
 
                                        </div>
                                     </div>
+
                                     <div class="col-sm-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">
@@ -300,6 +589,7 @@
                                        </div>
                                     </div>
                                  </div>
+
                                  <div class="row clearfix">
                                     <div class="col-sm-3">
                                        <div class="form-group">
@@ -411,6 +701,7 @@
 
                                        </div>
                                     </div>
+
                                     <div class="col-sm-3">
                                        <div class="form-group">
                                           <label for="Mala
