@@ -85,16 +85,16 @@
 
                                  <td class="center">
 
-                                    <a href="{{ url('admin-view-patient/'.$patientlist->id) }}" class="btn btn-tbl-edit" title ="View Record">
+                                    <a href="{{ url('admin-view-patient/'.$patientlist->id) }}" class="btn view btn-tbl-edit" title ="View Record">
                                                     <i class="material-icons">visibility</i>
                                     </a>
-                                    <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn btn-tbl-edit" title="Edit Patient">
+                                    <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
                                           <i class="material-icons">edit</i>
                                     </a>
-                                    <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
+                                    <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
-                                    <a target="_blank" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn btn-tbl-edit" title="Check Remark">
+                                    <a target="_blank" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn comment btn-tbl-edit" title="Check Remark">
                                     <i class="fa fa-comment" aria-hidden="true"></i>
                                     </a>
                                     @if($patientlist->phr_a_status== 1)

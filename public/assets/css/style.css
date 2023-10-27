@@ -557,7 +557,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .btn-tbl-edit {
     border-radius: 50% !important;
-    background-color: #4fab52;
+    background-color: #32746a;
     padding: 0px !important;
     height: 30px;
     text-align: center;
@@ -851,8 +851,8 @@ button[type="submit"]{
     margin-right: 5%;
   }
 
-  input[type=text]:not(.browser-default){
-    height:2.2rem !important;
+  input{
+    height: auto !important;
   }
 
   .btn-tbl-edit, .btn-tbl-delete {
@@ -860,6 +860,9 @@ button[type="submit"]{
     width: 30px;
     padding: 0px !important;
     display: inline-block;
+}
+.btn-tbl-delete {
+    background: #dc3545 !important;
 }
 .btn-tbl-edit i{
     line-height: 30px !important;
@@ -935,6 +938,7 @@ a.btn.waves-effect.add-phr{
     border-radius: 20px !important;
     padding: 0 23px !important;
     line-height: 2.7 !important;
+    display: inline-block !important;
 }
 
 .btn.print{
@@ -944,6 +948,7 @@ a.btn.waves-effect.add-phr{
 .btn.back{
     background: #5D6F77 !important;
     color: #fff !important;
+    float: right;
 }
 .btn.add {
     display: flex;
@@ -966,11 +971,11 @@ a.btn.waves-effect.add-phr{
      color: #fff;
 }
 .btn.add{
-     background: #659EA3 !important;
+     background: #315373 !important;
      color: #fff;
 }
 a.btn.add {
-    background: #659EA3 !important;
+    background: #315373 !important;
     color: #fff;
     border-radius: 20px !important;
     padding: 0 23px !important;
@@ -984,16 +989,20 @@ a.btn.add {
     background:  #866C52 !important;
   color: #fff;
   border-radius: 20px;
+  text-transform: capitalize;
+    font-weight: 500;
 }
 .paginate_button.page-item.next .page-link{
     background: #3F545C !important;
     color: #fff;
     border-radius: 20px;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 
 .btn.send {
     float: right;
-    background: #21545C !important;
+    background: #002b32 !important;
     color: #fff !important;
 }
 .btn.download {
@@ -1005,7 +1014,7 @@ a.btn.add {
 
 
 .btn.remark {
-    background: #615B54;
+    background: #315373;
     display: inline-block;
     color: #fff;
     padding: 4px 10px !important;
@@ -1027,9 +1036,64 @@ button.btn.submit {
 }
 
 .btn.add{
-    background: #659EA3 !important;
+    background:#23585c !important;
     color: #fff;
     border-radius: 20px !important;
     padding: 0 23px !important;
+
+}
+
+.btn.view{
+    background: #008000;
+}
+.btn.delete{
+    background: #dc3545;
+}
+.btn.edit{
+    background: #0d6efd;
+}
+.btn.comment{
+    background: #fd7e14;
+}
+
+.btn.phr{
+    border-radius: 5px !important;
+    font-size: 12px !important;
+    font-weight: 200 !important;
+    line-height: 2.6 !important;
+}
+
+.btn.permission{
+    background: #555 !important;
+}
+
+
+.form-group input, .form-group select{
+    height: auto !important;
+    padding: 8px !important;
 }
 /* *************************************button colo end******************************** */
+
+i.fa.fa-long-arrow-up {
+    margin-left: 5px !important;
+}
+
+table th {
+    background: #5C4E3F !important;
+    color: #fff;
+}
+table th, table tr, table td {
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 0px !important;
+    border-left: 1px solid #ddd;
+}
+table th:last-child, table tr:last-child, table td:last-child {
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 0px !important;
+    border-left: 1px solid #ddd;
+}
+
+
+.view-follow-up-sheet .form-group{
+    border: 1px solid #ddd !important;
+}

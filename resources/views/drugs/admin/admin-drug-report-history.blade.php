@@ -122,9 +122,12 @@
 
 
                                     </div>
-                                    <button class="btn filter btn-primary btn-sm ms-auto " type="submit" >Filter Drug Report</button>
-                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn">Reset</button>    
+                                    <div class= "float-right">
+                                    <button class="btn filter btn-primary btn-sm ms-auto  " type="submit" >Filter Drug Report</button>
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn float-right">Reset</button>    
 
+                                    </div>
+                                   
                                 </div>
                             </form>
                         </div>

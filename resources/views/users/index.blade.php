@@ -119,12 +119,12 @@
                                  <td class="center">
                                     <!-- <a class="btn btn-primary btn-sm" href="#"><i style="line-height:1.5 !important;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
 
-                                    <a href="{{ route('users.edit',encrypt($user->id)) }}" class="btn btn-tbl-edit" @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4') title="Edit" @else  title="View" @endif onclick="return confirm_option('edit history sheet')">
+                                    <a href="{{ route('users.edit',encrypt($user->id)) }}" class="btn edit btn-tbl-edit" @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4') title="Edit" @else  title="View" @endif onclick="return confirm_option('edit history sheet')">
                                        <i class="material-icons">edit</i>
                                     </a>
                                     @if(Auth::user()->user_type=='2')
-                                    <a  href="{{ url('/new-patient-registration/'.$user->id) }}" class="btn btn-tbl-delete"  title="Daily History SHeet" >
-                                       <i class="material-icons">PHR</i>
+                                    <a  href="{{ url('/new-patient-registration/'.$user->id) }}" class="btn phr btn-tbl-delete"  title="Daily History SHeet" >
+                                      PHR
                                     </a>
                                     @endif
                                     @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
@@ -134,7 +134,7 @@
                                     @endif
                                     <!-- <a class="btn btn-danger btn-sm" href="{{ url('delete-user/'.$user->id) }}" onclick="delete_user()"><i class="fa fa-trash" aria-hidden="true" style="line-height:1.5 !important;" ></i></a> -->
 
-                                    <a class="btn btn-tbl-edit" href="{{ url('assign-role/'.$user->id) }}"  title="Assign user permissions"> <i class="icons-key">&nbsp&nbsp&nbsp&nbsp</i></a>
+                                    <a class="btn permission btn-tbl-edit" href="{{ url('assign-role/'.$user->id) }}"  title="Assign user permissions"> <i class="icons-key">&nbsp&nbsp&nbsp&nbsp</i></a>
                                     
                                     @if(Auth::user()->user_type==1)
                                     <!-- <input class='input-switch' type="checkbox" id="demo"/>
