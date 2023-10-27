@@ -72,7 +72,7 @@ Route::get('/multi-stepform', function () {
 Route::get('/', function () {
     //return view('auth.login');
     return view('auth.newlogin');
-})->middleware('guest');
+})->middleware('guest')->name('newLogin');
 
 Route::get('/no-access', function () {
     return view('permission.notaccess');
@@ -257,7 +257,6 @@ Route::post('manage_profile_form_step5', [AddUserController::class, 'manage_prof
 
 Route::get('postCreate',[PostController::class,'postCreate']);
 Route::post('postData',[PostController::class,'postData'])->name('postData');
-
 
 Route::post('user-login', [LoginController::class, 'login']);
 Route::get('user-signup', [AddUserController::class, 'user_sign_up']);

@@ -70,10 +70,9 @@ class UserController extends Controller
 
            ]);
         }
-
         $this->validate($request, [
             'firstname'=>'required',
-            'lastname'=>'lastname',
+            'lastname'=>'required',
             'gender'=>'required',
             'profile_image' => 'required|mimes:jpeg,png,jpg|max:200',
             'e_sign'   => 'mimes:jpeg,png,jpg',
@@ -223,8 +222,8 @@ class UserController extends Controller
             'email' => 'required|email|max:50|unique:users,email,'.$id,
             'confirm-password' => 'same:password',
             'mobile_no'=>'required|numeric|min:10,mobile_no|digits:10',
-            'e_sign'   => 'mimes:jpeg,png,jpg|max:50|min:1',
-            'profile_image'   => 'mimes:jpeg,png,jpg|max:250',
+            'e_sign'   => 'mimes:jpeg,png,jpg',
+            'profile_image'   => 'mimes:jpeg,png,jpg',
 
         ]);
 

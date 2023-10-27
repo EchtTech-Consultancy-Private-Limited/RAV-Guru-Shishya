@@ -27,17 +27,7 @@
       <div class="alert alert-success">
          <p>{{ $message }}</p>
       </div>
-      @endif
-      @if (count($errors) > 0)
-      <div class="alert alert-danger">
-         <strong>Whoops!</strong> There were some problems with your input.<br><br>
-         <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-         </ul>
-      </div>
-      @endif
+      @endif      
       <div class="row">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="card">
@@ -142,13 +132,22 @@
                            <label for="example-text-input" class="form-control-label">E-Sign</label>
                            <input type="file" class="form-control" name="e_sign"  placeholder="E-Sign">
                            <span id="esign_error" class="text-danger"></span>
+                           @if ($errors->has('e_sign'))
+                              <span class="help-block">
+                                 <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
+                              </span>
+                           @endif
                         </div>
                      </div>
                      <div class="col-sm-4">
                         <div class="form-group ">
                            <label >Profile Picture</label>
                              <input type="file" name="profile_image" id="profile_image" class="form-control" >
-                             
+                             @if ($errors->has('profile_image'))
+                              <span class="help-block">
+                                 <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
+                              </span>
+                           @endif                             
                         </div>
                      </div>
                      @if($add_user_btn==2)
@@ -156,6 +155,9 @@
                            <div class="form-group ">
                               <label >Type<span class="text-danger">*</span></label>
                               <select name="gurutype" class="form-control">
+                                 @if(@(old('gurutype')))
+                                    <option value="{{ old('gurutype') }}" selected>{{ old('gurutype') }}</option>
+                                 @endif
                                  <option value="">Select Guru Type</option>
                                  <option value="Individual">Individual</option>
                                  <option value="Institutional">Institutional</option>
@@ -167,6 +169,9 @@
                            <div class="form-group ">
                               <label >Type<span class="text-danger">*</span></label>
                               <select name="shishyatype" class="form-control">
+                                 @if(@(old('shishyatype')))
+                                    <option value="{{ old('shishyatype') }}" selected>{{ old('shishyatype') }}</option>
+                                 @endif
                                  <option value="">Select Shishya Type</option>
                                  <option value="Pharmacy">Pharmacy</option>
                                  <option value="Non Pharmacy">Non Pharmacy</option>
