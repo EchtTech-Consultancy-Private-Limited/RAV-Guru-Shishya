@@ -358,7 +358,7 @@
                                     </div>
                                  </div>
                                  <!-- Languages -->
-                                 <div class="col-md-12">
+                                 <div class="col-md-12 mb-0">
                                     <div class="row language" id="language_body">
                                        <div class="col-sm-12 col-md-3">
                                           <div class="form-group mb-3">
@@ -442,7 +442,7 @@
                                        @endforeach
                                        @endif
                                     </div>
-                                    <div class="add-btn-lang mb-3 mt-3">
+                                    <div class="add-btn-lang ">
                                        <a href="javascript:void();" class="btn lang bg-success" id="Add_language">
                                           <i class="fa fa-plus"></i>
                                        </a>
@@ -558,7 +558,7 @@
                                                    @endif
                                                 </td>
                                                 <td class="d-flex justify-content-start">
-                                                   <a class="btn edit btn-tbl-edit bg-primary update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
+                                                   <a class="btn edit btn-tbl-edit  update_education"  data-id="{{$educational_records->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal" ><i class="material-icons">edit</i></a>
                                                    <form action="{{ url('education-delete') }}" method="post">
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step2">
@@ -889,7 +889,7 @@
                                                 <td>{{ $publication_record->books_published }}</td>
                                                 <td>{{ $publication_record->no_of_seminars }}</td>
                                                 <td class="d-flex justify-content-center">
-                                                   <a class="btn btn-tbl-edit bg-primary update_publication"  data-id="{{$publication_record->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal_publication" ><i class="material-icons">edit</i></a>
+                                                   <a class="btn btn-tbl-edit  update_publication"  data-id="{{$publication_record->id}}"    data-bs-toggle="modal" data-bs-target="#edit_modal_publication" ><i class="material-icons">edit</i></a>
                                                    <form action="{{ url('publication-delete') }}" method="post">
                                                       @csrf
                                                       <input type="hidden" name="form_step_type" value="step4">

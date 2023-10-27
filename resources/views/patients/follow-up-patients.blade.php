@@ -205,7 +205,7 @@
                                                     <td class="center">{{ $followup->report_type }}</td>
                                                     <td >
                                                         <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
-                                                            class="btn btn-tbl-edit" title="View Record">
+                                                            class="btn view btn-tbl-edit" title="View Record">
                                                             <i class="material-icons">visibility</i>
                                                         </a>
                                                         
@@ -214,7 +214,7 @@
                                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
                                                                 (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
                                                             <a href="{{ url('/add-follow-up-sheet/' . encrypt($followup->patient_id) . '/' . encrypt($followup->id)) }}"
-                                                                class="btn btn-tbl-edit" title="Edit Record"
+                                                                class="btn edit btn-tbl-edit" title="Edit Record"
                                                                 onclick="return confirm_option(' edit ')">
                                                                 <i class="material-icons">edit</i>
                                                             </a>
@@ -232,7 +232,7 @@
                                                                 <i class="material-icons">delete_forever</i>
                                                             </a>
                                                         @endif
-                                                        <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i>
+                                                        <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}" class="btn comment btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i>
                                                         @if (
                                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
