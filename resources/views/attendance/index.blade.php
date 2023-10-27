@@ -54,7 +54,7 @@
                                  <div class="col-md-6 d-flex justify-content-end col-6" >
                                     
                                  <a type="button" href="{{url('/export-attendance')}}"
-                                        class="btn btn-danger waves-effect" style="line-height:2;"> Download </a>
+                                        class="btn download waves-effect" > Download </a>
 
                                   
                                  </div>
@@ -147,16 +147,16 @@
                                 </div>
 
                                 <div class=" col-lg-3 col-md-3">
-                                    <button type="submit" class="btn btn-primary waves-effect" style="line-height:2;">
+                                    <button type="submit" class="btn filter  waves-effect" >
                                         Filter </button>
                                     <a href="{{ url('attendance-list') }}"><button type="button"
-                                            class="btn btn-primary waves-effect">Reset</button></a>
+                                            class="btn reset waves-effect">Reset</button></a>
 
 
                                             @if(Auth::user()->user_type==2)
 
                                        <a type="button" href="{{url('/add-attendance')}}"
-                                          class="btn btn-danger waves-effect" style="line-height:2;">Add Attendance </a>
+                                          class="btn add waves-effect" >Add Attendance </a>
 
                                        @endif
                                 </div>

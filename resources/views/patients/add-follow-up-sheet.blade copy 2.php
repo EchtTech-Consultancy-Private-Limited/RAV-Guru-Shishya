@@ -187,11 +187,11 @@
                                                                         <a href="{{ url('/follow-up-patients') }}"><button type="button"  class="btn back btn-danger waves-effect"> &nbsp; Back  &nbsp;</button></a>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
+                                                          </div>
+                                                   </div>
+                                                   </form>
+                                                </div>
+                                          </div>
                     
                               <div class="card-body">
                               <div calss="row" >
@@ -1090,7 +1090,7 @@
                                     </div>
                                  </div>
                                  <div class="col-sm-12 p-t-20 text-left">
-                                 <a href="{{ url('/follow-up-patients') }}"><button type="button"  class="btn btn-danger waves-effect"> &nbsp; Back  &nbsp;</button></a>
+                                 <a href="{{ url('/follow-up-patients') }}"><button type="button"  class="btn back btn-danger waves-effect"> &nbsp; Back  &nbsp;</button></a>
                               </div>
                               </div>
                              
