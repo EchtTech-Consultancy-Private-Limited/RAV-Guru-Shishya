@@ -1,6 +1,6 @@
 @extends('layouts.app-file')
 @section('content')
-<section class="content">
+<section class="content view-follow-up-sheet">
     @if (count($errors) > 0)
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -70,18 +70,18 @@
 
 
                                             <div class="row clearfix">
-                                                <div class="col-md-4">
+                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
                                                             <label class="form-control-label">Patient Registration No.</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">{{$patient->registration_no}}</label>
+                                                          
+                                                            <p>{{$patient->registration_no}}</p>
+                                                           
 
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
                                                             <label class="form-control-label">Patient Name</label>
@@ -93,7 +93,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-4">
+                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
                                                             <label class="form-control-label">Date of Follow up</label>
@@ -104,7 +104,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
                                                             <label class="form-control-label">Progress Duration</label>
@@ -115,7 +115,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
                                                             <label class="form-control-label">Progress</label>
@@ -126,7 +126,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                                     <div class="form-group focused">
                                                         <div class="form-line">
                                                             <label
@@ -156,7 +156,7 @@
                             <div class="header pt-0">
                                 <h2><strong>Add</strong> Remark </h2>
                             </div>
-                            <div class="card mb-0">
+                            <div class="card mb-0 view-follow-up-sheet">
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -227,7 +227,7 @@
                                                 @endif
                                                 @if(Auth::user()->user_type==1)
                                                 <div class="row clearfix">
-                                                    <div class="col-lg-3 col-md-4">
+                                                    <div class="col-lg-3 col-xxl-2 col-xl-3  col-md-4 col-6">
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="remark" class="form-control-label">Remark
@@ -396,7 +396,7 @@
                               
                                 <hr style="height:2px;">
                                 <div class="row clearfix">
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Name of the
                                                 Patient<span class="text-danger"></span></label>
@@ -404,7 +404,7 @@
                                                 class="form-control-label"><strong>{{$patient->patient_name}}</strong></label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Patient Registration
                                                 No<span class="text-danger"></span></label>
@@ -413,7 +413,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Age<span
                                                     class="text-danger"></span></label>
@@ -423,7 +423,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Registration
                                                 Date</label>
@@ -432,7 +432,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="Gender" class="form-control-label">Gender<span
                                                     class="text-danger"></span></label>
@@ -443,7 +443,7 @@
                                                 </strong></label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Age Group<span
                                                     class="text-danger"></span></label>
@@ -455,7 +455,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Occupation<span
                                                     class="text-danger"></span></label>
@@ -467,7 +467,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Marital
                                                 Status<span class="text-danger"></span></label>
@@ -479,7 +479,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Aasan
                                                 Sidhi</label>
@@ -488,7 +488,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Season</label>
                                             <br><label for="example-text-input"
@@ -496,7 +496,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-in
                                              put" class="form-control-label">Region of patient</label>
@@ -508,7 +508,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Address<span
                                                     class="text-danger"></span></label>
@@ -517,7 +517,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label fw-boldxc">Main
                                                 Complaint(As said by patient)</label>
@@ -525,7 +525,7 @@
                                                 class="form-control-label fw-bold"><strong>{{$patient->main_complaintsaid_by_patient}}</strong></label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Duration</label>
                                             <br><label for="example-text-input"
@@ -533,7 +533,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label fw-bold">Main
                                                 Complaint(As said by family member)</label>
@@ -541,7 +541,7 @@
                                                 class="form-control-label"><strong>{{$patient->main_complaint_as_said_by_family}}</strong></label>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Duration</label>
                                             <br><label for="example-text-input"
@@ -550,7 +550,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label"> Past
                                                 illness</label>
@@ -559,7 +559,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">
                                                 Family
@@ -895,7 +895,7 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">
                                                 Examination
@@ -909,7 +909,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">
                                                 Prayogashaliya
@@ -919,7 +919,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">
                                                 Samprapti
@@ -929,7 +929,7 @@
 
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">
                                                 Vibhedaka
@@ -940,7 +940,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">
                                                 Roga
@@ -984,7 +984,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">
                                                 Pathya-Apathya

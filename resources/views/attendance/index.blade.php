@@ -146,7 +146,7 @@
                                     </div>
                                 </div>
 
-                                <div class=" col-lg-3 col-md-3">
+                                <div class="col-xl-5 col-xxl-3 col-lg-5 col-md-3">
                                     <button type="submit" class="btn filter  waves-effect" >
                                         Filter </button>
                                     <a href="{{ url('attendance-list') }}"><button type="button"

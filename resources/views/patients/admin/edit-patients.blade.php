@@ -1322,7 +1322,7 @@
                               </div>
                               <div class="col-lg-12 p-t-20 text-center">
                               <a href="{{ url('patients/In-Patient') }}" type="button"  class="btn back btn-danger waves-effect">Back</a>
-                                 <button type="submit" class="btn add btn-primary waves-effect m-r-15" >Update Patient Record</button>
+                                 <button type="submit" class="btn add  waves-effect m-r-15 float-right" >Update Patient Record</button>
                                  
                               </div>
                            </form>

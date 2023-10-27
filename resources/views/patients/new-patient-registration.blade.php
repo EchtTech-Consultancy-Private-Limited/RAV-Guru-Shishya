@@ -134,11 +134,11 @@
                                                         </td>
                                                         <td class="center"> {{ $patientlist->patient_type }} </td>
                                                         <td>
-                                                            <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="View Patient">
+                                                            <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title="View Patient">
                                                                 <i class="material-icons">visibility</i>
                                                             </a>
                                                             @if ($patientlist->phr_s_status == 1)
-                                                                <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Edit Patient">
+                                                                <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
                                                                     <i class="material-icons">edit</i>
                                                                 </a>
                                                                 <!-- <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
@@ -161,7 +161,7 @@
 
                                                         </td>
                                                         <td class="center d-flex">
-                                                        <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                                                        <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i></a>
                                                         @if($patientlist->phr_s_status== 1)
                                                             <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary remark" title="Remarks">
                                                                 Remarks

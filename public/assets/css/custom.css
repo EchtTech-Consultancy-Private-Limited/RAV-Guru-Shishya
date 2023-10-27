@@ -84,6 +84,23 @@
 
 
 /* ======================media queries==================== */
+
+@media (min-width: 1400px){
+   .btn.save, .btn.next, .btn.previous, .btn.submit, .btn.filter, .btn.reset, .btn.add, .btn.add, .btn.send, .btn.back, .btn.download, .btn.print{
+      border-radius: 20px !important;
+      padding: 0 23px !important;
+      line-height: 2.7 !important;
+  }
+}
+
+
+@media (min-width: 1200px){
+   .btn.save, .btn.next, .btn.previous, .btn.submit, .btn.filter, .btn.reset, .btn.add, .btn.add, .btn.send, .btn.back, .btn.download, .btn.print{
+      border-radius: 20px !important;
+      padding: 0 16px !important;
+      line-height: 2.7 !important;
+  }
+}
 @media(min-width:1300px){
 
 section.content1 {
