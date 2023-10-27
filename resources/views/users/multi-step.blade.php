@@ -883,7 +883,7 @@
                                           <tbody>
                                              @foreach($publication_record as $key=>$publication_record)
                                              <tr>
-                                                <th scope="row">{{++$key}}</th>
+                                                <td scope="row">{{++$key}}</td>
                                                 <td>{{ $publication_record->no_of_case_reports }}</td>
                                                 <td>{{ $publication_record->research_papers }} </td>
                                                 <td>{{ $publication_record->books_published }}</td>

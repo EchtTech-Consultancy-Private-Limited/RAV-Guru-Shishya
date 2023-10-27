@@ -195,25 +195,178 @@
 
                    
                 </div>
-                 <p class="text-uppercase text-sm">Composition</p>
+           
 
                  <div class="page-content page-container" id="page-content">
                     <div class="padding">
-                        <div class="row container d-flex justify-content-center">
+                        <div class="row  d-flex justify-content-center">
                             <div class="col-lg-12 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table id="faqs" class="table table-hover">
+                                        <div class="">
+                                            <table id="faqs" class="view-table table table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>Name of the ingredients </th>
-                                                        <th>Part used   </th>
-                                                        <th>Quantity</th>
-
+                                                        <th class="w-25">Title</th>
+                                                        <th>Value   </th>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
+
+                                                 </thead>
+                                                 <tbody>
+                                                   <tr>
+                                                      <td colspan="2">
+                                                         <h3 >Composition</h3>
+                                                      </td>
+                                                   </tr>
+                                                 @foreach($churandrugpart as $churandrugpartdata)
+                                                 <tr>
+                                                        <td>Name of the ingredients </td>
+                                                       <td>  {{$churandrugpartdata->name_of_the_ingredients}}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                    <td>Part used   </td>
+                                                      <td>  {{$churandrugpartdata->part_used}}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                    <td>Quantity</td>
+                                                      <td>  {{$churandrugpartdata->quantity}}</td>
+                                                    </tr>
+
+                                                   
+                                                    @endforeach
+                                                    <tr>
+                                                      <td colspan="2">
+                                                         <h3 >Method of Preparation (SOP)</h3>
+                                                      </td>
+                                                   </tr>
+
+                                                   <tr>
+                                                      <td>Enter Yogas Name </td>
+                                                      <td>{{ $churandrug->churna_yoga_type_individual }}  </td>
+                                                   </tr>
+
+                                                   <tr>
+                                                      <td>Step 1 </td>
+                                                      <td>{{ $churandrug->step_first }} </td>
+                                                   </tr>
+
+                                                   <tr>
+                                                      <td>Step 2 </td>
+                                                      <td> {{ $churandrug->step_second }} </td>
+                                                   </tr>
+
+                                                   <tr>
+                                                      <td>Step 3 </td>
+                                                      <td> {{ $churandrug->step_three }}</td>
+                                                   </tr>
+
+                                                   <tr>
+                                                      <td>Step 4,  etc. </td>
+                                                      <td> {{ $churandrug->step_four }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Packing </td>
+                                                      <td> {{ $churandrug->packing }}</td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Storage </td>
+                                                      <td>{{ $churandrug->storage }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Method of Administration </td>
+                                                      <td> {{ $churandrug->method_of_administration }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Time of administration </td>
+                                                      <td>{{ $churandrug->time_of_administration }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Dose </td>
+                                                      <td> {{ $churandrug->dose }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td> Vehicle</td>
+                                                      <td>{{ $churandrug->vehicle }}  </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Duration of Therapy </td>
+                                                      <td> {{ $churandrug->duration_of_therapy }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Wholesome diet </td>
+                                                      <td>{{ $churandrug->wholesome_diet }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td> Wholesome activities</td>
+                                                      <td> {{ $churandrug->wholesome_activities }}</td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td> Wholesome behavior</td>
+                                                      <td> {{ $churandrug->wholesome_behavior }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Indications </td>
+                                                      <td> {{ $churandrug->indications }}</td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Contra indications </td>
+                                                      <td> {{ $churandrug->contra_indications }}</td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td colspan="2"> <h3> Observations</h3></td>
+                                                   </tr>
+                                                   <tr>
+                                                     
+                                                      <td>Quantity of Raw Material</td>
+                                                      <td> {{ $churandrug->quantity_of_raw_material }}</td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Quantity of finished product </td>
+                                                      <td>{{ $churandrug->quantity_of_finished_product }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td> Loss</td>
+                                                      <td>{{ $churandrug->loss }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Reasons for Loss </td>
+                                                      <td>{{ $churandrug->reasons_for_loss }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Step 1 </td>
+                                                      <td> {{ $churandrug->reasons_for_loss_first }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Step 2 </td>
+                                                      <td>{{ $churandrug->reasons_for_loss_second }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Organoleptic properties of raw materials </td>
+                                                      <td>{{ $churandrug->organoleptic_properties_of_raw_materials }}  </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>Organoleptic properties of finished product </td>
+                                                      <td>{{ $churandrug->organoleptic_properties_of_finished_product }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td colspan ="2"> <h3>Duration required for the experiment</h3></td>
+                                                     
+                                                   </tr>
+                                                   <tr>
+                                                      <td> (i) Starting Date</td>
+                                                      <td>{{ $churandrug->starting_date }} </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>(ii)  Ending Date </td>
+                                                      <td> {{ $churandrug->ending_date }} </td>
+                                                   </tr>
+                                                   
+                                                 </tbody>
+                                                   
+                                                
+                                                <!-- <tbody>
                                                    @foreach($churandrugpart as $churandrugpartdata)
                                                    <tr>
                                                         <td>
@@ -239,7 +392,10 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                </tbody>
+                                                </tbody> -->
+
+
+
                                             </table>
                                         </div>
                                     </div>
@@ -258,6 +414,7 @@
                           @enderror
                        </div>
                     </div>
+
                     <div class="col-md-6 mb-2">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label">Step 1</label>
@@ -275,6 +432,7 @@
                           @enderror
                        </div>
                     </div>
+
                     <div class="col-md-6 mb-2">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label">Step 3</label>
