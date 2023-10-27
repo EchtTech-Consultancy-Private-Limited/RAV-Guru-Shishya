@@ -900,8 +900,8 @@
                                     </div>
                                  </div>
                                  <div class="col-lg-12 p-t-20 text-end">
-                                    <button type="submit" class="btn btn-primary waves-effect m-r-15">Submit</button>
-                                    <a href="{{ url('new-patient-registration') }}" type="button" class="btn btn-danger waves-effect">Back</a>
+                                    <button type="submit" class="btn submit btn-primary waves-effect m-r-15">Submit</button>
+                                    <a href="{{ url('new-patient-registration') }}" type="button" class="btn back btn-danger waves-effect">Back</a>
                                  </div>
                               </form>
                            </div>

@@ -128,7 +128,7 @@
                                                                 </div>
                                                             </div>
 
-                                    <button class="btn btn-primary btn-sm ms-auto nextBtn" type="button" >Filter</button>
+                                    <button class="btn filter btn-primary btn-sm ms-auto nextBtn" type="button" >Filter</button>
                         </div>   
                              
                     </form>

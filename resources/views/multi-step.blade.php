@@ -136,7 +136,7 @@
 				                     </div>
 				                     <ul class="list-inline pull-right">
 				                        <li>
-				                           <button type="button" class="btn btn-info next-step">Next</button>
+				                           <button type="button" class="btn next btn-info next-step">Next</button>
 				                        </li>
 				                     </ul>
 
@@ -314,8 +314,8 @@
 				                        </div>
 				                     </div>
 				                     <ul class="list-inline pull-right">
-				                        <li><button type="button" class="btn btn-danger prev-step mr-2">Previous</button></li>
-				                        <li><button type="button" class="btn btn-info next-step1">Next</button></li>
+				                        <li><button type="button" class="btn previous btn-danger prev-step mr-2">Previous</button></li>
+				                        <li><button type="button" class="btn next btn-info next-step1">Next</button></li>
 				                     </ul>
 
 				                   </form>
@@ -337,8 +337,8 @@
 				                        <input type="file" id="patient_name">
 				                     </div>
 				                     <ul class="list-inline pull-right">
-				                        <li><button type="button" class="btn btn-danger prev-step1 mr-2">Previous</button></li>
-				                        <li><button type="button" class="btn btn-info btn-info-full next-step2">Submit</button></li>
+				                        <li><button type="button" class="btn previous btn-danger prev-step1 mr-2">Previous</button></li>
+				                        <li><button type="button" class="btn submit btn-info btn-info-full next-step2">Submit</button></li>
 				                     </ul>
 				                   </form>
 				                  </div>

@@ -73,8 +73,8 @@
                   
                  
                   <div class="col-lg-12 p-t-20 text-center">
-                     <button type="submit" class="btn btn-primary waves-effect m-r-15">Update</button>
-                     <a href="{{ url('add-menu') }}" type="button" class="btn btn-danger waves-effect">Back To Menu</a>
+                     <button type="submit" class="btn add btn-primary waves-effect m-r-15">Update</button>
+                     <a href="{{ url('add-menu') }}" type="button" class="btn back btn-danger waves-effect">Back To Menu</a>
                   </div>
                </div>
                </form>

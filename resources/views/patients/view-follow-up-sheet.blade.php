@@ -227,7 +227,7 @@
                                                 @endif
                                                 @if(Auth::user()->user_type==1)
                                                 <div class="row clearfix">
-                                                    <div class="col-sm-2">
+                                                    <div class="col-lg-3 col-md-4">
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="remark" class="form-control-label">Remark
@@ -256,10 +256,10 @@
                                                         <div class="col-sm-12 p-t-20 text-left">
                                                         <a href="{{ url('/follow-up-patients') }}">
                                                                 <button
-                                                                    type="button" class="btn btn-danger waves-effect">
+                                                                    type="button" class="btn back btn-danger waves-effect">
                                                                     &nbsp; Back &nbsp;</button></a>
                                                             <button type="submit"
-                                                                class="btn btn-primary waves-effect m-r-15"
+                                                                class="btn send  waves-effect m-r-15"
                                                                 @if((Auth::user()->user_type==3 &&
                                                                 $data->send_to_shishya=='0') ||
                                                                 (Auth::user()->user_type==2 &&
@@ -301,11 +301,11 @@
                                                     <table class="table table-hover js-basic-example" id="data_table">
                                                         <thead>
                                                             <tr>
-                                                                <th class="center">S.No#</th>
-                                                                <th class="center"> Date </th>
-                                                                <th class="center"> Send By </th>
-                                                                <th class="center"> Send To </th>
-                                                                <th class="center"> Remarks </th>
+                                                                <th class="center">S.No<i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                                <th class="center"> Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                                <th class="center"> Send By <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                                <th class="center"> Send To <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                                <th class="center"> Remarks <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
 
                                                             </tr>
                                                         </thead>
@@ -1031,7 +1031,7 @@
                                 </div>
                                 <div class="col-sm-12 p-t-20 text-left">
                                     <a href="{{ url('/follow-up-patients') }}"><button type="button"
-                                            class="btn btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
+                                            class="btn back btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
                                 </div>
                             </div>
 

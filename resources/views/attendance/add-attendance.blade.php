@@ -19,7 +19,7 @@
                   
                <ul class="breadcrumb breadcrumb-style ">
                   <li class="breadcrumb-item">
-                     <h6 class="page-title"> Attendances </h6>
+                     <h6 class="page-title"> Attendance </h6>
                      
                   </li>
                   <li class="breadcrumb-item bcrumb-1">
@@ -27,7 +27,7 @@
                      <i class="fas fa-home"></i> Home</a>
                   </li>
                   
-                  <li class="breadcrumb-item active"> Attendances </li>
+                  <li class="breadcrumb-item active"> Add Attendance </li>
                </ul>
                @if ($message = Session::get('success'))
                          <div class="alert alert-success">
@@ -47,7 +47,7 @@
                              
                <div class="header">
                   <h2>
-                     Update Attendance
+                   
                      <ul style="float:right;">
                                        <li style="float:left;clear:none; margin:10px;">From:
                                        </li><li style="float:left;clear:none; margin:10px;"> 
@@ -80,7 +80,7 @@
                             <div class="table-responsive">
                                 <table class="table table-hover js-basic-example contact_list">
                                     <thead>
-                                            <th class="center"> <label class="form-check-label form-check-input1"> <input type="checkbox" class="form-check-input" name="checkall" id="checkall" value="1"> Select All</label> </th>
+                                            <th class="center"> <label class="form-check-label form-check-input1"><input type="checkbox" class="form-check-input1" name="checkall" id="checkall" value="1"> Select All </label> </th>
                                             <th class="center"> Registration No. </th>
                                             <th class="center"> Shishya Name </th>
                                             <th class="center"> Guru Name </th>
@@ -91,7 +91,7 @@
                                     <tbody>
                                     @foreach($data as $k=>$user)
                                         <tr class="odd gradeX">
-                                            <td class="center"><label class="form-check-label form-check-input1"><input name="shishya_ids[]" type="checkbox"  class="form-check-input" value="{{$user->id}}"> &nbsp {{($k+1)}}</label</td>
+                                            <td class="center"><label class="form-check-label form-check-input1"><input name="shishya_ids[]" type="checkbox"  class="form-check-input" value="{{$user->id}}"> </label</td>
                                             <td class="center">RAVSH-{{ $user->id }}-{{date('Y')}}</td>
                                             <td class="center">{{$user->firstname.' '.$user->lastname}}</td>
                                             <td class="center">{{$user->guru_firstname.' '.$user->guru_lastname}}</td>

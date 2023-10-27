@@ -101,7 +101,7 @@
                                         @error('State') <p class='text-danger text-xs pt-1'> {{ $message }} </p> @enderror
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-warning waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="fas fa-plus"></i></button>
+                                <button type="button" class="btn add-plus btn-warning waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="fas fa-plus"></i></button>
                                 </div>
 
                                 <div class="row">
@@ -189,10 +189,10 @@
                                 </div>
 
                                 <div class="text-center col-md-2">
-                                    <button type="submit" id="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Save</button>
+                                    <button type="submit" id="submit" class="btn save bg-gradient-dark w-100 my-4 mb-2">Save</button>
                                 </div>
                                 <div class="text-center col-md-2">
-                                    <button type="reset" class="btn bg-gradient-dark w-100 my-4 mb-2">Reset</button>
+                                    <button type="reset" class="btn reset bg-gradient-dark w-100 my-4 mb-2">Reset</button>
                                 </div>
                               </div>
                               <div id="addUserModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="standard-modalLabel" aria-hidden="true">
@@ -224,7 +224,7 @@
     </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="form_state" class="btn btn-primary">Save</button>
+                        <button type="submit" id="form_state" class="btn save btn-primary">Save</button>
                     </div>
                     </div>
                 </form>

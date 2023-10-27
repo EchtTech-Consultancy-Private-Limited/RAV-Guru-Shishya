@@ -44,7 +44,7 @@
                <div class="header">
                <ul class="header-dropdown m-r-5">
                   <li>
-                     <a href="{{ route('generateAdminPdf',$patient->id) }}"><button type="button" class="btn btn-danger waves-effect" style="margin-top: -15px;"> &nbsp; Print &nbsp;</button></a>
+                     <a href="{{ route('generateAdminPdf',$patient->id) }}"><button type="button" class="btn print waves-effect"> &nbsp; Print &nbsp;</button></a>
                   </li>
                </ul>
                   <ul class="header-dropdown m-r--5">
@@ -695,7 +695,7 @@
                                  </div>
                                  <div class="col-lg-12  text-center">
 
-                                    <a href="{{ url('admin-patient-list') }}" type="button" class="btn btn-primary waves-effect submit float-right">Back To Patient Record</a>
+                                    <a href="{{ url('admin-patient-list') }}" type="button" class="btn back  waves-effect submit float-right">Back To Patient Record</a>
                                  </div>
                               </form>
                            </div>

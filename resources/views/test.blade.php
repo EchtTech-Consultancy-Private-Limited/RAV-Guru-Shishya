@@ -50,7 +50,7 @@
                              
                              @endforeach
                            </thead>
-                           <button type="submit" class="btn btn-primary">Permissions</button>
+                           <button type="submit" class="btn permission btn-primary">Permissions</button>
                        </form>
                      </table>
                   </div>
