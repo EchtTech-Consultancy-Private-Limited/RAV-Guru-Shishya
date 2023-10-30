@@ -528,7 +528,7 @@ button.btn.bg-indigo.waves-effect {
     width: 100%;
     /* margin-bottom: 15px; */
     background: #fff;
-    padding: 11px 20px;
+    padding: 5px 20px;
     margin-bottom: 0px;
     border-radius: 5px;
 }
@@ -1024,7 +1024,7 @@ a.btn.add {
 }
 
 button.btn.submit {
-    background: #5C4E3F !important;
+    background: #e3761c !important;
     color: #fff;
 }
 
@@ -1061,6 +1061,105 @@ button.btn.submit {
     font-size: 12px !important;
     font-weight: 200 !important;
     line-height: 2.6 !important;
+
+}
+
+.btn.permission{
+    background: #555 !important;
+}
+
+
+.form-group input, .form-group select, .form-group .select2-selection{
+    height: auto !important;
+    padding: 8px 15px !important;
+    line-height: auto !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: normal !important;
+}
+/* *************************************button colo end******************************** */
+
+i.fa.fa-long-arrow-up {
+    margin-left: 5px !important;
+}
+
+table th {
+    background: #5C4E3F !important;
+    color: #fff;
+}
+table th, table tr, table td {
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 0px !important;
+    border-left: 1px solid #ddd;
+    padding: 10px 10px;
+}
+table th:last-child, table tr:last-child, table td:last-child {
+    
+    border-right: 1px solid #ddd;
+}
+
+
+/* .view-follow-up-sheet .form-group{
+    border: 1px solid #ddd !important;
+} */
+
+
+/* .form-group input,  .form-group select, .form-group .select2-selection{
+    border: 1px solid #ddd !important;
+    border-radius: 20px !important;
+} */
+
+.form-group label {
+    padding: 10px 15px !important;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding: 0 !important;
+}
+
+.form-group label[for="example-text-input"]{
+    padding: 0 !important;
+}
+
+label.form-control-label {
+    padding: 0 !important;
+}
+
+table tr .title{
+    font-weight: bold;
+}
+
+.view-table tr td:first-child{
+    font-weight: bold !important;
+    color: #000;
+}
+
+
+.card .body .col-xs-6, .card .body .col-sm-6, .card .body .col-md-6, .card .body .col-lg-6 {
+    margin-bottom: 10px !important;
+
+}
+
+.form-group input{
+    max-width: 90%;
+}
+
+h3 {
+    font-size: 20px;
+    padding: 20px 0;
+    margin: 0 !important;
+}
+
+.sign .form-group label {
+    padding: 12px 0 !important;
+    font-size: 16px;
+}
+
+/* .table-heading{
+    border-top: 1px solid #ddd;
+} */
+=======
 }
 
 .btn.permission{
@@ -1097,3 +1196,4 @@ table th:last-child, table tr:last-child, table td:last-child {
 .view-follow-up-sheet .form-group{
     border: 1px solid #ddd !important;
 }
+
