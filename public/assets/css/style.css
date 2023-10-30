@@ -1061,7 +1061,6 @@ button.btn.submit {
     font-size: 12px !important;
     font-weight: 200 !important;
     line-height: 2.6 !important;
-
 }
 
 .btn.permission{
@@ -1159,41 +1158,3 @@ h3 {
 /* .table-heading{
     border-top: 1px solid #ddd;
 } */
-=======
-}
-
-.btn.permission{
-    background: #555 !important;
-}
-
-
-.form-group input, .form-group select{
-    height: auto !important;
-    padding: 8px !important;
-}
-/* *************************************button colo end******************************** */
-
-i.fa.fa-long-arrow-up {
-    margin-left: 5px !important;
-}
-
-table th {
-    background: #5C4E3F !important;
-    color: #fff;
-}
-table th, table tr, table td {
-    border-bottom: 1px solid #ddd !important;
-    border-radius: 0px !important;
-    border-left: 1px solid #ddd;
-}
-table th:last-child, table tr:last-child, table td:last-child {
-    border-bottom: 1px solid #ddd !important;
-    border-radius: 0px !important;
-    border-left: 1px solid #ddd;
-}
-
-
-.view-follow-up-sheet .form-group{
-    border: 1px solid #ddd !important;
-}
-
