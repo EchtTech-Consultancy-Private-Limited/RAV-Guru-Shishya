@@ -68,7 +68,7 @@
                                  <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                                  <div class="card-body">
                                     <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Guru</label><br>
                                              @if(!empty($guru->id))
@@ -76,7 +76,7 @@
                                              @endif
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Place of the Guru</label><br>
                                              @if(!empty($guru->id))
@@ -84,15 +84,14 @@
                                              @endif
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                    
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Shishya</label><br>
                                             <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Date of Report</label><br>
                                             <p>{{date('d-m-y',strtotime($patient->registration_date))}}</p>
@@ -102,7 +101,7 @@
                                     </div>
                                     <hr style="height:2px;">
                                     <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger">*</span></label>
                                              <input type="text" name="patient_name" class="form-control" placeholder="Patient Name" aria-label="Email" value="{{ $patient->patient_name }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
@@ -111,7 +110,7 @@
                                              @endif
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration No<span class="text-danger">*</span></label>
                                              <input type="text" name="registration_no" class="form-control" placeholder="Registration No" aria-label="" value="{{ $patient->registration_no }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="15">
@@ -122,9 +121,7 @@
                                              @endif
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Age<span class="text-danger">*</span></label>
                                              <input type="text" name="age" class="form-control" value="{{ $patient->age }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="3" id="age">
@@ -135,14 +132,13 @@
                                              @endif
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration Date</label>
                                              <input type="text" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{date('d-m-Y',strtotime($patient->registration_date))}}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                           </div>
                                        </div>
-
-                                       <div class="col-md-12">
+                                       <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Patients Type <span class="text-danger">*</span></label>
                                              <select class="form-control" name="patient_type">
@@ -160,8 +156,9 @@
                                           </div>
                                        </div>
                                     </div>
+                                    
                                     <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="Gender" class="form-control-label">Gender<span class="text-danger">*</span></label>
                                              <select name="gender" id="Gender" class="form-control">
@@ -179,7 +176,7 @@
                                              @endif
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Age Group<span class="text-danger">*</span></label>
                                              <select name="age_group" id="Age" class="form-control">
@@ -195,9 +192,7 @@
                                              @endif
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Occupation<span class="text-danger">*</span></label>
                                              <select name="occupation" id="occupation" class="form-control">
@@ -216,7 +211,7 @@
                                              @endif
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Marital Status<span class="text-danger">*</span></label>
                                              <select name="marital_status" id="Marital
@@ -233,24 +228,24 @@
                                              @endif
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Aasan Sidhi</label>
                                              <input type="text" name="aasan_sidhi" class="form-control" placeholder="Aasan Sidhi" aria-label="Aasan Sidhi" value="{{ $patient->aasan_sidhi }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                    </div>
+                                    
+                                    <div class="row">
+                                      
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Season</label>
                                              <input type="text" name="season" class="form-control" placeholder="Season" aria-label="Aasan
                                              Sidhi" value="{{ $patient->season }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-in
                                              put" class="form-control-label">Region of patient</label>
@@ -264,10 +259,10 @@
                                              </select>
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Address<span class="text-danger">*</span></label>
-                                             <textarea cols="45" rows="2" name="address" class="form-control" value="{{ $patient->address }}" aria-label="Address" placeholder="Street Address" maxlength="200">{{ $patient->address }}</textarea>
+                                             <textarea cols="45" rows="1" name="address" class="form-control" value="{{ $patient->address }}" aria-label="Address" placeholder="Street Address" maxlength="200">{{ $patient->address }}</textarea>
                                           </div>
                                           @if ($errors->has('address'))
                                              <span class="help-block">
@@ -275,48 +270,47 @@
                                              </span>
                                           @endif
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Main Complaint(As said by patient)</label>
-                                             <textarea cols="45" rows="2" name="main_complaintsaid_by_patient" class="form-control" value="{{ $patient->main_complaintsaid_by_patient }}" aria-label="main_complaintsaid_by_patient" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaintsaid_by_patient }}</textarea>
+                                             <textarea cols="45" rows="1" name="main_complaintsaid_by_patient" class="form-control" value="{{ $patient->main_complaintsaid_by_patient }}" aria-label="main_complaintsaid_by_patient" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaintsaid_by_patient }}</textarea>
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Duration</label>
                                              <input type="text" name="said_by_patient_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->said_by_patient_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Main Complaint(As said by family member)</label>
-                                             <textarea cols="45" rows="2" name="main_complaint_as_said_by_family" class="form-control" value="{{ $patient->main_complaint_as_said_by_family }}" aria-label="main_complaint_as_said_by_family" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaint_as_said_by_family }}</textarea>
+                                             <textarea cols="45" rows="1" name="main_complaint_as_said_by_family" class="form-control" value="{{ $patient->main_complaint_as_said_by_family }}" aria-label="main_complaint_as_said_by_family" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaint_as_said_by_family }}</textarea>
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Duration</label>
                                              <input type="text" name="complaint_as_said_by_family_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->complaint_as_said_by_family_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="50">
                                           </div>
                                        </div>
                                     </div>
+                                    
+                                    
+                                    
                                     <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Past illness</label>
-                                             <textarea cols="45" rows="2" name="past_illness" class="form-control" value="{{ $patient->past_illness }}" aria-label="Address" placeholder="Past illness" maxlength="80">{{ $patient->past_illness }}</textarea>
+                                             <textarea cols="45" rows="1" name="past_illness" class="form-control" value="{{ $patient->past_illness }}" aria-label="Address" placeholder="Past illness" maxlength="80">{{ $patient->past_illness }}</textarea>
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                                 Family
                                                 History</label>
-                                             <textarea cols="45" rows="2" name="family_history" class="form-control" value="{{ $patient->family_history }}" aria-label="family_history" placeholder="Family History" maxlength="40">{{ $patient->family_history }}</textarea>
+                                             <textarea cols="45" rows="1" name="family_history" class="form-control" value="{{ $patient->family_history }}" aria-label="family_history" placeholder="Family History" maxlength="40">{{ $patient->family_history }}</textarea>
                                           </div>
                                        </div>
                                     </div>
@@ -693,7 +687,7 @@
                                        </div>
                                     </div>
                                     <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                                 Examination
@@ -709,46 +703,43 @@
                                              </select>
                                           </div>
                                        </div>
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                                 Prayogashaliya
                                                 Parikshana</label>
-                                             <textarea cols="45" rows="2" name="prayogashaliya_parikshana" class="form-control" value="" aria-label="prayogashaliya_parikshana" placeholder="Prayogashaliya Parikshana">{{ $patient->prayogashaliya_parikshana }}</textarea>
+                                             <textarea cols="45" rows="1" name="prayogashaliya_parikshana" class="form-control" value="" aria-label="prayogashaliya_parikshana" placeholder="Prayogashaliya Parikshana">{{ $patient->prayogashaliya_parikshana }}</textarea>
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                                 Samprapti
                                                 Vivarana</label>
-                                             <textarea cols="45" rows="2" name="samprapti_vivarana" class="form-control" value="" aria-label="samprapti_vivarana" placeholder="Samprapti Vivarana" maxlength="100">{{ $patient->samprapti_vivarana }}</textarea>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-6">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
-                                                Vibhedaka
-                                                Pariksha</label>
-                                             <textarea cols="45" rows="2" name="vibhedaka_pariksha" class="form-control" value="" aria-label="vibhedaka_pariksha" placeholder="Vibhedaka Pariksha" maxlength="100">{{ $patient->vibhedaka_pariksha }}</textarea>
+                                             <textarea cols="45" rows="1" name="samprapti_vivarana" class="form-control" value="" aria-label="samprapti_vivarana" placeholder="Samprapti Vivarana" maxlength="100">{{ $patient->samprapti_vivarana }}</textarea>
                                           </div>
                                        </div>
                                     </div>
                                     <div class="row">
-                                       <div class="col-md-6">
+                                       
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                                Vibhedaka
+                                                Pariksha</label>
+                                             <textarea cols="45" rows="1" name="vibhedaka_pariksha" class="form-control" value="" aria-label="vibhedaka_pariksha" placeholder="Vibhedaka Pariksha" maxlength="100">{{ $patient->vibhedaka_pariksha }}</textarea>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                                 Roga
                                                 Vinishchaya-
                                                 Pramukh
                                                 Nidana</label>
-                                             <textarea cols="45" rows="2" name="roga_vinishchaya_pramukh_nidana" class="form-control" value="" aria-label="roga_vinishchaya" placeholder="Roga Vinishchaya-Pramukh Nidana" maxlength="100">{{ $patient->roga_vinishchaya_pramukh_nidana }}</textarea>
+                                             <textarea cols="45" rows="1" name="roga_vinishchaya_pramukh_nidana" class="form-control" value="" aria-label="roga_vinishchaya" placeholder="Roga Vinishchaya-Pramukh Nidana" maxlength="100">{{ $patient->roga_vinishchaya_pramukh_nidana }}</textarea>
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
@@ -756,15 +747,19 @@
                                                 Kalpana
                                                 Anupana
                                                 Sahita</label>
-                                             <textarea cols="45" rows="2" name="chikitsa_kalpana_anupana_sahita" class="form-control" value="" aria-label="chikitsa_kalpana_anupana_sahita
+                                             <textarea cols="45" rows="1" name="chikitsa_kalpana_anupana_sahita" class="form-control" value="" aria-label="chikitsa_kalpana_anupana_sahita
                                              " placeholder="Chikitsa Kalpana Anupana Sahita" maxlength="100">{{ $patient->chikitsa_kalpana_anupana_sahita }}</textarea>
                                           </div>
                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                       
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="samshodhana_kriyas" class="form-control-label">Samshodhana
                                                 Kriyas</label>
-                                             <textarea cols="45" rows="2" name="samshodhana_kriyas" class="form-control" value="" aria-label="samshodhana_kriyas
+                                             <textarea cols="45" rows="1" name="samshodhana_kriyas" class="form-control" value="" aria-label="samshodhana_kriyas
                                              " placeholder="Samshodhana Kriyas" maxlength="100">{{ $patient->samshodhana_kriyas }}</textarea>
                                           </div>
                                        </div>
@@ -772,24 +767,23 @@
                                           <div class="form-group">
                                              <label for="samshamana_kriyas" class="form-control-label">Samshamana
                                                 Kriyas</label>
-                                             <textarea cols="45" rows="2" name="samshamana_kriyas" class="form-control" value="" aria-label="samshamana_kriyas
+                                             <textarea cols="45" rows="1" name="samshamana_kriyas" class="form-control" value="" aria-label="samshamana_kriyas
                                              " placeholder="Samshamana Kriyas" maxlength="100">{{ $patient->samshamana_kriyas }}</textarea>
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <div class="col-md-6">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                                 Pathya-Apathya
                                                 (<span class="fs-12
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span>)</label>
 
-                                             <textarea cols="45" rows="2" name="pathya_apathya" class="form-control" value="" aria-label="pathya_apathya
+                                             <textarea cols="45" rows="1" name="pathya_apathya" class="form-control" value="" aria-label="pathya_apathya
                                              " placeholder=" Pathya-Apathya" maxlength="100">{{ $patient->pathya_apathya }}</textarea>
                                           </div>
                                        </div>
                                     </div>
+                                    
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">

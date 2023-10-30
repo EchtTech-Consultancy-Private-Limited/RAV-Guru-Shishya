@@ -90,7 +90,7 @@
                                  </div>
 
                                  <hr style="height:2px;">
-                                 <div class="row clearfix">
+                                 {{-- <div class="row clearfix">
                                     <div class="col-md-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger"></span></label>
@@ -111,8 +111,45 @@
 
                                        </div>
                                     </div>
-                                 </div>
+                                 </div> --}}
+
                                  <div class="row clearfix">
+                                    <div class="col-md-3">
+                                       <div class="form-group">
+                                          <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger"></span></label>
+                                          <br>{{$patient->patient_name}}</label>
+                                       </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                       <div class="form-group">
+                                          <label for="example-text-input" class="form-control-label">Patient Registration No<span class="text-danger"></span></label>
+                                          <br>{{ $patient->registration_no }}</label>
+
+                                       </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                       <div class="form-group">
+                                          <label for="example-text-input" class="form-control-label">Patients Type-<span class="text-danger"></span></label>
+                                          <br>{{$patient->patient_type}}</label>
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                       <div class="form-group">
+                                          <label for="example-text-input" class="form-control-label">Age<span class="text-danger"></span></label>
+                                          <br>{{$patient->age}} Yrs.</label>
+
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                       <div class="form-group">
+                                          <label for="example-text-input" class="form-control-label">Registration Date</label>
+                                          <br>{{date('d-m-Y',strtotime($patient->registration_date))}}</label>
+
+                                       </div>
+                                    </div>
+                                 </div>
+                                 {{-- <div class="row clearfix">
                                     <div class="col-sm-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Age<span class="text-danger"></span></label>
@@ -127,9 +164,9 @@
 
                                        </div>
                                     </div>
-                                 </div>
+                                 </div> --}}
                                  <div class="row clearfix">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="Gender" class="form-control-label">Gender<span class="text-danger"></span></label>
                                           <br>@foreach(__('phr.gender') as $key=>$value)
@@ -138,7 +175,7 @@
 
                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Age Group<span class="text-danger"></span></label>
                                           <br>@foreach(__('phr.age_group') as $key=>$value)
@@ -148,7 +185,7 @@
 
                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Occupation<span class="text-danger"></span></label>
                                           <br>@foreach(__('phr.occupation') as $key=>$value)
@@ -158,7 +195,7 @@
 
                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Marital Status<span class="text-danger"></span></label>
                                           <br>@foreach(__('phr.marital_status') as $key=>$value)
@@ -169,21 +206,21 @@
                                        </div>
                                     </div>
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Aasan Sidhi</label>
                                           <br>{{$patient->aasan_sidhi}}</label>
 
                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Season</label>
                                           <br>{{$patient->season}}</label>
 
                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-in
                                              put" class="form-control-label">Region of patient</label>
@@ -194,7 +231,7 @@
 
                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Address<span class="text-danger"></span></label>
                                           <br>{{$patient->address}}</label>
@@ -208,7 +245,7 @@
                                           <br>{{$patient->main_complaintsaid_by_patient}}</label>
                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">Duration</label>
                                           <br>{{$patient->said_by_patient_duration}}</label>
@@ -234,14 +271,14 @@
 
 
                                  <div class="row clearfix">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label"> Past illness</label>
                                           <br>{{$patient->past_illness}}</label>
 
                                        </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">
                                              Family
@@ -253,9 +290,9 @@
                                  </div>
                                  <div class="row clearfix">
                                     <div class="col-sm-12">
-                                       <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label"> Examination of the patient</label>
-                                       </div>
+                                      <h3>
+                                       Examination of the patient
+                                      </h2>
                                     </div>
                                  </div>
                                  <div class="row clearfix">
@@ -558,7 +595,7 @@
                                     </div>
                                  </div>
                                  <div class="row clearfix">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">
                                              Examination
@@ -572,7 +609,7 @@
 
                                        </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">
                                              Prayogashaliya
@@ -581,9 +618,7 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div class="row clearfix">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">
                                              Samprapti
@@ -592,7 +627,10 @@
 
                                        </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                 </div>
+                                 <div class="row clearfix">
+                                    
+                                    <div class="col-sm-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">
                                              Vibhedaka
@@ -601,8 +639,6 @@
 
                                        </div>
                                     </div>
-                                 </div>
-                                 <div class="row clearfix">
                                     <div class="col-md-4">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label">
@@ -625,6 +661,9 @@
 
                                        </div>
                                     </div>
+                                 </div>
+                                 <div class="row clearfix">
+                                    
                                     <div class="col-sm-4">
                                        <div class="form-group">
                                           <label for="samshodhana_kriyas" class="form-control-label">Samshodhana
