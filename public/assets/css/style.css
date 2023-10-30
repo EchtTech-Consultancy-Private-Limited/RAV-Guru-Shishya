@@ -528,7 +528,7 @@ button.btn.bg-indigo.waves-effect {
     width: 100%;
     /* margin-bottom: 15px; */
     background: #fff;
-    padding: 5px 20px;
+    padding: 5px 15px;
     margin-bottom: 0px;
     border-radius: 5px;
 }
@@ -630,7 +630,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .form-check, label {
    
-    font-weight: 600;
+    font-weight: 500;
 }
 .wizard>.steps .number {
     font-size: 14px;
@@ -973,6 +973,10 @@ a.btn.waves-effect.add-phr{
 .btn.add{
      background: #315373 !important;
      color: #fff;
+     display: flex !important;
+     align-items: center;
+     justify-content: center;
+     width: auto !important;
 }
 a.btn.add {
     background: #315373 !important;
@@ -1068,10 +1072,13 @@ button.btn.submit {
 }
 
 
-.form-group input, .form-group select, .form-group .select2-selection{
+.form-group input, .form-group select {
     height: auto !important;
-    padding: 8px 15px !important;
+    padding: 8px 0px !important;
     line-height: auto !important;
+}
+.form-group .select2-selection{
+    padding: 0px 15px !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -1110,7 +1117,7 @@ table th:last-child, table tr:last-child, table td:last-child {
 } */
 
 .form-group label {
-    padding: 10px 15px !important;
+    /* padding: 0px 15px !important; */
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered{
@@ -1145,8 +1152,8 @@ table tr .title{
 }
 
 h3 {
-    font-size: 20px;
-    padding: 20px 0;
+    font-size: 18px;
+    padding: 10px 0;
     margin: 0 !important;
 }
 
@@ -1158,3 +1165,12 @@ h3 {
 /* .table-heading{
     border-top: 1px solid #ddd;
 } */
+
+.col-md-12 p{
+    color: #d35400 !important;
+    font-weight: bold;
+}
+.form-group p{
+    color: #333 !important;
+    font-weight: 300;
+}

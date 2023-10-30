@@ -87,7 +87,7 @@
                                           @if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                              @endif
                                           </td>
-                                          <td> <?php echo date('Y-m-d'); ?></td>
+                                          <td> <?php echo date('d-m-Y'); ?></td>
                                          
                                        </tr>
                                     </tbody>
