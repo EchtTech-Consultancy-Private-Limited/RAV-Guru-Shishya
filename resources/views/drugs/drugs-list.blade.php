@@ -186,9 +186,9 @@
                                                  <td class="center"> {{$drug->churna_yoga_type_individual}}  </td>
                                                  <td class="center">{{ date('d-m-Y', strtotime($drug->date_of_yogas)) }}</td>
                                                  <td class="text-center">
-                                                    <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"> <i class="material-icons">edit</i>
+                                                    <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" class="btn edit btn-tbl-edit"> <i class="material-icons">edit</i>
                                                     </a>
-                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" class="btn btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-churnayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                      <i class="material-icons">delete_forever</i>
