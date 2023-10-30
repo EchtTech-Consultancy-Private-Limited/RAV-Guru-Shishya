@@ -99,7 +99,7 @@
                </div>
             </div>
          </div>
-         <a style="line-height:2;" type="button" class="btn back btn-primary waves-effect submit float-right" href="{{ url('new-patient-registration') }}">Back To PHR Records</a>
+         <a style="line-height:2;" type="button" class="btn back waves-effect submit float-right" href="{{ url('new-patient-registration') }}">Back To PHR Records</a>
       </div>
    </div>
       </section>
