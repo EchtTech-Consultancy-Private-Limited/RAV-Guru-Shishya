@@ -46,7 +46,7 @@ class LoginController extends Controller
     }
 
     public function login(Request $request)
-    {        
+    {
         $request['password'] = decode5t($request->password); #SKP
 
             $credentials = $request->validate([

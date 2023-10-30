@@ -56,7 +56,6 @@ class AddUserController extends Controller
 
     public function sign_up(Request $request)
     {
-        //dd($request->user_type);
         if($request->user_type==2)
         {
 
