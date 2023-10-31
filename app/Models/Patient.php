@@ -69,4 +69,5 @@ class Patient extends Model
         'patient_type',
         'read_time',
     ];
+
 }
