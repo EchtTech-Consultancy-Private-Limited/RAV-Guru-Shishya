@@ -43,20 +43,7 @@
                 <div class="card">
                     <div class="header">
                         <h2><strong>Add</strong> Follow Up </h2>
-                        <!-- <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu float-start">
-                                    <li>
-                                        <a href="#" onClick="window.print();">Print</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul> -->
+                       
                     </div>
                     <div class="body">
                         <div id="wizard_horizontal">
@@ -80,11 +67,11 @@
                                             <div class="card-body">
 
                                                 <div class="row clearfix">
-                                                    <div class="col-md-4">
+                                                    
+                                                    <div class="col-md-3 col-6">
                                                         <div class="form-group focused">
                                                             <div class="form-line">
-                                                                <label class="form-control-label">Registration
-                                                                    No.</label>
+                                                                <label class="form-control-label">Registration  No.</label>
                                                                 <br>
                                                                 <label for="follow_up_date"
                                                                     class="form-control-label">{{ $patient->registration_no }}</label>
@@ -92,7 +79,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3 col-6">
                                                         <div class="form-group focused">
                                                             <div class="form-line">
                                                                 <label class="form-control-label">Patient Name</label>
@@ -103,7 +90,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3 col-6">
                                                         <div class="form-group focused">
                                                             <div class="form-line">
                                                                 <label for="follow_up_date"
@@ -125,7 +112,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3 col-6">
                                                         <div class="form-group">
                                                             <div class="form-line">
 
@@ -165,7 +152,7 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="progress" class="form-control-label">Progress <span class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" required>{{ (@$data->progress)?$data->progress:old('progress') }}</textarea>
+                                                                <textarea cols="45" rows="1" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" required>{{ (@$data->progress)?$data->progress:old('progress') }}</textarea>
                                                             @if($errors->has('progress'))
                                                             <span class="help-block">
                                                                 <strong style="color:red;">{{ $errors->first('progress') }}</strong>
@@ -178,7 +165,7 @@
                                                         <div class="form-group">
                                                             <div class="form-line">
                                                                 <label for="treatment" class="form-control-label">Treatment/Therapies<span class="text-danger"></span></label>
-                                                                <textarea cols="45" rows="2" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>{{ (@$data->treatment)?$data->treatment:old('treatment') }}</textarea>
+                                                                <textarea cols="45" rows="1" name="treatment" class="form-control" value="" aria-label="treatment" placeholder="Please enter treatment/therapies" required>{{ (@$data->treatment)?$data->treatment:old('treatment') }}</textarea>
                                                                 @if ($errors->has('treatment'))
                                                                 <span class="help-block">
                                                                     <strong
@@ -217,660 +204,346 @@
                                             <i class="fa fa-plus fa-x" style="float:right;clear:none;"></i>
                                         </div>
                                     </div>
-                                    <div class="card-body2 " style="display:none;">
+                                    <div class="card-body2 " >
+                                    <table class="">
+                                            <h3>Basic Information</h3>
+                                            <thead>
+                                            <tr>
+                                                <th> Name of  the Guru</th>
+                                                <th> Name of   the Shishya</th>
+                                                <th>Place of the Guru </th>
+                                                <th>Date of   Report </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr> 
+                                                <td> @if (!empty($guru->id))
+                                                {{ $guru->firstname . ' ' . $guru->lastname }}
+                                                    @endif </td>
+                                                <td> {{$shishya->firstname}}</td>
+                                                <td>{{@$guru->city_name}}</td>
+                                                <td> <?php echo date('d-m-Y'); ?></td>
+                                              
+                                            </tr>
+                                            </tbody>
+                                    </table>
 
-                                        <div class="row clearfix pt-5 p-1">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Name of
-                                                        the Guru<span class="text-danger"></span></label><br>
-                                                    @if (!empty($guru->id))
-                                                    <label for="example-text-input" class="form-control-label"><b>{{ $guru->firstname . ' ' . $guru->lastname }}</b></label>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Place
-                                                        of the Guru</label><br>
-                                                    <label for="example-text-input" class="form-control-label"><b>{{@$guru->city_name}}</b></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Name of
-                                                        the Shishya<span class="text-danger"></span></label><br>
-                                                    <label for="example-text-input"
-                                                        class="form-control-label"><b>{{$shishya->firstname}}</b></label>
+                                    <table class="view-table">
+                                        <h3>Patient Information</h3>
+                                        <thead>
+                                        <tr>
+                                            <th class="w-25"> Title </th>
+                                            <th> Value</th>
+                                           
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr> 
+                                            <td> Name of  the Patient</td>
+                                            <td>{{ $patient->patient_name  }} </td>
+                                          
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Date of
-                                                        Report</label><br>
-                                                    <label for="example-text-input"
-                                                        class="form-control-label"><b><?php echo date('Y-m-d'); ?><b></label>
+                                        <tr>
+                                            <td> Registration No</td>
+                                            <td>  {{ $patient->registration_no  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
+                                        <tr>
+                                            <td>Age </td>
+                                            <td> {{ $patient->age }}
+                                                        Yrs.</td>
+                                        </tr>
 
+                                        <tr>
+                                            <td> Registration Date</td>
+                                            <td> {{ date('Y-m-d', strtotime($patient->registration_date))  }}</td>
+                                        </tr>
 
+                                        <tr>
+                                            <td>Gender </td>
+                                            <td>   @foreach (__('phr.gender') as $key => $value)
+                                                        {{ $patient->gender == $key ? $value : '' }}
+                                                        @endforeach</td>
+                                        </tr>
 
-                                        </div>
-
-                                        <hr style="height:2px;">
-                                        <div class="row clearfix">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Name of
-                                                        the Patient<span class="text-danger"></span></label>
-                                                    <p> {{ $patient->patient_name  }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input"
-                                                        class="form-control-label">Registration No<span
-                                                            class="text-danger"></span></label>
-                                                    <p> {{ $patient->registration_no  }}</p>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Age<span
-                                                            class="text-danger"></span></label>
-                                                    <p> {{ $patient->age }}
-                                                        Yrs. </label>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input"
-                                                        class="form-control-label">Registration Date</label>
-                                                    <p> {{ date('Y-m-d', strtotime($patient->registration_date))  }}</p>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="Gender" class="form-control-label">Gender<span
-                                                            class="text-danger"></span></label>
-                                                    <p>
-                                                        @foreach (__('phr.gender') as $key => $value)
-                                                        {{ $patient->gender == $key ? $value : '' }}</option>
-                                                        @endforeach
-                                                        </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Age
-                                                        Group<span class="text-danger"></span></label>
-                                                    <p>
-                                                        @foreach (__('phr.age_group') as $key => $value)
+                                        <tr>
+                                            <td> Age  Group</td>
+                                            <td>@foreach (__('phr.age_group') as $key => $value)
                                                         {{ $patient->age_group == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input"
-                                                        class="form-control-label">Occupation<span
-                                                            class="text-danger"></span></label>
-                                                    <p>
-                                                        @foreach (__('phr.occupation') as $key => $value)
+                                        <tr>
+                                            <td>Occupation </td>
+                                            <td> @foreach (__('phr.occupation') as $key => $value)
                                                         {{ $patient->occupation == $key ? $value : '' }}
                                                         </option>
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Marital
-                                                        Status<span class="text-danger"></span></label>
-                                                    <p>
-                                                        @foreach (__('phr.marital_status') as $key => $value)
+                                        <tr>
+                                            <td> Marital   Status</td>
+                                            <td> @foreach (__('phr.marital_status') as $key => $value)
                                                         {{ $patient->marital_status == $key ? $value : '' }}
                                                         </option>
-                                                        @endforeach
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Aasan
-                                                        Sidhi</label>
-                                                    <p> {{ $patient->aasan_sidhi  }}</p>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input"
-                                                        class="form-control-label">Season</label>
-                                                    <p> {{ $patient->season  }}</p>
+                                        <tr>
+                                            <td>Aasan   Sidhi </td>
+                                            <td>{{ $patient->aasan_sidhi  }} </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-in
-                                             put" class="form-control-label">Region of patient</label>
-                                                    <p>
-                                                        @foreach (__('phr.region_of_patient') as $key => $value)
+                                        <tr>
+                                            <td> Season</td>
+                                            <td>{{ $patient->season  }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td> Region of patient</td>
+                                            <td>  @foreach (__('phr.region_of_patient') as $key => $value)
                                                         {{ $patient->region_of_patient == $key ? $value : '' }}
                                                         </option>
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input"
-                                                        class="form-control-label">Address<span
-                                                            class="text-danger"></span></label>
-                                                    <p> {{ $patient->address  }}</p>
+                                        <tr>
+                                            <td>Address </td>
+                                            <td>{{ $patient->address  }} </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">1. Main
-                                                        Complaint(As said by patient)</label>
-                                                    <p> {{ $patient->main_complaintsaid_by_patient  }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input"
-                                                        class="form-control-label">Duration</label>
-                                                    <p> {{ $patient->said_by_patient_duration  }}</p>
+                                        <tr>
+                                            <td>1. Main
+                                                        Complaint(As said by patient) </td>
+                                            <td> {{ $patient->main_complaintsaid_by_patient  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">2. Main
-                                                        Complaint(As said by family member)</label>
-                                                    <p> {{ $patient->main_complaint_as_said_by_family  }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input"
-                                                        class="form-control-label">Duration</label>
-                                                    <p> {{ $patient->complaint_as_said_by_family_duration  }}</p>
+                                        <tr>
+                                            <td>Duration </td>
+                                            <td> {{ $patient->complaint_as_said_by_family_duration  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">3. Past
-                                                        illness</label>
-                                                    <p> {{ $patient->past_illness  }}</p>
+                                        <tr>
+                                            <td> 3. Past  illness</td>
+                                            <td> {{ $patient->past_illness  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">4.
-                                                        Family
-                                                        History</label>
-                                                    <p> {{ $patient->family_history  }}</p>
+                                        <tr>
+                                            <td>4. Family  History </td>
+                                            <td> {{ $patient->family_history  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
+                                        <tr>
+                                            <td colspan="2"> <h3>5. Examination  of the  patient</h3> </td>
+                                           
+                                        </tr>
 
-
-
-                                        </div>
-
-                                        <div class="row clearfix">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">5.
-                                                        Examination
-                                                        of
-                                                        the
-                                                        patient</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Skin">i) Skin</label>
-                                                    <p>
-                                                        @foreach (__('phr.skin') as $key => $value)
+                                        <tr>
+                                            <td>Skin </td>
+                                            <td>  @foreach (__('phr.skin') as $key => $value)
                                                         {{ $patient->skin == $key ? $value : '' }}
-                                                        @endforeach
-                                                        </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Nadi">ii)
-                                                        Nadi</label>
-                                                    <p>
-                                                        @foreach (__('phr.nadi') as $key => $value)
+                                                        @endforeach</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Nadi </td>
+                                            <td>@foreach (__('phr.nadi') as $key => $value)
                                                         {{ $patient->nadi == $key ? $value : '' }}
-                                                        @endforeach
-                                                        </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Place">iii)Place</label>
-                                                    <p>
-                                                        @foreach (__('phr.place') as $key => $value)
+                                                        @endforeach </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td> Place</td>
+                                            <td>   @foreach (__('phr.place') as $key => $value)
                                                         {{ $patient->nadi_place == $key ? $value : '' }}
-                                                        @endforeach
-                                                        </label>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Nails">iv)
-                                                        Nails</label>
-                                                    <p>
-                                                        @foreach (__('phr.nails') as $key => $value)
+                                        <tr>
+                                            <td> Nails</td>
+                                            <td> @foreach (__('phr.nails') as $key => $value)
                                                         {{ $patient->nails == $key ? $value : '' }}
-                                                        @endforeach
-                                                        </label>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Nails">v)
-                                                        Anguli
-                                                        sandhi</label>
-                                                    <p>
-                                                        @foreach (__('phr.anguli_sandhi') as $key => $value)
+                                        <tr>
+                                            <td> Anguli sandhi</td>
+                                            <td> @foreach (__('phr.anguli_sandhi') as $key => $value)
                                                         {{ $patient->anguli_sandhi == $key ? $value : '' }}
-                                                        @endforeach
-                                                        </label>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Netra">vi)
-                                                        Netra</label>
-                                                    <p>
-                                                        @foreach (__('phr.netra') as $key => $value)
+                                        <tr>
+                                            <td>Netra </td>
+                                            <td>   @foreach (__('phr.netra') as $key => $value)
                                                         {{ $patient->netra == $key ? $value : '' }}
-                                                        @endforeach
-                                                        </label>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Adhovartma">vii)
-                                                        Adhovartma</label>
-                                                    <p>
-                                                        @foreach (__('phr.adhovartma') as $key => $value)
+                                        <tr>
+                                            <td>Adhovartma </td>
+                                            <td>  @foreach (__('phr.adhovartma') as $key => $value)
                                                         {{ $patient->adhovartma == $key ? $value : '' }}
-                                                        @endforeach
-                                                        </label>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Hastatala">viii)
-                                                        Hastatala</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.adhovartma') as $key => $value)
+                                        <tr>
+                                            <td> Hastatala</td>
+                                            <td>  @foreach (__('phr.adhovartma') as $key => $value)
                                                         {{ $patient->hastatala == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Jihwa">ix)
-                                                        Jihwa</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.jihwa') as $key => $value)
+                                        <tr>
+                                            <td> Jihwa</td>
+                                            <td>   @foreach (__('phr.jihwa') as $key => $value)
                                                         {{ $patient->jihwa == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Aakriti">x)
-                                                        Aakriti</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.aakriti') as $key => $value)
+                                        <tr>
+                                            <td>Aakriti </td>
+                                            <td>  @foreach (__('phr.aakriti') as $key => $value)
                                                         {{ $patient->aakriti == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Shabda">xi)
-                                                        Shabda</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.shabda') as $key => $value)
+                                        <tr>
+                                            <td> Shabda</td>
+                                            <td>    @foreach (__('phr.shabda') as $key => $value)
                                                         {{ $patient->shabda == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Koshtha">xii)
-                                                        Koshtha</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.koshtha') as $key => $value)
+                                        <tr>
+                                            <td>Koshtha </td>
+                                            <td>   @foreach (__('phr.koshtha') as $key => $value)
                                                         {{ $patient->koshtha == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Agni">xii)
-                                                        Agni</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.agni') as $key => $value)
+                                        <tr>
+                                            <td> Agni</td>
+                                            <td>  @foreach (__('phr.agni') as $key => $value)
                                                         {{ $patient->agni == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Mala
-                                             Pravritti">xiv)
-                                                        Mala
-                                                        Pravritti</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.mala_pravritti') as $key => $value)
-                                                        {{ $patient->mala_pravritti == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Mutra
-                                             Pravritti">xv)
-                                                        Mutra
-                                                        Pravritti</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.mutra_pravritti') as $key => $value)
-                                                        {{ $patient->mutra_pravritti == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Vyavay
-                                             Pravritti">xvi)
-                                                        Vyavay
-                                                        Pravritti</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.vyavay_pravritti') as $key => $value)
-                                                        {{ $patient->vyavay_pravritti == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Shukrakshanapravritti">xvii)Shukrakshana
-                                                        pravritti</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.shukrakshana_pravritti') as $key =>
+                                        <tr>
+                                            <td> Shukrakshana</td>
+                                            <td> @foreach (__('phr.shukrakshana_pravritti') as $key =>
                                                         $value)
                                                         {{ $patient->shukrakshana_pravritti == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Aartava
-                                             Pravritti
-                                             Kala">xviii)
-                                                        Aartava
-                                                        Pravritti
-                                                        Kala</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.aartava_pravratti_kala') as $key =>
+                                        <tr>
+                                            <td>  Aartava Pravritti   Kala</td>
+                                            <td>   @foreach (__('phr.aartava_pravratti_kala') as $key =>
                                                         $value)
                                                         {{ $patient->aartava_pravratti_kala == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Dehoshma">xix)
-                                                        Dehoshma</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.dehoshma') as $key => $value)
+                                        <tr>
+                                            <td>Dehoshma </td>
+                                            <td>  @foreach (__('phr.dehoshma') as $key => $value)
                                                         {{ $patient->dehoshma == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Bhara">xx)
-                                                        Bhara</label>
-                                                    <p> {{ $patient->bhara  }}</p>
+                                        <tr>
+                                            <td> Bhara</td>
+                                            <td>  {{ $patient->bhara  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row clearfix">
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Raktachapa">xxi)
-                                                        Raktachapa</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.raktachapa') as $key => $value)
+                                        <tr>
+                                            <td> Raktachapa</td>
+                                            <td>  @foreach (__('phr.raktachapa') as $key => $value)
                                                         {{ $patient->raktachapa == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Hrid
-                                             gati">xxii)
-                                                        Hrid
-                                                        gati</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.hrid_gati') as $key => $value)
+                                        <tr>
+                                            <td> Hrid  gati</td>
+                                            <td>  @foreach (__('phr.hrid_gati') as $key => $value)
                                                         {{ $patient->hrid_gati == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="Shvasagati">xxiii)
-                                                        Shvasagati</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.shvasagati') as $key => $value)
+                                        <tr>
+                                            <td> Shvasagati</td>
+                                            <td>   @foreach (__('phr.shvasagati') as $key => $value)
                                                         {{ $patient->shvasagati == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-group">
-                                                    <label for="parkriti_parikshana">xxiv)
-                                                        Parkriti
-                                                        Parikshana</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.parkriti_parikshana') as $key => $value)
+                                        <tr>
+                                            <td>  Parkriti  Parikshana</td>
+                                            <td>  @foreach (__('phr.parkriti_parikshana') as $key => $value)
                                                         {{ $patient->parkriti_parikshana == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <div class="row clearfix">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">6.
-                                                        Examination
-                                                        by
-                                                        Physician</label>
-                                                    <br>
-                                                    <p>
-                                                        @foreach (__('phr.examination_by_physician') as $key =>
+                                        <tr>
+                                            <td>6. Examination   by       Physician </td>
+                                            <td>@foreach (__('phr.examination_by_physician') as $key =>
                                                         $value)
                                                         {{ $patient->examination_by_physician == $key ? $value : '' }}
-                                                        @endforeach
-                                                    </p>
+                                                        @endforeach </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">7.
-                                                        Prayogashaliya
-                                                        Parikshana</label>
-                                                    <p> {{ $patient->prayogashaliya_parikshana  }}</p>
+                                        <tr>
+                                            <td>7.  Prayogashaliya   Parikshana</td>
+                                            <td> {{ $patient->prayogashaliya_parikshana  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">8.
-                                                        Samprapti
-                                                        Vivarana</label>
-                                                    <p> {{ $patient->samprapti_vivarana  }}</p>
+                                        <tr>
+                                            <td>8.  Samprapti Vivarana</td>
+                                            <td> {{ $patient->samprapti_vivarana  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">9.
-                                                        Vibhedaka
-                                                        Pariksha</label>
-                                                    <p> {{ $patient->vibhedaka_pariksha  }}</p>
+                                        <tr>
+                                            <td>9. Vibhedaka  Pariksha </td>
+                                            <td> {{ $patient->vibhedaka_pariksha  }} </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">10.
-                                                        Roga
-                                                        Vinishchaya-
-                                                        Pramukh
-                                                        Nidana</label>
-                                                    <p> {{ $patient->roga_vinishchaya_pramukh_nidana  }}</p>
+                                        <tr>
+                                            <td> 10.  Roga Vinishchaya-  Pramukh Nidana</td>
+                                            <td>{{ $patient->roga_vinishchaya_pramukh_nidana  }} </td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">11.
-                                                        Chikitsa
-                                                        Kalpana
-                                                        Anupana
-                                                        Sahita</label>
-                                                    <p> {{ $patient->chikitsa_kalpana_anupana_sahita  }}</p>
+                                        <tr>
+                                            <td> 11.  Chikitsa  Kalpana   Anupana     Sahita</td>
+                                            <td> {{ $patient->chikitsa_kalpana_anupana_sahita  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="samshodhana_kriyas"
-                                                        class="form-control-label">Samshodhana
-                                                        Kriyas</label>
-                                                    <p> {{ $patient->samshodhana_kriyas  }}</p>
+                                        <tr>
+                                            <td> Samshodhana   Kriyas </td>
+                                            <td> {{ $patient->samshodhana_kriyas  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="samshamana_kriyas" class="form-control-label">Samshamana
-                                                        Kriyas</label>
-                                                    <p> {{ $patient->samshamana_kriyas  }}</p>
+                                        <tr>
+                                            <td>Samshamana  Kriyas </td>
+                                            <td> {{ $patient->samshamana_kriyas  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">12.
-                                                        Pathya-Apathya
-                                                        (<a href="{{ url('/annexure-file.pdf') }}" target="_blank"><span
-                                                                class="fs-12 text-info">Annexure-1</span></a>)
-                                                    </label>
-                                                    <p> {{ $patient->pathya_apathya  }}</p>
+                                        <tr>
+                                            <td>12.  Pathya-Apathya  (<a href="{{ url('/annexure-file.pdf') }}" target="_blank"><span
+                                                                class="fs-12 text-info">Annexure-1</span></a>) </td>
+                                            <td>  {{ $patient->pathya_apathya  }}</td>
+                                        </tr>
 
-                                                </div>
-                                            </div>
+                                        </tbody>
+                                    </table>
+
+                                      
 
 
 
-                                        </div>
+
+                                      
 
                                         <div class="row clearfix">
                                             <div class="col-sm-6">
@@ -909,10 +582,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-12 p-t-20 text-left">
-                                            <a href="{{ url('/follow-up-patients') }}"><button type="button"
+                                        <a href="{{ url('/follow-up-patients') }}"><button type="button"
                                                     class="btn back btn-danger waves-effect"> &nbsp; Back
                                                     &nbsp;</button></a>
+                                        <div class="col-sm-12 p-t-20 text-left">
+                                          
                                         </div>
                                     </div>
 

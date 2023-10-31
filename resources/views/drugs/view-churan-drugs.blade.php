@@ -67,80 +67,34 @@
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
                               <div class="card-body">
-                                 <div
-                                    class="row">
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label>
-                                             @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
-                                             >
-                                             @endif
-                                             @if(Auth::user()->user_type==2)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
-                                             >
-                                             @endif
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="text"
-                                             name="name_of_the_shishya"
-                                             class="form-control"
-                                             placeholder="Name of the Shishya"
-                                             aria-label="Name"
-                                             value=
-                                             "@if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                             @endif" readonly
-                                             >
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Date of Report<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="date"
-                                             name="date"
-                                             class="form-control"
-                                             placeholder="Date"
-                                             aria-label="Name"
-                                             value="<?php echo date('Y-m-d'); ?>" readonly
-                                             >
-                                       </div>
-                                    </div>
+                                 <table class="view-table">
+                                    <h3>Basic Information</h3>
+                                    <thead>
+                                      <tr>
+                                       <th> Name of the Guru</th>
+                                       <th>Name of the Shishya </th>
+                                       <th> Date of Report</th>
+                                      
+                                      </tr>
+                                    </thead>
 
-                                 </div>
+                                    <tbody>
+                                       <tr>
+                                          <td> @if(Auth::user()->guru_id || Auth::user()->user_type==1) {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}  @endif
+                                          @if(Auth::user()->user_type==2)      {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}    @endif
+                                       </td>
+                                          <td>
+                                          @if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                             @endif
+                                          </td>
+                                          <td> <?php echo date('d-m-Y'); ?></td>
+                                         
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                                 
 
-                                 <hr style="height:2px;">
+                                 
                                 <!--  <div class="row "readonly >
 
                                     <div
@@ -404,265 +358,7 @@
                         </div>
                     </div>
                 </div>
-                 <p class="text-uppercase text-sm">Method of Preparation (SOP)</p>
-                <div class="row">
-                     <div class="col-md-12 mb-2">
-                       <div class="form-group">
-                          <label  class="form-control-label">Enter Yogas Name</label>
-                          <input type="text" name="churna_yoga_type_individual" class="form-control"  value="{{ $churandrug->churna_yoga_type_individual }} "readonly >@error('rasa_yoga_type_individual')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Step 1</label>
-                          <input type="text" name="step_first" class="form-control" placeholder="Step 1" aria-label="Step 1" value="{{ $churandrug->step_first }} "readonly >@error('step_first')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Step 2</label>
-                          <input type="text" name="step_second" class="form-control" placeholder="Step 2" aria-label="Step 2" value="{{ $churandrug->step_second }} "readonly >
-                          @error('step_second')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Step 3</label>
-                          <input type="text" name="step_three" class="form-control" placeholder="Step 3" aria-label="Name" value="{{ $churandrug->step_three }} "readonly >
-                          @error('step_three')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Step 4,  etc.</label>
-                          <input type="text" name="step_four" class="form-control" placeholder="Step 4" aria-label="Step 4" value="{{ $churandrug->step_four }} "readonly >
-                          @error('step_four')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Packing</label>
-                          <input type="text" name="packing" class="form-control" placeholder="Packing" aria-label="Packing" value="{{ $churandrug->packing }} "readonly >@error('Packing')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Storage</label>
-                          <input type="text" name="storage" class="form-control" placeholder="Storage" aria-label="Storage" value="{{ $churandrug->storage }} "readonly >
-                          @error('storage')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Method of Administration</label>
-                          <input type="text" name="method_of_administration" class="form-control" placeholder="Method of Administration"  value="{{ $churandrug->method_of_administration }} "readonly >
-                          @error('method_of_administration')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Time of administration</label>
-                          <input type="text" name="time_of_administration" class="form-control" placeholder="Time of administration" aria-label="Time of administration" value="{{ $churandrug->time_of_administration }} "readonly >
-                          @error('time_of_administration')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Dose</label>
-                          <input type="text" name="dose" class="form-control" placeholder="Dose" aria-label="Dose" value="{{ $churandrug->dose }} "readonly >@error('dose')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Vehicle</label>
-                          <input type="text" name="vehicle" class="form-control" placeholder="Vehicle" aria-label="Vehicle" value="{{ $churandrug->vehicle }} "readonly >
-                          @error('vehicle')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Duration of Therapy</label>
-                          <input type="text" name="duration_of_therapy" class="form-control" placeholder="Duration of Therapy" aria-label="Duration of Therapy" value="{{ $churandrug->duration_of_therapy }} "readonly >
-                          @error('Duration of Therapy')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Wholesome diet</label>
-                          <input type="text" name="wholesome_diet" class="form-control" placeholder="Wholesome diet" aria-label="Wholesome diet" value="{{ $churandrug->wholesome_diet }} "readonly >
-                          @error('Wholesome diet')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Wholesome activities</label>
-                          <input type="text" name="wholesome_activities" class="form-control" placeholder="Wholesome activities" aria-label="Wholesome activities" value="{{ $churandrug->wholesome_activities }} "readonly >@error('Wholesome activities')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Wholesome behavior</label>
-                          <input type="text" name="wholesome_behavior" class="form-control" placeholder="Wholesome behavior" aria-label="Wholesome behavior" value="{{ $churandrug->wholesome_behavior }} "readonly >
-                          @error('Wholesome behavior')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Indications</label>
-                          <input type="text" name="indications" class="form-control" placeholder="Indications" aria-label="Indications" value="{{ $churandrug->indications }} "readonly >
-                          @error('Indications')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Contra indications</label>
-                          <input type="text" name="contra_indications" class="form-control" placeholder="Contra indications" aria-label="Contra indications" value="{{ $churandrug->contra_indications }} "readonly >
-                          @error('Contra indications')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                </div>
-                 <p class="text-uppercase text-sm">Observations</p>
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Quantity of Raw Material</label>
-                          <input type="text" name="quantity_of_raw_material" class="form-control" placeholder="Quantity of Raw Material" aria-label="Quantity of Raw Material" value="{{ $churandrug->quantity_of_raw_material }} "readonly >@error('Quantity of Raw Material')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Quantity of finished product</label>
-                          <input type="text" name="quantity_of_finished_product" class="form-control" placeholder="Quantity of finished product" value="{{ $churandrug->quantity_of_finished_product }} "readonly >
-                          @error('Quantity of finished product')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Loss<span class="text-danger">*</span></label>
-                          <input type="text" name="loss" class="form-control" placeholder="Loss" aria-label="Loss" value="{{ $churandrug->loss }} "readonly >
-                          @error('Loss')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Reasons for Loss<span class="text-danger">*</span></label>
-                          <input type="text" name="reasons_for_loss" class="form-control" placeholder="Reasons for Loss" aria-label="Name" value="{{ $churandrug->reasons_for_loss }} "readonly >
-                          @error('Reasons for Loss')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Step 1<span class="text-danger">*</span></label>
-                          <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="(i)" aria-label="(i)" value="{{ $churandrug->reasons_for_loss_first }} "readonly >@error('(i)')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Step 2<span class="text-danger">*</span></label>
-                          <input type="text" name="reasons_for_loss_second" class="form-control" placeholder="(ii)" aria-label="Name" value="{{ $churandrug->reasons_for_loss_second }} "readonly >
-                          @error('(ii)')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Organoleptic properties of raw materials<span class="text-danger">*</span></label>
-                          <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control" placeholder="Organoleptic properties of raw materials" aria-label="Name" value="{{ $churandrug->organoleptic_properties_of_raw_materials }} "readonly >
-                          @error('Organoleptic properties of raw materials')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group">
-                          <label for="example-text-input" class="form-control-label">Organoleptic properties of finished product<span class="text-danger">*</span></label>
-                          <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Organoleptic"  value="{{ $churandrug->organoleptic_properties_of_finished_product }} "readonly >
-                          @error('Organoleptic properties of finished product ')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                </div>
-                 <p class="text-uppercase text-sm">Duration required for the experiment</p>
-                <div class="row">
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group ">
-                          <label class="control-label   requiredField" for="date">(i) Starting Date<span class="text-danger">*</span>
-                          </label>
-                          <div class="input-group">
-                          </div>
-                          <input class="form-control" id="date" name="starting_date" placeholder="MM/DD/YYYY" type="date" aria-label="(i)  Starting Date" value="{{ $churandrug->starting_date }} "readonly >@error('(i) Starting Date')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                    <div class="col-md-6 mb-2">
-                       <div class="form-group ">
-                          <label class="control-label   requiredField" for="date">(ii)  Ending Date<span class="text-danger">*</span>
-                          </label>
-                          <div class="input-group">
-                          </div>
-                          <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY" type="date" aria-label="(i)  Ending Date" value="{{ $churandrug->ending_date }} "readonly >@error('(i) Ending Date')
-                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                          @enderror
-                       </div>
-                    </div>
-                </div>
+                
             </form>
         </div>
    </div>

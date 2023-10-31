@@ -65,7 +65,7 @@
                         <thead>
                            <tr>
                               
-                              <th class="center"> No <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center">Sr. No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
                               <th class="center"> Registration No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
                               <th class="center"> Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
                               <th class="center"> Email <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
@@ -123,8 +123,9 @@
                                        <i class="material-icons">edit</i>
                                     </a>
                                     @if(Auth::user()->user_type=='2')
-                                    <a  href="{{ url('/new-patient-registration/'.$user->id) }}" class="btn phr btn-tbl-delete"  title="Daily History SHeet" >
-                                      PHR
+                                    <a  href="{{ url('/new-patient-registration/'.$user->id) }}" class="btn view btn-tbl-edit p-1"  title="Patient History Report" >
+                                    <i class="fa fa-file-text " aria-hidden="true"></i>
+
                                     </a>
                                     @endif
                                     @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')

@@ -45,13 +45,13 @@
                     <form role="form" method="POST" action="{{ url('/attendance-list') }}" id="frmattendances">
                         @csrf
                         <div class="header">
-                            <div class="row">
+                            <div class="row align-items-center">
                                 <div class="col-md-12">
                                  <div class="row pb-3">
                                  <div class="col-md-6 col-6">
                                  <h4 class="py-2">Attendances</h4>
                                  </div>
-                                 <div class="col-md-6 d-flex justify-content-end col-6" >
+                                 <div class="col-md-6" >
                                     
                                  <a type="button" href="{{url('/export-attendance')}}"
                                         class="btn download waves-effect" > Download </a>
@@ -131,7 +131,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-xxl-2 col-lg-2 col-md-4 width-50">
+                                <div class="col-xl-2 col-xxl-2 col-lg-2 col-md-4 width-50">
                                     <div class="new-patient-input">
                                        
                                         <div>

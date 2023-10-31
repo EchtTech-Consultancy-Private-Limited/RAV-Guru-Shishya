@@ -209,10 +209,12 @@ line-height: 0.42857 !important;
 
 .add-btn-lang a.btn.lang {
     margin-left: 0;
-    padding: 10px;
-    margin-bottom: 20px;
-    color: #fff;
-    float: right !important;
+  padding: 7px 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  float: right !important;
+  display: flex;
+  align-items: center;
 }
 
 .add-btn-lang a.btn.lang i{
@@ -528,7 +530,7 @@ button.btn.bg-indigo.waves-effect {
     width: 100%;
     /* margin-bottom: 15px; */
     background: #fff;
-    padding: 5px 20px;
+    padding: 5px 15px;
     margin-bottom: 0px;
     border-radius: 5px;
 }
@@ -630,7 +632,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 
 .form-check, label {
    
-    font-weight: 600;
+    font-weight: 500;
 }
 .wizard>.steps .number {
     font-size: 14px;
@@ -946,7 +948,7 @@ a.btn.waves-effect.add-phr{
     color:#fff !important
 }
 .btn.back{
-    background: #5D6F77 !important;
+    background: #e3761c !important;
     color: #fff !important;
     float: right;
 }
@@ -973,12 +975,17 @@ a.btn.waves-effect.add-phr{
 .btn.add{
      background: #315373 !important;
      color: #fff;
+     display: flex !important;
+     align-items: center;
+     justify-content: center;
+     width: auto !important;
 }
 a.btn.add {
     background: #315373 !important;
     color: #fff;
     border-radius: 20px !important;
-    padding: 0 23px !important;
+    /* padding: 0 23px !important; */
+    display: inline-block !important;
     
 }
 .btn.reset{
@@ -1061,7 +1068,6 @@ button.btn.submit {
     font-size: 12px !important;
     font-weight: 200 !important;
     line-height: 2.6 !important;
-
 }
 
 .btn.permission{
@@ -1069,10 +1075,13 @@ button.btn.submit {
 }
 
 
-.form-group input, .form-group select, .form-group .select2-selection{
+.form-group input, .form-group select {
     height: auto !important;
-    padding: 8px 15px !important;
+    padding: 8px 0px !important;
     line-height: auto !important;
+}
+.form-group .select2-selection{
+    padding: 0px 15px !important;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -1111,7 +1120,7 @@ table th:last-child, table tr:last-child, table td:last-child {
 } */
 
 .form-group label {
-    padding: 10px 15px !important;
+    /* padding: 0px 15px !important; */
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered{
@@ -1146,8 +1155,8 @@ table tr .title{
 }
 
 h3 {
-    font-size: 20px;
-    padding: 20px 0;
+    font-size: 18px;
+    padding: 10px 0;
     margin: 0 !important;
 }
 
@@ -1155,45 +1164,26 @@ h3 {
     padding: 12px 0 !important;
     font-size: 16px;
 }
+.patient-highlight{
+    background: yellow;
+}
 
 /* .table-heading{
     border-top: 1px solid #ddd;
 } */
-=======
+
+.col-md-12 p{
+    color: #d35400 !important;
+    font-weight: bold;
 }
-
-.btn.permission{
-    background: #555 !important;
+.form-group p{
+    color: #333 !important;
+    font-weight: 300;
 }
-
-
-.form-group input, .form-group select{
+.btn, .btn-large, .btn-small, .btn-flat{
     height: auto !important;
-    padding: 8px !important;
-}
-/* *************************************button colo end******************************** */
-
-i.fa.fa-long-arrow-up {
-    margin-left: 5px !important;
 }
 
-table th {
-    background: #5C4E3F !important;
-    color: #fff;
+.fa.fa-file-text{
+    font-size: 15px !important;
 }
-table th, table tr, table td {
-    border-bottom: 1px solid #ddd !important;
-    border-radius: 0px !important;
-    border-left: 1px solid #ddd;
-}
-table th:last-child, table tr:last-child, table td:last-child {
-    border-bottom: 1px solid #ddd !important;
-    border-radius: 0px !important;
-    border-left: 1px solid #ddd;
-}
-
-
-.view-follow-up-sheet .form-group{
-    border: 1px solid #ddd !important;
-}
-

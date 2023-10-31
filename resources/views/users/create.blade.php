@@ -187,11 +187,9 @@
                               <label >Country<span class="text-danger"> *</span></label>
                               <select name="country" class="form-control select2" id="country-dropdown">
                                       <option value="">Select Country</option>
-                                      @foreach ($countries as $data)
-                                        <option value="{{$data->id}}">
-                                            {{$data->name}}
-                                        </option>
-                                        @endforeach
+                                       @foreach ($countries as $data)
+                                          <option value="{{$data->id}}" >{{$data->name}}</option>
+                                       @endforeach
                                     </select>
                            </div>
                         </div>
@@ -220,12 +218,9 @@
                               <span class="text-danger">*</span></label>
                               <input id="password" class="form-control input-md"
                                  name="password" type="password" 
-                                 placeholder="Enter your password" maxlength="15" autocomplete="new-password" onpaste="return false" oncopy="return false">
+                                 placeholder="Enter your password" value="{{ old('confirm-password') }}" maxlength="15" autocomplete="new-password" onpaste="return false" oncopy="return false">
                                  <i class="fas fa-eye-slash field-icon" id="eye"></i>
-                              <p>Submit Button will Automatic Active When Your Password is Strong Enough to Processed</p>
-                              <span class="text-danger" id="password_error"></span>
-                              <span class="show-pass" onclick="toggle()">
-                              </span>
+                             
                               <div id="popover-password">
                                  <p><span id="result"></span></p>
                                  <div class="progress">
@@ -271,7 +266,7 @@
                         <div class="form-group">
                            <div class="form-line">
                               <label>Confirm Password<span class="text-danger">*</span></label>
-                              <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password" onkeyup='check()' maxlength="15" onpaste="return false" oncopy="return false">
+                              <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password" value="{{ old('confirm-password') }}" onkeyup='check()' maxlength="15" onpaste="return false" oncopy="return false">
                               <i class="fas fa-eye-slash field-icon" id="eye1"></i>
                               <span id="confirm_password_msg"></span>
                               <span id="confirm_password_error" class="text-danger"></span>

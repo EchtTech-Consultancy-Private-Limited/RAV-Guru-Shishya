@@ -42,7 +42,7 @@
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2><strong>View</strong> Follow Up </h2>
+                        <h2 class='p-0'><strong>View</strong> Follow Up </h2>
                         <!-- <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
@@ -63,90 +63,46 @@
                             <section>
 
                                 <div class="col-sm-12 pb-0">
-                                    <div class="card mb-0">
+                                <table class="view-table">
+                                    <h3>Basic Information</h3>
+                                    <thead>
+                                       <tr>
+                                          <th class="w-25"> Title</th>
+                                          <th> Value</th>
+                                         
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr> 
+                                          <td>Patient Registration No. </td>
+                                          <td>{{$patient->registration_no}} </td>
+                                         
+                                       </tr>
 
-                                        <div class="card-body pb-0">
-
-
-
-                                            <div class="row clearfix">
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Patient Registration No.</label>
-                                                          
-                                                            <p>{{$patient->registration_no}}</p>
-                                                           
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Patient Name</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">{{$patient->patient_name}}</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Date of Follow up</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->follow_up_date)){{date('d-m-Y',strtotime($data->follow_up_date))}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Progress Duration</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->report_type)){{$data->report_type}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Progress</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->progress)){{$data->progress}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label
-                                                                class="form-control-label">Treatment/Therapies</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->treatment)){{$data->treatment}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-
-
-
-
-                                        </div>
-                                    </div>
+                                       <tr>
+                                        <td> Patient Name</td>
+                                        <td>{{$patient->patient_name}} </td>
+                                       </tr>
+                                       <tr>
+                                        <td> Date of Follow up</td>
+                                        <td> @if(!empty($data->follow_up_date)){{date('d-m-Y',strtotime($data->follow_up_date))}}@endif</td>
+                                       </tr>
+                                       <tr>
+                                        <td> Progress Duration</td>
+                                        <td>@if(!empty($data->report_type)){{$data->report_type}}@endif </td>
+                                       </tr>
+                                       <tr>
+                                        <td>Progress </td>
+                                        <td> @if(!empty($data->progress)){{$data->progress}}@endif</td>
+                                       </tr>
+                                       <tr>
+                                        <td>Treatment/Therapies </td>
+                                        <td>@if(!empty($data->treatment)){{$data->treatment}}@endif </td>
+                                       </tr>
+                                      
+                                    </tbody>
+                                 </table>
+                                  
 
 
                                 </div>
@@ -154,7 +110,7 @@
 
                         <div class="col-sm-12">
                             <div class="header pt-0">
-                                <h2><strong>Add</strong> Remark </h2>
+                                <h2 class='p-0'><strong>Add</strong> Remark </h2>
                             </div>
                             <div class="card mb-0 view-follow-up-sheet">
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
@@ -179,7 +135,7 @@
                                                     <div class="form-line">
                                                         <label for="remark" class="form-control-label">Remark<span
                                                                 class="text-danger"></span></label>
-                                                        <textarea cols="45" rows="2" name="remark" class="form-control"
+                                                        <textarea cols="45" rows="1" name="remark" class="form-control"
                                                             value="" aria-label="remark"
                                                             placeholder="Please enter remark" maxlength="200"
                                                             required>{{ old('remark') }}</textarea>
@@ -383,7 +339,6 @@
                                             <label for="example-text-input"
                                                 class="form-control-label"><b>{{$guru->city_name}}</b></label>
                                             @endif
-
                                             </td>
                                             <td>
                                             {{$shishya->firstname.' '.$shishya->lastname}}
@@ -501,218 +456,6 @@
                                         </tr>
                                         <tr>
                                             <td colspan= "2"> Examination
-=======
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Name of the
-                                                Shishya<span class="text-danger"></span></label><br>
-                                            <label for="example-text-input"
-                                                class="form-control-label"><b>{{$shishya->firstname.' '.$shishya->lastname}}</b></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Date of
-                                                Report</label><br>
-                                            <label for="example-text-input"
-                                                class="form-control-label"><b><?php echo date('d-m-Y'); ?><b></label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                              
-                                <hr style="height:2px;">
-                                <div class="row clearfix">
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Name of the
-                                                Patient<span class="text-danger"></span></label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->patient_name}}</strong></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Patient Registration
-                                                No<span class="text-danger"></span></label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->registration_no}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Age<span
-                                                    class="text-danger"></span></label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->age}}
-                                                    Yrs.</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Registration
-                                                Date</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{date('d-m-Y',strtotime($patient->registration_date))}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="Gender" class="form-control-label">Gender<span
-                                                    class="text-danger"></span></label>
-                                            <br><label for="example-text-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.gender') as $key=>$value)
-                                                    {{$patient->gender == $key  ? $value : ''}}</option>
-                                                    @endforeach
-                                                </strong></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Age Group<span
-                                                    class="text-danger"></span></label>
-                                            <br><label for="example-text-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.age_group') as $key=>$value)
-                                                    {{$patient->age_group == $key  ? $value : ''}}
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Occupation<span
-                                                    class="text-danger"></span></label>
-                                            <br><label for="example-text-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.occupation') as $key=>$value)
-                                                    {{$patient->occupation == $key  ? $value : ''}}</option>
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Marital
-                                                Status<span class="text-danger"></span></label>
-                                            <br><label for="example-text-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.marital_status') as $key=>$value)
-                                                    {{$patient->marital_status == $key  ? $value : ''}}</option>
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Aasan
-                                                Sidhi</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->aasan_sidhi}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Season</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->season}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-in
-                                             put" class="form-control-label">Region of patient</label>
-                                            <br><label for="example-text-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.region_of_patient') as $key=>$value)
-                                                    {{$patient->region_of_patient == $key  ? $value : ''}}</option>
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Address<span
-                                                    class="text-danger"></span></label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->address}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label fw-boldxc">Main
-                                                Complaint(As said by patient)</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label fw-bold"><strong>{{$patient->main_complaintsaid_by_patient}}</strong></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Duration</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->said_by_patient_duration}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label fw-bold">Main
-                                                Complaint(As said by family member)</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->main_complaint_as_said_by_family}}</strong></label>
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">Duration</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->complaint_as_said_by_family_duration}}</strong></label>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label"> Past
-                                                illness</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->past_illness}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Family
-                                                History</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->family_history}}</strong></label>
-
-                                        </div>
-                                    </div>
-
-
-
-
-                                </div>
-                              
-                              
-                                <div class="row clearfix">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label fw-bold">
-                                                Examination
-
                                                 of
                                                 the
                                                 patient </td>
@@ -754,68 +497,14 @@
                                             <td> Raktachapa</td>
                                             <td> @foreach(__('phr.raktachapa') as $key=>$value)
                                                     {{$patient->raktachapa == $key  ? $value : ''}}
-
                                                     @endforeach </td>
                                         </tr>
                                         <tr>
                                             <td>  Examination
-
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="Hrid
-                                             gati">
-                                                Hrid
-                                                gati</label>
-                                            <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.hrid_gati') as $key=>$value)
-                                                    {{$patient->hrid_gati == $key  ? $value : ''}}
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="Shvasagati">
-                                                Shvasagati</label>
-                                            <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.shvasagati') as $key=>$value)
-                                                    {{$patient->shvasagati == $key  ? $value : ''}}
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div class="form-group">
-                                            <label for="parkriti_parikshana">
-                                                Parkriti
-                                                Parikshana</label>
-                                            <br><label for="example-hastatala-input" class="form-control-label"><strong>
-                                                    @foreach(__('phr.parkriti_parikshana') as $key=>$value)
-                                                    {{$patient->parkriti_parikshana == $key  ? $value : ''}}
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Examination
-
                                                 by
                                                 Physician </td>
                                             <td> @foreach(__('phr.examination_by_physician') as $key=>$value)
                                                     {{$patient->examination_by_physician == $key  ? $value : ''}}
-
                                                     @endforeach </td>
                                         </tr>
                                         <!-- <tr>
@@ -849,103 +538,6 @@
                             </table>
                             <div class="row clearfix">
                                     <div class="col-sm-6 sign">
-
-                                                    @endforeach
-                                                </strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Prayogashaliya
-                                                Parikshana</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->prayogashaliya_parikshana}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Samprapti
-                                                Vivarana</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->samprapti_vivarana}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Vibhedaka
-                                                Pariksha</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->vibhedaka_pariksha}}</strong></label>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Roga
-                                                Vinishchaya-
-                                                Pramukh
-                                                Nidana</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->roga_vinishchaya_pramukh_nidana}}</strong></label>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Chikitsa
-                                                Kalpana
-                                                Anupana
-                                                Sahita</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->chikitsa_kalpana_anupana_sahita}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="samshodhana_kriyas" class="form-control-label">Samshodhana
-                                                Kriyas</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->samshodhana_kriyas}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label for="samshamana_kriyas" class="form-control-label">Samshamana
-                                                Kriyas</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->samshamana_kriyas}}</strong></label>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                        <div class="form-group">
-                                            <label for="example-text-input" class="form-control-label">
-                                                Pathya-Apathya
-                                                (<a href="{{url('/annexure-file.pdf')}}" target="_blank"><span
-                                                        class="fs-12 text-info">Annexure-1</span></a>)</label>
-                                            <br><label for="example-text-input"
-                                                class="form-control-label"><strong>{{$patient->pathya_apathya}}</strong></label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="row clearfix">
-                                    <div class="col-sm-6">
-
                                         <div class="form-group">
                                             <label for="example-text-input" class="form-control-label">Shishya's
                                                 E-Sign</label><br>

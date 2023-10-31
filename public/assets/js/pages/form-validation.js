@@ -68,8 +68,6 @@ $(document).ready(function() {
                 },
                 'phone_no': {
                     required: true,
-                    minlength: 8,
-                    maxlength: 15
                  },
                  'mobile_no': {
                     required: true,

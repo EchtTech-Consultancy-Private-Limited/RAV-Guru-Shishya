@@ -56,7 +56,6 @@ class AddUserController extends Controller
 
     public function sign_up(Request $request)
     {
-        //dd($request->user_type);
         if($request->user_type==2)
         {
 
@@ -158,10 +157,8 @@ class AddUserController extends Controller
             ->where('users.id',Auth::user()->id)
             ->get();
 
-            //return $profile_record[0]->mobile_no;
             if(count($profile_record)==0)
-            {   
-                //dd("yes");
+            {
                 $profile_record=User::where('id',Auth::user()->id)->get();
             }
             
@@ -186,9 +183,7 @@ class AddUserController extends Controller
          if(empty($form_step_type))
          {  
            $form_step_type="withour-session-step";
-         }
-
-        
+         }       
 
         //publication record
         $publication_record=ProfilePublication::where('user_id',$id)->get();
@@ -211,10 +206,6 @@ class AddUserController extends Controller
 
         }
 
-        //return $clinic_record;
-        
-      
-        
         if($clinic)
         {
             $clinic_working_record = $clinic->working_days;
@@ -223,9 +214,6 @@ class AddUserController extends Controller
             //return gettype($clinic_working_record);
             return view("users.multi-step",compact('form_step_type','countries','profile_record','per_profile_record','language_record','educational_record','form_step_type','clinic','clinic_working_record','clinic_record','publication_record','specific_details_record','clinic_morning_timing','clinic_evening_timing'));
         }
-        
-        
-        
         return view("users.multi-step",compact('form_step_type','countries','profile_record','per_profile_record','language_record','educational_record','form_step_type','clinic','publication_record','specific_details_record'));
     }
 
