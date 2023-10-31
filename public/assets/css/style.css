@@ -209,10 +209,12 @@ line-height: 0.42857 !important;
 
 .add-btn-lang a.btn.lang {
     margin-left: 0;
-    padding: 10px;
-    margin-bottom: 20px;
-    color: #fff;
-    float: right !important;
+  padding: 7px 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  float: right !important;
+  display: flex;
+  align-items: center;
 }
 
 .add-btn-lang a.btn.lang i{
@@ -946,7 +948,7 @@ a.btn.waves-effect.add-phr{
     color:#fff !important
 }
 .btn.back{
-    background: #5D6F77 !important;
+    background: #e3761c !important;
     color: #fff !important;
     float: right;
 }
@@ -982,7 +984,8 @@ a.btn.add {
     background: #315373 !important;
     color: #fff;
     border-radius: 20px !important;
-    padding: 0 23px !important;
+    /* padding: 0 23px !important; */
+    display: inline-block !important;
     
 }
 .btn.reset{
@@ -1173,4 +1176,11 @@ h3 {
 .form-group p{
     color: #333 !important;
     font-weight: 300;
+}
+.btn, .btn-large, .btn-small, .btn-flat{
+    height: auto !important;
+}
+
+.fa.fa-file-text{
+    font-size: 15px !important;
 }

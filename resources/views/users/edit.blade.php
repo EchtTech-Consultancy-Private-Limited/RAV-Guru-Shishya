@@ -26,34 +26,12 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
-
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-bs-toggle="dropdown"
-                                        role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu float-end">
-                                        <li>
-                                            <a href="javascript:void(0);">Action</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Another action</a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);">Something else here</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                     
                         {!! Form::model($user, ['method' => 'PATCH','files' => true,'route' => ['users.update', $user->id]]) !!}
                         <div class="body">
 
                             <div class="row clearfix">
-                                <div class="col-sm-12">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="form-line">
 
@@ -67,9 +45,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row clearfix">
-                                <div class="col-sm-4">
+                           
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <strong>First Name<span class="text-danger"> *</span></strong>
@@ -82,7 +59,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <strong>Middle Name</strong>
@@ -90,7 +67,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <strong>Last Name<span class="text-danger"> *</span></strong>
@@ -103,11 +80,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                           
 
-                            <div class="row clearfix">
-
-                                <div class="col-sm-4">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <strong>Email<span class="text-danger"> *</span></strong>
@@ -120,7 +95,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <strong>Mobile No<span class="text-danger"> *</span></strong>
@@ -135,7 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div  class="form-group">
                                         <label for="Gender"
                                             class="form-control-label">Gender<span
@@ -159,10 +134,8 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="row clearfix">
-                                <div class="col-sm-4">
+                            
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                    <div class="form-group">
                                       <label >Country<span class="text-danger"> *</span></label>
                                       <select  id="country-dropdown" class="form-control select2" name="country">
@@ -182,7 +155,7 @@
                                         @endif
                                    </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                    <div class="form-group">
                                       <label >State<span class="text-danger"> *</span></label>
                                       <select id="state-dropdown" class="form-control select2 state" name="state" >
@@ -194,7 +167,7 @@
                                         @endif
                                   </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                    <div class="form-group">
                                       <label >City<span class="text-danger"> *</span></label>
 
@@ -209,46 +182,8 @@
 
                                   </div>
                                 </div>
-                             </div>
-
-                            <div class="row clearfix">
-                                
-                                <div class="col-sm-12 col-md-6">
-                                    <!-- guru name -->
-                                       <div class="form-group">
-                                          <label >E-Signature<span class="text-danger">*</span></label>
-                                            <input type="file" name="e_sign" id="e_sign" class="form-control" >
-                                            @if ($errors->has('e_sign'))
-                                                <span class="help-block">
-                                                    <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
-                                                </span>
-                                            @endif
-                                             @if($user->e_sign)
-                                             <img src="{{ asset('uploads/'.$user->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
-                                             @endif
-                                             
-                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group ">
-                                            <label >Profile Picture<span class="text-danger">*</span></label>
-                                            <input type="file" name="profile_image" id="profile_image" class="form-control" >
-                                            @if ($errors->has('profile_image'))
-                                                <span class="help-block">
-                                                    <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
-                                                </span>
-                                            @endif
-                                            @if($user->user_image)
-                                             <img src="{{ asset('uploads/'.$user->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
-                                             @else
-                                             <img src="{{ asset('assets/images/user.png') }}" alt="Profile-Image" width="100px;" height="80px;">
-                                             @endif
-                                         </div>
-                                     </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-sm-6">
+                             
+                                    <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                        <div class="form-group">
                                           <div class="form-line">
                                              <label >User Type<span class="text-danger">*</span></label>
@@ -261,7 +196,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="col-sm-6 gurutype" @if($user->gurutype) @else id="gurutype1" @endif>
+                                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6 gurutype" @if($user->gurutype) @else id="gurutype1" @endif>
                                        <div class="form-group">
                                           <div class="form-line">
                                              <label >Select Guru Type<span class="text-danger">*</span></label>
@@ -274,7 +209,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="col-sm-6 shishyatype" @if($user->shishyatype) @else id="shishyatype1" @endif >
+                                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6 shishyatype" @if($user->shishyatype) @else id="shishyatype1" @endif >
                                        <div class="form-group">
                                           <div class="form-line">
                                              <label >Select Shishya Type<span class="text-danger">*</span></label>
@@ -287,7 +222,29 @@
                                           </div>
                                        </div>
                                     </div>
+
+                                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6" id="guru_list">
+                                           <div class="form-group">
+                                              <div class="form-line">
+                                                 <label>Assigned Guru</label>
+                                                 <select name="guru_id" class="form-control">
+                                                    <option value="0">Select Guru </option>
+                                                    @if(count(get_guru_list())>0)
+                                                    @foreach(get_guru_list() as $guru)
+                                                    <option @if($user->guru_id==$guru->id) SELECTED @endif value="{{$guru->id}}">
+                                                        @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif
+                                                        {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname.' ' }}
+                                                    </option>
+                                                    @endforeach
+                                                    @endif
+
+                                                </select>
+                                              </div>
+                                           </div>
+                                    </div>
                                  </div>
+
+                                 
 
                                 @if(Auth::user()->user_type=='1')
                                 <div class="row">
@@ -358,29 +315,43 @@
 
                                 </div>
                                 @endif
-
-                                <div class="row" id="guru_list">
-                                    <div class="col-sm-6">
-                                           <div class="form-group">
-                                              <div class="form-line">
-                                                 <label>Assigned Guru</label>
-                                                 <select name="guru_id" class="form-control">
-                                                    <option value="0">Select Guru </option>
-                                                    @if(count(get_guru_list())>0)
-                                                    @foreach(get_guru_list() as $guru)
-                                                    <option @if($user->guru_id==$guru->id) SELECTED @endif value="{{$guru->id}}">
-                                                        @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif
-                                                        {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname.' ' }}
-                                                    </option>
-                                                    @endforeach
-                                                    @endif
-
-                                                </select>
-                                              </div>
-                                           </div>
+                             
+                               
+                                <div class="row clearfix">
+                                
+                                <div class="col-sm-12 col-md-6">
+                                    <!-- guru name -->
+                                       <div class="form-group">
+                                          <label >E-Signature<span class="text-danger">*</span></label>
+                                            <input type="file" name="e_sign" id="e_sign" class="form-control" >
+                                            @if ($errors->has('e_sign'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
+                                                </span>
+                                            @endif
+                                             @if($user->e_sign)
+                                             <img src="{{ asset('uploads/'.$user->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                             @endif
+                                             
+                                         </div>
                                     </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group ">
+                                            <label >Profile Picture<span class="text-danger">*</span></label>
+                                            <input type="file" name="profile_image" id="profile_image" class="form-control" >
+                                            @if ($errors->has('profile_image'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
+                                                </span>
+                                            @endif
+                                            @if($user->user_image)
+                                             <img src="{{ asset('uploads/'.$user->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
+                                             @else
+                                             <img src="{{ asset('assets/images/user.png') }}" alt="Profile-Image" width="100px;" height="80px;">
+                                             @endif
+                                         </div>
+                                     </div>
                                 </div>
-
                                 @if(Auth::user()->user_type=='1')
                             <div class="col-lg-12 p-t-20 text-center">
                                 <button type="submit" class="btn add btn-primary waves-effect m-r-15">Update User</button>
