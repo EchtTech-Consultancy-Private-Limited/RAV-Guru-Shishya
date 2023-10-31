@@ -54,32 +54,7 @@
    <div class="row clearfix">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          <div class="card">
-            <div class="header">
-               <ul class="header-dropdown m-r--5">
-                  <li class="dropdown">
-                     <a href="#" onClick="return false;"
-                        class="dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        role="button" aria-haspopup="true"
-                        aria-expanded="false">
-                     </a>
-                     <ul class="dropdown-menu float-start">
-                        <li>
-                           <a href="#" onClick="return
-                              false;">Action</a>
-                        </li>
-                        <li>
-                           <a href="#" onClick="return
-                              false;">Another action</a>
-                        </li>
-                        <li>
-                           <a href="#" onClick="return
-                              false;">Something else here</a>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
+           
             <div class="body">
                <div id="wizard_horizontal">
                   <h2>New Drug Report</h2>
@@ -237,8 +212,8 @@
                                                     <tr>
                                                         <th>Name of the ingredients </th>
                                                         <th>Part used   </th>
-                                                          <th>Quantity</th>
-                                            <th>Action</th>
+                                                         <th>Quantity</th>
+                                                         <th>Action</th>
 
                                                     </tr>
                                                 </thead>
@@ -258,6 +233,7 @@
                                                          <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" minlength="3" value="{{ old('quantity[]') }}" >
                                                        
                                                         </td>
+                                                        <td></td>
                                                         <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
                                                     </tr>
                                                 </tbody>
