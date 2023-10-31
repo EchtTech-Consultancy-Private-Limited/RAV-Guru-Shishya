@@ -7,6 +7,7 @@ use Response;
 use App\Models\Patient;
 use App\Models\User;
 use App\Models\Remark;
+use App\Models\PatientHistoryLog;
 use App\Models\FollowUpPatient;
 use Auth;
 use Redirect;
@@ -640,7 +641,8 @@ class PatientController extends Controller
 
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
 
-        return view("patients.edit-patients",compact('patient','guru'));
+        $patientHistoryLog = PatientHistoryLog::where('patient_id',$id)->first();
+        return view("patients.edit-patients",compact('patient','guru','patientHistoryLog'));
     }
 
     public function update_patients(Request $request)
@@ -656,18 +658,43 @@ class PatientController extends Controller
               'occupation'   => 'required',
               'marital_status'   => 'required',
               'address'   => 'required',
-
-
             ]);
-         
+
         $input = $request->all();
         $id=$request->patient_id;
-        //$patient = Patient::find($id);
-        //$patient->update($input);
         unset($input['_token']);
         unset($input['patient_id']);
-        Patient::where('id',$id)->update($input);
-        return redirect('/new-patient-registration')->with('success', 'Patient history updated successfully !');
+        // Patient::where('id',$id)->update($input);
+
+       // Find the data before updating
+        $modelBeforeUpdate = Patient::find($id);
+        // Update the model
+        Patient::where('id', $id)->update($input);
+        // Find the data after updating
+        $modelAfterUpdate = Patient::find($id);
+
+        // Check for changes
+        if ($modelBeforeUpdate && $modelAfterUpdate) {
+            $changedFields = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
+            $changesData = json_encode($changedFields);
+            PatientHistoryLog::updateOrCreate(
+                [
+                    'patient_id'   => $id
+
+                ],
+                [
+                    'data' => $changesData,
+                    'patient_id' => $id,
+                    'user_id' => Auth::id(),
+                    'user_type' => Auth::user()->user_type,
+                ]
+            );
+        }
+        if(Auth::user()->user_type==2){
+            return redirect('/guru-patient-list')->with('success', 'Patient history updated successfully !');
+        }else{
+            return redirect('/new-patient-registration')->with('success', 'Patient history updated successfully !');
+        }
 
     }
 
@@ -983,9 +1010,10 @@ class PatientController extends Controller
     {
         $patient=Patient::find($id);
         $shishya=User::where('id',$patient->shishya_id)->first();
+        $patientHistoryLog = PatientHistoryLog::where('patient_id',$id)->first();
         //$guru=User::where('id',$patient->guru_id)->first();
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-        return view("patients.admin.edit-patients",compact('patient','guru','shishya'));
+        return view("patients.admin.edit-patients",compact('patient','guru','shishya','patientHistoryLog'));
     }
 
     public function admin_update_patients(Request $request)
@@ -1000,12 +1028,36 @@ class PatientController extends Controller
                 'occupation' => 'required',
                 'marital_status' => 'required',
                 'address' => 'required',
-        ]);
-       
+        ]);       
         $input = $request->all();
         $id=$request->patient_id;
-        $patient = Patient::find($id);
-        $patient->update($input);
+        unset($input['_token']);
+        unset($input['patient_id']);
+        unset($input['previous_url']);
+        // Find the data before updating
+        $modelBeforeUpdate = Patient::find($id);
+        // Update the model
+        Patient::where('id', $id)->update($input);
+        // Find the data after updating
+        $modelAfterUpdate = Patient::find($id);
+        // Check for changes
+        if ($modelBeforeUpdate && $modelAfterUpdate) {
+            $changedFields = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
+            $changesData = json_encode($changedFields);
+            PatientHistoryLog::updateOrCreate(
+                [
+                    'patient_id'   => $id
+
+                ],
+                [
+                    'data' => $changesData,
+                    'patient_id' => $id,
+                    'user_id' => Auth::id(),
+                    'user_type' => Auth::user()->user_type,
+                ]
+            );
+        }
+        
         return redirect($request->previous_url)->with('success', 'Phr details update successfully');
         
          
@@ -1047,17 +1099,17 @@ class PatientController extends Controller
 
 
     public function in_patients($phr_type)
-    {   
+    {
         if($phr_type=="In-Patient")
         {
-            $patientlist=Patient::orderBy('id','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get();
+            $patientlist=Patient::orderBy('updated_at','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get();
             //dd($patientlist);
         }
         elseif($phr_type=="OPD-Patient")
         {
-           $patientlist=Patient::orderBy('id','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get(); 
+           $patientlist=Patient::orderBy('updated_at','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get(); 
         }
-          return view("patients.admin.patient-list",compact("patientlist"));      
+        return view("patients.admin.patient-list",compact("patientlist"));      
          
     }
 

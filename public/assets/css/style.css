@@ -1154,6 +1154,9 @@ h3 {
     padding: 12px 0 !important;
     font-size: 16px;
 }
+.patient-highlight{
+    background: yellow;
+}
 
 /* .table-heading{
     border-top: 1px solid #ddd;
