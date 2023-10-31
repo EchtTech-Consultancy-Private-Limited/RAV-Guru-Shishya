@@ -42,7 +42,7 @@
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2><strong>View</strong> Follow Up </h2>
+                        <h2 class='p-0'><strong>View</strong> Follow Up </h2>
                         <!-- <ul class="header-dropdown m-r--5">
                             <li class="dropdown">
                                 <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
@@ -63,90 +63,46 @@
                             <section>
 
                                 <div class="col-sm-12 pb-0">
-                                    <div class="card mb-0">
+                                <table class="view-table">
+                                    <h3>Basic Information</h3>
+                                    <thead>
+                                       <tr>
+                                          <th class="w-25"> Title</th>
+                                          <th> Value</th>
+                                         
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr> 
+                                          <td>Patient Registration No. </td>
+                                          <td>{{$patient->registration_no}} </td>
+                                         
+                                       </tr>
 
-                                        <div class="card-body pb-0">
-
-
-
-                                            <div class="row clearfix">
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Patient Registration No.</label>
-                                                          
-                                                            <p>{{$patient->registration_no}}</p>
-                                                           
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Patient Name</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">{{$patient->patient_name}}</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Date of Follow up</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->follow_up_date)){{date('d-m-Y',strtotime($data->follow_up_date))}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Progress Duration</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->report_type)){{$data->report_type}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label class="form-control-label">Progress</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->progress)){{$data->progress}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                    <div class="form-group focused">
-                                                        <div class="form-line">
-                                                            <label
-                                                                class="form-control-label">Treatment/Therapies</label>
-                                                            <br>
-                                                            <label for="follow_up_date"
-                                                                class="form-control-label">@if(!empty($data->treatment)){{$data->treatment}}@endif</label>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-
-
-
-
-                                        </div>
-                                    </div>
+                                       <tr>
+                                        <td> Patient Name</td>
+                                        <td>{{$patient->patient_name}} </td>
+                                       </tr>
+                                       <tr>
+                                        <td> Date of Follow up</td>
+                                        <td> @if(!empty($data->follow_up_date)){{date('d-m-Y',strtotime($data->follow_up_date))}}@endif</td>
+                                       </tr>
+                                       <tr>
+                                        <td> Progress Duration</td>
+                                        <td>@if(!empty($data->report_type)){{$data->report_type}}@endif </td>
+                                       </tr>
+                                       <tr>
+                                        <td>Progress </td>
+                                        <td> @if(!empty($data->progress)){{$data->progress}}@endif</td>
+                                       </tr>
+                                       <tr>
+                                        <td>Treatment/Therapies </td>
+                                        <td>@if(!empty($data->treatment)){{$data->treatment}}@endif </td>
+                                       </tr>
+                                      
+                                    </tbody>
+                                 </table>
+                                  
 
 
                                 </div>
@@ -154,7 +110,7 @@
 
                         <div class="col-sm-12">
                             <div class="header pt-0">
-                                <h2><strong>Add</strong> Remark </h2>
+                                <h2 class='p-0'><strong>Add</strong> Remark </h2>
                             </div>
                             <div class="card mb-0 view-follow-up-sheet">
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
@@ -179,7 +135,7 @@
                                                     <div class="form-line">
                                                         <label for="remark" class="form-control-label">Remark<span
                                                                 class="text-danger"></span></label>
-                                                        <textarea cols="45" rows="2" name="remark" class="form-control"
+                                                        <textarea cols="45" rows="1" name="remark" class="form-control"
                                                             value="" aria-label="remark"
                                                             placeholder="Please enter remark" maxlength="200"
                                                             required>{{ old('remark') }}</textarea>
