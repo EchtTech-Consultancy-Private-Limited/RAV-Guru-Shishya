@@ -522,4 +522,44 @@ $(document).ready(function () {
           var data=document.getElementById('any_done_services').value='0';
         }
     });
+
+    $('#bank_aadhar_link').change(function() {
+        var checkboxValue = $('#bank_aadhar_link').is(':checked') ? 1 : 0;
+        $("#bank_aadhar_link").val(checkboxValue);
+    });
+
+    $('#bank_mobile_link').change(function() {
+        var checkboxValue = $('#bank_mobile_link').is(':checked') ? 1 : 0;
+        $("#bank_mobile_link").val(checkboxValue);
+    });
+   
+    // add attendance js
+    $('#checkall').on('click', function() {
+        if (this.checked) {
+           $('.form-check-input').each(function() {
+              this.checked = true;
+           });
+        } else {
+           $('.form-check-input').each(function() {
+              this.checked = false;
+           });
+        }
+     });
+
+     $('.form-check-input').on('click', function() {
+        if ($('.form-check-input:checked').length == $('.form-check-input').length) {
+           $('#checkall').prop('checked', true);
+        } else {
+           $('#checkall').prop('checked', false);
+        }
+     });
+     function confirm_option(action) {
+        if (!confirm("Are you sure to " + action + "!")) {
+           return false;
+        }
+  
+        return true;
+  
+     }
+    // End Attendance js
 });

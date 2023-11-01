@@ -85,9 +85,6 @@ return [
 
 
     ],
-
-
-
     'adhovartma' => [
         '1'=>'Shofa',
         '2'=>'Syahata',
@@ -414,8 +411,53 @@ return [
         '1'=>'8am to 9am',
         '2'=>'9am to 10am',
        ],
-
-
-
+'banks' => [
+        '1' => 'Allahabad Bank',
+        '2' => 'Andhra Bank',
+        '3' => 'Axis Bank',
+        '4' => 'Bank of Bahrain and Kuwait',
+        '5' => 'Bank of Baroda - Corporate Banking',
+        '6' => 'Bank of Baroda - Retail Banking',
+        '7' => 'Bank of India',
+        '8' => 'Bank of Maharashtra',
+        '9' => 'Canara Bank',
+        '10' => 'Central Bank of India',
+        '11' => 'City Union Bank',
+        '12' => 'Corporation Bank',
+        '13' => 'Deutsche Bank',
+        '14' => 'Development Credit Bank',
+        '15' => 'Dhanlaxmi Bank',
+        '16' => 'Federal Bank',
+        '17' => 'ICICI Bank',
+        '18' => 'IDBI Bank',
+        '19' => 'Indian Bank',
+        '20' => 'Indian Overseas Bank',
+        '21' => 'IndusInd Bank',
+        '22' => 'ING Vysya Bank',
+        '23' => 'Jammu and Kashmir Bank',
+        '24' => 'Karnataka Bank Ltd',
+        '25' => 'Karur Vysya Bank',
+        '26' => 'Kotak Bank',
+        '27' => 'Laxmi Vilas Bank',
+        '28' => 'Oriental Bank of Commerce',
+        '29' => 'Punjab National Bank - Corporate Banking',
+        '30' => 'Punjab National Bank - Retail Banking',
+        '31' => 'Punjab & Sind Bank',
+        '32' => 'Shamrao Vitthal Co-operative Bank',
+        '33' => 'South Indian Bank',
+        '34' => 'State Bank of Bikaner & Jaipur',
+        '35' => 'State Bank of Hyderabad',
+        '36' => 'State Bank of India',
+        '37' => 'State Bank of Mysore',
+        '38' => 'State Bank of Patiala',
+        '39' => 'State Bank of Travancore',
+        '40' => 'Syndicate Bank',
+        '41' => 'Tamilnad Mercantile Bank Ltd.',
+        '42' => 'UCO Bank',
+        '43' => 'Union Bank of India',
+        '44' => 'United Bank of India',
+        '45' => 'Vijaya Bank',
+        '46' => 'Yes Bank Ltd',
+    ],
 
 ];

@@ -424,8 +424,79 @@
                                        @enderror
                                     </div>
                                  </div>
+
+                                 <!-- Bank details  -->
+                                 <div class="header col-md-12 pt-0">
+                                    <h2>Bank Details </h2>
+                                 </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label >Bank Name<span class="text-danger">*</span></label>
+                                       <select name="bank_name" id="bank_name" class="form-control select2">
+                                          <option value="">Please select</option>
+                                          @foreach(__('phr.banks') as $key=>$value)
+                                          <option value="{{$key}}" {{@$profile_record[0]->bank_name == $key  ? 'selected' : ''}}>{{$value}}</option>
+                                          @endforeach
+                                          </select>
+                                          @if ($errors->has('bank_name'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('bank_name') }}</strong>
+                                          </span>
+                                          @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label >IFSC Code<span class="text-danger">*</span></label>
+                                       <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" placeholder="IFSC Code"  value="{{ old('ifsc_code', @$profile_record[0]->ifsc_code) }}">
+                                       @if($errors->has('ifsc_code'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('ifsc_code') }}</strong>
+                                          </span>
+                                          @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label >Account Number<span class="text-danger">*</span></label>
+                                       <input type="text" name="account_no" id="account_no" class="form-control" placeholder="Account Number"  value="{{ old('account_no', @$profile_record[0]->account_no) }}">
+                                       @if($errors->has('account_no'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('account_no') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label >Account Holder Name<span class="text-danger">*</span></label>
+                                       <input type="text" name="account_holder_name" id="account_holder_name" class="form-control" placeholder="Account Number"  value="{{ old('account_holder_name', @$profile_record[0]->account_holder_name) }}">
+                                       @if($errors->has('account_holder_name'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('account_holder_name') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6 mb-3">
+                                    <div class="form-group d-flex">
+                                       <input type="checkbox"  name="bank_aadhar_link" id="bank_aadhar_link" class="checkbox"  value="{{ old('0',@$profile_record[0]->bank_aadhar_link) }}" @if(@$profile_record[0]->bank_aadhar_link==1) checked @endif>
+                                       <label for="central">Account is linked with (Aadhar & Pan Card No.)</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6 mb-3">
+                                    <div class="form-group d-flex">
+                                       <input type="checkbox"  name="bank_mobile_link" id="bank_mobile_link" class="checkbox"  value="{{ old('0',@$profile_record[0]->bank_mobile_link) }}" @if(@$profile_record[0]->bank_mobile_link==1) checked @endif>
+                                       <label for="central">Mobile Number ( Linked with Account Number)</label>
+                                    </div>
+                                 </div>
+                                                                  
+                                 <!-- End bank details -->
                                  
                                  <!-- Languages -->
+                                 <div class="header col-md-12 pt-0">
+                                    <h2>Add Languages</h2>
+                                 </div>
                                  <div class="col-md-12 mb-0">
                                     <div class="row language" id="language_body">
                                        <div class="col-sm-12 col-md-3">

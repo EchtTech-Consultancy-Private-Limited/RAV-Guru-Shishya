@@ -221,7 +221,7 @@ class AddUserController extends Controller
 
     public function manage_profile_form(Request $request)
     {
-        $formId = $request->input('form_step_type');
+        $formId = $request->input('form_step_type');        
         if ($formId === 'step1') {
             $this->validate($request, [
                 'firstname' => 'required|max:200|min:2',
@@ -241,11 +241,27 @@ class AddUserController extends Controller
                 'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
                 'mobile_no' => 'required|digits:10',
                 'title' => 'required',
+                'bank_name' => 'required',
+                'ifsc_code' => 'required',
+                'account_no' => 'required',
+                'account_holder_name' => 'required',
             ]);
         }
         $profile_id=$request->profile_id;
         $user_id=$request->user_id;
-        $input = $request->all();       
+        $input = $request->all();
+        if($request->bank_aadhar_link)
+        {
+            $input['bank_aadhar_link'] = $request->bank_aadhar_link=1;
+        }else{
+            $input['bank_aadhar_link'] = $request->bank_aadhar_link=0;
+        }
+        if($request->bank_mobile_link)
+        {
+            $input['bank_mobile_link'] = $request->bank_mobile_link=1;
+        }else{
+            $input['bank_mobile_link'] = $request->bank_mobile_link=0;
+        }
         $form_step_type=$request->form_step_type;    
         $id=Auth::user()->id;
         $countries = Country::get(["name", "id"]);
