@@ -90,7 +90,7 @@
                         <div class="card">
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
-                              <div class="card-body">
+                              <div class="card-body p-0">
                                  <div
                                     class="row">
                                     <div

@@ -46,9 +46,9 @@
             <div class="card">
                              
                <div class="header">
-                  <h2>
+               
                    
-                     <ul style="float:right;">
+                     <ul >
                                        <li style="float:left;clear:none; margin:10px;">From:
                                        </li><li style="float:left;clear:none; margin:10px;"> 
                                         <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="{{date('Y-m-d',time())}}"  max="{{date('Y-m-d',time())}}" required>
@@ -73,14 +73,14 @@
                      </ul>
                     
                                          
-                  </h2>
+               
                   
                </div>
                         <div class="body">
                             <div class="table-responsive">
                                 <table class="table table-hover js-basic-example contact_list">
                                     <thead>
-                                            <th class="center"> <label class="form-check-label form-check-input1"><input type="checkbox" class="form-check-input1" name="checkall" id="checkall" value="1"> Select All </label> </th>
+                                            <th class="center text-white"> <label class="form-check-label  text-white"><input type="checkbox" class="" name="checkall" id="checkall" value="1"> Select All </label> </th>
                                             <th class="center"> Registration No. </th>
                                             <th class="center"> Shishya Name </th>
                                             <th class="center"> Guru Name </th>

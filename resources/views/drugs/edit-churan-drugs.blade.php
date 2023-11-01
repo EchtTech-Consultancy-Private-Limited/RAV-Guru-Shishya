@@ -187,7 +187,12 @@
                   </div>
                     
                 </div>
-                 <p class="text-capatilize text-sm m-2">Composition</p>
+                <div class="h-100">
+                        <h5 class="mb-1">
+                           Composition
+                        </h5>
+                     </div>
+                 <!-- <p class="text-capatilize text-sm m-2">Composition</p> -->
 
                  <div class="page-content page-container" id="page-content">
                     <div class="padding">

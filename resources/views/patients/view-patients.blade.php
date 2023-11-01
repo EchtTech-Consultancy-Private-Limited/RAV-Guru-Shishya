@@ -41,7 +41,9 @@
       <div class="row clearfix">
          <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
             <div class="card">
-               <div class="header">
+               
+               <div class="card-body" >
+               <div class="header p-0">
                   <h2>Patient History Sheet</h2>
 
                   <ul class="header-dropdown m-r--5">
@@ -50,7 +52,6 @@
                      </li>
                   </ul>
                </div>
-               <div class="card-body" >
                   <h3>Guru Information</h3>
                   <table class="">
                      <thead>
@@ -82,7 +83,7 @@
                      <h3>Patient Information</h3>
                      <thead>
                         <tr>
-                             <th> Title </th>
+                             <th class="w-25"> Title </th>
                              <th> Value </th>
                         </tr>
                        
