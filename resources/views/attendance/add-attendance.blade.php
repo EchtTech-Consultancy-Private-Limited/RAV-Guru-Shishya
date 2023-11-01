@@ -50,83 +50,70 @@
                         <div class="body">
                         <div class="row">
                             <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
-                           
-                                <div class="new-patient-input">
-                                    <div class="new-patient-ragistration">From:
-                                    </div>
-                                    <div>
-                                    <input type="date" name="from_date"
+                                <div class="form-group">
+                                       <label class="active">From:<span class="text-danger"></span></label>
+                                       <input type="date" name="from_date"
                                         class="form-control datetimepicker flatpickr-input active"
                                         value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
-                                    </div>
-                                </div>
+                                 </div>
+                               
 
 
                             </div>
                            
                                     <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
-                                   
-                                        <div class="new-patient-input">
-                                            <div class="new-patient-ragistration">  To:
-                                            </div>
-                                            <div>
-                                            <input type="date" name="to_date"
+                                    <div class="form-group">
+                                       <label class="active">To:<span class="text-danger"></span></label>
+                                       <input type="date" name="to_date"
                                         class="form-control datetimepicker flatpickr-input active"
                                         value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
-                                            </div>
-                                        </div>
+                                     </div>
+                                   
+                                      
                                     </div>
 
                                     <div class="col-xl-3 col-xxl-3 col-lg-3 col-md-3 width-50">
-                                   
-                                   <div class="new-patient-input">
-                                       <div class="new-patient-ragistration">  In Time :
-                                       </div>
-                                       <div>
+
+                                    <div class="form-group">
+                                       <label class="active"> In Time :<span class="text-danger"></span></label>
                                        <input type="date" name="to_date"
                                    class="form-control datetimepicker flatpickr-input active"
                                    value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
-                                       </div>
-                                   </div>
+                                 </div>
+                                   
+                                  
                                </div>
 
                                <div class="col-xl-3 col-xxl-3 col-lg-3 col-md-3 width-50">
-                                   
-                                   <div class="new-patient-input">
-                                       <div class="new-patient-ragistration"> Out Time :
-                                       </div>
-                                       <div>
+                               <div class="form-group">
+                                       <label class="active">Out Time :<span class="text-danger"></span></label>
                                        <input type="date" name="to_date"
                                    class="form-control datetimepicker flatpickr-input active"
                                    value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
-                                       </div>
-                                   </div>
+                                 </div>
+                                  
                                </div>
                                
 
                                     <div class="col-xxl-3 col-xl-2 col-lg-3 col-md-6">
-                                   
-                                        <div class="new-patient-input">
-                                            <div class="new-patient-ragistration">
-                                            <select name="attendance" class="form-control active" required>
+                                    <div class="form-group">
+                                       <label class="active">Select Attendance<span class="text-danger"></span></label>
+                                       <select name="attendance" class="form-control active" required>
                                                 <option value="">Select Attendance</option>
                                                 <option>Present</option>
                                                 <option>Absent</option>
                                              </select>
-                                            </div>
-                                           
-                                        </div>
+                                       </div>
+                                        
                                     </div>
 
                                     <div class="col-xxl-3 col-xl-5 col-lg-3 col-md-6">
                                   
                                      
                                   <div class="form-group default-select select2Style">
-                                  <div class="new-patient-input">
-                                       <div class="new-patient-ragistration"> Morning Shifts Timings :
-                                       </div>
-                                       <div>
-                                                <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_morning_timing[]">
+                                  <div class="form-group">
+                                       <label class="active">Morning Shifts Timings :<span class="text-danger"></span></label>
+                                       <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_morning_timing[]">
                                                 <option value="">Select Morning Timing</option>
                                                 @foreach(__('phr.clinic_morning_timing') as $key=>$value)
                                                 @if(isset($clinic_morning_timing))
@@ -136,16 +123,14 @@
                                                 @endif
                                                 @endforeach
                                              </select>
-                                       </div>
-                                   </div>
+                                 </div>
+                                 
                                   </div>
                               
                             </div>
                             <div class="col-xxl-3 col-xl-5 col-lg-3 col-md-6">
-                            <div class="new-patient-input">
-                                       <div class="new-patient-ragistration">Evening Shifts Timings :
-                                       </div>
-                                       <div>
+                            <div class="form-group">
+                                       <label class="active">Evening Shifts Timings :<span class="text-danger"></span></label>
                                        <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_evening_timing[]">
                                         <option value="">Select Morning Timing</option>
                                         @foreach(__('phr.clinic_evening_timing') as $key=>$value)
@@ -156,15 +141,15 @@
                                         @endif
                                         @endforeach
                                      </select>
-                                       </div>
-                                   </div>
+                                 </div>
+                           
                                
                               
                             </div>
 
 
                           
-                                    <div class=" col-md-12">
+                                    <div class=" col-md-3 d-flex justify-content-center">
                                         <div class="new-patient-input d-flex justify-content-end  ">
                                            
                                             <button type="submit" class="btn add waves-effect" style="line-height:2;"
@@ -180,10 +165,10 @@
                         </div>
 
                             <div class="table-responsive">
-                                <table class="table table-hover js-basic-example contact_list">
+                                <table class="table table-hover js-basic-example contact_list add-attendance">
                                     <thead>
                                         <th class="center text-white"> <label
-                                                class="form-check-label  text-white"><input type="checkbox" class="ms-4"
+                                                class="form-check-label  text-white"><input type="checkbox" class="m-0"
                                                     name="checkall" id="checkall" value="1"> Select All </label> </th>
                                         <th class="center"> Registration No. </th>
                                         <th class="center"> Shishya Name </th>
@@ -194,11 +179,10 @@
                                     </thead>
                                     <tbody>
                                         @foreach($data as $k=>$user)
-                                        <tr class="odd gradeX">
+                                        <tr class="odd gradeX ">
                                             <td class="center"><label class="form-check-label form-check-input1"><input
                                                         name="shishya_ids[]" type="checkbox"
-                                                        class="form-check-input ms-4" value="{{$user->id}}"> </label<
-                                                        /td>
+                                                        class="form-check-input ms-4" value="{{$user->id}}"> </label></td>
                                             <td class="center">RAVSH-{{ $user->id }}-{{date('Y')}}</td>
                                             <td class="center">{{$user->firstname.' '.$user->lastname}}</td>
                                             <td class="center">{{$user->guru_firstname.' '.$user->guru_lastname}}</td>
@@ -213,38 +197,7 @@
                         </div>
 
                     </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-hover js-basic-example contact_list">
-                                <thead>
-                                    <th class="center"> <label class="form-check-label form-check-input1"><input
-                                                type="checkbox" class="form-check-input1" name="checkall" id="checkall"
-                                                value="1"> Select All </label> </th>
-                                    <th class="center"> Registration No. </th>
-                                    <th class="center"> Shishya Name </th>
-                                    <th class="center"> Guru Name </th>
-                                    <th class="center"> Contact No. </th>
-                                    <th class="center"> Created Date </th>
-
-                                </thead>
-                                <tbody>
-                                    @foreach($data as $k=>$user)
-                                    <tr class="odd gradeX">
-                                        <td class="center"><label class="form-check-label form-check-input1"><input
-                                                    name="shishya_ids[]" type="checkbox" class="form-check-input"
-                                                    value="{{$user->id}}"> </label< /td>
-                                        <td class="center">RAVSH-{{ $user->id }}-{{date('Y')}}</td>
-                                        <td class="center">{{$user->firstname.' '.$user->lastname}}</td>
-                                        <td class="center">{{$user->guru_firstname.' '.$user->guru_lastname}}</td>
-                                        <td class="center">{{$user->mobile_no}}</td>
-                                        <td class="center">{{ date('d-m-Y', strtotime($user->created_at)) }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
+                   
 
                 </div>
 

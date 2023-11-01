@@ -80,7 +80,7 @@
                                  <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                                  <div class="card-body">
                                     <table class="view-table">
-                                       <h3>Basic Information</h3>
+                                       <h3>Guru Information</h3>
                                        <thead>
                                           <tr>
                                              <th> Name of the Guru</th>
@@ -101,10 +101,11 @@
                                     
 
                                     <table class="view-table">
-                                       <h3>Basic Information</h3>
+                                       <h3>Patient Information</h3>
                                        <thead>
                                           <tr>
-                                             <th class = "w-25"> Title</th>
+                                             <th class = "w-25
+                                             "> Title</th>
                                              <th> Value</th>
                                              
                                              
