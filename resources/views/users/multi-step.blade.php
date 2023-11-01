@@ -1271,12 +1271,12 @@ Session::forget('session_for_redirections');
     const fetchStatesUrl = "{{ url('api/fetch-states') }}";
     const fetchCitesUrl = "{{ url('api/fetch-cities') }}";
     const csrfToken = "{{ csrf_token() }}";
-    const stateId = "{{$profile_record[0]->state}}";
-    const perState = "{{$per_profile_record[0]->per_state}}";
-    const cityId = "{{$profile_record[0]->city}}";
-    const perCities = "{{$per_profile_record[0]->per_city}}";
-    const clinicState = "{{$clinic_record->state}}";
-    const clinicCity = "{{$clinic_record->city}}";
+    const stateId = "{{@$profile_record[0]->state}}";
+    const perState = "{{@$per_profile_record[0]->per_state}}";
+    const cityId = "{{@$profile_record[0]->city}}";
+    const perCities = "{{@$per_profile_record[0]->per_city}}";
+    const clinicState = "{{@$clinic_record->state}}";
+    const clinicCity = "{{@$clinic_record->city}}";
     const eduEditUrl= "{{url('/education/edit-company')}}";
     const publicationEditUrl = "{{url('/publication/edit-publication')}}";
 </script>
