@@ -58,8 +58,8 @@
                             </li>
                         </ul> -->
                     </div>
-                    <div class="body">
-                        <div id="wizard_horizontal">
+                    <div class="body p-0">
+                        <div id="wizard_horizontal " class="card-body">
                             <section>
 
                                 <div class="col-sm-12 pb-0">
@@ -110,7 +110,7 @@
 
                         <div class="col-sm-12">
                             <div class="header pt-0">
-                                <h2 class='p-0'><strong>Add</strong> Remark </h2>
+                                <h2 class=''><strong>Add</strong> Remark </h2>
                             </div>
                             <div class="card mb-0 view-follow-up-sheet">
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
@@ -252,7 +252,7 @@
 
                                         <div class="card mb-0">
 
-                                            <div class="body">
+                                            <div class="body p-0">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover js-basic-example" id="data_table">
                                                         <thead>

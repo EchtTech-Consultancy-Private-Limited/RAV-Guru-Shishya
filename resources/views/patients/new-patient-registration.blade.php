@@ -58,7 +58,7 @@
                         <div class="header">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
-                                    <div class="new-patient-input d-flex align-items-center justify-content-end h-100">
+                                    <div class=" d-flex align-items-center justify-content-end h-100">
                                         <div>
                                             @if (Auth::user()->guru_id)
                                             <a type="button" href="{{ url('/add-history-sheet') }}" class="btn add  waves-effect " >+ Add PHR
@@ -160,7 +160,7 @@
 
 
                                                         </td>
-                                                        <td class="center d-flex">
+                                                        <td class="center">
                                                         <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i></a>
                                                         @if($patientlist->phr_s_status== 1)
                                                             <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary remark" title="Remarks">

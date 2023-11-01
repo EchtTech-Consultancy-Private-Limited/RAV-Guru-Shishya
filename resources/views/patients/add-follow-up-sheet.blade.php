@@ -182,12 +182,14 @@
 
                                                 <div class="row clearfix">
                                                     <div class="col-sm-12  text-left">
-                                                        <a href="{{ url('/follow-up-patients') }}"><button type="button"
-                                                                class="btn back btn-danger waves-effect"> &nbsp; Back
-                                                                &nbsp;</button></a>
-                                                        <button type="submit"
-                                                            class="btn save  waves-effect m-r-15"> &nbsp;Save
+                                                        <div class="d-flex justify-content-end">
+                                                        <button type="submit" class="btn save  waves-effect m-r-15"> &nbsp;Save
                                                             &nbsp; </button>
+                                                        <a href="{{ url('/follow-up-patients') }}"><button type="button"   class="btn back btn-danger waves-effect"> &nbsp; Back
+                                                                &nbsp;</button></a>
+                                                      
+                                                        </div>
+                                                       
 
                                                     </div>
                                                 </div>

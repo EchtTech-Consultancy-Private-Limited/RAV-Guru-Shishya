@@ -104,7 +104,7 @@
                                        <h3>Basic Information</h3>
                                        <thead>
                                           <tr>
-                                             <th> Title</th>
+                                             <th class = "w-25"> Title</th>
                                              <th> Value</th>
                                              
                                              
