@@ -90,7 +90,7 @@
                         <div class="card">
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
-                              <div class="card-body">
+                              <div class="card-body p-0">
                                  <div
                                     class="row">
                                     <div
@@ -164,28 +164,7 @@
 
                                  </div>
 
-                                 <hr style="height:2px;">
-                                <!--  <div class="row" >
-
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Select Yogas<span
-                                             class="text-danger">*</span></label>
-                                          <select class="form-control" id="yogas_select" onclick="yogas_select_change();">
-                                             <option value="0">SELECT YOGAS</option>
-                                             <option value="1">1 – CHURNA YOGAS</option>
-                                             <option value="2">2 – RASA YOGAS</option>
-                                             <option value="3">3 – VATI YOGAS</option>
-                                             <option value="4">4 – TAILA – GHRITA YOGAS</option>
-                                             <option value="5">5 – ASAVA/ARISHTA YOGAS</option>
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-8 mb-2"></div>
-                                 </div> -->
+                               
                                  <div id="yogas_type">
                                  </div>
 
@@ -193,18 +172,12 @@
                            <!-- </form> -->
                         </div>
                      </div>
-                  </section>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div style="display:;">
+                     <div style="display:;">
        <div id="churna_yogas" style="display:;">
             <form method="POST" action="{{ url('update-vatiyoga-details') }}" >
                 @csrf
                <input type="hidden" name="drug_id" value="{{ $drug->id }}">
-              <div class="row">
+              <div class="row px-2">
               <div class="form-group  ">
                        <h5 class="text-center d-flex justify-content-center"> 3- Vati YOGAS</h5>
                        <h5 class="d-block text-left">Name of the Drug</h5>
@@ -218,20 +191,18 @@
               
                <div class="form-group">
                  
-                  <div class="col-auto my-auto">
-                     <div class="h-100">
+               <div class="h-100">
                         <h5 class="mb-1">
                            Composition
                         </h5>
                      </div>
-                  </div>
 
                   <div class="page-content page-container" id="page-content">
                     <div class="padding">
-                        <div class="row container d-flex justify-content-center">
+                        <div class="row  d-flex justify-content-center">
                             <div class="col-lg-12 grid-margin stretch-card">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table id="faqs" class="table table-hover">
                                                 <thead>
@@ -239,6 +210,7 @@
                                                         <th>Name of the ingredients mineral metal</th>
                                                         <th>Part used   </th>
                                                         <th>Quantity</th>
+                                                        <th>Action</th>
 
                                                     </tr>
                                                 </thead>
@@ -283,9 +255,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="title">
                 <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
+                </div>
+              
                   <div class="row">
-                     <div class="col-md-12 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                           <div class="form-group">
                              <label  class="form-control-label">Enter Yogas Name</label>
                              <input type="text" name="vati_yoga_type_individual" class="form-control" placeholder="Vati Yoga Type Individual"  value="{{ $drug->vati_yoga_type_individual }}" maxlength="50">@error('vati_yoga_type_individual')
@@ -293,7 +268,7 @@
                              @enderror
                           </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label  class="form-control-label">Step 1<span class="text-danger">*</span></label>
                            <input type="text" name="step_first" class="form-control" placeholder="Step 1" aria-label="Step 1" value="{{ $drug->step_first }}" maxlength="50">
@@ -302,7 +277,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Packing<span class="text-danger">*</span></label>
                            <input type="text" name="packing" class="form-control" placeholder="Packing" aria-label="Packing" value="{{ $drug->packing }}" maxlength="50">
@@ -311,9 +286,8 @@
                            @enderror
                         </div>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-6 mb-2">
+                  
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Storage<span class="text-danger">*</span></label>
                            <input type="text" name="storage" class="form-control" placeholder="Storage" value="{{ $drug->storage }}" maxlength="50">
@@ -322,7 +296,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Method of Administration<span class="text-danger">*</span></label>
                            <input type="text" name="method_of_administration" class="form-control" placeholder="Method of Administration"  value="{{ $drug->method_of_administration }}" maxlength="50">
@@ -331,9 +305,8 @@
                            @enderror
                         </div>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-6 mb-2">
+                  
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Dose<span class="text-danger">*</span></label>
                            <input type="text" name="dose" class="form-control" placeholder="Dose" aria-label="Dose" value="{{ $drug->dose }}" maxlength="50">
@@ -342,7 +315,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Time of administration<span class="text-danger">*</span></label>
                            <input type="text" name="time_of_administration" class="form-control" placeholder="Time of administration" value="{{ $drug->time_of_administration }}" maxlength="50">
@@ -351,9 +324,8 @@
                            @enderror
                         </div>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-6 mb-2">
+                 
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Duration of Therapy<span class="text-danger">*</span></label>
                            <input type="text" name="duration_of_therapy" class="form-control" placeholder="Duration of Therapy"  value="{{ $drug->duration_of_therapy }}" maxlength="50">
@@ -362,7 +334,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Vehicle<span class="text-danger">*</span></label>
                            <input type="text" name="vehicle" class="form-control" placeholder="Vehicle" aria-label="Vehicle" value="{{ $drug->vehicle }}" maxlength="50">
@@ -371,9 +343,8 @@
                            @enderror
                         </div>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-6 mb-2">
+                 
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Indications<span class="text-danger">*</span></label>
                            <input type="text" name="indicationsduration_of_therapy" class="form-control" placeholder="Indications" aria-label="Duration of Therapy" value="{{ $drug->indicationsduration_of_therapy }}" maxlength="50">
@@ -382,7 +353,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Contra indications<span class="text-danger">*</span></label>
                            <input type="text" name="contraindicationsduration_of_therapy" class="form-control" placeholder="Contra indications"  value="{{ $drug->contraindicationsduration_of_therapy }}" maxlength="50">
@@ -391,9 +362,8 @@
                            @enderror
                         </div>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-6 mb-2">
+                 
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Wholesome diet<span class="text-danger">*</span></label>
                            <input type="text" name="wholesome_diet" class="form-control" placeholder="Wholesome diet" value="{{ $drug->wholesome_diet }}" maxlength="50">
@@ -402,7 +372,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Whole some activities<span class="text-danger">*</span></label>
                            <input type="text" name="wholesome_activities" class="form-control" placeholder="Whole some activities"  value="{{ $drug->wholesome_activities }}" >
@@ -411,7 +381,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Wholesome behavior<span class="text-danger">*</span></label>
                            <input type="text" name="wholesome_behavior" class="form-control" placeholder="Wholesome behavior" aria-label="Wholesome behavior" value="{{ $drug->wholesome_behavior }}" >
@@ -421,9 +391,12 @@
                         </div>
                      </div>
                   </div>
+                  <div class="title">
                   <p class="text-capatilize text-sm">Observations</p>
+                </div>
+                 
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Quantity of Raw Material<span class="text-danger">*</span></label>
                            <input type="text" name="quantity_of_raw_material" class="form-control" placeholder="Quantity of Raw Material"  value="{{ $drug->quantity_of_raw_material }}" >
@@ -432,7 +405,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Quantity of finished product<span class="text-danger">*</span></label>
                            <input type="text" name="quantity_of_finished_product" class="form-control" placeholder="Quantity of finished product"  value="{{ $drug->quantity_of_finished_product }}" >
@@ -441,7 +414,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Loss<span class="text-danger">*</span></label>
                            <input type="text" name="loss" class="form-control" placeholder="Loss" aria-label="Loss" value="{{ $drug->loss }}" >
@@ -450,7 +423,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Reasons for Loss<span class="text-danger">*</span></label>
                            <input type="text" name="reasons_for_loss" class="form-control" placeholder="Reasons for Loss" aria-label="Name" value="{{ $drug->reasons_for_loss }}" >
@@ -461,7 +434,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">(i)<span class="text-danger">*</span></label>
                            <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="(i)" aria-label="(i)" value="{{ $drug->reasons_for_loss_first }}" >@error('reasons_for_loss_first')
@@ -469,7 +442,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">(ii)<span class="text-danger">*</span></label>
                            <input type="text" name="reasons_for_loss_second" class="form-control" placeholder="(ii)" aria-label="Name" value="{{ $drug->reasons_for_loss_second }}" maxlength="50">
@@ -478,7 +451,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Organoleptic properties of raw materials<span class="text-danger">*</span></label>
                            <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control" placeholder="Organoleptic properties of raw materials" value="{{ $drug->organoleptic_properties_of_raw_materials }}" >
@@ -487,7 +460,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Organoleptic properties of finished product<span class="text-danger">*</span></label>
                            <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Organoleptic properties of finished product" value="{{ $drug->organoleptic_properties_of_finished_product }}" maxlength="50">
@@ -497,9 +470,13 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-capatilize text-sm">Time taken for the practical</p>
+
+                  <div class="title">
+                       <p class="text-capatilize text-sm">Time taken for the practical</p>
+                   </div>
+               
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group ">
                            <label class="control-label   requiredField" for="date">(i) Starting Date<span class="text-danger">*</span>
                            </label>
@@ -510,7 +487,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group ">
                            <label class="control-label   requiredField" for="date">(ii)  Ending Date<span class="text-danger">*</span>
                            </label>
@@ -527,6 +504,13 @@
          </form>
         </div>
    </div>
+                  </section>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   
 </section>
 
 <script>
@@ -557,7 +541,7 @@ html = '<tr id="faqs-row' + faqs_row + '">';
     html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" value=""></td>';
     html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" value=""></td>';
     html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" ></td>';
-    html += '<td class="mt-10"><button class="btn btn-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i>Delete</button></td>';
+    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i></button></td>';
 
     html += '</tr>';
 

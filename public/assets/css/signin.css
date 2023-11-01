@@ -251,3 +251,6 @@ i.user-icon {
 .fa-refresh:before {
   content: "\f021";
 }
+.captcha img {
+  margin-right: 5px !important;
+}

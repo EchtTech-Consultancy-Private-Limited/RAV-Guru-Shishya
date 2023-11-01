@@ -55,7 +55,7 @@
                                         <table class="table table-hover js-basic-example" id="data_table">
                                             <thead>
                                                 <tr>
-                                                    <th class="center">S.No#</th>
+                                                    <th class="center">S.No</th>
                                                     <th class="center"> Send By </th>
                                                     <th class="center"> Send To </th>
                                                     <th class="center"> Date </th>

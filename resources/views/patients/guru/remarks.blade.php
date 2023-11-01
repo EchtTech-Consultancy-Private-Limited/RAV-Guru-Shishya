@@ -41,7 +41,7 @@
       <div class="row">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="card">
-            <div id="non-printable" class="col-sm-12 p-t-20 text-left no-printme">
+            <!-- <div id="non-printable" class="col-sm-12 p-t-20 text-left no-printme">
                      @if(Auth::user()->user_type == 1)
                      <a href="{{ url('/patients/In-Patient') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
                      @endif
@@ -52,7 +52,7 @@
                      <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
                      @endif
                      
-                  </div>
+                  </div> -->
                <div class="header">
 
                </div>
@@ -95,7 +95,7 @@
                                      class="text-danger">*</span></label>
                                   <textarea
                                      cols="45"
-                                     rows="2"
+                                     rows="1"
                                      name="remarks"
                                      class="form-control"
                                      value=""
