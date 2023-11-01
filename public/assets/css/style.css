@@ -1182,6 +1182,12 @@ h3 {
 .patient-highlight{
     background: yellow;
 }
+.card .body .col-sm-12{
+    margin-bottom:0px;
+ }
+ .card .header{
+    padding:0px 10px;
+ }
 
 /* .table-heading{
     border-top: 1px solid #ddd;
