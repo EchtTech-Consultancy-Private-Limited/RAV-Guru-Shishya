@@ -236,122 +236,86 @@ class AddUserController extends Controller
                 'pincode' => 'required|max:6',
                 'per_pincode' => 'max:6',
                 'aadhaar_no' => 'required|max:12',
-                'pan_no' => 'required|max:15',
+                'pan_no' => 'required|max:12',
                 'e_sign'   => 'mimes:jpeg,png,jpg|max:200',
                 'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
                 'mobile_no' => 'required|digits:10',
                 'title' => 'required',
-        ]);
+            ]);
         }
-
-        //return $request->all();
         $profile_id=$request->profile_id;
         $user_id=$request->user_id;
-        $input = $request->all();
-        
-        //dd($input);
-        
-        
-            $form_step_type=$request->form_step_type;
-       
-            $id=Auth::user()->id;
-            $countries = Country::get(["name", "id"]);
-            /*$basic_info="Your Basic Information Saved Successfully";
-            Session::put('basic_info', $basic_info);
-            $basic_info_session= Session::get('basic_info');*/
-            //return $basic_info_session;
-
+        $input = $request->all();       
+        $form_step_type=$request->form_step_type;    
+        $id=Auth::user()->id;
+        $countries = Country::get(["name", "id"]);
         if($request->form_step_type=="step1")
         {
-        if($profile_id!='' && $request->form_step_type=="step1")
-        {
-            
-           //update data in basic profiles table
-            $user_profile=ProfileBasicInfo::find($profile_id);
-            $user_profile->update($input);
-           
-           //add data in user language table
-
-                  $lang_name=$request->lang_name;
-                 $reading=$request->reading;
+            if($profile_id!='' && $request->form_step_type=="step1")
+            {
+                $user_profile=ProfileBasicInfo::find($profile_id);
+                $user_profile->update($input);                
+            //add data in user language table
+                $lang_name=$request->lang_name;
+                $reading=$request->reading;
                 $writing=$request->writing;
                 $speaking=$request->speaking;
                 $user_id=$request->user_id;
-                 $lang_id=$request->lang_id;
-            
-            if($request->lang_name)
-            {
-
-
-            for($i=0; $i<count($lang_name); $i++)
+                $lang_id=$request->lang_id;           
+                if($request->lang_name)
                 {
+                    for($i=0; $i<count($lang_name); $i++)
+                    {
+                    $lang=ProfileLanguage::where('id',$lang_id[$i])->first();
+                    if($lang)
+                    {
+                        $lang_record=ProfileLanguage::where('id',$lang_id[$i])->first();
+                        $lang_record->lang_name=$lang_name[$i];
+                        $lang_record->reading=$reading[$i];
+                        $lang_record->writing=$writing[$i];
+                        $lang_record->speaking=$speaking[$i];
+                        $lang_record->user_id=$user_id;
+                        $lang_record->save();
+                    }
+                    else
+                    {
+                        $lang_record=new ProfileLanguage;
+                        $lang_record->lang_name=$lang_name[$i];
+                        $lang_record->reading=$reading[$i];
+                        $lang_record->writing=$writing[$i];
+                        $lang_record->speaking=$speaking[$i];
+                        $lang_record->user_id=$user_id;
+                        $lang_record->save();
+                    } 
 
-                   $lang=ProfileLanguage::where('id',$lang_id[$i])->first();
-                   //return $lang[1];
-                   if($lang)
-                   {
-                       //dd("update");
-                       $lang_record=ProfileLanguage::where('id',$lang_id[$i])->first();
-                       $lang_record->lang_name=$lang_name[$i];
-                       $lang_record->reading=$reading[$i];
-                       $lang_record->writing=$writing[$i];
-                       $lang_record->speaking=$speaking[$i];
-                       $lang_record->user_id=$user_id;
-                       $lang_record->save();
-                   }
-                   else
-                   {
-                       //dd("add");
-                       $lang_record=new ProfileLanguage;
-                       $lang_record->lang_name=$lang_name[$i];
-                       $lang_record->reading=$reading[$i];
-                       $lang_record->writing=$writing[$i];
-                       $lang_record->speaking=$speaking[$i];
-                       $lang_record->user_id=$user_id;
-                       $lang_record->save();
-                   } 
-
+                    }
                 }
-             }
-
-            //update data in user table
-             
-           $profile=User::find($user_id);
-           
-           if($request->hasfile('e_sign'))
-           {
-            //dd("yes");
-            $file = $request->file('e_sign');
-            $name = $file->getClientOriginalName();
-            $filename = time().$name;
-            $file->move('uploads/',$filename);
-            //dd($filename);
-            $input['e_sign'] = $filename;
-           }
-            if($request->hasfile('profile_image'))
-               {
-                //dd("yes");
-                $file = $request->file('profile_image');
+                //update data in user table             
+            $profile=User::find($user_id);           
+            if($request->hasfile('e_sign'))
+            {
+                $file = $request->file('e_sign');
                 $name = $file->getClientOriginalName();
                 $filename = time().$name;
                 $file->move('uploads/',$filename);
-                //dd($filename);
-                $input['user_image'] = $filename;
-               }
-           $profile->update($input);
-           
+                $input['e_sign'] = $filename;
+            }
+                if($request->hasfile('profile_image'))
+                {
+                    $file = $request->file('profile_image');
+                    $name = $file->getClientOriginalName();
+                    $filename = time().$name;
+                    $file->move('uploads/',$filename);
+                    $input['user_image'] = $filename;
+                }
+            $profile->update($input);           
+            }
+            else
+            {
+                ProfileBasicInfo::create($input);            
+            }
+
         }
-        else
-        {
-            //dd("else");
-            ProfileBasicInfo::create($input);
-            
-        }
-
-    }
-
-        
-
         //fetch profile record
             $profile_record=DB::table('users')
             ->select('profiles_basic_info.*', 'users.*','profiles_basic_info.id as profile_id','users.id as user_table_id','cities.name as city_name','states.name as state_name')
@@ -377,16 +341,16 @@ class AddUserController extends Controller
         //return $language_record;
 
         //second form code
-        if($request->form_step_type=="step2" )
+        if($request->form_step_type=="step2")
         {
-            //return $request->method();
+            
+            $this->validate($request, [
+                'course_name' => 'required',
+                'upload_degree' => 'mimes:jpeg,png,jpg,pdf|max:10000',
+            ]);
             if(isset($_POST['educational']) && $request->educational == "educational-form")
-            {   
-                //dd("add");
-
-                
+            {
                 $education=ProfileEducational::where('id',$request->education_id)->first();
-                //dd("$education");
                 if($education)
                 { 
                     $education=ProfileEducational::where('id',$request->education_id)->first();
@@ -394,6 +358,9 @@ class AddUserController extends Controller
                     $education->institute_name=$request->institute_name;
                     $education->course_name=$request->course_name;
                     $education->year_of_passing=$request->year_of_passing;
+                    $education->year_of_passing=$request->name_of_board;
+                    $education->year_of_passing=$request->regis_no;
+                    $education->year_of_passing=$request->year_of_regis;
 
                     if($request->hasfile('upload_degree'))
                        {
@@ -416,6 +383,9 @@ class AddUserController extends Controller
                     $education->institute_name=$request->institute_name;
                     $education->course_name=$request->course_name;
                     $education->year_of_passing=$request->year_of_passing;
+                    $education->name_of_board=$request->name_of_board;
+                    $education->regis_no=$request->regis_no;
+                    $education->year_of_regis=$request->year_of_regis;
 
                     if($request->hasfile('upload_degree'))
                        {
@@ -426,27 +396,13 @@ class AddUserController extends Controller
                         $file->move('uploads/',$filename);
                         //dd($filename);
                         $education->upload_degree = $filename;
-                       }
-                       
+                       }                       
                     $education->save();
                 }
-                
-                
-
-
             }
-            
-            else
-            {
-                 dd("reload");
+            else{
+                dd("reload");
             }
-           
-
-            /*educational record*/
-           /* $form_step_type=$request->form_step_type;
-           $educational_record=ProfileEducational::where('user_id',$id)->get();*/
-
-        /*return view("users.multi-step",compact('form_step_type','countries','profile_record','per_profile_record','language_record','educational_record'));*/
         }
         
         //here we create session for user redirection and we use this session above function

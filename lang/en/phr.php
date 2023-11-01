@@ -16,6 +16,13 @@ return [
         '2'=>'Female',
         '3'=>'Others',
     ],
+    'category' => [
+        '1'=>'General',
+        '2'=>'OBC',
+        '3'=>'SC',
+        '4'=>'ST',
+        '5'=>'Others',
+    ],
     'age_group' => [
         '1'=>'Child',
         '2'=>'Young',
