@@ -880,7 +880,7 @@
 }
 
 .theme-black .card .header h2 strong {
-    color: #353c48 !important
+    /* color: #353c48 !important */
 }
 
 .theme-black .page-item.active .page-link {

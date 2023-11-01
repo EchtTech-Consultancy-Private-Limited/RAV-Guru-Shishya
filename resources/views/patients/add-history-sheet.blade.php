@@ -115,7 +115,7 @@
                                              <input type="text" name="patient_name" id="txt_firstCapital" class="form-control preventnumeric capitalize" placeholder="Enter Patient Name" value="{{ old('patient_name') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                              @if ($errors->has('patient_name'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('patient_name') }}</strong>
+                                                <strong  >{{ $errors->first('patient_name') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -126,7 +126,7 @@
                                              <input type="text" name="registration_no" class="form-control" placeholder="Registration No" value="{{ old('registration_no') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="15">
                                              @if ($errors->has('registration_no'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('registration_no') }}</strong>
+                                                <strong  >{{ $errors->first('registration_no') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -137,7 +137,7 @@
                                              <input type="text" name="age" class="form-control" placeholder="Age" aria-label="Phone" value="{{ old('age') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="3" id="age">
                                              @if ($errors->has('age'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('age') }}</strong>
+                                                <strong  >{{ $errors->first('age') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -161,7 +161,7 @@
                                              </select>
                                              @if ($errors->has('patient_type'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('patient_type') }}</strong>
+                                                <strong  >{{ $errors->first('patient_type') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -189,7 +189,7 @@
                                              </select>
                                              @if ($errors->has('gender'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('gender') }}</strong>
+                                                <strong  >{{ $errors->first('gender') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -208,7 +208,7 @@
                                              </select>
                                              @if ($errors->has('age_group'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('age_group') }}</strong>
+                                                <strong  >{{ $errors->first('age_group') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -229,7 +229,7 @@
                                              </select>
                                              @if ($errors->has('occupation'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('occupation') }}</strong>
+                                                <strong  >{{ $errors->first('occupation') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -249,7 +249,7 @@
                                              </select>
                                              @if ($errors->has('marital_status'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('marital_status') }}</strong>
+                                                <strong  >{{ $errors->first('marital_status') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -295,7 +295,7 @@
                                              <textarea cols="45" rows="1" name="address" class="form-control" placeholder="Enter  Address" maxlength="200">{{ old('address') }}</textarea>
                                              @if ($errors->has('address'))
                                              <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('address') }}</strong>
+                                                <strong  >{{ $errors->first('address') }}</strong>
                                              </span>
                                              @endif
                                           </div>
@@ -912,7 +912,7 @@
                                     </div>
                                  </div>
                                  <div class="col-lg-12 p-t-20 text-end">
-                                    <button type="submit" class="btn submit btn-primary waves-effect m-r-15">Submit</button>
+                                    <button type="submit" class="btn submit  waves-effect m-r-15">Submit</button>
                                     <a href="{{ url('new-patient-registration') }}" type="button" class="btn back btn-danger waves-effect">Back</a>
                                  </div>
                               </form>

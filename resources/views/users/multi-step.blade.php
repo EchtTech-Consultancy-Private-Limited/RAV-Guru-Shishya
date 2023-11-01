@@ -87,7 +87,7 @@
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <input type="hidden"  name="profile_id"  class="form-control capitalize" value="<?php echo get_profile_id(Auth::user()->id); ?>">
                               <div class="row">
-                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
+                                 <div class="col-xxl-3 col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label >Title</label>
                                        <select name="title" class="form-control" >

@@ -63,11 +63,11 @@
                                              <option>Absent</option>
                                         </select>
                                        </li><li style="float:left;clear:none; margin:10px;"> 
-                                        <button type="submit"   class="btn btn-primary waves-effect" style="line-height:2;" onclick="return confirm_option('update attendance for this date range');">Update Attendance </button>
+                                        <button type="submit"   class="btn add waves-effect" style="line-height:2;" onclick="return confirm_option('update attendance for this date range');">Update Attendance </button>
                      
                                           </li>
                                           <li style="float:left;clear:none; margin:10px;"> 
-                                          <a href="{{ url('/attendance-list') }}"><button type="button"  class="btn btn-danger waves-effect"> &nbsp; Back  &nbsp;</button></a>
+                                          <a href="{{ url('/attendance-list') }}"><button type="button"  class="btn back waves-effect"> &nbsp; Back  &nbsp;</button></a>
                      
                                           </li>
                      </ul>

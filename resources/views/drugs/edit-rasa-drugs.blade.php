@@ -164,42 +164,14 @@
 
                                  </div>
 
-                                 <hr style="height:2px;">
-                                <!--  <div class="row" >
-
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Select Yogas<span
-                                             class="text-danger">*</span></label>
-                                          <select class="form-control" id="yogas_select" onclick="yogas_select_change();">
-                                             <option value="0">SELECT YOGAS</option>
-                                             <option value="1">1 – CHURNA YOGAS</option>
-                                             <option value="2">2 – RASA YOGAS</option>
-                                             <option value="3">3 – VATI YOGAS</option>
-                                             <option value="4">4 – TAILA – GHRITA YOGAS</option>
-                                             <option value="5">5 – ASAVA/ARISHTA YOGAS</option>
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-8 mb-2"></div>
-                                 </div> -->
-                                 <div id="yogas_type">
-                                 </div>
+                              
+                                
 
                               </div>
                            <!-- </form> -->
                         </div>
                      </div>
-                  </section>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div style="display:;">
+                     <div style="display:;">
        <div id="churna_yogas" style="display:;">
             <form method="POST" action="{{ url('update-rasayoga-details') }}" >
                 @csrf
@@ -219,20 +191,17 @@
                
                   </div>
 
-                  <div class="col-auto my-auto">
-                     <div class="h-100">
+                  <div class="h-100">
                         <h5 class="mb-1">
                            Composition
                         </h5>
                      </div>
-                  </div>
-
                   <div class="page-content page-container" id="page-content">
                     <div class="padding">
-                        <div class="row container d-flex justify-content-center">
-                            <div class="col-lg-12 grid-margin stretch-card">
+                        <div class="row  d-flex justify-content-center">
+                            <div class="col-lg-12 ">
                                 <div class="card">
-                                    <div class="card-body">
+                                    <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table id="faqs" class="table table-hover">
                                                 <thead>
@@ -240,6 +209,7 @@
                                                         <th>Name of the ingredients mineral metal</th>
                                                         <th>Part used   </th>
                                                         <th>Quantity</th>
+                                                        <th>Action</th>
 
                                                     </tr>
                                                 </thead>
@@ -284,9 +254,12 @@
                         </div>
                     </div>
                 </div>
-                  <p class="text-capatilize text-sm">I Herbal</p>
+                <div class="title">
+                
+                   <p class="text-capatilize text-sm">I Herbal</p>
+                </div>
                   <div class="row">
-                     <div class="col-md-12 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                        <div class="form-group">
                           <label  class="form-control-label">Enter Yogas Name</label>
                           <input type="text" name="rasa_yoga_type_individual" class="form-control"  value="{{ $rasadrug->rasa_yoga_type_individual }}" >@error('rasa_yoga_type_individual')
@@ -294,7 +267,7 @@
                           @enderror
                        </div>
                     </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 1<span class="text-danger">*</span></label>
                            <input type="text" name="herbal_first" class="form-control" placeholder="Herbal First" value="{{ $rasadrug->herbal_first }}" >@error('herbal_first')
@@ -302,7 +275,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label  class="form-control-label">Step 2<span class="text-danger">*</span></label>
                            <input type="text" name="herbal_second" class="form-control" placeholder="2" value="{{ $rasadrug->herbal_second }}" >
@@ -312,9 +285,12 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-capatilize text-sm">II Mineral</p>
+                  <div class="title">
+                
+                     <p class="text-capatilize text-sm">II Mineral</p>
+                </div>
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 1<span class="text-danger">*</span></label>
                            <input type="text" name="mineral_first" class="form-control" placeholder="1"  value="{{ $rasadrug->mineral_first }}" >@error('mineral_first')
@@ -322,7 +298,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label class="form-control-label">Step 2</label>
                            <input type="text" name="mineral_second" class="form-control" placeholder="2" value="{{ $rasadrug->mineral_second }}" >
@@ -332,9 +308,12 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-capatilize text-sm">III Metal</p>
+                  <div class="title">
+                
+                     <p class="text-capatilize text-sm">III Metal</p>
+                </div>
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 1<span class="text-danger">*</span></label>
                            <input type="text" name="metal_first" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $rasadrug->metal_first }}" >@error('metal_first')
@@ -342,7 +321,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 2<span class="text-danger">*</span></label>
                            <input type="text" name="metal_second" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $rasadrug->metal_second }}" >
@@ -352,9 +331,12 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-capatilize text-sm">IV Animal</p>
+                  <div class="title">
+                
+                     <p class="text-capatilize text-sm">IV Animal</p>
+                </div>
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 1<span class="text-danger">*</span></label>
                            <input type="text" name="animal_first" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $rasadrug->animal_first }}" >@error('animal_first')
@@ -362,7 +344,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 2<span class="text-danger">*</span></label>
                            <input type="text" name="animal_second" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $rasadrug->animal_second }}" >
@@ -372,9 +354,12 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-capatilize text-sm">V Bhavana Dravyas</p>
+                  <div class="title">
+                
+                     <p class="text-capatilize text-sm">V Bhavana Dravyas</p>
+                </div>
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 1<span class="text-danger">*</span></label>
                            <input type="text" name="bhavana_dravayas_first" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $rasadrug->bhavana_dravayas_first }}" >@error('bhavana_dravayas_first')
@@ -382,7 +367,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">Step 2<span class="text-danger">*</span></label>
                            <input type="text" name="bhavana_dravayas_second" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $rasadrug->bhavana_dravayas_second }}" >
@@ -391,9 +376,8 @@
                            @enderror
                         </div>
                      </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-6 mb-2">
+                 
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">VI Changes seen during bhavana therapy<span class="text-danger">*</span></label>
                            <input type="text" name="changes_seen_during_bhavana_therapy" class="form-control" placeholder="VI Changes seen during bhavana therapy" value="{{ $rasadrug->changes_seen_during_bhavana_therapy }}" >@error('changes_seen_during_bhavana_therapy')
@@ -401,7 +385,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">VII Organoleptic properties of raw material<span class="text-danger">*</span></label>
                            <input type="text" name="organoleptic_properties_of_raw_material" class="form-control" placeholder="VII Organoleptic properties of raw material" value="{{ $rasadrug->organoleptic_properties_of_raw_material }}" >
@@ -410,7 +394,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">VIII organoleptic_properties_of_raw_material<span class="text-danger">*</span></label>
                            <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="VIII" value="{{ $rasadrug->organoleptic_properties_of_finished_product }}" >
@@ -419,7 +403,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">IX Time taken for the experiment<span class="text-danger">*</span></label>
                            <input type="text" name="time_taken_for_the_experiment" class="form-control" placeholder="Wholesome diet" value="{{ $rasadrug->time_taken_for_the_experiment }}" >
@@ -430,7 +414,7 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">X Starting date of experiment<span class="text-danger">*</span></label>
                            <input type="text" name="starting_date_of_experiment" class="form-control" placeholder="Wholesome activities" value="{{ $rasadrug->starting_date_of_experiment }}"  >@error('starting_date_of_experiment')
@@ -438,7 +422,7 @@
                            @enderror
                         </div>
                      </div>
-                     <div class="col-md-6 mb-2">
+                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">XI Ending date of experiment<span class="text-danger">*</span></label>
                            <input type="text" name="ending_date_of_experiment" class="form-control" placeholder="XI Ending date of experiment" value="{{ $rasadrug->ending_date_of_experiment }}"  >
@@ -453,6 +437,13 @@
          </form>
         </div>
    </div>
+                  </section>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  
 </section>
 
 <script>
@@ -483,7 +474,7 @@ html = '<tr id="faqs-row' + faqs_row + '">';
     html += '<td><input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="quantity" aria-label="quantity" value=""></td>';
     html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value=""></td>';
     html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value=""></td>';
-    html += '<td class="mt-10"><button class="btn btn-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i>Delete ff</button></td>';
+    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i> ff</button></td>';
 
     html += '</tr>';
 

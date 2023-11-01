@@ -106,7 +106,7 @@
 
 
 @media (min-width: 1200px){
-   .btn.save, .btn.next, .btn.previous, .btn.submit, .btn.filter, .btn.reset, .btn.add, .btn.add, .btn.send, .btn.back, .btn.download, .btn.print{
+   .btn.save, .btn.next, .btn.previous, .btn.submit, .btn.filter, .btn.reset, .btn.add, .btn.add, .btn.send, .btn.back, .btn.download, .btn.print, .btn.cancel{
       border-radius: 20px !important;
     padding: 6px 16px !important;
     line-height: 1.5 !important;
@@ -114,6 +114,10 @@
   .add-btn-lang {
    margin-right: 2%;
  }
+
+ /* .wizard .content .body {
+   padding: 15px 36px !important;
+} */
 }
 @media(min-width:1300px){
 

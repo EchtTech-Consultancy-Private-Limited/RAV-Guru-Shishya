@@ -54,32 +54,7 @@
    <div class="row clearfix">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
          <div class="card">
-            <div class="header">
-               <ul class="header-dropdown m-r--5">
-                  <li class="dropdown">
-                     <a href="#" onClick="return false;"
-                        class="dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        role="button" aria-haspopup="true"
-                        aria-expanded="false">
-                     </a>
-                     <ul class="dropdown-menu float-start">
-                        <li>
-                           <a href="#" onClick="return
-                              false;">Action</a>
-                        </li>
-                        <li>
-                           <a href="#" onClick="return
-                              false;">Another action</a>
-                        </li>
-                        <li>
-                           <a href="#" onClick="return
-                              false;">Something else here</a>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
+           
             <div class="body">
                <div id="wizard_horizontal">
                   <h2>New Drug Report</h2>
@@ -89,7 +64,7 @@
                         <div class="card">
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
-                              <div class="card-body">
+                              <div class=" card-body p-0">
                                  <div
                                     class="row">
                                     <div
@@ -230,15 +205,15 @@
                         <div class="row d-flex justify-content-center">
                             <div class="col-lg-12 grid-margin stretch-card p-0 m-0">
                                 <div class="card p-0">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table id="faqs" class="table table-hover">
+                                    <div class=" card-body p-0 ">
+                                        <div class="table-responsive px-2">
+                                            <table id="faqs" class="table table-hover ">
                                                 <thead>
                                                     <tr>
                                                         <th>Name of the ingredients </th>
                                                         <th>Part used   </th>
-                                                          <th>Quantity</th>
-                                            <th>Action</th>
+                                                         <th>Quantity</th>
+                                                         <th>Action</th>
 
                                                     </tr>
                                                 </thead>
@@ -258,6 +233,7 @@
                                                          <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" minlength="3" value="{{ old('quantity[]') }}" >
                                                        
                                                         </td>
+                                                        <td></td>
                                                         <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
                                                     </tr>
                                                 </tbody>
@@ -270,7 +246,10 @@
                         </div>
                     </div>
                 </div>
-                 <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+                <div class="title">
+                
+                   <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+                </div>
                 <div class="row">
                      <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                        <div class="form-group">
@@ -426,7 +405,10 @@
                        </div>
                     </div>
                 </div>
-                 <p class="text-capitalize text-sm">Observations</p>
+                <div class="title">
+                
+                   <p class="text-capitalize text-sm">Observations</p>
+                </div>
                 <div class="row">
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                        <div class="form-group">
@@ -500,7 +482,10 @@
                        </div>
                     </div>
                 </div>
-                 <p class="text-capitalize text-sm">Duration  for the experiment</p>
+                <div class="title">
+                
+                   <p class="text-capitalize text-sm">Duration  for the experiment</p>
+                </div>
                 <div class="row">
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                        <div class="form-group ">
@@ -552,21 +537,19 @@
               
                </div>
           
-                  <div class="col-auto my-auto">
-                     <div class="h-100">
+               <div class="h-100">
                         <h5 class="mb-1">
                            Composition
                         </h5>
                      </div>
-                  </div>
 
                   <div class="page-content page-container" id="page-content">
                     <div class="padding">
                         <div class="row  d-flex justify-content-center">
                             <div class="col-lg-12 grid-margin stretch-card mb-0">
                                 <div class="card mb-0">
-                                    <div class="card-body">
-                                        <div class="table-responsive">
+                                    <div class=" card-body p-0">
+                                        <div class="table-responsive px-2">
                                             <table id="faqs" class="table table-hover">
                                                 <thead>
                                                     <tr>
@@ -611,7 +594,10 @@
                 </div>
                 
                 <div class="col-md-12">
-                <p class="text-capitalize text-sm">(I) Herbal</p>
+                <div class="title">
+                
+                   <p class="text-capitalize text-sm">(I) Herbal</p>
+                </div>
                 </div>
         
                 
@@ -645,8 +631,10 @@
                   </div>
                   
                   <div class="col-md-12">
-                     
+                  <div class="title">
+                
                      <p class="text-capitalize text-sm">(II) Mineral</p>
+                </div>
                      </div>
 
             
@@ -671,8 +659,10 @@
                      </div>
                   </div>
                   <div class="col-md-12">
-                     
+                  <div class="title">
+                
                      <p class="text-capitalize text-sm">(III) Metal</p>
+                </div>
                      </div>
                   <div class="row">
                      <div class="col-md-6">
@@ -694,8 +684,10 @@
                      </div>
                   </div>
                   <div class="col-md-12">
-                     
+                  <div class="title">
+                
                      <p class="text-capitalize text-sm">(IV) Animal</p>
+                </div>
                      </div>
                   <div class="row">
                      <div class="col-md-6">
@@ -717,8 +709,10 @@
                      </div>
                   </div>
                   <div class="col-md-12">
-
+                  <div class="title">
+                
                      <p class="text-capitalize text-sm">(V) Bhavana Dravyas</p>
+                </div>
                   </div>
                   <div class="row">
                      <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
@@ -828,8 +822,8 @@
            
                   <div class="row pb-0 mb-0">
                      <div class="card mb-0">
-                        <div class="card-body">
-                            <div class="table-responsive">
+                        <div class=" card-body p-0">
+                            <div class="table-responsive px-2">
                                 <table id="faqs" class="table table-hover">
                                     <thead>
                                         <tr>
@@ -869,7 +863,10 @@
                         </div>
                     </div>
                   </div>
-                  <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+                  <div class="title">
+                
+                     <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+                </div>
                   <div class="row">
                      <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                           <div class="form-group">
@@ -998,7 +995,10 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-capitalize text-sm">Observations</p>
+                  <div class="title">
+                
+                     <p class="text-capitalize text-sm">Observations</p>
+                </div>
                   <div class="row">
                      <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
@@ -1072,7 +1072,10 @@
                         </div>
                      </div>
                   </div>
-                  <p class="text-capitalize text-sm">Time taken for the practical</p>
+                  <div class="title">
+                
+                     <p class="text-capitalize text-sm">Time taken for the practical</p>
+                </div>
                   <div class="row">
                      <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group ">
@@ -1131,8 +1134,8 @@
 
                <div class="row mb-0 pb-0">
                      <div class="card mb-0 pb-0">
-                        <div class="card-body">
-                            <div class="table-responsive">
+                        <div class=" card-body p-0">
+                            <div class="table-responsive px-2">
                                 <table id="faqs" class="table table-hover">
                                     <thead>
                                         <tr>
@@ -1175,8 +1178,10 @@
                   </div>
             </div>
             <div class="col-md-12">
-
+            <div class="title">
+                
                <p class="text-capitalize text-sm">(I) Kalka dravyas</p>
+                </div>
             </div>
             <div class="row">
                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -1216,7 +1221,10 @@
                </div>
            
             <div class="col-md-12">
-            <p class="text-capitalize text-sm">(II) Taila/ghrita dravys</p>
+            <div class="title">
+                
+               <p class="text-capitalize text-sm">(II) Taila/ghrita dravys</p>
+                </div>
 
             </div>
 
@@ -1249,7 +1257,10 @@
                </div>
            
             <div class="col-md-12">
-            <p class="text-capitalize text-sm">(III) Kvatha/drava dravyas</p>
+            <div class="title">
+                
+               <p class="text-capitalize text-sm">(III) Kvatha/drava dravyas</p>
+                </div>
 
             </div>
 
@@ -1279,8 +1290,10 @@
                      @enderror
                   </div>
                </div>
-            
-            <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+               <div class="title">
+                
+                  <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+                </div>
             <div class="row">
                <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                   <div class="form-group">
@@ -1439,7 +1452,10 @@
                   </div>
                </div>
             </div>
-            <p class="text-capitalize text-sm">Observations </p>
+            <div class="title">
+                
+               <p class="text-capitalize text-sm">Observations </p>
+                </div>
             <div class="row">
                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                   <div class="form-group">
@@ -1506,7 +1522,10 @@
                   </div>
                </div>
             </div>
-            <p class="text-capitalize text-sm">Time taken for the experiment</p>
+            <div class="title">
+                
+               <p class="text-capitalize text-sm">Time taken for the experiment</p>
+                </div>
             <div class="row">
                <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                   <div class="form-group ">
@@ -1562,8 +1581,8 @@
 
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card mb-0 p-0">
-                    <div class="card-body mb-0 p-0">
-                        <div class="table-responsive">
+                    <div class=" card-body  mb-0 p-0">
+                        <div class="table-responsive px-2">
                             <table id="faqs" class="table table-hover">
                                 <thead>
                                     <tr>
@@ -1605,7 +1624,10 @@
             </div>
          </div>
          <div class="col-md-12">
-         <p class="text-capitalize text-sm">(I) Main ingredients</p>
+         <div class="title">
+                
+            <p class="text-capitalize text-sm">(I) Main ingredients</p>
+                </div>
          </div>
          
          <div class="row">
@@ -1648,7 +1670,10 @@
             </div>
          </div>
          <div class="col-md-12">
-         <p class="text-capitalize text-sm">(II) Sandhana dravyas</p>
+         <div class="title">
+                
+            <p class="text-capitalize text-sm">(II) Sandhana dravyas</p>
+                </div>
             </div>
         
          <div class="row">
@@ -1679,7 +1704,10 @@
             </div>
          </div>
          <div class="col-md-12">
-         <p class="text-capitalize text-sm">(III) Prakshepa dravyas</p>
+         <div class="title">
+                
+            <p class="text-capitalize text-sm">(III) Prakshepa dravyas</p>
+                </div>
             </div>
          <div class="row">
             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
@@ -1708,7 +1736,10 @@
                </div>
             </div>
          </div>
-         <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+         <div class="title">
+                
+            <p class="text-capitalize text-sm">Method of Preparation (SOP)</p>
+                </div>
          <div class="row">
             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                <div class="form-group">
@@ -1829,7 +1860,10 @@
                </div>
             </div>
          </div>
-         <p class="text-capitalize text-sm">Observations</p>
+         <div class="title">
+                
+            <p class="text-capitalize text-sm">Observations</p>
+                </div>
          <div class="row">
             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                <div class="form-group">
@@ -1916,7 +1950,10 @@
                </div>
             </div>
          </div>
-         <p class="text-capitalize text-sm">Time taken for the experiment</p>
+         <div class="title">
+                
+            <p class="text-capitalize text-sm">Time taken for the experiment</p>
+                </div>
          <div class="row">
             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                <div class="form-group ">
