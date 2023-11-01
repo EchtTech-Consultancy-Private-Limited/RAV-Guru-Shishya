@@ -53,7 +53,7 @@
                         @endif
                         <div class="header">
                             <div class="row">
-                                <div class="col-xxl-3 col-xl-4 col-lg-3 col-md-4">
+                                <div class="col-xxl-3 col-xl-4 col-lg-3 col-md-12">
                                     <div class="new-patient-input">
                                         <div class="new-patient-ragistration">Registartion No. :
                                         </div>
@@ -64,9 +64,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-6">
+                                <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12">
                                 <div class="row">
-                                        <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-4 width-50">
+                                        <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
                                             <div class="new-patient-input">
                                                 <div class="new-patient-ragistration">From:
                                                 </div>
@@ -76,7 +76,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-4 width-50">
+                                        <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
                                             <div class="new-patient-input">
                                                 <div class="new-patient-ragistration">
                                                     To:
@@ -87,7 +87,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-xl-6 col-xxl-5 col-lg-6 col-md-12">
+                                        <div class="col-xl-6 col-xxl-5 col-lg-6 col-md-6">
                                             <div class="new-patient-input ">
                                                 <div class="pe-2">
                                                     <select name="report_type" class="form-control active">

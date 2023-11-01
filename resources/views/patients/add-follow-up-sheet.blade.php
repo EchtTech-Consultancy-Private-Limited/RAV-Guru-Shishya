@@ -41,10 +41,7 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        <h2><strong>Add</strong> Follow Up </h2>
-                       
-                    </div>
+                   
                     <div class="body">
                         <div id="wizard_horizontal">
                             <section>
@@ -65,7 +62,10 @@
                                                 value="{{ $patient->registration_no }}">
 
                                             <div class="card-body">
-
+                                            <div class="header p-0">
+                                                <h2>Add Follow Up </h2>
+                                            
+                                            </div>
                                                 <div class="row clearfix">
                                                     
                                                     <div class="col-md-3 col-6">

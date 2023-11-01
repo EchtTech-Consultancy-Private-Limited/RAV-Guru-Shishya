@@ -50,7 +50,7 @@
                      </li>
                   </ul>
                </div>
-               <div class="body" >
+               <div class="card-body" >
                   <h3>Guru Information</h3>
                   <table class="">
                      <thead>

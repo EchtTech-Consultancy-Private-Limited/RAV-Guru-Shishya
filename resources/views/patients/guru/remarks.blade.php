@@ -95,7 +95,7 @@
                                      class="text-danger">*</span></label>
                                   <textarea
                                      cols="45"
-                                     rows="2"
+                                     rows="1"
                                      name="remarks"
                                      class="form-control"
                                      value=""

@@ -43,7 +43,7 @@
       <div class="row">
          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
-               <div class="header">
+               <div class="m-2">
                   <h2>                    
                     @if(Auth::user()->user_type==4 || Auth::user()->user_type==1)
                     <span style="float:right;" >

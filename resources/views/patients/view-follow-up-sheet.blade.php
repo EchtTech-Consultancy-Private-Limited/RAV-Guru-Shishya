@@ -41,28 +41,16 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        <h2 class='p-0'><strong>View</strong> Follow Up </h2>
-                        <!-- <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu float-start">
-                                    <li>
-                                        <a href="#" onClick="window.print();">Print</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul> -->
-                    </div>
+                   
                     <div class="body p-0">
                         <div id="wizard_horizontal " class="card-body">
                             <section>
 
                                 <div class="col-sm-12 pb-0">
+                                <div class="header p-0">
+                                        <h2 class=''>View Follow Up </h2>
+                                    
+                                    </div>
                                 <table class="view-table">
                                     <h3>Basic Information</h3>
                                     <thead>
@@ -109,10 +97,9 @@
                         </div>
 
                         <div class="col-sm-12">
-                            <div class="header pt-0">
-                                <h2 class=''><strong>Add</strong> Remark </h2>
-                            </div>
+                          
                             <div class="card mb-0 view-follow-up-sheet">
+                           
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -127,10 +114,12 @@
                                     <input type="hidden" name="registration_no" value="{{$patient->registration_no }}">
 
                                     <div class="card-body">
-
+                                    <div class="header p-0">
+                                <h2 class=''>Add Remark </h2>
+                            </div>
                                         <div class="row clearfix">
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <div class="form-line">
                                                         <label for="remark" class="form-control-label">Remark<span
@@ -148,7 +137,32 @@
                                                 </div>
                                             </div>
 
+                                            @if(Auth::user()->user_type==1)
+                                              
+                                              <div class="col-lg-3 col-xxl-2 col-xl-3  col-md-4 col-6">
+                                                  <div class="form-group">
+                                                      <div class="form-line">
+                                                          <label for="remark" class="form-control-label">Remark
+                                                              Type<span class="text-danger"></span></label>
+                                                          <select name="remark_type" id="remark_type"
+                                                              class="form-control" required>
+                                                              <option value="1" @if(old('remark_type') &&
+                                                                  old('remark_type')=='1' ) SELECTED @endif>To
+                                                                  change report</option>
+                                                              <option value="2" @if(old('remark_type') &&
+                                                                  old('remark_type')=='2' ) SELECTED @endif>For
+                                                                  reference only</option>
+                                                          </select>
 
+                                                          @error('remark_type')
+                                                          <span class="invalid-feedback" role="alert">
+                                                              <strong>{{ $message }}</strong>
+                                                          </span>
+                                                          @enderror
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              @endif
                                             @if(Auth::user()->user_type==1 || Auth::user()->user_type==3)
                                             <div class="col-md-12">
                                                 <div class="form-group">
@@ -181,32 +195,7 @@
                                                     </div>
                                                 </div>
                                                 @endif
-                                                @if(Auth::user()->user_type==1)
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-3 col-xxl-2 col-xl-3  col-md-4 col-6">
-                                                        <div class="form-group">
-                                                            <div class="form-line">
-                                                                <label for="remark" class="form-control-label">Remark
-                                                                    Type<span class="text-danger"></span></label>
-                                                                <select name="remark_type" id="remark_type"
-                                                                    class="form-control" required>
-                                                                    <option value="1" @if(old('remark_type') &&
-                                                                        old('remark_type')=='1' ) SELECTED @endif>To
-                                                                        change report</option>
-                                                                    <option value="2" @if(old('remark_type') &&
-                                                                        old('remark_type')=='2' ) SELECTED @endif>For
-                                                                        reference only</option>
-                                                                </select>
-
-                                                                @error('remark_type')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    @endif
+                                               
 
                                                     <div class="row clearfix">
                                                         <div class="col-sm-12 p-t-20 text-left">
@@ -227,7 +216,7 @@
                                                            
                                                         </div>
                                                     </div>
-                                                </div>
+                                                
                                             
                                 </form>
                             </div>
