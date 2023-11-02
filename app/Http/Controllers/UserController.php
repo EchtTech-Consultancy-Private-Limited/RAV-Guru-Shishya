@@ -222,7 +222,7 @@ class UserController extends Controller
             'email' => 'required|email|max:50|unique:users,email,'.$id,
             'confirm-password' => 'same:password',
             'mobile_no'=>'required|numeric|min:10,mobile_no|digits:10',
-            'e_sign'   => 'required|mimes:jpeg,png,jpg',
+            'e_sign'   => 'mimes:jpeg,png,jpg',
             'profile_image'   => 'mimes:jpeg,png,jpg',
 
         ]);

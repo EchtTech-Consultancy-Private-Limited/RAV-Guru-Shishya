@@ -411,6 +411,19 @@ return [
         '1'=>'8am to 9am',
         '2'=>'9am to 10am',
        ],
+
+'attendance_evening_timing' => [
+        '0'=>'4pm to 5pm',
+        '1'=>'5pm to 6pm',
+        '2'=>'6pm to 7pm',
+        ],
+
+'attendance_morning_timing' => [
+        '0'=>'7am to 8am',
+        '1'=>'8am to 9am',
+        '2'=>'9am to 10am',
+       ],
+
 'banks' => [
         '1' => 'Allahabad Bank',
         '2' => 'Andhra Bank',

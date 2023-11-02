@@ -14,6 +14,35 @@ $("#date_of_birth").on('change', function() {
         $("#age").val(age);
     }
 });
+// add attendance js
+$('#checkall').on('click', function() {
+    if (this.checked) {
+       $('.form-check-input').each(function() {
+          this.checked = true;
+       });
+    } else {
+       $('.form-check-input').each(function() {
+          this.checked = false;
+       });
+    }
+ });
+
+ $('.form-check-input').on('click', function() {
+    if ($('.form-check-input:checked').length == $('.form-check-input').length) {
+       $('#checkall').prop('checked', true);
+    } else {
+       $('#checkall').prop('checked', false);
+    }
+ });
+ function confirm_option(action) {
+    if (!confirm("Are you sure to " + action + "!")) {
+       return false;
+    }
+
+    return true;
+
+ }
+// End Attendance js
 
 // step tabs
 $(document).ready(function() {
@@ -532,34 +561,50 @@ $(document).ready(function () {
         var checkboxValue = $('#bank_mobile_link').is(':checked') ? 1 : 0;
         $("#bank_mobile_link").val(checkboxValue);
     });
-   
-    // add attendance js
-    $('#checkall').on('click', function() {
-        if (this.checked) {
-           $('.form-check-input').each(function() {
-              this.checked = true;
-           });
-        } else {
-           $('.form-check-input').each(function() {
-              this.checked = false;
-           });
-        }
-     });
-
-     $('.form-check-input').on('click', function() {
-        if ($('.form-check-input:checked').length == $('.form-check-input').length) {
-           $('#checkall').prop('checked', true);
-        } else {
-           $('#checkall').prop('checked', false);
-        }
-     });
-     function confirm_option(action) {
-        if (!confirm("Are you sure to " + action + "!")) {
-           return false;
-        }
-  
-        return true;
-  
-     }
-    // End Attendance js
 });
+
+// follow up script
+$("#checkall").click(function() {
+    $(".input-checkbox").prop("checked", $(this).prop("checked"));
+});
+
+$(".input-checkbox").click(function() {
+    if (!$(this).prop("checked")) {
+        $("#checkall").prop("checked", false);
+    }
+});
+
+
+$(".find-registration").click(function() {
+    if ($("#registration_no").val() == '') {
+        $("#registration_no-error").html('Enter patient registration no.');
+        return false;
+    } else $("#registration_no-error").html('');
+
+    $.ajax({
+        type: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        url: findPhrRegistration,
+        data: {
+            'registration_no': $("#registration_no").val()
+        },
+        success: function(data) {
+            if (data.id === undefined) {
+                $("#registration_no-error").html(data.message);
+                $("#follow-up-btn").html('');
+            } else {
+                let url=`${addFollowUpSheetUrl}/${data.id}`
+                $("#follow-up-btn").html(`<a href=${url}><button type="button" class="btn add waves-effect">Add Follow Up</button></a>`);
+            }
+        }
+    });
+});
+function confirm_option(action) {
+    if (!confirm("Are you sure to " + action + ", this record!")) {
+        return false;
+    }
+    return true;
+}
+// End follow up script

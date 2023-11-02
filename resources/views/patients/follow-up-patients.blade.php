@@ -320,11 +320,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
-
-
                     <div class="form-group">
-
                         <div class="form-line">
                             <label for="registration_no">Patient Registration No.</label>
                             <input type="text" id="registration_no" class="form-control"
@@ -332,12 +328,6 @@
                             <span class="text-danger" id="registration_no-error"></span>
                         </div>
                     </div>
-
-
-
-
-
-
                 </div>
                 <div class="modal-footer">
                     <div id="follow-up-btn">
@@ -352,57 +342,11 @@
         </div>
 
 </section>
-
-<script type="text/javascript">
-$("#checkall").click(function() {
-    $(".input-checkbox").prop("checked", $(this).prop("checked"));
-});
-
-$(".input-checkbox").click(function() {
-    if (!$(this).prop("checked")) {
-        $("#checkall").prop("checked", false);
-    }
-});
-
-
-$(".find-registration").click(function() {
-    if ($("#registration_no").val() == '') {
-        $("#registration_no-error").html('Enter patient registration no.');
-        return false;
-    } else $("#registration_no-error").html('');
-
-    $.ajax({
-        type: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        url: '{{ url(' / find - phr - registration ') }}',
-        data: {
-            'registration_no': $("#registration_no").val()
-        },
-        success: function(data) {
-            if (data.id === undefined) {
-                $("#registration_no-error").html(data.message);
-                $("#follow-up-btn").html('');
-            } else {
-                $("#follow-up-btn").html('<a href="{{ url(' / add - follow - up - sheet ') }}/' +
-                    data
-                    .id +
-                    '"><button type="button" class="btn add waves-effect">Add Follow Up</button></a>'
-                );
-            }
-        }
-    });
-});
-
-function confirm_option(action) {
-    if (!confirm("Are you sure to " + action + ", this record!")) {
-        return false;
-    }
-
-    return true;
-
-}
+<script>
+    const findPhrRegistration = "{{ url('/find-phr-registration') }}";
+    const addFollowUpSheetUrl = "{{ url('/add-follow-up-sheet')}}";
+    const csrfToken = "{{ csrf_token() }}";
 </script>
+<script src="{{ asset('assets/js/custom-script.js') }}"></script>
 
 @endsection
