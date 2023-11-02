@@ -65,7 +65,7 @@
                         <thead>
                            <tr>
                               
-                              <th class="center">Sr. No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                              <th class="center">S.No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
                               <th class="center"> Registration No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
                               <th class="center"> Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
                               <th class="center"> Email <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
@@ -106,7 +106,7 @@
                                     {{ date('d-m-Y', strtotime($user->created_at)) }}
                                  </td>
                                  <td class="text-center">
-                                 @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
+                                 @if(Auth::user()->user_type=='2' || Auth::user()->user_type=='4')
                                  <a href="{{ url('active-users/'.encrypt($user->id)) }}" class="@if($user->status==0) btn-tbl-disable status @elseif($user->status==1) btn-tbl-edit status @endif"   onclick="return confirm_option('change status')" title="Verify Users">
                                        <i class="fas fa-ban"></i>
                                     </a>

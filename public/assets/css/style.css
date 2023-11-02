@@ -232,6 +232,9 @@ line-height: 0.42857 !important;
 
 input.form-check-input {
     display: none;
+    height: 15px !important;
+  width: 15px !important;
+  
 }
 
 .select2-container{
@@ -947,6 +950,12 @@ a.btn.waves-effect.add-phr{
     padding: 5px 23px !important;
     line-height: 1.5 !important;
     display: inline-block !important;
+    transition: 0.1s ease-in-out;
+}
+
+.btn.save:hover, .btn.next:hover, .btn.previous:hover, .btn.submit:hover, .btn.filter:hover, .btn.reset:hover, .btn.add:hover, .btn.add:hover, .btn.send:hover, .btn.back:hover, .btn.download:hover, .btn.print:hover, .btn.cancel:hover{
+    scale: 1.02;
+    box-shadow: 0px 0px 12px #999797;
 }
 
 .btn.print{
@@ -1173,6 +1182,12 @@ h3 {
 .patient-highlight{
     background: yellow;
 }
+.card .body .col-sm-12{
+    margin-bottom:0px;
+ }
+ .card .header{
+    padding:0px 10px;
+ }
 
 /* .table-heading{
     border-top: 1px solid #ddd;
@@ -1299,3 +1314,28 @@ table tbody tr:last-child td:first-child, .view-table tbody tr th:last-child{
 .theme-black .card .header h2 strong{
     color: #fff !important;
 }
+
+i.fa.fa-plus {
+    font-size: 14px !important;
+    padding-right: 6px;
+}
+
+
+.form-check-input{
+    margin-left: 100% !important;
+}
+
+.add-attendance .form-check-input1 .form-check-input{
+    margin-left: 20px !important;
+}
+
+
+.select2-container .select2-search--inline .select2-search__field {
+    font-size: 100%;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  .select2-container .select2-selection--multiple{
+    min-height: auto !important;
+  }

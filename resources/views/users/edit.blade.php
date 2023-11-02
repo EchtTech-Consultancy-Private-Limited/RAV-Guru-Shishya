@@ -232,8 +232,8 @@
                                                     @if(count(get_guru_list())>0)
                                                     @foreach(get_guru_list() as $guru)
                                                     <option @if($user->guru_id==$guru->id) SELECTED @endif value="{{$guru->id}}">
-                                                        @if($guru->title>0) {{__('phr.titlename')[$guru->title]}} @endif
-                                                        {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname.' ' }}
+                                                        @if(@$guru->title>0) {{__('phr.titlename')[@$guru->title]}} @endif
+                                                        {{@$guru->firstname.' '.@$guru->middlename.' '.@$guru->lastname.' ' }}
                                                     </option>
                                                     @endforeach
                                                     @endif

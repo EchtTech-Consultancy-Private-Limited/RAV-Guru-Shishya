@@ -1,13 +1,5 @@
 @extends('layouts.app-file')
 @section('content')
-<style>
-   .card .body .col-sm-12{
-      margin-bottom:0px;
-   }
-   .card .header{
-      padding:0px 10px;
-   }
-</style>
 <section class="content">
    <div class="container-fluid">
       <div class="block-header">
@@ -63,6 +55,8 @@
                                     <span class="number">2.</span> Educational Details
                                  </a>
                               </li>
+                              <!-- Hide for shishya account -->
+                              @if(Auth::user()->user_type != '3')
                               <li role="tab" class="disabled @if(isset($form_step_type)) @if($form_step_type=='step3') active @endif @endif" id="wizard_horizontal-t-3">
                                  <a href="javacsript:void();">
                                     <span class="number">3.</span> Clinical Details
@@ -78,6 +72,8 @@
                                     <span class="number">5.</span> Other Specific Details
                                  </a>
                               </li>
+                              @endif
+                              <!-- end hide for shishya dashboard -->
                            </ul>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step1' || $form_step_type=='withour-session-step') active @endif @endif" role="tabpanel" id="step1">
@@ -127,6 +123,107 @@
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
+                                       <label >Father's Name<span class="text-danger">*</span></label>
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
+                                       @if($errors->has('f_name'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label >Mother's Name </label>
+                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="m_name" id="m_name" class="form-control" placeholder="Mother's Name" maxlength="30" value="{{ old('m_name', @$profile_record[0]->m_name) }}">
+                                       @if($errors->has('m_name'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('m_name') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                    <label for="Gender" class="form-control-label">Gender</label>
+                                             <select name="gender" id="Gender" class="form-control">
+                                                <option value="">Please select
+                                                </option>
+                                                @foreach(__('phr.gender') as $key=>$value)
+                                                <option value="{{$key}}" {{@$profile_record[0]->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                             @if ($errors->has('gender'))
+                                             <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('gender') }}</strong>
+                                             </span>
+                                             @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Marital Status</label>
+                                             <select name="marital_status" id="Marital
+                                             Status" class="form-control">
+                                                <option value="">Please select</option>
+                                                @foreach(__('phr.marital_status') as $key=>$value)
+                                                   <option value="{{$key}}" {{@$profile_record[0]->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                             @if ($errors->has('marital_status'))
+                                             <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('marital_status') }}</strong>
+                                             </span>
+                                             @endif
+                                    </div>
+                                 </div>
+
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Category</label>
+                                             <select name="category" id="category" class="form-control">
+                                                <option value="">Please select</option>
+                                                @foreach(__('phr.category') as $key=>$value)
+                                                   <option value="{{$key}}" {{@$profile_record[0]->category == $key  ? 'selected' : ''}}>{{$value}}</option>
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                             @if ($errors->has('category'))
+                                             <span class="help-block">
+                                                <strong style="color:red;">{{ $errors->first('category') }}</strong>
+                                             </span>
+                                             @endif
+                                    </div>
+                                 </div>
+
+                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label for="date_of_birth">Date of Birth:</label>
+                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
+                                       @if($errors->has('date_of_birth'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+
+                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label>Age<span class="text-danger">*</span></label>
+                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}"> 
+                                       @if($errors->has('age'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('age') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
                                        <label >Email</label><span class="text-danger">*</span>
                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email"  value="@if(isset($profile_record[0])) {{ $profile_record[0]->email }} @else Auth::user()->email @endif" maxlength="50" readonly="readonly">
                                     </div>
@@ -140,40 +237,26 @@
                                        </span>
                                        @endif
                                     </div>
-                                 </div>
-                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
+                                 </div>                                 
+                                 
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                       <label for="date_of_birth">Date of Birth:</label>
-                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
-                                       @if($errors->has('date_of_birth'))
-                                       <span class="help-block">
-                                          <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
-                                       </span>
-                                       @endif
-                                    </div>
-                                 </div>
-                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
-                                       <label>Age<span class="text-danger">*</span></label>
-                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}"> 
-                                       @if($errors->has('age'))
-                                       <span class="help-block">
-                                          <strong style="color:red;">{{ $errors->first('age') }}</strong>
-                                       </span>
-                                       @endif
+                                       <label >Aadhar Number<span class="text-danger">*</span></label>
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
+                                       <div class="alert alert-danger">{{ $message }}</div>
+                                       @enderror
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                       <label >Father's Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
-                                       @if($errors->has('f_name'))
-                                       <span class="help-block">
-                                          <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
-                                       </span>
-                                       @endif
+                                       <label >Pan Number<span class="text-danger">*</span></label>
+                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
+                                       @error('pan_no')
+                                       <div class="alert alert-danger">{{ $message }}</div>
+                                       @enderror
                                     </div>
                                  </div>
+
                                  <div class="header col-md-12 pt-0">     
                                     <h2>Present Address </h2>
                                  </div>
@@ -341,23 +424,79 @@
                                        @enderror
                                     </div>
                                  </div>
+
+                                 <!-- Bank details  -->
+                                 <div class="header col-md-12 pt-0">
+                                    <h2>Bank Details </h2>
+                                 </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                       <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <label >Bank Name<span class="text-danger">*</span></label>
+                                       <select name="bank_name" id="bank_name" class="form-control select2">
+                                          <option value="">Please select</option>
+                                          @foreach(__('phr.banks') as $key=>$value)
+                                          <option value="{{$key}}" {{@$profile_record[0]->bank_name == $key  ? 'selected' : ''}}>{{$value}}</option>
+                                          @endforeach
+                                          </select>
+                                          @if ($errors->has('bank_name'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('bank_name') }}</strong>
+                                          </span>
+                                          @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                       <label >Pan Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">@error('pan_no')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <label >IFSC Code<span class="text-danger">*</span></label>
+                                       <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" placeholder="IFSC Code"  value="{{ old('ifsc_code', @$profile_record[0]->ifsc_code) }}">
+                                       @if($errors->has('ifsc_code'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('ifsc_code') }}</strong>
+                                          </span>
+                                          @endif
                                     </div>
                                  </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label >Account Number<span class="text-danger">*</span></label>
+                                       <input type="text" name="account_no" id="account_no" class="form-control" placeholder="Account Number"  value="{{ old('account_no', @$profile_record[0]->account_no) }}">
+                                       @if($errors->has('account_no'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('account_no') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                    <div class="form-group">
+                                       <label >Account Holder Name<span class="text-danger">*</span></label>
+                                       <input type="text" name="account_holder_name" id="account_holder_name" class="form-control" placeholder="Account Number"  value="{{ old('account_holder_name', @$profile_record[0]->account_holder_name) }}">
+                                       @if($errors->has('account_holder_name'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('account_holder_name') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6 mb-3">
+                                    <div class="form-group d-flex">
+                                       <input type="checkbox"  name="bank_aadhar_link" id="bank_aadhar_link" class="checkbox"  value="{{ old('0',@$profile_record[0]->bank_aadhar_link) }}" @if(@$profile_record[0]->bank_aadhar_link==1) checked @endif>
+                                       <label for="central">Account is linked with (Aadhar & Pan Card No.)</label>
+                                    </div>
+                                 </div>
+                                 <div class="col-sm-12 col-md-6 mb-3">
+                                    <div class="form-group d-flex">
+                                       <input type="checkbox"  name="bank_mobile_link" id="bank_mobile_link" class="checkbox"  value="{{ old('0',@$profile_record[0]->bank_mobile_link) }}" @if(@$profile_record[0]->bank_mobile_link==1) checked @endif>
+                                       <label for="central">Mobile Number ( Linked with Account Number)</label>
+                                    </div>
+                                 </div>
+                                                                  
+                                 <!-- End bank details -->
+                                 
                                  <!-- Languages -->
+                                 <div class="header col-md-12 pt-0">
+                                    <h2>Add Languages</h2>
+                                 </div>
                                  <div class="col-md-12 mb-0">
                                     <div class="row language" id="language_body">
                                        <div class="col-sm-12 col-md-3">
@@ -496,7 +635,18 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                        <label for="institute_name">Institute Name</label>
-                                       <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" maxlength="200">
+                                       <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" value="{{ old('institute_name') }}" maxlength="200">
+                                       @if ($errors->has('institute_name'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('institute_name') }}</strong>
+                                       </span>
+                                       @endif
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-3 mb-0">
+                                    <div class="form-group">
+                                    <label for="NOB">Name of Board</label>
+                                    <input type="text" id="NOB" placeholder="Name of Board" class="form-control" name="name_of_board" value="{{ old('name_of_board') }}">
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-3">
@@ -517,12 +667,31 @@
                                     </div>
                                  </div>
                                  <div class="col-lg-3 mb-0">
+                                    <div class="form-group">
+                                    <label for="Registration_Number">Registration Number</label>
+                                    <input type="text" id="Registration_Number" placeholder="Registration Number" class="form-control" name="regis_no" value="{{ old('regis_no') }}">
+                                    </div>
+                                 </div>
+
+                                 <div class="col-lg-3 mb-0">
+                                    <div class="form-group">
+                                    <label for="Registration_year">Year of Registration</label>
+                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}">
+                                    </div>
+                                 </div>
+
+                                 <div class="col-lg-3 mb-0">
                                     <div class="form-group ">
                                        <label >Upload Degree</label>
                                        <input type="file" name="upload_degree" class="form-control" accept="application/pdf">
+                                       @if ($errors->has('upload_degree'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('upload_degree') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
-                                 <div class="col-md-12 text-end">
+                                 <div class="col-md-12 d-flex justify-content-center mt-3">
                                     <button type="submit" class="btn save bg-indigo waves-effect" name="educational" value="educational-form">Save</button>
                                  </div>
                               </div>
@@ -536,7 +705,10 @@
                                              <tr>
                                                 <th>S.No.</th>
                                                 <th>Institute Name</th>
+                                                <th>Name Of Board</th>
                                                 <th>Course</th>
+                                                <th>Registration Number</th>
+                                                <th>Year Of Registration</th>
                                                 <th>Year of Passing</th>
                                                 <th>Show Degree</th>
                                                 <th>Action</th>
@@ -547,7 +719,10 @@
                                              <tr>
                                                 <td scope="row">{{++$key}}</td>
                                                 <td>{{ $educational_records->institute_name }}</td>
+                                                <td>{{ $educational_records->name_of_board }}</td>
                                                 <td>{{ $educational_records->course_name }} </td>
+                                                <td>{{ $educational_records->regis_no }} </td>
+                                                <td>{{ $educational_records->year_of_regis }} </td>
                                                 <td>{{ date('d-m-Y', strtotime($educational_records->year_of_passing)) }}</td>
                                                 <td class="text-center">
                                                    @if($educational_records->upload_degree)
@@ -574,10 +749,12 @@
                                  </div>
                               </div>
                            </div>
+                           @if(Auth::user()->user_type != '3')
                            <ul class="list-inline pull-right ">
                               <li><button type="button" class="btn previous btn-danger prev-step mr-2">Previous</button></li>
                               <li><button type="button" class="btn next btn-info next-step1">Next</button></li>
                            </ul>
+                           @endif
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step3') active @endif @endif" role="tabpanel" id="step3">
                            <form action="{{ url('manage_profile_form_step3') }}" method="POST" enctype="multipart/form-data">
@@ -585,25 +762,7 @@
                               <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step4">
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <input type="hidden"  name="clinical_id"  class="form-control capitalize" value="<?php echo get_clinical_id(Auth::user()->id); ?>">
-                              <div class="row">
-                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                       <label for="NOB">Name of Board</label>
-                                       <input type="text" id="NOB" placeholder="Name of Board" class="form-control" name="name_of_board" value="@if(isset($clinic->name_of_board)){{ $clinic->name_of_board }}@endif">
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                       <label for="Registration_Number">Registration Number</label>
-                                       <input type="text" id="Registration_Number" placeholder="Registration Number" class="form-control" name="regis_no" value="@if(isset($clinic->regis_no)){{ $clinic->regis_no }}@endif">
-                                    </div>
-                                 </div>
-                                 <div class="col-md-4">
-                                    <div class="form-group">
-                                       <label for="Registration_year">Year of Registration</label>
-                                       <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="@if(isset($clinic->year_of_regis)){{ $clinic->year_of_regis }}@endif">
-                                    </div>
-                                 </div>
+                              <div class="row">                                 
                                  <div class="col-sm-12 col-md-12 mb-3">
                                     <div class="form-group d-flex">
                                        <input type="checkbox"  name="any_done_services" id="any_done_services" class="checkbox"  value="0" @if(isset($clinic->any_done_services)) @if($clinic->any_done_services==1) checked @endif @endif>
@@ -1031,7 +1190,7 @@
                         <label for="year_passing">Year of Passing</label>
                         <input type="date" name="year_of_passing" id="edit_year_of_passing">
                      </div>
-                  </div>
+                  </div>                 
                   <div class="col-3">
                      <div class="form-group ">
                         <label >Upload Degree</label>
@@ -1108,657 +1267,18 @@
 Session::forget('session_for_redirections');
 @endphp
 @endif
-<!-- step Tabs js -->
 <script>
-   $(document).ready(function() {
-
-      $(".next-step").click(function() {
-       $("#step1").removeClass("active");
-       $("#step2").addClass("active");
-       $("#wizard_horizontal-t-2").addClass("active");
-       $("#wizard_horizontal-t-1").addClass("done");
-       $("#wizard_horizontal-t-1").removeClass("active");
-
-    });
-
-      $(".prev-step").click(function() {
-       $("#step2").removeClass("active");
-       $("#step1").addClass("active");
-       $("#wizard_horizontal-t-1").addClass("active");
-       $("#wizard_horizontal-t-2").addClass("done");
-       $("#wizard_horizontal-t-2").removeClass("active");
-    });
-
-      $(".next-step1").click(function() {
-       $("#step2").removeClass("active");
-       $("#step3").addClass("active");
-       $("#wizard_horizontal-t-3").addClass("active");
-       $("#wizard_horizontal-t-2").addClass("done");
-       $("#wizard_horizontal-t-2").removeClass("active");
-
-    });
-
-      $(".prev-step1").click(function() {
-       $("#step3").removeClass("active");
-       $("#step2").addClass("active");
-       $("#wizard_horizontal-t-2").addClass("active");
-       $("#wizard_horizontal-t-3").addClass("done");
-       $("#wizard_horizontal-t-3").removeClass("active");
-    });
-
-      $(".next-step2").click(function() {
-       $("#step3").removeClass("active");
-       $("#step4").addClass("active");
-       $("#wizard_horizontal-t-4").addClass("active");
-       $("#wizard_horizontal-t-3").addClass("done");
-       $("#wizard_horizontal-t-3").removeClass("active");
-    });
-
-      $(".prev-step2").click(function() {
-       $("#step4").removeClass("active");
-       $("#step3").addClass("active");
-       $("#wizard_horizontal-t-3").addClass("active");
-       $("#wizard_horizontal-t-4").addClass("done");
-       $("#wizard_horizontal-t-4").removeClass("active");
-    });
-
-      $(".next-step3").click(function() {
-       $("#step4").removeClass("active");
-       $("#step5").addClass("active");
-
-       $("#wizard_horizontal-t-5").addClass("active");
-       $("#wizard_horizontal-t-4").addClass("done");
-       $("#wizard_horizontal-t-4").removeClass("active");
-    });
-
-      $(".prev-step3").click(function() {
-       $("#step5").removeClass("active");
-       $("#step4").addClass("active");
-       $("#wizard_horizontal-t-4").addClass("active");
-       $("#wizard_horizontal-t-5").addClass("done");
-       $("#wizard_horizontal-t-5").removeClass("active");
-    });
-   });
+    const fetchStatesUrl = "{{ url('api/fetch-states') }}";
+    const fetchCitesUrl = "{{ url('api/fetch-cities') }}";
+    const csrfToken = "{{ csrf_token() }}";
+    const stateId = "{{@$profile_record[0]->state}}";
+    const perState = "{{@$per_profile_record[0]->per_state}}";
+    const cityId = "{{@$profile_record[0]->city}}";
+    const perCities = "{{@$per_profile_record[0]->per_city}}";
+    const clinicState = "{{@$clinic_record->state}}";
+    const clinicCity = "{{@$clinic_record->city}}";
+    const eduEditUrl= "{{url('/education/edit-company')}}";
+    const publicationEditUrl = "{{url('/publication/edit-publication')}}";
 </script>
-<script type="text/javascript">
-   $('#mySelect').change(function(){
-     if (this.value=='1')
-     {
-      // $("#number_beds").style.visibility='visible'
-
-       $("#number_beds").removeClass('d-none');
-    }
-    else {
-       $("#number_beds").addClass('d-none');
-    }
- });
-
-    // Language Add Button code
-
-   $(document).ready(function(){
-      var language_row = 0;
-     $("#Add_language").click(function(e){
-       e.preventDefault();       
-       $("#language_body").append('<div id="faqs-row' + language_row + '" class="row delete-div p-0 m-0"><div class="col-sm-12 col-md-3"><div class="form-group"><input type="hidden" class="form-control" placeholder="Add Language" name="lang_id[]" value="0"><input type="text" class="form-control" placeholder="Add Language" name="lang_name[]"></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="reading[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-3 mb-3"><div class="form-group"><select name="writing[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-2 mb-3"><div class="form-group"><select name="speaking[]" class="form-control"><option value="">Select</option><option value="1">Yes</option><option value="0">No</option></select></div></div><div class="col-sm-12 col-md-1"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + language_row + '\').remove();"><i class="material-icons">delete_forever</i></button></div></div>');
-
-       language_row++;
-    });
-
-     $("#delete_language").click(function(e){
-       e.preventDefault();
-       $(".delete-div").last('.delete-div').remove();
-    });
-
-
-  });
-
-   // Teaching Input
-
-   $('#teaching_exp').change(function(){
-     if (this.value=='1')
-     {
-
-       $("#teaching_exp_input").removeClass('d-none');
-    }
-    else {
-       $("#teaching_exp_input").addClass('d-none');
-    }
- });
-
-    // Honourary Input
-
-   $('#Honourary').change(function(){
-     if (this.value=='1')
-     {
-
-       $("#Honourary_input").removeClass('d-none');
-    }
-    else {
-       $("#Honourary_input").addClass('d-none');
-    }
- });
-
-</script>
-<script>
-   $(document).ready(function () {
-
-      $('#step2').validate({ // initialize the plugin
-       rules: {
-         upload_degree: {
-           extension: "pdf": true
-        },
-     }
-     messages :{
-      "upload_degree" : {
-        extension : 'upload pdf'
-     }
-  });
-
-   });
-</script>
-<script>
-   $(document).ready(function () {
-
-     var idCountry = $('#country-dropdown').val();
-
-     $("#state-dropdown").html('');
-     $.ajax({
-       url: "{{url('api/fetch-states')}}",
-       type: "POST",
-       data: {
-         country_id: idCountry,
-         _token: '{{csrf_token()}}'
-      },
-      dataType: 'json',
-      success: function (result) {
-         $('#state-dropdown').html('<option value="">-- Select State --</option>');
-         $.each(result.states, function (key, value) {
-           $("#state-dropdown").append('<option value="' + value
-             .id + '" '+(value.id=={{$profile_record[0]->state}}?"SELECTED":"")+'>' + value.name + '</option>');
-        });
-      }
-   });
-
-
-
-              /*------------------------------------------
-              --------------------------------------------
-              Country Dropdown Change Event
-              --------------------------------------------
-              --------------------------------------------*/
-     $('#country-dropdown').on('change', function () {
-       var idCountry = this.value;
-       $("#state-dropdown").html('');
-       $("#city-dropdown").html('');
-       $.ajax({
-         url: "{{url('api/fetch-states')}}",
-         type: "POST",
-         data: {
-           country_id: idCountry,
-           _token: '{{csrf_token()}}'
-        },
-        dataType: 'json',
-        success: function (result) {
-           $('#state-dropdown').html('<option value="">-- Select State --</option>');
-           $.each(result.states, function (key, value) {
-             $("#state-dropdown").append('<option value="' + value
-               .id + '">' + value.name + '</option>');
-          });
-                          //$('#city-dropdown').html('<option value="">-- Select City --</option>');
-        }
-     });
-    });
-
-              /*------------------------------------------
-              --------------------------------------------
-              State Dropdown Change Event
-              --------------------------------------------
-              --------------------------------------------*/
-     $('#state-dropdown').on('change', function () {
-       var idState = this.value;
-       $("#city-dropdown").html('');
-       $.ajax({
-         url: "{{url('api/fetch-cities')}}",
-         type: "POST",
-         data: {
-           state_id: idState,
-           _token: '{{csrf_token()}}'
-        },
-        dataType: 'json',
-        success: function (res) {
-           $('#city-dropdown').html('<option value="">-- Select City --</option>');
-           $.each(res.cities, function (key, value) {
-             $("#city-dropdown").append('<option value="' + value
-               .id + '">' + value.name + '</option>');
-          });
-        }
-     });
-    });
-
-  });
-</script>
-<script>
-   /* City dropdown */
-   var idState = $('#state-dropdown').val();
-           //alert(idState);
-   $("#city-dropdown").html('');
-   $.ajax({
-      url: "{{url('api/fetch-cities')}}",
-      type: "POST",
-      data: {
-         state_id: idState,
-         _token: '{{csrf_token()}}'
-      },
-      dataType: 'json',
-      success: function (res) {
-         $('#city-dropdown').html('<option value="">-- Select City --</option>');
-         $.each(res.cities, function (key, value) {
-                       //console.log($('#state-dropdown').val());
-            $("#city-dropdown").append('<option value="' + value
-               .id + '" '+(value.id=={{$profile_record[0]->city}}?"SELECTED":"")+'>' + value.name + '</option>');
-         });
-      }
-   });
-</script>
-<script>
-   $(document).ready(function()
-   {
-     $('#same_as_present').change(function() {
-       if ($(this).is(':checked')) {
-         $('#per_address_Line1').val($('#address1').val());
-         $('#per_address_Line2').val($('#address2').val());
-         $('#per-country-dropdown').val($('#country-dropdown').val()).change();
-         $('#per-state-dropdown').val($('#state-dropdown').val()).change();
-         $('#per_pincode').val($('#Pincode').val());
-      } else {
-         $('#per_address_Line1').val('');
-         $('#per_address_Line2').val('');
-         $('#per-country-dropdown').val('');
-         $('#per-state-dropdown').val('');
-         $('#per-city-dropdown').val('');
-         $('#per_pincode').val('');
-      }
-   });
-  });
-</script>
-<!-- Permanent address country state city -->
-@if(isset($per_profile_record[0]))
-<script>
-   $(document).ready(function () {
-
-     var idCountry = $('#per-country-dropdown').val();
-
-     $("#per-state-dropdown").html('');
-     $.ajax({
-       url: "{{url('api/fetch-states')}}",
-       type: "POST",
-       data: {
-         country_id: idCountry,
-         _token: '{{csrf_token()}}'
-      },
-      dataType: 'json',
-      success: function (result) {
-         $('#per-state-dropdown').html('<option value="">-- Select State --</option>');
-         $.each(result.states, function (key, value) {
-           $("#per-state-dropdown").append('<option value="' + value
-             .id + '" '+(value.id=={{$per_profile_record[0]->per_state}}?"SELECTED":"")+'>' + value.name + '</option>');
-        });
-                          //$('#city-dropdown').html('<option value="">-- Select City --</option>');
-      }
-   });
-
-</script>
-@endif
-<script>
-   /*------------------------------------------
-   --------------------------------------------
-   Country Dropdown Change Event
-   --------------------------------------------
-   --------------------------------------------*/
-   $(document).ready(function () {
-      $('#per-country-dropdown').on('change', function () {
-         var idCountry = this.value;
-         $("#per-state-dropdown").html('');
-         $("#per-city-dropdown").html('');
-         $.ajax({
-            url: "{{url('api/fetch-states')}}",
-            type: "POST",
-            data: {
-               country_id: idCountry,
-               _token: '{{csrf_token()}}'
-            },
-            dataType: 'json',
-            success: function (result) {
-               $('#per-state-dropdown').html('<option value="">-- Select State --</option>');
-               $.each(result.states, function (key, value) {
-                  if($('#state-dropdown').val()==value.id){
-                     $("#per-state-dropdown").append('<option value="' + value
-                        .id + '" SELECTED>' + value.name + '</option>');
-                  }
-                  else
-                  {
-                     $("#per-state-dropdown").append('<option value="' + value
-                        .id + '">' + value.name + '</option>');
-                  }
-
-
-               });
-               //$('#city-dropdown').html('<option value="">-- Select City --</option>');
-            }
-         });
-      });
-
-   /*------------------------------------------
-   --------------------------------------------
-   State Dropdown Change Event
-   --------------------------------------------
-   --------------------------------------------*/
-      $('#per-state-dropdown').on('change', function () {
-
-         if($('#same_as_present').is(':checked'))
-         {
-            var idState = $('#state-dropdown').val();
-         }
-         else
-         {
-            var idState = this.value;
-         }
-
-         console.log(idState);
-         $("#per-city-dropdown").html('');
-         $.ajax({
-            url: "{{url('api/fetch-cities')}}",
-            type: "POST",
-            data: {
-               state_id: idState,
-               _token: '{{csrf_token()}}'
-            },
-            dataType: 'json',
-            success: function (res) {
-               $('#per-city-dropdown').html('<option value="">-- Select City --</option>');
-               $.each(res.cities, function (key, value)
-               {
-
-                  if($('#city-dropdown').val()==value.id){
-                     $("#per-city-dropdown").append('<option value="' + value
-                        .id + '" SELECTED>' + value.name + '</option>');
-                  }
-                  else
-                  {
-                     $("#per-city-dropdown").append('<option value="' + value
-                        .id + '">' + value.name + '</option>');
-                  }
-
-
-               });
-            }
-         });
-      });
-
-   });
-</script>
-@if(isset($per_profile_record[0]))
-<script>
-   /* City dropdown */
-   var idState = $('#per-state-dropdown').val();
-          // alert(idState);
-   $("#per-city-dropdown").html('');
-   $.ajax({
-      url: "{{url('api/fetch-cities')}}",
-      type: "POST",
-      data: {
-         state_id: idState,
-         _token: '{{csrf_token()}}'
-      },
-      dataType: 'json',
-      success: function (res) {
-         $('#per-city-dropdown').html('<option value="">-- Select City --</option>');
-         $.each(res.cities, function (key, value) {
-                       //console.log(value);
-            $("#per-city-dropdown").append('<option value="' + value
-               .id + '" '+(value.id=={{$per_profile_record[0]->per_city}}?"SELECTED":"")+'>' + value.name + '</option>');
-         });
-      }
-   });
-</script>
-@endif
-<!-- clinical country state city -->
-@if(isset($clinic_record))
-<script>
-   $(document).ready(function () {
-
-
-    var idCountry = $('#country-dropdown-clinical').val();
-
-                //$("#state-dropdown-clinical").html('');
-    $.ajax({
-     url: "{{url('api/fetch-states')}}",
-     type: "POST",
-     data: {
-       country_id: idCountry,
-       _token: '{{csrf_token()}}'
-    },
-    dataType: 'json',
-    success: function (result) {
-       $('#state-dropdown-clinical').html('<option value="">-- Select State --</option>');
-       $.each(result.states, function (key, value) {
-         $("#state-dropdown-clinical").append('<option value="' + value
-           .id + '" '+(value.id=={{$clinic_record->state}}?"SELECTED":"")+'>' + value.name + '</option>');
-      });
-                         //$('#city-dropdown').html('<option value="">-- Select City --</option>');
-    }
- });
-
-
- });
-</script>
-@endif
-<script>
-   /*------------------------------------------
-   --------------------------------------------
-   Country Dropdown Change Event
-   --------------------------------------------
-   --------------------------------------------*/
-   $('#country-dropdown-clinical').on('change',function () {
-      var idCountry = this.value;
-      $("#state-dropdown-clinical").html('');
-      $("#city-dropdown-clinical").html('');
-      $.ajax({
-         url: "{{url('api/fetch-states')}}",
-         type: "POST",
-         data: {
-            country_id: idCountry,
-            _token: '{{csrf_token()}}'
-         },
-         dataType: 'json',
-         success: function (result) {
-
-            $('#state-dropdown-clinical').html('<option value="">-- Select State --</option>');
-            $.each(result.states, function (key, value) {
-               $("#state-dropdown-clinical").append('<option value="' + value
-                  .id + '">' + value.name + '</option>');
-            });
-               //$('#city-dropdown').html('<option value="">-- Select City --</option>');
-         }
-      });
-   });
-
-   /*------------------------------------------
-   --------------------------------------------
-   State Dropdown Change Event
-   --------------------------------------------
-   --------------------------------------------*/
-   $('#state-dropdown-clinical').on('change', function () {
-      var idState = this.value;
-      $("#city-dropdown-clinical").html('');
-      $.ajax({
-         url: "{{url('api/fetch-cities')}}",
-         type: "POST",
-         data: {
-            state_id: idState,
-            _token: '{{csrf_token()}}'
-         },
-         dataType: 'json',
-         success: function (res) {
-            $('#city-dropdown-clinical').html('<option value="">-- Select City --</option>');
-            $.each(res.cities, function (key, value) {
-               $("#city-dropdown-clinical").append('<option value="' + value
-                  .id + '">' + value.name + '</option>');
-            });
-         }
-      });
-   });
-
-
-</script>
-@if(isset($clinic_record))
-<script>
-   /* City dropdown */
-   var idState = $('#state-dropdown-clinical').val();
-           //alert(idState);
-   $("#city-dropdown-clinical").html('');
-   $.ajax({
-      url: "{{url('api/fetch-cities')}}",
-      type: "POST",
-      data: {
-         state_id: idState,
-         _token: '{{csrf_token()}}'
-      },
-      dataType: 'json',
-      success: function (res) {
-         $('#city-dropdown-clinical').html('<option value="">-- Select City --</option>');
-         $.each(res.cities, function (key, value) {
-                       //console.log(value);
-            $("#city-dropdown-clinical").append('<option value="' + value
-               .id + '" '+(value.id=={{$clinic_record->city}}?"SELECTED":"")+'>' + value.name + '</option>');
-         });
-      }
-   });
-</script>
-@endif
-<script>
-   $('#check_reading').on('change', function(){
-     $('#hidden_read_check').val(this.checked ? 1 : 0);
-  });
-
-   $('#check_writing').on('change', function(){
-     $('#hidden_write_check').val(this.checked ? 1 : 0);
-  });
-
-   $('#check_speaking').on('change', function(){
-     $('#hidden_speak_check').val(this.checked ? 1 : 0);
-  });
-</script>
-<script>
-   $('.update_education').on('click',function(){
-
-          //alert("yes");
-          // var data= $(this).data('id');
-
-    var education_id= $(this).data('id');
-           //alert(education_id);
-    $.ajax({
-      url: "{{url('/education/edit-company')}}",
-      type: "GET",
-      data: {
-        education_id: education_id,
-     },
-
-     success: function(response) {
-        $('#successMsg').show();
-                   //console.log(response);
-        if (response) {
-
-                       //alert(response.upload_degree);
-
-          $("#edit_educational_id").val(response.id);
-          $("#edit_institute_name").val(response.institute_name);
-          $("#edit_course_name").val(response.course_name);
-          $("#edit_year_of_passing").val(response.year_of_passing);
-
-          $('#upload_degree').attr('src', response.upload_degree);
-
-          $('#educational_document').attr('href', response.upload_degree);
-
-
-
-       }
-
-
-    },
-
-    error: function(response) {
-     alert(error);
-  },
-
-});
-
-
- });
-
-   $('.update_publication').on('click',function(){
-
-          //alert("yes");
-          // var data= $(this).data('id');
-
-    var publication_id= $(this).data('id');
-           //alert(education_id);
-    $.ajax({
-      url: "{{url('/publication/edit-publication')}}",
-      type: "GET",
-      data: {
-        publication_id: publication_id,
-     },
-
-     success: function(response) {
-        $('#successMsg').show();
-                   //console.log(response);
-        if (response) {
-
-                       //alert(response.upload_degree);
-
-          $("#edit_no_of_case_reports").val(response.no_of_case_reports);
-          $("#edit_research_papers").val(response.research_papers);
-          $("#edit_books_published").val(response.books_published);
-          $("#edit_no_of_seminars").val(response.no_of_seminars);
-          $("#edit_publication_id").val(response.id);
-
-       }
-
-
-    },
-
-    error: function(response) {
-     alert(error);
-  },
-
-});
-
-
- });
-</script>
-<script>
-   function confirm_option(action){
-    if(!confirm("Are you sure to "+action+", this record!")){
-     return false;
-  }
-
-  return true;
-
-}
-
-$("#any_done_services").change(function() {
-   if(this.checked) {
-      $('#output').html('Checkbox is checked');
-      var data=document.getElementById('any_done_services').value='1';
-
-         //alert(data);
-   }else
-   {
-     var data=document.getElementById('any_done_services').value='0';
-         //alert("unchecked");
-
-  }
-});
-</script>
+<script src="{{ asset('assets/js/custom-script.js') }}"></script>
 @endsection

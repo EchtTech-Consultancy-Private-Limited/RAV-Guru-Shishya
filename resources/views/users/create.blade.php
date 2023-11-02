@@ -44,7 +44,7 @@
                            <div class="form-line">
                               <label >Title</label>
                                  <select name="title" class="form-control">
-                                    <option>Select Title</option>
+                                    <option value="0">Select Title</option>
                                     @foreach(__('phr.titlename') as $key=>$value)
                                        <option value="{{$key}}">{{$value}}</option>
                                     @endforeach

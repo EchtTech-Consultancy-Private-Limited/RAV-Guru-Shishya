@@ -43,11 +43,7 @@
 
                           <li class="breadcrumb-item active">Edit Drug Details </li>
                        </ul>
-                       @if ($message = Session::get('success'))
-                         <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                         </div>
-                      @endif
+                       
                     </div>
                 </div>
               </div>
@@ -174,6 +170,11 @@
                      </div>
                      <div style="display:;">
        <div id="churna_yogas" style="display:;">
+            <?php
+               if(isset($drugHistoryLog)){
+                  $data = json_decode($drugHistoryLog->data);
+               }
+            ?>
             <form method="POST" action="{{ url('update-vatiyoga-details') }}" >
                 @csrf
                <input type="hidden" name="drug_id" value="{{ $drug->id }}">
@@ -262,7 +263,7 @@
                   <div class="row">
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                           <div class="form-group">
-                             <label  class="form-control-label">Enter Yogas Name</label>
+                             <label  class="form-control-label @if(isset($data->vati_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Enter Yogas Name</label>
                              <input type="text" name="vati_yoga_type_individual" class="form-control" placeholder="Vati Yoga Type Individual"  value="{{ $drug->vati_yoga_type_individual }}" maxlength="50">@error('vati_yoga_type_individual')
                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                              @enderror
@@ -270,7 +271,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label  class="form-control-label">Step 1<span class="text-danger">*</span></label>
+                           <label  class="form-control-label @if(isset($data->step_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1<span class="text-danger">*</span></label>
                            <input type="text" name="step_first" class="form-control" placeholder="Step 1" aria-label="Step 1" value="{{ $drug->step_first }}" maxlength="50">
                            @error('Step 1')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -279,7 +280,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Packing<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->packing)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Packing<span class="text-danger">*</span></label>
                            <input type="text" name="packing" class="form-control" placeholder="Packing" aria-label="Packing" value="{{ $drug->packing }}" maxlength="50">
                            @error('packing')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -289,7 +290,7 @@
                   
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Storage<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->storage)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Storage<span class="text-danger">*</span></label>
                            <input type="text" name="storage" class="form-control" placeholder="Storage" value="{{ $drug->storage }}" maxlength="50">
                            @error('storage')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -298,7 +299,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Method of Administration<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->method_of_administration)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Method of Administration<span class="text-danger">*</span></label>
                            <input type="text" name="method_of_administration" class="form-control" placeholder="Method of Administration"  value="{{ $drug->method_of_administration }}" maxlength="50">
                            @error('method_of_administration')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -308,7 +309,7 @@
                   
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Dose<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->dose)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Dose<span class="text-danger">*</span></label>
                            <input type="text" name="dose" class="form-control" placeholder="Dose" aria-label="Dose" value="{{ $drug->dose }}" maxlength="50">
                            @error('dose')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -317,7 +318,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Time of administration<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->time_of_administration)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Time of administration<span class="text-danger">*</span></label>
                            <input type="text" name="time_of_administration" class="form-control" placeholder="Time of administration" value="{{ $drug->time_of_administration }}" maxlength="50">
                            @error('time_of_administration')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -327,7 +328,7 @@
                  
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Duration of Therapy<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->duration_of_therapy)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Duration of Therapy<span class="text-danger">*</span></label>
                            <input type="text" name="duration_of_therapy" class="form-control" placeholder="Duration of Therapy"  value="{{ $drug->duration_of_therapy }}" maxlength="50">
                            @error('duration_of_therapy')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -336,7 +337,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Vehicle<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->vati_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Vehicle<span class="text-danger">*</span></label>
                            <input type="text" name="vehicle" class="form-control" placeholder="Vehicle" aria-label="Vehicle" value="{{ $drug->vehicle }}" maxlength="50">
                            @error('vehicle')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -346,7 +347,7 @@
                  
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Indications<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->indicationsduration_of_therapy)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Indications<span class="text-danger">*</span></label>
                            <input type="text" name="indicationsduration_of_therapy" class="form-control" placeholder="Indications" aria-label="Duration of Therapy" value="{{ $drug->indicationsduration_of_therapy }}" maxlength="50">
                            @error('indicationsduration_of_therapy')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -355,7 +356,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Contra indications<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->contraindicationsduration_of_therapy)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Contra indications<span class="text-danger">*</span></label>
                            <input type="text" name="contraindicationsduration_of_therapy" class="form-control" placeholder="Contra indications"  value="{{ $drug->contraindicationsduration_of_therapy }}" maxlength="50">
                            @error('contraindicationsduration_of_therapy')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -365,7 +366,7 @@
                  
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Wholesome diet<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->wholesome_diet)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome diet<span class="text-danger">*</span></label>
                            <input type="text" name="wholesome_diet" class="form-control" placeholder="Wholesome diet" value="{{ $drug->wholesome_diet }}" maxlength="50">
                            @error('wholesome_diet')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -374,7 +375,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Whole some activities<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->wholesome_activities)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Whole some activities<span class="text-danger">*</span></label>
                            <input type="text" name="wholesome_activities" class="form-control" placeholder="Whole some activities"  value="{{ $drug->wholesome_activities }}" >
                            @error('wholesome_activities')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -383,7 +384,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Wholesome behavior<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->wholesome_behavior)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome behavior<span class="text-danger">*</span></label>
                            <input type="text" name="wholesome_behavior" class="form-control" placeholder="Wholesome behavior" aria-label="Wholesome behavior" value="{{ $drug->wholesome_behavior }}" >
                            @error('wholesome_behavior')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -398,7 +399,7 @@
                   <div class="row">
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Quantity of Raw Material<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->quantity_of_raw_material)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Quantity of Raw Material<span class="text-danger">*</span></label>
                            <input type="text" name="quantity_of_raw_material" class="form-control" placeholder="Quantity of Raw Material"  value="{{ $drug->quantity_of_raw_material }}" >
                            @error('quantity_of_raw_material')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -407,7 +408,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Quantity of finished product<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->quantity_of_finished_product)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Quantity of finished product<span class="text-danger">*</span></label>
                            <input type="text" name="quantity_of_finished_product" class="form-control" placeholder="Quantity of finished product"  value="{{ $drug->quantity_of_finished_product }}" >
                            @error('quantity_of_finished_product')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -416,7 +417,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Loss<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->loss)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Loss<span class="text-danger">*</span></label>
                            <input type="text" name="loss" class="form-control" placeholder="Loss" aria-label="Loss" value="{{ $drug->loss }}" >
                            @error('loss')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -425,7 +426,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Reasons for Loss<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Reasons for Loss<span class="text-danger">*</span></label>
                            <input type="text" name="reasons_for_loss" class="form-control" placeholder="Reasons for Loss" aria-label="Name" value="{{ $drug->reasons_for_loss }}" >
                            @error('reasons_for_loss')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -436,7 +437,7 @@
                   <div class="row">
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">(i)<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(i)<span class="text-danger">*</span></label>
                            <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="(i)" aria-label="(i)" value="{{ $drug->reasons_for_loss_first }}" >@error('reasons_for_loss_first')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                            @enderror
@@ -444,7 +445,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">(ii)<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(ii)<span class="text-danger">*</span></label>
                            <input type="text" name="reasons_for_loss_second" class="form-control" placeholder="(ii)" aria-label="Name" value="{{ $drug->reasons_for_loss_second }}" maxlength="50">
                            @error('reasons_for_loss_second')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -453,7 +454,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Organoleptic properties of raw materials<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->organoleptic_properties_of_raw_materials)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Organoleptic properties of raw materials<span class="text-danger">*</span></label>
                            <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control" placeholder="Organoleptic properties of raw materials" value="{{ $drug->organoleptic_properties_of_raw_materials }}" >
                            @error('organoleptic_properties_of_raw_materials')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -462,7 +463,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                           <label for="example-text-input" class="form-control-label">Organoleptic properties of finished product<span class="text-danger">*</span></label>
+                           <label for="example-text-input" class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Organoleptic properties of finished product<span class="text-danger">*</span></label>
                            <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Organoleptic properties of finished product" value="{{ $drug->organoleptic_properties_of_finished_product }}" maxlength="50">
                            @error('organoleptic_properties_of_finished_product')
                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -478,7 +479,7 @@
                   <div class="row">
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group ">
-                           <label class="control-label   requiredField" for="date">(i) Starting Date<span class="text-danger">*</span>
+                           <label class="control-label requiredField  @if(isset($data->starting_date)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif" for="date">(i) Starting Date<span class="text-danger">*</span>
                            </label>
                            <div class="input-group">
                            </div>
@@ -489,7 +490,7 @@
                      </div>
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group ">
-                           <label class="control-label   requiredField" for="date">(ii)  Ending Date<span class="text-danger">*</span>
+                           <label class="control-label requiredField  @if(isset($data->ending_date)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif" for="date">(ii)  Ending Date<span class="text-danger">*</span>
                            </label>
                            <div class="input-group">
                            </div>

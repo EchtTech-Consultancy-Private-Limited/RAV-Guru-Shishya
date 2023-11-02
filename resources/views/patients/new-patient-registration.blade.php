@@ -92,15 +92,22 @@
                                                             System Reg. No </th> -->
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Email : activate to sort column ascending">
                                                             Patient Reg. No <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
-                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending">
-                                                            Reg. Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
-                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
+
+                                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
                                                             Patients Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
-                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
+
+                                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
+                                                            Patients Type <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+
+                                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
                                                             Gender <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
 
-                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
-                                                            Patients Type <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending">
+                                                            Reg. Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                                       
+                                                       
+
+                                                        
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
                                                             Action <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=""> Remarks <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
@@ -121,8 +128,9 @@
                                                         <td class="text-center">
                                                             {{ $patientlist->registration_no }}
                                                         </td>
-                                                        <td class="center date" > {{ date('d-m-Y', strtotime($patientlist->registration_date)) }}</td>
                                                         <td class="center"> {{ $patientlist->patient_name }} </td>
+                                                        <td class="center"> {{ $patientlist->patient_type }} </td>
+                                                        
                                                         <td class="center">
                                                             @if ($patientlist->gender == 1)
                                                             Male
@@ -132,7 +140,8 @@
                                                             Others
                                                             @endif
                                                         </td>
-                                                        <td class="center"> {{ $patientlist->patient_type }} </td>
+                                                        <td class="center date" > {{ date('d-m-Y', strtotime($patientlist->registration_date)) }}</td>
+                                                        
                                                         <td>
                                                             <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title="View Patient">
                                                                 <i class="material-icons">visibility</i>
