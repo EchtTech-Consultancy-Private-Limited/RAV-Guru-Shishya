@@ -221,16 +221,16 @@
                                                     <tr>
                                                         <td>
 
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" minlength="3" value="{{ old('name_of_the_ingredients[]') }}" >
+                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" value="{{ old('name_of_the_ingredients[]') }}" >
                                                         
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" maxlength="200" minlength="3" value="{{ old('part_used[]') }}" >
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" maxlength="200" value="{{ old('part_used[]') }}" >
                                                         
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" minlength="3" value="{{ old('quantity[]') }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" value="{{ old('quantity[]') }}" >
                                                        
                                                         </td>
                                                         <td></td>

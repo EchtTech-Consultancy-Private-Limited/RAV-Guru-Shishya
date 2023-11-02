@@ -18,6 +18,7 @@ use App\Models\Remark;
 use App\Models\RasaYoga;
 use App\Models\DrugRasaPart;
 use App\Models\FollowUpPatient;
+use App\Models\DrugHistoryLog;
 use App\Models\TaliaYogas;
 use App\Models\TaliaYogasType;
 use App\Models\ArishtaYoga;
@@ -79,27 +80,27 @@ class DrugController extends Controller
             {
                 /* $drugslist = ChurnaYoga::whereBetween('created_at',[$from_date,$to_date])->where('shishya_id',$shishya_id)->get();*/
                 $drugslist = ChurnaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
-                ->where('shishya_id',$shishya_id)->get();
+                ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==2)
             {
                 $drugslist = RasaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
-                ->where('shishya_id',$shishya_id)->get();
+                ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==3)
             {
                 $drugslist = VatiYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
-                ->where('shishya_id',$shishya_id)->get();
+                ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==4)
             {
                 $drugslist = TaliaYogas::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
-                ->where('shishya_id',$shishya_id)->get();
+                ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==5)
             {
                 $drugslist = ArishtaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
-                ->where('shishya_id',$shishya_id)->get();
+                ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
 
 
@@ -110,25 +111,25 @@ class DrugController extends Controller
     }
 
     public function edit_drugs(Request $request,$id)
-    {
+    {      
         $user_type=Auth::user()->user_type;
         $id= decrypt($id);
 
         $churandrug = ChurnaYoga::find($id);
         $churandrugpart=DrugChuranPart::where('drug_id',$id)->get();
-
+        $drugHistoryLog = DrugHistoryLog::where('drug_id',$id)->first();
         if($user_type==1 || $user_type==2)
         {            
             $id=$churandrug->shishya_id;
             $shishyarecord=User::find($id);
             $guru_id=$shishyarecord->guru_id;
             $guru=User::where('id',$guru_id)->first();
-            return view("drugs.edit-churan-drugs",compact('churandrug','guru','churandrugpart','shishyarecord'));
+            return view("drugs.edit-churan-drugs",compact('churandrug','guru','churandrugpart','shishyarecord','drugHistoryLog'));
         }
         else
         {
             $guru=get_guru_list(Auth::user()->guru_id);
-            return view("drugs.edit-churan-drugs",compact('churandrug','guru','churandrugpart'));
+            return view("drugs.edit-churan-drugs",compact('churandrug','guru','churandrugpart','drugHistoryLog'));
         }
     }
 
@@ -161,7 +162,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $guru=get_guru_list(Auth::user()->guru_id);
         $rasadrug = RasaYoga::find($id);
-
+        $drugHistoryLog = DrugHistoryLog::where('rasa_id',$id)->first();
         $drugrasapart=DrugRasaPart::where('drug_rasayoga_id',$id)->get();
 
         if($user_type==1 || $user_type==2)
@@ -170,12 +171,12 @@ class DrugController extends Controller
             $shishyarecord=User::find($id);
             $guru_id=$shishyarecord->guru_id;
             $guru=User::where('id',$guru_id)->first();
-            return view("drugs.edit-rasa-drugs",compact('rasadrug','guru','drugrasapart','shishyarecord'));
+            return view("drugs.edit-rasa-drugs",compact('rasadrug','guru','drugrasapart','shishyarecord','drugHistoryLog'));
         }
         else
         {
             $guru=get_guru_list(Auth::user()->guru_id);
-            return view("drugs.edit-rasa-drugs",compact('rasadrug','guru','drugrasapart'));
+            return view("drugs.edit-rasa-drugs",compact('rasadrug','guru','drugrasapart','drugHistoryLog'));
         }
     }
 
@@ -205,16 +206,44 @@ class DrugController extends Controller
 
     public function update_drug_details(Request $request)
     {
-
         $id=$request->drug_id;
         $input = $request->all();
         $drug = ChurnaYoga::find($id);
-        $drug->update($input);
+        // $drug->update($input);
 
-        $name_of_the_ingredients=$request->name_of_the_ingredients;
-        $part_used=$request->part_used;
-        $quantity=$request->quantity;
-        $drug_part_id=$request->drug_part_id;
+        // Find the data before updating
+        $modelBeforeUpdate = ChurnaYoga::find($id);
+        // Update the model
+        $drug->update($input);
+        // Find the data after updating
+        $modelAfterUpdate = ChurnaYoga::find($id);
+
+        // Check for changes
+        if ($modelBeforeUpdate && $modelAfterUpdate) {
+            $finalArray = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
+            if($request->comosition_update > 0){
+                $comositionUpdate['comosition_update'] = 'add_composition_extra';
+                $finalArray = array_merge($comositionUpdate,$finalArray);
+            }
+            $changesData = json_encode($finalArray);
+            DrugHistoryLog::updateOrCreate(
+                [
+                    'drug_id'   => $id
+
+                ],
+                [
+                    'data' => $changesData,
+                    'drug_id' => $id,
+                    'user_id' => Auth::id(),
+                    'user_type' => Auth::user()->user_type,
+                ]
+            );
+        }
+
+        $name_of_the_ingredients = $request->name_of_the_ingredients;
+        $part_used = $request->part_used;
+        $quantity = $request->quantity;
+        $drug_part_id = $request->drug_part_id;
 
         if($name_of_the_ingredients != null)
         for($i=0; $i<count($name_of_the_ingredients); $i++)
@@ -259,11 +288,38 @@ class DrugController extends Controller
 
     public function update_rasayoga_details(Request $request)
     {
-
         $id=$request->drug_id;
         $input = $request->all();
         $drug = RasaYoga::find($id);
+        // $drug->update($input);
+        // Find the data before updating
+        $modelBeforeUpdate = RasaYoga::find($id);
+        // Update the model
         $drug->update($input);
+        // Find the data after updating
+        $modelAfterUpdate = RasaYoga::find($id);
+
+        // Check for changes
+        if ($modelBeforeUpdate && $modelAfterUpdate) {
+            $finalArray = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
+            if($request->comosition_update > 0){
+                $comositionUpdate['comosition_update'] = 'add_composition_extra';
+                $finalArray = array_merge($comositionUpdate,$finalArray);
+            }
+            $changesData = json_encode($finalArray);
+            DrugHistoryLog::updateOrCreate(
+                [
+                    'rasa_id'   => $id
+
+                ],
+                [
+                    'data' => $changesData,
+                    'rasa_id' => $id,
+                    'user_id' => Auth::id(),
+                    'user_type' => Auth::user()->user_type,
+                ]
+            );
+        }
 
 
         $name_of_the_ingredients_mineral_metal=$request->name_of_the_ingredients_mineral_metal;
@@ -380,20 +436,20 @@ class DrugController extends Controller
         $id= decrypt($id);
         $guru=get_guru_list(Auth::user()->guru_id);
         $drug = VatiYoga::find($id);
-
         $vatitype=VatiYogaType::where('drug_vatiyoga_id',$id)->get();
+        $drugHistoryLog = DrugHistoryLog::where('vati_id',$id)->first();
         if($user_type==1 || $user_type==2)
         {
             $id=$drug->shishya_id;
             $shishyarecord=User::find($id);
             $guru_id=$shishyarecord->guru_id;
             $guru=User::where('id',$guru_id)->first();
-            return view("drugs.edit-vati-drugs",compact('drug','guru','vatitype','shishyarecord'));
+            return view("drugs.edit-vati-drugs",compact('drug','guru','vatitype','shishyarecord','drugHistoryLog'));
         }
         else
         {
             $guru=get_guru_list(Auth::user()->guru_id);
-            return view("drugs.edit-vati-drugs",compact('drug','guru','vatitype'));
+            return view("drugs.edit-vati-drugs",compact('drug','guru','vatitype','drugHistoryLog'));
         }
     }
 
@@ -422,11 +478,38 @@ class DrugController extends Controller
 
      public function update_vatiyoga_details(Request $request)
     {
-
         $id=$request->drug_id;
         $input = $request->all();
         $drug = VatiYoga::find($id);
+        // $drug->update($input);
+        // Find the data before updating
+        $modelBeforeUpdate = VatiYoga::find($id);
+        // Update the model
         $drug->update($input);
+        // Find the data after updating
+        $modelAfterUpdate = VatiYoga::find($id);
+
+        // Check for changes
+        if ($modelBeforeUpdate && $modelAfterUpdate) {
+            $finalArray = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
+            if($request->comosition_update > 0){
+                $comositionUpdate['comosition_update'] = 'add_composition_extra';
+                $finalArray = array_merge($comositionUpdate,$finalArray);
+            }
+            $changesData = json_encode($finalArray);
+            DrugHistoryLog::updateOrCreate(
+                [
+                    'vati_id'   => $id
+
+                ],
+                [
+                    'data' => $changesData,
+                    'vati_id' => $id,
+                    'user_id' => Auth::id(),
+                    'user_type' => Auth::user()->user_type,
+                ]
+            );
+        }
 
         $name_of_the_ingredients = $request->name_of_the_ingredients;
         $part_used=$request->part_used;
@@ -508,8 +591,8 @@ class DrugController extends Controller
         $id= decrypt($id);
         $guru=get_guru_list(Auth::user()->guru_id);
         $drug = TaliaYogas::find($id);
-
         $taliatype=TaliaYogasType::where('drug_taliayogas_id',$id)->get();
+        $drugHistoryLog = DrugHistoryLog::where('taila_id',$id)->first();
 
         if($user_type==1 || $user_type==2)
         {
@@ -517,12 +600,12 @@ class DrugController extends Controller
             $shishyarecord=User::find($id);
             $guru_id=$shishyarecord->guru_id;
             $guru=User::where('id',$guru_id)->first();
-            return view("drugs.edit-talia-drugs",compact('drug','guru','taliatype','shishyarecord'));
+            return view("drugs.edit-talia-drugs",compact('drug','guru','taliatype','shishyarecord','drugHistoryLog'));
         }
         else
         {
             $guru=get_guru_list(Auth::user()->guru_id);
-            return view("drugs.edit-talia-drugs",compact('drug','guru','taliatype'));
+            return view("drugs.edit-talia-drugs",compact('drug','guru','taliatype','drugHistoryLog'));
         }
 
     }
@@ -558,7 +641,35 @@ class DrugController extends Controller
         $id=$request->drug_id;
         $input = $request->all();
         $drug = TaliaYogas::find($id);
+        // $drug->update($input);
+        // Find the data before updating
+        $modelBeforeUpdate = TaliaYogas::find($id);
+        // Update the model
         $drug->update($input);
+        // Find the data after updating
+        $modelAfterUpdate = TaliaYogas::find($id);
+
+        // Check for changes
+        if ($modelBeforeUpdate && $modelAfterUpdate) {
+            $finalArray = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
+            if($request->comosition_update > 0){
+                $comositionUpdate['comosition_update'] = 'add_composition_extra';
+                $finalArray = array_merge($comositionUpdate,$finalArray);
+            }
+            $changesData = json_encode($finalArray);
+            DrugHistoryLog::updateOrCreate(
+                [
+                    'taila_id'   => $id
+
+                ],
+                [
+                    'data' => $changesData,
+                    'taila_id' => $id,
+                    'user_id' => Auth::id(),
+                    'user_type' => Auth::user()->user_type,
+                ]
+            );
+        }
 
         $name_of_the_ingredients = $request->name_of_the_ingredients;
         $part_used=$request->part_used;
@@ -645,21 +756,20 @@ class DrugController extends Controller
         $user_type=Auth::user()->user_type;
         $guru=get_guru_list(Auth::user()->guru_id);
         $drug = ArishtaYoga::find($id);
-
         $arishtatype=ArishtaYogaType::where('drug_arishtayogas_id',$id)->get();
-
+        $drugHistoryLog = DrugHistoryLog::where('aswa_id',$id)->first();
         if($user_type==1 || $user_type==2)
         {
             $id=$drug->shishya_id;
             $shishyarecord=User::find($id);
             $guru_id=$shishyarecord->guru_id;
             $guru=User::where('id',$guru_id)->first();
-            return view("drugs.edit-arishtatype-drugs",compact('drug','guru','arishtatype','shishyarecord'));
+            return view("drugs.edit-arishtatype-drugs",compact('drug','guru','arishtatype','shishyarecord','drugHistoryLog'));
         }
         else
         {
             $guru=get_guru_list(Auth::user()->guru_id);
-            return view("drugs.edit-arishtatype-drugs",compact('drug','guru','arishtatype'));
+            return view("drugs.edit-arishtatype-drugs",compact('drug','guru','arishtatype','drugHistoryLog'));
         }
     }
 
@@ -693,7 +803,35 @@ class DrugController extends Controller
         $id=$request->drug_id;
         $input = $request->all();
         $drug = ArishtaYoga::find($id);
+        // $drug->update($input);
+        // Find the data before updating
+        $modelBeforeUpdate = ArishtaYoga::find($id);
+        // Update the model
         $drug->update($input);
+        // Find the data after updating
+        $modelAfterUpdate = ArishtaYoga::find($id);
+
+        // Check for changes
+        if ($modelBeforeUpdate && $modelAfterUpdate) {
+            $finalArray = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
+            if($request->comosition_update > 0){
+                $comositionUpdate['comosition_update'] = 'add_composition_extra';
+                $finalArray = array_merge($comositionUpdate,$finalArray);
+            }
+            $changesData = json_encode($finalArray);
+            DrugHistoryLog::updateOrCreate(
+                [
+                    'aswa_id'   => $id
+
+                ],
+                [
+                    'data' => $changesData,
+                    'aswa_id' => $id,
+                    'user_id' => Auth::id(),
+                    'user_type' => Auth::user()->user_type,
+                ]
+            );
+        }
 
         $name_of_the_ingredients = $request->name_of_the_ingredients;
         $part_used=$request->part_used;
