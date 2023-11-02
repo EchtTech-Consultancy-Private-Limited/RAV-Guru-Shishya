@@ -178,10 +178,19 @@
                   </div>
                     
                 </div>
+<<<<<<< HEAD
                 <div class="title">
                   <p class="text-capatilize text-sm m-2 @if(isset($data->comosition_update)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Composition</p>
                 </div>
                  
+=======
+                <div class="h-100">
+                        <h5 class="mb-1">
+                           Composition
+                        </h5>
+                     </div>
+                 <!-- <p class="text-capatilize text-sm m-2">Composition</p> -->
+>>>>>>> 85259074b618c1617b81c882516b91b0f79d40e7
 
                  <div class="page-content page-container" id="page-content">
                     <div class="padding">

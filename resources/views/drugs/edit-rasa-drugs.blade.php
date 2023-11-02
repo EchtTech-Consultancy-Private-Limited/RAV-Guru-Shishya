@@ -66,20 +66,42 @@
                   <div id="wizard_horizontal">
                      <h2>New Drug Report</h2>
 
-                     <section>
-                        <div class="col-md-12 mb-2">
-                           <div class="card">
-                              <div class="card-body">
-                                 <div class="row">
-                                    <div class="col-md-4 mb-2">
-                                       <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">Name of the Guru<span class="text-danger">*</span></label>
-                                          @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                          <input type="text" name="name_of_the_guru" class="form-control" placeholder="Name of the Guru" aria-label="Name" value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly>
-                                          @endif
-                                          @if(Auth::user()->user_type==2)
-                                          <input type="text" name="name_of_the_guru" class="form-control" placeholder="Name of the Guru" aria-label="Name" value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly>
-                                          @endif
+                  <section>
+                     <div class="col-md-12 mb-2">
+                        <div class="card">
+                           <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
+                              <!-- @csrf -->
+                              <div class="card-body p-0">
+                                 <div
+                                    class="row">
+                                    <div
+                                       class="col-md-4 mb-2">
+                                       <div
+                                          class="form-group">
+                                          <label
+                                             for="example-text-input"
+                                             class="form-control-label">Name of the Guru<span
+                                             class="text-danger">*</span></label>
+                                             @if(Auth::user()->guru_id || Auth::user()->user_type==1)
+                                             <input
+                                             type="text"
+                                             name="name_of_the_guru"
+                                             class="form-control"
+                                             placeholder="Name of the Guru"
+                                             aria-label="Name"
+                                             value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
+                                             >
+                                             @endif
+                                             @if(Auth::user()->user_type==2)
+                                             <input
+                                             type="text"
+                                             name="name_of_the_guru"
+                                             class="form-control"
+                                             placeholder="Name of the Guru"
+                                             aria-label="Name"
+                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
+                                             >
+                                             @endif
                                        </div>
                                     </div>
                                     <div class="col-md-4 mb-2">

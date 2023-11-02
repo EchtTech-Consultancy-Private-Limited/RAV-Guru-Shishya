@@ -313,13 +313,12 @@
                                        </div>
                                    
                                        <div class="col-md-12">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
-                                                Examination
-                                                of
-                                                the
-                                                patient</label>
+                                          <div class="title">
+                                             <p>
+                                             Examination  of      the patient
+                                             </p>
                                           </div>
+                                        
                                        </div>
                                     
                                        <div class="col-md-3">
