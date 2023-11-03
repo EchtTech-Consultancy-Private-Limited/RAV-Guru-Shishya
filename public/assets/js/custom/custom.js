@@ -105,7 +105,13 @@ $(function(){
 /*email validation*/
 
 $(document).ready(function(){
-
+  $('.submit').click(function() {
+    $(this).prop('disabled', true); // Disables the button
+    // You can also change the button text if desired
+    $(this).text('Submitting...'); // Optional text change
+    // You can submit the form here or perform other actions
+    alert("submitted");
+  });
 
 
 

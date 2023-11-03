@@ -53,7 +53,7 @@
                   </ul>
                </div>
                <div id="printableArea">
-                  <h3>Guru Information</h3>
+                  <h3>Basic Information</h3>
                   <table class="">
                      <thead>
                         <tr>
@@ -109,6 +109,14 @@
                            <td>@foreach(__('phr.gender') as $key=>$value)
                                           {{$patient->gender == $key  ? $value : ''}}</option>
                                           @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td>Age </td>
+                           <td>{{@$patient->age}} </td>
+                        </tr>
+                        <tr>
+                           <td>Registration Date </td>
+                           <td> {{date('d-m-Y',strtotime($patient->registration_date))}}  </td>
                         </tr>
                         <tr>
                            <td>Age Group </td>
@@ -172,7 +180,7 @@
                            <td>{{$patient->family_history}} </td>
                         </tr>
                         <tr>
-                           <td colspan="2" class="title"> Examination of the patient</td>
+                           <td colspan="2" class="title"> <h3> Examination of the patient</h3> </td>
                           
                         </tr>
                         <tr>
@@ -303,9 +311,7 @@
                                           @endforeach</td>
                         </tr>
                         <tr>
-                           <td>  Examination
-                                             by
-                                             Physician<</td>
+                           <td>  Examination  by  Physician</td>
                            <td> @foreach(__('phr.examination_by_physician') as $key=>$value)
                                           {{$patient->examination_by_physician == $key  ? $value : ''}}
                                           @endforeach </td>
