@@ -12,7 +12,7 @@
 
                     <p class="logo-name">RAV Guru Shishya </p>
                 </div>
-                <ul class="list sidebar-manu">
+                <ul class="list sidebar-manu slimScrollBar">
                     <li class="sidebar-user-panel active">
                         <div class="user-panel">
                            <div class=" image">

@@ -146,16 +146,25 @@ section.content1 {
 }
 
 @media(min-width:991px) and (max-width:1350px){
+   /* .sidebar .menu .list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0 10px;
+      overflow-y: scroll !important;
+    }
+    .slimScrollBar {
+      position: relative !important;
+    } */
    
   .slimScrollDiv {   
    overflow-y: auto !important;
-   height: 500px !important;
+   height: 450px !important;
    overflow-x: hidden !important;
  }
 }
 @media(min-width:991px) and (max-width:1300px){
    .sidebar .menu .list .ml-menu li a {
-     padding: 4px 0 !important;
+     padding: 4px 41 !important;
   }
    section.content1 {
       margin: 20px;
