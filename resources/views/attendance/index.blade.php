@@ -253,7 +253,7 @@
     </div>
 </section>
 <script>
-// educational details
+// Attendance Popup details
 $('.view_attendance').on('click',function(){
         var attendance_id= $(this).data('id');
         $.ajax({
@@ -264,21 +264,13 @@ $('.view_attendance').on('click',function(){
         },
         success: function(response) {
            $('#successMsg').show();
-        //    if (response) {
-        //       $("#edit_educational_id").val(response.id);
-        //       $("#edit_institute_name").val(response.institute_name);
-        //       $("#edit_course_name").val(response.course_name);
-        //       $("#edit_year_of_passing").val(response.year_of_passing);
-        //       $('#upload_degree').attr('src', response.upload_degree);
-        //       $('#educational_document').attr('href', response.upload_degree);
-        //    }
-        const date = new Date(response.attendance_date);
-        const dd = date.getDate();
-        const mm = date.getMonth();
-        const year = date.getFullYear();
-        var tabledata = `<tr><td>Date</td><td>${dd}:${mm}:${year}</td></tr><tr><td>In-Time</td><td>${response.in_time}</td></tr><tr><td>Out-Time</td><td>${response.out_time}</td></tr><tr><td>Morning Shifts Timings</td><td>${response.attendance_morning_timing}</td></tr><tr><td>Evening Shifts Timings</td><td>${response.attendance_evening_timing}</td></tr><tr><td>Attendance</td><td>${response.attendance}</td></tr>`;
+            const date = new Date(response.attendance_date);
+            const dd = date.getDate();
+            const mm = date.getMonth();
+            const year = date.getFullYear();
+            var tabledata = `<tr><td>Date</td><td>${dd}-${mm}-${year}</td></tr><tr><td>In-Time</td><td>${response.in_time}</td></tr><tr><td>Out-Time</td><td>${response.out_time}</td></tr><tr><td>Morning Shifts Timings</td><td>${response.attendance_morning_timing}</td></tr><tr><td>Evening Shifts Timings</td><td>${response.attendance_evening_timing}</td></tr><tr><td>Attendance</td><td>${response.attendance}</td></tr>`;
 
-        $("#viewAttendanceData").html(tabledata);
+            $("#viewAttendanceData").html(tabledata);
         },
         error: function(response) {
            alert(error);

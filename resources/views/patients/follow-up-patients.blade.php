@@ -103,7 +103,7 @@
 
                                                                                                 <div>
                                                     <button type="submit" class="btn filter  waves-effect" style="line-height:2;"> Filter </button>
-                                                    <a href="http://localhost/guru-shishya/guru-shishya2/public/follow-up-patients"><button type="button" class="btn reset  waves-effect">Reset</button></a>
+                                                    <a href="{{ url('/follow-up-patients') }}"><button type="button" class="btn reset  waves-effect">Reset</button></a>
                                                 </div>
 
                                             </div>

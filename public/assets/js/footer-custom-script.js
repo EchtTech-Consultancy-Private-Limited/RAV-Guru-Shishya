@@ -211,3 +211,12 @@ function send_to_guru() {
         $(this).remove(); 
     });
 }, 4000);
+
+// create pdf of patient history
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+ }
