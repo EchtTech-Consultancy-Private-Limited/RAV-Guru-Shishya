@@ -241,3 +241,12 @@
             <!-- #Menu -->
         </aside>
         <!-- #END# Left Sidebar -->
+
+        <script>
+             (function($){
+        $(window).on("load",function(){
+            $(".slimScrollDiv").mCustomScrollbar();
+        });
+    })(jQuery);
+
+        </script>
