@@ -167,7 +167,7 @@
 
                     <div class="body">
                         <div class="table-responsive">
-                            <table class="table table-hover js-basic-example contact_list" id="data_table">
+                            <table class="table table-hover" id="attendance_list">
                                 <thead>
                                     <tr>
                                         <th class="center">S.No.<i class="fa fa-long-arrow-up" aria-hidden="true"></i>
@@ -186,6 +186,10 @@
                                         <th class="center"> Attendance <i class="fa fa-long-arrow-up"
                                                 aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                 aria-hidden="true"></i> </th>
+                                        <th class="center"> Action <i class="fa fa-long-arrow-up"
+                                                aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
+                                                aria-hidden="true"></i> 
+                                        </th>
 
                                     </tr>
                                 </thead>
@@ -203,6 +207,9 @@
                                         <td class="center">
                                             {{$attendance->guru_firstname.' '.$attendance->guru_lastname}}</td>
                                         <td class="center">{{$attendance->attendance}}</td>
+                                        <td class="d-flex justify-content-start">
+                                            <a class="btn btn-tbl-edit view_attendance" title="View Record"  data-id="{{$attendance->id}}" data-bs-toggle="modal" data-bs-target="#attendance_modal" ><i class="material-icons">visibility</i></a>
+                                        </td>
 
                                     </tr>
                                     @endforeach
@@ -214,15 +221,64 @@
                         {{ $data->links('pagination::bootstrap-5') }}
                     </div>
 
-
                 </div>
+                <!-- view attendance model -->
+                    <div class="modal fade" id="attendance_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered modal-lg" role="document" >
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Attendance Details</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="view-table" >
+                                <thead>
+                                    <tr>
+                                        <th> Title</th>
+                                        <th> Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="viewAttendanceData">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- end attendance model -->
             </div>
         </div>
     </div>
     </div>
     </div>
-
-
-
 </section>
+<script>
+// Attendance Popup details
+$('.view_attendance').on('click',function(){
+        var attendance_id= $(this).data('id');
+        $.ajax({
+           url: '{{url("view-attendance")}}',
+           type: "GET",
+           data: {
+           attendance_id: attendance_id,
+        },
+        success: function(response) {
+           $('#successMsg').show();
+            const date = new Date(response.attendance_date);
+            const dd = date.getDate();
+            const mm = date.getMonth();
+            const year = date.getFullYear();
+            var tabledata = `<tr><td>Date</td><td>${dd}-${mm}-${year}</td></tr><tr><td>In-Time</td><td>${response.in_time}</td></tr><tr><td>Out-Time</td><td>${response.out_time}</td></tr><tr><td>Morning Shifts Timings</td><td>${response.attendance_morning_timing}</td></tr><tr><td>Evening Shifts Timings</td><td>${response.attendance_evening_timing}</td></tr><tr><td>Attendance</td><td>${response.attendance}</td></tr>`;
+
+            $("#viewAttendanceData").html(tabledata);
+        },
+        error: function(response) {
+           alert(error);
+        },
+        });
+    });
+</script>
 @endsection

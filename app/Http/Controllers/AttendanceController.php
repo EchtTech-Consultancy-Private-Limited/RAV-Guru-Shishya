@@ -108,8 +108,6 @@ class AttendanceController extends Controller
 
     public function update_attendance(Request $request)
     {
-
-
         request()->validate([
             'guru_id' => 'required',
             'shishya_ids' => 'required',
@@ -117,14 +115,12 @@ class AttendanceController extends Controller
             'to_date' => 'required',
             'attendance' => 'required',
         ]);
-
         $fdate = $request->from_date;
         $tdate = $request->to_date;
         $datetime1 = new DateTime($fdate);
         $datetime2 = new DateTime($tdate);
         $interval = $datetime1->diff($datetime2);
         $days = $interval->format('%a');
-
         for($i=0;$i<=$days;$i++){
             $date = Carbon::createFromFormat('Y-m-d',$request->from_date);
             $attendance_date = date("Y-m-d",strtotime($date->addDays($i)));  
@@ -134,6 +130,10 @@ class AttendanceController extends Controller
                     'shishya_id'=>$request->shishya_ids[$j],
                     'attendance_date'=>$attendance_date,
                     'attendance'=>$request->attendance,
+                    'in_time'=>$request->in_time,
+                    'out_time'=>$request->out_time,
+                    'attendance_morning_timing'=>$request->attendance_morning_timing,
+                    'attendance_evening_timing'=>$request->attendance_evening_timing,
                 ];
 
                 $attendance=Attendance::where('shishya_id',$request->shishya_ids[$j])->where('attendance_date',$attendance_date)->get()->first();
@@ -142,15 +142,15 @@ class AttendanceController extends Controller
                 } else {
                     Attendance::create($data);
                 }
-
             }
-
         }
-
         return redirect('/attendance-list')->with('success', 'Attendance updated successfully.');
-
-
     }
 
-
+    public function viewAttendance(Request $request)
+    {
+        // dd($request->all());
+        $attendance = Attendance::where('id',$request->attendance_id)->first();
+        return response()->json($attendance);
+    }
 }

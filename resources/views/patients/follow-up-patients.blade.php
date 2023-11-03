@@ -93,14 +93,15 @@
                                                             Weekly Progress</option>
                                                         <option value="Monthly">
                                                             Monthly Progress</option>
-                                                    </select>                                              
-                                             </div>
-                                        </div>
-                                        <div class="col-md-12 d-flex justify-content-end">
-                                        <div>
-                                            <button type="submit" class="btn filter  waves-effect" style="line-height:2;"> Filter </button>
-                                            <a href="http://localhost/guru-shishya/guru-shishya2/public/follow-up-patients"><button type="button" class="btn reset  waves-effect">Reset</button></a>
-                                        </div>
+                                                    </select>
+                                                </div>
+
+                                                                                                <div>
+                                                    <button type="submit" class="btn filter  waves-effect" style="line-height:2;"> Filter </button>
+                                                    <a href="{{ url('/follow-up-patients') }}"><button type="button" class="btn reset  waves-effect">Reset</button></a>
+                                                </div>
+
+                                            </div>
                                         </div>
                                     </div>
 
@@ -313,11 +314,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
-
-
                     <div class="form-group">
-
                         <div class="form-line">
                             <label for="registration_no">Patient Registration No.</label>
                             <input type="text" id="registration_no" class="form-control"
@@ -325,12 +322,6 @@
                             <span class="text-danger" id="registration_no-error"></span>
                         </div>
                     </div>
-
-
-
-
-
-
                 </div>
                 <div class="modal-footer">
                     <div id="follow-up-btn">
@@ -345,57 +336,11 @@
         </div>
 
 </section>
-
-<script type="text/javascript">
-$("#checkall").click(function() {
-    $(".input-checkbox").prop("checked", $(this).prop("checked"));
-});
-
-$(".input-checkbox").click(function() {
-    if (!$(this).prop("checked")) {
-        $("#checkall").prop("checked", false);
-    }
-});
-
-
-$(".find-registration").click(function() {
-    if ($("#registration_no").val() == '') {
-        $("#registration_no-error").html('Enter patient registration no.');
-        return false;
-    } else $("#registration_no-error").html('');
-
-    $.ajax({
-        type: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        },
-        url: '{{ url(' / find - phr - registration ') }}',
-        data: {
-            'registration_no': $("#registration_no").val()
-        },
-        success: function(data) {
-            if (data.id === undefined) {
-                $("#registration_no-error").html(data.message);
-                $("#follow-up-btn").html('');
-            } else {
-                $("#follow-up-btn").html('<a href="{{ url(' / add - follow - up - sheet ') }}/' +
-                    data
-                    .id +
-                    '"><button type="button" class="btn add waves-effect">Add Follow Up</button></a>'
-                );
-            }
-        }
-    });
-});
-
-function confirm_option(action) {
-    if (!confirm("Are you sure to " + action + ", this record!")) {
-        return false;
-    }
-
-    return true;
-
-}
+<script>
+    const findPhrRegistration = "{{ url('/find-phr-registration') }}";
+    const addFollowUpSheetUrl = "{{ url('/add-follow-up-sheet')}}";
+    const csrfToken = "{{ csrf_token() }}";
 </script>
+<script src="{{ asset('assets/js/custom-script.js') }}"></script>
 
 @endsection

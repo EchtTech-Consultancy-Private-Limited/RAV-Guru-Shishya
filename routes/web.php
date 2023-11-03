@@ -151,6 +151,7 @@ Route::group(['middleware' => ['auth','prevent-back-history']], function() {
         Route::post('attendance-list', [AttendanceController::class, 'index']);
         Route::get('add-attendance', [AttendanceController::class, 'add_attendance']);
         Route::post('add-attendance', [AttendanceController::class, 'update_attendance']);
+        Route::get('view-attendance', [AttendanceController::class, 'viewAttendance']);
         Route::get('export-attendance', [AttendanceController::class, 'export_attendance']);
 
 

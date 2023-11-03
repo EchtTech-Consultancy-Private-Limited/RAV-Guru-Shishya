@@ -41,17 +41,18 @@
       <div class="row clearfix">
          <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
             <div class="card">
-               
                <div class="card-body" >
                <div class="header p-0">
                   <h2>Patient History Sheet</h2>
 
                   <ul class="header-dropdown m-r--5">
                      <li>
-                     <a href="{{ route('generatePdf',$patient->id) }}"><button type="button" class="btn print btn-danger waves-effect"> &nbsp; Print &nbsp;</button></a>
+                     <!-- <a href="{{ route('generatePdf',$patient->id) }}"><button type="button" class="btn print btn-danger waves-effect"> &nbsp; Print &nbsp;</button></a> -->
+                     <button type="button" onclick="printDiv('printableArea')" class="btn print btn-danger waves-effect"> &nbsp; Print &nbsp;</button>
                      </li>
                   </ul>
                </div>
+               <div id="printableArea">
                   <h3>Guru Information</h3>
                   <table class="">
                      <thead>
@@ -137,7 +138,7 @@
                         </tr>
                         <tr>
                            <td>Region of patient </td>
-                           <td> >@foreach(__('phr.region_of_patient') as $key=>$value)
+                           <td>@foreach(__('phr.region_of_patient') as $key=>$value)
                                           {{$patient->region_of_patient == $key  ? $value : ''}}
                                           @endforeach
                          </td>
@@ -279,7 +280,7 @@
                            <td>  @foreach(__('phr.raktachapa') as $key=>$value)
                                           {{$patient->raktachapa == $key  ? $value : ''}}
                                           @endforeach
-</td>
+                           </td>
                         </tr>
                         <tr>
                            <td>Hrid
@@ -377,7 +378,8 @@
                                     <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
                                  </div>
                   </div>
-               </div>
+            </div>   
+         </div>
 </section>
 </div>
 </div>
