@@ -102,7 +102,7 @@
                                        <i class="material-icons">delete_forever</i>
                                     </a>
                                     <a target="_blank" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn comment btn-tbl-edit" title="Check Remark">
-                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <i class="fa fa-history" aria-hidden="true"></i>
                                     </a>
                                     @if($patientlist->phr_a_status== 1)
                                     <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn remark" title="Remarks">

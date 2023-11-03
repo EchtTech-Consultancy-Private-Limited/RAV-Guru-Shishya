@@ -293,7 +293,7 @@ color: #fff;
 .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
     /* padding: 5px 28px; */
     margin: 2px;
-    line-height: 2;
+    /* line-height: 2; */
 }
 
 div#DataTables_Table_0_paginate {
@@ -666,7 +666,7 @@ input[type=text]:not(.browser-default),input[type=date]:not(.browser-default){
 }
 
 td.left.patient-list-action {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -682,12 +682,29 @@ td.left.patient-list-action {
 }
 
 .side-closed .sidebar {
-    width: 0px;
+    width: 80px;
+}
+.side-closed .sidebar .logo-brand{
+    width: 100px;
+    padding: 5px 19px 0 5px;
+    height: auto;
+}
+.side-closed .sidebar .logo-name{
+    display: none;
+}
+.side-closed.side-closed-hover .sidebar .menu .list .ml-menu li a {
+  
+    padding: 0 36px !important;
 }
 
   .side-closed.submenu-closed .navbar-header {
-    width: 0px;
+    width: 80px;
     margin-left: -25px;
+  }
+
+  .side-closed  .breadcrumb:last-child {
+    color: #fff;
+    margin-left: 20px;
   }
   .sidemenu-collapse {
     height: 50px;
@@ -1043,6 +1060,7 @@ a.btn.add {
     border-radius: 20px !important;
     font-size: 11px;
     font-weight: 500;
+    line-height: 1.5;
 }
 
 button.btn.submit {
@@ -1246,7 +1264,7 @@ h3 {
     display: inline-block;
     padding: 9px 10px;
     border-radius: 3px;
-    margin-bottom: 5px !important;
+    margin-bottom: -1px !important;
     font-size: 14px !important;
 }
 
@@ -1339,3 +1357,19 @@ i.fa.fa-plus {
   .select2-container .select2-selection--multiple{
     min-height: auto !important;
   }
+
+  .sidebar .menu .list {
+    width: auto;
+    /* height: 1200px !important; */
+    /* overflow-y: scroll !important; */
+  }
+
+
+
+  .add-btn-lang a.btn.lang i.fa.fa-plus{
+    padding-right: 0px !important;
+  }
+
+  table.dataTable td.dataTables_empty, table.dataTable th.dataTables_empty {
+    text-align: center !important;
+}

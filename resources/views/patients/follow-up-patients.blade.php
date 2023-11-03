@@ -52,44 +52,39 @@
                         </div>
                         @endif
                         <div class="header">
-                            <div class="row">
-                                <div class="col-xxl-3 col-xl-4 col-lg-3 col-md-12">
-                                    <div class="new-patient-input">
-                                        <div class="new-patient-ragistration">Registartion No. :
-                                        </div>
-                                        <div>
-                                            <input type="text" name="prno" class="form-control"
+                            <div class="row pt-3">
+                                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-12">
+                                <div class="form-group">
+                                       <label class="active">Registartion No. :</label>
+                                       <input type="text" name="prno" class="form-control"
                                                 value="@if (request()->prno) {{ request()->prno }} @endif"
-                                                maxlength="20">
-                                        </div>
-                                    </div>
+                                                maxlength="20" placeholder="Enter Registration No.">
                                 </div>
-                                <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-12">
+                                   
+                                </div>
+                                <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-12">
                                 <div class="row">
+                               
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
-                                            <div class="new-patient-input">
-                                                <div class="new-patient-ragistration">From:
-                                                </div>
-                                                <div>
+                                                <div class="form-group">
+                                                    <label class="active">From:</label>
                                                     <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
                                                 </div>
-                                            </div>
+                                           
                                         </div>
 
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
-                                            <div class="new-patient-input">
-                                                <div class="new-patient-ragistration">
-                                                    To:
-                                                </div>
-                                                <div>
+                                          
+                                            <div class="form-group">
+                                                    <label class="active"> To:</label>
                                                     <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
                                                 </div>
-                                            </div>
                                         </div>
+                                       
 
                                         <div class="col-xl-6 col-xxl-5 col-lg-6 col-md-6">
-                                            <div class="new-patient-input ">
-                                                <div class="pe-2">
+                                            <div class="form-group">
+                                                    <label class="active">Select Duration:</label>
                                                     <select name="report_type" class="form-control active">
                                                         <option value="">Select Duration</option>
                                                         <option value="Daily">
@@ -250,8 +245,7 @@
                                                 </a>
                                                 @endif
                                                 <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}"
-                                                    class="btn comment btn-tbl-edit" title="Check Remarks"><i
-                                                        class="fa fa-comment" aria-hidden="true"></i>
+                                                    class="btn comment btn-tbl-edit" title="Check Remarks"><i class="fa fa-history" aria-hidden="true"></i>
                                                     @if (
                                                     (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1')
                                                     ||

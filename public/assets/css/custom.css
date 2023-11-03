@@ -145,7 +145,18 @@ section.content1 {
   
 }
 
+@media(min-width:991px) and (max-width:1350px){
+   
+  .slimScrollDiv {   
+   overflow-y: auto !important;
+   height: 500px !important;
+   overflow-x: hidden !important;
+ }
+}
 @media(min-width:991px) and (max-width:1300px){
+   .sidebar .menu .list .ml-menu li a {
+     padding: 4px 0 !important;
+  }
    section.content1 {
       margin: 20px;
       width: 80%;
