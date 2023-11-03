@@ -52,11 +52,14 @@
                                  <h4 class="py-2">Attendances</h4>
                                  </div>
                                  <div class="col-md-6" >
-                                    
-                                 <a type="button" href="{{url('/export-attendance')}}"
+                               
+                                     <a type="button" href="{{url('/export-attendance')}}"
                                         class="btn download waves-effect" > Download </a>
 
-                                  
+                                        @if(Auth::user()->user_type==2)
+                                    <a type="button" href="{{url('/add-attendance')}}"
+                                    class="btn add waves-effect float-right" >Add Attendance </a>
+                                    @endif
                                  </div>
                                  </div>
                                  
@@ -64,40 +67,48 @@
                                     
                                 </div>
                                 <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-3">
-                                 <div>
-                                       <div class="new-patient-input d-inline-block">
-                                                <div class="pe-2">
-                                                    <select class="form-control" name="shishya_id">
-                                                        <option value="">Select Shishya</option>
-                                                        @foreach($shishyas as $shishya)
-                                                        <option value="{{$shishya->id}}" @if(request()->
-                                                            shishya_id==$shishya->id) SELECTED
-                                                            @endif>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lasttname}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                           <div class="new-patient-input d-inline-block">
-                                                @if(Auth::user()->user_type==1 || Auth::user()->user_type==4)
-                                                <span class="pe-2 d-inline-block">Guru:</span>
-                                                <div class="pe-2 d-inline-block">
-                                               
-                                                    <select class="form-control" name="guru_id">
-                                                        <option value="">Select Guru</option>
-                                                        @foreach($gurus as $guru)
-                                                        <option value="{{$guru->id}}" @if(request()->guru_id==$guru->id)
-                                                            SELECTED
-                                                            @endif>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lasttname}}
-                                                        </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                @else
-                                                <input type="hidden" name="guru_id" value="{{Auth::user()->id}}">
-                                                @endif
-                                            </div>
+                                 <div class="row">
+                                    <div class="col-md-6">
+                                    <div class="form-group d-inline-block ">
+                                        <label class="active">Select Shishya:<span class="text-danger"></span></label>
+                                        <select class="form-control" name="shishya_id">
+                                            <option value="">Select Shishya</option>
+                                            @foreach($shishyas as $shishya)
+                                            <option value="{{$shishya->id}}" @if(request()->
+                                                shishya_id==$shishya->id) SELECTED
+                                                @endif>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lasttname}}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    </div>
+                                   
 
+                                    <div class="col-md-6">
+                                    <div class="form-group d-inline-block">
+                                      
+                                      @if(Auth::user()->user_type==1 || Auth::user()->user_type==4)
+                                      <label class="active">Select Guru:<span class="text-danger"></span></label>
+                                          
+                                           <div class="pe-2 d-inline-block">
+                                           
+                                               <select class="form-control" name="guru_id">
+                                                   <option value="">Select Guru</option>
+                                                   @foreach($gurus as $guru)
+                                                   <option value="{{$guru->id}}" @if(request()->guru_id==$guru->id)
+                                                       SELECTED
+                                                       @endif>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lasttname}}
+                                                   </option>
+                                                   @endforeach
+                                               </select>
+                                           </div>
+                                           @else
+                                           <input type="hidden" name="guru_id" value="{{Auth::user()->id}}">
+                                           @endif
+                                  </div>
+                                    </div>
+                               
+                                      
                                             
                                  </div>
                                     
@@ -106,59 +117,47 @@
 
 
                                 <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-4 width-50">
-                                    <div class="new-patient-input">
-                                        <div class="new-patient-ragistration">
-                                            From:
-                                        </div>
-                                        <div>
+                                        <div class="form-group">
+                                            <label class="active">From:</label>
                                             <input type="date" name="from_date"
-                                                class="form-control datetimepicker flatpickr-input active"
-                                                value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"
-                                                max="{{date('Y-m-d',time())}}">
+                                                        class="form-control datetimepicker flatpickr-input active"
+                                                        value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"
+                                                        max="{{date('Y-m-d',time())}}">
                                         </div>
-                                    </div>
+                                   
                                 </div>
                                 <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-4 width-50">
-                                    <div class="new-patient-input">
-                                        <div class="new-patient-ragistration">
-                                            To:
-                                        </div>
-                                        <div>
-                                            <input type="date" name="to_date"
+                                <div class="form-group">
+                                       <label class="active"> To:</label>
+                                       <input type="date" name="to_date"
                                                 class="form-control datetimepicker flatpickr-input active"
                                                 value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif"
                                                 max="{{date('Y-m-d',time())}}">
-                                        </div>
-                                    </div>
+                                 </div>
+                                   
                                 </div>
                                 <div class="col-xl-2 col-xxl-2 col-lg-2 col-md-4 width-50">
-                                    <div class="new-patient-input">
-                                       
-                                        <div>
-                                            <select name="attendance" class="form-control active">
+                                <div class="form-group">
+                                       <label class="active">Select Attendance<span class="text-danger"></span></label>
+                                       <select name="attendance" class="form-control active">
                                                 <option value="">Select Attendance</option>
                                                 <option @if(request()->attendance=='Present') SELECTED @endif>Present
                                                 </option>
                                                 <option @if(request()->attendance=='Absent') SELECTED @endif>Absent
                                                 </option>
                                             </select>
-                                        </div>
-                                    </div>
+                                 </div>
+                                    
                                 </div>
 
-                                <div class="col-xl-5 col-xxl-3 col-lg-5 col-md-3">
+                                <div class="col-xl-12 col-xxl-3 col-lg-5 col-md-3  d-flex justify-content-end">
                                     <button type="submit" class="btn filter  waves-effect" >
                                         Filter </button>
                                     <a href="{{ url('attendance-list') }}"><button type="button"
                                             class="btn reset waves-effect">Reset</button></a>
 
 
-                                            @if(Auth::user()->user_type==2)
-
-                                       <a type="button" href="{{url('/add-attendance')}}"
-                                          class="btn add waves-effect" >Add Attendance </a>
-
-                                       @endif
+                                          
                                 </div>
                             </div>
                         </div>

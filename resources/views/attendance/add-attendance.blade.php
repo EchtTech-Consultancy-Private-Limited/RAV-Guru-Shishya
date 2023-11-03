@@ -76,7 +76,7 @@
 
                                     <div class="form-group">
                                        <label class="active"> In Time :<span class="text-danger"></span></label>
-                                       <input type="date" name="to_date"
+                                       <input type="time" name="to_date" placeholder ="Please Enter In Time"
                                    class="form-control datetimepicker flatpickr-input active"
                                    value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
                                  </div>
@@ -87,7 +87,7 @@
                                <div class="col-xl-3 col-xxl-3 col-lg-3 col-md-3 width-50">
                                <div class="form-group">
                                        <label class="active">Out Time :<span class="text-danger"></span></label>
-                                       <input type="date" name="to_date"
+                                       <input type="time" name="to_date" placeholder ="Please Enter In Time"
                                    class="form-control datetimepicker flatpickr-input active"
                                    value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
                                  </div>
@@ -149,7 +149,7 @@
 
 
                           
-                                    <div class=" col-md-3 d-flex justify-content-center">
+                                    <div class=" col-xxl-3 col-xl-12 col-lg-3 col-md-6 d-flex justify-content-end">
                                         <div class="new-patient-input d-flex justify-content-end  ">
                                            
                                             <button type="submit" class="btn add waves-effect" style="line-height:2;"
@@ -170,11 +170,11 @@
                                         <th class="center text-white"> <label
                                                 class="form-check-label  text-white"><input type="checkbox" class="m-0"
                                                     name="checkall" id="checkall" value="1"> Select All </label> </th>
-                                        <th class="center"> Registration No. </th>
-                                        <th class="center"> Shishya Name </th>
-                                        <th class="center"> Guru Name </th>
-                                        <th class="center"> Contact No. </th>
-                                        <th class="center"> Created Date </th>
+                                        <th class="center"> Registration No.  <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                        <th class="center"> Shishya Name  <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                        <th class="center"> Guru Name  <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                        <th class="center"> Contact No.  <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                        <th class="center"> Created Date  <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
 
                                     </thead>
                                     <tbody>

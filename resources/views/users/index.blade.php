@@ -129,7 +129,7 @@
                                     </a>
                                     @endif
                                     @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
-                                    <a  href="{{ url('delete-user/'.encrypt($user->id)) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                    <a  href="{{ url('delete-user/'.encrypt($user->id)) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
                                     @endif

@@ -94,7 +94,7 @@
                                 @foreach(main_menu() as  $key=>$models)
                                 <tbody>
                                     <tr>
-                                    <th> {{$models->name}} @if($models->user_type==1) ( Admin ) @elseif($models->user_type==2) ( Guru ) @elseif($models->user_type==3) ( Shishya ) @endif</th>
+                                    <td> {{$models->name}} @if($models->user_type==1) ( Admin ) @elseif($models->user_type==2) ( Guru ) @elseif($models->user_type==3) ( Shishya ) @endif</td>
 
                                         <td>
                                             @php $check='0'; @endphp
@@ -145,7 +145,7 @@
                                     @if(count(main_child($models->id)) > 0 )
                                     @foreach(main_child($models->id) as  $model)
                                     <tr>
-                                    <th> {{$model->name}} @if($model->user_type==1) ( Admin ) @elseif($model->user_type==2) ( Guru ) @elseif($model->user_type==3) ( Shishya ) @endif</th>
+                                    <td> {{$model->name}} @if($model->user_type==1) ( Admin ) @elseif($model->user_type==2) ( Guru ) @elseif($model->user_type==3) ( Shishya ) @endif</td>
 
                                         <td>
                                             @php $check='0'; @endphp

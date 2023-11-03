@@ -12,7 +12,7 @@
 
                     <p class="logo-name">RAV Guru Shishya </p>
                 </div>
-                <ul class="list">
+                <ul class="list sidebar-manu">
                     <li class="sidebar-user-panel active">
                         <div class="user-panel">
                            <div class=" image">
