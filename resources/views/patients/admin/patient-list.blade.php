@@ -101,11 +101,11 @@
                                     <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
-                                    <a target="_blank" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn comment btn-tbl-edit" title="Check Remark">
+                                    <a target="_self" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn comment btn-tbl-edit" title="Check Remark">
                                     <i class="fa fa-history" aria-hidden="true"></i>
                                     </a>
                                     @if($patientlist->phr_a_status== 1)
-                                    <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn remark" title="Remarks">
+                                    <a target="_self" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn remark" title="Remarks">
                                         Remarks
                                     </a>
                                     @endif
