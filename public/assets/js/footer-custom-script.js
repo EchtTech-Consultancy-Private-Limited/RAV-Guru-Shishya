@@ -224,7 +224,7 @@ function printDiv(divName) {
 
 
  $(document).on('submit', 'form', function() {
-    $('button').attr('disabled', 'disabled');
+    $('.submit').attr('disabled', 'disabled');
 });
 
 $('#age').keypress(function(e) {

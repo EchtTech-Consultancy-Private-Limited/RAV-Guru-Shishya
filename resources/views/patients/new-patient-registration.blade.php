@@ -172,7 +172,7 @@
                                                         <td class="center">
                                                         <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i></a>
                                                         @if($patientlist->phr_s_status== 1)
-                                                            <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary remark" title="Remarks">
+                                                            <a target="_self" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary remark" title="Remarks">
                                                                 Remarks
                                                             </a>
                                                         @endif                                                            
