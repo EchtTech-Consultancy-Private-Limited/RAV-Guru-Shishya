@@ -512,6 +512,7 @@ button.btn.bg-indigo.waves-effect {
 
 .wizard .steps .done a {
     background-color: #ddd !important;
+    color: #333 !important;
 }
 
 .bg-indigo {
@@ -1401,3 +1402,6 @@ i.fa.fa-plus {
     border-radius: 10px !important;
 }
 
+#Name_Clinic {
+    padding: 0 !important;
+  }
