@@ -99,7 +99,7 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>First Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30"> 
+                                       <input type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30"> 
                                        @if($errors->has('firstname'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
@@ -110,7 +110,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Middle Name</label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
+                                       <input type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                     </div>
                                  </div>
                                  <!-- student name -->
@@ -118,13 +118,13 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>Last Name</label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
+                                       <input type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Father's Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
+                                       <input type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
                                        @if($errors->has('f_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
@@ -136,7 +136,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mother's Name </label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="m_name" id="m_name" class="form-control" placeholder="Mother's Name" maxlength="30" value="{{ old('m_name', @$profile_record[0]->m_name) }}">
+                                       <input type="text" name="m_name" id="m_name" class="form-control" placeholder="Mother's Name" maxlength="30" value="{{ old('m_name', @$profile_record[0]->m_name) }}">
                                        @if($errors->has('m_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('m_name') }}</strong>
@@ -169,7 +169,6 @@
                                                 <option value="">Please select</option>
                                                 @foreach(__('phr.marital_status') as $key=>$value)
                                                    <option value="{{$key}}" {{@$profile_record[0]->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
                                              @if ($errors->has('marital_status'))
@@ -187,7 +186,6 @@
                                                 <option value="">Please select</option>
                                                 @foreach(__('phr.category') as $key=>$value)
                                                    <option value="{{$key}}" {{@$profile_record[0]->category == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
                                              @if ($errors->has('category'))
@@ -200,7 +198,7 @@
 
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                       <label for="date_of_birth">Date of Birth:</label>
+                                       <label for="date_of_birth">Date of Birth<span class="text-danger">*</span></label>
                                        <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
                                        @if($errors->has('date_of_birth'))
                                        <span class="help-block">
@@ -231,7 +229,7 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mobile No.<span class="text-danger">*</span></label>
-                                       <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No." value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
+                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
                                        </span>
@@ -242,7 +240,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
                                        <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
                                     </div>
@@ -250,7 +248,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
+                                       <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
                                        @error('pan_no')
                                        <div class="alert alert-danger">{{ $message }}</div>
                                        @enderror
@@ -1279,6 +1277,9 @@ Session::forget('session_for_redirections');
     const clinicCity = "{{@$clinic_record->city}}";
     const eduEditUrl= "{{url('/education/edit-company')}}";
     const publicationEditUrl = "{{url('/publication/edit-publication')}}";
+   function validateInput(input) {
+      input.value = input.value.replace(/\D/g, '');
+   }
 </script>
 <script src="{{ asset('assets/js/custom-script.js') }}"></script>
 @endsection

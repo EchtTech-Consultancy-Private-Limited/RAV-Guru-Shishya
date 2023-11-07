@@ -640,9 +640,9 @@ class PatientController extends Controller
         //$guru=User::where('id',$patient->guru_id)->first();
 
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-
+        $shishya=User::where('id',$patient->shishya_id)->first();
         $patientHistoryLog = PatientHistoryLog::where('patient_id',$id)->first();
-        return view("patients.edit-patients",compact('patient','guru','patientHistoryLog'));
+        return view("patients.edit-patients",compact('patient','guru','shishya','patientHistoryLog'));
     }
 
     public function update_patients(Request $request)
