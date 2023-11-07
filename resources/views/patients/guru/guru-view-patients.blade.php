@@ -103,7 +103,7 @@
                                        <h3>Patient Information</h3>
                                        <thead>
                                           <tr>
-                                             <th> Title</th>
+                                             <th class="w-25"> Title</th>
                                              <th> Value</th>
                                           </tr>
                                        </thead>

@@ -74,41 +74,47 @@
                                  <input type="hidden" name="guru_id" value="{{ $guru->id }}">
                                  <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
                                  <div class="card-body">
+                                    <div class="title">
+                                       <p>Basic Information</p>
+                                       </div>
                                     <div class="row">
-                                       <h4>Basic Information</h4>
+                                      
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Guru</label><br>
-                                             <label for="example-text-input" class="form-control-label">{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</label>
+                                            <p>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</p>
 
                                           </div>
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Place of the Guru</label><br>
-                                             <label for="example-text-input" class="form-control-label">{{$guru->city_name}}</label>
+                                            <p>{{$guru->city_name}}</p>
 
                                           </div>
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Shishya</label><br>
-                                             <label for="example-text-input" class="form-control-label">{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</label>
+                                             <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
 
                                           </div>
                                        </div>
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                             <label for="example-text-input" class="form-control-label"><?php echo date('d-m-Y'); ?></label>
+                                           <p><?php echo date('d-m-Y'); ?></p>
 
                                           </div>
                                        </div>
                                     </div>
                                     
                                     <hr style="height:2px;">
+                                    <div class="title">
+                                          <p>Add Patient Details</p>
+                                       </div>
                                     <div class="row">
-                                       <h4>Add Patient Details</h4>
+                                      
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger">*</span></label>
@@ -257,8 +263,9 @@
                                        <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Aasan Sidhi</label>
-                                             <input type="text" name="aasan_sidhi" value="{{ old('aasan_sidhi') }}" class="form-control" placeholder="Enter Aasan Sidhi" aria-label="Aasan
-                                             Sidhi" value="" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
+                                             <textarea name="aasan_sidhi" id=""  rows="1"  value="{{ old('aasan_sidhi') }}" onfocusout="defocused(this)" maxlength="30" class="form-control"></textarea>
+                                             <!-- <input type="text" name="aasan_sidhi" value="{{ old('aasan_sidhi') }}" class="form-control" placeholder="Enter Aasan Sidhi" aria-label="Aasan
+                                             Sidhi" value="" onfocus="focused(this)" > -->
                                           </div>
                                        </div>
                                        <div class="col-md-4">
@@ -309,12 +316,7 @@
                                        </div>
                                    
                                        
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Duration</label>
-                                             <input type="text" name="said_by_patient_duration" value="{{ old('said_by_patient_duration') }}" class="form-control" placeholder="Enter Duration" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
-                                          </div>
-                                       </div>
+                                     
                                    
                                        
                                        
@@ -324,10 +326,16 @@
                                              <input type="text" name="complaint_as_said_by_family_duration" class="form-control" placeholder="Enter Duration" value="{{ old('complaint_as_said_by_family_duration') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="50">
                                           </div>
                                        </div>
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">Past Illness</label>
+                                             <textarea cols="45" rows="1" name="past_illness" class="form-control" value="" placeholder="Enter Past Illness" maxlength="80">{{ old('past_illness') }}</textarea>
+                                          </div>
+                                       </div>
                                     </div>
                                     
                                    
-                                       
+                                  
                                        
                                  
                                     <div class="row">
@@ -339,10 +347,11 @@
                                        </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Past Illness</label>
-                                             <textarea cols="45" rows="1" name="past_illness" class="form-control" value="" placeholder="Enter Past Illness" maxlength="80">{{ old('past_illness') }}</textarea>
+                                             <label for="example-text-input" class="form-control-label">Duration</label>
+                                             <input type="text" name="said_by_patient_duration" value="{{ old('said_by_patient_duration') }}" class="form-control" placeholder="Enter Duration" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                           </div>
                                        </div>
+                                      
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
@@ -357,7 +366,10 @@
                                           <div class="form-group">
                                              {{-- <label for="example-text-input" class="form-control-label">Examination of the patient</label> --}}
 
-                                             <h4>Examination of the patient</h4>
+                                             <div class="title">
+
+                                                <p>Examination of the patient</p>
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
@@ -815,7 +827,7 @@
                                              <label for="example-text-input" class="form-control-label">
                                                 Prayogashaliya
                                                 Parikshana</label>
-                                             <textarea cols="45" rows="1" name="prayogashaliya_parikshana" class="form-control" placeholder="Enter Prayogashaliya Parikshana">{{ old('prayogashaliya_parikshana') }}</textarea>
+                                             <textarea cols="45" rows="1" name="prayogashaliya_parikshana" class="form-control" placeholder="Enter Prayogashaliya Parikshana" maxlength="200">{{ old('prayogashaliya_parikshana') }}</textarea>
                                           </div>
                                        </div>
                                        <div class="col-md-4">
@@ -927,16 +939,9 @@
 </section>
 
 <script>
+  
+ 
    // disable alphate
-   $('#age').keypress(function(e) {
-      //alert("yes");
-      var regex = new RegExp("^[0-9_]");
-      var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-      if (regex.test(str)) {
-         return true;
-      }
-      e.preventDefault();
-      return false;
-   });
+
 </script>
 @endsection

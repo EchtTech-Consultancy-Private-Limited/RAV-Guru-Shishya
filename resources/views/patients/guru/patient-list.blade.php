@@ -107,7 +107,7 @@
                                     </a>
                                     <td class="center">
                                     <a  href="{{ url('guru-remark-history/'.encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remark"><i class="fa fa-history" aria-hidden="true"></i></a>
-                                    <a target="_blank" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn remark btn-secondary" title="Remarks">
+                                    <a target="_self" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn remark btn-secondary" title="Remarks">
                                         Remarks
                                     </a>
                                     </td>
