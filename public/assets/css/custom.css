@@ -158,7 +158,7 @@ section.content1 {
    
   .slimScrollDiv {   
    overflow-y: auto !important;
-   height: 450px !important;
+   height: 400px !important;
    overflow-x: hidden !important;
  }
 }
