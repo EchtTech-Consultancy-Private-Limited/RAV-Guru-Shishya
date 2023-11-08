@@ -102,7 +102,9 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->registration_no)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Name of the Shishya</label><br>
-                                            <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
+                                             @if(!empty($shishya->id))
+                                             <p>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}</p>
+                                             @endif
                                           </div>
                                        </div>
                                        <div class="col-md-3">

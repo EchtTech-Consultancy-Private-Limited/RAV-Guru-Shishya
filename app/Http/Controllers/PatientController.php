@@ -152,7 +152,7 @@ class PatientController extends Controller
     public function new_patient_registration(Request $request , $id ='')
     {
         $shishyaId = ($id == '' ? Auth::user()->id : $id);
-        $data=Patient::where('shishya_id',$shishyaId);
+        $data=Patient::where(['shishya_id'=>$shishyaId,'soft_delete' => 0]);
         if(!empty($request->prno))$data->where('patients.registration_no',$request->prno);
         if(!empty($request->from_date))$data->where('patients.registration_date','>=',date("Y-m-d",strtotime($request->from_date)));
         if(!empty($request->to_date))$data->where('patients.registration_date','<=',date("Y-m-d",strtotime($request->to_date)));
@@ -640,9 +640,9 @@ class PatientController extends Controller
         //$guru=User::where('id',$patient->guru_id)->first();
 
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-
+        $shishya=User::where('id',$patient->shishya_id)->first();
         $patientHistoryLog = PatientHistoryLog::where('patient_id',$id)->first();
-        return view("patients.edit-patients",compact('patient','guru','patientHistoryLog'));
+        return view("patients.edit-patients",compact('patient','guru','shishya','patientHistoryLog'));
     }
 
     public function update_patients(Request $request)
@@ -789,7 +789,7 @@ class PatientController extends Controller
     public function guru_patient_list()
     {
         $guru_id=Auth::user()->id;
-        $patientlist=Patient::orderby('updated_at','Desc')->where('phr_g_status',1)->where('guru_id',$guru_id)->get();
+        $patientlist=Patient::orderby('updated_at','Desc')->where(['guru_id'=>$guru_id,'soft_delete' => 0])->get();
          
         return view("patients.guru.patient-list",compact("patientlist"));
     }
@@ -1091,9 +1091,17 @@ class PatientController extends Controller
 
     public function delete_phr($id)
     {
-        //dd("yes");
         $drugpart = Patient::find($id);
         $drugpart->delete();
+        return redirect()->back()->with('success', 'Patient history deleted successfully');
+    }
+
+    function delete_patient_remark(Request $request)
+    {
+        Patient::where(['id' => $request->patient_id])->update([
+            'delete_remark' => $request->delete_remark,
+            'soft_delete' => '1'
+        ]);
         return redirect()->back()->with('success', 'Patient history deleted successfully');
     }
 
@@ -1102,12 +1110,12 @@ class PatientController extends Controller
     {
         if($phr_type=="In-Patient")
         {
-            $patientlist=Patient::orderBy('updated_at','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get();
+            $patientlist=Patient::orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
             //dd($patientlist);
         }
         elseif($phr_type=="OPD-Patient")
         {
-           $patientlist=Patient::orderBy('updated_at','DESC')->where('phr_a_status',1)->where('patient_type',$phr_type)->get(); 
+           $patientlist=Patient::orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
         }
         return view("patients.admin.patient-list",compact("patientlist"));      
          

@@ -99,7 +99,7 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>First Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30"> 
+                                       <input type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30"> 
                                        @if($errors->has('firstname'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
@@ -110,7 +110,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Middle Name</label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
+                                       <input type="text" name="middlename" class="form-control capitalize" placeholder="Middle Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0])) {{ $profile_record[0]->middlename }} @else Auth::user()->middlename @endif" >
                                     </div>
                                  </div>
                                  <!-- student name -->
@@ -118,13 +118,13 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>Last Name</label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
+                                       <input type="text" name="lastname" class="form-control capitalize" placeholder="Last Name" minlength="2" maxlength="30" value="@if(isset($profile_record[0]))  {{ $profile_record[0]->lastname }} @else Auth::user()->lastname @endif" >
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Father's Name<span class="text-danger">*</span></label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
+                                       <input type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
                                        @if($errors->has('f_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
@@ -136,7 +136,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mother's Name </label>
-                                       <input onkeydown="return /[a-z]/i.test(event.key)" type="text" name="m_name" id="m_name" class="form-control" placeholder="Mother's Name" maxlength="30" value="{{ old('m_name', @$profile_record[0]->m_name) }}">
+                                       <input type="text" name="m_name" id="m_name" class="form-control" placeholder="Mother's Name" maxlength="30" value="{{ old('m_name', @$profile_record[0]->m_name) }}">
                                        @if($errors->has('m_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('m_name') }}</strong>
@@ -169,7 +169,6 @@
                                                 <option value="">Please select</option>
                                                 @foreach(__('phr.marital_status') as $key=>$value)
                                                    <option value="{{$key}}" {{@$profile_record[0]->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
                                              @if ($errors->has('marital_status'))
@@ -187,7 +186,6 @@
                                                 <option value="">Please select</option>
                                                 @foreach(__('phr.category') as $key=>$value)
                                                    <option value="{{$key}}" {{@$profile_record[0]->category == $key  ? 'selected' : ''}}>{{$value}}</option>
-                                                <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
                                              @if ($errors->has('category'))
@@ -200,8 +198,8 @@
 
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                       <label for="date_of_birth">Date of Birth:</label>
-                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
+                                       <label for="date_of_birth">Date of Birth<span class="text-danger">*</span></label>
+                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}" max="{{date('Y-m-d',time())}}">
                                        @if($errors->has('date_of_birth'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
@@ -231,7 +229,7 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mobile No.<span class="text-danger">*</span></label>
-                                       <input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No." value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
+                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
                                        </span>
@@ -242,18 +240,23 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">
+                                       @if($errors->has('aadhaar_no'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('aadhaar_no') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="pan_no" id="Pancard" class="form-control" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
-                                       @error('pan_no')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
+                                       @if($errors->has('pan_no'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('pan_no') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
 
@@ -343,7 +346,7 @@
                                  <div class="col-sm-12 col-md-12 mb-3">
                                     <div class="form-check m-l-5 pb-2">
                                        <label class="form-check-label">
-                                          <input class="form-check-input" type="checkbox" id="same_as_present" value=""> Same as Present Address
+                                          <input class="form-check-input" type="checkbox" id="same_as_present" name="same_as_present" value="1" {{ (@$profile_record[0]->is_same_permanent_address == 1) ? 'checked' : '' }}> Same as Present Address
                                           <span class="form-check-sign">
                                              <span class="check"></span>
                                           </span>
@@ -594,26 +597,32 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label >E-Signature<span class="text-danger">*</span></label>
-                                       <input type="file" name="e_sign" id="e_sign" class="form-control" >
-                                       @error('e_sign')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="file" name="e_sign" id="e_sign" class="form-control" >                                      
                                        @if($profile_record[0]->e_sign)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                        @endif
+                                       @if($errors->has('e_sign'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
+                                          </span>
+                                          @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group ">
                                        <label >Profile Picture<span class="text-danger"></span></label>
-                                       <input type="file" name="profile_image" id="profile_image" class="form-control" >@error('profile_image')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="file" name="profile_image" id="profile_image" class="form-control" > 
+                                       
                                        @if($profile_record[0]->user_image)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @else
                                        <img src="{{ asset('assets/images/user.png') }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @endif
+                                       @if($errors->has('profile_image'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
+                                          </span>
+                                          @endif
                                     </div>
                                  </div>
                               </div>
@@ -663,7 +672,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                        <label for="year_passing">Year of Passing</label>
-                                       <input type="date" id="year_of_passing" name="year_of_passing">
+                                       <input type="date" id="year_of_passing" name="year_of_passing" required>
                                     </div>
                                  </div>
                                  <div class="col-lg-3 mb-0">
@@ -676,7 +685,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                     <label for="Registration_year">Year of Registration</label>
-                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}">
+                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}" required>
                                     </div>
                                  </div>
 
@@ -722,7 +731,7 @@
                                                 <td>{{ $educational_records->name_of_board }}</td>
                                                 <td>{{ $educational_records->course_name }} </td>
                                                 <td>{{ $educational_records->regis_no }} </td>
-                                                <td>{{ $educational_records->year_of_regis }} </td>
+                                                <td>{{ date('d-m-Y', strtotime($educational_records->year_of_regis)) }} </td>
                                                 <td>{{ date('d-m-Y', strtotime($educational_records->year_of_passing)) }}</td>
                                                 <td class="text-center">
                                                    @if($educational_records->upload_degree)
@@ -772,10 +781,10 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label for="Name_Clinic">Name of Clinic</label>
-                                       <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
+                                       <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control p-0" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-3 col-xl-5 col-md-6 col-6">
+                                 <div class=" col-xl-8 col-md-6 col-6">
                                     
                                       
                                        <div class="form-group default-select select2Style p-0">
@@ -795,7 +804,7 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Clinic Timings </h2>
                                  </div>
-                                 <div class="col-md-4">
+                                 <div class=" col-xl-5 col-md-6">
                                   
                                      
                                        <div class="form-group default-select select2Style">
@@ -813,8 +822,7 @@
                                        </div>
                                    
                                  </div>
-                                 <div class="col-md-4">
-                                    
+                                 <div class=" col-xl-5 col-md-6">
                                      
                                        <div class="form-group default-select select2Style">
                                        <label for="Registration_year">Evening Shifts Timings</label>
@@ -831,7 +839,7 @@
                                        </div>
                                    
                                  </div>
-                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
+                                 <div class="col-xxl-2  col-xl-2  col-6">
                                     <div class="form-group">
                                        <label>Weekend Off <span class="text-danger">*</span></label>
                                        <select name="weekend_off" class="form-control" >
@@ -888,22 +896,22 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
+                                       <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="8" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-6  col-md-6 col-6">
+                                 <div class=" col-xl-6  col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
-                                       <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
+                                       <input type="text" name="average_no_of_patients_in_opd" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-5  col-md-6 col-6">
+                                 <div class=" col-xl-5  col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Average number of occupancy ratio (Annually)</label>
-                                       <input type="text" name="average_no_of_occupancy_annually" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_occupancy_annually)) {{ $clinic->average_no_of_occupancy_annually }} @endif">
+                                       <input type="text" name="average_no_of_occupancy_annually" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Average number"  value="@if(isset($clinic->average_no_of_occupancy_annually)) {{ $clinic->average_no_of_occupancy_annually }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-7  col-md-6 col-6">
+                                 <div class=" col-xl-7  col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Weather maintaining any IPD. If yes, number of beds </label>
                                        <div class="d-flex justify-content-between show-form">
@@ -912,14 +920,14 @@
                                              <option value="1" @if(isset($clinic->weather_maintaining)){{ $clinic->weather_maintaining=='1'?'selected':'' }} @endif>Yes</option>
                                              <option value="2"  @if(isset($clinic->weather_maintaining)) {{ $clinic->weather_maintaining=='2'?'selected':'' }} @endif>No</option>
                                           </select>
-                                          <input type="text" name="weather_maintaining_no_of_beds" id="number_beds" class="form-control ml-2  @if(isset($specific_details_record->weather_maintaining)) @if($specific_details_record->weather_maintaining!=1) d-none @endif @endif" placeholder="Number of Beds"  value="@if(isset($clinic->weather_maintaining_no_of_beds)) {{ $clinic->weather_maintaining_no_of_beds }} @endif">
+                                          <input type="text" name="weather_maintaining_no_of_beds" id="number_beds" oninput="validateInput(this)" maxlength="8" class="form-control ml-2  @if(isset($specific_details_record->weather_maintaining)) @if($specific_details_record->weather_maintaining!=1) d-none @endif @endif" placeholder="Number of Beds"  value="@if(isset($clinic->weather_maintaining_no_of_beds)) {{ $clinic->weather_maintaining_no_of_beds }} @endif">
                                        </div>
                                     </div>
                                  </div>
                                  <div class="header col-md-12 pt-0">
                                     <h2>Other units available in the clinic </h2>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-4  col-md-4 col-6">
+                                 <div class=" col-xl-4  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Medicine Manufacturing Section</label>
                                        <select name="medicine_manufacturing_section" class="form-control">
@@ -958,25 +966,25 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Infrastructural details of the clinic/hospital</h2>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-2  col-md-4 col-6  ">
+                                 <div class=" col-xl-2  col-md-4 col-6  ">
                                     <div class="form-group">
                                        <label>Total Area</label>
-                                       <input type="text" name="total_area" class="form-control" placeholder="Total Area"  value="@if(isset($clinic->total_area)) {{ $clinic->total_area }} @endif">
+                                       <input type="text" name="total_area" class="form-control" placeholder="Total Area" oninput="validateInput(this)" maxlength="8" value="@if(isset($clinic->total_area)) {{ $clinic->total_area }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
+                                 <div class=" col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of rooms</label>
-                                       <input type="number" name="no_of_rooms" id="no_of_rooms" class="form-control" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
+                                       <input type="text" name="no_of_rooms" id="no_of_rooms" class="form-control" oninput="validateInput(this)" maxlength="10" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-4  col-md-4 col-6">
+                                 <div class=" col-xl-4  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of wards and beds</label>
-                                       <input type="text" name="no_of_wards_beds" class="form-control" placeholder="Number of wards and beds"  value="@if(isset($clinic->no_of_wards_beds)) {{ $clinic->no_of_wards_beds }} @endif">
+                                       <input type="text" name="no_of_wards_beds" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Number of wards and beds"  value="@if(isset($clinic->no_of_wards_beds)) {{ $clinic->no_of_wards_beds }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
+                                 <div class=" col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Facilities available</label>
                                        <input type="text" name="facilities_available" class="form-control" placeholder="Facilities available"  value="@if(isset($clinic->facilities_available)) {{ $clinic->facilities_available }} @endif">
@@ -998,25 +1006,25 @@
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">No. of case reports</label>
-                                       <input type="number"name="no_of_case_reports"  placeholder="No. of case reports" maxlength="200">
+                                       <input type="text"name="no_of_case_reports"  placeholder="No. of case reports" oninput="validateInput(this)" maxlength="10" required>
                                     </div>
                                  </div>
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Research Papers</label>
-                                       <input type="number"name="research_papers" placeholder="Research Papers" maxlength="200">
+                                       <input type="text"name="research_papers" placeholder="Research Papers" oninput="validateInput(this)" maxlength="10">
                                     </div>
                                  </div>
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Books Published</label>
-                                       <input type="number"name="books_published"  placeholder="Books Published" maxlength="200">
+                                       <input type="text"name="books_published"  placeholder="Books Published" oninput="validateInput(this)" maxlength="10">
                                     </div>
                                  </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                        <label for="school_name">Number of Seminars / Conference / Workshops attended</label>
-                                       <input type="number"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended" maxlength="200">
+                                       <input type="text"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended" oninput="validateInput(this)" maxlength="10">
                                     </div>
                                  </div>
                                  <div class="col-md-12 text-center mb-3">
@@ -1095,7 +1103,7 @@
                                              <option value="1" @if(isset($specific_details_record->any_teaching_exp))  {{ $specific_details_record->any_teaching_exp=='1'?'selected':'' }} @endif>Yes</option>
                                              <option value="2" @if(isset($specific_details_record->any_teaching_exp))  {{ $specific_details_record->any_teaching_exp=='2'?'selected':'' }} @endif>No</option>
                                           </select>
-                                          <input type="text"name="teaching_exp_input" id="teaching_exp_input" class="@if(isset($specific_details_record->any_teaching_exp)) @if($specific_details_record->any_teaching_exp!=1) d-none @endif @endif" value="@if(isset($specific_details_record->teaching_exp_input)) {{ $specific_details_record->teaching_exp_input }}@endif">
+                                          <input type="text"name="teaching_exp_input" id="teaching_exp_input" oninput="validateInput(this)" maxlength="5" class="@if(isset($specific_details_record->any_teaching_exp)) @if($specific_details_record->any_teaching_exp!=1) d-none @endif @endif" value="@if(isset($specific_details_record->teaching_exp_input)) {{ $specific_details_record->teaching_exp_input }}@endif">
                                        </div>
                                     </div>
                                  </div>
@@ -1118,7 +1126,7 @@
                                              <option value="1" @if(isset($specific_details_record->honourar_attachment_to_any_colg)) {{ $specific_details_record->honourar_attachment_to_any_colg=='1'?'selected':'' }} @endif>Yes</option>
                                              <option value="2" @if(isset($specific_details_record->honourar_attachment_to_any_colg)) {{ $specific_details_record->honourar_attachment_to_any_colg=='2'?'selected':'' }} @endif>No</option>
                                           </select>
-                                          <input type="text"name="honourar_attackment" id="Honourary_input" class="
+                                          <input type="text"name="honourar_attackment" id="Honourary_input" oninput="validateInput(this)" maxlength="8" class="
                                           @if(isset($specific_details_record->honourar_attachment_to_any_colg)) @if($specific_details_record->honourar_attachment_to_any_colg!=1) d-none @endif @endif" value="@if(isset($specific_details_record->honourar_attackment)) {{ $specific_details_record->honourar_attackment }}@endif">
                                        </div>
                                     </div>
@@ -1174,6 +1182,12 @@
                         <input type="text" id="edit_institute_name" name="institute_name" placeholder="Institute Name">
                      </div>
                   </div>
+                  <div class="col-3">
+                     <div class="form-group">
+                        <label for="institute_name">Name Of Board</label>
+                        <input type="text" id="edit_name_of_board" name="name_of_board" placeholder="Name Of Board">
+                     </div>
+                  </div>
                   <div class="col-sm-12 col-md-3">
                      <div class="form-group">
                         <label>Course<span class="text-danger">*</span></label>
@@ -1190,7 +1204,19 @@
                         <label for="year_passing">Year of Passing</label>
                         <input type="date" name="year_of_passing" id="edit_year_of_passing">
                      </div>
-                  </div>                 
+                  </div>
+                  <div class="col-3">
+                     <div class="form-group">
+                        <label for="institute_name">Registration Number</label>
+                        <input type="text" id="edit_regis_no" name="regis_no" placeholder="Name Of Board">
+                     </div>
+                  </div>
+                  <div class="col-3">
+                     <div class="form-group">
+                        <label for="year_passing">Year Of Registration</label>
+                        <input type="date" name="year_of_regis" id="edit_year_of_regis">
+                     </div>
+                  </div>               
                   <div class="col-3">
                      <div class="form-group ">
                         <label >Upload Degree</label>

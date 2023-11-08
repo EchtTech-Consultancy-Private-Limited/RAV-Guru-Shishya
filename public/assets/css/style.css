@@ -512,6 +512,7 @@ button.btn.bg-indigo.waves-effect {
 
 .wizard .steps .done a {
     background-color: #ddd !important;
+    color: #333 !important;
 }
 
 .bg-indigo {
@@ -1257,6 +1258,7 @@ h3 {
 
 .title {
     border-bottom: 1.5px solid #5c4e3f;
+    
 }
 .title p, .header h2 {
     background: #5c4e3f;
@@ -1360,7 +1362,7 @@ i.fa.fa-plus {
 
   .sidebar .menu .list {
     width: auto;
-    /* height: 1200px !important; */
+    height: 700px !important;
     /* overflow-y: scroll !important; */
   }
 
@@ -1372,4 +1374,37 @@ i.fa.fa-plus {
 
   table.dataTable td.dataTables_empty, table.dataTable th.dataTables_empty {
     text-align: center !important;
+}
+
+
+.slimScrollDiv {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #ddd #999; /* violet pour le thumb, gris pour la track */
+}
+
+.slimScrollDiv::-webkit-scrollbar {
+    width: 7px;
+    border-radius: 10px !important;
+}
+
+.slimScrollDiv::-webkit-scrollbar-thumb {
+    background-color: #ddd; /* violet pour le thumb */
+    border-radius: 10px !important;
+}
+
+.slimScrollDiv::-webkit-scrollbar-thumb:hover {
+    background-color: #333; /* violet légèrement plus foncé au survol */
+}
+
+.slimScrollDiv::-webkit-scrollbar-track {
+    background-color: #fff; /* gris pour la track */
+    border-radius: 10px !important;
+}
+
+#Name_Clinic {
+    padding: 0 !important;
+  }
+#delete_remark{
+    height: auto;
 }

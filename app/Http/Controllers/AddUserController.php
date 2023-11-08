@@ -262,6 +262,12 @@ class AddUserController extends Controller
         }else{
             $input['bank_mobile_link'] = $request->bank_mobile_link=0;
         }
+        if($request->same_as_present)
+        {
+            $input['is_same_permanent_address'] = $request->same_as_present=1;
+        }else{
+            $input['is_same_permanent_address'] = $request->same_as_present=0;
+        }
         $form_step_type=$request->form_step_type;    
         $id=Auth::user()->id;
         $countries = Country::get(["name", "id"]);
@@ -426,7 +432,7 @@ class AddUserController extends Controller
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
 
-        return redirect('/profile')->with('success',"Profile Updated Successfully");
+        return redirect('/profile')->with('success',"Education Details Updated Successfully");
         //return view("users.multi-step",compact('form_step_type','countries','basic_info_session','lang','profile_record','per_profile_record','language_record'));
     }
 
@@ -463,7 +469,7 @@ class AddUserController extends Controller
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
 
-        return redirect('/profile')->with('success',"Profile Updated Successfully");
+        return redirect('/profile')->with('success',"Clinical Details Updated Successfully");
     }
 
     
@@ -491,7 +497,7 @@ class AddUserController extends Controller
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
 
-        return redirect('/profile')->with('success',"Profile Updated Successfully");
+        return redirect('/profile')->with('success',"Publication Details Updated Successfully");
     }
 
     public function manage_profile_form_step5(Request $request)
@@ -518,7 +524,7 @@ class AddUserController extends Controller
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
 
-        return redirect('/profile')->with('success',"Profile Updated Successfully");
+        return redirect('/profile')->with('success',"Specific Details Updated Successfully");
     }
     public function education_delete(Request $request)
     {    

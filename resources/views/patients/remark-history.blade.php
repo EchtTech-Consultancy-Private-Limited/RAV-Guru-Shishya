@@ -59,8 +59,8 @@
                                 <!-- <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">  Shishya Name  </th> -->
                                 <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">  Send By  </th>
                                 <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">  Send To  </th>
-                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Date </th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Remark </th>
+                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Date </th>
 
                             </tr>
                         </thead>
@@ -85,8 +85,8 @@
                                     @elseif(@$remark_history->send_to=='3')Shishya
                                     @elseif(@$remark_history->send_to=='1')Admin @endif
                                  </td>
-                                 <td class="center"><a >{{ date('d-m-Y', strtotime($remark_history->created_at)) }}</a></td>
                                  <td class="center"><a ><b>{{$remark_history->remarks}}</b></a></td>
+                                 <td class="center"><a >{{ date('d-m-Y', strtotime($remark_history->created_at)) }}</a></td>
                         </tr>
                         @endforeach
 

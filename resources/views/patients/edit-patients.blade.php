@@ -93,7 +93,9 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label ">Name of the Shishya</label><br>
-                                            <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
+                                             @if(!empty($shishya->id))
+                                             <p>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}</p>
+                                             @endif
                                           </div>
                                        </div>
                                        <div class="col-md-3">

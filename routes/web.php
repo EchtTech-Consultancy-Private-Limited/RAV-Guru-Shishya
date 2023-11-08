@@ -167,6 +167,7 @@ Route::group(['middleware' => ['auth','prevent-back-history']], function() {
         Route::get('admin-drug-report-history', [DrugController::class, 'admin_drug_report_history']);
         Route::get('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report']);
         Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr']);
+        Route::post('delete-patient-remark', [PatientController::class, 'delete_patient_remark']);
 
         Route::get('patients/{phr_type}', [PatientController::class, 'in_patients']);
 

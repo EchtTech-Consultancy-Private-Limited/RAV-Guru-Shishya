@@ -43,6 +43,7 @@ function send_to_guru() {
    });
 
    $(document).ready(function() {
+    
    
     if ( $.fn.dataTable.isDataTable( '#data_table' ) ) {
      table = $('#data_table').DataTable();
@@ -220,3 +221,19 @@ function printDiv(divName) {
     window.print();
     document.body.innerHTML = originalContents;
  }
+
+
+ $(document).on('submit', 'form', function() {
+    $('.submit').attr('disabled', 'disabled');
+});
+
+$('#age').keypress(function(e) {
+    //alert("yes");
+    var regex = new RegExp("^[0-9_]");
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+    if (regex.test(str)) {
+       return true;
+    }
+    e.preventDefault();
+    return false;
+ });
