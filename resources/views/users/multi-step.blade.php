@@ -781,10 +781,10 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label for="Name_Clinic">Name of Clinic</label>
-                                       <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
+                                       <input type="text" id="Name_Clinic" placeholder="Name of Clinic" class="form-control p-0" name="name_of_clinic" value="@if(isset($clinic)){{ $clinic->name_of_clinic }}@endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-3 col-xl-5 col-md-6 col-6">
+                                 <div class=" col-xl-8 col-md-6 col-6">
                                     
                                       
                                        <div class="form-group default-select select2Style p-0">
@@ -804,7 +804,7 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Clinic Timings </h2>
                                  </div>
-                                 <div class="col-md-4">
+                                 <div class=" col-xl-5 col-md-6">
                                   
                                      
                                        <div class="form-group default-select select2Style">
@@ -822,8 +822,7 @@
                                        </div>
                                    
                                  </div>
-                                 <div class="col-md-4">
-                                    
+                                 <div class=" col-xl-5 col-md-6">
                                      
                                        <div class="form-group default-select select2Style">
                                        <label for="Registration_year">Evening Shifts Timings</label>
@@ -840,7 +839,7 @@
                                        </div>
                                    
                                  </div>
-                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
+                                 <div class="col-xxl-2  col-xl-2  col-6">
                                     <div class="form-group">
                                        <label>Weekend Off <span class="text-danger">*</span></label>
                                        <select name="weekend_off" class="form-control" >
@@ -900,19 +899,19 @@
                                        <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-6  col-md-6 col-6">
+                                 <div class=" col-xl-6  col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
                                        <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-5  col-md-6 col-6">
+                                 <div class=" col-xl-5  col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Average number of occupancy ratio (Annually)</label>
                                        <input type="text" name="average_no_of_occupancy_annually" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_occupancy_annually)) {{ $clinic->average_no_of_occupancy_annually }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-7  col-md-6 col-6">
+                                 <div class=" col-xl-7  col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Weather maintaining any IPD. If yes, number of beds </label>
                                        <div class="d-flex justify-content-between show-form">
@@ -928,7 +927,7 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Other units available in the clinic </h2>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-4  col-md-4 col-6">
+                                 <div class=" col-xl-4  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Medicine Manufacturing Section</label>
                                        <select name="medicine_manufacturing_section" class="form-control">
@@ -967,25 +966,25 @@
                                  <div class="header col-md-12 pt-0">
                                     <h2>Infrastructural details of the clinic/hospital</h2>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-2  col-md-4 col-6  ">
+                                 <div class=" col-xl-2  col-md-4 col-6  ">
                                     <div class="form-group">
                                        <label>Total Area</label>
                                        <input type="text" name="total_area" class="form-control" placeholder="Total Area"  value="@if(isset($clinic->total_area)) {{ $clinic->total_area }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
+                                 <div class=" col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of rooms</label>
                                        <input type="number" name="no_of_rooms" id="no_of_rooms" class="form-control" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-4  col-md-4 col-6">
+                                 <div class=" col-xl-4  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of wards and beds</label>
                                        <input type="text" name="no_of_wards_beds" class="form-control" placeholder="Number of wards and beds"  value="@if(isset($clinic->no_of_wards_beds)) {{ $clinic->no_of_wards_beds }} @endif">
                                     </div>
                                  </div>
-                                 <div class="col-xxl-2 col-xl-3  col-md-4 col-6">
+                                 <div class=" col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Facilities available</label>
                                        <input type="text" name="facilities_available" class="form-control" placeholder="Facilities available"  value="@if(isset($clinic->facilities_available)) {{ $clinic->facilities_available }} @endif">
