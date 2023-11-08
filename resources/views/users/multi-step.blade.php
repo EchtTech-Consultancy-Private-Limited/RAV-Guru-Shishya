@@ -240,18 +240,23 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">@error('aadhaar_no')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">
+                                       @if($errors->has('aadhaar_no'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('aadhaar_no') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
                                        <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
-                                       @error('pan_no')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('pan_no'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('pan_no') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
 
@@ -341,7 +346,7 @@
                                  <div class="col-sm-12 col-md-12 mb-3">
                                     <div class="form-check m-l-5 pb-2">
                                        <label class="form-check-label">
-                                          <input class="form-check-input" type="checkbox" id="same_as_present" value=""> Same as Present Address
+                                          <input class="form-check-input" type="checkbox" id="same_as_present" name="same_as_present" value="1" {{ (@$profile_record[0]->is_same_permanent_address == 1) ? 'checked' : '' }}> Same as Present Address
                                           <span class="form-check-sign">
                                              <span class="check"></span>
                                           </span>
@@ -592,26 +597,32 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label >E-Signature<span class="text-danger">*</span></label>
-                                       <input type="file" name="e_sign" id="e_sign" class="form-control" >
-                                       @error('e_sign')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="file" name="e_sign" id="e_sign" class="form-control" >                                      
                                        @if($profile_record[0]->e_sign)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                        @endif
+                                       @if($errors->has('e_sign'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
+                                          </span>
+                                          @endif
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group ">
                                        <label >Profile Picture<span class="text-danger"></span></label>
-                                       <input type="file" name="profile_image" id="profile_image" class="form-control" >@error('profile_image')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="file" name="profile_image" id="profile_image" class="form-control" > 
+                                       
                                        @if($profile_record[0]->user_image)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @else
                                        <img src="{{ asset('assets/images/user.png') }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @endif
+                                       @if($errors->has('profile_image'))
+                                          <span class="help-block">
+                                             <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
+                                          </span>
+                                          @endif
                                     </div>
                                  </div>
                               </div>
@@ -661,7 +672,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                        <label for="year_passing">Year of Passing</label>
-                                       <input type="date" id="year_of_passing" name="year_of_passing">
+                                       <input type="date" id="year_of_passing" name="year_of_passing" required>
                                     </div>
                                  </div>
                                  <div class="col-lg-3 mb-0">
@@ -674,7 +685,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                     <label for="Registration_year">Year of Registration</label>
-                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}">
+                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}" required>
                                     </div>
                                  </div>
 
@@ -720,7 +731,7 @@
                                                 <td>{{ $educational_records->name_of_board }}</td>
                                                 <td>{{ $educational_records->course_name }} </td>
                                                 <td>{{ $educational_records->regis_no }} </td>
-                                                <td>{{ $educational_records->year_of_regis }} </td>
+                                                <td>{{ date('d-m-Y', strtotime($educational_records->year_of_regis)) }} </td>
                                                 <td>{{ date('d-m-Y', strtotime($educational_records->year_of_passing)) }}</td>
                                                 <td class="text-center">
                                                    @if($educational_records->upload_degree)
@@ -996,25 +1007,25 @@
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">No. of case reports</label>
-                                       <input type="number"name="no_of_case_reports"  placeholder="No. of case reports" maxlength="200">
+                                       <input type="text"name="no_of_case_reports"  placeholder="No. of case reports" oninput="validateInput(this)" maxlength="10">
                                     </div>
                                  </div>
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Research Papers</label>
-                                       <input type="number"name="research_papers" placeholder="Research Papers" maxlength="200">
+                                       <input type="text"name="research_papers" placeholder="Research Papers" oninput="validateInput(this)" maxlength="10">
                                     </div>
                                  </div>
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">Books Published</label>
-                                       <input type="number"name="books_published"  placeholder="Books Published" maxlength="200">
+                                       <input type="text"name="books_published"  placeholder="Books Published" oninput="validateInput(this)" maxlength="10">
                                     </div>
                                  </div>
                                  <div class="col-md-12">
                                     <div class="form-group">
                                        <label for="school_name">Number of Seminars / Conference / Workshops attended</label>
-                                       <input type="number"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended" maxlength="200">
+                                       <input type="text"name="no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended" oninput="validateInput(this)" maxlength="10">
                                     </div>
                                  </div>
                                  <div class="col-md-12 text-center mb-3">
@@ -1172,6 +1183,12 @@
                         <input type="text" id="edit_institute_name" name="institute_name" placeholder="Institute Name">
                      </div>
                   </div>
+                  <div class="col-3">
+                     <div class="form-group">
+                        <label for="institute_name">Name Of Board</label>
+                        <input type="text" id="edit_name_of_board" name="name_of_board" placeholder="Name Of Board">
+                     </div>
+                  </div>
                   <div class="col-sm-12 col-md-3">
                      <div class="form-group">
                         <label>Course<span class="text-danger">*</span></label>
@@ -1188,7 +1205,19 @@
                         <label for="year_passing">Year of Passing</label>
                         <input type="date" name="year_of_passing" id="edit_year_of_passing">
                      </div>
-                  </div>                 
+                  </div>
+                  <div class="col-3">
+                     <div class="form-group">
+                        <label for="institute_name">Registration Number</label>
+                        <input type="text" id="edit_regis_no" name="regis_no" placeholder="Name Of Board">
+                     </div>
+                  </div>
+                  <div class="col-3">
+                     <div class="form-group">
+                        <label for="year_passing">Year Of Registration</label>
+                        <input type="date" name="year_of_regis" id="edit_year_of_regis">
+                     </div>
+                  </div>               
                   <div class="col-3">
                      <div class="form-group ">
                         <label >Upload Degree</label>
