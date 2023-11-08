@@ -199,7 +199,7 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label for="date_of_birth">Date of Birth<span class="text-danger">*</span></label>
-                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}">
+                                       <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}" max="{{date('Y-m-d',time())}}">
                                        @if($errors->has('date_of_birth'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
@@ -896,19 +896,19 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="text" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
+                                       <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="8" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
                                     </div>
                                  </div>
                                  <div class=" col-xl-6  col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
-                                       <input type="text" name="average_no_of_patients_in_opd" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
+                                       <input type="text" name="average_no_of_patients_in_opd" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
                                     </div>
                                  </div>
                                  <div class=" col-xl-5  col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Average number of occupancy ratio (Annually)</label>
-                                       <input type="text" name="average_no_of_occupancy_annually" class="form-control" placeholder="Average number"  value="@if(isset($clinic->average_no_of_occupancy_annually)) {{ $clinic->average_no_of_occupancy_annually }} @endif">
+                                       <input type="text" name="average_no_of_occupancy_annually" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Average number"  value="@if(isset($clinic->average_no_of_occupancy_annually)) {{ $clinic->average_no_of_occupancy_annually }} @endif">
                                     </div>
                                  </div>
                                  <div class=" col-xl-7  col-md-6 col-6">
@@ -920,7 +920,7 @@
                                              <option value="1" @if(isset($clinic->weather_maintaining)){{ $clinic->weather_maintaining=='1'?'selected':'' }} @endif>Yes</option>
                                              <option value="2"  @if(isset($clinic->weather_maintaining)) {{ $clinic->weather_maintaining=='2'?'selected':'' }} @endif>No</option>
                                           </select>
-                                          <input type="text" name="weather_maintaining_no_of_beds" id="number_beds" class="form-control ml-2  @if(isset($specific_details_record->weather_maintaining)) @if($specific_details_record->weather_maintaining!=1) d-none @endif @endif" placeholder="Number of Beds"  value="@if(isset($clinic->weather_maintaining_no_of_beds)) {{ $clinic->weather_maintaining_no_of_beds }} @endif">
+                                          <input type="text" name="weather_maintaining_no_of_beds" id="number_beds" oninput="validateInput(this)" maxlength="8" class="form-control ml-2  @if(isset($specific_details_record->weather_maintaining)) @if($specific_details_record->weather_maintaining!=1) d-none @endif @endif" placeholder="Number of Beds"  value="@if(isset($clinic->weather_maintaining_no_of_beds)) {{ $clinic->weather_maintaining_no_of_beds }} @endif">
                                        </div>
                                     </div>
                                  </div>
@@ -969,19 +969,19 @@
                                  <div class=" col-xl-2  col-md-4 col-6  ">
                                     <div class="form-group">
                                        <label>Total Area</label>
-                                       <input type="text" name="total_area" class="form-control" placeholder="Total Area"  value="@if(isset($clinic->total_area)) {{ $clinic->total_area }} @endif">
+                                       <input type="text" name="total_area" class="form-control" placeholder="Total Area" oninput="validateInput(this)" maxlength="8" value="@if(isset($clinic->total_area)) {{ $clinic->total_area }} @endif">
                                     </div>
                                  </div>
                                  <div class=" col-xl-3  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of rooms</label>
-                                       <input type="number" name="no_of_rooms" id="no_of_rooms" class="form-control" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
+                                       <input type="text" name="no_of_rooms" id="no_of_rooms" class="form-control" oninput="validateInput(this)" maxlength="10" placeholder="Number of rooms"  value="@if(isset($clinic->no_of_rooms)) {{ $clinic->no_of_rooms }} @endif">
                                     </div>
                                  </div>
                                  <div class=" col-xl-4  col-md-4 col-6">
                                     <div class="form-group">
                                        <label>Number of wards and beds</label>
-                                       <input type="text" name="no_of_wards_beds" class="form-control" placeholder="Number of wards and beds"  value="@if(isset($clinic->no_of_wards_beds)) {{ $clinic->no_of_wards_beds }} @endif">
+                                       <input type="text" name="no_of_wards_beds" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Number of wards and beds"  value="@if(isset($clinic->no_of_wards_beds)) {{ $clinic->no_of_wards_beds }} @endif">
                                     </div>
                                  </div>
                                  <div class=" col-xl-3  col-md-4 col-6">
@@ -1006,7 +1006,7 @@
                                  <div class="col-md-4">
                                     <div class="form-group">
                                        <label for="school_name">No. of case reports</label>
-                                       <input type="text"name="no_of_case_reports"  placeholder="No. of case reports" oninput="validateInput(this)" maxlength="10">
+                                       <input type="text"name="no_of_case_reports"  placeholder="No. of case reports" oninput="validateInput(this)" maxlength="10" required>
                                     </div>
                                  </div>
                                  <div class="col-md-4">
@@ -1103,7 +1103,7 @@
                                              <option value="1" @if(isset($specific_details_record->any_teaching_exp))  {{ $specific_details_record->any_teaching_exp=='1'?'selected':'' }} @endif>Yes</option>
                                              <option value="2" @if(isset($specific_details_record->any_teaching_exp))  {{ $specific_details_record->any_teaching_exp=='2'?'selected':'' }} @endif>No</option>
                                           </select>
-                                          <input type="text"name="teaching_exp_input" id="teaching_exp_input" class="@if(isset($specific_details_record->any_teaching_exp)) @if($specific_details_record->any_teaching_exp!=1) d-none @endif @endif" value="@if(isset($specific_details_record->teaching_exp_input)) {{ $specific_details_record->teaching_exp_input }}@endif">
+                                          <input type="text"name="teaching_exp_input" id="teaching_exp_input" oninput="validateInput(this)" maxlength="5" class="@if(isset($specific_details_record->any_teaching_exp)) @if($specific_details_record->any_teaching_exp!=1) d-none @endif @endif" value="@if(isset($specific_details_record->teaching_exp_input)) {{ $specific_details_record->teaching_exp_input }}@endif">
                                        </div>
                                     </div>
                                  </div>
@@ -1126,7 +1126,7 @@
                                              <option value="1" @if(isset($specific_details_record->honourar_attachment_to_any_colg)) {{ $specific_details_record->honourar_attachment_to_any_colg=='1'?'selected':'' }} @endif>Yes</option>
                                              <option value="2" @if(isset($specific_details_record->honourar_attachment_to_any_colg)) {{ $specific_details_record->honourar_attachment_to_any_colg=='2'?'selected':'' }} @endif>No</option>
                                           </select>
-                                          <input type="text"name="honourar_attackment" id="Honourary_input" class="
+                                          <input type="text"name="honourar_attackment" id="Honourary_input" oninput="validateInput(this)" maxlength="8" class="
                                           @if(isset($specific_details_record->honourar_attachment_to_any_colg)) @if($specific_details_record->honourar_attachment_to_any_colg!=1) d-none @endif @endif" value="@if(isset($specific_details_record->honourar_attackment)) {{ $specific_details_record->honourar_attackment }}@endif">
                                        </div>
                                     </div>
@@ -1305,9 +1305,6 @@ Session::forget('session_for_redirections');
     const clinicCity = "{{@$clinic_record->city}}";
     const eduEditUrl= "{{url('/education/edit-company')}}";
     const publicationEditUrl = "{{url('/publication/edit-publication')}}";
-   function validateInput(input) {
-      input.value = input.value.replace(/\D/g, '');
-   }
 </script>
 <script src="{{ asset('assets/js/custom-script.js') }}"></script>
 @endsection

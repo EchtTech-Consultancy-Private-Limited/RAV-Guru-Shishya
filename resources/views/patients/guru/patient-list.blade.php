@@ -91,8 +91,9 @@
                                  <td class="center">@if($patientlist->gender==1) Male @elseif($patientlist->gender==2) Female @elseif($patientlist->gender==3)Others @endif</td>
                                  <td class="center"> {{ date('d-m-Y', strtotime($patientlist->registration_date)) }} </td>
 
-                                 <td class=" patient-list-action">                                   
-                                    @if($patientlist->phr_a_status== 1 OR $patientlist->phr_s_status== 1)
+                                 <td class=" patient-list-action">
+                                    <a href="{{ url('guru-view-patient/'.encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title ="View Record"><i class="material-icons">visibility</i></a>                                   
+                                 @if($patientlist->phr_a_status== 1 OR $patientlist->phr_s_status== 1)
                                     <!-- <a href="javascript:void(0);" class="btn btn-secondary" title="Edit Patient">
                                         Remarks
                                     </a> -->
@@ -100,20 +101,22 @@
                                         Remarks
                                     </a> -->
 
-                                    @else
-                                    <a href="{{ url('guru-view-patient/'.encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title ="View Record"><i class="material-icons">visibility</i></a>
+                                 @else                                    
                                     <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn edit btn-tbl-edit" title="Edit Patient"><i class="material-icons">edit</i></a>
-                                    <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete"><i class="material-icons">delete_forever</i>
-                                    </a>
-                                    <td class="center">
-                                    <a  href="{{ url('guru-remark-history/'.encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remark"><i class="fa fa-history" aria-hidden="true"></i></a>
+                                    <!-- <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete"><i class="material-icons">delete_forever</i>
+                                    </a> -->
+                                 @endif
+                                 </td>
+                                 <td class="center">
+                                 <a  href="{{ url('guru-remark-history/'.encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remark"><i class="fa fa-history" aria-hidden="true"></i></a> 
+                                 @if($patientlist->phr_a_status == 1 OR $patientlist->phr_s_status == 1)
+                                 @else
                                     <a target="_self" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn remark btn-secondary" title="Remarks">
                                         Remarks
                                     </a>
-                                    </td>
-                                    @endif
+                                 @endif
                                  </td>
-                        </tr>
+                           </tr>
                         @endforeach
 
                     </tbody>

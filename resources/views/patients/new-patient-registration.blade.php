@@ -153,11 +153,11 @@
                                                                 <!-- <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
                                                                     <i class="material-icons">send</i>
                                                                 </a> -->
-                                                            @if ($patientlist->phr_g_status != 1)
+                                                            <!-- @if ($patientlist->phr_g_status != 1)
                                                                 <a href="{{ url('delete-phr/' . $patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                                                     <i class="material-icons">delete_forever</i>
                                                                 </a>
-                                                            @endif
+                                                            @endif -->
                                                             @else
                                                             <!-- <a href="javascript:void(0);" class="btn btn-tbl-edit" title="Edit Patient">
                                                                     <i class="material-icons">edit</i>
