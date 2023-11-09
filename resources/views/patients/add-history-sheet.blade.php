@@ -901,9 +901,6 @@
                                              " placeholder="Enter  Pathya-Apathya" maxlength="100">{{ old('pathya_apathya') }}</textarea>
                                           </div>
                                        </div>
-
-
-
                                     </div>
 
                                     <div class="row">

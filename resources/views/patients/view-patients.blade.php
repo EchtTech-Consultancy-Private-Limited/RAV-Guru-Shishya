@@ -62,7 +62,7 @@
                               <th>Name of the Shishya </th>
                               <th>Date of Report </th>
                         </tr>
-                       
+
                      </thead>
 
                      <tbody>
@@ -87,7 +87,7 @@
                              <th class="w-25"> Title </th>
                              <th> Value </th>
                         </tr>
-                       
+
                      </thead>
 
                      <tbody>
@@ -181,7 +181,7 @@
                         </tr>
                         <tr>
                            <td colspan="2" class="title"> <h3> Examination of the patient</h3> </td>
-                          
+
                         </tr>
                         <tr>
                            <td> Skin</td>
@@ -249,14 +249,14 @@
                                           {{@$patient->shabda == $key  ? $value : ''}}
                                           @endforeach </td>
                         </tr>
-             
+
                         <tr>
                            <td>Koshtha </td>
                            <td> @foreach(__('phr.koshtha') as $key=>$value)
                                           {{@$patient->koshtha == $key  ? $value : ''}}
                                           @endforeach </td>
                         </tr>
-                                   <!-- ******************************* --> 
+                                   <!-- ******************************* -->
                         <tr>
                            <td>Agni </td>
                            <td> @foreach(__('phr.agni') as $key=>$value)
@@ -291,7 +291,7 @@
                            <td>Samodhana Kriyas </td>
                            <td> {{@$patient->samodhana_kriyas }} </td>
                         </tr>
-                      
+
                                    <!-- ******************************* -->
                         <tr>
                            <td>  Mala
@@ -384,9 +384,9 @@
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span></td>
                            <td>{{@$patient->pathya_apathya}} </td>
                         </tr>
-                       
+
                      </tbody>
-                  
+
                   <div class="row clearfix">
                                     <div class="col-md-6">
                                        <div class="form-group">
@@ -417,13 +417,13 @@
                                        </div>
                                     </div>
                                  </div>
-                  
+
 
                         <div id="non-printable" class="col-sm-12 p-t-20 text-left no-printme">
                                     <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
                                  </div>
                   </div>
-            </div>   
+            </div>
          </div>
 </section>
 </div>
