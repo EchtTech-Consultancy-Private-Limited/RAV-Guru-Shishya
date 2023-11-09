@@ -41,7 +41,7 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
-                   
+
                     <div class="body p-0">
                         <div id="wizard_horizontal " class="card-body">
                             <section>
@@ -49,7 +49,7 @@
                                 <div class="col-sm-12 pb-0">
                                 <div class="header p-0">
                                         <h2 class=''>View Follow Up </h2>
-                                    
+
                                     </div>
                                 <table class="view-table">
                                     <h3>Basic Information</h3>
@@ -57,14 +57,14 @@
                                        <tr>
                                           <th class="w-25"> Title</th>
                                           <th> Value</th>
-                                         
+
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <tr> 
+                                       <tr>
                                           <td>Patient Registration No. </td>
                                           <td>{{$patient->registration_no}} </td>
-                                         
+
                                        </tr>
 
                                        <tr>
@@ -87,19 +87,19 @@
                                         <td>Treatment/Therapies </td>
                                         <td>@if(!empty($data->treatment)){{$data->treatment}}@endif </td>
                                        </tr>
-                                      
+
                                     </tbody>
                                  </table>
-                                  
+
 
 
                                 </div>
                         </div>
 
                         <div class="col-sm-12">
-                          
+
                             <div class="card mb-0 view-follow-up-sheet">
-                           
+
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -138,7 +138,7 @@
                                             </div>
 
                                             @if(Auth::user()->user_type==1)
-                                              
+
                                               <div class="col-lg-3 col-xxl-2 col-xl-3  col-md-4 col-6">
                                                   <div class="form-group">
                                                       <div class="form-line">
@@ -171,7 +171,7 @@
                                             </div>
 
                                             @else
-                                             
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="form-line">
@@ -195,7 +195,7 @@
                                                     </div>
                                                 </div>
                                                 @endif
-                                               
+
 
                                                     <div class="row clearfix">
                                                         <div class="col-sm-12 p-t-20 text-left">
@@ -213,11 +213,11 @@
                                                                 @if((Auth::user()->user_type==3) ||
                                                                 (Auth::user()->user_type==1))Send to Guru
                                                                 @elseif(Auth::user()->user_type==2)Send @endif</button>
-                                                           
+
                                                         </div>
                                                     </div>
-                                                
-                                            
+
+
                                 </form>
                             </div>
                         </div>
@@ -275,7 +275,7 @@
 
                                                     </table>
 
-                                                    
+
                                                 </div>
 
 
@@ -305,15 +305,13 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Name of the
-                                                Guru</th>
-                                        <th>Place of the
-                                                Guru</th>
+                                        <th>Name of the Guru</th>
+                                        <th>Place of the Guru</th>
                                         <th>Name of the
                                                 Shishya</th>
                                         <th>
                                         Date of
-                                                Repor
+                                                Report
                                         </th>
                                     </tr>
                                 </thead>
@@ -342,7 +340,7 @@
                             <h3>Patient Information</h3>
 
                             <table class="view-table" >
-                               
+
                                 <!-- <thead>
                                 <tr>
                                     <td colspan="2" class="tabel-heading"> <h3>Patient Information</h3></td>
@@ -448,7 +446,7 @@
                                                 of
                                                 the
                                                 patient </td>
-                                           
+
                                         </tr>
                                         <tr>
                                             <td>Skin </td>
@@ -522,7 +520,7 @@
                                             {{$guru->firstname.' '.$guru->lastname}})
                                             @endif </td>
                                         </tr> -->
-                                       
+
                                 </tbody>
                             </table>
                             <div class="row clearfix">
@@ -559,13 +557,13 @@
                                 </div>
 
                             </div>
-                           
-
-                          
 
 
-                               
-                              
+
+
+
+
+
                                 <div class="col-sm-12 p-t-20 text-left">
                                     <a href="{{ url('/follow-up-patients') }}"><button type="button"
                                             class="btn back btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
@@ -600,7 +598,7 @@ function confirm_option(action) {
         "Are you sure to send record to Admin? Please note that once you send this to Admin, you can not modify this record!";
     else if ($("#send_to").val() == 2) {
         @if(Auth::user()->user_type == 1)
-        if ($("#remark_type").val() == 1) 
+        if ($("#remark_type").val() == 1)
         msg = "Are you sure to send record to Guru? Please note that once you send this to Guru, he/she can modify this record!";
         else msg = "Are you sure to send record to Guru? Please note that remark is for reference only!";
         @else
