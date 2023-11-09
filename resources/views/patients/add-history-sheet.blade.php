@@ -900,10 +900,7 @@
                                              <textarea cols="45" rows="1" name="pathya_apathya" class="form-control" value="" aria-label="pathya_apathya
                                              " placeholder="Enter  Pathya-Apathya" maxlength="100">{{ old('pathya_apathya') }}</textarea>
                                           </div>
-                                       </div>
-
-
-                                       
+                                       </div>                                      
                                     </div>
                                     
                                     <div class="row">
