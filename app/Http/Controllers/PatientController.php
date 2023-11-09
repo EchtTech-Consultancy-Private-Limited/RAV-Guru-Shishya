@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Remark;
 use App\Models\PatientHistoryLog;
 use App\Models\FollowUpPatient;
+use App\Models\FollowUpHistoryLog;
 use Auth;
 use Redirect;
 use Mail;
@@ -152,7 +153,7 @@ class PatientController extends Controller
     public function new_patient_registration(Request $request , $id ='')
     {
         $shishyaId = ($id == '' ? Auth::user()->id : $id);
-        $data=Patient::where(['shishya_id'=>$shishyaId,'soft_delete' => 0]);
+        $data=Patient::with('patientHistory')->where(['shishya_id'=>$shishyaId,'soft_delete' => 0]);
         if(!empty($request->prno))$data->where('patients.registration_no',$request->prno);
         if(!empty($request->from_date))$data->where('patients.registration_date','>=',date("Y-m-d",strtotime($request->from_date)));
         if(!empty($request->to_date))$data->where('patients.registration_date','<=',date("Y-m-d",strtotime($request->to_date)));
@@ -173,20 +174,17 @@ class PatientController extends Controller
 
     public function follow_up_patients(Request $request)
     {
-        $data=FollowUpPatient::select('follow_up_patients.*','patients.patient_name', 'students.firstname as shishya_firstname','students.lastname as shishya_lastname', 'gurus.firstname as guru_firstname','gurus.lastname as guru_lastname')
+        $data=FollowUpPatient::with('followUpHistory')->select('follow_up_patients.*','patients.patient_name', 'students.firstname as shishya_firstname','students.lastname as shishya_lastname', 'gurus.firstname as guru_firstname','gurus.lastname as guru_lastname')
         ->leftJoin('patients', 'patients.id', '=', 'follow_up_patients.patient_id')->leftJoin('users as students', 'students.id', '=', 'follow_up_patients.shishya_id')->leftJoin('users as gurus', 'gurus.id', '=', 'follow_up_patients.guru_id');
 
         if(Auth::user()->user_type==3){
             $data->where('follow_up_patients.shishya_id',Auth::user()->id);
         } elseif(Auth::user()->user_type==2){
             $data->where('follow_up_patients.guru_id',Auth::user()->id);
-            $data->where(function ($query) {
-                $query->Where('follow_up_patients.send_to_guru',1)
-                      ->orWhere('follow_up_patients.send_to_admin',1);
-            });
+            
         } elseif(Auth::user()->user_type==1){
             if(isset($request->guru_id)) $data->where('follow_up_patients.guru_id',$request->guru_id);
-            $data->where('follow_up_patients.send_to_admin',1);
+            // $data->where('follow_up_patients.send_to_admin',1);
         }
         
         if(!empty($request->prno)){            
@@ -205,7 +203,6 @@ class PatientController extends Controller
             $data->where('follow_up_patients.report_type',$request->report_type);
         }
         $data=$data->orderby('updated_at','Desc')->paginate(10);
-       
         $guru=get_guru_list(Auth::user()->guru_id);
         $gurus=get_guru_list();
         return view("patients.follow-up-patients",['guru'=>$guru,'gurus'=>$gurus,'data'=>$data])->with('i', (request()->input('page', 1) - 1) * 10);;
@@ -356,8 +353,6 @@ class PatientController extends Controller
 
 
             if(!empty($request->id)){
-                $followup=FollowUpPatient::find($request->id);
-
                 $data=[
                     'guru_id'=>$request->guru_id,
                     'shishya_id'=>$request->shishya_id,
@@ -368,7 +363,34 @@ class PatientController extends Controller
                     'progress'=>$request->progress,
                     'treatment'=>$request->treatment,
                 ];
-                $followup->update($data);
+                // Find the data before updating
+                $beforeUpdateFollowup=FollowUpPatient::find($request->id);
+                // $followup->update($data);
+                FollowUpPatient::where('id', $request->id)->update($data);
+                // Find the data after updating
+                $afterUpdateFollowup = FollowUpPatient::find($request->id);
+                // Check for changes
+                if ($beforeUpdateFollowup && $afterUpdateFollowup) {
+                    $changedFields = array_diff_assoc($afterUpdateFollowup->getAttributes(), $beforeUpdateFollowup->getAttributes());
+                    unset($changedFields['updated_at']);
+                    if(!empty($changedFields)){
+                        $changesData = json_encode($changedFields);
+                        FollowUpHistoryLog::updateOrCreate(
+                            [
+                                'follow_up_id'   => $request->id
+
+                            ],
+                            [
+                                'data' => $changesData,
+                                'follow_up_id' => $request->id,
+                                'user_id' => Auth::id(),
+                                'user_type' => Auth::user()->user_type,
+                            ]
+                        );
+                    }else{
+                        FollowUpHistoryLog::where('follow_up_id',$request->id)->delete();
+                    }
+                }
 
                 return redirect('/follow-up-patients')->with('success', 'Patient follow up updated successfully.');
             }
@@ -664,8 +686,6 @@ class PatientController extends Controller
         $id=$request->patient_id;
         unset($input['_token']);
         unset($input['patient_id']);
-        // Patient::where('id',$id)->update($input);
-
        // Find the data before updating
         $modelBeforeUpdate = Patient::find($id);
         // Update the model
@@ -676,19 +696,24 @@ class PatientController extends Controller
         // Check for changes
         if ($modelBeforeUpdate && $modelAfterUpdate) {
             $changedFields = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
-            $changesData = json_encode($changedFields);
-            PatientHistoryLog::updateOrCreate(
-                [
-                    'patient_id'   => $id
+            unset($changedFields['updated_at']);
+            if(!empty($changedFields)){
+                $changesData = json_encode($changedFields);
+                PatientHistoryLog::updateOrCreate(
+                    [
+                        'patient_id'   => $id
 
-                ],
-                [
-                    'data' => $changesData,
-                    'patient_id' => $id,
-                    'user_id' => Auth::id(),
-                    'user_type' => Auth::user()->user_type,
-                ]
-            );
+                    ],
+                    [
+                        'data' => $changesData,
+                        'patient_id' => $id,
+                        'user_id' => Auth::id(),
+                        'user_type' => Auth::user()->user_type,
+                    ]
+                );
+            }else{
+                PatientHistoryLog::where('patient_id',$id)->delete();
+            }
         }
         if(Auth::user()->user_type==2){
             return redirect('/guru-patient-list')->with('success', 'Patient history updated successfully !');
@@ -789,8 +814,7 @@ class PatientController extends Controller
     public function guru_patient_list()
     {
         $guru_id=Auth::user()->id;
-        $patientlist=Patient::orderby('updated_at','Desc')->where(['guru_id'=>$guru_id,'soft_delete' => 0])->get();
-         
+        $patientlist=Patient::with('patientHistory')->orderby('updated_at','Desc')->where(['guru_id'=>$guru_id,'soft_delete' => 0])->get();
         return view("patients.guru.patient-list",compact("patientlist"));
     }
     
@@ -1043,19 +1067,24 @@ class PatientController extends Controller
         // Check for changes
         if ($modelBeforeUpdate && $modelAfterUpdate) {
             $changedFields = array_diff_assoc($modelAfterUpdate->getAttributes(), $modelBeforeUpdate->getAttributes());
-            $changesData = json_encode($changedFields);
-            PatientHistoryLog::updateOrCreate(
-                [
-                    'patient_id'   => $id
+            unset($changedFields['updated_at']);         
+            if(!empty($changedFields)){
+                $changesData = json_encode($changedFields);
+                PatientHistoryLog::updateOrCreate(
+                    [
+                        'patient_id'   => $id
 
-                ],
-                [
-                    'data' => $changesData,
-                    'patient_id' => $id,
-                    'user_id' => Auth::id(),
-                    'user_type' => Auth::user()->user_type,
-                ]
-            );
+                    ],
+                    [
+                        'data' => $changesData,
+                        'patient_id' => $id,
+                        'user_id' => Auth::id(),
+                        'user_type' => Auth::user()->user_type,
+                    ]
+                );
+            }else{
+                PatientHistoryLog::where('patient_id',$id)->delete();
+            }
         }
         
         return redirect($request->previous_url)->with('success', 'Phr details update successfully');
@@ -1110,12 +1139,12 @@ class PatientController extends Controller
     {
         if($phr_type=="In-Patient")
         {
-            $patientlist=Patient::orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
+            $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
             //dd($patientlist);
         }
         elseif($phr_type=="OPD-Patient")
         {
-           $patientlist=Patient::orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
+           $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
         }
         return view("patients.admin.patient-list",compact("patientlist"));      
          

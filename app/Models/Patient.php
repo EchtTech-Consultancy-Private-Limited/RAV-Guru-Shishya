@@ -70,4 +70,9 @@ class Patient extends Model
         'read_time',
     ];
 
+    public function patientHistory()
+    {
+        return $this->belongsTo(PatientHistoryLog::class, 'id','patient_id');
+    }
+
 }

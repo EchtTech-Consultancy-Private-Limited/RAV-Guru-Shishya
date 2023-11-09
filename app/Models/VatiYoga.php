@@ -40,4 +40,9 @@ class VatiYoga extends Model
             'date_of_yogas'
 
         ];
+
+    public function drugHistory()
+    {
+        return $this->belongsTo(DrugHistoryLog::class, 'id','vati_id');
+    }
 }
