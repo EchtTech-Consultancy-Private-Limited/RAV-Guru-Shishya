@@ -385,13 +385,11 @@
                            <td>{{@$patient->pathya_apathya}} </td>
                         </tr>
                         <!-- ******************addedd new fild **************** -->
-                   <tr>
+                    <tr>
                            <td>  Soft drink/Peya Padarth</td>
                            <td>   @foreach(__('phr.soft_drink') as $key=>$value)
-                                    @if($key == old('soft_drink'))
-                                       <option value="{{ $key }}" selected>{{ $value }}</option>
-                                    @endif
-                                    @endforeach</td>
+                                          {{@$patient->soft_drink == $key  ? $value : ''}}
+                                          @endforeach </td>
                         </tr>
 
                         <tr>

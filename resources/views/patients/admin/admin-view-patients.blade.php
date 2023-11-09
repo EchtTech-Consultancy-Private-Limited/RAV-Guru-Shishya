@@ -98,7 +98,7 @@
                                           </tr>
                                        </tbody>
                                     </table>
-                                    
+
 
                                     <table class="view-table">
                                        <h3>Patient Information</h3>
@@ -107,8 +107,8 @@
                                              <th class = "w-25
                                              "> Title</th>
                                              <th> Value</th>
-                                             
-                                             
+
+
                                           </tr>
                                        </thead>
                                        <tbody>
@@ -129,7 +129,7 @@
                                             <td>Registration Date</td>
                                             <td>{{date('d-m-Y',strtotime($patient->registration_date))}} </td>
                                           </tr>
-                                          
+
                                           <tr>
                                             <td> Patients Type </td>
                                              <td> {{ $patient->patient_type }}</td>
@@ -202,7 +202,7 @@
                                            </tr>
                                            <tr>
                                              <td  colspan="2"><h3>Examination Of Patient </h3> </td>
-                                            
+
                                            </tr>
                                            <tr>
                                              <td>Skin</td>
@@ -282,7 +282,7 @@
                                              {{$patient->agni == $key  ? $value : ''}}
                                              @endforeach</td>
                                           </tr>
-                                             
+
                                           <tr>
                                              <td>Mala Pravritti</td>
                                             <td> @foreach(__('phr.mala_pravritti') as $key=>$value)
@@ -361,7 +361,7 @@
                                                    @endforeach
                                                 </td>
                                           </tr>
-                                          
+
                                            <tr>
                                              <td>Prayogashaliya Parikshana
                                              </td>
@@ -413,14 +413,87 @@
                                              </td>
                                            </tr>
                                            <tr>
-                                             <td>Pathya-Apathya 
+                                             <td>Pathya-Apathya
                                                 <a target="_blank" href="{{ asset('annexure-file.pdf') }}">(Annexure-1)</a>
                                              </td>
                                              <td>
                                                 {{ $patient->pathya_apathya }}
                                              </td>
                                            </tr>
-                                           
+
+                                              <!-- ******************addedd new fild **************** -->
+                   <tr>
+                           <td>  Soft drink/Peya Padarth</td>
+                           <td>   @foreach(__('phr.soft_drink') as $key=>$value)
+                                    @if($key == old('soft_drink'))
+                                       <option value="{{ $key }}" selected>{{ $value }}</option>
+                                    @endif
+                                    @endforeach</td>
+                        </tr>
+
+                        <tr>
+                           <td>  Madhyahan Bhojana</td>
+                           <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
+                                 @if($key == old('madhyahan_bhojana'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Prataraasha</td>
+                        <td>  @foreach(__('phr.prataraasha') as $key=>$value)
+                              @if($key == old('prataraasha'))
+                                 <option value="{{ $key }}" selected>{{ $value }}</option>
+                              @endif
+                              @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulses</td>
+                           <td>    @foreach(__('phr.pulses') as $key=>$value)
+                                    @if($key == old('pulses'))
+                                       <option value="{{ $key }}" selected>{{ $value }}</option>
+                                    @endif
+                                    @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulpy vegetables</td>
+                           <td>   @foreach(__('phr.pulpy_vegetables') as $key=>$value)
+                                 @if($key == old('pulpy_vegetables'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Oil/Tail</td>
+                           <td> @foreach(__('phr.oil_tail') as $key=>$value)
+                                 @if($key == old('oil_tail'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Afternoon Fruit</td>
+                           <td>  @foreach(__('phr.afternoon_fruit') as $key=>$value)
+                                 @if($key == old('afternoon_fruit'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>evening_meals</td>
+                           <td>{{ old('evening_meals') }} </td>
+                        </tr>
+                        <tr>
+                           <td>  Bed time </td>
+                           <td>  @foreach(__('phr.bed_time') as $key=>$value)
+                                 @if($key == old('bed_time'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach</td>
+                        </tr>
+
+                        <!-- ******************addedd new fild **************** -->
+
                                        </tbody>
                                     </table>
 

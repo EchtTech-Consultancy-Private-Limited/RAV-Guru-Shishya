@@ -58,25 +58,25 @@
                                                     <th class="center">S.No</th>
                                                     <th class="center"> Send By </th>
                                                     <th class="center"> Send To </th>
-                                                    <th class="center"> Date </th>
                                                     <th class="center"> Remarks </th>
+                                                    <th class="center"> Date </th>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach($remarks as $k=>$remark)
                                                 <tr class="odd gradeX">
-                                                    <td class="center">{{($k+1)}}</td>                                                 
+                                                    <td class="center">{{($k+1)}}</td>
                                                     <td class="center">@if($remark->send_by=='2')Guru
                                                         @elseif($remark->send_by=='3')Shishya
                                                         @elseif($remark->send_by=='1')Admin @endif</td>
-                                                    <td class="center">@if($remark->send_to=='2')Guru
-                                                        @elseif($remark->send_to=='3')Shishya
-                                                        @elseif($remark->send_to=='1')Admin @endif</td>
-                                                        <td class="center">
-                                                        {{date('d-m-Y',strtotime($remark->created_at))}}
-                                                    </td>
-                                                    <td class="center">{{$remark->remarks}}</td>
+                                                        <td class="center">{{$remark->remarks}}</td>
+                                                        <td class="center">@if($remark->send_to=='2')Guru
+                                                            @elseif($remark->send_to=='3')Shishya
+                                                            @elseif($remark->send_to=='1')Admin @endif</td>
+                                                            <td class="center">
+                                                            {{date('d-m-Y',strtotime($remark->created_at))}}
+                                                        </td>
 
                                                 </tr>
                                                 @endforeach

@@ -494,6 +494,149 @@
                                                     {{$patient->examination_by_physician == $key  ? $value : ''}}
                                                     @endforeach </td>
                                         </tr>
+
+                                        <tr>
+                                             <td>Examination
+                                                by
+                                                Physician</td>
+                                                <td>
+                                                   @foreach(__('phr.examination_by_physician') as $key=>$value)
+                                                   {{$patient->examination_by_physician == $key  ? $value : ''}}
+                                                   @endforeach
+                                                </td>
+                                          </tr>
+
+                                           <tr>
+                                             <td>Prayogashaliya Parikshana
+                                             </td>
+                                             <td>{{ $patient->prayogashaliya_parikshana }}</td>
+                                           </tr>
+
+                                           <tr>
+                                             <td>
+                                                Samprapti
+                                                Vivarana
+                                             </td>
+                                             <td>
+                                                {{ $patient->samprapti_vivarana }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>
+                                                Vibhedaka Pariksha
+                                             </td>
+                                             <td>
+                                                {{ $patient->vibhedaka_pariksha }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Roga
+                                                Vinishchaya-
+                                                Pramukh
+                                                Nidana</td>
+                                             <td>
+                                                {{ $patient->roga_vinishchaya_pramukh_nidana }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Chikitsa Kalpana Anupana Sahita</td>
+                                             <td>
+                                                {{ $patient->chikitsa_kalpana_anupana_sahita }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Samshodhana Kriyas</td>
+                                             <td>
+                                                {{ $patient->samshodhana_kriyas }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Samshamana Kriyas</td>
+                                             <td>
+                                                {{ $patient->samshamana_kriyas }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Pathya-Apathya
+                                                <a target="_blank" href="{{ asset('annexure-file.pdf') }}">(Annexure-1)</a>
+                                             </td>
+                                             <td>
+                                                {{ $patient->pathya_apathya }}
+                                             </td>
+                                           </tr>
+
+                                              <!-- ******************addedd new fild **************** -->
+                   <tr>
+                           <td>  Soft drink/Peya Padarth</td>
+                           <td>   @foreach(__('phr.soft_drink') as $key=>$value)
+                                    @if($key == old('soft_drink'))
+                                       <option value="{{ $key }}" selected>{{ $value }}</option>
+                                    @endif
+                                    @endforeach</td>
+                        </tr>
+
+                        <tr>
+                           <td>  Madhyahan Bhojana</td>
+                           <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
+                                 @if($key == old('madhyahan_bhojana'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Prataraasha</td>
+                        <td>  @foreach(__('phr.prataraasha') as $key=>$value)
+                              @if($key == old('prataraasha'))
+                                 <option value="{{ $key }}" selected>{{ $value }}</option>
+                              @endif
+                              @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulses</td>
+                           <td>    @foreach(__('phr.pulses') as $key=>$value)
+                                    @if($key == old('pulses'))
+                                       <option value="{{ $key }}" selected>{{ $value }}</option>
+                                    @endif
+                                    @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulpy vegetables</td>
+                           <td>   @foreach(__('phr.pulpy_vegetables') as $key=>$value)
+                                 @if($key == old('pulpy_vegetables'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Oil/Tail</td>
+                           <td> @foreach(__('phr.oil_tail') as $key=>$value)
+                                 @if($key == old('oil_tail'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Afternoon Fruit</td>
+                           <td>  @foreach(__('phr.afternoon_fruit') as $key=>$value)
+                                 @if($key == old('afternoon_fruit'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>evening_meals</td>
+                           <td>{{ old('evening_meals') }} </td>
+                        </tr>
+                        <tr>
+                           <td>  Bed time </td>
+                           <td>  @foreach(__('phr.bed_time') as $key=>$value)
+                                 @if($key == old('bed_time'))
+                                    <option value="{{ $key }}" selected>{{ $value }}</option>
+                                 @endif
+                                 @endforeach</td>
+                        </tr>
+
+                        <!-- ******************addedd new fild **************** -->
                                         <!-- <tr>
                                             <td>Shishya's
                                                 E-Sig </td>
