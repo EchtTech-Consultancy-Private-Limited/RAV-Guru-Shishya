@@ -790,10 +790,7 @@
                                                    select
                                                 </option>
                                                 @foreach(__('phr.prataraasha') as $key=>$value)
-                                                @if($key == old('prataraasha'))
-                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                @endif
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$key}}" {{$patient->prataraasha == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
                                           </div>
@@ -806,10 +803,7 @@
                                                 <option value="">Please  select
                                                 </option>
                                                 @foreach(__('phr.pulses') as $key=>$value)
-                                                @if($key == old('pulses'))
-                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                @endif
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$key}}" {{$patient->pulses == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
                                           </div>
@@ -824,10 +818,7 @@
                                                 <option value="">Please  select
                                                 </option>
                                                 @foreach(__('phr.pulpy_vegetables') as $key=>$value)
-                                                @if($key == old('pulpy_vegetables'))
-                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                @endif
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$key}}" {{$patient->pulpy_vegetables == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
                                           </div>
@@ -840,10 +831,7 @@
                                                 <option value="">Please  select
                                                 </option>
                                                 @foreach(__('phr.oil_tail') as $key=>$value)
-                                                @if($key == old('oil_tail'))
-                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                @endif
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$key}}" {{$patient->oil_tail == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
                                           </div>
@@ -857,10 +845,7 @@
                                                 <option value="">Please  select
                                                 </option>
                                                 @foreach(__('phr.afternoon_fruit') as $key=>$value)
-                                                @if($key == old('afternoon_fruit'))
-                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                @endif
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$key}}" {{$patient->afternoon_fruit == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
                                           </div>
@@ -869,7 +854,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                              evening_meals </label>
-                                             <input type="text" name="evening_meals" id="evening_meals" value="{{ old('evening_meals') }}">
+                                             <input type="text" name="evening_meals" id="evening_meals" value="{{ @$patient->evening_meals }}">
                                           </div>
                                        </div>
                                        <div class="col-md-3">
@@ -880,10 +865,7 @@
                                                 <option value="">Please  select
                                                 </option>
                                                 @foreach(__('phr.bed_time') as $key=>$value)
-                                                @if($key == old('bed_time'))
-                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
-                                                @endif
-                                                <option value="{{$key}}">{{$value}}</option>
+                                                <option value="{{$key}}" {{$patient->bed_time == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
                                           </div>
