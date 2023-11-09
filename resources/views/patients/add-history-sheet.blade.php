@@ -929,7 +929,7 @@
                                          <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
-                                             PrataraashaMid day food/Madhyahan Bhojana</label>
+                                             Madhyahan Bhojana</label>
                                              <select name="madhyahan_bhojana" id="madhyahan_bhojana" class="form-control">
                                                 <option value="">Please
                                                    select
@@ -1031,11 +1031,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                              evening_meals </label>
-                                             <select name="evening_meals" id="evening_meals" class="form-control">
-                                                <option value="">Please  select
-                                                </option>
-                                             
-                                             </select>
+                                             <input type="text" name="evening_meals" id="evening_meals" value="{{ old('evening_meals') }}">
                                           </div>
                                        </div>
                                        <div class="col-md-3">
