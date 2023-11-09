@@ -664,6 +664,7 @@ input[type=text]:not(.browser-default),input[type=date]:not(.browser-default){
 
 .card .header h2 {
     /* padding: 8px 0px 0 0px; */
+    margin-bottom: 15px !important;
 }
 
 td.left.patient-list-action {

@@ -67,7 +67,7 @@
                                
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
                                                 <div class="form-group">
-                                                    <label class="active">From:</label>
+                                                    <label class="active">From Date:</label>
                                                     <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
                                                 </div>
                                            
@@ -76,7 +76,7 @@
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
                                           
                                             <div class="form-group">
-                                                    <label class="active"> To:</label>
+                                                    <label class="active"> To Date:</label>
                                                     <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
                                                 </div>
                                         </div>
@@ -140,9 +140,7 @@
                                             <th class="center"> Patient Registration No. <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
-                                            <th class="center"> Date <i class="fa fa-long-arrow-up"
-                                                    aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
-                                                    aria-hidden="true"></i></th>
+                                          
                                             <th class="center"> Patient Name <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
@@ -167,6 +165,9 @@
                                             <th class="center"> Progress Duration <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
+                                            <th class="center"> Date <i class="fa fa-long-arrow-up"
+                                            aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
+                                            aria-hidden="true"></i></th>
                                             <th class="center"> Action <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
@@ -191,8 +192,7 @@
                                             <!-- <td class="center"><a
                                                             href="{{ url('follow-up-sheet/' . encrypt($followup->patient_id)) }}@php if(request()->to_date){ echo '/'.date('Y-m-d',strtotime(request()->from_date));} else echo '/0'; if(request()->from_date){ echo '/'.date('Y-m-d',strtotime(request()->to_date));} else echo '/0'; if(request()->report_type){ echo '/'.request()->report_type;} else echo '/0'; @endphp">{{ $followup->registration_no }}</a> -->
                                             <td>{{ $followup->registration_no }}</td>
-                                            <td class="center">
-                                                {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
+                                           
                                             <td class="center">{{ $followup->patient_name }}</td>
                                             @if(Auth::user()->user_type == 1)
                                             <td class="center">
@@ -214,6 +214,8 @@
                                             @endif
 
                                             <td class="center">{{ $followup->report_type }}</td>
+                                            <td class="center">
+                                                {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                             <td>
                                                 <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                     class="btn view btn-tbl-edit" title="View Record">
@@ -315,12 +317,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <div class="form-line">
-                            <label for="registration_no">Patient Registration No.</label>
+                    <label for="registration_no">Patient Registration No.</label>
                             <input type="text" id="registration_no" class="form-control"
                                 placeholder="Enter patient registration no." minlength="4" maxlength="20">
                             <span class="text-danger" id="registration_no-error"></span>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

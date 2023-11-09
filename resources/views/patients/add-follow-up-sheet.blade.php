@@ -61,7 +61,7 @@
                                             <input type="hidden" name="registration_no"
                                                 value="{{ $patient->registration_no }}">
 
-                                            <div class="card-body">
+                                            <div class="card-body pt-0">
                                             <div class="header p-0">
                                                 <h2>Add Follow Up </h2>
                                             
@@ -73,8 +73,7 @@
                                                             <div class="form-line">
                                                                 <label class="form-control-label">Registration  No.</label>
                                                                 <br>
-                                                                <label for="follow_up_date"
-                                                                    class="form-control-label">{{ $patient->registration_no }}</label>
+                                                                <p >{{ $patient->registration_no }}</label>
 
                                                             </div>
                                                         </div>
@@ -84,8 +83,7 @@
                                                             <div class="form-line">
                                                                 <label class="form-control-label">Patient Name</label>
                                                                 <br>
-                                                                <label for="follow_up_date"
-                                                                    class="form-control-label">{{ $patient->patient_name }}</label>
+                                                                <p >{{ $patient->patient_name }}</p>
 
                                                             </div>
                                                         </div>
@@ -96,22 +94,13 @@
                                                                 <label for="follow_up_date"
                                                                     class="form-control-label">Date of Follow up<span
                                                                         class="text-danger"></span></label>
-                                                                <input type="text" name="follow_up_date"
-                                                                    value="{{ date('d-m-Y') }}"
-                                                                    class="form-control datetimepicker flatpickr-input active"
-                                                                    placeholder="follow_up_date" aria-label="Name"
-                                                                    value="@if (!empty($data->follow_up_date)) {{ date('Y-m-d', strtotime($data->follow_up_date)) }}@else{{ date('d-m-Y') }} @endif"
-                                                                    readonly required>
-                                                                @if ($errors->has('follow_up_date'))
-                                                                <span class="help-block">
-                                                                    <strong
-                                                                        style="color:red;">{{ $errors->first('follow_up_date') }}
-                                                                </span>
-                                                                @endif
+                                                                        <p>{{ date('d-m-Y') }}</p>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
-
+                                                </div>
+                                                <div class="row">
                                                     <div class="col-md-3 col-6">
                                                         <div class="form-group">
                                                             <div class="form-line">
@@ -316,8 +305,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td>1. Main
-                                                        Complaint(As said by patient) </td>
+                                            <td> Main  Complaint(As said by patient) </td>
                                             <td> {{ $patient->main_complaintsaid_by_patient  }}</td>
                                         </tr>
 
@@ -327,17 +315,17 @@
                                         </tr>
 
                                         <tr>
-                                            <td> 3. Past  illness</td>
+                                            <td>  Past  illness</td>
                                             <td> {{ $patient->past_illness  }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td>4. Family  History </td>
+                                            <td> Family  History </td>
                                             <td> {{ $patient->family_history  }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="2"> <h3>5. Examination  of the  patient</h3> </td>
+                                            <td colspan="2"> <h3> Examination  of the  patient</h3> </td>
                                            
                                         </tr>
 
@@ -489,7 +477,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td>6. Examination   by       Physician </td>
+                                            <td> Examination   by       Physician </td>
                                             <td>@foreach (__('phr.examination_by_physician') as $key =>
                                                         $value)
                                                         {{ $patient->examination_by_physician == $key ? $value : '' }}
@@ -497,27 +485,27 @@
                                         </tr>
 
                                         <tr>
-                                            <td>7.  Prayogashaliya   Parikshana</td>
+                                            <td> Prayogashaliya   Parikshana</td>
                                             <td> {{ $patient->prayogashaliya_parikshana  }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td>8.  Samprapti Vivarana</td>
+                                            <td> Samprapti Vivarana</td>
                                             <td> {{ $patient->samprapti_vivarana  }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td>9. Vibhedaka  Pariksha </td>
+                                            <td> Vibhedaka  Pariksha </td>
                                             <td> {{ $patient->vibhedaka_pariksha  }} </td>
                                         </tr>
 
                                         <tr>
-                                            <td> 10.  Roga Vinishchaya-  Pramukh Nidana</td>
+                                            <td>  Roga Vinishchaya-  Pramukh Nidana</td>
                                             <td>{{ $patient->roga_vinishchaya_pramukh_nidana  }} </td>
                                         </tr>
 
                                         <tr>
-                                            <td> 11.  Chikitsa  Kalpana   Anupana     Sahita</td>
+                                            <td>  Chikitsa  Kalpana   Anupana     Sahita</td>
                                             <td> {{ $patient->chikitsa_kalpana_anupana_sahita  }}</td>
                                         </tr>
 
@@ -532,7 +520,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td>12.  Pathya-Apathya  (<a href="{{ url('/annexure-file.pdf') }}" target="_blank"><span
+                                            <td> Pathya-Apathya  (<a href="{{ url('/annexure-file.pdf') }}" target="_blank"><span
                                                                 class="fs-12 text-info">Annexure-1</span></a>) </td>
                                             <td>  {{ $patient->pathya_apathya  }}</td>
                                         </tr>
