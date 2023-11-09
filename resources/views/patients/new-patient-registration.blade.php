@@ -114,10 +114,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
-
-
-
                                                     @foreach ($patientlist as $key => $patientlist)
                                                     <tr class="gradeX odd @if ($patientlist->read_by_shishya == '0') active-row @endif">
 
@@ -148,16 +144,20 @@
                                                             </a>
                                                             @if ($patientlist->phr_s_status == 1)
                                                                 <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
-                                                                    <i class="material-icons">edit</i>
-                                                                </a>
+                                                                    <i class="material-icons">edit
+                                                                    @if(isset($patientlist->patientHistory->patient_id))
+                                                                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                                                    @endif
+                                                                    </i></a>
+                                                                
                                                                 <!-- <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
                                                                     <i class="material-icons">send</i>
                                                                 </a> -->
-                                                            @if ($patientlist->phr_g_status != 1)
+                                                            <!-- @if ($patientlist->phr_g_status != 1)
                                                                 <a href="{{ url('delete-phr/' . $patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                                                     <i class="material-icons">delete_forever</i>
                                                                 </a>
-                                                            @endif
+                                                            @endif -->
                                                             @else
                                                             <!-- <a href="javascript:void(0);" class="btn btn-tbl-edit" title="Edit Patient">
                                                                     <i class="material-icons">edit</i>
@@ -179,7 +179,6 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-
                                                 </tbody>
                                             </table>
                                             <button type="submit" class="btn send  waves-effect " onclick="send_to_guru()" class="pt-2"> &nbsp; Send To Guru

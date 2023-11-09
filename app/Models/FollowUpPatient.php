@@ -18,4 +18,9 @@ class FollowUpPatient extends Model
         'progress',
         'treatment'
     ];
+
+    public function followUpHistory()
+    {
+        return $this->belongsTo(FollowUpHistoryLog::class, 'id','follow_up_id');
+    }
 }

@@ -76,8 +76,7 @@
                         </thead>
                         <tbody>
                                                             
-                        @foreach($patientlist as $key=>$patientlist) 
-                                                                                 
+                        @foreach($patientlist as $key=>$patientlist)                               
                         <tr class="gradeX odd @if($patientlist->read_by_admin=='0') active-row @endif">
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <!-- <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td> -->
@@ -96,9 +95,16 @@
                                                     <i class="material-icons">visibility</i>
                                     </a>
                                     <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
-                                          <i class="material-icons">edit</i>
+                                          <i class="material-icons">edit
+                                          @if(isset($patientlist->patientHistory->patient_id))
+                                             <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                          @endif
+                                          </i>
                                     </a>
-                                    <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
+                                    <!-- <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
+                                       <i class="material-icons">delete_forever</i>
+                                    </a> -->
+                                    <a class="btn delete btn-tbl-delete delete_patient" data-id="{{$patientlist->id}}" data-bs-toggle="modal" data-bs-target="#delete_modal" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
                                     <a target="_self" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn comment btn-tbl-edit" title="Check Remark">
@@ -118,20 +124,48 @@
                     </div></div>
                     
                   </div>
+                  <!-- Patient Delete Popup Modal Start-->
+                  <div class="modal fade" id="delete_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal-dialog  modal-dialog-centered modal-lg" role="document" >
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title text-center" id="exampleModalLabel">Patient Delete</h5>
+                              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">×</span>
+                              </button>
+                           </div>
+                           <div class="modal-body">
+                              <form action="{{ url('delete-patient-remark') }}" method="POST" enctype="multipart/form-data">
+                                 @csrf
+                                 <input type="hidden"  name="patient_id" class="form-control capitalize" id="patient_id">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="form-group">
+                                          <label for="remark">Write A Proper Remark<span class="text-danger">*</span></label>
+                                          <textarea id="delete_remark" name="delete_remark" rows="6" cols="25" required></textarea>
+                                          
+                                       </div>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                       <button type="submit" class="btn save bg-indigo text-white" >Save</button>
+                                    </div>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Patient Delete Popup Modal End-->
                </div>
             </div>
          </div>
       </div>
    </div>
-      </section>  
+   </section>  
   <script>
-   function confirm_option(action){
-      if(!confirm("Are you sure to "+action+", this record!")){
-         return false;
-      }
-
-      return true;
- 
-   }
+   $('.delete_patient').on('click',function(){
+      const patientId = $(this).attr('data-id');
+      $("#patient_id").val(patientId);
+   });
 </script>   
 @endsection

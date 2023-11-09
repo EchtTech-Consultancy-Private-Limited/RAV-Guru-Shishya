@@ -268,9 +268,9 @@ $(document).ready(function () {
        } else {
           $('#per_address_Line1').val('');
           $('#per_address_Line2').val('');
-          $('#per-country-dropdown').val('');
-          $('#per-state-dropdown').val('');
-          $('#per-city-dropdown').val('');
+          $('#per-country-dropdown').val('').change();
+          $('#per-state-dropdown').val('').change();
+          $('#per-city-dropdown').val('').change();
           $('#per_pincode').val('');
        }
     });
@@ -500,6 +500,9 @@ $(document).ready(function () {
               $("#edit_institute_name").val(response.institute_name);
               $("#edit_course_name").val(response.course_name);
               $("#edit_year_of_passing").val(response.year_of_passing);
+              $("#edit_name_of_board").val(response.name_of_board);
+              $("#edit_year_of_regis").val(response.year_of_regis);
+              $("#edit_regis_no").val(response.regis_no);
               $('#upload_degree').attr('src', response.upload_degree);
               $('#educational_document').attr('href', response.upload_degree);
            }
@@ -607,4 +610,8 @@ function confirm_option(action) {
     }
     return true;
 }
+// validate input
+function validateInput(input) {
+    input.value = input.value.replace(/\D/g, '');
+ }
 // End follow up script
