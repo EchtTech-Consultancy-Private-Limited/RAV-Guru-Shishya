@@ -79,27 +79,27 @@ class DrugController extends Controller
             if(request()->yogas_type==1)
             {
                 /* $drugslist = ChurnaYoga::whereBetween('created_at',[$from_date,$to_date])->where('shishya_id',$shishya_id)->get();*/
-                $drugslist = ChurnaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = ChurnaYoga::with('drugHistory')->where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
                 ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==2)
             {
-                $drugslist = RasaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = RasaYoga::with('drugHistory')->where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
                 ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==3)
             {
-                $drugslist = VatiYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = VatiYoga::with('drugHistory')->where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
                 ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==4)
             {
-                $drugslist = TaliaYogas::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = TaliaYogas::with('drugHistory')->where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
                 ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
             elseif(request()->yogas_type==5)
             {
-                $drugslist = ArishtaYoga::where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
+                $drugslist = ArishtaYoga::with('drugHistory')->where('date_of_yogas','>=',$from_date)->where('date_of_yogas','<=',$to_date)
                 ->where('shishya_id',$shishya_id)->orderBy('updated_at','desc')->get();
             }
 
@@ -225,19 +225,24 @@ class DrugController extends Controller
                 $comositionUpdate['comosition_update'] = 'add_composition_extra';
                 $finalArray = array_merge($comositionUpdate,$finalArray);
             }
-            $changesData = json_encode($finalArray);
-            DrugHistoryLog::updateOrCreate(
-                [
-                    'drug_id'   => $id
+            unset($finalArray['updated_at']);
+            if(!empty($finalArray)){
+                $changesData = json_encode($finalArray);
+                DrugHistoryLog::updateOrCreate(
+                    [
+                        'drug_id'   => $id
 
-                ],
-                [
-                    'data' => $changesData,
-                    'drug_id' => $id,
-                    'user_id' => Auth::id(),
-                    'user_type' => Auth::user()->user_type,
-                ]
-            );
+                    ],
+                    [
+                        'data' => $changesData,
+                        'drug_id' => $id,
+                        'user_id' => Auth::id(),
+                        'user_type' => Auth::user()->user_type,
+                    ]
+                );
+            }else{
+                DrugHistoryLog::where('drug_id',$id)->delete();
+            }
         }
 
         $name_of_the_ingredients = $request->name_of_the_ingredients;
@@ -306,19 +311,24 @@ class DrugController extends Controller
                 $comositionUpdate['comosition_update'] = 'add_composition_extra';
                 $finalArray = array_merge($comositionUpdate,$finalArray);
             }
-            $changesData = json_encode($finalArray);
-            DrugHistoryLog::updateOrCreate(
-                [
-                    'rasa_id'   => $id
+            unset($finalArray['updated_at']);
+            if(!empty($finalArray)){
+                $changesData = json_encode($finalArray);
+                DrugHistoryLog::updateOrCreate(
+                    [
+                        'rasa_id'   => $id
 
-                ],
-                [
-                    'data' => $changesData,
-                    'rasa_id' => $id,
-                    'user_id' => Auth::id(),
-                    'user_type' => Auth::user()->user_type,
-                ]
-            );
+                    ],
+                    [
+                        'data' => $changesData,
+                        'rasa_id' => $id,
+                        'user_id' => Auth::id(),
+                        'user_type' => Auth::user()->user_type,
+                    ]
+                );
+            }else{
+                DrugHistoryLog::where('rasa_id',$id)->delete();
+            }
         }
 
 
@@ -496,19 +506,24 @@ class DrugController extends Controller
                 $comositionUpdate['comosition_update'] = 'add_composition_extra';
                 $finalArray = array_merge($comositionUpdate,$finalArray);
             }
-            $changesData = json_encode($finalArray);
-            DrugHistoryLog::updateOrCreate(
-                [
-                    'vati_id'   => $id
+            unset($finalArray['updated_at']);
+            if(!empty($finalArray)){
+                $changesData = json_encode($finalArray);
+                DrugHistoryLog::updateOrCreate(
+                    [
+                        'vati_id'   => $id
 
-                ],
-                [
-                    'data' => $changesData,
-                    'vati_id' => $id,
-                    'user_id' => Auth::id(),
-                    'user_type' => Auth::user()->user_type,
-                ]
-            );
+                    ],
+                    [
+                        'data' => $changesData,
+                        'vati_id' => $id,
+                        'user_id' => Auth::id(),
+                        'user_type' => Auth::user()->user_type,
+                    ]
+                );
+            }else{
+                DrugHistoryLog::where('vati_id',$id)->delete();
+            }
         }
 
         $name_of_the_ingredients = $request->name_of_the_ingredients;
@@ -656,19 +671,24 @@ class DrugController extends Controller
                 $comositionUpdate['comosition_update'] = 'add_composition_extra';
                 $finalArray = array_merge($comositionUpdate,$finalArray);
             }
-            $changesData = json_encode($finalArray);
-            DrugHistoryLog::updateOrCreate(
-                [
-                    'taila_id'   => $id
+            unset($finalArray['updated_at']);
+            if(!empty($finalArray)){
+                $changesData = json_encode($finalArray);
+                DrugHistoryLog::updateOrCreate(
+                    [
+                        'taila_id'   => $id
 
-                ],
-                [
-                    'data' => $changesData,
-                    'taila_id' => $id,
-                    'user_id' => Auth::id(),
-                    'user_type' => Auth::user()->user_type,
-                ]
-            );
+                    ],
+                    [
+                        'data' => $changesData,
+                        'taila_id' => $id,
+                        'user_id' => Auth::id(),
+                        'user_type' => Auth::user()->user_type,
+                    ]
+                );
+            }else{
+                DrugHistoryLog::where('taila_id',$id)->delete();
+            }
         }
 
         $name_of_the_ingredients = $request->name_of_the_ingredients;
@@ -818,19 +838,24 @@ class DrugController extends Controller
                 $comositionUpdate['comosition_update'] = 'add_composition_extra';
                 $finalArray = array_merge($comositionUpdate,$finalArray);
             }
-            $changesData = json_encode($finalArray);
-            DrugHistoryLog::updateOrCreate(
-                [
-                    'aswa_id'   => $id
+            unset($finalArray['updated_at']);
+            if(!empty($finalArray)){
+                $changesData = json_encode($finalArray);
+                DrugHistoryLog::updateOrCreate(
+                    [
+                        'aswa_id'   => $id
 
-                ],
-                [
-                    'data' => $changesData,
-                    'aswa_id' => $id,
-                    'user_id' => Auth::id(),
-                    'user_type' => Auth::user()->user_type,
-                ]
-            );
+                    ],
+                    [
+                        'data' => $changesData,
+                        'aswa_id' => $id,
+                        'user_id' => Auth::id(),
+                        'user_type' => Auth::user()->user_type,
+                    ]
+                );
+            }else{
+                DrugHistoryLog::where('aswa_id',$id)->delete();
+            }
         }
 
         $name_of_the_ingredients = $request->name_of_the_ingredients;
@@ -900,31 +925,30 @@ class DrugController extends Controller
             if(request()->yogas_type==1)
             {
                 /* $drugslist = ChurnaYoga::whereBetween('created_at',[$from_date,$to_date])->where('shishya_id',$shishya_id)->get();*/
-                $drugslist = ChurnaYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
+                $drugslist = ChurnaYoga::with('drugHistory')->where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
 
             elseif(request()->yogas_type==2)
             {
-                $drugslist = RasaYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
+                $drugslist = RasaYoga::with('drugHistory')->where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==3)
             {
-                $drugslist = VatiYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
+                $drugslist = VatiYoga::with('drugHistory')->where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==4)
             {
-                $drugslist = TaliaYogas::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
+                $drugslist = TaliaYogas::with('drugHistory')->where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
             elseif(request()->yogas_type==5)
             {
-                $drugslist = ArishtaYoga::where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
+                $drugslist = ArishtaYoga::with('drugHistory')->where('date_of_yogas','>=',date("Y-m-d",strtotime($from_date)))->where('date_of_yogas','<=',date("Y-m-d",strtotime($to_date)))
                 ->where('shishya_id',$shishya_id)->get();
             }
-            
            return view('drugs.admin.admin-drug-report-history',compact('drugslist','shishya'));
     }
 

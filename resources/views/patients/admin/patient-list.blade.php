@@ -76,8 +76,7 @@
                         </thead>
                         <tbody>
                                                             
-                        @foreach($patientlist as $key=>$patientlist) 
-                                                                                 
+                        @foreach($patientlist as $key=>$patientlist)                               
                         <tr class="gradeX odd @if($patientlist->read_by_admin=='0') active-row @endif">
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <!-- <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td> -->
@@ -96,7 +95,11 @@
                                                     <i class="material-icons">visibility</i>
                                     </a>
                                     <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
-                                          <i class="material-icons">edit</i>
+                                          <i class="material-icons">edit
+                                          @if(isset($patientlist->patientHistory->patient_id))
+                                             <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                          @endif
+                                          </i>
                                     </a>
                                     <!-- <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>

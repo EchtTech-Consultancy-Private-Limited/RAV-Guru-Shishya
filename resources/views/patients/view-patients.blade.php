@@ -62,7 +62,7 @@
                               <th>Name of the Shishya </th>
                               <th>Date of Report </th>
                         </tr>
-                       
+
                      </thead>
 
                      <tbody>
@@ -87,7 +87,7 @@
                              <th class="w-25"> Title </th>
                              <th> Value </th>
                         </tr>
-                       
+
                      </thead>
 
                      <tbody>
@@ -181,7 +181,7 @@
                         </tr>
                         <tr>
                            <td colspan="2" class="title"> <h3> Examination of the patient</h3> </td>
-                          
+
                         </tr>
                         <tr>
                            <td> Skin</td>
@@ -249,14 +249,14 @@
                                           {{@$patient->shabda == $key  ? $value : ''}}
                                           @endforeach </td>
                         </tr>
-             
+
                         <tr>
                            <td>Koshtha </td>
                            <td> @foreach(__('phr.koshtha') as $key=>$value)
                                           {{@$patient->koshtha == $key  ? $value : ''}}
                                           @endforeach </td>
                         </tr>
-                                   <!-- ******************************* --> 
+                                   <!-- ******************************* -->
                         <tr>
                            <td>Agni </td>
                            <td> @foreach(__('phr.agni') as $key=>$value)
@@ -291,7 +291,7 @@
                            <td>Samodhana Kriyas </td>
                            <td> {{@$patient->samodhana_kriyas }} </td>
                         </tr>
-                      
+
                                    <!-- ******************************* -->
                         <tr>
                            <td>  Mala
@@ -384,9 +384,65 @@
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span></td>
                            <td>{{@$patient->pathya_apathya}} </td>
                         </tr>
-                       
+                        <!-- ******************addedd new fild **************** -->
+                    <tr>
+                           <td>  Soft drink/Peya Padarth</td>
+                           <td>   @foreach(__('phr.soft_drink') as $key=>$value)
+                                    {{@$patient->soft_drink == $key  ? $value : ''}}
+                                 @endforeach </td>
+                        </tr>
+
+                        <tr>
+                           <td>  Madhyahan Bhojana</td>
+                           <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
+                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}      
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Prataraasha</td>
+                        <td>  @foreach(__('phr.prataraasha') as $key=>$value)
+                                 {{@$patient->prataraasha == $key  ? $value : ''}} 
+                              @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulses</td>
+                           <td>    @foreach(__('phr.pulses') as $key=>$value)
+                                       {{@$patient->pulses == $key  ? $value : ''}}
+                                    @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulpy vegetables</td>
+                           <td>   @foreach(__('phr.pulpy_vegetables') as $key=>$value)
+                           {{@$patient->pulpy_vegetables == $key  ? $value : ''}}
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Oil/Tail</td>
+                           <td> @foreach(__('phr.oil_tail') as $key=>$value)
+                                    {{@$patient->oil_tail == $key  ? $value : ''}}
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Afternoon Fruit</td>
+                           <td>  @foreach(__('phr.afternoon_fruit') as $key=>$value)
+                                     {{@$patient->afternoon_fruit == $key  ? $value : ''}}
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Evening Meals</td>
+                           <td>{{ @$patient->evening_meals }} </td>
+                        </tr>
+                        <tr>
+                           <td>  Bed time </td>
+                           <td>  @foreach(__('phr.bed_time') as $key=>$value)
+                                    {{@$patient->bed_time == $key  ? $value : ''}}
+                                 @endforeach</td>
+                        </tr>
+
+                        <!-- ******************addedd new fild **************** -->
+
                      </tbody>
-                  
+
                   <div class="row clearfix">
                                     <div class="col-md-6">
                                        <div class="form-group">
@@ -417,13 +473,13 @@
                                        </div>
                                     </div>
                                  </div>
-                  
+
 
                         <div id="non-printable" class="col-sm-12 p-t-20 text-left no-printme">
                                     <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
                                  </div>
                   </div>
-            </div>   
+            </div>
          </div>
 </section>
 </div>

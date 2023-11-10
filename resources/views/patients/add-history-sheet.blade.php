@@ -78,7 +78,7 @@
                                        <p>Basic Information</p>
                                        </div>
                                     <div class="row">
-                                      
+
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Guru</label><br>
@@ -108,13 +108,13 @@
                                           </div>
                                        </div>
                                     </div>
-                                    
+
                                     <hr style="height:2px;">
                                     <div class="title">
                                           <p>Add Patient Details</p>
                                        </div>
                                     <div class="row">
-                                      
+
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger">*</span></label>
@@ -174,9 +174,9 @@
                                        </div>
                                     </div>
                                     <div class="row">
-                                       
 
-                                       
+
+
 
                                     </div>
                                     <div class="row">
@@ -275,8 +275,8 @@
                                              Sidhi" value="" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                           </div>
                                        </div>
-                                    
-                                    
+
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-in
@@ -294,8 +294,8 @@
                                              </select>
                                           </div>
                                        </div>
-                                       
-                                       
+
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Address<span class="text-danger">*</span></label>
@@ -307,19 +307,19 @@
                                              @endif
                                           </div>
                                        </div>
-                                       
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Main Complaint(As said by family member)</label>
                                              <textarea cols="45" rows="1" name="main_complaint_as_said_by_family" class="form-control" placeholder="Main Complaint" maxlength="100">{{ old('main_complaint_as_said_by_family') }}</textarea>
                                           </div>
                                        </div>
-                                   
-                                       
-                                     
-                                   
-                                       
-                                       
+
+
+
+
+
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Duration</label>
@@ -333,11 +333,11 @@
                                           </div>
                                        </div>
                                     </div>
-                                    
-                                   
-                                  
-                                       
-                                 
+
+
+
+
+
                                     <div class="row">
                                        <div class="col-md-4">
                                           <div class="form-group">
@@ -351,7 +351,7 @@
                                              <input type="text" name="said_by_patient_duration" value="{{ old('said_by_patient_duration') }}" class="form-control" placeholder="Enter Duration" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                           </div>
                                        </div>
-                                      
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
@@ -838,9 +838,9 @@
                                              <textarea cols="45" rows="1" name="samprapti_vivarana" class="form-control" value="" aria-label="samprapti_vivarana" placeholder="Enter Samprapti Vivarana" maxlength="100">{{ old('samprapti_vivarana') }}</textarea>
                                           </div>
                                        </div>
-                                       
+
                                     </div>
-                                    
+
                                     <div class="row">
                                        <div class="col-md-4">
                                           <div class="form-group">
@@ -871,7 +871,7 @@
                                              " placeholder="Enter Chikitsa Kalpana Anupana Sahita" maxlength="100">{{ old('chikitsa_kalpana_anupana_sahita') }}</textarea>
                                           </div>
                                        </div>
-                                       
+
                                     </div>
                                     <div class="row">
                                        <div class="col-md-4">
@@ -890,6 +890,7 @@
                                              " placeholder="Enter Samshamana Kriyas" maxlength="100">{{ old('samshamana_kriyas') }}</textarea>
                                           </div>
                                        </div>
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
@@ -900,11 +901,157 @@
                                              " placeholder="Enter  Pathya-Apathya" maxlength="100">{{ old('pathya_apathya') }}</textarea>
                                           </div>
                                        </div>
-                                       
                                     </div>
-                                    
+
                                     <div class="row">
-                                       
+                                         <!-- ******************aAnexteure pdf input field*********************** -->
+
+                                         <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Soft drink/Peya Padarth</label>
+                                             <select name="soft_drink" id="soft_drink" class="form-control">
+                                                <option value="">Please
+                                                   select
+                                                </option>
+                                                @foreach(__('phr.soft_drink') as $key=>$value)
+                                                @if($key == old('soft_drink'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+                                         <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Madhyahan Bhojana</label>
+                                             <select name="madhyahan_bhojana" id="madhyahan_bhojana" class="form-control">
+                                                <option value="">Please
+                                                   select
+                                                </option>
+                                                @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
+                                                @if($key == old('madhyahan_bhojana'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+                                         <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Prataraasha</label>
+                                             <select name="prataraasha" id="prataraasha" class="form-control">
+                                                <option value="">Please
+                                                   select
+                                                </option>
+                                                @foreach(__('phr.prataraasha') as $key=>$value)
+                                                @if($key == old('prataraasha'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+                                         <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Pulses </label>
+                                             <select name="pulses" id="pulses" class="form-control">
+                                                <option value="">Please  select
+                                                </option>
+                                                @foreach(__('phr.pulses') as $key=>$value)
+                                                @if($key == old('pulses'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+
+
+                                         <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Pulpy vegetables </label>
+                                             <select name="pulpy_vegetables" id="pulpy_vegetables" class="form-control">
+                                                <option value="">Please  select
+                                                </option>
+                                                @foreach(__('phr.pulpy_vegetables') as $key=>$value)
+                                                @if($key == old('pulpy_vegetables'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+                                         <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Oil/Tail </label>
+                                             <select name="oil_tail" id="oil_tail" class="form-control">
+                                                <option value="">Please  select
+                                                </option>
+                                                @foreach(__('phr.oil_tail') as $key=>$value)
+                                                @if($key == old('oil_tail'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+
+                                       <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Afternoon Fruit </label>
+                                             <select name="afternoon_fruit" id="afternoon_fruit" class="form-control">
+                                                <option value="">Please  select
+                                                </option>
+                                                @foreach(__('phr.afternoon_fruit') as $key=>$value)
+                                                @if($key == old('afternoon_fruit'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             evening_meals </label>
+                                             <input type="text" name="evening_meals" id="evening_meals" value="{{ old('evening_meals') }}">
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label">
+                                             Bed time </label>
+                                             <select name="bed_time" id="bed_time" class="form-control">
+                                                <option value="">Please  select
+                                                </option>
+                                                @foreach(__('phr.bed_time') as $key=>$value)
+                                                @if($key == old('bed_time'))
+                                                   <option value="{{ $key }}" selected>{{ $value }}</option>
+                                                @endif
+                                                <option value="{{$key}}">{{$value}}</option>
+                                                @endforeach
+                                             </select>
+                                          </div>
+                                       </div>
+
+                                       <!-- ******************aAnexteure pdf input field*********************** -->
+                                    </div>
+                                    <div class="row">
+
                                        <div class="col-md-6">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Guru's
@@ -939,8 +1086,8 @@
 </section>
 
 <script>
-  
- 
+
+
    // disable alphate
 
 </script>

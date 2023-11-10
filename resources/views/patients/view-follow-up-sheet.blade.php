@@ -41,7 +41,7 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
-                   
+
                     <div class="body p-0">
                         <div id="wizard_horizontal " class="card-body">
                             <section>
@@ -49,7 +49,7 @@
                                 <div class="col-sm-12 pb-0">
                                 <div class="header p-0">
                                         <h2 class=''>View Follow Up </h2>
-                                    
+
                                     </div>
                                 <table class="view-table">
                                     <h3>Basic Information</h3>
@@ -57,14 +57,14 @@
                                        <tr>
                                           <th class="w-25"> Title</th>
                                           <th> Value</th>
-                                         
+
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <tr> 
+                                       <tr>
                                           <td>Patient Registration No. </td>
                                           <td>{{$patient->registration_no}} </td>
-                                         
+
                                        </tr>
 
                                        <tr>
@@ -87,19 +87,19 @@
                                         <td>Treatment/Therapies </td>
                                         <td>@if(!empty($data->treatment)){{$data->treatment}}@endif </td>
                                        </tr>
-                                      
+
                                     </tbody>
                                  </table>
-                                  
+
 
 
                                 </div>
                         </div>
 
                         <div class="col-sm-12">
-                          
+
                             <div class="card mb-0 view-follow-up-sheet">
-                           
+
                                 <form role="form" method="POST" action="{{ url('/save-follow-up-remark') }}"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -138,7 +138,7 @@
                                             </div>
 
                                             @if(Auth::user()->user_type==1)
-                                              
+
                                               <div class="col-lg-3 col-xxl-2 col-xl-3  col-md-4 col-6">
                                                   <div class="form-group">
                                                       <div class="form-line">
@@ -171,7 +171,7 @@
                                             </div>
 
                                             @else
-                                             
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="form-line">
@@ -195,7 +195,7 @@
                                                     </div>
                                                 </div>
                                                 @endif
-                                               
+
 
                                                     <div class="row clearfix">
                                                         <div class="col-sm-12 p-t-20 text-left">
@@ -213,11 +213,11 @@
                                                                 @if((Auth::user()->user_type==3) ||
                                                                 (Auth::user()->user_type==1))Send to Guru
                                                                 @elseif(Auth::user()->user_type==2)Send @endif</button>
-                                                           
+
                                                         </div>
                                                     </div>
-                                                
-                                            
+
+
                                 </form>
                             </div>
                         </div>
@@ -275,7 +275,7 @@
 
                                                     </table>
 
-                                                    
+
                                                 </div>
 
 
@@ -305,15 +305,13 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Name of the
-                                                Guru</th>
-                                        <th>Place of the
-                                                Guru</th>
+                                        <th>Name of the Guru</th>
+                                        <th>Place of the Guru</th>
                                         <th>Name of the
                                                 Shishya</th>
                                         <th>
                                         Date of
-                                                Repor
+                                                Report
                                         </th>
                                     </tr>
                                 </thead>
@@ -342,7 +340,7 @@
                             <h3>Patient Information</h3>
 
                             <table class="view-table" >
-                               
+
                                 <!-- <thead>
                                 <tr>
                                     <td colspan="2" class="tabel-heading"> <h3>Patient Information</h3></td>
@@ -448,7 +446,7 @@
                                                 of
                                                 the
                                                 patient </td>
-                                           
+
                                         </tr>
                                         <tr>
                                             <td>Skin </td>
@@ -496,6 +494,133 @@
                                                     {{$patient->examination_by_physician == $key  ? $value : ''}}
                                                     @endforeach </td>
                                         </tr>
+
+                                        <tr>
+                                             <td>Examination
+                                                by
+                                                Physician</td>
+                                                <td>
+                                                   @foreach(__('phr.examination_by_physician') as $key=>$value)
+                                                   {{$patient->examination_by_physician == $key  ? $value : ''}}
+                                                   @endforeach
+                                                </td>
+                                          </tr>
+
+                                           <tr>
+                                             <td>Prayogashaliya Parikshana
+                                             </td>
+                                             <td>{{ $patient->prayogashaliya_parikshana }}</td>
+                                           </tr>
+
+                                           <tr>
+                                             <td>
+                                                Samprapti
+                                                Vivarana
+                                             </td>
+                                             <td>
+                                                {{ $patient->samprapti_vivarana }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>
+                                                Vibhedaka Pariksha
+                                             </td>
+                                             <td>
+                                                {{ $patient->vibhedaka_pariksha }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Roga
+                                                Vinishchaya-
+                                                Pramukh
+                                                Nidana</td>
+                                             <td>
+                                                {{ $patient->roga_vinishchaya_pramukh_nidana }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Chikitsa Kalpana Anupana Sahita</td>
+                                             <td>
+                                                {{ $patient->chikitsa_kalpana_anupana_sahita }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Samshodhana Kriyas</td>
+                                             <td>
+                                                {{ $patient->samshodhana_kriyas }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Samshamana Kriyas</td>
+                                             <td>
+                                                {{ $patient->samshamana_kriyas }}
+                                             </td>
+                                           </tr>
+                                           <tr>
+                                             <td>Pathya-Apathya
+                                                <a target="_blank" href="{{ asset('annexure-file.pdf') }}">(Annexure-1)</a>
+                                             </td>
+                                             <td>
+                                                {{ $patient->pathya_apathya }}
+                                             </td>
+                                           </tr>
+
+                                              <!-- ******************addedd new fild **************** -->
+                    <tr>
+                           <td>  Soft drink/Peya Padarth</td>
+                           <td>   @foreach(__('phr.soft_drink') as $key=>$value)
+                                    {{@$patient->soft_drink == $key  ? $value : ''}}
+                                 @endforeach </td>
+                        </tr>
+
+                        <tr>
+                           <td>  Madhyahan Bhojana</td>
+                           <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
+                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}      
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Prataraasha</td>
+                        <td>  @foreach(__('phr.prataraasha') as $key=>$value)
+                                 {{@$patient->prataraasha == $key  ? $value : ''}} 
+                              @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulses</td>
+                           <td>    @foreach(__('phr.pulses') as $key=>$value)
+                                       {{@$patient->pulses == $key  ? $value : ''}}
+                                    @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td> Pulpy vegetables</td>
+                           <td>   @foreach(__('phr.pulpy_vegetables') as $key=>$value)
+                           {{@$patient->pulpy_vegetables == $key  ? $value : ''}}
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Oil/Tail</td>
+                           <td> @foreach(__('phr.oil_tail') as $key=>$value)
+                                    {{@$patient->oil_tail == $key  ? $value : ''}}
+                                 @endforeach </td>
+                        </tr>
+                        <tr>
+                           <td> Afternoon Fruit</td>
+                           <td>  @foreach(__('phr.afternoon_fruit') as $key=>$value)
+                                     {{@$patient->afternoon_fruit == $key  ? $value : ''}}
+                                 @endforeach</td>
+                        </tr>
+                        <tr>
+                           <td>Evening Meals</td>
+                           <td>{{ @$patient->evening_meals }} </td>
+                        </tr>
+                        <tr>
+                           <td>  Bed time </td>
+                           <td>  @foreach(__('phr.bed_time') as $key=>$value)
+                                    {{@$patient->bed_time == $key  ? $value : ''}}
+                                 @endforeach</td>
+                        </tr>
+
+                        <!-- ******************addedd new fild **************** -->
                                         <!-- <tr>
                                             <td>Shishya's
                                                 E-Sig </td>
@@ -522,7 +647,7 @@
                                             {{$guru->firstname.' '.$guru->lastname}})
                                             @endif </td>
                                         </tr> -->
-                                       
+
                                 </tbody>
                             </table>
                             <div class="row clearfix">
@@ -559,13 +684,13 @@
                                 </div>
 
                             </div>
-                           
-
-                          
 
 
-                               
-                              
+
+
+
+
+
                                 <div class="col-sm-12 p-t-20 text-left">
                                     <a href="{{ url('/follow-up-patients') }}"><button type="button"
                                             class="btn back btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
@@ -600,7 +725,7 @@ function confirm_option(action) {
         "Are you sure to send record to Admin? Please note that once you send this to Admin, you can not modify this record!";
     else if ($("#send_to").val() == 2) {
         @if(Auth::user()->user_type == 1)
-        if ($("#remark_type").val() == 1) 
+        if ($("#remark_type").val() == 1)
         msg = "Are you sure to send record to Guru? Please note that once you send this to Guru, he/she can modify this record!";
         else msg = "Are you sure to send record to Guru? Please note that remark is for reference only!";
         @else

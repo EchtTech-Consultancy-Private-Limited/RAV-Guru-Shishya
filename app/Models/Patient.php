@@ -68,6 +68,20 @@ class Patient extends Model
         'shishya_id',
         'patient_type',
         'read_time',
+        'soft_drink', 
+        'madhyahan_bhojana', 
+        'prataraasha', 
+        'pulses', 
+        'pulpy_vegetables', 
+        'oil_tail', 
+        'afternoon_fruit', 
+        'evening_meals', 
+        'bed_time', 
     ];
+
+    public function patientHistory()
+    {
+        return $this->belongsTo(PatientHistoryLog::class, 'id','patient_id');
+    }
 
 }

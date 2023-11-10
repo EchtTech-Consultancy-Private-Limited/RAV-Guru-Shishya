@@ -53,36 +53,36 @@
                         @endif
                         <div class="header">
                             <div class="row pt-3">
-                                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-12">
+                                <div class=" col-xl-2 col-lg-2 col-md-12">
                                 <div class="form-group">
                                        <label class="active">Registartion No. :</label>
                                        <input type="text" name="prno" class="form-control"
                                                 value="@if (request()->prno) {{ request()->prno }} @endif"
                                                 maxlength="20" placeholder="Enter Registration No.">
                                 </div>
-                                   
+
                                 </div>
-                                <div class="col-xxl-9 col-xl-9 col-lg-8 col-md-12">
+                                <div class="col-xxl-9 col-xl-10 col-lg-8 col-md-12">
                                 <div class="row">
-                               
+
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
                                                 <div class="form-group">
-                                                    <label class="active">From:</label>
+                                                    <label class="active">From Date:</label>
                                                     <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
                                                 </div>
-                                           
+
                                         </div>
 
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
-                                          
+
                                             <div class="form-group">
-                                                    <label class="active"> To:</label>
+                                                    <label class="active"> To Date:</label>
                                                     <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
                                                 </div>
                                         </div>
-                                       
 
-                                        <div class="col-xl-6 col-xxl-5 col-lg-6 col-md-6">
+
+                                        <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-6">
                                             <div class="form-group">
                                                     <label class="active">Select Duration:</label>
                                                     <select name="report_type" class="form-control active">
@@ -96,12 +96,12 @@
                                                     </select>
                                                 </div>
 
-                                                                                                <div>
+                                            </div>
+
+                                            <div class="col-xl-3 col-md-6">
                                                     <button type="submit" class="btn filter  waves-effect" style="line-height:2;"> Filter </button>
                                                     <a href="{{ url('/follow-up-patients') }}"><button type="button" class="btn reset  waves-effect">Reset</button></a>
                                                 </div>
-
-                                            </div>
                                         </div>
                                     </div>
 
@@ -140,9 +140,7 @@
                                             <th class="center"> Patient Registration No. <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
-                                            <th class="center"> Date <i class="fa fa-long-arrow-up"
-                                                    aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
-                                                    aria-hidden="true"></i></th>
+
                                             <th class="center"> Patient Name <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
@@ -167,6 +165,9 @@
                                             <th class="center"> Progress Duration <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
+                                            <th class="center"> Date <i class="fa fa-long-arrow-up"
+                                            aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
+                                            aria-hidden="true"></i></th>
                                             <th class="center"> Action <i class="fa fa-long-arrow-up"
                                                     aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                     aria-hidden="true"></i></th>
@@ -191,8 +192,7 @@
                                             <!-- <td class="center"><a
                                                             href="{{ url('follow-up-sheet/' . encrypt($followup->patient_id)) }}@php if(request()->to_date){ echo '/'.date('Y-m-d',strtotime(request()->from_date));} else echo '/0'; if(request()->from_date){ echo '/'.date('Y-m-d',strtotime(request()->to_date));} else echo '/0'; if(request()->report_type){ echo '/'.request()->report_type;} else echo '/0'; @endphp">{{ $followup->registration_no }}</a> -->
                                             <td>{{ $followup->registration_no }}</td>
-                                            <td class="center">
-                                                {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
+
                                             <td class="center">{{ $followup->patient_name }}</td>
                                             @if(Auth::user()->user_type == 1)
                                             <td class="center">
@@ -214,6 +214,8 @@
                                             @endif
 
                                             <td class="center">{{ $followup->report_type }}</td>
+                                            <td class="center">
+                                                {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                             <td>
                                                 <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                     class="btn view btn-tbl-edit" title="View Record">
@@ -223,21 +225,26 @@
                                                 @if (
                                                 (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
-                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
+                                                (Auth::user()->user_type == 1))
                                                 <a href="{{ url('/add-follow-up-sheet/' . encrypt($followup->patient_id) . '/' . encrypt($followup->id)) }}"
                                                     class="btn edit btn-tbl-edit" title="Edit Record"
                                                     onclick="return confirm_option(' edit ')">
-                                                    <i class="material-icons">edit</i>
+                                                    <i class="material-icons">edit
+                                                    @if(isset($followup->followUpHistory->follow_up_id))
+                                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                                    @endif
+                                                    </i>
                                                 </a>
                                                 @endif
-                                                @if (
+                                                <!--  (
                                                 (Auth::user()->user_type == 3 &&
                                                 $followup->send_to_shishya == '1' &&
                                                 $followup->send_to_guru != '1' &&
                                                 $followup->send_to_admin != '1') ||
                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1' &&
                                                 $followup->send_to_admin != '1') ||
-                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
+                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1')) -->
+                                                @if(Auth::user()->user_type == 1)
                                                 <a href="{{ url('/delete-follow-up/' . encrypt($followup->id)) }}"
                                                     class="btn btn-tbl-delete" title="Delete Record"
                                                     onclick="return confirm_option(' delete ')">
@@ -315,12 +322,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <div class="form-line">
-                            <label for="registration_no">Patient Registration No.</label>
+                    <label for="registration_no">Patient Registration No.</label>
                             <input type="text" id="registration_no" class="form-control"
                                 placeholder="Enter patient registration no." minlength="4" maxlength="20">
                             <span class="text-danger" id="registration_no-error"></span>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

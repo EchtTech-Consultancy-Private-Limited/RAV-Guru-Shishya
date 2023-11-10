@@ -50,4 +50,8 @@ class TaliaYogas extends Model
       'shishya_id',
       'date_of_yogas'
     ];
+    public function drugHistory()
+    {
+        return $this->belongsTo(DrugHistoryLog::class, 'id','taila_id');
+    }
 }

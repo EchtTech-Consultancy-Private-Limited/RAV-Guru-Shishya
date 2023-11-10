@@ -45,4 +45,8 @@ class ArishtaYoga extends Model
            'date_of_yogas'
 
         ];
+    public function drugHistory()
+    {
+        return $this->belongsTo(DrugHistoryLog::class, 'id','aswa_id');
+    }
 }

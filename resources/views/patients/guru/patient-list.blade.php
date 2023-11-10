@@ -102,7 +102,11 @@
                                     </a> -->
 
                                  @else                                    
-                                    <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn edit btn-tbl-edit" title="Edit Patient"><i class="material-icons">edit</i></a>
+                                    <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn edit btn-tbl-edit" title="Edit Patient"><i class="material-icons">edit
+                                    @if(isset($patientlist->patientHistory->patient_id))
+                                       <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                    @endif
+                                    </i></a>
                                     <!-- <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete"><i class="material-icons">delete_forever</i>
                                     </a> -->
                                  @endif
