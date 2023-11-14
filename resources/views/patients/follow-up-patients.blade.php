@@ -214,7 +214,7 @@
                                             @endif
 
                                             <td class="center">{{ $followup->report_type }}</td>
-                                            <td class="center">
+                                            <td class="center date">
                                                 {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                             <td>
                                                 <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"

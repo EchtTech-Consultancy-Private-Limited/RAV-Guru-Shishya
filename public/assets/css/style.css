@@ -1418,3 +1418,7 @@ input[type="date"]{
 textarea[name="remark"].form-control{
     height: 32px !important;
 }
+
+.date{
+    white-space: nowrap !important;
+}
