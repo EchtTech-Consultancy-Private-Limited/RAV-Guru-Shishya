@@ -388,68 +388,54 @@
                     <tr>
                            <td>  Soft drink/Peya Padarth</td>
                            <td>   @foreach(__('phr.soft_drink') as $key=>$value)
-                                          {{@$patient->soft_drink == $key  ? $value : ''}}
-                                          @endforeach </td>
+                                    {{@$patient->soft_drink == $key  ? $value : ''}}
+                                 @endforeach </td>
                         </tr>
 
                         <tr>
                            <td>  Madhyahan Bhojana</td>
                            <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
-                                 @if($key == old('madhyahan_bhojana'))
-                                    <option value="{{ $key }}" selected>{{ $value }}</option>
-                                 @endif
+                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}      
                                  @endforeach </td>
                         </tr>
                         <tr>
                            <td> Prataraasha</td>
                         <td>  @foreach(__('phr.prataraasha') as $key=>$value)
-                              @if($key == old('prataraasha'))
-                                 <option value="{{ $key }}" selected>{{ $value }}</option>
-                              @endif
+                                 {{@$patient->prataraasha == $key  ? $value : ''}} 
                               @endforeach</td>
                         </tr>
                         <tr>
                            <td> Pulses</td>
                            <td>    @foreach(__('phr.pulses') as $key=>$value)
-                                    @if($key == old('pulses'))
-                                       <option value="{{ $key }}" selected>{{ $value }}</option>
-                                    @endif
+                                       {{@$patient->pulses == $key  ? $value : ''}}
                                     @endforeach</td>
                         </tr>
                         <tr>
                            <td> Pulpy vegetables</td>
                            <td>   @foreach(__('phr.pulpy_vegetables') as $key=>$value)
-                                 @if($key == old('pulpy_vegetables'))
-                                    <option value="{{ $key }}" selected>{{ $value }}</option>
-                                 @endif
+                           {{@$patient->pulpy_vegetables == $key  ? $value : ''}}
                                  @endforeach</td>
                         </tr>
                         <tr>
                            <td>Oil/Tail</td>
                            <td> @foreach(__('phr.oil_tail') as $key=>$value)
-                                 @if($key == old('oil_tail'))
-                                    <option value="{{ $key }}" selected>{{ $value }}</option>
-                                 @endif
+                                    {{@$patient->oil_tail == $key  ? $value : ''}}
                                  @endforeach </td>
                         </tr>
                         <tr>
                            <td> Afternoon Fruit</td>
                            <td>  @foreach(__('phr.afternoon_fruit') as $key=>$value)
-                                 @if($key == old('afternoon_fruit'))
-                                    <option value="{{ $key }}" selected>{{ $value }}</option>
-                                 @endif
+                                     {{@$patient->afternoon_fruit == $key  ? $value : ''}}
                                  @endforeach</td>
                         </tr>
                         <tr>
-                           <td>evening_meals</td>
-                           <td>{{ old('evening_meals') }} </td>
+                           <td>Evening Meals</td>
+                           <td>{{ @$patient->evening_meals }} </td>
                         </tr>
                         <tr>
                            <td>  Bed time </td>
                            <td>  @foreach(__('phr.bed_time') as $key=>$value)
-                                 @if($key == old('bed_time'))
-                                    <option value="{{ $key }}" selected>{{ $value }}</option>
-                                 @endif
+                                    {{@$patient->bed_time == $key  ? $value : ''}}
                                  @endforeach</td>
                         </tr>
 
