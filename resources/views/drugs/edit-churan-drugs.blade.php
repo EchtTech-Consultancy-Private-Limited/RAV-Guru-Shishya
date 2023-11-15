@@ -42,90 +42,41 @@
    <div class="row clearfix">
       <div class="col-lg-12 mb-2 col-md-12 mb-2 mb-3 col-sm-12 mb-2 col-xs-12 mb-2">
          <div class="card">
-            
+
             <div class="body">
+            <h3 class="pb-3">Edit Drug Report</h3>
                <div id="wizard_horizontal">
-                  <h2>Edit Drug Report</h2>
+
                   <section>
                      <div class="col-md-12 mb-2 mb-3">
                         <div class="card">
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
                               <div class="card-body p-0">
-                                 <div
-                                    class="row">
-                                    <div
-                                       class="col-md-4 mb-2 mb-3">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label>
-                                             @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
-                                             >
+                              <table>
+                                    <thead>
+                                       <th> Name of the Guru</th>
+                                       <th>Name of the Shishya </th>
+                                       <th>Date of Report </th>
+                                    </thead>
+                                    <tbody>
+                                       <td>
+                                       @if(Auth::user()->guru_id || Auth::user()->user_type==1)
+                                       {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                       @endif
+                                       @if(Auth::user()->user_type==2)
+                                       {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                       @endif
+                                       </td>
+                                       <td>
+                                       @if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                              @endif
-                                             @if(Auth::user()->user_type==2)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
-                                             >
-                                             @endif
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2 mb-3">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="text"
-                                             name="name_of_the_shishya"
-                                             class="form-control"
-                                             placeholder="Name of the Shishya"
-                                             aria-label="Name"
-                                             value=
-                                             "@if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                             @endif" readonly
-                                             >
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2 mb-3">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Date of Report<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="date"
-                                             name="date"
-                                             class="form-control"
-                                             placeholder="Date"
-                                             aria-label="Name"
-                                             value="<?php echo date('Y-m-d'); ?>" readonly
-                                             >
-                                       </div>
-                                    </div>
+                                       </td>
+                                       <td><?php echo date('d-m-Y'); ?> </td>
+                                    </tbody>
+                                 </table>
 
-                                 </div>
 
-                                
                                 <!--  <div class="row" >
 
                                     <div
@@ -176,13 +127,10 @@
                             </h5>
                          </div>
                   </div>
-                    
+
                 </div>
-                <div class="h-100">
-                        <h5 class="mb-1">
-                           Composition
-                        </h5>
-                     </div>
+
+
                  <!-- <p class="text-capatilize text-sm m-2">Composition</p> -->
 
                  <div class="page-content page-container" id="page-content">
@@ -191,53 +139,62 @@
                             <div class="col-lg-12 mb-2 grid-margin stretch-card">
                                 <div class="card">
                                     <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                          <input type="hidden" name="comosition_update" id="comosition_update" value="0">
-                                            <table id="faqs" class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name of the ingredients </th>
-                                                        <th>Part used   </th>
-                                                        <th>Quantity</th>
-                                                        <th>Action</th>
+                                    <div class="" id="faqs">
+                                          <div class="row">
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                   @foreach($churandrugpart as $churandrugpartdata)
-                                                   <tr>
-                                                        <td>
-                                                         <input type="hidden" name="drug_part_id[]" value="{{ $churandrugpartdata->id }}" >
-
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" aria-label="Name of the ingredients" value="{{ $churandrugpartdata->name_of_the_ingredients }}" >
-                                                         @error('name_of_the_ingredients')
+                                          <div class="col-md-12">
+                                          <div class="title">
+                                             <p class="text-capatilize text-sm">Composition</p>
+                                             </div>
+                                          </div>
+                                          @foreach($churandrugpart as $churandrugpartdata)
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active">Name of the ingredients <span class="text-danger">*</span></label>
+                                                   <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Enter Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ $churandrugpartdata->name_of_the_ingredients }}" >
+                                                            @error('name_of_the_ingredients_mineral_metal')
+                                                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                            @enderror
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active"> Part used<span class="text-danger">*</span></label>
+                                                   <input type="text" name="part_used[]" class="form-control" placeholder="Enter Part used"  value="{{ $churandrugpartdata->part_used }}" >@error('part_used')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
-                                                         </td>
-
-                                                        <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value="{{ $churandrugpartdata->part_used }}" >
-                                                         @error('part_used')
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active">Quantity <span class="text-danger">*</span></label>
+                                                   <input type="text" name="quantity[]" class="form-control" placeholder="Enter Quantity" aria-label="quantity" value="{{ $churandrugpartdata->quantity }}" >
+                                                         @error('quantity')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
-                                                        </td>
-                                                        <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ $churandrugpartdata->quantity }}" >
-                                                        @error('quantity')
-                                                        <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                                        @enderror
-                                                        </td>
-                                                        <td class="mt-10">
-                                                         <a  href="{{ url('delete-churan-yoga-part/'.$churandrugpartdata->id) }}" class="btn btn-tbl-delete">
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                <a  href="{{ url('delete-churan-yoga-part/'.$churandrugpartdata->id) }}" class="btn btn-tbl-delete">
                                                               <i class="material-icons">delete_forever</i>
                                                          </a>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn add btn-success"><i class="fa fa-plus"></i> ADD MORE</button></div>
+                                                </div>
+                                             </div>
+                                             <!-- <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active"> Action<span class="text-danger">*</span></label>
+                                                </div>
+                                             </div> -->
+
+                                             @endforeach
+                                          </div>
+
+                                          <div class="text-end d-flex justify-content-end"><button  onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center btn-success"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
+
+                                    </div>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -245,7 +202,7 @@
                     </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
                 </div>
                 <div class="row">
@@ -405,7 +362,7 @@
                     </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">Observations</p>
                 </div>
                 <div class="row">
@@ -449,7 +406,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1<span class="text-danger">*</span></label>
-                          <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="(i)" aria-label="(i)" value="{{ $churandrug->reasons_for_loss_first }}" >@error('(i)')
+                          <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="" aria-label="(i)" value="{{ $churandrug->reasons_for_loss_first }}" >@error('(i)')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
                        </div>
@@ -457,7 +414,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2<span class="text-danger">*</span></label>
-                          <input type="text" name="reasons_for_loss_second" class="form-control" placeholder="(ii)" aria-label="Name" value="{{ $churandrug->reasons_for_loss_second }}" >
+                          <input type="text" name="reasons_for_loss_second" class="form-control" placeholder="" aria-label="Name" value="{{ $churandrug->reasons_for_loss_second }}" >
                           @error('(ii)')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
@@ -483,7 +440,7 @@
                     </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">Duration required for the experiment</p>
                 </div>
                 <div class="row">
@@ -520,7 +477,51 @@
          </div>
       </div>
    </div>
-  
+
 </section>
 <script src="{{ asset('assets/js/drug-custom-script.js') }}"></script>
+
+<script>
+   var faqs_row = 0;
+
+function addfaqs() {
+    html = '<div class="row" id="faqs-row' + faqs_row + '">';
+
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<div class="form-group">';
+    html +=
+        '<label class="form-control-label active">Name of the ingredients <span class="text-danger">*</span></label>';
+    html +=
+        '<input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Enter Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" value="">';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<div class="form-group">';
+    html += '<label class="form-control-label active">Part used<span class="text-danger">*</span></label>';
+    html +=
+        '<input type="text" name="part_used[]" class="form-control" placeholder="Enter part used" aria-label="Part used" maxlength="200" value="">';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<div class="form-group">';
+    html += '<label class="form-control-label active">Quantity <span class="text-danger">*</span></label>';
+    html +=
+        '<input type="text" name="quantity[]" class="form-control" placeholder="Enter Quantity" aria-label="quantity" maxlength="200" value="">';
+    html += '</div>';
+    html += '</div>';
+
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row +
+        '\').remove();"><i class="material-icons">delete_forever</i> </button>';
+    html += '</div>';
+
+    html += '</div>';
+
+    $('#faqs').append(html);
+
+    faqs_row++;
+}
+</script>
 @endsection

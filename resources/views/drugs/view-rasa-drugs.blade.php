@@ -32,39 +32,39 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 mb-2 col-sm-12 col-xs-12">
                 <div class="card">
-                    
+
                     <div class="body">
                         <div id="wizard_horizontal">
                             <section>
                                 <div class="col-md-12 mb-2">
-                                <table class="view-table">
-                                                <h3>Basic Information</h3>
-                                                <thead>
-                                                    <tr>
-                                                        <th> Name of the Guru</th>
-                                                        <th> Name of the Shishya</th>
-                                                        <th>Date of Report </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                                            {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
-                                                            @endif
-                                                            @if(Auth::user()->user_type==2){{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                                            @endif
-                                                        </td>
-                                                        <td> @if(Auth::user()->user_type==1 ||
-                                                            Auth::user()->user_type==2)
-                                                            {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}}
-                                                            @else
-                                                            {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                                            @endif</td>
-                                                        <td> <?php echo date('d-m-Y'); ?></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                    <table class="view-table">
+                                        <h3>Basic Information</h3>
+                                        <thead>
+                                            <tr>
+                                                <th> Name of the Guru</th>
+                                                <th> Name of the Shishya</th>
+                                                <th>Date of Report </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @if(Auth::user()->guru_id || Auth::user()->user_type==1)
+                                                    {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                                    @endif
+                                                    @if(Auth::user()->user_type==2){{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                    @endif
+                                                </td>
+                                                <td> @if(Auth::user()->user_type==1 ||
+                                                    Auth::user()->user_type==2)
+                                                    {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}}
+                                                    @else
+                                                    {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                    @endif</td>
+                                                <td> <?php echo date('d-m-Y'); ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
                                 </div>
                             </section>
@@ -78,200 +78,205 @@
                 <form method="POST" action="{{ url('update-rasayoga-details') }}" readonly>
                     @csrf
                     <input type="hidden" name="drug_id" value="{{ $rasadrug->id }}">
-                    <div class="row">
-                        <div class="col-md-12 mb-2">
-                            <div class="form-group  ">
-                                <h5 class="text-center d-flex justify-content-center"> 2- RASA YOGAS</h5>
-                                <h5 class="d-block text-left">Name of the Drug</h5>
-                                <h5 class="d-block text-left">
-                                    Reference
-                                    <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition,
-                                        Writer/Translator)</p>
-                                </h5>
-                            </div>
-                        </div>
-
-                    </div>
 
                     <div class="">
 
 
                         <div class="page-content page-container" id="page-content">
-                            <div class="padding">
+                           <div class="card-body card">
+                           <div class="padding">
+                                <div class="row">
+                                    <div class="col-md-12 mb-2">
+                                        <div class="form-group  ">
+                                            <h5 class="text-center d-flex justify-content-center"> 2- RASA YOGAS</h5>
+                                            <h5 class="d-block text-left">Name of the Drug</h5>
+                                            <h5 class="d-block text-left">
+                                                Reference
+                                                <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by
+                                                    Edition,
+                                                    Writer/Translator)</p>
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 <div class="row  d-flex justify-content-center">
+
+
                                     <div class="col-lg-12 grid-margin stretch-card">
-                                    <table id="faqs" class="view-table table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class = "w-25">Title </th>
-                                                                <th>Value </th>
+                                        <table id="faqs" class="view-table table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="w-25">Title </th>
+                                                    <th>Value </th>
 
 
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <h3> Composition</h3>
-                                                                </td>
-                                                            </tr>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h3> Composition</h3>
+                                                    </td>
+                                                </tr>
 
-                                                            @foreach($drugrasapart as $drugrasaparts)
-                                                            <tr>
-                                                                <td>Name of the ingredients mineral metal</td>
-                                                                <td>
-                                                                    {{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Part used </td>
-                                                                <td>
-                                                                    {{ $drugrasaparts->rasa_part_used }}
+                                                @foreach($drugrasapart as $drugrasaparts)
+                                                <tr>
+                                                    <td>Name of the ingredients mineral metal</td>
+                                                    <td>
+                                                        {{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Part used </td>
+                                                    <td>
+                                                        {{ $drugrasaparts->rasa_part_used }}
 
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Quantity</td>
-                                                                <td class="">
-                                                                    {{ $drugrasaparts->rasa_quantity }}
-                                                                </td>
-                                                            </tr>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    {{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}
-                                                                </td>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Quantity</td>
+                                                    <td class="">
+                                                        {{ $drugrasaparts->rasa_quantity }}
+                                                    </td>
+                                                </tr>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        {{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}
+                                                    </td>
 
-                                                                <td>
-                                                                    {{ $drugrasaparts->rasa_part_used }}
+                                                    <td>
+                                                        {{ $drugrasaparts->rasa_part_used }}
 
-                                                                </td>
+                                                    </td>
 
-                                                            </tr>
-                                                            @endforeach
+                                                </tr>
+                                                @endforeach
 
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <h3>I Herbal</h3>
-                                                                </td>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h3>I Herbal</h3>
+                                                    </td>
 
-                                                            </tr>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td>Enter Yogas Name </td>
-                                                                <td>{{ $rasadrug->rasa_yoga_type_individual }} </td>
-                                                            </tr>
+                                                <tr>
+                                                    <td>Enter Yogas Name </td>
+                                                    <td>{{ $rasadrug->rasa_yoga_type_individual }} </td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td>Step 1 </td>
-                                                                <td>{{ $rasadrug->herbal_first }} </td>
-                                                            </tr>
+                                                <tr>
+                                                    <td>Step 1 </td>
+                                                    <td>{{ $rasadrug->herbal_first }} </td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td> Step 2</td>
-                                                                <td> {{ $rasadrug->herbal_second }}</td>
-                                                            </tr>
+                                                <tr>
+                                                    <td> Step 2</td>
+                                                    <td> {{ $rasadrug->herbal_second }}</td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <h3>II Mineral</h3>
-                                                                </td>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h3>II Mineral</h3>
+                                                    </td>
 
-                                                            </tr>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td>Step 1 </td>
-                                                                <td>{{ $rasadrug->mineral_first }} </td>
-                                                            </tr>
+                                                <tr>
+                                                    <td>Step 1 </td>
+                                                    <td>{{ $rasadrug->mineral_first }} </td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td>Step 2 </td>
-                                                                <td> {{ $rasadrug->mineral_second }}</td>
-                                                            </tr>
+                                                <tr>
+                                                    <td>Step 2 </td>
+                                                    <td> {{ $rasadrug->mineral_second }}</td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <h3> III Metal</h3>
-                                                                </td>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h3> III Metal</h3>
+                                                    </td>
 
-                                                            </tr>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td> Step 1</td>
-                                                                <td>{{ $rasadrug->metal_first }} </td>
-                                                            </tr>
+                                                <tr>
+                                                    <td> Step 1</td>
+                                                    <td>{{ $rasadrug->metal_first }} </td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td> Step 2</td>
-                                                                <td> {{ $rasadrug->metal_second }}</td>
-                                                            </tr>
+                                                <tr>
+                                                    <td> Step 2</td>
+                                                    <td> {{ $rasadrug->metal_second }}</td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <h3>IV Animal</h3>
-                                                                </td>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h3>IV Animal</h3>
+                                                    </td>
 
-                                                            </tr>
-                                                            <tr>
-                                                                <td> Step 1</td>
-                                                                <td>{{ $rasadrug->animal_first }}</td>
-                                                            </tr>
+                                                </tr>
+                                                <tr>
+                                                    <td> Step 1</td>
+                                                    <td>{{ $rasadrug->animal_first }}</td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td> Step 2</td>
-                                                                <td> {{ $rasadrug->animal_second }}</td>
-                                                            </tr>
+                                                <tr>
+                                                    <td> Step 2</td>
+                                                    <td> {{ $rasadrug->animal_second }}</td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td colspan="2">
-                                                                    <h3> V Bhavana Dravyas</h3>
-                                                                </td>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <h3> V Bhavana Dravyas</h3>
+                                                    </td>
 
-                                                            </tr>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td>Step 1 </td>
-                                                                <td>{{ $rasadrug->bhavana_dravayas_first }} </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td> Step 2</td>
-                                                                <td> {{ $rasadrug->bhavana_dravayas_second }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td> VI Changes seen during bhavana therapy</td>
-                                                                <td> {{ $rasadrug->changes_seen_during_bhavana_therapy }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td> VII Organoleptic properties of raw material</td>
-                                                                <td> {{ $rasadrug->organoleptic_properties_of_raw_material }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>VIII organoleptic_properties_of_raw_material </td>
-                                                                <td> {{ $rasadrug->organoleptic_properties_of_finished_product }}
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>IX Time taken for the experiment </td>
-                                                                <td> {{ $rasadrug->time_taken_for_the_experiment }}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td> X Starting date of experiment</td>
-                                                                <td> {{ $rasadrug->starting_date_of_experiment }}</td>
-                                                            </tr>
+                                                <tr>
+                                                    <td>Step 1 </td>
+                                                    <td>{{ $rasadrug->bhavana_dravayas_first }} </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> Step 2</td>
+                                                    <td> {{ $rasadrug->bhavana_dravayas_second }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td> VI Changes seen during bhavana therapy</td>
+                                                    <td> {{ $rasadrug->changes_seen_during_bhavana_therapy }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> VII Organoleptic properties of raw material</td>
+                                                    <td> {{ $rasadrug->organoleptic_properties_of_raw_material }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>VIII organoleptic_properties_of_raw_material </td>
+                                                    <td> {{ $rasadrug->organoleptic_properties_of_finished_product }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>IX Time taken for the experiment </td>
+                                                    <td> {{ $rasadrug->time_taken_for_the_experiment }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td> X Starting date of experiment</td>
+                                                    <td> {{ $rasadrug->starting_date_of_experiment }}</td>
+                                                </tr>
 
-                                                            <tr>
-                                                                <td>XI Ending date of experiment </td>
-                                                                <td>{{ $rasadrug->ending_date_of_experiment }} </td>
-                                                            </tr>
+                                                <tr>
+                                                    <td>XI Ending date of experiment </td>
+                                                    <td>{{ $rasadrug->ending_date_of_experiment }} </td>
+                                                </tr>
 
-                                                        </tbody>
-                                                    </table>
+                                            </tbody>
+                                        </table>
 
                                     </div>
                                 </div>
                             </div>
+                           </div>
                         </div>
 
 

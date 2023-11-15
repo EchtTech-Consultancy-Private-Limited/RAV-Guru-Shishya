@@ -1,4 +1,4 @@
-   
+
    /* eye styleing for show psw*/
    .form-error
    {
@@ -21,7 +21,7 @@
    }
 
 
-   
+
 
 .input-switch{
    display: none;
@@ -87,14 +87,14 @@
 
 @media (min-width: 1600px){
    .add-btn-lang {
-    
+
       margin-right: 5%;
     }
 }
 @media (min-width: 1400px){
    .btn.save, .btn.next, .btn.previous, .btn.submit, .btn.filter, .btn.reset, .btn.add, .btn.add, .btn.send, .btn.back, .btn.download, .btn.print{
       border-radius: 20px !important;
-     
+
   }
 
   .add-btn-lang {
@@ -138,14 +138,14 @@ section.content1 {
    }
 
    table.dataTable>thead>tr>th:not(.sorting_disabled), table.dataTable>thead>tr>td:not(.sorting_disabled) {
-  
+
       text-align: left !important;
       font-size: 12px !important;
   }
-  
+
 }
 
-@media(min-width:991px) and (max-width:1350px){
+@media(min-width:991px) and (max-width:1450px){
    /* .sidebar .menu .list {
       list-style: none;
       padding-left: 0;
@@ -155,8 +155,8 @@ section.content1 {
     .slimScrollBar {
       position: relative !important;
     } */
-   
-  .slimScrollDiv {   
+
+  .slimScrollDiv {
    overflow-y: auto !important;
    height: 400px !important;
    overflow-x: hidden !important;
@@ -176,7 +176,7 @@ section.content1 {
       transform: translate(-50%, 0%);
    }
    .wizard .steps a {
-     
+
       font-size: 13px;
    }
 }
@@ -248,17 +248,17 @@ button.btn.btn-primary.waves-effect {
    font-size: 15px;
 }
 .theme-black .breadcrumb li a {
- 
+
    font-size: 13px;
 }
 input, button, select, optgroup, textarea {
-   
+
    margin: 0 !important;
    font-size: 13px;
 }
 
 .form-group input{
-   
+
    margin: 0 !important;
    font-size: 13px !important;
 }
@@ -305,7 +305,7 @@ input, button, select, optgroup, textarea {
 
 @media screen and (max-width: 768px){
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {
- 
+
     justify-content: start !important;
 }
 .page-item.disabled .page-link {
@@ -315,12 +315,11 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
    margin-bottom: 10px !important;
 }
 .card .body {
-  
+
    padding: 0px;
 }
 .breadcrumb {
    font-size: 13px;
-   
-}
-}
 
+}
+}
