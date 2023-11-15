@@ -245,6 +245,11 @@ class AddUserController extends Controller
                 'ifsc_code' => 'required',
                 'account_no' => 'required',
                 'account_holder_name' => 'required',
+            ],[
+                'firstname' => 'First Name is required.',
+                'aadhaar_no' => 'Aadhar no is required.',
+                'mobile_no' => 'Mobile no is required.',
+                'pan_no' => 'Pan no is required.',
             ]);
         }
         $profile_id=$request->profile_id;
