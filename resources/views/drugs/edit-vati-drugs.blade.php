@@ -173,20 +173,20 @@
                                                         <td>
                                                          <input type="hidden" name="drug_part_id[]" value="{{ $vatitypes->id }}" maxlength="200">
 
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" value="{{ $vatitypes->name_of_the_ingredients }}" maxlength="200">
+                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" value="{{ $vatitypes->name_of_the_ingredients }}" maxlength="100">
                                                          @error('name_of_the_ingredients')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ $vatitypes->part_used }}" maxlength="200">
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ $vatitypes->part_used }}" maxlength="100">
                                                          @error('rasa_part_used')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $vatitypes->quantity }}" maxlength="200">
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $vatitypes->quantity }}" maxlength="10">
                                                         @error('quantity')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -492,9 +492,9 @@ function addfaqs() {
 html = '<tr id="faqs-row' + faqs_row + '">';
     html += '<input type="hidden" name="drug_part_id[]" value="0" >';
 
-    html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" value=""></td>';
-    html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" value=""></td>';
-    html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" ></td>';
+    html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" value="" maxlength="200"></td>';
+    html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" value="" maxlength="100"></td>';
+    html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" maxlength="10"></td>';
     html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i></button></td>';
 
     html += '</tr>';
