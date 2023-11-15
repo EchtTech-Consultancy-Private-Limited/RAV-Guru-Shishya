@@ -171,22 +171,22 @@
                                                     @foreach($vatitype as $vatitypes)
                                                    <tr>
                                                         <td>
-                                                         <input type="hidden" name="drug_part_id[]" value="{{ $vatitypes->id }}" >
+                                                         <input type="hidden" name="drug_part_id[]" value="{{ $vatitypes->id }}" maxlength="200">
 
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" value="{{ $vatitypes->name_of_the_ingredients }}" >
+                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" value="{{ $vatitypes->name_of_the_ingredients }}" maxlength="200">
                                                          @error('name_of_the_ingredients')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ $vatitypes->part_used }}" >
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ $vatitypes->part_used }}" maxlength="200">
                                                          @error('rasa_part_used')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $vatitypes->quantity }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $vatitypes->quantity }}" maxlength="200">
                                                         @error('quantity')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror

@@ -63,8 +63,8 @@
                   </ul>
                </div>
                <div class="body">
+                  <h3>New Drug Report</h3>
                   <div id="wizard_horizontal">
-                     <h2>New Drug Report</h2>
 
                   <section>
                      <div class="col-md-12 mb-2">
@@ -149,22 +149,22 @@
                                                             @foreach($drugrasapart as $drugrasaparts)
                                                             <tr>
                                                                <td>
-                                                                  <input type="hidden" name="drug_part_id[]" value="{{ $drugrasaparts->id }}">
+                                                                  <input type="hidden" name="drug_part_id[]" value="{{ $drugrasaparts->id }}" maxlength="200">
 
-                                                                  <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients" value="{{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}">
+                                                                  <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients" value="{{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}" maxlength="200">
                                                                   @error('name_of_the_ingredients_mineral_metal')
                                                                   <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                                   @enderror
                                                                </td>
 
                                                                <td>
-                                                                  <input type="text" name="part_used[]" class="form-control" placeholder="Part used" value="{{ $drugrasaparts->rasa_part_used }}">
+                                                                  <input type="text" name="part_used[]" class="form-control" placeholder="Part used" value="{{ $drugrasaparts->rasa_part_used }}" maxlength="200">
                                                                   @error('rasa_part_used')
                                                                   <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                                   @enderror
                                                                </td>
                                                                <td class="text-warning mt-10">
-                                                                  <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $drugrasaparts->rasa_quantity }}">
+                                                                  <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $drugrasaparts->rasa_quantity }}" maxlength="200">
                                                                   @error('quantity')
                                                                   <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                                   @enderror
