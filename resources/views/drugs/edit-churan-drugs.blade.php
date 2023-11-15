@@ -44,8 +44,8 @@
          <div class="card">
 
             <div class="body">
+               <h3>Edit Drug Report</h3>
                <div id="wizard_horizontal">
-                  <h2>Edit Drug Report</h2>
                   <section>
                      <div class="col-md-12 mb-2 mb-3">
                         <div class="card">

@@ -77,8 +77,8 @@
                </ul>
             </div>
             <div class="body">
+               <h3>New Drug Report</h3>
                <div id="wizard_horizontal">
-                  <h2>New Drug Report</h2>
 
                   <section>
                      <div class="col-md-12 mb-2 mb-2">
