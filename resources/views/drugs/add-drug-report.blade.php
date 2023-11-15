@@ -204,16 +204,16 @@
                                                     <tr>
                                                         <td>
 
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" value="{{ old('name_of_the_ingredients[]') }}" >
+                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" value="{{ old('name_of_the_ingredients[]') }}" maxlength="200">
 
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" maxlength="200" value="{{ old('part_used[]') }}" >
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" maxlength="200" value="{{ old('part_used[]') }}" maxlength="200">
 
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" value="{{ old('quantity[]') }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" value="{{ old('quantity[]') }}" maxlength="200">
 
                                                         </td>
                                                         <td></td>
@@ -598,19 +598,19 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                          <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
+                                                          <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
                                                             @error('name_of_the_ingredients_mineral_metal')
                                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                             @enderror
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
                                                          @error('quantity')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
@@ -911,19 +911,19 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
+                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
                                                 @error('name_of_the_ingredients_mineral_metal')
                                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                 @enderror
                                              </td>
 
                                             <td>
-                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
+                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -1283,19 +1283,19 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
+                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
                                                 @error('name_of_the_ingredients_mineral_metal')
                                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                 @enderror
                                              </td>
 
                                             <td>
-                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
+                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
                                             </td>
                                             <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
                                              @error('quantity')
                                              <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                              @enderror
@@ -1806,19 +1806,19 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                          <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}" >
+                                          <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
                                             @error('name_of_the_ingredients_mineral_metal')
                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                             @enderror
                                          </td>
 
                                         <td>
-                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}" >@error('part_used')
+                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                          @enderror
                                         </td>
                                         <td class="text-warning mt-10">
-                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}" >
+                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
                                          @error('quantity')
                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                          @enderror
