@@ -145,7 +145,11 @@ section.content1 {
 
 }
 
+<<<<<<< HEAD
 @media(min-width:991px) and (max-width:1400px){
+=======
+@media(min-width:991px) and (max-width:1450px){
+>>>>>>> a7bf4939eee69a138478e75121ceef251867f993
    /* .sidebar .menu .list {
       list-style: none;
       padding-left: 0;

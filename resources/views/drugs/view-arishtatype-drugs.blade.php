@@ -3,7 +3,7 @@
 
 
 <section class="content">
-   
+
    <div class="container-fluid">
    <div class="block-header">
                 <div class="row">
@@ -33,8 +33,8 @@
    <div class="row clearfix">
       <div class="col-lg-12 col-md-12 mb-2 col-sm-12 col-xs-12">
          <div class="card">
-        
-            <div class="body">
+
+            <div class="body px-0">
                <div id="wizard_horizontal">
                   <section>
                      <div class="col-md-12 mb-2">
@@ -74,9 +74,9 @@
 
                                                 </tbody>
                                             </table>
-                              
-                              
-                                
+
+
+
 
                               </div>
                            <!-- </form> -->
@@ -93,7 +93,19 @@
             <form method="POST" action="{{ url('update-arishtayogas-details') }}" >
                 @csrf
                <input readonly type="hidden" name="drug_id" value="{{ $drug->id }}">
-              <div class="row">
+
+
+
+
+
+
+                  <div class="page-content page-container" id="page-content">
+                    <div class="padding">
+                        <div class="row  d-flex justify-content-center">
+                            <div class="col-lg-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <div class="row">
                <div class="col-md-12 mb-2">
                <div class="form-group  ">
                        <h5 class="text-center d-flex justify-content-center">3- ARISHTA – GHRITA YOGAS</h5>
@@ -104,20 +116,9 @@
                        </h5>
                     </div>
                </div>
-                   
-                
-               </div>
-              
-               
-                
-                
 
-                  <div class="page-content page-container" id="page-content">
-                    <div class="padding">
-                        <div class="row  d-flex justify-content-center">
-                            <div class="col-lg-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
+
+               </div>
 
                                     <table class="">
                                     <h3>Composition</h3>
@@ -129,16 +130,16 @@
                                                    </tr>
                                                 </thead>
                                                 <tbody>
-                                                  
+
                                                    @foreach($arishtatype as $arishtatypes)
-                                                   <tr> 
-                                                     
+                                                   <tr>
+
                                                       <td>{{$arishtatypes->name_of_the_ingredients }} </td>
                                                       <td>{{$arishtatypes->part_used }} </td>
                                                       <td>{{$arishtatypes->quantity }} </td>
                                                    </tr>
 
-                                                  
+
                                                    @endforeach
                                     </tbody>
                                  </table>
@@ -146,33 +147,33 @@
                                  <h3> Main ingredients</h3>
 
                                  <table class="view-table">
-                                  
+
                                     <thead>
                                        <tr>
                                           <th class="w-25"> Title </th>
                                           <th> Value </th>
-                                         
+
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <tr> 
+                                       <tr>
                                           <td class="" colspan = "2"> <h3>I Main ingredients</h3> </td>
-                                         
+
                                        </tr>
-                                       <tr> 
+                                       <tr>
                                           <td> Enter Yogas Name</td>
                                           <td> {{ $drug->arishtayoga_type_individual }}</td>
                                        </tr>
-                                       <tr> 
+                                       <tr>
                                           <td>Step I </td>
                                           <td>{{ $drug->main_ingredients_step_one }} </td>
                                        </tr>
-                                       <tr> 
+                                       <tr>
                                           <td> Step II</td>
                                           <td> {{ $drug->main_ingredients_step_two }}</td>
                                        </tr>
-                                       
-                                       <tr> 
+
+                                       <tr>
                                           <td> Step III</td>
                                           <td> {{ $drug->main_ingredients_step_three }}</td>
                                        </tr>
@@ -180,43 +181,43 @@
                                        <tr>
                                           <td colspan="2"> <h3>II Sandhana dravyas</h3></td>
                                        </tr>
-                                       <tr> 
+                                       <tr>
                                           <td>Step I </td>
                                           <td> {{ $drug->prakshepa_dravyas_step_one }}</td>
                                        </tr>
 
-                                       <tr> 
+                                       <tr>
                                           <td> Step II</td>
                                           <td> {{ $drug->prakshepa_dravyas_step_two }}</td>
                                        </tr>
 
-                                       <tr> 
+                                       <tr>
                                           <td> Step III</td>
                                           <td> {{ $drug->prakshepa_dravyas_step_three }}</td>
                                        </tr>
 
-                                       <tr> 
+                                       <tr>
                                           <td colspan="2"> <h3> III Prakshepa dravyas</h3></td>
-                                         
+
                                        </tr>
 
-                                       <tr> 
+                                       <tr>
                                           <td> Step I</td>
                                           <td> {{ $drug->method_of_preparation }}</td>
                                        </tr>
 
-                                       <tr> 
+                                       <tr>
                                           <td> Step II</td>
                                           <td> {{ $drug->packing }}</td>
                                        </tr>
 
-                                       <tr> 
+                                       <tr>
                                           <td> Step III</td>
                                           <td>{{ $drug->storage }} </td>
                                        </tr>
                                        <tr>
                                                       <td colspan = "2"><h3>Method of Preparation (SOP)</h3> </td>
-                                                     
+
                                                    </tr>
 
                                                  <tr>
@@ -329,10 +330,10 @@
                                                       <td> {{ $drug->tests_performed_during_experiment }}</td>
                                                    </tr>
 
-                                                  
+
                                                    <tr>
                                                       <td colspan="2"> <h3> Time taken for the practical</h3> </td>
-                                                     
+
                                                    </tr>
 
                                                    <tr>
@@ -349,15 +350,15 @@
 
                                     </tbody>
                                  </table>
-                                      
+
                                     </div>
-                                    <a href="{{ url('drug-report-history') }}"> <button type="button" class="btn back btn-primary btn-sm ms-auto nextBtn">Back</button></a>
+                                    <!-- <a href="{{ url('drug-report-history') }}"> <button type="button" class="btn back btn-primary btn-sm ms-auto nextBtn">Back</button></a> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-              
+
 
          </div>
          </form>

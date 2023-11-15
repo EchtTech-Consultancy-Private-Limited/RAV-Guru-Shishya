@@ -82,7 +82,19 @@
                 <form method="POST" action="{{ url('update-vatiyoga-details') }}" readonly>
                     @csrf
                     <input readonly type="hidden" name="drug_id" value="{{ $drug->id }}">
-                    <div class="row">
+
+
+                    <div class="">
+
+
+
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+                                <div class="row  d-flex justify-content-center">
+                                    <div class="col-lg-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                            <div class="row">
                         <div class="col-md-12 mb-2">
                             <div class="form-group  ">
                                 <h5 class="text-center d-flex justify-content-center">2 – VATI YOGAS</h5>
@@ -97,19 +109,8 @@
 
 
                     </div>
-
-                    <div class="">
-
-                   
-
-                        <div class="page-content page-container" id="page-content">
-                            <div class="padding">
-                                <div class="row  d-flex justify-content-center">
-                                    <div class="col-lg-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
                                             <table class="view-table" id="faqs">
-                                   
+
                                                 <thead>
                                                    <tr>
                                                       <th class = "w-25"> Title</th>
@@ -121,17 +122,17 @@
                                                       <td colspan ="2"><h3>Composition</h3></td>
                                                    </tr>
                                                 @foreach($vatitype as $vatitypes)
-                                                   <tr> 
+                                                   <tr>
                                                       <td> Name of the ingredients mineral metal</td>
                                                       <td>{{ $vatitypes->name_of_the_ingredients }} </td>
                                                    </tr>
 
-                                                   <tr> 
+                                                   <tr>
                                                       <td>Part used  </td>
                                                       <td>{{ $vatitypes->part_used }} </td>
                                                    </tr>
 
-                                                   <tr> 
+                                                   <tr>
                                                       <td> Quantity</td>
                                                       <td>{{ $vatitypes->quantity }} </td>
                                                    </tr>
@@ -139,7 +140,7 @@
 
                                                    <tr>
                                                       <td colspan = "2"><h3>Method of Preparation (SOP)</h3> </td>
-                                                     
+
                                                    </tr>
                                                    <tr>
                                                       <td>Enter Yogas Name </td>
@@ -250,7 +251,7 @@
 
                                                    <tr>
                                                       <td colspan="2"> <h3> Time taken for the practical</h3> </td>
-                                                     
+
                                                    </tr>
 
                                                    <tr>
@@ -265,15 +266,15 @@
 
                                                 </tbody>
                                              </table>
-                                               
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                      
-                       
+
+
                     </div>
                 </form>
             </div>

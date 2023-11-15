@@ -86,7 +86,7 @@
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
                               <div class="card-body p-0">
-                              <table>
+                                  <table>
                                                 <thead>
                                                     <th> Name of the Guru</th>
                                                     <th>Name of the Shishya </th>
@@ -223,6 +223,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <div style="float:right;"><button onclick="addfaqs();" type="button" class="btn add btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
                                     </div>
                                 </div>
                             </div>
