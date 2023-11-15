@@ -110,7 +110,18 @@
                 <form method="POST" action="{{ url('update-taliayoga-details') }}">
                     @csrf
                     <input readonly type="hidden" name="drug_id" value="{{ $drug->id }}">
-                    <div class="row">
+
+                    <div class="">
+
+
+
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+                                <div class="row  d-flex justify-content-center">
+                                    <div class="col-lg-12 grid-margin stretch-card">
+                                        <div class="card">
+                                            <div class="card-body">
+                                            <div class="row">
                         <div class="col-md-12 mb-2">
                             <div class="form-group  ">
                                 <h5 class="text-center d-flex justify-content-center">3- TAILA – GHRITA YOGAS</h5>
@@ -125,16 +136,6 @@
 
                     </div>
 
-                    <div class="">
-
-
-
-                        <div class="page-content page-container" id="page-content">
-                            <div class="padding">
-                                <div class="row  d-flex justify-content-center">
-                                    <div class="col-lg-12 grid-margin stretch-card">
-                                        <div class="card">
-                                            <div class="card-body">
                                                 <table class="view-table">
 
                                                     <thead>
@@ -389,8 +390,8 @@
                                 </div>
                             </div>
                         </div>
-                        
-                    
+
+
 
                     </div>
                 </form>

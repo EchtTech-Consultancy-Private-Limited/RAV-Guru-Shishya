@@ -77,89 +77,42 @@
                </ul>
             </div>
             <div class="body">
+            <h3 class="pb-3">New Drug Report</h3>
                <div id="wizard_horizontal">
-                  <h2>New Drug Report</h2>
-
                   <section>
                      <div class="col-md-12 mb-2 mb-2">
                         <div class="card">
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
                               <div class="card-body p-0">
-                                 <div
-                                    class="row">
-                                    <div
-                                       class="col-md-4 mb-2 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label>
-                                             @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
-                                             >
-                                             @endif
-                                             @if(Auth::user()->user_type==2)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
-                                             >
-                                             @endif
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label>
-                                             <input
-                                             type="text"
-                                             name="name_of_the_shishya"
-                                             class="form-control"
-                                             placeholder="Name of the Shishya"
-                                             aria-label="Name"
-                                             value=
-                                             "@if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                             @endif" readonly
-                                             >
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Date of Report<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="date"
-                                             name="date"
-                                             class="form-control"
-                                             placeholder="Date"
-                                             aria-label="Name"
-                                             value="<?php echo date('Y-m-d'); ?>" readonly
-                                             >
-                                       </div>
-                                    </div>
+                                       <table>
+                                                <thead>
+                                                    <th> Name of the Guru</th>
+                                                    <th>Name of the Shishya </th>
+                                                    <th>Date of Report </th>
+                                                </thead>
+                                                <tbody>
+                                                    <td>
+                                                        @if(Auth::user()->guru_id || Auth::user()->user_type==1)
+                                                        {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                                        @endif
+                                                        @if(Auth::user()->user_type==2)
+                                                        {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if(Auth::user()->user_type==1 || Auth::user()->user_type==2)
+                                                        {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}}
+                                                        @else
+                                                        {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                        @endif
+                                                    </td>
+                                                    <td><?php echo date('d-m-Y'); ?> </td>
+                                                </tbody>
+                                            </table>
 
-                                 </div>
 
-                               
+
                                 <!--  <div class="row" >
 
                                     <div
@@ -208,78 +161,75 @@
                           <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
                        </h5>
                     </div>
-               </div>                  
-                  
                </div>
-              
-               <div class="h-100">
-                        <h5 class="mb-1 p-0">
-                           Composition
-                        </h5>
-                     </div>
-                  
-                  
+
+               </div>
+
+
+
+
 
                   <div class="page-content page-container" id="page-content">
                     <div class="padding">
-                        <div class="row  d-flex justify-content-center">
-                            <div class="col-lg-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body p-0">
-                                        <div class="table-responsive">
-                                            <table id="faqs" class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name of the ingredients mineral metal</th>
-                                                        <th>Part used   </th>
-                                                        <th>Quantity</th>
-                                                        <th>Action</th>
+                     <div class="">
+                     <div class="" id="faqs">
+                                          <div class="row">
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($arishtatype as $arishtatypes)
-                                                   <tr>
-                                                        <td>
-                                                         <input type="hidden" name="drug_part_id[]" value="{{ $arishtatypes->id }}" >
-
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" value="{{ $arishtatypes->name_of_the_ingredients }}" >
-                                                         @error('name_of_the_ingredients')
+                                       <div class="col-md-12">
+                                       <div class="title">
+                                          <p class="text-capatilize text-sm">Composition</p>
+                                          </div>
+                                       </div>
+                                       @foreach($arishtatype as $arishtatypes)
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active">Name of the ingredients <span class="text-danger">*</span></label>
+                                                   <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Enter Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ $arishtatypes->name_of_the_ingredients }}" >
+                                                            @error('name_of_the_ingredients_mineral_metal')
+                                                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                            @enderror
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active"> Part used<span class="text-danger">*</span></label>
+                                                   <input type="text" name="part_used[]" class="form-control" placeholder="Enter Part used"  value="{{ $arishtatypes->part_used }}" >@error('part_used')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
-                                                         </td>
-
-                                                        <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ $arishtatypes->part_used }}" >
-                                                         @error('rasa_part_used')
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active">Quantity <span class="text-danger">*</span></label>
+                                                   <input type="text" name="quantity[]" class="form-control" placeholder="Enter Quantity" aria-label="quantity" value="{{ $arishtatypes->quantity }}" >
+                                                         @error('quantity')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
-                                                        </td>
-                                                        <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $arishtatypes->quantity }}" >
-                                                        @error('quantity')
-                                                        <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                                        @enderror
-                                                        </td>
-                                                        <td class="mt-10">
-                                                         <a  href="{{ url('delete-arishtayoga-type/'.$arishtatypes->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                </div>
+                                             </div>
+                                             <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                <a  href="{{ url('delete-arishtayoga-type/'.$arishtatypes->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                               <i class="material-icons">delete_forever</i>
                                                          </a>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn add btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
+                                                </div>
+                                             </div>
+                                             <!-- <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                                                <div class="form-group">
+                                                   <label class="form-control-label active"> Action<span class="text-danger">*</span></label>
+                                                </div>
+                                             </div> -->
+                                          </div>
+                                          @endforeach
+
+
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                     </div>
+
                     </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">I Main ingredients</p>
                 </div>
                 <div class="row">
@@ -318,7 +268,7 @@
                    </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">II    Sandhana dravyas</p>
                 </div>
                 <div class="row">
@@ -349,7 +299,7 @@
                    </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">III Prakshepa dravyas</p>
                 </div>
                 <div class="row">
@@ -380,7 +330,7 @@
                    </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
                 </div>
                 <div class="row">
@@ -400,7 +350,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->storage)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Storage</label>
@@ -419,7 +369,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->time_of_administration)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Time of administration</label>
@@ -437,7 +387,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->vehicle)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Vehicle (Anupana)</label>
@@ -456,7 +406,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->contra_indications)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Contra indications</label>
@@ -475,7 +425,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->wholesome_diet)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome diet</label>
@@ -504,7 +454,7 @@
                    </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">Observations</p>
                 </div>
                 <div class="row">
@@ -525,7 +475,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->loss)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Loss</label>
@@ -544,7 +494,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->organoleptic_properties_of_raw_materials)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Organoleptic properties of raw materials</label>
@@ -563,7 +513,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->time_taken_sandhana)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Time taken for the sandhana process</label>
@@ -582,7 +532,7 @@
                          @enderror
                       </div>
                    </div>
-                 
+
                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                       <div class="form-group">
                          <label for="example-text-input" class="form-control-label @if(isset($data->tests_performed_during_experiment)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Tests performed during experiment</label>
@@ -596,7 +546,7 @@
                 <div class="title">
                      <p class="text-capatilize text-sm">Time taken for the experiment</p>
                 </div>
-               
+
                 <div class="row">
                    <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                       <div class="form-group ">
@@ -623,7 +573,7 @@
                 </div>
                 <button type="submit" class="btn add btn-secondary">Update Arishta Yogas</button>
          </div>
-               
+
          </form>
         </div>
    </div>
@@ -633,7 +583,7 @@
          </div>
       </div>
    </div>
-   
+
 </section>
 
 <script>
@@ -657,20 +607,45 @@
 
 <script>
 var faqs_row = 0;
+
 function addfaqs() {
-html = '<tr id="faqs-row' + faqs_row + '">';
-    html += '<input type="hidden" name="drug_part_id[]" value="0" >';
+    html = '<div class="row" id="faqs-row' + faqs_row + '">';
 
-    html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" value=""></td>';
-    html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" value=""></td>';
-    html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" ></td>';
-    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i></button></td>';
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<div class="form-group">';
+    html +=
+        '<label class="form-control-label active">Name of the ingredients <span class="text-danger">*</span></label>';
+    html +=
+        '<input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Enter Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" value="">';
+    html += '</div>';
+    html += '</div>';
 
-    html += '</tr>';
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<div class="form-group">';
+    html += '<label class="form-control-label active">Part used<span class="text-danger">*</span></label>';
+    html +=
+        '<input type="text" name="part_used[]" class="form-control" placeholder="Enter part used" aria-label="Part used" maxlength="200" value="">';
+    html += '</div>';
+    html += '</div>';
 
-$('#faqs tbody').append(html);
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<div class="form-group">';
+    html += '<label class="form-control-label active">Quantity <span class="text-danger">*</span></label>';
+    html +=
+        '<input type="text" name="quantity[]" class="form-control" placeholder="Enter Quantity" aria-label="quantity" maxlength="200" value="">';
+    html += '</div>';
+    html += '</div>';
 
-faqs_row++;
+    html += '<div class="col-xl-3 col-md-6 col-6">';
+    html += '<button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row +
+        '\').remove();"><i class="material-icons">delete_forever</i> </button>';
+    html += '</div>';
+
+    html += '</div>';
+
+    $('#faqs').append(html);
+
+    faqs_row++;
 }
 </script>
 <script>
