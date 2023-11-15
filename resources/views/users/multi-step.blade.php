@@ -335,7 +335,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ old('pincode', $profile_record[0]->pincode) }}">
+                                       <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="6" placeholder="Pincode"  value="{{ old('pincode', $profile_record[0]->pincode) }}">
                                        @if($errors->has('pincode'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('pincode') }}</strong>
@@ -370,9 +370,12 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">@error('per_address_Line2')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">
+                                       @if($errors->has('per_address2'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_address2') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -386,9 +389,11 @@
                                           </option>
                                           @endforeach
                                        </select>
-                                       @error('per_country')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('per_country'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_country') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -400,9 +405,11 @@
                                           @else
                                           @endif
                                        </select>
-                                       @error('per-state-dropdown')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('per_state'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_state') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -414,17 +421,22 @@
                                           @else
                                           @endif
                                        </select>
-                                       @error('per-city-dropdown')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('per_city'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_city') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="number" name="per_pincode" id="per_pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">@error('per_pincode')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="text" name="per_pincode" id="per_pincode" class="form-control" oninput="validateInput(this)" maxlength="6" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">
+                                       @if($errors->has('per_pincode'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_pincode') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
 
@@ -685,7 +697,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                     <label for="Registration_year">Year of Registration <span class="text-danger">*</span></label>
-                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}" required>
+                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}" max="{{date('Y-m-d',time())}}" required>
                                     </div>
                                  </div>
 
