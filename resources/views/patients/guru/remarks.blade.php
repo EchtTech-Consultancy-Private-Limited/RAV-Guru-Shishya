@@ -51,7 +51,7 @@
                      @if(Auth::user()->user_type == 3)
                      <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
                      @endif
-                     
+
                   </div> -->
                <div class="header">
 
@@ -65,6 +65,10 @@
                <div class="body">
                      <div class="col-sm-12">
                   <div class="row clearfix">
+                     <div class="col-md-12">
+                     <a href="{{ url('/new-patient-registration') }}"><button type="button"   class="btn back btn-danger waves-effect float-right"> &nbsp; Back
+                                                                &nbsp;</button></a>
+                     </div>
                      <div class="col-sm-6">
                         <div class="form-group">
                            <div class="form-line">
@@ -110,7 +114,7 @@
                      <button type="reset" onclick="refreshPage();" class="btn reset waves-effect">Reset</button>
                      <button type="submit" class="btn submit waves-effect m-r-15 submit" >Submit</button>
                   </div>
-                
+
                      </div>
 
 

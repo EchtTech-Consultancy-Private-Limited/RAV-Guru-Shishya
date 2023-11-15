@@ -395,13 +395,13 @@
                         <tr>
                            <td>  Madhyahan Bhojana</td>
                            <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
-                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}      
+                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}
                                  @endforeach </td>
                         </tr>
                         <tr>
                            <td> Prataraasha</td>
                         <td>  @foreach(__('phr.prataraasha') as $key=>$value)
-                                 {{@$patient->prataraasha == $key  ? $value : ''}} 
+                                 {{@$patient->prataraasha == $key  ? $value : ''}}
                               @endforeach</td>
                         </tr>
                         <tr>
@@ -442,6 +442,7 @@
                         <!-- ******************addedd new fild **************** -->
 
                      </tbody>
+                  </table>
 
                   <div class="row clearfix">
                                     <div class="col-md-6">

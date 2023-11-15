@@ -258,7 +258,7 @@
                                                     ||
                                                     (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
                                                     (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
-                                                    <a target="_blank"
+                                                    <a target="_self"
                                                         href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                         class="btn remark" title="Remarks">
                                                         Remarks

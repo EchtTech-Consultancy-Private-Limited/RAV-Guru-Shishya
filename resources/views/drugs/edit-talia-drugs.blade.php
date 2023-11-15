@@ -43,7 +43,7 @@
 
                           <li class="breadcrumb-item active">Edit Drug Details </li>
                        </ul>
-                       
+
                     </div>
                 </div>
               </div>
@@ -87,80 +87,33 @@
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
                               <div class="card-body p-0">
-                                 <div
-                                    class="row">
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label>
-                                             @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
-                                             >
-                                             @endif
-                                             @if(Auth::user()->user_type==2)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
-                                             >
-                                             @endif
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Shishya<span
-                                             class="text-danger">*</span></label>
-                                             <input
-                                             type="text"
-                                             name="name_of_the_shishya"
-                                             class="form-control"
-                                             placeholder="Name of the Shishya"
-                                             aria-label="Name"
-                                             value=
-                                             "@if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                             @endif" readonly
-                                             >
-                                       </div>
-                                    </div>
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Date of Report<span
-                                             class="text-danger">*</span></label>
-                                          <input
-                                             type="date"
-                                             name="date"
-                                             class="form-control"
-                                             placeholder="Date"
-                                             aria-label="Name"
-                                             value="<?php echo date('Y-m-d'); ?>" readonly
-                                             >
-                                       </div>
-                                    </div>
+                              <table>
+                                                <thead>
+                                                    <th> Name of the Guru</th>
+                                                    <th>Name of the Shishya </th>
+                                                    <th>Date of Report </th>
+                                                </thead>
+                                                <tbody>
+                                                    <td>
+                                                        @if(Auth::user()->guru_id || Auth::user()->user_type==1)
+                                                        {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                                        @endif
+                                                        @if(Auth::user()->user_type==2)
+                                                        {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if(Auth::user()->user_type==1 || Auth::user()->user_type==2)
+                                                        {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}}
+                                                        @else
+                                                        {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                        @endif
+                                                    </td>
+                                                    <td><?php echo date('d-m-Y'); ?> </td>
+                                                </tbody>
+                                            </table>
 
-                                 </div>
 
-                              
                                  <div id="yogas_type">
                                  </div>
 
@@ -187,11 +140,11 @@
                           <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition, Writer/Translator)</p>
                        </h5>
                     </div>
-                  
+
                </div>
-               
+
                <div class="form-group">
-                 
+
                <div class="h-100">
                         <h5 class="mb-1">
                            Composition
@@ -249,7 +202,6 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <div style="float:right;"><button  onclick="addfaqs();" type="button" class="btn add btn-success"><i class="fa fa-plus"></i> ADD NEW</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +209,7 @@
                     </div>
                 </div>
                 <div class="title">
-                
+
                    <p class="text-capatilize text-sm">I Kalka dravyas</p>
                 </div>
             <div class="row">
@@ -299,7 +251,7 @@
                </div>
             </div>
             <div class="title">
-                
+
                <p class="text-capatilize text-sm">II Taila/ghrita dravys</p>
                 </div>
             <div class="row">
@@ -332,7 +284,7 @@
                </div>
             </div>
             <div class="title">
-                
+
                <p class="text-capatilize text-sm">III Kvatha/drava dravyas</p>
                 </div>
             <div class="row">
@@ -363,7 +315,7 @@
                </div>
             </div>
             <div class="title">
-                
+
                <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
                 </div>
             <div class="row">
@@ -384,7 +336,7 @@
                      @enderror
                   </div>
                </div>
-           
+
                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                   <div class="form-group">
                      <label for="example-text-input" class="form-control-label @if(isset($data->preparation_of_kavatha_dravyas)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(iii) Preparation of kvatha/drava dravyas</label>
@@ -414,7 +366,7 @@
                      @enderror
                   </div>
                </div>
-           
+
                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                   <div class="form-group">
                      <label for="example-text-input" class="form-control-label @if(isset($data->packing)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Packing</label>
@@ -450,7 +402,7 @@
                      @enderror
                   </div>
                </div>
-          
+
                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                   <div class="form-group">
                      <label for="example-text-input" class="form-control-label @if(isset($data->dose)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Dose</label>
@@ -487,7 +439,7 @@
                      @enderror
                   </div>
                </div>
-           
+
                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                   <div class="form-group">
                      <label for="example-text-input" class="form-control-label @if(isset($data->wholesome_activities)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome activities</label>
@@ -526,7 +478,7 @@
                </div>
             </div>
             <div class="title">
-                
+
                <p class="text-capatilize text-sm">Observations</p>
                 </div>
             <div class="row">
@@ -597,7 +549,7 @@
                </div>
             </div>
             <div class="title">
-                
+
                <p class="text-capatilize text-sm">Time taken for the experiment</p>
                 </div>
             <div class="row">
