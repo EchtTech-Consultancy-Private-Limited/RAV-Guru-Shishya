@@ -935,7 +935,15 @@ class PatientController extends Controller
            $patient->read_by_admin=0;
 
            $patient->save();
-           return redirect()->back()->with('success', 'Your remark has been send to admin successfully');
+           if(Auth::user()->user_type == 1){
+            return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+        }
+        if(Auth::user()->user_type == 3){
+            return redirect('/new-patient-registration')->with('success', 'Your remark has been sent to guru successfully');
+        }
+        if(Auth::user()->user_type == 2){
+            return redirect('guru-patient-list')->with('success', 'Your remark has been send to admin successfully');
+        }
         }else if($request->user_type==2){
             $guru_id=$patient->guru_id;
             $guru=User::find($guru_id);
@@ -961,7 +969,15 @@ class PatientController extends Controller
            $patient->phr_a_status=0;
            $patient->read_by_shishya=0;
            $patient->save();
-           return redirect()->back()->with('success', 'Your remark has been sent to guru successfully');
+            if(Auth::user()->user_type == 1){
+                return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+            }
+            if(Auth::user()->user_type == 3){
+                return redirect('/new-patient-registration')->with('success', 'Your remark has been sent to guru successfully');
+            }
+            if(Auth::user()->user_type == 2){
+                return redirect('guru-patient-list')->with('success', 'Your remark has been send to admin successfully');
+            }
         }else
         {
             $guru_id=$patient->guru_id;
@@ -988,7 +1004,15 @@ class PatientController extends Controller
            $patient->phr_a_status=0;
            $patient->read_by_shishya=0;
            $patient->save();
-           return redirect()->back()->with('success', 'Your remark has been sent to shishya successfully');
+            if(Auth::user()->user_type == 1){
+                return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+            }
+            if(Auth::user()->user_type == 3){
+                return redirect('/new-patient-registration')->with('success', 'Your remark has been sent to guru successfully');
+            }
+            if(Auth::user()->user_type == 2){
+                return redirect('guru-patient-list')->with('success', 'Your remark has been send to admin successfully');
+            }
 
         }
 

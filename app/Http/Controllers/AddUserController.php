@@ -233,7 +233,7 @@ class AddUserController extends Controller
                 'address1' => 'required',
                 'address2' => 'required',
                 'country' => 'required',
-                'pincode' => 'required|max:6',
+                'pincode' => 'required|max:6|min:6',
                 'per_pincode' => 'max:6',
                 'aadhaar_no' => 'required|max:12',
                 'pan_no' => 'required|max:12',
@@ -245,8 +245,15 @@ class AddUserController extends Controller
                 'ifsc_code' => 'required',
                 'account_no' => 'required',
                 'account_holder_name' => 'required',
+                'per_address1' => 'required',
+                'per_address2' => 'required',
+                'per_pincode' => 'required',
+                'per_country' => 'required',
+                'per_state' => 'required',
+                'per_city' => 'required',
             ],[
                 'firstname' => 'First Name is required.',
+                'f_name' => 'Father Name is required',
                 'aadhaar_no' => 'Aadhar no is required.',
                 'mobile_no' => 'Mobile no is required.',
                 'pan_no' => 'Pan no is required.',
@@ -385,9 +392,9 @@ class AddUserController extends Controller
                     $education->institute_name=$request->institute_name;
                     $education->course_name=$request->course_name;
                     $education->year_of_passing=$request->year_of_passing;
-                    $education->year_of_passing=$request->name_of_board;
-                    $education->year_of_passing=$request->regis_no;
-                    $education->year_of_passing=$request->year_of_regis;
+                    $education->name_of_board=$request->name_of_board;
+                    $education->regis_no=$request->regis_no;
+                    $education->year_of_regis=$request->year_of_regis;
 
                     if($request->hasfile('upload_degree'))
                        {
@@ -430,6 +437,7 @@ class AddUserController extends Controller
             else{
                 dd("reload");
             }
+            return redirect('/profile')->with('success',"Education Details Updated Successfully");
         }
         
         //here we create session for user redirection and we use this session above function
@@ -437,7 +445,7 @@ class AddUserController extends Controller
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
 
-        return redirect('/profile')->with('success',"Education Details Updated Successfully");
+        return redirect('/profile')->with('success',"Basic Details Updated Successfully");
         //return view("users.multi-step",compact('form_step_type','countries','basic_info_session','lang','profile_record','per_profile_record','language_record'));
     }
 

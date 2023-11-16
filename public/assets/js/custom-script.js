@@ -615,3 +615,12 @@ function validateInput(input) {
     input.value = input.value.replace(/\D/g, '');
  }
 // End follow up script
+$("#year_of_passing").on('change', function() {
+    const date = $("#year_of_passing").val();
+    $("#Registration_year").attr("max", date);
+});
+
+$("#edit_year_of_passing").on('change', function() {
+    const date = $("#edit_year_of_passing").val();
+    $("#edit_year_of_regis").attr("max", date);
+});

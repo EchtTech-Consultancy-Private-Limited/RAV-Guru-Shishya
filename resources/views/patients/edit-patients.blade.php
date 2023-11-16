@@ -863,7 +863,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                              evening_meals </label>
-                                             <input type="text" name="evening_meals" value="{{ @$patient->evening_meals }}">
+                                             <input type="text" name="evening_meals" maxlength="150" value="{{ @$patient->evening_meals }}">
                                           </div>
                                        </div>
                                        <div class="col-md-3 annexure_field" id="bed_time">
