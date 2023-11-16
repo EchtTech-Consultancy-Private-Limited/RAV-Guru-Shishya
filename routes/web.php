@@ -169,7 +169,7 @@ Route::group(['middleware' => ['auth','prevent-back-history']], function() {
         Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr']);
         Route::post('delete-patient-remark', [PatientController::class, 'delete_patient_remark']);
 
-        Route::get('patients/{phr_type}', [PatientController::class, 'in_patients']);
+        Route::get('patients/{phr_type}', [PatientController::class, 'in_patients'])->name('patientList');
 
         /*Admin Url Roles and Permissions Routes*/
         Route::get('admin-models', [ModelController::class, 'index']);

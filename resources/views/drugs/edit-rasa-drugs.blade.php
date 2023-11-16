@@ -63,8 +63,8 @@
                   </ul>
                </div>
                <div class="body">
+                  <h3>New Drug Report</h3>
                   <div id="wizard_horizontal">
-                     <h2>New Drug Report</h2>
 
                   <section>
                      <div class="col-md-12 mb-2">
@@ -72,57 +72,31 @@
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
                               <div class="card-body p-0">
-                                 <div
-                                    class="row">
-                                    <div
-                                       class="col-md-4 mb-2">
-                                       <div
-                                          class="form-group">
-                                          <label
-                                             for="example-text-input"
-                                             class="form-control-label">Name of the Guru<span
-                                             class="text-danger">*</span></label>
-                                             @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}" readonly
-                                             >
-                                             @endif
-                                             @if(Auth::user()->user_type==2)
-                                             <input
-                                             type="text"
-                                             name="name_of_the_guru"
-                                             class="form-control"
-                                             placeholder="Name of the Guru"
-                                             aria-label="Name"
-                                             value="{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}" readonly
-                                             >
-                                             @endif
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4 mb-2">
-                                       <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">Name of the Shishya<span class="text-danger">*</span></label>
-                                          <input type="text" name="name_of_the_shishya" class="form-control" placeholder="Name of the Shishya" aria-label="Name" value="@if(Auth::user()->user_type==1 || Auth::user()->user_type==2) {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}} @else {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                             @endif" readonly>
-                                       </div>
-                                    </div>
-                                    <div class="col-md-4 mb-2">
-                                       <div class="form-group">
-                                          <label for="example-text-input" class="form-control-label">Date of Report<span class="text-danger">*</span></label>
-                                          <input type="date" name="date" class="form-control" placeholder="Date" aria-label="Name" value="<?php echo date('Y-m-d'); ?>" readonly>
-                                       </div>
-                                    </div>
-
-                                 </div>
-
-
-
-
+                                 <table>
+                                                <thead>
+                                                    <th> Name of the Guru</th>
+                                                    <th>Name of the Shishya </th>
+                                                    <th>Date of Report </th>
+                                                </thead>
+                                                <tbody>
+                                                    <td>
+                                                        @if(Auth::user()->guru_id || Auth::user()->user_type==1)
+                                                        {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                                        @endif
+                                                        @if(Auth::user()->user_type==2)
+                                                        {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if(Auth::user()->user_type==1 || Auth::user()->user_type==2)
+                                                        {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}}
+                                                        @else
+                                                        {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                        @endif
+                                                    </td>
+                                                    <td><?php echo date('d-m-Y'); ?> </td>
+                                                </tbody>
+                                            </table>
                               </div>
                            </div>
                         </div>
@@ -175,22 +149,22 @@
                                                             @foreach($drugrasapart as $drugrasaparts)
                                                             <tr>
                                                                <td>
-                                                                  <input type="hidden" name="drug_part_id[]" value="{{ $drugrasaparts->id }}">
+                                                                  <input type="hidden" name="drug_part_id[]" value="{{ $drugrasaparts->id }}" maxlength="200">
 
-                                                                  <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients" value="{{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}">
+                                                                  <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients" value="{{ $drugrasaparts->name_of_the_ingredients_mineral_metal }}" maxlength="200">
                                                                   @error('name_of_the_ingredients_mineral_metal')
                                                                   <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                                   @enderror
                                                                </td>
 
                                                                <td>
-                                                                  <input type="text" name="part_used[]" class="form-control" placeholder="Part used" value="{{ $drugrasaparts->rasa_part_used }}">
+                                                                  <input type="text" name="part_used[]" class="form-control" placeholder="Part used" value="{{ $drugrasaparts->rasa_part_used }}" maxlength="100">
                                                                   @error('rasa_part_used')
                                                                   <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                                   @enderror
                                                                </td>
                                                                <td class="text-warning mt-10">
-                                                                  <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $drugrasaparts->rasa_quantity }}">
+                                                                  <input type="text" name="quantity[]" class="form-control" placeholder="quantity" value="{{ $drugrasaparts->rasa_quantity }}" maxlength="10">
                                                                   @error('quantity')
                                                                   <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                                   @enderror
@@ -430,9 +404,9 @@
       html = '<tr id="faqs-row' + faqs_row + '">';
       html += '<input type="hidden" name="drug_part_id[]" value="0" >';
 
-      html += '<td><input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="quantity" aria-label="quantity" value=""></td>';
-      html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value=""></td>';
-      html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value=""></td>';
+      html += '<td><input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="quantity" aria-label="quantity" value="" maxlength="200"></td>';
+      html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value="" maxlength="100"></td>';
+      html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="" maxlength="10"></td>';
       html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i></button></td>';
 
       html += '</tr>';

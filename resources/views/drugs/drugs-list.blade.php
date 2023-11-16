@@ -75,10 +75,10 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                      
+
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Name of the Student</label>
+                                                    <label for="example-text-input" class="form-control-label">Name of the Shishya</label>
                                                     <input type="text" name="student_name" class="form-control"  value="{{Auth::user()->firstname}}" readonly>
                                                 </div>
                                             </div>
@@ -88,6 +88,12 @@
                                                     <input type="text" name="guru_name" class="form-control"  value="@if(Auth::user()->guru_id) {{$guru->firstname}} @endif" readonly>
 
                                                 </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>Search</h3>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
@@ -102,7 +108,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                <div class="form-group">
                                                   <label
                                                      for="example-text-input"
@@ -116,13 +122,13 @@
                                                   </select>
                                                </div>
                                             </div>
-                                            <div class="col-md-6 d-flex align-items-center">
+                                            <div class="col-md-3 d-flex align-items-center">
                                                 <div>
                                                 <button  class="btn filter btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
                                                 <a href="{{url('drug-report-history')}}"> <button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn">Reset</button></a>
                                                 </div>
-                                                
-                                                
+
+
                                             </div>
                                     </div>
 
@@ -134,7 +140,7 @@
             </div>
         </div>
     </div>
-    
+
 </div>
 </section>
 
@@ -285,7 +291,7 @@
                                                     @endif
                                                     </i>
                                                     </a>
-                                                
+
                                                     <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
 
@@ -423,5 +429,3 @@
    </div>
       </section>
 @endsection
-
-

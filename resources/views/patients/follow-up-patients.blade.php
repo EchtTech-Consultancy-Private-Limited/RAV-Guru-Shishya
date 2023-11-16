@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class=" col-md-6">
 
                     <ul class="breadcrumb breadcrumb-style ">
                         <li class="breadcrumb-item">
@@ -35,15 +35,9 @@
                     </div>
                     @endif
                 </div>
-            </div>
-        </div>
-        <div class="row">
 
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="card">
-                    <form role="form" method="POST" action="{{ url('/follow-up-patients') }}">
-                        @csrf
-                        @if (Auth::user()->user_type == 3)
+                <div class="col-md-6">
+                @if (Auth::user()->user_type == 3)
                         <div class="d-flex justify-content-end m-2">
                             <a type="button" href="javascript:void(0);" data-bs-toggle="modal"
                                 data-bs-target="#add-follow-up-sheet-model" class="btn add btn-danger waves-effect">+
@@ -51,6 +45,17 @@
                                 Up </a>
                         </div>
                         @endif
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 ">
+                <div class="card">
+                    <form role="form" method="POST" action="{{ url('/follow-up-patients') }}">
+                        @csrf
+
                         <div class="header">
                             <div class="row pt-3">
                                 <div class=" col-xl-2 col-lg-2 col-md-12">
@@ -68,7 +73,7 @@
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
                                                 <div class="form-group">
                                                     <label class="active">From Date:</label>
-                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active dateInput" value="" max="<?php echo date('d-m-Y'); ?>">
                                                 </div>
 
                                         </div>
@@ -77,12 +82,12 @@
 
                                             <div class="form-group">
                                                     <label class="active"> To Date:</label>
-                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="" max="2023-10-31">
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active dateInput" value="" max="<?php echo date('d-m-Y'); ?>">
                                                 </div>
                                         </div>
 
 
-                                        <div class="col-xl-4 col-xxl-4 col-lg-4 col-md-6">
+                                        <div class="col-xl-3 col-xxl-4 col-lg-4 col-md-6">
                                             <div class="form-group">
                                                     <label class="active">Select Duration:</label>
                                                     <select name="report_type" class="form-control active">
@@ -214,7 +219,7 @@
                                             @endif
 
                                             <td class="center">{{ $followup->report_type }}</td>
-                                            <td class="center">
+                                            <td class="center date">
                                                 {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                             <td>
                                                 <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
@@ -258,7 +263,7 @@
                                                     ||
                                                     (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
                                                     (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
-                                                    <a target="_blank"
+                                                    <a target="_self"
                                                         href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                         class="btn remark" title="Remarks">
                                                         Remarks
@@ -342,6 +347,40 @@
 
 </section>
 <script>
+   addEventListener('load', () => {
+  doc = document;
+  htm = doc.documentElement;
+  bod = doc.body;
+  nav = navigator;
+  M = tag => doc.createElement(tag);
+  I = id => doc.getElementById(id);
+  mobile = nav.userAgent.match(/Mobi/i) ? true : false;
+  S = (selector, within) => {
+    var w = within || doc;
+    return w.querySelector(selector);
+  }
+  Q = (selector, within) => {
+    var w = within || doc;
+    return w.querySelectorAll(selector);
+  }
+
+  // Function to set max date for a given input
+  function setMaxDate(input) {
+    const today = new Date().toISOString().split('T')[0];
+    input.setAttribute('max', today);
+  }
+
+  // Assuming you have date inputs with the class 'dateInput'
+  const dateInputs = Q('.dateInput');
+
+  // Add event listener for each date input
+  dateInputs.forEach(dateInput => {
+    dateInput.addEventListener('focus', () => {
+      setMaxDate(dateInput);
+    });
+  });
+});
+
     const findPhrRegistration = "{{ url('/find-phr-registration') }}";
     const addFollowUpSheetUrl = "{{ url('/add-follow-up-sheet')}}";
     const csrfToken = "{{ csrf_token() }}";

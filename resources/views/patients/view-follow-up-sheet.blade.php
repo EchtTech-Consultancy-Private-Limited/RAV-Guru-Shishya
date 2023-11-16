@@ -47,10 +47,19 @@
                             <section>
 
                                 <div class="col-sm-12 pb-0">
-                                <div class="header p-0">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        <div class="header p-0">
                                         <h2 class=''>View Follow Up </h2>
 
                                     </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <a href="{{ url('/follow-up-patients') }}"><button type="button"
+                                            class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                        </div>
+                                    </div>
+
                                 <table class="view-table">
                                     <h3>Basic Information</h3>
                                     <thead>
@@ -199,10 +208,7 @@
 
                                                     <div class="row clearfix">
                                                         <div class="col-sm-12 p-t-20 text-left">
-                                                        <a href="{{ url('/follow-up-patients') }}">
-                                                                <button
-                                                                    type="button" class="btn back btn-danger waves-effect">
-                                                                    &nbsp; Back &nbsp;</button></a>
+
                                                             <button type="submit"
                                                                 class="btn send  waves-effect m-r-15"
                                                                 @if((Auth::user()->user_type==3 &&
@@ -236,6 +242,7 @@
                             <div class="card-body3" style="display:none;">
 
                                 <div class="row clearfix">
+
                                     <div class="col-sm-12">
 
 
@@ -576,13 +583,13 @@
                         <tr>
                            <td>  Madhyahan Bhojana</td>
                            <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
-                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}      
+                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}
                                  @endforeach </td>
                         </tr>
                         <tr>
                            <td> Prataraasha</td>
                         <td>  @foreach(__('phr.prataraasha') as $key=>$value)
-                                 {{@$patient->prataraasha == $key  ? $value : ''}} 
+                                 {{@$patient->prataraasha == $key  ? $value : ''}}
                               @endforeach</td>
                         </tr>
                         <tr>
@@ -685,16 +692,6 @@
 
                             </div>
 
-
-
-
-
-
-
-                                <div class="col-sm-12 p-t-20 text-left">
-                                    <a href="{{ url('/follow-up-patients') }}"><button type="button"
-                                            class="btn back btn-danger waves-effect"> &nbsp; Back &nbsp;</button></a>
-                                </div>
                             </div>
 
                         </div>

@@ -636,6 +636,18 @@ return [
         '12' => 'Daliya',
         '13' => 'Sabudana',
         '14' => 'Suji',
+    ],
+
+    'pathya_apathya' => [
+        '1' => 'Soft Drink/Peya Padarth',
+        '2' => 'Madhyahan Bhojana',
+        '3' => 'Prataraasha',
+        '4' => 'Pulses',
+        '5' => 'Pulpy Vegetables',
+        '6' => 'Oil/Tail',
+        '7' => 'Afternoon Fruit',
+        '8' => 'Evening_meals',
+        '9' => 'Bed Time',
        ],
    
 ];

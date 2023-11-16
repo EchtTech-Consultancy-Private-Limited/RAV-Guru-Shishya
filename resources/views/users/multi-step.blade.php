@@ -99,7 +99,7 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label>First Name<span class="text-danger">*</span></label>
-                                       <input type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30"> 
+                                       <input type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30">
                                        @if($errors->has('firstname'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
@@ -132,7 +132,7 @@
                                        @endif
                                     </div>
                                  </div>
-                                 
+
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mother's Name </label>
@@ -211,7 +211,7 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Age<span class="text-danger">*</span></label>
-                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}"> 
+                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}">
                                        @if($errors->has('age'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('age') }}</strong>
@@ -219,7 +219,7 @@
                                        @endif
                                     </div>
                                  </div>
-                                 
+
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Email</label><span class="text-danger">*</span>
@@ -229,18 +229,18 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mobile No.<span class="text-danger">*</span></label>
-                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
+                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Enter Your Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
                                        </span>
                                        @endif
                                     </div>
-                                 </div>                                 
-                                 
+                                 </div>
+
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Last 4 digits only"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Enter Your Aadhar Number"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">
                                        @if($errors->has('aadhaar_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('aadhaar_no') }}</strong>
@@ -251,7 +251,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Last 4 digits only"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
+                                       <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Enter Your Pan Number"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
                                        @if($errors->has('pan_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('pan_no') }}</strong>
@@ -260,7 +260,7 @@
                                     </div>
                                  </div>
 
-                                 <div class="header col-md-12 pt-0">     
+                                 <div class="header col-md-12 pt-0">
                                     <h2>Present Address </h2>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -335,7 +335,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="number" name="pincode" id="Pincode" class="form-control" placeholder="Pincode"  value="{{ old('pincode', $profile_record[0]->pincode) }}">
+                                       <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="6" placeholder="Pincode"  value="{{ old('pincode', $profile_record[0]->pincode) }}">
                                        @if($errors->has('pincode'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('pincode') }}</strong>
@@ -370,9 +370,12 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">@error('per_address_Line2')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">
+                                       @if($errors->has('per_address2'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_address2') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -386,9 +389,11 @@
                                           </option>
                                           @endforeach
                                        </select>
-                                       @error('per_country')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('per_country'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_country') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -400,9 +405,11 @@
                                           @else
                                           @endif
                                        </select>
-                                       @error('per-state-dropdown')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('per_state'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_state') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -414,17 +421,22 @@
                                           @else
                                           @endif
                                        </select>
-                                       @error('per-city-dropdown')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       @if($errors->has('per_city'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_city') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="number" name="per_pincode" id="per_pincode" class="form-control" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">@error('per_pincode')
-                                       <div class="alert alert-danger">{{ $message }}</div>
-                                       @enderror
+                                       <input type="text" name="per_pincode" id="per_pincode" class="form-control" oninput="validateInput(this)" maxlength="6" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">
+                                       @if($errors->has('per_pincode'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('per_pincode') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                  </div>
 
@@ -493,9 +505,9 @@
                                        <label for="central">Mobile Number ( Linked with Account Number)</label>
                                     </div>
                                  </div>
-                                                                  
+
                                  <!-- End bank details -->
-                                 
+
                                  <!-- Languages -->
                                  <div class="header col-md-12 pt-0">
                                     <h2>Add Languages</h2>
@@ -574,11 +586,11 @@
                                                 <option value="">Select</option>
                                                 <option value="1" {{$language_records->speaking == 1 ?'selected':''}}>Yes</option>
                                                 <option value="0" {{$language_records->speaking == 0 ?'selected':''}}>No</option>
-                                             </select>                                             
+                                             </select>
                                           </div>
                                        </div>
                                        <div class="col-sm-12 col-md-1 mb-3">
-                                       <a href="{{ url('language-delete/'.$language_records->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')"><i class="material-icons">delete_forever</i></a>                                       
+                                       <a href="{{ url('language-delete/'.$language_records->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')"><i class="material-icons">delete_forever</i></a>
 
                                        </div>
                                        @endforeach
@@ -597,7 +609,7 @@
                                     <!-- guru name -->
                                     <div class="form-group">
                                        <label >E-Signature<span class="text-danger">*</span></label>
-                                       <input type="file" name="e_sign" id="e_sign" class="form-control" >                                      
+                                       <input type="file" name="e_sign" id="e_sign" class="form-control" >
                                        @if($profile_record[0]->e_sign)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                        @endif
@@ -611,8 +623,8 @@
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group ">
                                        <label >Profile Picture<span class="text-danger"></span></label>
-                                       <input type="file" name="profile_image" id="profile_image" class="form-control" > 
-                                       
+                                       <input type="file" name="profile_image" id="profile_image" class="form-control" >
+
                                        @if($profile_record[0]->user_image)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @else
@@ -671,7 +683,7 @@
                                  </div>
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
-                                       <label for="year_passing">Year of Passing</label>
+                                       <label for="year_passing">Year of Passing <span class="text-danger">*</span></label>
                                        <input type="date" id="year_of_passing" name="year_of_passing" required>
                                     </div>
                                  </div>
@@ -684,8 +696,8 @@
 
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
-                                    <label for="Registration_year">Year of Registration</label>
-                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}" required>
+                                    <label for="Registration_year">Year of Registration <span class="text-danger">*</span></label>
+                                    <input type="date" id="Registration_year" placeholder="Year of Registration" class="form-control" name="year_of_regis" value="{{ old('Registration_year') }}" max="{{date('Y-m-d',time())}}" required>
                                     </div>
                                  </div>
 
@@ -771,7 +783,7 @@
                               <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step4">
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
                               <input type="hidden"  name="clinical_id"  class="form-control capitalize" value="<?php echo get_clinical_id(Auth::user()->id); ?>">
-                              <div class="row">                                 
+                              <div class="row">
                                  <div class="col-sm-12 col-md-12 mb-3">
                                     <div class="form-group d-flex">
                                        <input type="checkbox"  name="any_done_services" id="any_done_services" class="checkbox"  value="0" @if(isset($clinic->any_done_services)) @if($clinic->any_done_services==1) checked @endif @endif>
@@ -785,8 +797,8 @@
                                     </div>
                                  </div>
                                  <div class=" col-xl-8 col-md-6 col-6">
-                                    
-                                      
+
+
                                        <div class="form-group default-select select2Style p-0">
                                        <label for="Registration_year">Working days </label>
                                           <select class="form-control select2 width p-0"  multiple="" data-placeholder="Select" name="working_days[]">
@@ -799,14 +811,14 @@
                                              @endforeach
                                           </select>
                                        </div>
-                                   
+
                                  </div>
                                  <div class="header col-md-12 pt-0">
                                     <h2>Clinic Timings </h2>
                                  </div>
                                  <div class=" col-xl-5 col-md-6">
-                                  
-                                     
+
+
                                        <div class="form-group default-select select2Style">
                                        <label for="Registration_year">Morning Shifts Timings</label>
                                           <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_morning_timing[]">
@@ -820,10 +832,10 @@
                                              @endforeach
                                           </select>
                                        </div>
-                                   
+
                                  </div>
                                  <div class=" col-xl-5 col-md-6">
-                                     
+
                                        <div class="form-group default-select select2Style">
                                        <label for="Registration_year">Evening Shifts Timings</label>
                                           <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_evening_timing[]">
@@ -837,7 +849,7 @@
                                              @endforeach
                                           </select>
                                        </div>
-                                   
+
                                  </div>
                                  <div class="col-xxl-2  col-xl-2  col-6">
                                     <div class="form-group">
@@ -1216,7 +1228,7 @@
                         <label for="year_passing">Year Of Registration</label>
                         <input type="date" name="year_of_regis" id="edit_year_of_regis">
                      </div>
-                  </div>               
+                  </div>
                   <div class="col-3">
                      <div class="form-group ">
                         <label >Upload Degree</label>

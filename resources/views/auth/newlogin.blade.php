@@ -46,26 +46,24 @@
           @csrf
           <div class="form-group position-relative">
             <label for="email" class="sr-only">Email</label>
-            <input type="email" required="required" name="email" id="email" class="form-control" autocomplete="off" placeholder="Email">
-
+            <input type="email" name="email" id="email" class="form-control" autocomplete="off" placeholder="Email" required>
             <i class="fa fa-user field-icon1 user-icon"></i>
-
             <span class="text-danger" id="email-error"></span>
-            @error('email')
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
+            @if($errors->has('email'))
+            <span class="help-block">
+              <strong style="color:red;">{{ $errors->first('email') }}</strong>
             </span>
-            @enderror
+            @endif
           </div>
           <div class="form-group mb-3 position-relative">
             <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="password" class="form-control" autocomplete="off" placeholder="Password">
             <i class="fa fa-eye field-icon1 eye-icon" id="eye"></i>
-            @error('password')
-            <span class="invalid-feedback" role="alert">
-              <strong>{{ $message }}</strong>
+            @if($errors->has('password'))
+            <span class="help-block">
+              <strong style="color:red;">{{ $errors->first('password') }}</strong>
             </span>
-            @enderror
+            @endif
           </div>
 
           <div class="form-group mb-3 row align-items-center">
