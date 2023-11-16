@@ -86,6 +86,7 @@
                                        <option value="2">Guru</option>
                                     @endif
                                  </select>
+                                 <span class="error"></span>
                            </div>
                         </div>
                      </div>

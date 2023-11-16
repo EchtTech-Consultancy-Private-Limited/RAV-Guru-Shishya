@@ -1424,3 +1424,12 @@ textarea[name="remark"].form-control{
 .date{
     white-space: nowrap !important;
 }
+
+.form-group textarea.form-control{
+    overflow: auto;
+    height: 36px !important;
+}
+
+.form-group .form-line.focused .form-label{
+    color: red !important;
+}

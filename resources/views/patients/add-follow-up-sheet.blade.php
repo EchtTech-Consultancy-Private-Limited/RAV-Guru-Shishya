@@ -41,7 +41,7 @@
         <div class="row clearfix">
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
-                   
+
                     <div class="body">
                         <div id="wizard_horizontal">
                             <section>
@@ -64,10 +64,10 @@
                                             <div class="card-body pt-0">
                                             <div class="header p-0">
                                                 <h2>Add Follow Up </h2>
-                                            
+
                                             </div>
                                                 <div class="row clearfix">
-                                                    
+
                                                     <div class="col-md-3 col-6">
                                                         <div class="form-group focused">
                                                             <div class="form-line">
@@ -95,7 +95,7 @@
                                                                     class="form-control-label">Date of Follow up<span
                                                                         class="text-danger"></span></label>
                                                                         <p>{{ date('d-m-Y') }}</p>
-                                                               
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -176,9 +176,9 @@
                                                             &nbsp; </button>
                                                         <a href="{{ url('/follow-up-patients') }}"><button type="button"   class="btn back btn-danger waves-effect"> &nbsp; Back
                                                                 &nbsp;</button></a>
-                                                      
+
                                                         </div>
-                                                       
+
 
                                                     </div>
                                                 </div>
@@ -207,14 +207,14 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr> 
+                                            <tr>
                                                 <td> @if (!empty($guru->id))
                                                 {{ $guru->firstname . ' ' . $guru->lastname }}
                                                     @endif </td>
                                                 <td> {{$shishya->firstname}}</td>
                                                 <td>{{@$guru->city_name}}</td>
                                                 <td> <?php echo date('d-m-Y'); ?></td>
-                                              
+
                                             </tr>
                                             </tbody>
                                     </table>
@@ -225,14 +225,14 @@
                                         <tr>
                                             <th class="w-25"> Title </th>
                                             <th> Value</th>
-                                           
+
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr> 
+                                        <tr>
                                             <td> Name of  the Patient</td>
                                             <td>{{ $patient->patient_name  }} </td>
-                                          
+
                                         </tr>
 
                                         <tr>
@@ -326,7 +326,7 @@
 
                                         <tr>
                                             <td colspan="2"> <h3> Examination  of the  patient</h3> </td>
-                                           
+
                                         </tr>
 
                                         <tr>
@@ -528,12 +528,12 @@
                                         </tbody>
                                     </table>
 
-                                      
 
 
 
 
-                                      
+
+
 
                                         <div class="row clearfix">
                                             <div class="col-sm-6">
@@ -576,7 +576,7 @@
                                                     class="btn back btn-danger waves-effect"> &nbsp; Back
                                                     &nbsp;</button></a>
                                         <div class="col-sm-12 p-t-20 text-left">
-                                          
+
                                         </div>
                                     </div>
 

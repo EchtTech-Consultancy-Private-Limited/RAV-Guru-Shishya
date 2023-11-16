@@ -1,7 +1,7 @@
 @extends('layouts.app-file')
 @section('content')
 <section class="content">
-   
+
    <div class="container-fluid">
       <div class="block-header">
          <div class="row">
@@ -89,7 +89,7 @@
                                              @endif
                                           </div>
                                        </div>
-                                    
+
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label ">Name of the Shishya</label><br>
@@ -101,7 +101,7 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label ">Date of Report</label><br>
-                                            <p>{{date('d-m-y',strtotime($patient->registration_date))}}</p>
+                                            <p>{{date('d-m-Y',strtotime($patient->registration_date))}}</p>
 
                                           </div>
                                        </div>
@@ -163,7 +163,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">
@@ -182,7 +182,7 @@
                                              </span>
                                              @endif
                                           </div>
-                                       </div>                                      
+                                       </div>
                                        <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->age_group)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Age Group<span class="text-danger">*</span></label>
@@ -241,8 +241,8 @@
                                              <input type="text" name="aasan_sidhi" class="form-control" placeholder="Aasan Sidhi" aria-label="Aasan Sidhi" value="{{ $patient->aasan_sidhi }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
                                           </div>
                                        </div>
-                                    
-                                      
+
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->season)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Season</label>
@@ -298,7 +298,7 @@
                                              <input type="text" name="complaint_as_said_by_family_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->complaint_as_said_by_family_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="50">
                                           </div>
                                        </div>
-                                    
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->past_illness)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Past illness</label>
@@ -313,16 +313,16 @@
                                              <textarea cols="45" rows="1" name="family_history" class="form-control" value="{{ $patient->family_history }}" aria-label="family_history" placeholder="Family History" maxlength="40">{{ $patient->family_history }}</textarea>
                                           </div>
                                        </div>
-                                   
+
                                        <div class="col-md-12">
                                           <div class="title">
                                              <p>
                                              Examination  of      the patient
                                              </p>
                                           </div>
-                                        
+
                                        </div>
-                                    
+
                                        <div class="col-md-3">
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->skin)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Skin</label>
@@ -377,7 +377,7 @@
                                              </select>
                                           </div>
                                        </div>
-                                   
+
                                        <div class="col-md-3">
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->anguli_sandhi)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Anguli
@@ -432,7 +432,7 @@
                                              </select>
                                           </div>
                                        </div>
-                                   
+
                                        <div class="col-md-3">
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->jihwa)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Jihwa</label>
@@ -688,7 +688,7 @@
                                        </div>
                                     </div>
                                     <div class="row">
-                                       
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->vibhedaka_pariksha)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
@@ -719,9 +719,9 @@
                                           </div>
                                        </div>
                                     </div>
-                                    
+
                                     <div class="row">
-                                       
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->samshodhana_kriyas)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Samshodhana
@@ -754,7 +754,7 @@
                                                 @foreach(__('phr.pathya_apathya') as $key=>$value)
                                                    <option value="{{$key}}" {{$patient->pathya_apathya == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
-                                               
+
                                              </select>
                                           </div>
                                        </div>
@@ -879,10 +879,10 @@
                                              </select>
                                           </div>
                                        </div>
-                                      
+
                                        <!-- ******************aAnexteure pdf input field*********************** -->
                                     </div>
-                                    
+
                                     <div class="row">
                                        <div class="col-md-6">
                                           <div class="form-group">
