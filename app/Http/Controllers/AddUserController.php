@@ -437,6 +437,7 @@ class AddUserController extends Controller
             else{
                 dd("reload");
             }
+            return redirect('/profile')->with('success',"Education Details Updated Successfully");
         }
         
         //here we create session for user redirection and we use this session above function
@@ -444,7 +445,7 @@ class AddUserController extends Controller
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
 
-        return redirect('/profile')->with('success',"Details Updated Successfully");
+        return redirect('/profile')->with('success',"Basic Details Updated Successfully");
         //return view("users.multi-step",compact('form_step_type','countries','basic_info_session','lang','profile_record','per_profile_record','language_record'));
     }
 
