@@ -65,7 +65,7 @@
                                         <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                                         <!-- @csrf -->
                                         <div class=" card-body p-0">
-                                        <table class="my-3">
+                                            <table class="my-3">
                                                 <thead>
                                                     <th> Name of the Guru</th>
                                                     <th>Name of the Shishya </th>
@@ -73,16 +73,18 @@
                                                 </thead>
                                                 <tbody>
                                                     <td>
-                                                    @if(Auth::user()->guru_id)
+                                                        @if(Auth::user()->guru_id)
                                                         <p>@if($guru->firstname){{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
                                                             @endif</p>
                                                         @endif
                                                     </td>
                                                     <td>
-                                                    <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                        <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                                         </p>
                                                     </td>
-                                                    <td><p><?php echo date('d-m-Y'); ?></p> </td>
+                                                    <td>
+                                                        <p><?php echo date('d-m-Y'); ?></p>
+                                                    </td>
                                                 </tbody>
                                             </table>
 
@@ -188,42 +190,56 @@
                             <div class="row d-flex justify-content-center">
                                 <div class="col-lg-12 grid-margin stretch-card p-0 m-0">
                                     <div class="card p-0">
-                                    <div class=" card-body p-0 ">
-                                        <div class="table-responsive px-2">
-                                            <table id="faqs" class="table table-hover ">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name of the ingredients </th>
-                                                        <th>Part used   </th>
-                                                         <th>Quantity</th>
-                                                         <th>Action</th>
+                                        <div class=" card-body p-0 ">
+                                            <div class="table-responsive px-2">
+                                                <table id="faqs" class="table table-hover ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name of the ingredients </th>
+                                                            <th>Part used </th>
+                                                            <th>Quantity</th>
+                                                            <th>Action</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
 
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the Ingredients" aria-label="Name of the ingredients" maxlength="200" value="{{ old('name_of_the_ingredients[]') }}" maxlength="200">
+                                                                <input type="text" name="name_of_the_ingredients[]"
+                                                                    class="form-control"
+                                                                    placeholder="Name of the Ingredients"
+                                                                    aria-label="Name of the ingredients" maxlength="200"
+                                                                    value="{{ old('name_of_the_ingredients[]') }}"
+                                                                    maxlength="200">
 
-                                                         </td>
+                                                            </td>
 
-                                                        <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" maxlength="200" value="{{ old('part_used[]') }}" maxlength="200">
+                                                            <td>
+                                                                <input type="text" name="part_used[]"
+                                                                    class="form-control" placeholder="Part used"
+                                                                    aria-label="Part used" maxlength="100"
+                                                                    value="{{ old('part_used[]') }}">
 
-                                                        </td>
-                                                        <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" maxlength="200" value="{{ old('quantity[]') }}" maxlength="200">
+                                                            </td>
+                                                            <td class="text-warning mt-10">
+                                                                <input type="text" name="quantity[]"
+                                                                    class="form-control" placeholder="Quantity"
+                                                                    aria-label="quantity" maxlength="10"
+                                                                    value="{{ old('quantity[]') }}">
 
-                                                        </td>
-                                                        <td></td>
-                                                        <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                            </td>
+                                                            <td></td>
+                                                            <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="text-end d-flex justify-content-end"><button
+                                                    onclick="addfaqs();" type="button"
+                                                    class="btn add add-button d-flex align-items-center btn-success"><i
+                                                        class="fa fa-plus px-2"></i> ADD MORE</button></div>
                                         </div>
-                                        <div class="text-end d-flex justify-content-end"><button  onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center btn-success"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -583,45 +599,60 @@
                             <div class="row  d-flex justify-content-center">
                                 <div class="col-lg-12 grid-margin stretch-card mb-0">
                                     <div class="card mb-0">
-                                    <div class=" card-body p-0">
-                                        <div class="table-responsive px-2">
-                                            <table id="faqs" class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name of the ingredients </th>
-                                                        <th>Part used   </th>
-                                                          <th>Quantity</th>
-                                            <th>Action</th>
+                                        <div class=" card-body p-0">
+                                            <div class="table-responsive px-2">
+                                                <table id="faqs" class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Name of the ingredients </th>
+                                                            <th>Part used </th>
+                                                            <th>Quantity</th>
+                                                            <th>Action</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                          <input type="text" name="name_of_the_ingredients_mineral_metal[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
-                                                            @error('name_of_the_ingredients_mineral_metal')
-                                                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                                            @enderror
-                                                         </td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text"
+                                                                    name="name_of_the_ingredients_mineral_metal[]"
+                                                                    class="form-control"
+                                                                    placeholder="Name of the ingredients Mineral"
+                                                                    aria-label="name_of_the_ingredients_mineral_metal"
+                                                                    value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
+                                                                    maxlength="200">
+                                                                @error('name_of_the_ingredients_mineral_metal')
+                                                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                                @enderror
+                                                            </td>
 
-                                                        <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
-                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                                         @enderror
-                                                        </td>
-                                                        <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
-                                                         @error('quantity')
-                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                                         @enderror
-                                                        </td>
-                                                        <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                                            <td>
+                                                                <input type="text" name="part_used[]"
+                                                                    class="form-control" placeholder="Part used"
+                                                                    value="{{ old('part_used[]') }}"
+                                                                    maxlength="100">@error('part_used')
+                                                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                                @enderror
+                                                            </td>
+                                                            <td class="text-warning mt-10">
+                                                                <input type="text" name="quantity[]"
+                                                                    class="form-control" placeholder="Quantity"
+                                                                    aria-label="quantity"
+                                                                    value="{{ old('quantity[]') }}" maxlength="10">
+                                                                @error('quantity')
+                                                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                                @enderror
+                                                            </td>
+                                                            <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="text-end d-flex justify-content-end"><button
+                                                    onclick="addfaqs();" type="button"
+                                                    class="btn add add-button d-flex align-items-center"><i
+                                                        class="fa fa-plus px-2"></i> ADD MORE</button></div>
                                         </div>
-                                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -896,45 +927,56 @@
 
                     <div class="row pb-0 mb-0">
                         <div class="card mb-0">
-                        <div class=" card-body p-0">
-                            <div class="table-responsive px-2">
-                                <table id="faqs" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Name of the Ingredients </th>
-                                            <th>Part used   </th>
-                                              <th>Quantity</th>
-                                            <th>Action</th>
+                            <div class=" card-body p-0">
+                                <div class="table-responsive px-2">
+                                    <table id="faqs" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Name of the Ingredients </th>
+                                                <th>Part used </th>
+                                                <th>Quantity</th>
+                                                <th>Action</th>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
-                                                @error('name_of_the_ingredients_mineral_metal')
-                                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                                @enderror
-                                             </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="name_of_the_ingredients[]"
+                                                        class="form-control"
+                                                        placeholder="Name of the ingredients Mineral"
+                                                        aria-label="name_of_the_ingredients_mineral_metal"
+                                                        value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
+                                                        maxlength="200">
+                                                    @error('name_of_the_ingredients_mineral_metal')
+                                                    <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                    @enderror
+                                                </td>
 
-                                            <td>
-                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
-                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                             @enderror
-                                            </td>
-                                            <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
-                                             @error('quantity')
-                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                             @enderror
-                                            </td>
-                                            <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                <td>
+                                                    <input type="text" name="part_used[]" class="form-control"
+                                                        placeholder="Part used" value="{{ old('part_used[]') }}"
+                                                        maxlength="100">@error('part_used')
+                                                    <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                    @enderror
+                                                </td>
+                                                <td class="text-warning mt-10">
+                                                    <input type="text" name="quantity[]" class="form-control"
+                                                        placeholder="Quantity" aria-label="quantity"
+                                                        value="{{ old('quantity[]') }}" maxlength="10">
+                                                    @error('quantity')
+                                                    <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                    @enderror
+                                                </td>
+                                                <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();"
+                                        type="button" class="btn add add-button d-flex align-items-center"><i
+                                            class="fa fa-plus px-2"></i> ADD MORE</button></div>
                             </div>
-                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
-                        </div>
                         </div>
                     </div>
 
@@ -1267,46 +1309,57 @@
 
                     <div class="row mb-0 pb-0">
                         <div class="card mb-0 pb-0">
-                        <div class=" card-body p-0">
-                            <div class="table-responsive px-2">
-                                <table id="faqs" class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Name of the Ingredients </th>
-                                            <th>Part used   </th>
-                                              <th>Quantity</th>
-                                            <th>Action</th>
+                            <div class=" card-body p-0">
+                                <div class="table-responsive px-2">
+                                    <table id="faqs" class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Name of the Ingredients </th>
+                                                <th>Part used </th>
+                                                <th>Quantity</th>
+                                                <th>Action</th>
 
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                              <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
-                                                @error('name_of_the_ingredients_mineral_metal')
-                                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                                @enderror
-                                             </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" name="name_of_the_ingredients[]"
+                                                        class="form-control"
+                                                        placeholder="Name of the ingredients Mineral"
+                                                        aria-label="name_of_the_ingredients_mineral_metal"
+                                                        value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
+                                                        maxlength="200">
+                                                    @error('name_of_the_ingredients_mineral_metal')
+                                                    <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                    @enderror
+                                                </td>
 
-                                            <td>
-                                             <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
-                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                             @enderror
-                                            </td>
-                                            <td class="text-warning mt-10">
-                                             <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
-                                             @error('quantity')
-                                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                             @enderror
-                                            </td>
-                                            <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                <td>
+                                                    <input type="text" name="part_used[]" class="form-control"
+                                                        placeholder="Part used" value="{{ old('part_used[]') }}"
+                                                        maxlength="100">@error('part_used')
+                                                    <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                    @enderror
+                                                </td>
+                                                <td class="text-warning mt-10">
+                                                    <input type="text" name="quantity[]" class="form-control"
+                                                        placeholder="Quantity" aria-label="quantity"
+                                                        value="{{ old('quantity[]') }}" maxlength="10">
+                                                    @error('quantity')
+                                                    <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                    @enderror
+                                                </td>
+                                                <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();"
+                                        type="button" class="btn add add-button d-flex align-items-center"><i
+                                            class="fa fa-plus px-2"></i> ADD MORE</button></div>
                             </div>
-                            <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -1790,47 +1843,58 @@
 
                     <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card mb-0 p-0">
-                        <div class="card mb-0 p-0">
-                    <div class=" card-body  mb-0 p-0">
-                        <div class="table-responsive px-2">
-                            <table id="faqs" class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Name of the ingredients </th>
-                                        <th>Part used   </th>
-                                          <th>Quantity</th>
-                                            <th>Action</th>
+                            <div class="card mb-0 p-0">
+                                <div class=" card-body  mb-0 p-0">
+                                    <div class="table-responsive px-2">
+                                        <table id="faqs" class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name of the ingredients </th>
+                                                    <th>Part used </th>
+                                                    <th>Quantity</th>
+                                                    <th>Action</th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                          <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="name_of_the_ingredients_mineral_metal" value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"  maxlength="200">
-                                            @error('name_of_the_ingredients_mineral_metal')
-                                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                            @enderror
-                                         </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="text" name="name_of_the_ingredients[]"
+                                                            class="form-control"
+                                                            placeholder="Name of the ingredients Mineral"
+                                                            aria-label="name_of_the_ingredients_mineral_metal"
+                                                            value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
+                                                            maxlength="200">
+                                                        @error('name_of_the_ingredients_mineral_metal')
+                                                        <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                        @enderror
+                                                    </td>
 
-                                        <td>
-                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used"  value="{{ old('part_used[]') }}"  maxlength="200">@error('part_used')
-                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                         @enderror
-                                        </td>
-                                        <td class="text-warning mt-10">
-                                         <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="{{ old('quantity[]') }}"  maxlength="200">
-                                         @error('quantity')
-                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                         @enderror
-                                        </td>
-                                        <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();" type="button" class="btn add add-button d-flex align-items-center"><i class="fa fa-plus px-2"></i> ADD MORE</button></div>
-                    </div>
-                </div>
+                                                    <td>
+                                                        <input type="text" name="part_used[]" class="form-control"
+                                                            placeholder="Part used" value="{{ old('part_used[]') }}"
+                                                            maxlength="100">@error('part_used')
+                                                        <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                        @enderror
+                                                    </td>
+                                                    <td class="text-warning mt-10">
+                                                        <input type="text" name="quantity[]" class="form-control"
+                                                            placeholder="Quantity" aria-label="quantity"
+                                                            value="{{ old('quantity[]') }}" maxlength="10">
+                                                        @error('quantity')
+                                                        <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                                        @enderror
+                                                    </td>
+                                                    <!-- <td class="mt-10"><button class="badge badge-danger"><i class="fa fa-trash"></i> Delete</button></td> -->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="text-end d-flex justify-content-end"><button onclick="addfaqs();"
+                                            type="button" class="btn add add-button d-flex align-items-center"><i
+                                                class="fa fa-plus px-2"></i> ADD MORE</button></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2287,18 +2351,23 @@ function yogas_select_change() {
 
 <script>
 var faqs_row = 0;
+
 function addfaqs() {
-html = '<tr id="faqs-row' + faqs_row + '">';
-    html += '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="quantity" value=""></td>';
-    html += '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value=""></td>';
-    html += '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value=""></td>';
-    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row + '\').remove();"><i class="material-icons">delete_forever</i> </button></td>';
+    html = '<tr id="faqs-row' + faqs_row + '">';
+    html +=
+        '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="quantity" value="" maxlength="200"></td>';
+    html +=
+        '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value="" maxlength="100"></td>';
+    html +=
+        '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="" maxlength="10"></td>';
+    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row +
+        '\').remove();"><i class="material-icons">delete_forever</i> </button></td>';
 
     html += '</tr>';
 
-$('#faqs tbody').append(html);
+    $('#faqs tbody').append(html);
 
-faqs_row++;
+    faqs_row++;
 }
 </script>
 @endsection
