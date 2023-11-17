@@ -79,13 +79,13 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Name of the Shishya</label>
-                                                    <input type="text" name="student_name" class="form-control"  value="{{Auth::user()->firstname}}" readonly>
+                                                    <input type="text" name="student_name" class="form-control"  value="{{Auth::user()->firstname .' '.Auth::user()->lastname}}" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label   class="form-control-label">Name of the Guru</label>
-                                                    <input type="text" name="guru_name" class="form-control"  value="@if(Auth::user()->guru_id) {{$guru->firstname}} @endif" readonly>
+                                                    <input type="text" name="guru_name" class="form-control"  value="@if(Auth::user()->guru_id) {{$guru->firstname .' '.$guru->lastname}} @endif" readonly>
 
                                                 </div>
                                             </div>
