@@ -1365,11 +1365,11 @@ i.fa.fa-plus {
     min-height: auto !important;
   }
 
-  .sidebar .menu .list {
+  /* .sidebar .menu .list {
     width: auto;
     height: 700px !important;
-    /* overflow-y: scroll !important; */
-  }
+    overflow-y: scroll !important;
+  } */
 
 
 

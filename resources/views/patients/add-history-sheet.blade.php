@@ -104,6 +104,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger">*</span></label>
                                              <input type="text" name="patient_name" id="txt_firstCapital" class="form-control preventnumeric capitalize" placeholder="Enter Patient Name" value="{{ old('patient_name') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
+                                             <p id="patient_name_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_name'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('patient_name') }}</strong>
@@ -115,6 +116,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration No<span class="text-danger">*</span></label>
                                              <input type="text" name="registration_no" class="form-control" placeholder="Registration No" value="{{ old('registration_no') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="15">
+                                             <p id="registration_no_err" class="position-absolute"></p>
                                              @if ($errors->has('registration_no'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('registration_no') }}</strong>
@@ -126,6 +128,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Age<span class="text-danger">*</span></label>
                                              <input type="text" name="age" class="form-control" placeholder="Age" aria-label="Phone" value="{{ old('age') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="3" id="age">
+                                             <p id="age_err" class="position-absolute"></p>
                                              @if ($errors->has('age'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('age') }}</strong>
@@ -150,6 +153,7 @@
                                                 <option value="In-Patient">In-Patient</option>
                                                 <option value="OPD-Patient">OPD-Patient</option>
                                              </select>
+                                             <p id="patient_type_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_type'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('patient_type') }}</strong>
@@ -178,6 +182,7 @@
                                                 @endif
                                                 @endforeach
                                              </select>
+                                             <p id="gender_err" class="position-absolute"></p>
                                              @if ($errors->has('gender'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('gender') }}</strong>
@@ -197,6 +202,7 @@
                                                 <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="age_group_err" class="position-absolute"></p>
                                              @if ($errors->has('age_group'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('age_group') }}</strong>
@@ -218,6 +224,7 @@
                                                 <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="occupation_err" class="position-absolute"></p>
                                              @if ($errors->has('occupation'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('occupation') }}</strong>
@@ -238,6 +245,7 @@
                                                 <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="marital_status_err" class="position-absolute"></p>
                                              @if ($errors->has('marital_status'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('marital_status') }}</strong>
@@ -285,6 +293,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Address<span class="text-danger">*</span></label>
                                              <textarea cols="45" rows="1" name="address" class="form-control" placeholder="Enter  Address" maxlength="200">{{ old('address') }}</textarea>
+                                             <p id="address_err" class="position-absolute"></p>
                                              @if ($errors->has('address'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('address') }}</strong>
@@ -1078,4 +1087,5 @@
          </div>
       </div>
 </section>
+<script src="{{ asset('assets/js/custom-script.js') }}"></script>
 @endsection
