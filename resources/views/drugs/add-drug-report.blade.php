@@ -97,7 +97,7 @@
                                                             class="form-control-label">Select Yogas<span
                                                                 class="text-danger">*</span></label>
                                                         <select class="form-control" id="yogas_select"
-                                                            onclick="yogas_select_change();">
+                                                            onchange="yogas_select_change();">
                                                             <option value="">Please Select </option>
                                                             @foreach(__('phr.yogas') as $key=>$value)
                                                             <option value="{{$key}}">{{$value}}</option>
@@ -2332,8 +2332,7 @@
 
 <script>
 function yogas_select_change() {
-
-
+    $(".extra_faqs_rows").remove();
     if ($('#yogas_select').val() == 1) {
         $("#yogas_type").html($("#churna_yogas").html());
     } else if ($('#yogas_select').val() == 2) {
@@ -2345,7 +2344,6 @@ function yogas_select_change() {
     } else if ($('#yogas_select').val() == 5) {
         $("#yogas_type").html($("#asva_yogas").html());
     }
-
 }
 </script>
 
@@ -2353,7 +2351,7 @@ function yogas_select_change() {
 var faqs_row = 0;
 
 function addfaqs() {
-    html = '<tr id="faqs-row' + faqs_row + '">';
+    html = '<tr class="extra_faqs_rows" id="faqs-row' + faqs_row + '">';
     html +=
         '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="quantity" value="" maxlength="200"></td>';
     html +=

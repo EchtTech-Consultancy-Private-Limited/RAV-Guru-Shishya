@@ -65,7 +65,7 @@
                      <section>
                         <div class="col-md-12">
                            <div class="card">
-                              <form role="form" method="POST" action="{{ route('update.patients') }}" enctype="multipart/form-data">
+                              <form role="form" method="POST" action="{{ route('update.patients') }}" enctype="multipart/form-data" id="php_form">
                                  @csrf
                                  @if(!empty($guru->id))
                                  <input type="hidden" name="guru_id" value="{{ $guru->id }}">
@@ -112,6 +112,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->patient_name)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Name of the Patient<span class="text-danger">*</span></label>
                                              <input type="text" name="patient_name" class="form-control" placeholder="Patient Name" aria-label="Email" value="{{ $patient->patient_name }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
+                                             <p id="patient_name_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_name'))
                                              <span class="text-danger">{{ $errors->first('patient_name') }}</span>
                                              @endif
@@ -121,6 +122,7 @@
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->registration_no)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Registration No<span class="text-danger">*</span></label>
                                              <input type="text" name="registration_no" class="form-control" placeholder="Registration No" aria-label="" value="{{ $patient->registration_no }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="15">
+                                             <p id="registration_no_err" class="position-absolute"></p>
                                              @if ($errors->has('registration_no'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('registration_no') }}</strong>
@@ -132,6 +134,7 @@
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->age)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Age<span class="text-danger">*</span></label>
                                              <input type="text" name="age" class="form-control" value="{{ $patient->age }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="3" id="age">
+                                             <p id="age_err" class="position-absolute"></p>
                                              @if ($errors->has('age'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('age') }}</strong>
@@ -155,6 +158,7 @@
                                                 <option value="{{$value}}" {{$patient->patient_type == $value  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="patient_type_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_type'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('patient_type') }}</strong>
@@ -176,6 +180,7 @@
                                                 <option value="{{$key}}" {{$patient->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="gender_err" class="position-absolute"></p>
                                              @if ($errors->has('gender'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('gender') }}</strong>
@@ -192,6 +197,7 @@
                                                 <option value="{{$key}}" {{$patient->age_group == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="age_group_err" class="position-absolute"></p>
                                              @if ($errors->has('age_group'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('age_group') }}</strong>
@@ -211,6 +217,7 @@
                                                 <option value="{{$key}}" {{$patient->occupation == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="occupation_err" class="position-absolute"></p>
                                              @if ($errors->has('occupation'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('occupation') }}</strong>
@@ -228,6 +235,7 @@
                                                 <option value="{{$key}}" {{$patient->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="marital_status_err" class="position-absolute"></p>
                                              @if ($errors->has('marital_status'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('marital_status') }}</strong>
@@ -268,6 +276,7 @@
                                              <label for="example-text-input" class="form-control-label @if(isset($data->address)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Address<span class="text-danger">*</span></label>
                                              <textarea cols="45" rows="1" name="address" class="form-control" value="{{ $patient->address }}" aria-label="Address" placeholder="Street Address" maxlength="200">{{ $patient->address }}</textarea>
                                           </div>
+                                          <p id="address_err" class="position-absolute"></p>
                                           @if ($errors->has('address'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('address') }}</strong>
@@ -924,17 +933,5 @@
          </div>
       </div>
 </section>
-<script>
-   // disable alphate
-   $('#age').keypress(function(e) {
-      //alert("yes");
-      var regex = new RegExp("^[0-9_]");
-      var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-      if (regex.test(str)) {
-         return true;
-      }
-      e.preventDefault();
-      return false;
-   });
-</script>
+<script src="{{ asset('assets/js/custom-script.js') }}"></script>
 @endsection
