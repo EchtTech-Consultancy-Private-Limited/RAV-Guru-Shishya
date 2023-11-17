@@ -600,8 +600,8 @@
                                 <div class="col-lg-12 grid-margin stretch-card mb-0">
                                     <div class="card mb-0">
                                         <div class=" card-body p-0">
-                                            <div class="table-responsive px-2">
-                                                <table id="faqs" class="table table-hover">
+                                            <div class="">
+                                                <table id="faqs" class="table table-hover table-responsive">
                                                     <thead>
                                                         <tr>
                                                             <th>Name of the ingredients </th>
@@ -928,8 +928,8 @@
                     <div class="row pb-0 mb-0">
                         <div class="card mb-0">
                             <div class=" card-body p-0">
-                                <div class="table-responsive px-2">
-                                    <table id="faqs" class="table table-hover">
+                                <div class="">
+                                    <table id="faqs" class="table table-hover table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1310,8 +1310,8 @@
                     <div class="row mb-0 pb-0">
                         <div class="card mb-0 pb-0">
                             <div class=" card-body p-0">
-                                <div class="table-responsive px-2">
-                                    <table id="faqs" class="table table-hover">
+                                <div class="">
+                                    <table id="faqs" class="table table-hover table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1845,8 +1845,8 @@
                         <div class="card mb-0 p-0">
                             <div class="card mb-0 p-0">
                                 <div class=" card-body  mb-0 p-0">
-                                    <div class="table-responsive px-2">
-                                        <table id="faqs" class="table table-hover">
+                                    <div class="">
+                                        <table id="faqs" class="table table-hover table-responsive">
                                             <thead>
                                                 <tr>
                                                     <th>Name of the ingredients </th>
@@ -2360,7 +2360,7 @@ function addfaqs() {
         '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value="" maxlength="100"></td>';
     html +=
         '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="" maxlength="10"></td>';
-    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row +
+    html += '<td class="mt-10"><button class="btn btn-tbl-delete aapend-delete" onclick="$(\'#faqs-row' + faqs_row +
         '\').remove();"><i class="material-icons">delete_forever</i> </button></td>';
 
     html += '</tr>';
@@ -2369,5 +2369,13 @@ function addfaqs() {
 
     faqs_row++;
 }
+
+
+// $(document).ready(function(){
+//     $("#yogas_select").click(function(){
+//         $(".aapend-delete").click();
+//     })
+//     console.log("add drug details")
+// })
 </script>
 @endsection

@@ -65,6 +65,34 @@
                      <section>
                         <div class="col-md-12">
                            <div class="card">
+                             <div class="card-body">
+                              <h3> Basic Information</h3>
+                             <table>
+                                 <thead>
+                                    <th> Name of the Guru</th>
+                                    <th> Place of the Guru</th>
+                                    <th> Name of the Shishya</th>
+                                    <th> Date of Report</th>
+                                 </thead>
+                                 <tbody>
+                                    <td>  @if(!empty($guru->id))
+                                             {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                             @endif
+                                    </td>
+                                    <td> @if(!empty($guru->id))
+                                             {{$guru->city_name}}
+                                             @endif
+                                    </td>
+                                    <td>  @if(!empty($shishya->id))
+                                             {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}
+                                             @endif
+                                    </td>
+                                    <td>  {{date('d-m-Y',strtotime($patient->registration_date))}}
+
+                                    </td>
+                                 </tbody>
+                              </table>
+                             </div>
                               <form role="form" method="POST" action="{{ route('update.patients') }}" enctype="multipart/form-data">
                                  @csrf
                                  @if(!empty($guru->id))
@@ -72,41 +100,8 @@
                                  @endif
                                  <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                                  <div class="card-body">
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Name of the Guru</label><br>
-                                             @if(!empty($guru->id))
-                                             <p>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</p>
-                                             @endif
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Place of the Guru</label><br>
-                                             @if(!empty($guru->id))
-                                             <p>{{$guru->city_name}}</p>
-                                             @endif
-                                          </div>
-                                       </div>
 
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Name of the Shishya</label><br>
-                                             @if(!empty($shishya->id))
-                                             <p>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}</p>
-                                             @endif
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Date of Report</label><br>
-                                            <p>{{date('d-m-Y',strtotime($patient->registration_date))}}</p>
-
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <hr style="height:1px;">
+                                   <h3> Patient Information</h3>
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">

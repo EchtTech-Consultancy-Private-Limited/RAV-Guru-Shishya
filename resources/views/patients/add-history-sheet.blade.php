@@ -69,47 +69,32 @@
                      <section>
                         <div class="col-md-12">
                            <div class="card">
+                              <div class="card-body">
+                                 <h3>Basic Information</h3>
+                                 <table>
+                                    <thead>
+                                       <th>Name of the Guru </th>
+                                       <th>Place of the Guru </th>
+                                       <th>Name of the Shishya </th>
+                                       <th>Date of Report </th>
+                                    </thead>
+                                    <tbody>
+                                       <td>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}} </td>
+                                       <td>{{$guru->city_name}} </td>
+                                       <td> {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</td>
+                                       <td> <?php echo date('d-m-Y'); ?></td>
+                                    </tbody>
+                                 </table>
+                              </div>
                               <form role="form" method="POST" id="php_form" action="{{ route('register.patients') }}" enctype="multipart/form-data">
                                  @csrf
                                  <input type="hidden" name="guru_id" value="{{ $guru->id }}">
                                  <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
                                  <div class="card-body">
-                                    <div class="title">
-                                       <p>Basic Information</p>
-                                       </div>
-                                    <div class="row">
+                                 <h3> Patient Information</h3>
 
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Name of the Guru</label><br>
-                                            <p>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</p>
 
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Place of the Guru</label><br>
-                                            <p>{{$guru->city_name}}</p>
 
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Name of the Shishya</label><br>
-                                             <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
-
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                           <p><?php echo date('d-m-Y'); ?></p>
-
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                    <hr style="height:2px;">
                                     <div class="title">
                                           <p>Add Patient Details</p>
                                        </div>
@@ -914,7 +899,7 @@
                                        </div>
                                     </div>
 
-                                    
+
                                          <!-- ******************aAnexteure pdf input field*********************** -->
                                     <div class="row">
                                        <div class="col-md-3 annexure_field" id="soft_drink">
@@ -1058,7 +1043,7 @@
                                        </div>
                                     </div>
                                        <!-- ******************aAnexteure pdf input field*********************** -->
-                                    
+
                                     <div class="row">
 
                                        <div class="col-md-6">
