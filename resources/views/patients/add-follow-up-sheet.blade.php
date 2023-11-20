@@ -66,43 +66,22 @@
                                                 <h2>Add Follow Up </h2>
 
                                             </div>
-                                                <div class="row clearfix">
+                                            <h3> Basic Information</h3>
+                                            <table>
+                                                <thead>
+                                                    <th>Registration  No. </th>
+                                                    <th> Patient Name</th>
+                                                    <th> Date of Follow up</th>
+                                                </thead>
+                                                <tbody>
+                                                    <td> {{ $patient->registration_no }}</td>
+                                                    <td>{{ $patient->patient_name }} </td>
+                                                    <td> {{ $data->follow_up_date }}</td>
+                                                </tbody>
+                                            </table>
 
-                                                    <div class="col-md-3 col-6">
-                                                        <div class="form-group focused">
-                                                            <div class="form-line">
-                                                                <label class="form-control-label">Registration  No.</label>
-                                                                <br>
-                                                                <p >{{ $patient->registration_no }}</label>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 col-6">
-                                                        <div class="form-group focused">
-                                                            <div class="form-line">
-                                                                <label class="form-control-label">Patient Name</label>
-                                                                <br>
-                                                                <p >{{ $patient->patient_name }}</p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3 col-6">
-                                                        <div class="form-group focused">
-                                                            <div class="form-line">
-                                                                <label for="follow_up_date"
-                                                                    class="form-control-label">Date of Follow up<span
-                                                                        class="text-danger"></span></label>
-                                                                        <input type="hidden" name="follow_up_date"
-                                                                        value="{{ date('d-m-Y') }}">
-                                                                        <p>{{ date('d-m-Y') }}</p>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="row">
+                                                    <h3> Enter Detials</h3>
                                                     <div class="col-md-3 col-6">
                                                         <div class="form-group">
                                                             <div class="form-line">

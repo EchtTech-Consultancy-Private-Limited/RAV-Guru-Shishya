@@ -69,8 +69,8 @@
                                         <label class="active">Out Time :<span class="text-danger"></span></label>
                                         <input type="time" name="out_time" value="{{ old('out_time') }}" class="form-control">
                                     </div>
-                                </div>                                
-                                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
+                                </div>
+                                <div class="col-xxl-3 col-xl-5 col-lg-3 col-md-6">
                                     <div class="form-group default-select select2Style">
                                         <div class="form-group">
                                             <label class="active">Morning Shifts Timings :<span class="text-danger"></span></label>
@@ -87,7 +87,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
+                                <div class="col-xxl-3 col-xl-5 col-lg-3 col-md-6">
                                     <div class="form-group">
                                         <label class="active">Evening Shifts Timings :<span class="text-danger"></span></label>
                                         <select class="form-control select2 width" multiple="" data-placeholder="Select" name="attendance_evening_timing[]">
@@ -115,7 +115,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xxl-3 col-xl-4 col-lg-3 col-md-6 col-xxl-3 col-xl-3 col-lg-3 col-md-6 d-flex justify-content-center">
+                                <div class="col-xxl-3 col-xl-12  col-md-6  d-flex justify-content-end">
                                     <div class="new-patient-input d-flex justify-content-end  ">
 
                                         <button type="submit" class="btn add waves-effect" style="line-height:2;" onclick="return confirm_option('update attendance for this date range');">Update

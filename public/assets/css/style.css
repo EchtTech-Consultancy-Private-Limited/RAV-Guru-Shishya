@@ -1128,6 +1128,7 @@ i.fa.fa-long-arrow-up {
     margin-left: 5px !important;
 }
 
+
 table th {
     background: #5C4E3F !important;
     color: #fff;
@@ -1432,4 +1433,12 @@ textarea[name="remark"].form-control{
 
 .form-group .form-line.focused .form-label{
     color: red !important;
+}
+
+p{
+    margin: 0 !important;
+    }
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    font-size: 13px;
 }
