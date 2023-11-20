@@ -52,7 +52,7 @@
                     
                     <li class="dropdown user_profile" style="padding-right:15px;">
                         <div class="dropdown-toggle" data-bs-toggle="dropdown">
-                            <img src="{{asset('uploads/1681384030user.png')}}" alt="user" width="25px;">
+                            <img src="{{asset('uploads/'.Auth::user()->user_image)}}" alt="user" width="25px;">
                         </div>
                         <ul class="dropdown-menu pullDown">
                             <li class="body">
