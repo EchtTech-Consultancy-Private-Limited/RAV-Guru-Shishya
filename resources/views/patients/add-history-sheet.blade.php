@@ -139,7 +139,7 @@
                                        <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration Date</label>
-                                             <input type="date" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{ date('Y-m-d') }}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
+                                             <input type="text" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{ date('d-m-Y') }}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                           </div>
                                        </div>
                                        <div class="col-md-2">
