@@ -1,7 +1,9 @@
 @extends('layouts.app-file')
 @section('content')
 
+
 <section class="content">
+
     @if (count($errors) > 0)
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -97,7 +99,7 @@
                                                             class="form-control-label">Select Yogas<span
                                                                 class="text-danger">*</span></label>
                                                         <select class="form-control" id="yogas_select"
-                                                            onclick="yogas_select_change();">
+                                                            onchange="yogas_select_change();">
                                                             <option value="">Please Select </option>
                                                             @foreach(__('phr.yogas') as $key=>$value)
                                                             <option value="{{$key}}">{{$value}}</option>
@@ -600,8 +602,8 @@
                                 <div class="col-lg-12 grid-margin stretch-card mb-0">
                                     <div class="card mb-0">
                                         <div class=" card-body p-0">
-                                            <div class="table-responsive px-2">
-                                                <table id="faqs" class="table table-hover">
+                                            <div class="">
+                                                <table id="faqs" class="table table-hover table-responsive">
                                                     <thead>
                                                         <tr>
                                                             <th>Name of the ingredients </th>
@@ -928,8 +930,8 @@
                     <div class="row pb-0 mb-0">
                         <div class="card mb-0">
                             <div class=" card-body p-0">
-                                <div class="table-responsive px-2">
-                                    <table id="faqs" class="table table-hover">
+                                <div class="">
+                                    <table id="faqs" class="table table-hover table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1310,8 +1312,8 @@
                     <div class="row mb-0 pb-0">
                         <div class="card mb-0 pb-0">
                             <div class=" card-body p-0">
-                                <div class="table-responsive px-2">
-                                    <table id="faqs" class="table table-hover">
+                                <div class="">
+                                    <table id="faqs" class="table table-hover table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1845,8 +1847,8 @@
                         <div class="card mb-0 p-0">
                             <div class="card mb-0 p-0">
                                 <div class=" card-body  mb-0 p-0">
-                                    <div class="table-responsive px-2">
-                                        <table id="faqs" class="table table-hover">
+                                    <div class="">
+                                        <table id="faqs" class="table table-hover table-responsive">
                                             <thead>
                                                 <tr>
                                                     <th>Name of the ingredients </th>
@@ -2332,8 +2334,7 @@
 
 <script>
 function yogas_select_change() {
-
-
+    $(".extra_faqs_rows").remove();
     if ($('#yogas_select').val() == 1) {
         $("#yogas_type").html($("#churna_yogas").html());
     } else if ($('#yogas_select').val() == 2) {
@@ -2345,7 +2346,6 @@ function yogas_select_change() {
     } else if ($('#yogas_select').val() == 5) {
         $("#yogas_type").html($("#asva_yogas").html());
     }
-
 }
 </script>
 
@@ -2353,14 +2353,14 @@ function yogas_select_change() {
 var faqs_row = 0;
 
 function addfaqs() {
-    html = '<tr id="faqs-row' + faqs_row + '">';
+    html = '<tr class="extra_faqs_rows" id="faqs-row' + faqs_row + '">';
     html +=
         '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients Mineral" aria-label="quantity" value="" maxlength="200"></td>';
     html +=
         '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value="" maxlength="100"></td>';
     html +=
         '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="Quantity" aria-label="quantity" value="" maxlength="10"></td>';
-    html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row +
+    html += '<td class="mt-10"><button class="btn btn-tbl-delete aapend-delete" onclick="$(\'#faqs-row' + faqs_row +
         '\').remove();"><i class="material-icons">delete_forever</i> </button></td>';
 
     html += '</tr>';
@@ -2369,5 +2369,13 @@ function addfaqs() {
 
     faqs_row++;
 }
+
+
+// $(document).ready(function(){
+//     $("#yogas_select").click(function(){
+//         $(".aapend-delete").click();
+//     })
+//     console.log("add drug details")
+// })
 </script>
 @endsection

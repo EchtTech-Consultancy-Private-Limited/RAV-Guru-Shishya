@@ -875,7 +875,27 @@ class PatientController extends Controller
         if($id!=0)$id= decrypt($id);
         $user=User::where('user_type',3)->where('guru_id',Auth::user()->id)->orWhere('id',1)->get();
         $patient=Patient::find($id);
-        return view("patients.guru.remarks",compact('user','patient'));
+        if(Auth::user()->user_type == 2){
+            if($patient->phr_g_status == 1){
+                return view("patients.guru.remarks",compact('user','patient'));
+            }else{
+                return redirect('/guru-patient-list');
+            }
+        }
+        if(Auth::user()->user_type == 1){
+            if($patient->phr_a_status == 1){
+                return view("patients.guru.remarks",compact('user','patient'));
+            }else{
+                return redirect('/patients/In-Patient');
+            }
+        }
+        if(Auth::user()->user_type == 3){
+            if($patient->phr_s_status == 1){
+                return view("patients.guru.remarks",compact('user','patient'));
+            }else{
+                return redirect('/new-patient-registration');
+            }
+        }
     }
 
     public function guru_remarks(Request $request)

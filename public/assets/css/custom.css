@@ -155,7 +155,9 @@ section.content1 {
     .slimScrollBar {
       position: relative !important;
     } */
-
+    .list.sidebar-manu.slimScrollBar {
+      height: 369px !important;
+    }
   .slimScrollDiv {
    overflow-y: auto !important;
    height: 400px !important;
@@ -206,6 +208,14 @@ section.content1 {
   }
 }
 @media(max-width:768px){
+   .navbar .navbar-toggle{
+      display: none;
+   }
+   table{
+      overflow-x: auto;
+      display: block;
+
+  }
    .next-step, .next-step1, .next-step2, .prev-step, .prev-step1, .preview-step, .btn:not(.btn-link):not(.btn-circle) {
       /* padding: 5px 28px; */
       margin: 2px;

@@ -74,25 +74,40 @@
                             <form role="form" method="get" action="{{ url('filter-drug-report') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Name of the Shishya </th>
+                                                <th>Name of the Guru </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td> {{Auth::user()->firstname}}</td>
+                                                <td> @if(Auth::user()->guru_id) {{$guru->firstname}} @endif</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     <div class="row">
 
-                                            <div class="col-md-3">
+                                            <!-- <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="example-text-input" class="form-control-label">Name of the Shishya</label>
-                                                    <input type="text" name="student_name" class="form-control"  value="{{Auth::user()->firstname}}" readonly>
+                                                    <input type="text" name="student_name" class="form-control"  value="{{Auth::user()->firstname .' '.Auth::user()->lastname}}" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label   class="form-control-label">Name of the Guru</label>
-                                                    <input type="text" name="guru_name" class="form-control"  value="@if(Auth::user()->guru_id) {{$guru->firstname}} @endif" readonly>
+                                                    <input type="text" name="guru_name" class="form-control"  value="@if(Auth::user()->guru_id) {{$guru->firstname .' '.$guru->lastname}} @endif" readonly>
 
                                                 </div>
-                                            </div>
+                                            </div> -->
 
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 m-0">
                                                 <h3>Search</h3>
                                             </div>
                                             <div class="col-md-3">

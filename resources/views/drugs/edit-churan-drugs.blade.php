@@ -16,7 +16,7 @@
    <div class="container-fluid">
    <div class="block-header">
                 <div class="row">
-                    <div class="col-xs-12 mb-2 col-sm-12 mb-2 col-md-12 mb-2 mb-3 col-lg-12 mb-2">
+                    <div class=" col-md-12 mb-2 ">
 
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
@@ -36,7 +36,10 @@
                          </div>
                       @endif
                     </div>
+
+
                 </div>
+
               </div>
    <!-- Basic Example | Horizontal Layout -->
    <div class="row clearfix">
@@ -44,7 +47,15 @@
          <div class="card">
 
             <div class="body">
-               <h3>Edit Drug Report</h3>
+               <div class="row">
+                  <div class="col-md-6 col-6">
+                  <h3>Edit Drug Report</h3>
+                  </div>
+                  <div class="col-md-6 col-6">
+                <a href="{{url('drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                </div>
+               </div>
+
                <div id="wizard_horizontal">
                   <section>
                      <div class="col-md-12 mb-2 mb-3">

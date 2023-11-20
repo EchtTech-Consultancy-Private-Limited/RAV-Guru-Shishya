@@ -624,3 +624,204 @@ $("#edit_year_of_passing").on('change', function() {
     const date = $("#edit_year_of_passing").val();
     $("#edit_year_of_regis").attr("max", date);
 });
+//  manage profile form validation
+$(document).ready(function() {
+    $("#manage_profile_form").validate({
+      // ignore: ':hidden:not(.summernote),.note-editable.card-block',
+
+      rules: {
+         firstname: {
+          required: true
+        },
+        f_name: {
+          required: true,
+        },
+        date_of_birth: {
+          required: true
+        },
+        age:{
+         required: true
+        },
+        mobile_no:{
+         required:true
+        },
+        aadhaar_no:{
+         required: true
+        },
+        pan_no:{
+         required:true
+        },
+        address1:{
+         required:true
+        },
+        address2:{
+         required:true
+        },
+        country:{
+         required:true
+        },
+        state:{
+         required:true
+        },
+        city:{
+         required:true
+        },
+        pincode:{
+         required:true
+        },
+        per_address1:{
+         required:true
+        },
+        per_address2:{
+         required:true
+        },
+        per_country:{
+         required:true
+        },
+        per_state:{
+         required:true
+        },
+        per_city:{
+         required:true
+        },
+        per_pincode:{
+         required:true
+        },
+        bank_name:{
+         required:true
+        },
+        ifsc_code:{
+         required:true
+        },
+        account_no:{
+         required:true
+        },
+        account_holder_name:{
+         required:true
+        },
+
+      },
+      errorPlacement: function(error, element) {
+        var name = $(element).attr("name");
+        error.appendTo($("#" + name + "_err"));
+      },
+      messages: {
+         firstname: {
+          required: "Please enter first name"
+        },
+        f_name: {
+          required: "Please enter father name",
+        },
+        date_of_birth: {
+          required: "Please enter date of birth"
+        },
+        age:{
+         required: "Please enter age"
+        },
+        mobile_no:{
+         required: "Please enter 10 digit mobile number"
+        },
+        aadhaar_no:{
+         required: "Please enter 12 digit aadhar number"
+        },
+        pan_no:{
+         required: "Please enter pan number"
+        },
+        address1:{
+         required: "Address is required"
+        },
+        address2:{
+         required: "Address is required"
+        },
+        country:{
+         required: "Country is required"
+        },
+        state:{
+         required: "State is required"
+        },
+        city:{
+         required: "City is required"
+        },
+        pincode:{
+         required: "Pincode is required"
+        },
+        per_address1:{
+         required: "Address is required"
+        },
+        per_address2:{
+         required: "Address is required"
+        },
+        per_country:{
+         required: "Country is required"
+        },
+        per_state:{
+         required: "State is required"
+        },
+        per_city:{
+         required: "City is required"
+        },
+        per_pincode:{
+         required: "Pincode is required"
+        },
+        bank_name:{
+         required:"Bank name is required"
+        },
+        ifsc_code:{
+         required:"IFSC code is required"
+        },
+        account_no:{
+         required:"Account is required"
+        },
+        account_holder_name:{
+         required:"Account holder name is required"
+        },
+      }
+    });
+  });
+
+//   patient form validation
+$(document).ready(function() {
+    $("#php_form").validate({
+      rules: {
+         patient_name: {
+          required: true
+        },
+        registration_no: {
+          required: true,
+        },
+        age_group: {
+          required: true
+        },
+        age:{
+         required: true
+        },
+        gender:{
+         required:true
+        },
+        occupation:{
+         required: true
+        },
+        marital_status:{
+         required:true
+        },
+        address:{
+         required:true
+        },
+      },
+      errorPlacement: function(error, element) {
+        var name = $(element).attr("name");
+        error.appendTo($("#" + name + "_err"));
+      }
+    });
+  });
+     // disable alphate
+$('#age').keypress(function(e) {
+//alert("yes");
+var regex = new RegExp("^[0-9_]");
+var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+if (regex.test(str)) {
+    return true;
+}
+e.preventDefault();
+return false;
+});

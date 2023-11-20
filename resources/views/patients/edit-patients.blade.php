@@ -65,53 +65,50 @@
                      <section>
                         <div class="col-md-12">
                            <div class="card">
-                              <form role="form" method="POST" action="{{ route('update.patients') }}" enctype="multipart/form-data">
+                             <div class="card-body">
+                              <h3> Basic Information</h3>
+                             <table>
+                                 <thead>
+                                    <th> Name of the Guru</th>
+                                    <th> Place of the Guru</th>
+                                    <th> Name of the Shishya</th>
+                                    <th> Date of Report</th>
+                                 </thead>
+                                 <tbody>
+                                    <td>  @if(!empty($guru->id))
+                                             {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                             @endif
+                                    </td>
+                                    <td> @if(!empty($guru->id))
+                                             {{$guru->city_name}}
+                                             @endif
+                                    </td>
+                                    <td>  @if(!empty($shishya->id))
+                                             {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}
+                                             @endif
+                                    </td>
+                                    <td>  {{date('d-m-Y',strtotime($patient->registration_date))}}
+
+                                    </td>
+                                 </tbody>
+                              </table>
+                             </div>
+
+                              <form role="form" method="POST" action="{{ route('update.patients') }}" enctype="multipart/form-data" id="php_form">
                                  @csrf
                                  @if(!empty($guru->id))
                                  <input type="hidden" name="guru_id" value="{{ $guru->id }}">
                                  @endif
                                  <input type="hidden" name="patient_id" value="{{ $patient->id }}">
                                  <div class="card-body">
-                                    <div class="row">
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Name of the Guru</label><br>
-                                             @if(!empty($guru->id))
-                                             <p>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</p>
-                                             @endif
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Place of the Guru</label><br>
-                                             @if(!empty($guru->id))
-                                             <p>{{$guru->city_name}}</p>
-                                             @endif
-                                          </div>
-                                       </div>
 
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Name of the Shishya</label><br>
-                                             @if(!empty($shishya->id))
-                                             <p>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}</p>
-                                             @endif
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label ">Date of Report</label><br>
-                                            <p>{{date('d-m-Y',strtotime($patient->registration_date))}}</p>
-
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <hr style="height:1px;">
+                                   <h3> Patient Information</h3>
                                     <div class="row">
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->patient_name)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Name of the Patient<span class="text-danger">*</span></label>
                                              <input type="text" name="patient_name" class="form-control" placeholder="Patient Name" aria-label="Email" value="{{ $patient->patient_name }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
+                                             <p id="patient_name_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_name'))
                                              <span class="text-danger">{{ $errors->first('patient_name') }}</span>
                                              @endif
@@ -121,6 +118,7 @@
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->registration_no)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Registration No<span class="text-danger">*</span></label>
                                              <input type="text" name="registration_no" class="form-control" placeholder="Registration No" aria-label="" value="{{ $patient->registration_no }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="15">
+                                             <p id="registration_no_err" class="position-absolute"></p>
                                              @if ($errors->has('registration_no'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('registration_no') }}</strong>
@@ -132,6 +130,7 @@
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->age)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Age<span class="text-danger">*</span></label>
                                              <input type="text" name="age" class="form-control" value="{{ $patient->age }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="3" id="age">
+                                             <p id="age_err" class="position-absolute"></p>
                                              @if ($errors->has('age'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('age') }}</strong>
@@ -155,6 +154,7 @@
                                                 <option value="{{$value}}" {{$patient->patient_type == $value  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="patient_type_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_type'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('patient_type') }}</strong>
@@ -176,6 +176,7 @@
                                                 <option value="{{$key}}" {{$patient->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="gender_err" class="position-absolute"></p>
                                              @if ($errors->has('gender'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('gender') }}</strong>
@@ -192,6 +193,7 @@
                                                 <option value="{{$key}}" {{$patient->age_group == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="age_group_err" class="position-absolute"></p>
                                              @if ($errors->has('age_group'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('age_group') }}</strong>
@@ -211,6 +213,7 @@
                                                 <option value="{{$key}}" {{$patient->occupation == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="occupation_err" class="position-absolute"></p>
                                              @if ($errors->has('occupation'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('occupation') }}</strong>
@@ -228,6 +231,7 @@
                                                 <option value="{{$key}}" {{$patient->marital_status == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="marital_status_err" class="position-absolute"></p>
                                              @if ($errors->has('marital_status'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('marital_status') }}</strong>
@@ -268,6 +272,7 @@
                                              <label for="example-text-input" class="form-control-label @if(isset($data->address)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Address<span class="text-danger">*</span></label>
                                              <textarea cols="45" rows="1" name="address" class="form-control" value="{{ $patient->address }}" aria-label="Address" placeholder="Street Address" maxlength="200">{{ $patient->address }}</textarea>
                                           </div>
+                                          <p id="address_err" class="position-absolute"></p>
                                           @if ($errors->has('address'))
                                              <span class="help-block">
                                                 <strong style="color:red;">{{ $errors->first('address') }}</strong>
@@ -924,17 +929,5 @@
          </div>
       </div>
 </section>
-<script>
-   // disable alphate
-   $('#age').keypress(function(e) {
-      //alert("yes");
-      var regex = new RegExp("^[0-9_]");
-      var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-      if (regex.test(str)) {
-         return true;
-      }
-      e.preventDefault();
-      return false;
-   });
-</script>
+<script src="{{ asset('assets/js/custom-script.js') }}"></script>
 @endsection

@@ -63,7 +63,16 @@
                   </ul>
                </div>
                <div class="body">
-                  <h3>New Drug Report</h3>
+              <div class="row">
+              <div class="col-md-6 col-6">
+               <h3>New Drug Report</h3>
+                  </div>
+                  <div class="col-md-6 col-6">
+                <a href="{{url('drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                </div>
+              </div>
+               </div>
+
                   <div id="wizard_horizontal">
 
                   <section>

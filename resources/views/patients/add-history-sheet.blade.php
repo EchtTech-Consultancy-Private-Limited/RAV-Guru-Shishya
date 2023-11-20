@@ -69,47 +69,32 @@
                      <section>
                         <div class="col-md-12">
                            <div class="card">
+                              <div class="card-body">
+                                 <h3>Basic Information</h3>
+                                 <table>
+                                    <thead>
+                                       <th>Name of the Guru </th>
+                                       <th>Place of the Guru </th>
+                                       <th>Name of the Shishya </th>
+                                       <th>Date of Report </th>
+                                    </thead>
+                                    <tbody>
+                                       <td>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}} </td>
+                                       <td>{{$guru->city_name}} </td>
+                                       <td> {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</td>
+                                       <td> <?php echo date('d-m-Y'); ?></td>
+                                    </tbody>
+                                 </table>
+                              </div>
                               <form role="form" method="POST" id="php_form" action="{{ route('register.patients') }}" enctype="multipart/form-data">
                                  @csrf
                                  <input type="hidden" name="guru_id" value="{{ $guru->id }}">
                                  <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
                                  <div class="card-body">
-                                    <div class="title">
-                                       <p>Basic Information</p>
-                                       </div>
-                                    <div class="row">
+                                 <h3> Patient Information</h3>
 
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Name of the Guru</label><br>
-                                            <p>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</p>
 
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Place of the Guru</label><br>
-                                            <p>{{$guru->city_name}}</p>
 
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Name of the Shishya</label><br>
-                                             <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}</p>
-
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">Date of Report</label><br>
-                                           <p><?php echo date('d-m-Y'); ?></p>
-
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                    <hr style="height:2px;">
                                     <div class="title">
                                           <p>Add Patient Details</p>
                                        </div>
@@ -119,6 +104,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Name of the Patient<span class="text-danger">*</span></label>
                                              <input type="text" name="patient_name" id="txt_firstCapital" class="form-control preventnumeric capitalize" placeholder="Enter Patient Name" value="{{ old('patient_name') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
+                                             <p id="patient_name_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_name'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('patient_name') }}</strong>
@@ -130,6 +116,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration No<span class="text-danger">*</span></label>
                                              <input type="text" name="registration_no" class="form-control" placeholder="Registration No" value="{{ old('registration_no') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="15">
+                                             <p id="registration_no_err" class="position-absolute"></p>
                                              @if ($errors->has('registration_no'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('registration_no') }}</strong>
@@ -141,6 +128,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Age<span class="text-danger">*</span></label>
                                              <input type="text" name="age" class="form-control" placeholder="Age" aria-label="Phone" value="{{ old('age') }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="3" id="age">
+                                             <p id="age_err" class="position-absolute"></p>
                                              @if ($errors->has('age'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('age') }}</strong>
@@ -151,7 +139,7 @@
                                        <div class="col-md-2">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Registration Date</label>
-                                             <input type="date" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{ date('Y-m-d') }}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
+                                             <input type="text" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{ date('d-m-Y') }}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                           </div>
                                        </div>
                                        <div class="col-md-2">
@@ -165,6 +153,7 @@
                                                 <option value="In-Patient">In-Patient</option>
                                                 <option value="OPD-Patient">OPD-Patient</option>
                                              </select>
+                                             <p id="patient_type_err" class="position-absolute"></p>
                                              @if ($errors->has('patient_type'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('patient_type') }}</strong>
@@ -193,6 +182,7 @@
                                                 @endif
                                                 @endforeach
                                              </select>
+                                             <p id="gender_err" class="position-absolute"></p>
                                              @if ($errors->has('gender'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('gender') }}</strong>
@@ -212,6 +202,7 @@
                                                 <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="age_group_err" class="position-absolute"></p>
                                              @if ($errors->has('age_group'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('age_group') }}</strong>
@@ -233,6 +224,7 @@
                                                 <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="occupation_err" class="position-absolute"></p>
                                              @if ($errors->has('occupation'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('occupation') }}</strong>
@@ -253,6 +245,7 @@
                                                 <option value="{{$key}}">{{$value}}</option>
                                                 @endforeach
                                              </select>
+                                             <p id="marital_status_err" class="position-absolute"></p>
                                              @if ($errors->has('marital_status'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('marital_status') }}</strong>
@@ -300,6 +293,7 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Address<span class="text-danger">*</span></label>
                                              <textarea cols="45" rows="1" name="address" class="form-control" placeholder="Enter  Address" maxlength="200">{{ old('address') }}</textarea>
+                                             <p id="address_err" class="position-absolute"></p>
                                              @if ($errors->has('address'))
                                              <span class="help-block">
                                                 <strong  >{{ $errors->first('address') }}</strong>
@@ -914,7 +908,7 @@
                                        </div>
                                     </div>
 
-                                    
+
                                          <!-- ******************aAnexteure pdf input field*********************** -->
                                     <div class="row">
                                        <div class="col-md-3 annexure_field" id="soft_drink">
@@ -1058,7 +1052,7 @@
                                        </div>
                                     </div>
                                        <!-- ******************aAnexteure pdf input field*********************** -->
-                                    
+
                                     <div class="row">
 
                                        <div class="col-md-6">
@@ -1093,4 +1087,5 @@
          </div>
       </div>
 </section>
+<script src="{{ asset('assets/js/custom-script.js') }}"></script>
 @endsection

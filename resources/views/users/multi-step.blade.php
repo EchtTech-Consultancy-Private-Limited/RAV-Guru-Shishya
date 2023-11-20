@@ -77,7 +77,7 @@
                            </ul>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step1' || $form_step_type=='withour-session-step') active @endif @endif" role="tabpanel" id="step1">
-                           <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
+                           <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data" id="manage_profile_form">
                               @csrf
                               <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step1">
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
@@ -100,6 +100,7 @@
                                     <div class="form-group">
                                        <label>First Name<span class="text-danger">*</span></label>
                                        <input type="text"  name="firstname" class="form-control capitalize" id="firstname" value="@if(isset($profile_record[0])) {{ $profile_record[0]->firstname }} @else Auth::user()->firstname @endif" placeholder="First Name" maxlength="30">
+                                       <p id="firstname_err" class="position-absolute"></p>
                                        @if($errors->has('firstname'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
@@ -125,6 +126,7 @@
                                     <div class="form-group">
                                        <label >Father's Name<span class="text-danger">*</span></label>
                                        <input type="text" name="f_name" id="f_name" class="form-control" placeholder="Father's Name" maxlength="30" value="{{ old('f_name', $profile_record[0]->f_name) }}">
+                                       <p id="f_name_err" class="position-absolute"></p>
                                        @if($errors->has('f_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('f_name') }}</strong>
@@ -200,6 +202,7 @@
                                     <div class="form-group">
                                        <label for="date_of_birth">Date of Birth<span class="text-danger">*</span></label>
                                        <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" placeholder="Date of Birth" value="{{ old('date_of_birth', $profile_record[0]->date_of_birth) }}" max="{{date('Y-m-d',time())}}">
+                                       <p id="date_of_birth_err" class="position-absolute"></p>
                                        @if($errors->has('date_of_birth'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('date_of_birth') }}</strong>
@@ -212,6 +215,7 @@
                                     <div class="form-group">
                                        <label>Age<span class="text-danger">*</span></label>
                                        <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}">
+                                       <p id="age_err" class="position-absolute"></p>
                                        @if($errors->has('age'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('age') }}</strong>
@@ -229,7 +233,9 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mobile No.<span class="text-danger">*</span></label>
-                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Enter Your Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >@if($errors->has('mobile_no'))
+                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Enter Your Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >
+                                       <p id="mobile_no_err" class="position-absolute"></p>
+                                       @if($errors->has('mobile_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
                                        </span>
@@ -241,6 +247,7 @@
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
                                        <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Enter Your Aadhar Number"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">
+                                       <p id="aadhaar_no_err" class="position-absolute"></p>
                                        @if($errors->has('aadhaar_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('aadhaar_no') }}</strong>
@@ -252,6 +259,7 @@
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
                                        <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Enter Your Pan Number"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
+                                       <p id="pan_no_err" class="position-absolute"></p>
                                        @if($errors->has('pan_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('pan_no') }}</strong>
@@ -267,6 +275,7 @@
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
                                        <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="{{ old('address1', $profile_record[0]->address1) }}">
+                                       <p id="address1_err" class="position-absolute"></p>
                                        @if($errors->has('address1'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('address1') }}</strong>
@@ -277,7 +286,9 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="{{ old('address2', $profile_record[0]->address2) }}">@if($errors->has('address2'))
+                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="{{ old('address2', $profile_record[0]->address2) }}">
+                                       <p id="address2_err" class="position-absolute"></p>
+                                       @if($errors->has('address2'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('address2') }}</strong>
                                        </span>
@@ -297,6 +308,7 @@
                                           @endforeach
                                           @endif
                                        </select>
+                                       <p id="country_err" class="position-absolute"></p>
                                        @if($errors->has('country'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('country') }}</strong>
@@ -312,6 +324,7 @@
                                           <option value="{{$profile_record[0]->state}}">{{ $profile_record[0]->state_name }}</option>
                                           @endif
                                        </select>
+                                       <p id="state_err" class="position-absolute"></p>
                                        @if($errors->has('state'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('state') }}</strong>
@@ -325,6 +338,7 @@
                                        <select id="city-dropdown" class="form-control select2" name="city" >
                                           <option value="{{$profile_record[0]->city}}">{{ $profile_record[0]->city_name }}</option>
                                        </select>
+                                       <p id="city_err" class="position-absolute"></p>
                                        @if($errors->has('city'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('city') }}</strong>
@@ -336,6 +350,7 @@
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
                                        <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="6" placeholder="Pincode"  value="{{ old('pincode', $profile_record[0]->pincode) }}">
+                                       <p id="pincode_err" class="position-absolute"></p>
                                        @if($errors->has('pincode'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('pincode') }}</strong>
@@ -360,6 +375,7 @@
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
                                        <input type="textarea" name="per_address1" id="per_address_Line1" class="form-control" placeholder="Permanent Address Line 1"  value="{{ $profile_record[0]->per_address1 }}">
+                                       <p id="per_address1_err" class="position-absolute"></p>
                                        @if($errors->has('per_address1'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('per_address1') }}</strong>
@@ -371,6 +387,7 @@
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
                                        <input type="textarea" name="per_address2" id="per_address_Line2" class="form-control" placeholder="Permanent Address Line 2"  value="{{ $profile_record[0]->per_address2 }}">
+                                       <p id="per_address2_err" class="position-absolute"></p>
                                        @if($errors->has('per_address2'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('per_address2') }}</strong>
@@ -389,6 +406,7 @@
                                           </option>
                                           @endforeach
                                        </select>
+                                       <p id="per_country_err" class="position-absolute"></p>
                                        @if($errors->has('per_country'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('per_country') }}</strong>
@@ -405,6 +423,7 @@
                                           @else
                                           @endif
                                        </select>
+                                       <p id="per_state_err" class="position-absolute"></p>
                                        @if($errors->has('per_state'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('per_state') }}</strong>
@@ -421,6 +440,7 @@
                                           @else
                                           @endif
                                        </select>
+                                       <p id="per_city_err" class="position-absolute"></p>
                                        @if($errors->has('per_city'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('per_city') }}</strong>
@@ -432,6 +452,7 @@
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
                                        <input type="text" name="per_pincode" id="per_pincode" class="form-control" oninput="validateInput(this)" maxlength="6" placeholder="Pincode"  value="{{ $profile_record[0]->per_pincode }}">
+                                       <p id="per_pincode_err" class="position-absolute"></p>
                                        @if($errors->has('per_pincode'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('per_pincode') }}</strong>
@@ -453,6 +474,7 @@
                                           <option value="{{$key}}" {{@$profile_record[0]->bank_name == $key  ? 'selected' : ''}}>{{$value}}</option>
                                           @endforeach
                                           </select>
+                                          <p id="bank_name_err" class="position-absolute"></p>
                                           @if ($errors->has('bank_name'))
                                           <span class="help-block">
                                              <strong style="color:red;">{{ $errors->first('bank_name') }}</strong>
@@ -464,6 +486,7 @@
                                     <div class="form-group">
                                        <label >IFSC Code<span class="text-danger">*</span></label>
                                        <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" placeholder="IFSC Code"  value="{{ old('ifsc_code', @$profile_record[0]->ifsc_code) }}">
+                                       <p id="ifsc_code_err" class="position-absolute"></p>
                                        @if($errors->has('ifsc_code'))
                                           <span class="help-block">
                                              <strong style="color:red;">{{ $errors->first('ifsc_code') }}</strong>
@@ -475,6 +498,7 @@
                                     <div class="form-group">
                                        <label >Account Number<span class="text-danger">*</span></label>
                                        <input type="text" name="account_no" id="account_no" class="form-control" placeholder="Account Number"  value="{{ old('account_no', @$profile_record[0]->account_no) }}">
+                                       <p id="account_no_err" class="position-absolute"></p>
                                        @if($errors->has('account_no'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('account_no') }}</strong>
@@ -486,6 +510,7 @@
                                     <div class="form-group">
                                        <label >Account Holder Name<span class="text-danger">*</span></label>
                                        <input type="text" name="account_holder_name" id="account_holder_name" class="form-control" placeholder="Account Number"  value="{{ old('account_holder_name', @$profile_record[0]->account_holder_name) }}">
+                                       <p id="account_holder_name_err" class="position-absolute"></p>
                                        @if($errors->has('account_holder_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('account_holder_name') }}</strong>
@@ -684,7 +709,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                        <label for="year_passing">Year of Passing <span class="text-danger">*</span></label>
-                                       <input type="date" id="year_of_passing" name="year_of_passing" required>
+                                       <input type="date" id="year_of_passing" name="year_of_passing" max="{{date('Y-m-d',time())}}" required>
                                     </div>
                                  </div>
                                  <div class="col-lg-3 mb-0">

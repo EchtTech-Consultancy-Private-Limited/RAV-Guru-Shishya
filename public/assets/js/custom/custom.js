@@ -103,18 +103,6 @@ $(function(){
 
 
 /*email validation*/
-
-$(document).ready(function(){
-  $('.submit').click(function() {
-    $(this).prop('disabled', true); // Disables the button
-    // You can also change the button text if desired
-    $(this).text('Submitting...'); // Optional text change
-    // You can submit the form here or perform other actions
-    alert("submitted");
-  });
-
-
-
     var $psw=/^([a-z])/;
     var $regexname="^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
     $('#email').on('keypress keydown keyup',function(){
@@ -187,14 +175,6 @@ $(document).ready(function(){
                }
          });*/
 });
-
-/*reset form*/
-function reset_form()
-{
-
-  $('#add_user_form')[0].reset();
-}
-
 
 // disable alphate
 $('#mobile_no').keypress(function (e) {
