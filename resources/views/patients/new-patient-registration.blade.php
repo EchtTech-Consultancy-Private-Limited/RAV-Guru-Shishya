@@ -72,7 +72,7 @@
                         </div>
                     </form>
                     <div class="body">
-                        <div class="table-responsive">
+                        <div class="">
                             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                 <div class="row pb-3">
                                     <div class="col-sm-12">
@@ -104,10 +104,10 @@
 
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending">
                                                             Reg. Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
-                                                       
-                                                       
 
-                                                        
+
+
+
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
                                                             Action <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=""> Remarks <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
@@ -126,7 +126,7 @@
                                                         </td>
                                                         <td class="center"> {{ $patientlist->patient_name }} </td>
                                                         <td class="center"> {{ $patientlist->patient_type }} </td>
-                                                        
+
                                                         <td class="center">
                                                             @if ($patientlist->gender == 1)
                                                             Male
@@ -137,7 +137,7 @@
                                                             @endif
                                                         </td>
                                                         <td class="center date" > {{ date('d-m-Y', strtotime($patientlist->registration_date)) }}</td>
-                                                        
+
                                                         <td>
                                                             <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title="View Patient">
                                                                 <i class="material-icons">visibility</i>
@@ -149,7 +149,7 @@
                                                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                                     @endif
                                                                     </i></a>
-                                                                
+
                                                                 <!-- <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
                                                                     <i class="material-icons">send</i>
                                                                 </a> -->
@@ -170,12 +170,12 @@
 
                                                         </td>
                                                         <td class="center">
-                                                        <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remarks"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                                                        <a href="{{ url('remark-history/' . encrypt($patientlist->id)) }}" class="btn comment btn-tbl-edit" title="Check Remarks"><i class="fa fa-history" aria-hidden="true"></i></a>
                                                         @if($patientlist->phr_s_status== 1)
                                                             <a target="_self" href=" {{ url('remarks-from-guru/'.encrypt($patientlist->id)) }}" class="btn btn-secondary remark" title="Remarks">
                                                                 Remarks
                                                             </a>
-                                                        @endif                                                            
+                                                        @endif
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -203,7 +203,7 @@
                                             <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                                 <thead>
                                                     <tr role="row">
-                                                       
+
 
                                                         <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
                                                         <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
@@ -231,7 +231,7 @@
                                                     @foreach ($patientlist as $key => $patientlist)
                                                     <tr class="gradeX odd @if ($patientlist->read_by_shishya == '0') active-row @endif">
 
-                                                        
+
                                                         <td class="center sorting_1">{{ ++$key }}</td>
                                                         <!-- <td class="center"><a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}">{{ @format_patient_id($patientlist->id) }}</a>
                                                         </td> -->
@@ -250,7 +250,7 @@
                                                             @endif
                                                         </td>
                                                         <td class="center"> {{ $patientlist->patient_type }} </td>
-                                                        
+
                                                     </tr>
                                                     @endforeach
 

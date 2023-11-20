@@ -155,7 +155,9 @@ section.content1 {
     .slimScrollBar {
       position: relative !important;
     } */
-
+    .list.sidebar-manu.slimScrollBar {
+      height: 369px !important;
+    }
   .slimScrollDiv {
    overflow-y: auto !important;
    height: 400px !important;

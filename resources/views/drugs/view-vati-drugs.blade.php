@@ -38,38 +38,49 @@
                         <div id="wizard_horizontal">
                             <section>
                                 <div class="">
-                                <table class="">
-                                                <h3>Basic Information</h3>
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name of the Guru</th>
-                                                        <th>Name of the Shishya</th>
-                                                        <th>Date of Report </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                    <div class="row">
+                                        <div class="col-md-6 col-6">
+                                            <h3>Basic Information</h3>
+                                        </div>
+                                        <div class="col-md-6 col-6">
+                                            <a href="{{url('drug-report-history')}}"><button type="button"
+                                                    class="btn back btn-danger waves-effect float-right"> &nbsp;
+                                                    Back
+                                                    &nbsp;</button></a>
+                                        </div>
+                                    </div>
+                                    <table class="">
 
-                                                    <tr>
-                                                        <td>
-                                                            @if(Auth::user()->guru_id || Auth::user()->user_type==1)
-                                                            {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
-                                                            @endif
-                                                            @if(Auth::user()->user_type==2)
-                                                            {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                                            @endif
-                                                        </td>
-                                                        <td> @if(Auth::user()->user_type==1 ||
-                                                            Auth::user()->user_type==2)
-                                                            {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}}
-                                                            @else
-                                                            {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
-                                                            @endif</td>
-                                                        <td> <?php echo date('d-m-Y'); ?></td>
-                                                    </tr>
+                                        <thead>
+                                            <tr>
+                                                <th>Name of the Guru</th>
+                                                <th>Name of the Shishya</th>
+                                                <th>Date of Report </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td>
+                                                    @if(Auth::user()->guru_id || Auth::user()->user_type==1)
+                                                    {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                                    @endif
+                                                    @if(Auth::user()->user_type==2)
+                                                    {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                    @endif
+                                                </td>
+                                                <td> @if(Auth::user()->user_type==1 ||
+                                                    Auth::user()->user_type==2)
+                                                    {{$shishyarecord->firstname.' '.$shishyarecord->middlename.' '.$shishyarecord->lastname}}
+                                                    @else
+                                                    {{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
+                                                    @endif</td>
+                                                <td> <?php echo date('d-m-Y'); ?></td>
+                                            </tr>
 
 
-                                                </tbody>
-                                            </table>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </section>
                         </div>
@@ -77,8 +88,8 @@
                 </div>
             </div>
         </div>
-        <div >
-            <div id="churna_yogas" >
+        <div>
+            <div id="churna_yogas">
                 <form method="POST" action="{{ url('update-vatiyoga-details') }}" readonly>
                     @csrf
                     <input readonly type="hidden" name="drug_id" value="{{ $drug->id }}">
@@ -94,71 +105,77 @@
                                     <div class="col-lg-12 grid-margin stretch-card">
                                         <div class="card">
                                             <div class="card-body">
-                                            <div class="row">
-                        <div class="col-md-12 mb-2">
-                            <div class="form-group  ">
-                                <h5 class="text-center d-flex justify-content-center">2 – VATI YOGAS</h5>
-                                <h5 class="d-block text-left">Name of the Drug</h5>
-                                <h5 class="d-block text-left">
-                                    Reference
-                                    <p class=' text-xs pt-1'>Text, Chapter, Sloka – to – (Published by Edition,
-                                        Writer/Translator)</p>
-                                </h5>
-                            </div>
-                        </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 mb-2">
+                                                        <div class="form-group  ">
+                                                            <h5 class="text-center d-flex justify-content-center">2 –
+                                                                VATI YOGAS</h5>
+                                                            <h5 class="d-block text-left">Name of the Drug</h5>
+                                                            <h5 class="d-block text-left">
+                                                                Reference
+                                                                <p class=' text-xs pt-1'>Text, Chapter, Sloka – to –
+                                                                    (Published by Edition,
+                                                                    Writer/Translator)</p>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
 
 
-                    </div>
-                                            <table class="view-table" id="faqs">
+                                                </div>
+                                                <table class="view-table" id="faqs">
 
-                                                <thead>
-                                                   <tr>
-                                                      <th class = "w-25"> Title</th>
-                                                      <th> Value </th>
-                                                   </tr>
-                                                </thead>
-                                                <tbody>
-                                                   <tr>
-                                                      <td colspan ="2"><h3>Composition</h3></td>
-                                                   </tr>
-                                                @foreach($vatitype as $vatitypes)
-                                                   <tr>
-                                                      <td> Name of the ingredients mineral metal</td>
-                                                      <td>{{ $vatitypes->name_of_the_ingredients }} </td>
-                                                   </tr>
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="w-25"> Title</th>
+                                                            <th> Value </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <h3>Composition</h3>
+                                                            </td>
+                                                        </tr>
+                                                        @foreach($vatitype as $vatitypes)
+                                                        <tr>
+                                                            <td> Name of the ingredients mineral metal</td>
+                                                            <td>{{ $vatitypes->name_of_the_ingredients }} </td>
+                                                        </tr>
 
-                                                   <tr>
-                                                      <td>Part used  </td>
-                                                      <td>{{ $vatitypes->part_used }} </td>
-                                                   </tr>
+                                                        <tr>
+                                                            <td>Part used </td>
+                                                            <td>{{ $vatitypes->part_used }} </td>
+                                                        </tr>
 
-                                                   <tr>
-                                                      <td> Quantity</td>
-                                                      <td>{{ $vatitypes->quantity }} </td>
-                                                   </tr>
-                                                   @endforeach
+                                                        <tr>
+                                                            <td> Quantity</td>
+                                                            <td>{{ $vatitypes->quantity }} </td>
+                                                        </tr>
+                                                        @endforeach
 
-                                                   <tr>
-                                                      <td colspan = "2"><h3>Method of Preparation (SOP)</h3> </td>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <h3>Method of Preparation (SOP)</h3>
+                                                            </td>
 
-                                                   </tr>
-                                                   <tr>
-                                                      <td>Enter Yogas Name </td>
-                                                      <td> {{ $drug->vati_yoga_type_individual }}</td>
-                                                   </tr>
-                                                   <tr>
-                                                      <td>Step 1 </td>
-                                                      <td> {{ $drug->step_first }}</td>
-                                                   </tr>
-                                                   <tr>
-                                                      <td>Packing </td>
-                                                      <td> {{ $drug->packing }}</td>
-                                                   </tr>
-                                                   <tr>
-                                                      <td> Storage</td>
-                                                      <td>{{ $drug->storage }} </td>
-                                                   </tr>
-                                                   <tr>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Enter Yogas Name </td>
+                                                            <td> {{ $drug->vati_yoga_type_individual }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Step 1 </td>
+                                                            <td> {{ $drug->step_first }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Packing </td>
+                                                            <td> {{ $drug->packing }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> Storage</td>
+                                                            <td>{{ $drug->storage }} </td>
+                                                        </tr>
+                                                        <tr>
                                                             <td> Method of Administration</td>
                                                             <td>{{ $drug->method_of_administration }} </td>
                                                         </tr>
@@ -231,41 +248,45 @@
                                                             <td> Reasons for Loss</td>
                                                             <td>{{ $drug->reasons_for_loss }} </td>
                                                         </tr>
-                                                   <tr>
-                                                      <td> (i) First reason of loss </td>
-                                                      <td>{{ $drug->reasons_for_loss_first }} </td>
-                                                   </tr>
-                                                   <tr>
-                                                      <td> (ii) Second reason of loss</td>
-                                                      <td> {{ $drug->reasons_for_loss_second }}</td>
-                                                   </tr>
-                                                   <tr>
-                                                      <td>Organoleptic properties of raw materials </td>
-                                                      <td>{{ $drug->organoleptic_properties_of_raw_materials }} </td>
-                                                   </tr>
+                                                        <tr>
+                                                            <td> (i) First reason of loss </td>
+                                                            <td>{{ $drug->reasons_for_loss_first }} </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> (ii) Second reason of loss</td>
+                                                            <td> {{ $drug->reasons_for_loss_second }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Organoleptic properties of raw materials </td>
+                                                            <td>{{ $drug->organoleptic_properties_of_raw_materials }}
+                                                            </td>
+                                                        </tr>
 
-                                                   <tr>
-                                                      <td>Organoleptic properties of finished product </td>
-                                                      <td>{{ $drug->organoleptic_properties_of_finished_product }} </td>
-                                                   </tr>
+                                                        <tr>
+                                                            <td>Organoleptic properties of finished product </td>
+                                                            <td>{{ $drug->organoleptic_properties_of_finished_product }}
+                                                            </td>
+                                                        </tr>
 
-                                                   <tr>
-                                                      <td colspan="2"> <h3> Time taken for the practical</h3> </td>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <h3> Time taken for the practical</h3>
+                                                            </td>
 
-                                                   </tr>
+                                                        </tr>
 
-                                                   <tr>
-                                                      <td>(i) Starting Date </td>
-                                                      <td>{{ $drug->starting_date }} </td>
-                                                   </tr>
+                                                        <tr>
+                                                            <td>(i) Starting Date </td>
+                                                            <td>{{ $drug->starting_date }} </td>
+                                                        </tr>
 
-                                                   <tr>
-                                                      <td> (ii) Ending Date</td>
-                                                      <td>{{ $drug->ending_date }} </td>
-                                                   </tr>
+                                                        <tr>
+                                                            <td> (ii) Ending Date</td>
+                                                            <td>{{ $drug->ending_date }} </td>
+                                                        </tr>
 
-                                                </tbody>
-                                             </table>
+                                                    </tbody>
+                                                </table>
 
                                             </div>
                                         </div>

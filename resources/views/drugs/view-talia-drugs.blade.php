@@ -63,8 +63,19 @@
                                         <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                                         <!-- @csrf -->
                                         <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-6 col-6">
+                                                    <h3>Basic Information</h3>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <a href="{{url('drug-report-history')}}"><button type="button"
+                                                            class="btn back btn-danger waves-effect float-right"> &nbsp;
+                                                            Back
+                                                            &nbsp;</button></a>
+                                                </div>
+                                            </div>
                                             <table class="view-table">
-                                                <h3>Basic Information</h3>
+
                                                 <thead>
                                                     <tr>
                                                         <th>Name of the Guru </th>

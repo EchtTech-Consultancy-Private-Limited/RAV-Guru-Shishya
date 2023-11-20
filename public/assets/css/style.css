@@ -1187,7 +1187,7 @@ table tr .title{
 }
 
 .form-group input{
-    max-width: 90%;
+    /* max-width: 90%; */
 }
 
 h3 {
@@ -1442,3 +1442,12 @@ p{
 .select2-container--default .select2-selection--multiple .select2-selection__choice{
     font-size: 13px;
 }
+
+i.fa.fa-history {
+    font-size: 17px !important;
+}
+
+.user-panel .image img {
+    border-radius: 100%;
+    padding: 10px ;
+  }
