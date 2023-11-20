@@ -750,9 +750,9 @@
                                                 (<span class="fs-12
                                              text-info"><a target="_blank" href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span>)</label>
 
-                                             <!-- <textarea cols="45" rows="1" name="pathya_apathya" class="form-control" value="" aria-label="pathya_apathya
-                                             " placeholder=" Pathya-Apathya" maxlength="100">{{ $patient->pathya_apathya }}</textarea> -->
-                                             <select name="pathya_apathya" class="form-control pathya_apathya">
+                                             <textarea cols="45" rows="1" name="pathya_apathya" class="form-control" value="" aria-label="pathya_apathya
+                                             " placeholder=" Pathya-Apathya" maxlength="100">{{ $patient->pathya_apathya }}</textarea>
+                                             <!-- <select name="pathya_apathya" class="form-control pathya_apathya">
                                                 <option value="">Please
                                                    select
                                                 </option>
@@ -760,7 +760,7 @@
                                                    <option value="{{$key}}" {{$patient->pathya_apathya == $key  ? 'selected' : ''}}>{{$value}}</option>
                                                 @endforeach
 
-                                             </select>
+                                             </select> -->
                                           </div>
                                        </div>
                                     </div>
