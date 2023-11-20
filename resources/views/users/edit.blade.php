@@ -352,7 +352,7 @@
                                          </div>
                                      </div>
                                 </div>
-                                @if(Auth::user()->user_type=='1')
+                                @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='2')
                             <div class="col-lg-12 p-t-20 d-flex justify-content-center">
                                 <button type="submit" class="btn add btn-primary waves-effect m-r-15">Update User</button>
                                 <!--<button type="button" class="btn btn-danger waves-effect">Cancel</button>-->
