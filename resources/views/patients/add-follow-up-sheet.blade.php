@@ -60,6 +60,8 @@
                                             <input type="hidden" name="shishya_id" value="{{ Auth::user()->id }}">
                                             <input type="hidden" name="registration_no"
                                                 value="{{ $patient->registration_no }}">
+                                            <input type="hidden" name="follow_up_date"
+                                                value="{{ ($patient->follow_up_date)?$patient->follow_up_date: date('d-m-Y') }}">
 
                                             <div class="card-body pt-0">
                                             <div class="header p-0">
@@ -74,9 +76,9 @@
                                                     <th> Date of Follow up</th>
                                                 </thead>
                                                 <tbody>
-                                                    <td> {{ $patient->registration_no }}</td>
-                                                    <td>{{ $patient->patient_name }} </td>
-                                                    <td> {{ $data->follow_up_date }}</td>
+                                                    <td> {{ @$patient->registration_no }}</td>
+                                                    <td>{{ @$patient->patient_name }} </td>
+                                                    <td> {{ ($patient->follow_up_date)?$patient->follow_up_date: date('d-m-Y') }}</td>
                                                 </tbody>
                                             </table>
 

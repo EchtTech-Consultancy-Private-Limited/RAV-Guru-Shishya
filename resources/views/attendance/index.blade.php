@@ -102,15 +102,8 @@
                                             @endif
                                         </div>
                                     </div>
-
-
-
                                 </div>
-
                             </div>
-
-
-
                             <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-4 width-50">
                                 <div class="form-group">
                                     <label class="active">From Date:</label>
