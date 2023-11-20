@@ -3,7 +3,7 @@
 
 
 <section class="content">
-  
+
    <div class="container-fluid">
    <div class="block-header">
                 <div class="row">
@@ -67,6 +67,18 @@
                            <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                               <!-- @csrf -->
                               <div class="card-body">
+                              <div class="row">
+                                                <div class="col-md-6 col-6">
+                                                    <h3>Basic Information</h3>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <a href="{{url('drug-report-history')}}"><button type="button"
+                                                            class="btn back btn-danger waves-effect float-right"> &nbsp;
+                                                            Back
+                                                            &nbsp;</button></a>
+                                                </div>
+                                            </div>
+
                                  <table class="view-table">
                                     <h3>Basic Information</h3>
                                     <thead>
@@ -74,7 +86,7 @@
                                        <th> Name of the Guru</th>
                                        <th>Name of the Shishya </th>
                                        <th> Date of Report</th>
-                                      
+
                                       </tr>
                                     </thead>
 
@@ -88,13 +100,13 @@
                                              @endif
                                           </td>
                                           <td> <?php echo date('d-m-Y'); ?></td>
-                                         
+
                                        </tr>
                                     </tbody>
                                  </table>
-                                 
 
-                                 
+
+
                                 <!--  <div class="row "readonly >
 
                                     <div
@@ -134,8 +146,8 @@
             <form method="POST" action="{{ url('update-drug-details') }} "readonly >
                 @csrf
                 <input type="hidden" name="drug_id" value="{{ $churandrug->id }}">
-             
-           
+
+
 
                  <div class="page-content page-container" id="page-content">
                     <div class="padding">
@@ -154,9 +166,9 @@
                        </h5>
                     </div>
                      </div>
-                   
 
-                   
+
+
                 </div>
                                         <div class="">
                                             <table id="faqs" class="view-table table table-hover">
@@ -189,7 +201,7 @@
                                                       <td>  {{$churandrugpartdata->quantity}}</td>
                                                     </tr>
 
-                                                   
+
                                                     @endforeach
                                                     <tr>
                                                       <td colspan="2">
@@ -273,7 +285,7 @@
                                                       <td colspan="2"> <h3> Observations</h3></td>
                                                    </tr>
                                                    <tr>
-                                                     
+
                                                       <td>Quantity of Raw Material</td>
                                                       <td> {{ $churandrug->quantity_of_raw_material }}</td>
                                                    </tr>
@@ -307,7 +319,7 @@
                                                    </tr>
                                                    <tr>
                                                       <td colspan ="2"> <h3>Duration required for the experiment</h3></td>
-                                                     
+
                                                    </tr>
                                                    <tr>
                                                       <td> (i) Starting Date</td>
@@ -317,10 +329,10 @@
                                                       <td>(ii)  Ending Date </td>
                                                       <td> {{ $churandrug->ending_date }} </td>
                                                    </tr>
-                                                   
+
                                                  </tbody>
-                                                   
-                                                
+
+
                                                 <!-- <tbody>
                                                    @foreach($churandrugpart as $churandrugpartdata)
                                                    <tr>
@@ -359,7 +371,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </form>
         </div>
    </div>
