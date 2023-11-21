@@ -43,8 +43,8 @@ function send_to_guru() {
    });
 
    $(document).ready(function() {
-    
-   
+
+
     if ( $.fn.dataTable.isDataTable( '#data_table' ) ) {
      table = $('#data_table').DataTable();
      table.destroy();
@@ -60,10 +60,10 @@ function send_to_guru() {
          searching: false,
          info:false
      } );
- 
+
  }
- 
- 
+
+
  function format ( d ) {
      // `d` is the original data object for the row
      return '<div class="slider">'+
@@ -80,12 +80,12 @@ function send_to_guru() {
                  '<td  class="slider-heading">Treatment/Therapies:</td>'+
                  '<td>'+d.treatment+'</td>'+
              '</tr>'+
- 
+
          '</table>'+
      '</div>';
  }
- 
- 
+
+
  if ( $.fn.dataTable.isDataTable('#data_table1') ) {
      table = $('#data_table1').DataTable();
      table.destroy();
@@ -115,14 +115,14 @@ function send_to_guru() {
          searching: false,
          info:false
      } );
- 
+
  }
- 
+
      // Add event listener for opening and closing details
      $('#data_table1 tbody').on('click', 'td.details-control', function () {
          var tr = $(this).closest('tr');
          var row = table.row( tr );
- 
+
          if ( row.child.isShown() ) {
              // This row is already open - close it
              $('div.slider', row.child()).slideUp( function () {
@@ -134,35 +134,35 @@ function send_to_guru() {
              // Open this row
              row.child( format(row.data()), 'no-padding' ).show();
              tr.addClass('shown');
- 
+
              $('div.slider', row.child()).slideDown();
          }
      } );
- 
- 
- 
+
+
+
  });
 
  jQuery(document).ready(function() {
-    
+
     // 1 Capitalize string - convert textbox user entered text to uppercase
     jQuery('#txtuppercase').keyup(function() {
         $(this).val($(this).val().toUpperCase());
     });
-    
+
     // 2 Capitalize string first character to uppercase
     jQuery('#txtcapital').keyup(function() {
-        var caps = jQuery('#txtcapital').val(); 
+        var caps = jQuery('#txtcapital').val();
         caps = caps.charAt(0).toUpperCase() + caps.slice(1);
         jQuery('#txtcapital').val(caps);
     });
-    
+
     // 3 Capitalize string every 1st chacter of word to uppercase
-    jQuery('#txt_firstCapital').keyup(function() 
+    jQuery('#txt_firstCapital').keyup(function()
     {
         var str = jQuery('#txt_firstCapital').val();
-       
-        
+
+
         var spart = str.split(" ");
         for ( var i = 0; i < spart.length; i++ )
         {
@@ -170,7 +170,7 @@ function send_to_guru() {
             spart[i] = j + spart[i].substr(1);
         }
       jQuery('#txt_firstCapital').val(spart.join(" "));
-    
+
     });
 });
 
@@ -182,34 +182,34 @@ function send_to_guru() {
       });
 
           $('#user_type').on('change', function(){
-         
+
           var listvalue = $(this).val();
-          //alert(listvalue);   
+          //alert(listvalue);
           if(listvalue==2)
           {
               $(".gurutype").show();
               $(".shishyatype").hide();
-          } 
+          }
           else if(listvalue==3)
           {
              $(".gurutype").hide();
               $(".shishyatype").show();
           }
-           
+
           else if(listvalue==1 || listvalue=='')
           {
              $(".gurutype").hide();
               $(".shishyatype").hide();
           }
 
-             
-            
+
+
          });
 
     // sweet alert msg
     window.setTimeout(function() {
     $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
+        $(this).remove();
     });
 }, 4000);
 
@@ -299,7 +299,41 @@ $('#age').keypress(function(e) {
 //        if(val == 9){
 //           $("#bed_time").css({"display":"block"});
 //        }
-       
+
 //     });
 //  });
  //  End Pathya-Apathya (Annexure-1) show hide field js
+
+
+
+ // Tab-Pane change function
+// default bootstrap click, apenas muda com ação do utilizador
+//$('#myTab a').click(function (e) {
+//  e.preventDefault()
+//  $(this).tab('show')
+//})
+
+// Tab-Pane change function
+var tabChange = function(){
+    var tabs = $('.nav-pills > li');
+    var active = tabs.filter('.active');
+    var next = active.next('li').length? active.next('li').find('a') : tabs.filter(':first-child').find('a');
+    // Bootsrap tab show, para ativar a tab
+    next.tab('show')
+}
+// Tab Cycle function
+var tabCycle = setInterval(tabChange, 1000)
+// Tab click event handler
+$(function(){
+    $('.nav-tabs a').click(function(e) {
+        e.preventDefault();
+        // Parar o loop
+        clearInterval(tabCycle);
+        // mosta o tab clicado, default bootstrap
+        $(this).tab('show')
+        // Inicia o ciclo outra vez
+        setTimeout(function(){
+            tabCycle = setInterval(tabChange, 1000)//quando recomeça assume este timing
+        }, 1000);
+    });
+});

@@ -6,7 +6,7 @@
 
 <div class="container login">
     <div class="row justify-content-center">
-        
+
         <div class="col-md-8">
         <img src="{{asset('/assets/images/guru-shishya-parampara-logo.png')}}" class="login-logo mx-auto d-block" title="rav-logo">
             <div class="card">
@@ -27,10 +27,10 @@
                 <div class="card-body">
                     <form action="{{ route('login') }}" id="loginForm" method="POST" autocomplete="off">
                         @csrf
-                        
+
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}<span class="text-danger">*</span></label>
-                            
+
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus id="email" maxlength="30" class="required" >
                                 <span class="text-danger" id="email-error"></span>
@@ -58,12 +58,12 @@
                             </div>
                         </div>
 
-                        
-                       
+
+
                             <div class="row mb-3" style="margin-left:150px;">
                                     <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }} ">
-                                     
-                                      
+
+
 
                                       <div class="col-md-8">
                                           <div class="captcha">
@@ -82,7 +82,7 @@
                                       </div>
                                     </div>
                                 </div>
-<!-- 
+<!--
                             <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -98,7 +98,7 @@
                             <div class="col-md-8 offset-md-4">
                             <input type="button" value="{{ __('Login') }}" class="btn btn-secondary" id="user_login" onclick="return encrypt()">
                             <br>
-                              
+
                                 <a href="{{ url('user-signup') }}" class="p-2" id="user_login">
                                     {{ __('Create New Account') }}
                                 </a>
@@ -157,7 +157,7 @@ function encrypt()
 {
 
   $str=$("#password").val();
-  for($i=0; $i<5;$i++) 
+  for($i=0; $i<5;$i++)
   {
     $str=reverseString(btoa($str));
   }
@@ -168,10 +168,10 @@ function encrypt()
 }
 
 function reverseString(str) {
-    var splitString = str.split(""); 
-    var reverseArray = splitString.reverse(); 
-    var joinArray = reverseArray.join(""); 
-    return joinArray; 
+    var splitString = str.split("");
+    var reverseArray = splitString.reverse();
+    var joinArray = reverseArray.join("");
+    return joinArray;
 }
 </script>
 @endsection
