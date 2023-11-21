@@ -137,7 +137,7 @@
 
                             </div>
 
-                            <div class="col-xl-12  col-md-  d-flex justify-content-end">
+                            <div class="col-xl-12  col-md-12  d-flex justify-content-end">
                                 <button type="submit" class="btn filter  waves-effect">
                                     Filter </button>
                                 <a href="{{ url('attendance-list') }}"><button type="button"

@@ -239,67 +239,67 @@ $('#age').keypress(function(e) {
  });
 
 //  Pathya-Apathya (Annexure-1) show hide field js
-$(document).ready(function(){
-    $(".annexure_field").css({"display":"none"});
-    var val = $(".pathya_apathya").val();
-    if(val == 1){
-        $("#soft_drink").css({"display":"block"});
-     }
-     if(val == 2){
-        $("#madhyahan_bhojana").css({"display":"block"});
-     }
-     if(val == 3){
-        $("#prataraasha").css({"display":"block"});
-     }
-     if(val == 4){
-        $("#pulses").css({"display":"block"});
-     }
-     if(val == 5){
-        $("#pulpy_vegetables").css({"display":"block"});
-     }
-     if(val == 6){
-        $("#oil_tail").css({"display":"block"});
-     }
-     if(val == 7){
-        $("#afternoon_fruit").css({"display":"block"});
-     }
-     if(val == 8){
-        $("#evening_meals").css({"display":"block"});
-     }
-     if(val == 9){
-        $("#bed_time").css({"display":"block"});
-     }
-    $(".pathya_apathya").on('change', function() {
-       var val = $(this).val();
-       $(".annexure_field").css({"display":"none"});
-       if(val == 1){
-          $("#soft_drink").css({"display":"block"});
-       }
-       if(val == 2){
-          $("#madhyahan_bhojana").css({"display":"block"});
-       }
-       if(val == 3){
-          $("#prataraasha").css({"display":"block"});
-       }
-       if(val == 4){
-          $("#pulses").css({"display":"block"});
-       }
-       if(val == 5){
-          $("#pulpy_vegetables").css({"display":"block"});
-       }
-       if(val == 6){
-          $("#oil_tail").css({"display":"block"});
-       }
-       if(val == 7){
-          $("#afternoon_fruit").css({"display":"block"});
-       }
-       if(val == 8){
-          $("#evening_meals").css({"display":"block"});
-       }
-       if(val == 9){
-          $("#bed_time").css({"display":"block"});
-       }
+// $(document).ready(function(){
+//     $(".annexure_field").css({"display":"none"});
+//     var val = $(".pathya_apathya").val();
+//     if(val == 1){
+//         $("#soft_drink").css({"display":"block"});
+//      }
+//      if(val == 2){
+//         $("#madhyahan_bhojana").css({"display":"block"});
+//      }
+//      if(val == 3){
+//         $("#prataraasha").css({"display":"block"});
+//      }
+//      if(val == 4){
+//         $("#pulses").css({"display":"block"});
+//      }
+//      if(val == 5){
+//         $("#pulpy_vegetables").css({"display":"block"});
+//      }
+//      if(val == 6){
+//         $("#oil_tail").css({"display":"block"});
+//      }
+//      if(val == 7){
+//         $("#afternoon_fruit").css({"display":"block"});
+//      }
+//      if(val == 8){
+//         $("#evening_meals").css({"display":"block"});
+//      }
+//      if(val == 9){
+//         $("#bed_time").css({"display":"block"});
+//      }
+//     $(".pathya_apathya").on('change', function() {
+//        var val = $(this).val();
+//        $(".annexure_field").css({"display":"none"});
+//        if(val == 1){
+//           $("#soft_drink").css({"display":"block"});
+//        }
+//        if(val == 2){
+//           $("#madhyahan_bhojana").css({"display":"block"});
+//        }
+//        if(val == 3){
+//           $("#prataraasha").css({"display":"block"});
+//        }
+//        if(val == 4){
+//           $("#pulses").css({"display":"block"});
+//        }
+//        if(val == 5){
+//           $("#pulpy_vegetables").css({"display":"block"});
+//        }
+//        if(val == 6){
+//           $("#oil_tail").css({"display":"block"});
+//        }
+//        if(val == 7){
+//           $("#afternoon_fruit").css({"display":"block"});
+//        }
+//        if(val == 8){
+//           $("#evening_meals").css({"display":"block"});
+//        }
+//        if(val == 9){
+//           $("#bed_time").css({"display":"block"});
+//        }
        
-    });
- });
+//     });
+//  });
  //  End Pathya-Apathya (Annexure-1) show hide field js
