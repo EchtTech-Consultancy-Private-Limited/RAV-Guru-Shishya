@@ -53,6 +53,7 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
+                <div class="body">
                 <form role="form" method="POST" action="{{ url('/attendance-list') }}" id="frmattendances">
                     @csrf
                     <div class="header">
@@ -60,54 +61,45 @@
                             <div class="col-md-12">
                                 <h4 class="py-2">Attendances</h4>
                             </div>
-                            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group d-inline-block ">
-                                            <label class="active">Select Shishya:<span
-                                                    class="text-danger"></span></label>
-                                            <select class="form-control" name="shishya_id">
-                                                <option value="">Select Shishya</option>
-                                                @foreach($shishyas as $shishya)
-                                                <option value="{{$shishya->id}}" @if(request()->
-                                                    shishya_id==$shishya->id) SELECTED
-                                                    @endif>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lasttname}}
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+                            <div class="col-xl-2 col-lg-2 col-md-2 mb-3">
+                                <div class="form-group d-inline-block ">
+                                    <label class="active">Select Shishya:<span class="text-danger"></span></label>
+                                    <select class="form-control" name="shishya_id">
+                                        <option value="">Select Shishya</option>
+                                        @foreach($shishyas as $shishya)
+                                        <option value="{{$shishya->id}}" @if(request()->
+                                            shishya_id==$shishya->id) SELECTED
+                                            @endif>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lasttname}}
+                                        </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==4)
+                            <div class="col-xl-2 col-lg-2 col-md-2 mb-3">
+                                <div class="form-group ">
+
+
+                                    <label class="active">Select Guru:<span class="text-danger"></span></label>
+
+                                    <div class="pe-2 ">
+
+                                        <select class="form-control" name="guru_id">
+                                            <option value="">Select Guru</option>
+                                            @foreach($gurus as $guru)
+                                            <option value="{{$guru->id}}" @if(request()->guru_id==$guru->id)
+                                                SELECTED
+                                                @endif>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lasttname}}
+                                            </option>
+                                            @endforeach
+                                        </select>
                                     </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group d-inline-block">
-
-                                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==4)
-                                            <label class="active">Select Guru:<span class="text-danger"></span></label>
-
-                                            <div class="pe-2 d-inline-block">
-
-                                                <select class="form-control" name="guru_id">
-                                                    <option value="">Select Guru</option>
-                                                    @foreach($gurus as $guru)
-                                                    <option value="{{$guru->id}}" @if(request()->guru_id==$guru->id)
-                                                        SELECTED
-                                                        @endif>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lasttname}}
-                                                    </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            @else
-                                            <input type="hidden" name="guru_id" value="{{Auth::user()->id}}">
-                                            @endif
-                                        </div>
-                                    </div>
-
-
 
                                 </div>
-
                             </div>
+                            @else
+                            <input type="hidden" name="guru_id" value="{{Auth::user()->id}}">
+                            @endif
 
 
 
@@ -145,7 +137,7 @@
 
                             </div>
 
-                            <div class="col-xl-12 col-xxl-3 col-lg-5 col-md-3  d-flex justify-content-end">
+                            <div class="col-xl-12  col-md-  d-flex justify-content-end">
                                 <button type="submit" class="btn filter  waves-effect">
                                     Filter </button>
                                 <a href="{{ url('attendance-list') }}"><button type="button"
@@ -159,8 +151,6 @@
 
 
                 </form>
-
-                <div class="body">
                     <div class="table-responsive">
                         <table class="table table-hover" id="attendance_list">
                             <thead>
@@ -176,7 +166,8 @@
                                             aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                             aria-hidden="true"></i> </th>
                                     <th class="center"> Guru Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-                                        <i class="fa fa-long-arrow-down" aria-hidden="true"></i> </th>
+                                        <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
+                                    </th>
                                     <th class="center"> Attendance <i class="fa fa-long-arrow-up"
                                             aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                             aria-hidden="true"></i> </th>

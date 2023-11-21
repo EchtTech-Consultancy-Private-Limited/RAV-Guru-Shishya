@@ -10,7 +10,8 @@ h1>a {
 }
 
 .intro-section {
-  background-image: url(http://localhost/RAV-Guru-Shishya/public/assets/images/login_bg.jpg);
+  /* background-image: url(http://localhost/RAV-Guru-Shishyapublic/assets/images/login_bg.jpg); */
+  background-image: url("assets/../../images/login_bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
