@@ -394,3 +394,31 @@ table th:last-child, table tr:last-child, table td:last-child {
 p{
   margin: 0 !important;
 }
+
+
+
+
+.intro-section .tab-pane {
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #999; /* violet pour le thumb, gris pour la track */
+}
+
+.intro-section .tab-pane::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 10px !important;
+}
+
+.intro-section .tab-pane::-webkit-scrollbar-thumb {
+  background-color: #ddd; /* violet pour le thumb */
+  border-radius: 10px !important;
+}
+
+.intro-section .tab-pane::-webkit-scrollbar-thumb:hover {
+  background-color: #333; /* violet légèrement plus foncé au survol */
+}
+
+.intro-section .tab-pane::-webkit-scrollbar-track {
+  background-color: #fff; /* gris pour la track */
+  border-radius: 10px !important;
+}
