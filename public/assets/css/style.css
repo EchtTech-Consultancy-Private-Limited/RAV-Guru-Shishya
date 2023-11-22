@@ -55,15 +55,16 @@ section.content1 {
 }
 .logo-brand {
     /*float: left;*/
-    height: 100px;
+    height: 60px;
     padding: 6px 25px;
     font-size: 18px;
     line-height: 20px;
     text-align: center;
     width: 240px;
-    overflow:hidden;
-	color:#000!important;
-    clear:both;
+    overflow: hidden;
+    color: #000!important;
+    clear: both;
+    border-bottom: 1px solid #ddd;
 
 }
 .logo-name{
@@ -73,6 +74,9 @@ section.content1 {
 
 .logo-brand img {
 text-align:center;
+width: auto;
+height: 100%;
+background-color: #fff;
 }
 
 .education_heading{
@@ -1450,4 +1454,9 @@ i.fa.fa-history {
 .user-panel .image img {
     border-radius: 100%;
     padding: 10px ;
+  }
+
+  .sidebar{
+    top: 0 !important;
+    width: 240px !important;
   }

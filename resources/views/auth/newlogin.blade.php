@@ -110,7 +110,7 @@
         <div>
           <a href="javascript:void();"><img src="{{asset('/assets/images/guru-shishya-parampara-logo.png')}}" alt="logo" width="350px;"></a>
         </div>
-        <h2 class="login-title mt-4">Sign in</h2>
+        <h2 class="login-title mt-3">Sign in</h2>
 
         @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -172,12 +172,13 @@
 
           </div>
 
-          <div class="d-flex justify-content-between align-items-center mb-5">
+          <div class="d-flex justify-content-between align-items-center mb-3">
             <input name="login" id="login" class="btn login-btn" type="submit" onclick="return encrypt()" value="Login">
             <a href="{{ route('password.request') }}" class="forgot-password-link">Forgot Password?</a>
           </div>
+          <p class="login-wrapper-footer-text">Need an account? <a href="{{ url('user-signup') }}" class="text-primary">Create new account</a></p>
         </form>
-        <p class="login-wrapper-footer-text">Need an account? <a href="{{ url('user-signup') }}" class="text-primary">Create new account</a></p>
+
       </div>
     </div>
   </div>
