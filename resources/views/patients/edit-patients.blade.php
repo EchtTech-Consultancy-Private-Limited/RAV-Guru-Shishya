@@ -769,7 +769,7 @@
 
                                          <div class="col-md-3 annexure_field" id="soft_drink">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->soft_drink)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Soft drink/Peya Padarth</label>
                                              <select name="soft_drink" class="form-control">
                                                 <option value="">Please
@@ -783,7 +783,7 @@
                                        </div>
                                          <div class="col-md-3 annexure_field" id="madhyahan_bhojana">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->madhyahan_bhojana)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Madhyahan Bhojana</label>
                                              <select name="madhyahan_bhojana" class="form-control">
                                                 <option value="">Please
@@ -797,7 +797,7 @@
                                        </div>
                                          <div class="col-md-3 annexure_field" id="prataraasha">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->prataraasha)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Prataraasha</label>
                                              <select name="prataraasha"  class="form-control">
                                                 <option value="">Please
@@ -811,7 +811,7 @@
                                        </div>
                                          <div class="col-md-3 annexure_field" id="pulses">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->pulses)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Pulses </label>
                                              <select name="pulses" class="form-control">
                                                 <option value="">Please  select
@@ -826,7 +826,7 @@
 
                                          <div class="col-md-3 annexure_field" id="pulpy_vegetables">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->pulpy_vegetables)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Pulpy vegetables </label>
                                              <select name="pulpy_vegetables" class="form-control">
                                                 <option value="">Please  select
@@ -839,7 +839,7 @@
                                        </div>
                                          <div class="col-md-3 annexure_field" id="oil_tail">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->oil_tail)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Oil/Tail </label>
                                              <select name="oil_tail" class="form-control">
                                                 <option value="">Please  select
@@ -853,7 +853,7 @@
 
                                        <div class="col-md-3 annexure_field" id="afternoon_fruit">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->afternoon_fruit)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Afternoon Fruit </label>
                                              <select name="afternoon_fruit" class="form-control">
                                                 <option value="">Please  select
@@ -866,14 +866,14 @@
                                        </div>
                                        <div class="col-md-3 annexure_field" id="evening_meals">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->evening_meals)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              evening_meals </label>
                                              <input type="text" name="evening_meals" maxlength="150" value="{{ @$patient->evening_meals }}">
                                           </div>
                                        </div>
                                        <div class="col-md-3 annexure_field" id="bed_time">
                                           <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->bed_time)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">
                                              Bed time </label>
                                              <select name="bed_time" class="form-control">
                                                 <option value="">Please  select
