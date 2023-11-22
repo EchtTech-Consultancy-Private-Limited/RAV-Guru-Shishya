@@ -107,8 +107,8 @@
     <div class="col-sm-6 col-md-4 form-section">
 
       <div class="login-wrapper">
-        <div>
-          <a href="javascript:void();"><img src="{{asset('/assets/images/guru-shishya-parampara-logo.png')}}" alt="logo" width="350px;"></a>
+        <div class="logo">
+          <a href="javascript:void();"><img src="{{asset('/assets/images/guru-shishya-parampara-logo.png')}}" alt="logo" ></a>
         </div>
         <h2 class="login-title mt-3">Sign in</h2>
 
@@ -151,7 +151,7 @@
 
           <div class="form-group mb-3 row align-items-center">
 
-            <div class="col-md-5">
+            <div class="col-md-6">
               <label for="password" class="sr-only">Captcha</label>
               <div class="captcha d-flex justify-content-between">
                 <span>{!! captcha_img('math') !!}</span>
@@ -161,7 +161,7 @@
               </div>
             </div>
 
-            <div class="col-md-7 pl-0">
+            <div class="col-md-6 pl-0">
               <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
               @if ($errors->has('captcha'))
               <span class="help-block">
