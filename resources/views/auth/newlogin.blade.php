@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/signin.css') }}">
- 
+
 </head>
 <div class="container-fluid">
   <div class="row">
@@ -20,6 +20,89 @@
       <div class="intro-content-wrapper">
         <h1 class="intro-title">Welcome to Guru Shishya Parampara !</h1>
       </div>
+
+      <div class="login-tab-container">
+              <ul class="nav nav-tabs login-tab" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                            type="button" role="tab" aria-controls="home" aria-selected="true">CRAV</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                            type="button" role="tab" aria-controls="profile" aria-selected="false">MRAV</button>
+                    </li>
+
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane  show active" id="home" role="tabpanel" aria-labelledby="home-tab"
+                       >
+                        <div>
+                            <h2> Certificate of Rashtriya Ayurveda Vidyapeeth (CRAV)</h2>
+                            <p>
+                                <b>Training :</b> This course involves training in the clinical practices of Ayurveda
+                                and Ayurvedic Pharmacy under the direct mentoring of eminent practicing / rasa Vaidyas
+                                in different parts of the country.
+                            </p>
+
+                            <p><b>Eligibility :</b> BAMS (Ayurvedacharya) Degree.</p>
+
+                            <p>
+                                <b>Age Limit:</b> Maximum 30 years for graduate and 32 years for postgraduate.
+                                Relaxation up to 35 years will be given to in service vaidya duly sponsored by central
+                                or state Government.3 year age relaxation is given to SC/ST candidates.
+                            </p>
+
+                            <p>
+                                <b>Duration of the course :</b> One year.
+                            </p>
+
+                            <p>
+                                <b>Stipend :</b> A stipend of Rs.15820/-plus DA at the rates applicable from time to
+                                time per month is provided to the students of CRAV course.
+                            </p>
+
+                            <p><b>General Conditions for both the courses:</b></p>
+                            <ol>
+                                <li> The qualifications (M.D./BAMS) possessed by the candidates must be included in 2nd
+                                    schedule of IMCC Act-1970.</li>
+                                <li> Students should have the zeal to go for critical study of texts of Ayurveda in MRAV
+                                    course and Ayurvedic techniques and cure of diseases in CRAV course. Good knowledge
+                                    of Sanskrit language is required for both courses. </li>
+                                <li> Reservation of seats to SC/ST/OBC candidates and Physically Challenged candidates
+                                    will be implemented as per Central Government policy prevalent from time to time. In
+                                    case of OBCs, the caste certificate issued by the competent authority applicable for
+                                    Central Govt. will be accepted.</li>
+                                <li> <b>Stipend :</b> Sponsored candidates will not be paid any stipend.</li>
+
+                            </ol>
+
+                           <p>
+                           <b>Method of Admission:</b>
+                           </p>
+
+                            <p>
+
+                                The Advertisement for admission to both courses appears in leading national newspapers.
+                                It is also posted on RAV website. Circular of the intent is widely circulated among
+                                teaching institutions of Ayurveda. Eligible candidates may send their applications on
+                                the given format along with essential enclosures. The selection will be made through
+                                Entrance Examination. Suitable candidates are interviewed after an Entrance Test and
+                                selected.</p>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h2> Certificate of Rashtriya Ayurveda Vidyapeeth (CRAV)</h2>
+                        <h4 class="text-black">
+                            Coming soon...
+                        </h4>
+                    </div>
+
+                </div>
+     </div>
+
+
     </div>
     <div class="col-sm-6 col-md-4 form-section">
 
@@ -103,7 +186,7 @@
   $(".btn-refresh").click(function() {
     $.ajax({
       type: 'GET',
-      url: '{{ url('refresh_captcha') }}',
+      url: '{{ url("refresh_captcha") }}',
       success: function(data) {
         $(".captcha span").html(data.captcha);
       }
