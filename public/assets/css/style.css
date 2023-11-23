@@ -1460,3 +1460,13 @@ i.fa.fa-history {
     top: 0 !important;
     width: 240px !important;
   }
+
+  .navbar-nav .user_profile .dropdown-toggle img {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+  }
+
+  #attendance_modal .modal-header {
+    padding: 0px 20px !important;
+  }

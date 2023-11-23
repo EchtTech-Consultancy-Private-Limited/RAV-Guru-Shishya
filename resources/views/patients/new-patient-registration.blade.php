@@ -57,7 +57,7 @@
                         @csrf
                         <div class="header">
                             <div class="row">
-                                <div class="col-lg-12 col-md-12">
+                                <div class="col-lg-12 col-md-12 pt-2">
                                     <div class=" d-flex align-items-center justify-content-end h-100">
                                         <div>
                                             @if (Auth::user()->guru_id)
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="body">
+                    <div class="body pt-0">
                         <div class="">
                             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                 <div class="row pb-3">

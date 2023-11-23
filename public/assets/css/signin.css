@@ -15,7 +15,7 @@ h1>a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 75px 95px;
+  padding: 40px 95px;
   min-height: 100vh;
   display: -webkit-box;
   display: flex;
@@ -56,7 +56,7 @@ h1>a {
 
 .intro-content-wrapper {
   max-width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     text-align: center;
 }
 
@@ -345,7 +345,7 @@ i.user-icon {
 
 .login-tab-container {
   box-shadow: 0px 0px 20px #0000002b;
-  padding: 45px 0;
+  padding:20px 0 0px;
   border-radius: 12px;
   background-color: #ffffff57;
 }
@@ -422,11 +422,15 @@ p{
   background-color: #fff; /* gris pour la track */
   border-radius: 10px !important;
 }
+.form-section .login-wrapper .logo img{
+  height: 160px;
+  width: auto;
+}
 
 
 
 
-@media (max-width:1300px){
+@media (max-width:1500px){
   .intro-content-wrapper .intro-title{
     font-size: 27px;
   }
@@ -439,11 +443,16 @@ p{
 }
 
 .intro-section .tab-pane {
-  height: 319px !important;
+  height: 282px !important;
 }
 .intro-section h2 {
   font-size: 23px;
   color: #683c1c;
   margin-bottom: 17px;
 }
+.form-section .login-wrapper .logo img{
+  height: 100px;
+  width: auto;
+}
+
 }
