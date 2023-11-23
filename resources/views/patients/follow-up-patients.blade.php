@@ -52,7 +52,7 @@
         <div class="row">
 
             <div class="card ">
-                <div class="card-body">
+                <div class="card-body pb-0">
                     <form role="form" method="POST" action="{{ url('/follow-up-patients') }}">
                         @csrf
 
@@ -133,7 +133,7 @@
                 <form role="form" method="POST" action="{{ url('/send-follow-up-sheet') }}">
                     @csrf
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body ">
                         <div class="table-responsive">
                             <table
                                 class="table table-hover js-basic-example contact_list dataTable no-footer table-arrow"

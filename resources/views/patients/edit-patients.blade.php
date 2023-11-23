@@ -59,14 +59,22 @@
                      </li>
                   </ul>
                </div>
-               <div class="body">
+               <div class="body p-0">
                   <div id="wizard_horizontal">
                      <!--<h2>New History Sheet</h2>-->
                      <section>
                         <div class="col-md-12">
                            <div class="card">
-                             <div class="card-body">
-                              <h3> Basic Information</h3>
+                             <div class="card-body pt-0">
+                              <div class="row">
+                                 <div class="col-md-6">
+                                 <h3> Basic Information</h3>
+                                 </div>
+                                 <div class="col-md-6">
+                                 <a href="{{url('new-patient-registration')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                 </div>
+                              </div>
+
                              <table>
                                  <thead>
                                     <th> Name of the Guru</th>
