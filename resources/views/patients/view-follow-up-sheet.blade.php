@@ -42,12 +42,12 @@
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
 
-                    <div class="body p-0">
+                    <div class="body p-0 ">
                         <div id="wizard_horizontal " class="card-body">
                             <section>
 
                                 <div class="col-sm-12 pb-0">
-                                    <div class="row">
+                                    <div class="row view-follow-sheet">
                                         <div class="col-md-6">
                                         <div class="header p-0">
                                         <h2 class=''>View Follow Up </h2>
@@ -218,11 +218,9 @@
 
                                                         </div>
                                                     </div>
-
-
-                                </form>
-                            </div>
-                        </div>
+                                                </form>
+                                            </div>
+                                        </div>
 
 
 

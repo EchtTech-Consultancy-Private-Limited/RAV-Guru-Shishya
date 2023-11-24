@@ -36,7 +36,7 @@
                               Password
                               <span class="text-danger">*</span></label>
                               <input id="password" class="form-control @error('password') is-invalid @enderror input-md"
-                                 name="password" type="password" 
+                                 name="password" type="password"
                                  placeholder="Enter your password" onpaste="return false" oncopy="return false">
                                  @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -52,12 +52,12 @@
                               <div id="popover-password">
                                  <p><span id="result"></span></p>
                                  <div class="progress">
-                                    <div id="password-strength" 
-                                       class="progress-bar" 
-                                       role="progressbar" 
-                                       aria-valuenow="40" 
-                                       aria-valuemin="0" 
-                                       aria-valuemax="100" 
+                                    <div id="password-strength"
+                                       class="progress-bar"
+                                       role="progressbar"
+                                       aria-valuenow="40"
+                                       aria-valuemin="0"
+                                       aria-valuemax="100"
                                        style="width:0%">
                                     </div>
                                  </div>
@@ -65,7 +65,7 @@
                                     <li class="">
                                        <span class="low-case">
                                        <i class="fas fa-circle" aria-hidden="true"></i>
-                                       &nbsp;Lowercase 
+                                       &nbsp;Lowercase
                                        </span>
                                     </li>
                                     <li class="">
@@ -78,7 +78,7 @@
                                        <span class="one-number">
                                        <i class="fas fa-circle" aria-hidden="true"></i>
                                        &nbsp;Number (0-9)
-                                       </span> 
+                                       </span>
                                     </li>
                                     <li class="">
                                        <span class="eight-character">
@@ -89,8 +89,8 @@
                                  </ul>
                               </div>
                            </div>
-                                
-                                
+
+
                             </div>
                         </div>
 
@@ -119,46 +119,46 @@
 
 <script>
     $(function(){
-  
+
   $('#eye').click(function(){
-       
+
         if($(this).hasClass('fa-eye-slash')){
-           
+
           $(this).removeClass('fa-eye-slash');
-          
+
           $(this).addClass('fa-eye');
-          
+
           $('#password').attr('type','text');
-            
+
         }else{
-         
+
           $(this).removeClass('fa-eye');
-          
-          $(this).addClass('fa-eye-slash');  
-          
+
+          $(this).addClass('fa-eye-slash');
+
           $('#password').attr('type','password');
         }
     });
 });
 
 $(function(){
-  
+
   $('#eye1').click(function(){
-       
+
         if($(this).hasClass('fa-eye-slash')){
-           
+
           $(this).removeClass('fa-eye-slash');
-          
+
           $(this).addClass('fa-eye');
-          
+
           $('#password-confirm').attr('type','text');
-            
+
         }else{
-         
+
           $(this).removeClass('fa-eye');
-          
-          $(this).addClass('fa-eye-slash');  
-          
+
+          $(this).addClass('fa-eye-slash');
+
           $('#password-confirm').attr('type','password');
         }
     });

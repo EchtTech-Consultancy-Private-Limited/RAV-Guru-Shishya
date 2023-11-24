@@ -1470,3 +1470,14 @@ i.fa.fa-history {
   #attendance_modal .modal-header {
     padding: 0px 20px !important;
   }
+  .row.view-follow-sheet .col-md-6{
+    margin-bottom: 0 !important;
+  }
+  .view-follow-sheet .card .header h2{
+    margin-bottom: 5px !important;
+  }
+
+  .designation {
+    font-weight: 100;
+    font-size: 12px;
+  }

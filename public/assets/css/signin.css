@@ -178,7 +178,7 @@ h1>a {
   padding: 10px 30px;
   background-color: #000;
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   color: #fff;
 }
@@ -241,6 +241,7 @@ h1>a {
 .login-wrapper-footer-text {
   /* font-size: 20px; */
   text-align: center;
+  font-size: 14px;
 }
 
 i.eye-icon,
@@ -431,6 +432,9 @@ p{
 
 
 @media (max-width:1500px){
+  .reset-password .intro-content-wrapper .intro-title {
+    padding: 181px 0 !important;
+}
   .intro-content-wrapper .intro-title{
     font-size: 27px;
   }
@@ -446,13 +450,50 @@ p{
   height: 282px !important;
 }
 .intro-section h2 {
-  font-size: 23px;
+  font-size: 20px;
   color: #683c1c;
-  margin-bottom: 17px;
+  margin-bottom: 12px;
 }
 .form-section .login-wrapper .logo img{
   height: 100px;
   width: auto;
 }
 
+}
+
+
+.reset-password .intro-content-wrapper .intro-title{
+  padding: 247px 0;
+}
+
+.reset-password .logo {
+  margin-bottom: 54px;
+}
+.reset-password .login-btn {
+  padding: 4px 16px;
+  background-color: #000;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  border: 1px solid #000;
+
+}
+.reset-password .login-btn:focus, .reset-password .login-btn:hover {
+  background-color: #fff;
+  border: 1px solid #000 ;
+  color: #000;
+}
+
+@media(max-width:1400px){
+  .reset-password .logo {
+    margin-bottom: 30px;
+}
+}
+
+.error {
+  color: red;
+  text-align: left !important;
+  display: block;
+  font-size: 12px;
 }
