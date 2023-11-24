@@ -473,10 +473,11 @@ p{
   padding: 4px 16px;
   background-color: #000;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   color: #fff;
-  border: none;
+  border: 1px solid #000;
+
 }
 .reset-password .login-btn:focus, .reset-password .login-btn:hover {
   background-color: #fff;

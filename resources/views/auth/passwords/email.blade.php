@@ -46,7 +46,7 @@
                     <div class="form-group position-relative">
                         <label for="email" class="sr-only">{{ __('Email Address') }}</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Please Enter Your Email" autofocus>
                         <i class="fa fa-user field-icon1 user-icon"></i>
                         @error('email')
                         <span class="invalid-feedback" role="alert">

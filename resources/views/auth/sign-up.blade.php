@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="card">
-                    <div class="header">
+                    <div class="header px-0">
                         <h2 class="text-center">
                             <strong>Sign Up</strong> User
 
@@ -183,8 +183,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-3" id="gurutype">
                                     <div class="form-group">
                                         <div class="form-line">
@@ -216,6 +214,10 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
+
+
 
                                 <div class="col-md-3">
                                     <!-- <div class="form-group">
@@ -308,10 +310,10 @@
                                 <div class="col-md-3">
                                     <label for="" class="">Captcha</label>
                                     <div class="captcha d-flex">
-                                        <button type="button" class="btn btn-secondary btn-refresh me-2">
-                                            <i class="fa fa-refresh"></i>
-                                        </button>
-                                        <span class="me-2">{!! captcha_img('math') !!}</span>
+                                       <span class="me-2">{!! captcha_img('math') !!}</span>
+                                       <button type="button" class="btn btn-secondary btn-refresh me-2">
+                                           <i class="fa fa-refresh"></i>
+                                       </button>
 
                                     </div>
                                 </div>
