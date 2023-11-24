@@ -23,17 +23,17 @@
                             <div class="sidebar-userpic-name">
                              @if(Auth::user()->user_type==1)
                              {{ Auth::user()->firstname }}
-                             <br> ( Admin )</div>
+                             <br><span class="designation"> ( Admin )</span></div>
                              @elseif(Auth::user()->user_type==4)
                              {{ Auth::user()->firstname }}<br>
-                             ( Super Admin )
+                             <span class="designation">( Super Admin )</span>
                              @elseif(Auth::user()->user_type==2)
                              {{ Auth::user()->firstname }}<br>
-                             ( Guru - {{ Auth::user()->gurutype }} )
+                             <span class="designation"> ( Guru - {{ Auth::user()->gurutype }} )</span>
 
                              @elseif(Auth::user()->user_type==3)
                               {{ Auth::user()->firstname }}<br>
-                             ( Shishya - {{ Auth::user()->shishyatype }} )
+                              <span class="designation"> ( Shishya - {{ Auth::user()->shishyatype }} )</span>
 
                              @endif
 

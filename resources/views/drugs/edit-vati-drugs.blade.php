@@ -189,7 +189,7 @@
                                                                                         <input type="text"
                                                                                             name="name_of_the_ingredients[]"
                                                                                             class="form-control"
-                                                                                            placeholder="Name of the ingredients"
+                                                                                            placeholder="Enter Name of the ingredients"
                                                                                             value="{{ $vatitypes->name_of_the_ingredients }}"
                                                                                             maxlength="100">
                                                                                         @error('name_of_the_ingredients')
@@ -203,7 +203,7 @@
                                                                                         <input type="text"
                                                                                             name="part_used[]"
                                                                                             class="form-control"
-                                                                                            placeholder="Part used"
+                                                                                            placeholder="Enter part used"
                                                                                             value="{{ $vatitypes->part_used }}"
                                                                                             maxlength="100">
                                                                                         @error('rasa_part_used')
@@ -216,7 +216,7 @@
                                                                                         <input type="text"
                                                                                             name="quantity[]"
                                                                                             class="form-control"
-                                                                                            placeholder="quantity"
+                                                                                            placeholder="Enter quantity"
                                                                                             value="{{ $vatitypes->quantity }}"
                                                                                             maxlength="10">
                                                                                         @error('quantity')
@@ -676,9 +676,9 @@ function addfaqs() {
     html +=
         '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" value="" maxlength="200"></td>';
     html +=
-        '<td><input type="text" name="part_used[]" class="form-control" placeholder="Part used" value="" maxlength="100"></td>';
+        '<td><input type="text" name="part_used[]" class="form-control" placeholder="Enter part used" value="" maxlength="100"></td>';
     html +=
-        '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="quantity" maxlength="10"></td>';
+        '<td class="text-danger mt-10"> <input type="text" name="quantity[]" class="form-control" placeholder="Enter quantity" maxlength="10"></td>';
     html += '<td class="mt-10"><button class="btn btn-tbl-delete" onclick="$(\'#faqs-row' + faqs_row +
         '\').remove();"><i class="material-icons">delete_forever</i></button></td>';
 

@@ -173,20 +173,20 @@
                                                         <td>
                                                          <input type="hidden" name="drug_part_id[]" value="{{ $churandrugpartdata->id }}" maxlength="200">
 
-                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Name of the ingredients" aria-label="Name of the ingredients" value="{{ $churandrugpartdata->name_of_the_ingredients }}" maxlength="200">
+                                                         <input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Enter Name of the ingredients" aria-label="Name of the ingredients" value="{{ $churandrugpartdata->name_of_the_ingredients }}" maxlength="200">
                                                          @error('name_of_the_ingredients')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                          </td>
 
                                                         <td>
-                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Part used" aria-label="Part used" value="{{ $churandrugpartdata->part_used }}" maxlength="100">
+                                                         <input type="text" name="part_used[]" class="form-control" placeholder="Enter part used" aria-label="Part used" value="{{ $churandrugpartdata->part_used }}" maxlength="100">
                                                          @error('part_used')
                                                          <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                          @enderror
                                                         </td>
                                                         <td class="text-warning mt-10">
-                                                         <input type="text" name="quantity[]" class="form-control" placeholder="quantity" aria-label="quantity" value="{{ $churandrugpartdata->quantity }}" maxlength="10">
+                                                         <input type="text" name="quantity[]" class="form-control" placeholder="Enter quantity" aria-label="quantity" value="{{ $churandrugpartdata->quantity }}" maxlength="10">
                                                         @error('quantity')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
