@@ -171,13 +171,17 @@
               </div>
             </div>
 
+            <div class="col-md-12 d-flex justify-content-end">
+            <a href="{{ route('password.request') }}" class="forgot-password-link text-primary">Forgot Your Password?</a>
+            </div>
+
           </div>
 
           <div class="text-center mb-3">
             <input name="login" id="login" class="btn login-btn" type="submit" onclick="return encrypt()" value="Login">
 
           </div>
-          <p class="login-wrapper-footer-text">Need an account? <a href="{{ url('user-signup') }}" class="text-primary">Create new account</a> Or  <a href="{{ route('password.request') }}" class="forgot-password-link text-primary">Forgot Password?</a></p>
+          <p class="login-wrapper-footer-text">Need an account? <a href="{{ url('user-signup') }}" class="text-primary">Create new account</a></p>
         </form>
 
       </div>
