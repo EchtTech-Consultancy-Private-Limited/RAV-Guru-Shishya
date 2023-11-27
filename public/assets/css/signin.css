@@ -432,9 +432,9 @@ p{
 
 
 @media (max-width:1500px){
-  .reset-password .intro-content-wrapper .intro-title {
+  /* .reset-password .intro-content-wrapper .intro-title {
     padding: 181px 0 !important;
-}
+} */
   .intro-content-wrapper .intro-title{
     font-size: 27px;
   }
@@ -462,9 +462,9 @@ p{
 }
 
 
-.reset-password .intro-content-wrapper .intro-title{
+/* .reset-password .intro-content-wrapper .intro-title{
   padding: 247px 0;
-}
+} */
 
 .reset-password .logo {
   margin-bottom: 54px;
@@ -496,4 +496,15 @@ p{
   text-align: left !important;
   display: block;
   font-size: 12px;
+}
+ .login, .submit{
+  line-height: 2;
+  background-color: #888;
+  color: #fff;
+  border-radius: 20px !important;
+  padding: 0px 15px;
+}
+
+ .login{
+  background-color: #888;
 }
