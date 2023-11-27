@@ -27,7 +27,7 @@ use App\Mail\SendMail;
 
 class AddUserController extends Controller
 {
-    
+
 
     public function show_user(Request $request)
     {
@@ -40,7 +40,7 @@ class AddUserController extends Controller
 
      public function user_delete($id)
     {
-        
+
         $user = User::find($id);
         $user->delete();
         return redirect()->route('users.index')
@@ -93,7 +93,7 @@ class AddUserController extends Controller
 
            $userEmail = $request->email;
 
-           
+
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
@@ -119,7 +119,7 @@ class AddUserController extends Controller
             Mail::to($userEmail)->send(new SendMail($testMailData));
            //Mail sending script ends here
 
-        return redirect('login')->with('success', 'You have successfully registered');
+        return redirect('/')->with('success', 'You have successfully registered');
     }
 
     public function edit_manage_profile_education(Request $request)
@@ -129,7 +129,7 @@ class AddUserController extends Controller
 
         if(strlen($education->upload_degree)>0)
         {
-          $education->upload_degree=url('uploads/').'/'.$education->upload_degree;  
+          $education->upload_degree=url('uploads/').'/'.$education->upload_degree;
         }
         return response()->json($education);
     }
@@ -161,7 +161,7 @@ class AddUserController extends Controller
             {
                 $profile_record=User::where('id',Auth::user()->id)->get();
             }
-            
+
             $per_profile_record=DB::table('users')
             ->select('profiles_basic_info.*', 'users.*','profiles_basic_info.id as profile_id','users.id as user_table_id','cities.name as per_city_name','states.name as per_state_name')
             ->join('profiles_basic_info', 'users.id', '=', 'profiles_basic_info.user_id')
@@ -170,20 +170,20 @@ class AddUserController extends Controller
             ->where('users.id',Auth::user()->id)
             ->get();
         /*end basic information record*/
-         
-         
+
+
         /*educational record*/
         $educational_record=ProfileEducational::where('user_id',$id)->get();
 
 
        // return $per_profile_record[0];
            $language_record=ProfileLanguage::where('user_id',Auth::user()->id)->get();
-        
+
           $form_step_type= Session::get('session_for_redirections');
          if(empty($form_step_type))
-         {  
+         {
            $form_step_type="withour-session-step";
-         }       
+         }
 
         //publication record
         $publication_record=ProfilePublication::where('user_id',$id)->get();
@@ -217,11 +217,11 @@ class AddUserController extends Controller
         return view("users.multi-step",compact('form_step_type','countries','profile_record','per_profile_record','language_record','educational_record','form_step_type','clinic','publication_record','specific_details_record'));
     }
 
-       
+
 
     public function manage_profile_form(Request $request)
     {
-        $formId = $request->input('form_step_type');        
+        $formId = $request->input('form_step_type');
         if ($formId === 'step1') {
             $this->validate($request, [
                 'firstname' => 'required|max:200|min:2',
@@ -280,7 +280,7 @@ class AddUserController extends Controller
         }else{
             $input['is_same_permanent_address'] = $request->same_as_present=0;
         }
-        $form_step_type=$request->form_step_type;    
+        $form_step_type=$request->form_step_type;
         $id=Auth::user()->id;
         $countries = Country::get(["name", "id"]);
         if($request->form_step_type=="step1")
@@ -288,14 +288,14 @@ class AddUserController extends Controller
             if($profile_id!='' && $request->form_step_type=="step1")
             {
                 $user_profile=ProfileBasicInfo::find($profile_id);
-                $user_profile->update($input);                
+                $user_profile->update($input);
             //add data in user language table
                 $lang_name=$request->lang_name;
                 $reading=$request->reading;
                 $writing=$request->writing;
                 $speaking=$request->speaking;
                 $user_id=$request->user_id;
-                $lang_id=$request->lang_id;           
+                $lang_id=$request->lang_id;
                 if($request->lang_name)
                 {
                     for($i=0; $i<count($lang_name); $i++)
@@ -320,12 +320,12 @@ class AddUserController extends Controller
                         $lang_record->speaking=$speaking[$i];
                         $lang_record->user_id=$user_id;
                         $lang_record->save();
-                    } 
+                    }
 
                     }
                 }
-                //update data in user table             
-            $profile=User::find($user_id);           
+                //update data in user table
+            $profile=User::find($user_id);
             if($request->hasfile('e_sign'))
             {
                 $file = $request->file('e_sign');
@@ -342,11 +342,11 @@ class AddUserController extends Controller
                     $file->move('uploads/',$filename);
                     $input['user_image'] = $filename;
                 }
-            $profile->update($input);           
+            $profile->update($input);
             }
             else
             {
-                ProfileBasicInfo::create($input);            
+                ProfileBasicInfo::create($input);
             }
 
         }
@@ -377,7 +377,7 @@ class AddUserController extends Controller
         //second form code
         if($request->form_step_type=="step2")
         {
-            
+
             $this->validate($request, [
                 'course_name' => 'required',
                 'upload_degree' => 'mimes:jpeg,png,jpg,pdf|max:10000',
@@ -386,7 +386,7 @@ class AddUserController extends Controller
             {
                 $education=ProfileEducational::where('id',$request->education_id)->first();
                 if($education)
-                { 
+                {
                     $education=ProfileEducational::where('id',$request->education_id)->first();
                     $education->user_id=Auth()->user()->id;
                     $education->institute_name=$request->institute_name;
@@ -430,7 +430,7 @@ class AddUserController extends Controller
                         $file->move('uploads/',$filename);
                         //dd($filename);
                         $education->upload_degree = $filename;
-                       }                       
+                       }
                     $education->save();
                 }
             }
@@ -439,7 +439,7 @@ class AddUserController extends Controller
             }
             return redirect('/profile')->with('success',"Education Details Updated Successfully");
         }
-        
+
         //here we create session for user redirection and we use this session above function
         $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
@@ -450,7 +450,7 @@ class AddUserController extends Controller
     }
 
     public function manage_profile_form_step3(Request $request)
-    { 
+    {
         $clinical_id=$request->clinical_id;
         $input=$request->all();
         if($clinical_id!='' && $request->form_step_type=="step4")
@@ -476,7 +476,7 @@ class AddUserController extends Controller
             $input['clinic_morning_timing']=json_encode($request->clinic_morning_timing);
             $input['clinic_evening_timing']=json_encode($request->clinic_evening_timing);*/
             ProfileClinical::create($input);
-            
+
         }
         $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
@@ -485,7 +485,7 @@ class AddUserController extends Controller
         return redirect('/profile')->with('success',"Clinical Details Updated Successfully");
     }
 
-    
+
     public function manage_profile_form_step4(Request $request)
     {
         //dd("clinical details");
@@ -493,7 +493,7 @@ class AddUserController extends Controller
         $input=$request->all();
         if($publication_id!='' && $request->form_step_type=="step4")
         {
-            
+
            //update data in profiles clinical  table
             $publication_profile=ProfilePublication::find($publication_id);
             $publication_profile->update($input);
@@ -501,10 +501,10 @@ class AddUserController extends Controller
 
         else
         {
-           
-        
+
+
             ProfilePublication::create($input);
-            
+
         }
         $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
@@ -520,7 +520,7 @@ class AddUserController extends Controller
         $input=$request->all();
         if($specific_id!='' && $request->form_step_type=="step5")
         {
-            
+
            //update data in basic profiles table
             $specific=ProfileSpecificDetails::find($specific_id);
             $specific->update($input);
@@ -528,10 +528,10 @@ class AddUserController extends Controller
 
         else
         {
-           
-        
+
+
             ProfileSpecificDetails::create($input);
-            
+
         }
         $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
@@ -540,7 +540,7 @@ class AddUserController extends Controller
         return redirect('/profile')->with('success',"Specific Details Updated Successfully");
     }
     public function education_delete(Request $request)
-    {    
+    {
          $education_id=$request->education_dlt_id;
          $education=ProfileEducational::find($education_id);
          $education->delete();
@@ -551,7 +551,7 @@ class AddUserController extends Controller
     }
 
      public function publication_delete(Request $request)
-    {    
+    {
          $publication_dlt_id=$request->publication_dlt_id;
          $publication=ProfilePublication::find($publication_dlt_id);
          $publication->delete();
@@ -562,8 +562,8 @@ class AddUserController extends Controller
     }
 
     public function language_delete($lang_id)
-    {    
-       
+    {
+
          $lang=ProfileLanguage::find($lang_id);
          $lang->delete();
          return redirect()->back()->with("danger","Language Deleted Successfully");
@@ -572,7 +572,7 @@ class AddUserController extends Controller
 
     public function shishya_list(Request $request)
     {
-        $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3','Super User'=>'4'];        
+        $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3','Super User'=>'4'];
         if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
             $data = User::orderBy('id','DESC')->where('user_type',"3")->get();
         else if(Auth::user()->user_type=='2')
@@ -584,13 +584,13 @@ class AddUserController extends Controller
     }
 
 
-   
+
 
     public function rav_admin(Request $request)
     {
         $user_type_array=['Admin'=>'1','SuperAdmin'=>'4','Guru'=>'2','Shishya'=>'3'];
         $data = User::orderBy('id','DESC')->where('user_type',"1")->get();
-        
+
         return view('users.index',compact('data','user_type_array'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
