@@ -101,3 +101,8 @@ body{
     height: 100px;
     margin-top: 11px;
 }
+
+
+.select2-container{
+    width: 100% !important;
+}
