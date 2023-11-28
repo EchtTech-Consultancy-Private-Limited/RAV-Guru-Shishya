@@ -51,8 +51,8 @@
         </div>
         <div class="row">
 
-            <div class="col-lg-12 col-md-12 ">
-                <div class="card">
+            <div class="card ">
+                <div class="card-body pb-0">
                     <form role="form" method="POST" action="{{ url('/follow-up-patients') }}">
                         @csrf
 
@@ -71,61 +71,69 @@
                                     <div class="row">
 
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
-                                                <div class="form-group">
-                                                    <label class="active">From Date:</label>
-                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active dateInput" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="<?php echo date('d-m-Y'); ?>">
-                                                </div>
+                                            <div class="form-group">
+                                                <label class="active">From Date:</label>
+                                                <input type="date" name="from_date"
+                                                    class="form-control datetimepicker flatpickr-input active dateInput"
+                                                    value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"
+                                                    max="<?php echo date('d-m-Y'); ?>">
+                                            </div>
 
                                         </div>
 
                                         <div class="col-xl-3 col-xxl-2 col-lg-3 col-md-3 width-50">
 
                                             <div class="form-group">
-                                                    <label class="active"> To Date:</label>
-                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active dateInput" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="<?php echo date('d-m-Y'); ?>">
-                                                </div>
+                                                <label class="active"> To Date:</label>
+                                                <input type="date" name="to_date"
+                                                    class="form-control datetimepicker flatpickr-input active dateInput"
+                                                    value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif"
+                                                    max="<?php echo date('d-m-Y'); ?>">
+                                            </div>
                                         </div>
 
 
                                         <div class="col-xl-3 col-xxl-4 col-lg-4 col-md-6">
                                             <div class="form-group">
-                                                    <label class="active">Select Duration:</label>
-                                                    <select name="report_type" class="form-control active">
-                                                        <option value="">Select Duration</option>
-                                                        @if(!empty(request()->report_type))
-                                                        <option value="{{ request()->report_type }}" selected>{{ request()->report_type }}</option>
-                                                        @endif
-                                                        <option value="Daily">
-                                                            Daily Progress</option>
-                                                        <option value="Weekly">
-                                                            Weekly Progress</option>
-                                                        <option value="Monthly">
-                                                            Monthly Progress</option>
-                                                    </select>
-                                                </div>
-
+                                                <label class="active">Select Duration:</label>
+                                                <select name="report_type" class="form-control active">
+                                                    <option value="">Select Duration</option>
+                                                    @if(!empty(request()->report_type))
+                                                    <option value="{{ request()->report_type }}" selected>
+                                                        {{ request()->report_type }}</option>
+                                                    @endif
+                                                    <option value="Daily">
+                                                        Daily Progress</option>
+                                                    <option value="Weekly">
+                                                        Weekly Progress</option>
+                                                    <option value="Monthly">
+                                                        Monthly Progress</option>
+                                                </select>
                                             </div>
 
                                         </div>
 
-                                        <div class="col-xl-12  justify-content-end d-flex">
-                                            <button type="submit" class="btn filter  waves-effect"
-                                                style="line-height:2;"> Filter </button>
-                                            <a href="{{ url('/follow-up-patients') }}"><button type="button"
-                                                    class="btn reset  waves-effect">Reset</button></a>
-                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-12 pb-2 justify-content-end d-flex">
+                                        <button type="submit" class="btn filter  waves-effect" style="line-height:2;">
+                                            Filter </button>
+                                        <a href="{{ url('/follow-up-patients') }}"><button type="button"
+                                                class="btn reset  waves-effect">Reset</button></a>
                                     </div>
                                 </div>
-
                             </div>
+
                         </div>
+                </div>
 
 
 
                 </form>
                 <form role="form" method="POST" action="{{ url('/send-follow-up-sheet') }}">
                     @csrf
-                    <div class="body">
+                    <div class="card">
+                        <div class="card-body ">
                         <div class="table-responsive">
                             <table
                                 class="table table-hover js-basic-example contact_list dataTable no-footer table-arrow"
@@ -176,7 +184,8 @@
                                                 aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                 aria-hidden="true"></i></th>
                                         <th class="center"> Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-                                            <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
+                                            <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
+                                        </th>
                                         <th class="center"> Action <i class="fa fa-long-arrow-up"
                                                 aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                 aria-hidden="true"></i></th>
@@ -310,12 +319,9 @@
 
                         </div>
                 </form>
-
-
-
-
+                                                </div>
+            </div>
         </div>
-    </div>
     </div>
     </div>
     </div>

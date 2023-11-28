@@ -55,15 +55,16 @@ section.content1 {
 }
 .logo-brand {
     /*float: left;*/
-    height: 100px;
+    height: 60px;
     padding: 6px 25px;
     font-size: 18px;
     line-height: 20px;
     text-align: center;
     width: 240px;
-    overflow:hidden;
-	color:#000!important;
-    clear:both;
+    overflow: hidden;
+    color: #000!important;
+    clear: both;
+    border-bottom: 1px solid #ddd;
 
 }
 .logo-name{
@@ -73,6 +74,9 @@ section.content1 {
 
 .logo-brand img {
 text-align:center;
+width: auto;
+height: 100%;
+background-color: #fff;
 }
 
 .education_heading{
@@ -1450,4 +1454,30 @@ i.fa.fa-history {
 .user-panel .image img {
     border-radius: 100%;
     padding: 10px ;
+  }
+
+  .sidebar{
+    top: 0 !important;
+    width: 240px !important;
+  }
+
+  .navbar-nav .user_profile .dropdown-toggle img {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+  }
+
+  #attendance_modal .modal-header {
+    padding: 0px 20px !important;
+  }
+  .row.view-follow-sheet .col-md-6{
+    margin-bottom: 0 !important;
+  }
+  .view-follow-sheet .card .header h2{
+    margin-bottom: 5px !important;
+  }
+
+  .designation {
+    font-weight: 100;
+    font-size: 12px;
   }

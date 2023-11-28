@@ -107,10 +107,10 @@
     <div class="col-sm-6 col-md-4 form-section">
 
       <div class="login-wrapper">
-        <div>
-          <a href="javascript:void();"><img src="{{asset('/assets/images/guru-shishya-parampara-logo.png')}}" alt="logo" width="350px;"></a>
+        <div class="logo">
+          <a href="javascript:void();"><img src="{{asset('/assets/images/guru-shishya-parampara-logo.png')}}" alt="logo" ></a>
         </div>
-        <h2 class="login-title mt-4">Sign in</h2>
+        <h2 class="login-title mt-3">Sign in</h2>
 
         @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -133,8 +133,8 @@
             <i class="fa fa-user field-icon1 user-icon"></i>
             <span class="text-danger" id="email-error"></span>
             @if($errors->has('email'))
-            <span class="help-block">
-              <strong style="color:red;">{{ $errors->first('email') }}</strong>
+            <span class="error">
+            {{ $errors->first('email') }}
             </span>
             @endif
           </div>
@@ -143,17 +143,27 @@
             <input type="password" name="password" id="password" class="form-control" autocomplete="off" placeholder="Password">
             <i class="fa fa-eye field-icon1 eye-icon" id="eye"></i>
             @if($errors->has('password'))
-            <span class="help-block">
-              <strong style="color:red;">{{ $errors->first('password') }}</strong>
+            <span class="error">
+            {{ $errors->first('password') }}
             </span>
             @endif
           </div>
 
           <div class="form-group mb-3 row align-items-center">
 
-            <div class="col-md-5">
-              <label for="password" class="sr-only">Captcha</label>
-              <div class="captcha d-flex justify-content-between">
+            <div class="col-md-6">
+            <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
+              @if ($errors->has('captcha'))
+              <span class="error">
+              {{ $errors->first('captcha') }}
+              </span>
+              @endif
+
+            </div>
+
+            <div class="col-md-6 pl-0">
+            <label for="password" class="sr-only">Captcha</label>
+              <div class="captcha ">
                 <span>{!! captcha_img('math') !!}</span>
                 <button type="button" class="btn btn-secondary btn-refresh me-2">
                   <i class="fa fa-refresh"></i>
@@ -161,23 +171,19 @@
               </div>
             </div>
 
-            <div class="col-md-7 pl-0">
-              <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
-              @if ($errors->has('captcha'))
-              <span class="help-block">
-                <strong style="color:red;">{{ $errors->first('captcha') }}</strong>
-              </span>
-              @endif
+            <div class="col-md-12 d-flex justify-content-end">
+            <a href="{{ route('password.request') }}" class="forgot-password-link text-primary">Forgot Your Password?</a>
             </div>
 
           </div>
 
-          <div class="d-flex justify-content-between align-items-center mb-5">
+          <div class="text-center mb-3">
             <input name="login" id="login" class="btn login-btn" type="submit" onclick="return encrypt()" value="Login">
-            <a href="{{ route('password.request') }}" class="forgot-password-link">Forgot Password?</a>
+
           </div>
+          <p class="login-wrapper-footer-text">Need an account? <a href="{{ url('user-signup') }}" class="text-primary">Create new account</a></p>
         </form>
-        <p class="login-wrapper-footer-text">Need an account? <a href="{{ url('user-signup') }}" class="text-primary">Create new account</a></p>
+
       </div>
     </div>
   </div>

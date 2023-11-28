@@ -42,12 +42,12 @@
             <div class="col-lg-12 col-sm-12 col-sm-12 col-xs-12">
                 <div class="card">
 
-                    <div class="body p-0">
+                    <div class="body p-0 ">
                         <div id="wizard_horizontal " class="card-body">
                             <section>
 
                                 <div class="col-sm-12 pb-0">
-                                    <div class="row">
+                                    <div class="row view-follow-sheet">
                                         <div class="col-md-6">
                                         <div class="header p-0">
                                         <h2 class=''>View Follow Up </h2>
@@ -173,11 +173,7 @@
                                               </div>
                                               @endif
                                             @if(Auth::user()->user_type==1 || Auth::user()->user_type==3)
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input type="hidden" name="send_to" id="send_to" value="2">
-                                                </div>
-                                            </div>
+                                            <input type="hidden" name="send_to" id="send_to" value="2">
 
                                             @else
 
@@ -207,7 +203,7 @@
 
 
                                                     <div class="row clearfix">
-                                                        <div class="col-sm-12 p-t-20 text-left">
+                                                        <div class="col-sm-12 text-left">
 
                                                             <button type="submit"
                                                                 class="btn send  waves-effect m-r-15"
@@ -222,11 +218,9 @@
 
                                                         </div>
                                                     </div>
-
-
-                                </form>
-                            </div>
-                        </div>
+                                                </form>
+                                            </div>
+                                        </div>
 
 
 
