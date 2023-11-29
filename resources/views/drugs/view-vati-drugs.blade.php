@@ -122,6 +122,29 @@
 
 
                                                 </div>
+                                                  <!-- **************** -->
+                                                  <h3>Composition</h3>
+                                                  <table  class=" table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th> Name of the ingredients </th>
+                                                        <th> Part used</th>
+                                                        <th> Quantity</th>
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody>
+                                                <tbody>
+                                                     @foreach($vatitype as $vatitypes)
+                                                        <tr>
+                                                            <td>{{ $vatitypes->name_of_the_ingredients }} </td>
+                                                            <td>{{ $vatitypes->part_used }} </td>
+                                                            <td>{{ $vatitypes->quantity }} </td>
+                                                        </tr>
+                                                        @endforeach
+                                                </tbody>
+                                            </table>
+                                            <!-- ******************* -->
                                                 <table class="view-table" id="faqs">
 
                                                     <thead>
@@ -131,27 +154,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td colspan="2">
-                                                                <h3>Composition</h3>
-                                                            </td>
-                                                        </tr>
-                                                        @foreach($vatitype as $vatitypes)
-                                                        <tr>
-                                                            <td> Name of the ingredients mineral metal</td>
-                                                            <td>{{ $vatitypes->name_of_the_ingredients }} </td>
-                                                        </tr>
 
-                                                        <tr>
-                                                            <td>Part used </td>
-                                                            <td>{{ $vatitypes->part_used }} </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td> Quantity</td>
-                                                            <td>{{ $vatitypes->quantity }} </td>
-                                                        </tr>
-                                                        @endforeach
 
                                                         <tr>
                                                             <td colspan="2">

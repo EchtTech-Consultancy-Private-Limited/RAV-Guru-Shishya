@@ -67,13 +67,13 @@
                      </li>
                   </ul>
                </div>
-               <div class="body">
+               <div class="body p-0">
                    <div id="wizard_horizontal1">
 
-                        <div class="card">
+                        <div class="card mb-0">
                             <form role="form" method="get" action="{{ url('filter-drug-report') }}" enctype="multipart/form-data">
                                 @csrf
-                                <div class="card-body">
+                                <div class="card-body pb-0">
                                     <table>
                                         <thead>
                                             <tr>

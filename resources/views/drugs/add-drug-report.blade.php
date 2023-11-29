@@ -170,7 +170,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group  ">
-                                <h5 class="text-center d-flex justify-content-center">1 – CHURNA YOGAS</h5>
+                                <h5 class="text-center d-flex justify-content-center"> CHURNA YOGAS</h5>
                                 <h5 class="d-block text-left">Name of the Drug</h5>
                                 <h5 class="d-block text-left">
                                     Reference
@@ -254,7 +254,7 @@
                     <div class="row">
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label class="form-control-label"> Yogas Name<span class="text-danger">*</span></label>
+                                <label class="form-control-label">Churna Yogas Name<span class="text-danger">*</span></label>
                                 <input type="text" name="churna_yoga_type_individual" class="form-control"
                                     placeholder="Enter Churna Yoga  Name"
                                     value="{{ old('churna_yoga_type_individual') }}" maxlength="50" minlength="3"
@@ -508,18 +508,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Organoleptic properties of
-                                    raw materials</label>
-                                <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control"
-                                    placeholder="Enter Organoleptic properties of raw materials" aria-label="Name"
-                                    value="{{ old('Organoleptic properties of raw materials') }}" maxlength="50">
-                                @error('Organoleptic properties of raw materials')
-                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                @enderror
-                            </div>
-                        </div>
+
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Organoleptic properties of
@@ -577,7 +566,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group  ">
-                                <h5 class="text-center d-flex justify-content-center"> 2- RASA YOGAS</h5>
+                                <h5 class="text-center d-flex justify-content-center">  RASA YOGAS</h5>
                                 <h5 class="d-block text-left">Name of the Drug</h5>
                                 <h5 class="d-block text-left">
                                     Reference
@@ -673,9 +662,9 @@
                     <div class="row">
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label class="form-control-label">Yogas Name</label>
+                                <label class="form-control-label">Rasa Yogas Name</label>
                                 <input type="text" name="rasa_yoga_type_individual" class="form-control"
-                                    placeholder="Rasa Yoga Type Individual"
+                                    placeholder="Enter Rasa Yogas Name"
                                     value="{{ old('rasa_yoga_type_individual') }}" maxlength="30"
                                     required>@error('step_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -685,7 +674,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 1</label>
-                                <input type="text" name="herbal_first" class="form-control" placeholder="1"
+                                <input type="text" name="herbal_first" class="form-control" placeholder="Enter Step 1"
                                     aria-label="Step 1" value="{{ old('herbal_first') }}"
                                     maxlength="50">@error('herbal_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -695,7 +684,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 2</label>
-                                <input type="text" name="herbal_second" class="form-control" placeholder="2"
+                                <input type="text" name="herbal_second" class="form-control" placeholder="Enter Step 2"
                                     aria-label="Step 2" value="{{ old('herbal_second') }}" maxlength="50">
                                 @error('herbal_second')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -717,7 +706,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 1</label>
-                                <input type="text" name="mineral_first" class="form-control" placeholder="1"
+                                <input type="text" name="mineral_first" class="form-control" placeholder="Enter Step 1"
                                     aria-label="Step 1" value="{{ old('mineral_first') }}"
                                     maxlength="50">@error('mineral_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -727,7 +716,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 2</label>
-                                <input type="text" name="mineral_second" class="form-control" placeholder="2"
+                                <input type="text" name="mineral_second" class="form-control" placeholder="Enter Step 2"
                                     aria-label="Step 2" value="{{ old('mineral_second') }}" maxlength="50">
                                 @error('mineral_second')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -745,7 +734,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 1</label>
-                                <input type="text" name="metal_first" class="form-control" placeholder="1"
+                                <input type="text" name="metal_first" class="form-control" placeholder="Enter Step 1"
                                     aria-label="Step 1" value="{{ old('metal_first') }}"
                                     maxlength="50">@error('metal_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -755,7 +744,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 2</label>
-                                <input type="text" name="metal_second" class="form-control" placeholder="2"
+                                <input type="text" name="metal_second" class="form-control" placeholder="Enter Step 2"
                                     aria-label="Step 2" value="{{ old('metal_second') }}" maxlength="50">
                                 @error('metal_second')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -773,7 +762,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 1</label>
-                                <input type="text" name="animal_first" class="form-control" placeholder="1"
+                                <input type="text" name="animal_first" class="form-control" placeholder="Enter Step 1"
                                     aria-label="Step 1" value="{{ old('animal_first') }}"
                                     maxlength="50">@error('animal_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -783,7 +772,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 2</label>
-                                <input type="text" name="animal_second" class="form-control" placeholder="2"
+                                <input type="text" name="animal_second" class="form-control" placeholder="Enter Step 2"
                                     aria-label="Step 2" value="{{ old('animal_second') }}" maxlength="50">
                                 @error('animal_second')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -801,7 +790,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 1</label>
-                                <input type="text" name="bhavana_dravayas_first" class="form-control" placeholder="1"
+                                <input type="text" name="bhavana_dravayas_first" class="form-control" placeholder="Enter Step 1"
                                     aria-label="Step 1" value="{{ old('bhavana_dravayas_first') }}"
                                     maxlength="50">@error('bhavana_dravayas_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -811,7 +800,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 2</label>
-                                <input type="text" name="bhavana_dravayas_second" class="form-control" placeholder="2"
+                                <input type="text" name="bhavana_dravayas_second" class="form-control" placeholder="Enter Step 2"
                                     aria-label="Step 2" value="{{ old('bhavana_dravayas_second') }}" maxlength="50">
                                 @error('bhavana_dravayas_second')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -843,18 +832,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
-                            <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">
-                                    organoleptic_properties_of_raw_material</label>
-                                <input type="text" name="organoleptic_properties_of_finished_product"
-                                    class="form-control" placeholder="" aria-label="Duration of Therapy"
-                                    value="{{ old('organoleptic_properties_of_finished_product') }}" maxlength="50">
-                                @error('organoleptic_properties_of_finished_product')
-                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
-                                @enderror
-                            </div>
-                        </div>
+
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label"> Time taken for the
@@ -908,7 +886,7 @@
                 <div class="row">
                     <div class="col-md-12 m-0">
                         <div class="form-group  ">
-                            <h5 class="text-center d-flex justify-content-center">3 – VATI YOGAS</h5>
+                            <h5 class="text-center d-flex justify-content-center">  VATI YOGAS</h5>
                             <h5 class="d-block text-left">Name of the Drug</h5>
                             <h5 class="d-block text-left">
                                 Reference
@@ -990,9 +968,9 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label class="form-control-label"> Yogas Name</label>
+                                <label class="form-control-label">Vati Yogas Name</label>
                                 <input type="text" name="vati_yoga_type_individual" class="form-control"
-                                    placeholder="Vati Yoga Type Individual"
+                                    placeholder="Enter Vati Yogas Name"
                                     value="{{ old('vati_yoga_type_individual') }}" maxlength="50"
                                     required>@error('vati_yoga_type_individual')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1290,7 +1268,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group  ">
-                            <h5 class="text-center d-flex justify-content-center"> 4 – TALIA YOGAS</h5>
+                            <h5 class="text-center d-flex justify-content-center">  TALIA YOGAS</h5>
                             <h5 class="d-block text-left">Name of the Drug</h5>
                             <h5 class="d-block text-left">
                                 Reference
@@ -1374,9 +1352,9 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label class="form-control-label"> Yogas Name</label>
+                            <label class="form-control-label">Talia Yogas Name</label>
                             <input type="text" name="talia_yoga_type_individual" class="form-control"
-                                placeholder="Talia Yoga Type Individual" value="{{ old('talia_yoga_type_individual') }}"
+                                placeholder="Enter Talia Yogas Name" value="{{ old('talia_yoga_type_individual') }}"
                                 maxlength="50" required>
                             @error('talia_yoga_type_individual')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1386,7 +1364,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 1</label>
-                            <input type="text" name="kalka_dravyas_step_first" class="form-control" placeholder="1"
+                            <input type="text" name="kalka_dravyas_step_first" class="form-control" placeholder="Enter Step 1"
                                 maxlength="50">@error('kalka_dravyas_step_first')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -1395,7 +1373,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 2</label>
-                            <input type="text" name="kalka_dravyas_step_second" class="form-control" placeholder="2"
+                            <input type="text" name="kalka_dravyas_step_second" class="form-control" placeholder="Enter Step 2"
                                 maxlength="50">
                             @error('kalka_dravyas_step_second')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1405,7 +1383,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 3</label>
-                            <input type="text" name="kalka_dravyas_step_three" class="form-control" placeholder="3"
+                            <input type="text" name="kalka_dravyas_step_three" class="form-control" placeholder="Enter Step 3"
                                 maxlength="50">
                             @error('kalka_dravyas_step_three')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1425,7 +1403,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 1</label>
-                            <input type="text" name="taila_dravys_step_first" class="form-control" placeholder="1"
+                            <input type="text" name="taila_dravys_step_first" class="form-control" placeholder="Enter Step 1"
                                 maxlength="50">
                             @error('taila_dravys_step_first')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1435,7 +1413,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 2</label>
-                            <input type="text" name="taila_dravys_step_second" class="form-control" placeholder="2"
+                            <input type="text" name="taila_dravys_step_second" class="form-control" placeholder="Enter Step 2"
                                 aria-label="Step 2" value="{{ old('taila_dravys_step_second') }}" maxlength="50">
                             @error('taila_dravys_step_second')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1445,7 +1423,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 3</label>
-                            <input type="text" name="taila_dravys_step_three" class="form-control" placeholder="3"
+                            <input type="text" name="taila_dravys_step_three" class="form-control" placeholder="Enter Step 3"
                                 aria-label="Step 1" maxlength="50">@error('taila_dravys_step_second')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -1464,7 +1442,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 1</label>
-                            <input type="text" name="kvatha_dravyas_step_first" class="form-control" placeholder="1"
+                            <input type="text" name="kvatha_dravyas_step_first" class="form-control" placeholder="Enter Step 1"
                                 aria-label="Step 1" value="{{ old('kvatha_dravyas_step_first') }}"
                                 maxlength="50">@error('kvatha_dravyas_step_first')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1474,7 +1452,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 2</label>
-                            <input type="text" name="kvatha_dravyas_step_second" class="form-control" placeholder="2"
+                            <input type="text" name="kvatha_dravyas_step_second" class="form-control" placeholder="Enter Step 2"
                                 aria-label="Step 2" value="{{ old('kvatha_dravyas_step_second') }}" maxlength="50">
                             @error('kvatha_dravyas_step_second')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1484,7 +1462,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 3</label>
-                            <input type="text" name="kvatha_dravyas_step_three" class="form-control" placeholder="3"
+                            <input type="text" name="kvatha_dravyas_step_three" class="form-control" placeholder="Enter Step 3"
                                 aria-label="Step 1" value="{{ old('kvatha_dravyas_step_three') }}"
                                 maxlength="50">@error('kvatha_dravyas_step_three')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1825,7 +1803,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group  ">
-                            <h5 class="text-center d-flex justify-content-center">5 – ASAVA/ARISHTA YOGAS</h5>
+                            <h5 class="text-center d-flex justify-content-center"> ASAVA/ARISHTA YOGAS</h5>
                             <h5 class="d-block text-left">Name of the Drug</h5>
                             <h5 class="d-block text-left">
                                 Reference
@@ -1910,9 +1888,9 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label class="form-control-label"> Yogas Name</label>
+                            <label class="form-control-label">Churna Yogas Name</label>
                             <input type="text" name="arishtayoga_type_individual" class="form-control"
-                                placeholder="Churna Yoga Type Individual"
+                                placeholder="Enter Churna Yogas Name"
                                 value="{{ old('churna_yoga_type_individual') }}" maxlength="50" required>
 
                             @if ($errors->has('churna_yoga_type_individual'))
@@ -1925,7 +1903,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step I</label>
-                            <input type="text" name="main_ingredients_step_one" class="form-control" placeholder="1"
+                            <input type="text" name="main_ingredients_step_one" class="form-control" placeholder="Enter Step 1"
                                 aria-label="1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -1934,7 +1912,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step II</label>
-                            <input type="text" name="main_ingredients_step_two" class="form-control" placeholder="2"
+                            <input type="text" name="main_ingredients_step_two" class="form-control" placeholder="Enter Step 2"
                                 aria-label="Step 2" value="{{ old('2') }}">
                             @error('2')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1944,7 +1922,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step III</label>
-                            <input type="text" name="main_ingredients_step_three" class="form-control" placeholder="3"
+                            <input type="text" name="main_ingredients_step_three" class="form-control" placeholder="Enter Step 3"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -1962,7 +1940,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step I</label>
-                            <input type="text" name="prakshepa_dravyas_step_one" class="form-control" placeholder="1"
+                            <input type="text" name="prakshepa_dravyas_step_one" class="form-control" placeholder="Enter Step 1"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -1971,7 +1949,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step II</label>
-                            <input type="text" name="prakshepa_dravyas_step_two" class="form-control" placeholder="2"
+                            <input type="text" name="prakshepa_dravyas_step_two" class="form-control" placeholder="Enter Step 2"
                                 aria-label="Step 2" value="{{ old('2') }}">
                             @error('2')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1981,7 +1959,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step III</label>
-                            <input type="text" name="prakshepa_dravyas_step_three" class="form-control" placeholder="3"
+                            <input type="text" name="prakshepa_dravyas_step_three" class="form-control" placeholder="Enter Step 3"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -1998,7 +1976,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step I</label>
-                            <input type="text" name="method_of_preparation" class="form-control" placeholder="1"
+                            <input type="text" name="method_of_preparation" class="form-control" placeholder="Enter Step 1"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -2007,7 +1985,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step II</label>
-                            <input type="text" name="packing" class="form-control" placeholder="2" aria-label="Step 2"
+                            <input type="text" name="packing" class="form-control" placeholder="Enter Step 2" aria-label="Step 2"
                                 value="{{ old('2') }}">
                             @error('2')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2017,7 +1995,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">3</label>
-                            <input type="text" name="storage" class="form-control" placeholder="3" aria-label="Step 1"
+                            <input type="text" name="storage" class="form-control" placeholder="Enter Step 3" aria-label="Step 1"
                                 value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror

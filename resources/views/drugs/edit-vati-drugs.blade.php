@@ -534,7 +534,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(i)<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" name="reasons_for_loss_first"
-                                                            class="form-control" placeholder="(i)" aria-label="(i)"
+                                                            class="form-control" placeholder="" aria-label="(I)"
                                                             value="{{ $drug->reasons_for_loss_first }}">@error('reasons_for_loss_first')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -544,10 +544,10 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->reasons_for_loss_second)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(ii)<span
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(II)<span
                                                                 class="text-danger">*</span></label>
                                                         <input type="text" name="reasons_for_loss_second"
-                                                            class="form-control" placeholder="(ii)" aria-label="Name"
+                                                            class="form-control" placeholder="" aria-label="Name"
                                                             value="{{ $drug->reasons_for_loss_second }}" maxlength="50">
                                                         @error('reasons_for_loss_second')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
