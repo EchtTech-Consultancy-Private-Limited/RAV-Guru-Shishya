@@ -34,7 +34,7 @@
             <div class="col-lg-12 col-md-12 mb-2 col-sm-12 col-xs-12">
                 <div class="card">
 
-                    <div class="body px-0">
+                    <div class="body p-0">
                         <div id="wizard_horizontal">
                             <section>
                                 <div class="col-md-12 mb-2">

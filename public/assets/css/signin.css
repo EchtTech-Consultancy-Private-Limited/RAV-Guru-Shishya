@@ -181,12 +181,13 @@ h1>a {
   font-size: 16px;
   font-weight: 500;
   color: #fff;
+  width: 100%;
 }
 
 .login-btn:hover {
   border: 1px solid #000;
   background-color: transparent;
-  color: #000;
+  color: #4e2f2f;
 }
 
 .forgot-password-link {
@@ -507,4 +508,10 @@ p{
 
  .login{
   background-color: #888;
+}
+
+a.back_to_login {
+  text-align: left !important;
+  display: block;
+  margin-top: 20px;
 }

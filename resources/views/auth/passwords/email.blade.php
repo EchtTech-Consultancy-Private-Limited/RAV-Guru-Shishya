@@ -142,7 +142,7 @@
                             {{ __('Reset Password') }}
                         </button>
                         </div>
-                        <a href="{{ route('newLogin') }}" class="">Back To Login</a>
+                        <a href="{{ route('newLogin') }}" class="back_to_login"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back To Login</a>
                 </form>
 
 
