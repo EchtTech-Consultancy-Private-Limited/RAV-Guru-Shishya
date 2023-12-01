@@ -1506,3 +1506,8 @@ input.valid:not([type]), input.valid:not([type]):focus, input.valid[type=text]:n
 input.select2-search__field::placeholder {
     color: #333;
 }
+
+
+.slimScrollBar{
+    display: block !important;
+}

@@ -508,7 +508,18 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Organoleptic properties of
+                                    raw materials</label>
+                                <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control"
+                                    placeholder="Enter Organoleptic properties of raw materials" aria-label="Name"
+                                    value="{{ old('Organoleptic properties of raw materials') }}" maxlength="50">
+                                @error('Organoleptic properties of raw materials')
+                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Organoleptic properties of
