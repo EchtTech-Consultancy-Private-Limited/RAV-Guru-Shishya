@@ -156,11 +156,11 @@ section.content1 {
       position: relative !important;
     } */
     .list.sidebar-manu.slimScrollBar {
-      height: 369px !important;
+      height: 90vh !important;
     }
   .slimScrollDiv {
    overflow-y: auto !important;
-   height: 400px !important;
+   height: 90vh !important;
    overflow-x: hidden !important;
  }
 }

@@ -194,7 +194,7 @@
                                     <div class="card p-0">
                                         <div class=" card-body p-0 ">
                                             <div class="table-responsive px-2">
-                                                <table id="faqs" class="table table-hover ">
+                                                <table id="faqs" class="table table-hover composition-form ">
                                                     <thead>
                                                         <tr>
                                                             <th>Name of the ingredients </th>
@@ -508,7 +508,18 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                            <div class="form-group">
+                                <label for="example-text-input" class="form-control-label">Organoleptic properties of
+                                    raw materials</label>
+                                <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control"
+                                    placeholder="Enter Organoleptic properties of raw materials" aria-label="Name"
+                                    value="{{ old('Organoleptic properties of raw materials') }}" maxlength="50">
+                                @error('Organoleptic properties of raw materials')
+                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Organoleptic properties of
@@ -592,7 +603,7 @@
                                     <div class="card mb-0">
                                         <div class=" card-body p-0">
                                             <div class="">
-                                                <table id="faqs" class="table table-hover table-responsive">
+                                                <table id="faqs" class="table table-hover composition-form table-responsive">
                                                     <thead>
                                                         <tr>
                                                             <th>Name of the ingredients </th>
@@ -909,7 +920,7 @@
                         <div class="card mb-0">
                             <div class=" card-body p-0">
                                 <div class="">
-                                    <table id="faqs" class="table table-hover table-responsive">
+                                    <table id="faqs" class="table table-hover composition-form table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1291,7 +1302,7 @@
                         <div class="card mb-0 pb-0">
                             <div class=" card-body p-0">
                                 <div class="">
-                                    <table id="faqs" class="table table-hover table-responsive">
+                                    <table id="faqs" class="table table-hover composition-form table-responsive">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1826,7 +1837,7 @@
                             <div class="card mb-0 p-0">
                                 <div class=" card-body  mb-0 p-0">
                                     <div class="">
-                                        <table id="faqs" class="table table-hover table-responsive">
+                                        <table id="faqs" class="table table-hover composition-form table-responsive">
                                             <thead>
                                                 <tr>
                                                     <th>Name of the ingredients </th>
@@ -2333,7 +2344,7 @@ var faqs_row = 0;
 function addfaqs() {
     html = '<tr class="extra_faqs_rows" id="faqs-row' + faqs_row + '">';
     html +=
-        '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Enter name of the ingredients Mineral" aria-label="quantity" value="" maxlength="200"></td>';
+        '<td><input type="text" name="name_of_the_ingredients[]" class="form-control" placeholder="Enter name of the ingredients " aria-label="quantity" value="" maxlength="200"></td>';
     html +=
         '<td><input type="text" name="part_used[]" class="form-control" placeholder="Enter part used" aria-label="Part used" value="" maxlength="100"></td>';
     html +=
