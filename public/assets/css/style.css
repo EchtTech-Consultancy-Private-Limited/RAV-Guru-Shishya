@@ -1511,3 +1511,11 @@ input.select2-search__field::placeholder {
 .slimScrollBar{
     display: block !important;
 }
+
+input::placeholder{
+    color: #333 !important;
+}
+
+.composition-form input{
+    border: none !important;
+}

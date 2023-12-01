@@ -157,7 +157,7 @@
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                           <input type="hidden" name="comosition_update" id="comosition_update" value="0">
-                                            <table id="faqs" class="table table-hover">
+                                            <table id="faqs" class="table table-hover composition-form">
                                                 <thead>
                                                     <tr>
                                                         <th>Name of the ingredients </th>
