@@ -82,8 +82,8 @@ class AddUserController extends Controller
                 'state' => 'required',
                 'city' => 'required',
                 'gender' => 'required',
-                'firstname' => 'required|max:32|min:2',
-                'lastname' =>'required|max:32|min:2',
+                'firstname' => 'required|max:32|min:2|regex:/^[a-zA-Z0-9\s]+$/',
+                'lastname' =>'required|max:32|min:2|regex:/^[a-zA-Z0-9\s]+$/',
                 'email' => ['required','email','max:50','unique:users','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'mobile_no'=>'required|numeric|unique:users|min:10,mobile_no|digits:10',
                 // 'captcha' => 'required|captcha'
@@ -224,14 +224,14 @@ class AddUserController extends Controller
         $formId = $request->input('form_step_type');
         if ($formId === 'step1') {
             $this->validate($request, [
-                'firstname' => 'required|max:200|min:2',
-                'lastname' => 'max:200|min:2',
+                'firstname' => 'required|max:200|min:2|regex:/^[a-zA-Z0-9\s]+$/',
+                'lastname' => 'max:200|min:2|regex:/^[a-zA-Z0-9\s]+$/',
                 'email' => 'required',
                 'date_of_birth' => 'required',
                 'age' => 'required|numeric|digits:2',
-                'f_name' => 'required|max:200|min:2',
-                'address1' => 'required',
-                'address2' => 'required',
+                'f_name' => 'required|max:200|min:2|regex:/^[a-zA-Z0-9\s]+$/',
+                'address1' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
+                'address2' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
                 'country' => 'required',
                 'pincode' => 'required|max:6|min:6',
                 'per_pincode' => 'max:6',

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use App\Models\User;
 
 class Authenticate extends Middleware
 {
@@ -16,6 +17,8 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
             // return route('login');
+            // $user = auth()->user();
+            User::where('check_logged_in', 1)->update(['check_logged_in' => 0]);
             return route('newLogin');
         }
     }
