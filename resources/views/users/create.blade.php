@@ -2,7 +2,7 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
 
-<section class="content">
+<section class="content user">
    <div class="container-fluid">
       <div class="block-header">
          <div class="row">
@@ -27,19 +27,19 @@
       <div class="alert alert-success">
          <p>{{ $message }}</p>
       </div>
-      @endif      
+      @endif
       <div class="row">
          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="card">
                <div class="header">
-                  
+
                </div>
                <form  action="{{ route('users.store') }}" class="validation-form123" id="add_user_form" method="post" enctype="multipart/form-data">
                   <input type="hidden" class="form-control" name="user_type" value="{{$add_user_btn}}"  placeholder="User Type">
                @csrf
                <div class="body">
                   <div class="row clearfix">
-                     <div class="col-sm-12">
+                     <div class="col-md-4">
                         <div class="form-group">
                            <div class="form-line">
                               <label >Title</label>
@@ -48,13 +48,12 @@
                                     @foreach(__('phr.titlename') as $key=>$value)
                                        <option value="{{$key}}">{{$value}}</option>
                                     @endforeach
-                                    
+
                                   </select>
                            </div>
                         </div>
                      </div>
-                  </div>
-                  <div class="row clearfix">
+
                      <div class="col-sm-4">
                         <div class="form-group">
                            <div class="form-line">
@@ -84,9 +83,7 @@
                            </div>
                         </div>
                      </div>
-                  </div>
-                  <div class="row clearfix">
-                     
+
                      <div class="col-sm-4">
                         <div class="form-group">
                            <div class="form-line">
@@ -130,8 +127,7 @@
                              </div>
 
                         </div>
-                  </div>
-                  <div class="row clearfix">
+
                       <div class="col-sm-4">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">E-Sign</label>
@@ -152,11 +148,11 @@
                               <span class="help-block">
                                  <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
                               </span>
-                           @endif                             
+                           @endif
                         </div>
                      </div>
                      @if($add_user_btn==2)
-                        <div class="col-sm-4">
+                        <div class="col-md-3">
                            <div class="form-group ">
                               <label >Type<span class="text-danger">*</span></label>
                               <select name="gurutype" class="form-control">
@@ -170,7 +166,7 @@
                            </div>
                         </div>
                         @elseif($add_user_btn==3)
-                        <div class="col-sm-4">
+                        <div class="col-md-3">
                            <div class="form-group ">
                               <label >Type<span class="text-danger">*</span></label>
                               <select name="shishyatype" class="form-control">
@@ -184,10 +180,9 @@
                            </div>
                          </div>
                          @endif
-                        
-                  </div>
-                  <div class="row clearfix">
-                        <div class="col-sm-4">
+
+
+                        <div class="col-md-3">
                            <div class="form-group default-select select2Style">
                               <label >Country<span class="text-danger"> *</span></label>
                               <select name="country" class="form-control select2" id="country-dropdown">
@@ -198,7 +193,7 @@
                                     </select>
                            </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-md-3">
                            <div class="form-group default-select select2Style">
                               <label >State<span class="text-danger"> *</span></label>
                               <select id="state-dropdown" class="form-control select2" name="state">
@@ -206,7 +201,7 @@
                               </select>
                           </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-md-3">
                            <div class="form-group default-select select2Style">
                               <label >City<span class="text-danger"> *</span></label>
                               <select id="city-dropdown" class="form-control select2" name="city">
@@ -222,19 +217,19 @@
                               Password
                               <span class="text-danger">*</span></label>
                               <input id="password" class="form-control input-md"
-                                 name="password" type="password" 
+                                 name="password" type="password"
                                  placeholder="Enter your password" value="{{ old('confirm-password') }}" maxlength="15" autocomplete="new-password" onpaste="return false" oncopy="return false">
                                  <i class="fas fa-eye-slash field-icon" id="eye"></i>
-                             
+
                               <div id="popover-password">
                                  <p><span id="result"></span></p>
                                  <div class="progress">
-                                    <div id="password-strength" 
-                                       class="progress-bar" 
-                                       role="progressbar" 
-                                       aria-valuenow="40" 
-                                       aria-valuemin="0" 
-                                       aria-valuemax="100" 
+                                    <div id="password-strength"
+                                       class="progress-bar"
+                                       role="progressbar"
+                                       aria-valuenow="40"
+                                       aria-valuemin="0"
+                                       aria-valuemax="100"
                                        style="width:0%">
                                     </div>
                                  </div>
@@ -242,7 +237,7 @@
                                     <li class="">
                                        <span class="low-case">
                                        <i class="fas fa-circle" aria-hidden="true"></i>
-                                       &nbsp;Lowercase 
+                                       &nbsp;Lowercase
                                        </span>
                                     </li>
                                     <li class="">
@@ -255,7 +250,7 @@
                                        <span class="one-number">
                                        <i class="fas fa-circle" aria-hidden="true"></i>
                                        &nbsp;Number (0-9)
-                                       </span> 
+                                       </span>
                                     </li>
                                     <li class="">
                                        <span class="eight-character">
@@ -278,9 +273,9 @@
                            </div>
                         </div>
                      </div>
-                     
+
                   </div>
-                  
+
                   <div class="col-lg-12 p-t-20 text-center">
                      <button type="submit" class="btn submit  waves-effect m-r-15" >Submit</button>
                      <button type="reset" onclick="reset_form();" class="btn reset btn-danger waves-effect">Reset Form</button>
