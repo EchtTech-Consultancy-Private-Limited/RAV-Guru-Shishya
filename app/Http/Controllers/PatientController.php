@@ -611,7 +611,7 @@ class PatientController extends Controller
     {
         $request->validate(
             [
-              'patient_name'   => 'required|max:100|min:2',
+              'patient_name'   => 'required|max:100|min:2|regex:/^[a-zA-Z0-9\s]+$/',
               'patient_type' => ['required'],
               'registration_no' => ['required','unique:patients'],
               'age'   => 'required|numeric',
@@ -619,7 +619,7 @@ class PatientController extends Controller
               'age_group'   => 'required',
               'occupation'   => 'required',
               'marital_status'   => 'required',
-              'address'   => 'required|max:250',
+              'address'   => 'required|max:250|regex:/^[a-zA-Z0-9\s]+$/',
             ]);
         $input = $request->all();
         $input['phr_a_status']=0;
