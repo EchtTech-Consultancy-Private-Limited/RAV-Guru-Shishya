@@ -186,6 +186,3 @@ $('#mobile_no').keypress(function (e) {
     e.preventDefault();
     return false;
 });
-
-
-console.log("welcome neeraj");
