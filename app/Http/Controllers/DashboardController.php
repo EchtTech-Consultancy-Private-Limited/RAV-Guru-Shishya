@@ -35,13 +35,9 @@ class DashboardController extends Controller
 
     public function save_system_configration(Request $request)
     {
-        $input=$request->all();
-        
-
-
-        
+        $input=$request->all();   
             $input['long_description'] = $request->long_descp;
-            $input['short_description'] = $request->short_descp;
+            $input['sort_description'] = $request->short_descp;
             $id=$request->id;
         if($id)
         {

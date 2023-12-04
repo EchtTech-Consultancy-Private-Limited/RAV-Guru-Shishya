@@ -65,35 +65,26 @@ class LoginController extends Controller
             ]);
 
             $userDet = Auth::getProvider()->retrieveByCredentials($usercredentials);
-            $user = Auth::attempt(['email' => $request->email, 'password' => $request->password,'status' => '1']);
-            if($user == "true")
-            $status=1;
-            else
-            $status=0;   
-            
-            if($user != "" && $status == 1)
-            { 
+            // login code
+            $loggedUser = User::where('email',$request->email)->first();
+            if( $loggedUser->check_logged_in == 1){
+                return Redirect::back()->with('Error', 'User Already Logged in ');
+            }
+            if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1])) {
                 Auth::login($userDet, $request->get('remember'));
-                $request->session()->regenerate();
+                User::where('id', Auth::id())->update(['check_logged_in' => 1]);
                 return redirect('/dashboard')->with('success', "User Login Successfully");
             }
-            else
-            {
-                return Redirect::back()->with('Error', 'Your Credentials Not Match (Try Again)');
-            }
-
-
-        //    Auth::login($user, $request->get('remember'));
-
-        //dd($credentials);
-        
+            return Redirect::back()->with('Error', 'Your Credentials Not Match (Try Again)');
+            // end login code
     }
 
     public function logout () {
-    //logout user
-    auth()->logout();
-    // redirect to homepage
-    return redirect('/');
+        //logout user
+        User::where('id', Auth::id())->update(['check_logged_in' => 0]);
+        auth()->logout();
+        // redirect to homepage
+        return redirect('/');
     }
 
 

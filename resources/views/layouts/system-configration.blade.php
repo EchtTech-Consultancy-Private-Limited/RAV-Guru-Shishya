@@ -78,7 +78,7 @@
                            <div class="form-group">
                               <div class="form-line">
                                  <label >Contact No.</label>
-                                 <input type="text" class="form-control" name="contact_no" placeholder="Contact No." value="@if(isset($system->contact_no)){{ $system->contact_no }}@endif">
+                                 <input type="text" class="form-control" name="contact_no" placeholder="Contact No." oninput="validateInput(this)" maxlength="10" value="@if(isset($system->contact_no)){{ $system->contact_no }}@endif">
                               </div>
                            </div>
                         </div>
@@ -216,5 +216,11 @@
       </div>
    </div>
 </section>
+<script>
+   // validate input
+function validateInput(input) {
+    input.value = input.value.replace(/\D/g, '');
+ }
+</script>
 
 @endsection
