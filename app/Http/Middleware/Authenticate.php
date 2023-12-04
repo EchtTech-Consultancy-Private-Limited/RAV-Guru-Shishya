@@ -18,8 +18,7 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) {
             // return route('login');
             // $user = auth()->user();
-            // User::where('id', $user->id)->update(['check_logged_in' => 0]);
-            User::update(['check_logged_in' => 0]);
+            User::where('check_logged_in', 1)->update(['check_logged_in' => 0]);
             return route('newLogin');
         }
     }
