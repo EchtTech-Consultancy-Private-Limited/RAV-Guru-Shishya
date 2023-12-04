@@ -24,9 +24,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3'];
-        $data = User::orderBy('id','DESC')->where('user_type',2)->get();
-
-       
+        $data = User::orderBy('id','DESC')->where('user_type',2)->get();       
         return view('users.index',compact('data','user_type_array'))
             ->with('i', ($request->input('page', 1) - 1) * 100);
     }
@@ -176,7 +174,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, $id)
-    {        
+    {
         $id= decrypt($id);
         $countries = Country::get(["name", "id"]);
         $user=DB::table('users')->where('users.id',$id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
@@ -320,7 +318,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
         User::find($id)->delete();
         return redirect()->route('users.index')
                         ->with('success','User deleted successfully');
