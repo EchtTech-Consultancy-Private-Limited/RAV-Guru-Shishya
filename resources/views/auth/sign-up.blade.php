@@ -60,6 +60,11 @@
                                                 class="form-control capitalize preventnumeric"
                                                 value="{{ old('firstname') }}" placeholder="First Name" maxlength="30"
                                                 minlength="2">
+                                                @if ($errors->has('firstname'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -80,6 +85,11 @@
                                             <input type="text" name="lastname"
                                                 class="form-control capitalize preventnumeric" placeholder="Last Name"
                                                 value="{{ old('lastname') }}" maxlength="30">
+                                            @if ($errors->has('lastname'))
+                                                <span class="help-block">
+                                                    <strong style="color:red;">{{ $errors->first('lastname') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

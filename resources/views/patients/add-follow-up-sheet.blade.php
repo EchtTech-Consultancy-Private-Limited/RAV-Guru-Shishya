@@ -93,6 +93,7 @@
                                                                         class="text-danger"></span></label>
                                                                 <select name="report_type" id="report_type"
                                                                     class="form-control" required>
+                                                                    <option value="">Select Duration</option>
                                                                     <option value="Daily" @if (!empty($data->
                                                                         report_type) && $data->report_type == 'Daily')
                                                                         SELECTED @elseif(old('report_type') &&

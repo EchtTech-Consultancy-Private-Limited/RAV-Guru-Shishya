@@ -71,8 +71,8 @@ class UserController extends Controller
            ]);
         }
         $this->validate($request, [
-            'firstname'=>'required',
-            'lastname'=>'required',
+            'firstname'=>'required|regex:/^[a-zA-Z0-9\s]+$/',
+            'lastname'=>'required|regex:/^[a-zA-Z0-9\s]+$/',
             'gender'=>'required',
             'profile_image' => 'required|mimes:jpeg,png,jpg|max:200',
             'e_sign'   => 'required|mimes:jpeg,png,jpg',

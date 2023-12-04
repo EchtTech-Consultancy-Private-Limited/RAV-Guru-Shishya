@@ -34,6 +34,7 @@ class User extends Authenticatable
         'gender',
         'country',
         'state',
+        'check_logged_in',
         'city',
         
 

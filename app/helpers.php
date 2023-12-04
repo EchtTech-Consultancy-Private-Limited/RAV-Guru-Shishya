@@ -73,7 +73,7 @@
         {
             $userlist=App\Models\User::where('id',$id)->first();
             if(!empty($userlist)){
-                $username = $userlist->firstname;
+                $username = $userlist->firstname.' '.$userlist->lastname;
                 return $username;
             }
             else{
