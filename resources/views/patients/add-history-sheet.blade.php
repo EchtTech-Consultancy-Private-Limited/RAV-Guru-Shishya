@@ -1031,7 +1031,8 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">
                                              evening_meals </label>
-                                             <input type="text" name="evening_meals" maxlength="150" value="{{ old('evening_meals') }}">
+                                             <textarea name="evening_meals" id=""  rows="1" class="form-control" placeholder="Enter Evening Meal">{{ old('evening_meals') }}</textarea>
+                                             <!-- <input type="text" name="evening_meals" maxlength="150" value="{{ old('evening_meals') }}"> -->
                                           </div>
                                        </div>
                                        <div class="col-md-3 annexure_field" id="bed_time">

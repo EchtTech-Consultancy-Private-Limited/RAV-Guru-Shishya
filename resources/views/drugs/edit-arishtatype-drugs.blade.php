@@ -188,7 +188,7 @@
                                                             <div class="card">
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive">
-                                                                        <table id="faqs" class="table table-hover">
+                                                                        <table id="faqs" class="table table-hover composition-form">
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th>Name of the ingredients mineral

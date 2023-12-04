@@ -34,7 +34,7 @@
             <div class="col-lg-12 col-md-12 mb-2 col-sm-12 col-xs-12">
                 <div class="card">
 
-                    <div class="body px-0">
+                    <div class="body p-0">
                         <div id="wizard_horizontal">
                             <section>
                                 <div class="col-md-12 mb-2">
@@ -119,7 +119,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 mb-2">
                                                     <div class="form-group  ">
-                                                        <h5 class="text-center d-flex justify-content-center">3- ARISHTA
+                                                        <h5 class="text-center d-flex justify-content-center">ARISHTA
                                                             – GHRITA YOGAS</h5>
                                                         <h5 class="d-block text-left">Name of the Drug</h5>
                                                         <h5 class="d-block text-left">

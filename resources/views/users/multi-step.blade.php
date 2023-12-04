@@ -233,7 +233,7 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Mobile No.<span class="text-danger">*</span></label>
-                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Enter Your Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >
+                                       <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Please Enter 10 Digit Mobile No." oninput="validateInput(this)" maxlength="10" value="@if(isset($profile_record)){{$profile_record[0]->mobile_no}}@else @endif" >
                                        <p id="mobile_no_err" class="position-absolute"></p>
                                        @if($errors->has('mobile_no'))
                                        <span class="help-block">
@@ -246,7 +246,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Aadhar Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Enter Your Aadhar Number"  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">
+                                       <input type="text" name="aadhaar_no" id="aadhaar_no" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Please Enter 12 Digit Adhar No."  value="{{ old('aadhaar_no', $profile_record[0]->aadhaar_no) }}">
                                        <p id="aadhaar_no_err" class="position-absolute"></p>
                                        @if($errors->has('aadhaar_no'))
                                        <span class="help-block">
@@ -258,7 +258,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pan Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Enter Your Pan Number"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
+                                       <input type="text" name="pan_no" id="Pancard" class="form-control" maxlength="10" placeholder="Please Enter Your Pan Number"  value="{{ old('pan_no', $profile_record[0]->pan_no) }}">
                                        <p id="pan_no_err" class="position-absolute"></p>
                                        @if($errors->has('pan_no'))
                                        <span class="help-block">
@@ -296,7 +296,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>Country<span class="text-danger">*</span></label>
                                        <select name="country" class="form-control select2" id="country-dropdown" >
                                           <option value="">Select Country</option>
@@ -317,7 +317,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>State <span class="text-danger">*</span></label>
                                        <select id="state-dropdown" class="form-control state select2" name="state">
                                           @if(isset($profile_record[0]))
@@ -333,7 +333,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>City <span class="text-danger">*</span></label>
                                        <select id="city-dropdown" class="form-control select2" name="city" >
                                           <option value="{{$profile_record[0]->city}}">{{ $profile_record[0]->city_name }}</option>
@@ -396,7 +396,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>Country <span class="text-danger">*</span></label>
                                        <select name="per_country" class="form-control select2" id="per-country-dropdown">
                                           <option value="">Select Country</option>
@@ -415,7 +415,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>State <span class="text-danger">*</span></label>
                                        <select id="per-state-dropdown" class="form-control state select2" name="per_state" >
                                           @if(isset($per_profile_record[0]))
@@ -432,7 +432,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>City <span class="text-danger">*</span></label>
                                        <select id="per-city-dropdown" class="form-control select2" name="per_city">
                                           @if(isset($per_profile_record[0]))
@@ -466,7 +466,7 @@
                                     <h2>Bank Details </h2>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label >Bank Name<span class="text-danger">*</span></label>
                                        <select name="bank_name" id="bank_name" class="form-control select2">
                                           <option value="">Please select</option>
@@ -902,7 +902,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group ">
+                                    <div class="form-group option-selector">
                                        <label >Country <span class="text-danger">*</span></label>
                                        <select name="country" class="form-control " id="country-dropdown-clinical" required>
                                           <option value="">Select Country</option>
@@ -915,7 +915,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>State <span class="text-danger">*</span></label>
                                        <select id="state-dropdown-clinical" class="form-control  state " name="state">
                                           <option  @if(isset($clinic_record->state)) value="{{$clinic_record->state}}" @endif>@if(isset($clinic_record->state_name)){{ $clinic_record->state_name }} @endif</option>
@@ -923,7 +923,7 @@
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
-                                    <div class="form-group">
+                                    <div class="form-group option-selector">
                                        <label>City<span class="text-danger">*</span></label>
                                        <select id="city-dropdown-clinical" class="form-control state " name="city">
                                           <option value="@if(isset($clinic_record->city)) {{$clinic_record->city}} @endif">@if(isset($clinic_record->city)){{ $clinic_record->city_name }}@endif</option>
