@@ -110,6 +110,7 @@
       border-radius: 20px !important;
     padding: 6px 16px !important;
     line-height: 1.5 !important;
+    font-size: 15px;
   }
   .add-btn-lang {
    margin-right: 2%;
@@ -146,6 +147,9 @@ section.content1 {
 }
 
 @media(min-width:991px) and (max-width:1300px){
+   .slimScrollBar{
+      display: block !important;
+  }
    /* .sidebar .menu .list {
       list-style: none;
       padding-left: 0;
