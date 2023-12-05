@@ -55,7 +55,6 @@ $(document).ready(function() {
                     email: true,
                     maxlength: 40
                 },
-
                 'postal': {
                     required: true,
                     minlength: 2,
