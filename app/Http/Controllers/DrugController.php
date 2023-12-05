@@ -29,11 +29,11 @@ class DrugController extends Controller
 {
     public function add_drug_report()
     {
-        $guru=get_guru_list(Auth::user()->guru_id);
-
-        //dd("$guru");
-
-        return view("drugs.add-drug-report",['guru'=>$guru]);
+        if(Auth::user()->guru_id){           
+            $guru=get_guru_list(Auth::user()->guru_id);
+            return view("drugs.add-drug-report",['guru'=>$guru]); 
+        }
+        return redirect()->back()->with('error', 'Your Guru not assigned !');
     }
 
 
