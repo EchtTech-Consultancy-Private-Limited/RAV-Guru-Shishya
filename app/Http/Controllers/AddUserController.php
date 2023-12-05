@@ -251,13 +251,7 @@ class AddUserController extends Controller
                 'per_country' => 'required',
                 'per_state' => 'required',
                 'per_city' => 'required',
-            ],[
-                'firstname' => 'First Name is required.',
-                'f_name' => 'Father Name is required',
-                'aadhaar_no' => 'Aadhar no is required.',
-                'mobile_no' => 'Mobile no is required.',
-                'pan_no' => 'Pan no is required.',
-            ]);
+            ],);
         }
         $profile_id=$request->profile_id;
         $user_id=$request->user_id;
