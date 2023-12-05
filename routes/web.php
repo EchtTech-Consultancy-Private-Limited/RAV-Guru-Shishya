@@ -82,7 +82,7 @@ Auth::routes();
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::group(['middleware' => ['auth','prevent-back-history']], function() {
+Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid']], function() {
     // Route::middleware(['CustomAuth'])->group(function () {
         Route::get('dashboard', [DashboardController::class, 'index']);
         //Route::get('shishya', [DashboardController::class, 'shishya']);
