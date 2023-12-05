@@ -67,8 +67,10 @@ class LoginController extends Controller
             $userDet = Auth::getProvider()->retrieveByCredentials($usercredentials);
             // login code
             $loggedUser = User::where('email',$request->email)->first();
-            if( $loggedUser->check_logged_in == 1){
-                return Redirect::back()->with('Error', 'User Already Logged in ');
+            if(config('constants.userLoggedIn') == 'on'){
+              if( $loggedUser->check_logged_in == 1){
+                  return Redirect::back()->with('Error', 'User Already Logged in ');
+              }
             }
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1])) {
                 Auth::login($userDet, $request->get('remember'));
