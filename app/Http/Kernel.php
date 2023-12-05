@@ -71,5 +71,6 @@ class Kernel extends HttpKernel
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'CustomAuth' => \App\Http\Middleware\CustomAuth::class, #SKP
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
+        'EnsureTokenIsValid' => \App\Http\Middleware\EnsureTokenIsValid::class,
     ];
 }
