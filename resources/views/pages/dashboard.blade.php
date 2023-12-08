@@ -26,6 +26,10 @@
             <div class="alert alert-danger" data-bs-dismiss="alert">
                 {{session::get('fail')}}
             </div>
+            @elseif(Session::has('error'))
+            <div class="alert alert-danger" data-bs-dismiss="alert">
+                {{session::get('error')}}
+            </div>
             @endif
         </div>
         @if(Auth::user()->user_type == 3)

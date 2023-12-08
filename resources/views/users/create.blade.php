@@ -59,6 +59,11 @@
                            <div class="form-line">
                               <label>First Name<span class="text-danger">*</span></label>
                               <input type="text"  name="firstname"  class="form-control capitalize preventnumeric" value="{{ old('firstname') }}" placeholder="First Name" maxlength="32" minlength="2">
+                              @if ($errors->has('firstname'))
+                              <span class="help-block">
+                                  <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
+                              </span>
+                          @endif
                            </div>
                         </div>
                      </div>
@@ -126,7 +131,7 @@
                       <div class="col-sm-4">
                         <div class="form-group">
                            <label for="example-text-input" class="form-control-label">E-Sign</label>
-                           <input type="file" class="form-control" name="e_sign"  placeholder="E-Sign">
+                           <input type="file" class="form-control" name="e_sign" id="e_sign" accept=".jpg, .jpeg, .png" onchange="validateFile('e_sign')" placeholder="E-Sign">
                            <span id="esign_error" class="text-danger"></span>
                            @if ($errors->has('e_sign'))
                               <span class="help-block">
@@ -138,7 +143,7 @@
                      <div class="col-sm-4">
                         <div class="form-group ">
                            <label >Profile Picture</label>
-                             <input type="file" name="profile_image" id="profile_image" class="form-control" >
+                             <input type="file" name="profile_image" accept=".jpg, .jpeg, .png" onchange="validateFile('profile_image')" id="profile_image" class="form-control" >
                              @if ($errors->has('profile_image'))
                               <span class="help-block">
                                  <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
@@ -282,80 +287,14 @@
       </div>
    </div>
 </section>
+<script>
+   const fetchStatesUrl = "{{ url('api/fetch-states') }}";
+   const fetchCitesUrl = "{{ url('api/fetch-cities') }}";
+   const csrfToken = "{{ csrf_token() }}";
+</script>
 <script src="{{ asset('assets/js/custom/alert.js') }}"></script>
 <script src="{{ asset('assets/js/custom/users.js') }}"></script>
 <script src="{{ asset('assets/js/custom/custom.js') }}"></script>
 <script src="{{ asset('assets/js/custom/password-policy.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-<script>
-        $(document).ready(function () {
-
-            /*------------------------------------------
-            --------------------------------------------
-            Country Dropdown Change Event
-            --------------------------------------------
-            --------------------------------------------*/
-            $('#country-dropdown').on('change', function () {
-                var idCountry = this.value;
-                $("#state-dropdown").html('');
-                $.ajax({
-                    url: "{{url('api/fetch-states')}}",
-                    type: "POST",
-                    data: {
-                        country_id: idCountry,
-                        _token: '{{csrf_token()}}'
-                    },
-                    dataType: 'json',
-                    success: function (result) {
-                        $('#state-dropdown').html('<option value="">-- Select State --</option>');
-                        $.each(result.states, function (key, value) {
-                            $("#state-dropdown").append('<option value="' + value
-                                .id + '">' + value.name + '</option>');
-                        });
-                        $('#city-dropdown').html('<option value="">-- Select City --</option>');
-                    }
-                });
-            });
-
-            /*------------------------------------------
-            --------------------------------------------
-            State Dropdown Change Event
-            --------------------------------------------
-            --------------------------------------------*/
-            $('#state-dropdown').on('change', function () {
-                var idState = this.value;
-                $("#city-dropdown").html('');
-                $.ajax({
-                    url: "{{url('api/fetch-cities')}}",
-                    type: "POST",
-                    data: {
-                        state_id: idState,
-                        _token: '{{csrf_token()}}'
-                    },
-                    dataType: 'json',
-                    success: function (res) {
-                        $('#city-dropdown').html('<option value="">-- Select City --</option>');
-                        $.each(res.cities, function (key, value) {
-                            $("#city-dropdown").append('<option value="' + value
-                                .id + '">' + value.name + '</option>');
-                        });
-                    }
-                });
-            });
-
-        });
-</script>
-
-<script>
-    // disable alphate
-   $('#mobile_no').keypress(function (e) {
-    var regex = new RegExp("^[0-9_]");
-    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
-    if (regex.test(str)) {
-        return true;
-    }
-    e.preventDefault();
-    return false;
-});
-</script>
+<script src="{{ asset('assets/js/custom/jquery-3.6.3.min.js') }}"></script>
 @endsection

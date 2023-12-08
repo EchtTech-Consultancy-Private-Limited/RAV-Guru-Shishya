@@ -82,7 +82,6 @@ class UserController extends Controller
             'city'=>'required',
 
         ]);
-
         $input = $request->all();
 
         $input['password'] = Hash::make($input['password']);
