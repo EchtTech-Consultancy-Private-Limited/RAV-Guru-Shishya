@@ -1521,3 +1521,12 @@ input::placeholder{
 .user .select2-container .select2-selection--single{
     margin-top: 14px !important;
 }
+
+
+.form-group input.form-control::placeholder, input[type=date]::placeholder{
+    color: #7e7e7e !important;
+}
+
+ input[type=date]::placeholder{
+
+}

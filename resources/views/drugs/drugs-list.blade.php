@@ -111,19 +111,6 @@
                                                 <h3>Search</h3>
                                             </div>
                                             <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">From:</label>
-                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="form-control-label">To:</label>
-                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
                                                <div class="form-group">
                                                   <label
                                                      for="example-text-input"
@@ -137,7 +124,21 @@
                                                   </select>
                                                </div>
                                             </div>
-                                            <div class="col-md-3 d-flex align-items-center">
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">From Date:</label>
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">To Date:</label>
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 d-flex align-items-center">
                                                 <div>
                                                 <button  class="btn filter btn-primary btn-sm ms-auto nextBtn" type="submit" >Filter Drug Report</button>
                                                 <a href="{{url('drug-report-history')}}"> <button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn">Reset</button></a>

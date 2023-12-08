@@ -123,7 +123,7 @@
                                     <div class="col-md-12 mb-2">
 
                                        <div class="form-group  ">
-                                          <h5 class="text-center d-flex justify-content-center">2- RASA YOGAS</h5>
+                                          <h5 class="text-center d-flex justify-content-center"> RASA YOGAS</h5>
                                           <h5 class="d-block text-left">Name of the Drug</h5>
                                           <h5 class="d-block text-left">
                                              Reference
@@ -202,7 +202,7 @@
                                  <div class="row">
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
-                                          <label class="form-control-label @if(isset($data->rasa_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Enter Yogas Name</label>
+                                          <label class="form-control-label @if(isset($data->rasa_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Rasa Yogas Name</label>
                                           <input type="text" name="rasa_yoga_type_individual" class="form-control" value="{{ $rasadrug->rasa_yoga_type_individual }}">@error('rasa_yoga_type_individual')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
@@ -219,7 +219,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label class="form-control-label @if(isset($data->herbal_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2<span class="text-danger">*</span></label>
-                                          <input type="text" name="herbal_second" class="form-control" placeholder="2" value="{{ $rasadrug->herbal_second }}">
+                                          <input type="text" name="herbal_second" class="form-control" placeholder=" " value="{{ $rasadrug->herbal_second }}">
                                           @error('herbal_second')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
@@ -234,7 +234,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->mineral_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1<span class="text-danger">*</span></label>
-                                          <input type="text" name="mineral_first" class="form-control" placeholder="1" value="{{ $rasadrug->mineral_first }}">@error('mineral_first')
+                                          <input type="text" name="mineral_first" class="form-control" placeholder=" " value="{{ $rasadrug->mineral_first }}">@error('mineral_first')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
                                        </div>
@@ -242,7 +242,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label class="form-control-label @if(isset($data->mineral_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2</label>
-                                          <input type="text" name="mineral_second" class="form-control" placeholder="2" value="{{ $rasadrug->mineral_second }}">
+                                          <input type="text" name="mineral_second" class="form-control" placeholder=" " value="{{ $rasadrug->mineral_second }}">
                                           @error('mineral_second')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
@@ -257,7 +257,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->metal_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1<span class="text-danger">*</span></label>
-                                          <input type="text" name="metal_first" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $rasadrug->metal_first }}">@error('metal_first')
+                                          <input type="text" name="metal_first" class="form-control" placeholder=" " aria-label="Step 1" value="{{ $rasadrug->metal_first }}">@error('metal_first')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
                                        </div>
@@ -265,7 +265,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->rasa_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2<span class="text-danger">*</span></label>
-                                          <input type="text" name="metal_second" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $rasadrug->metal_second }}">
+                                          <input type="text" name="metal_second" class="form-control" placeholder=" " aria-label="Step 2" value="{{ $rasadrug->metal_second }}">
                                           @error('metal_second')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
@@ -280,7 +280,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->animal_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1<span class="text-danger">*</span></label>
-                                          <input type="text" name="animal_first" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $rasadrug->animal_first }}">@error('animal_first')
+                                          <input type="text" name="animal_first" class="form-control" placeholder=" " aria-label="Step 1" value="{{ $rasadrug->animal_first }}">@error('animal_first')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
                                        </div>
@@ -288,7 +288,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->animal_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2<span class="text-danger">*</span></label>
-                                          <input type="text" name="animal_second" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $rasadrug->animal_second }}">
+                                          <input type="text" name="animal_second" class="form-control" placeholder=" " aria-label="Step 2" value="{{ $rasadrug->animal_second }}">
                                           @error('animal_second')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
@@ -303,7 +303,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->bhavana_dravayas_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1<span class="text-danger">*</span></label>
-                                          <input type="text" name="bhavana_dravayas_first" class="form-control" placeholder="1" aria-label="Step 1" value="{{ $rasadrug->bhavana_dravayas_first }}">@error('bhavana_dravayas_first')
+                                          <input type="text" name="bhavana_dravayas_first" class="form-control" placeholder=" " aria-label="Step 1" value="{{ $rasadrug->bhavana_dravayas_first }}">@error('bhavana_dravayas_first')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
                                        </div>
@@ -311,7 +311,7 @@
                                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                                        <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->bhavana_dravayas_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2<span class="text-danger">*</span></label>
-                                          <input type="text" name="bhavana_dravayas_second" class="form-control" placeholder="2" aria-label="Step 2" value="{{ $rasadrug->bhavana_dravayas_second }}">
+                                          <input type="text" name="bhavana_dravayas_second" class="form-control" placeholder=" " aria-label="Step 2" value="{{ $rasadrug->bhavana_dravayas_second }}">
                                           @error('bhavana_dravayas_second')
                                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                           @enderror
