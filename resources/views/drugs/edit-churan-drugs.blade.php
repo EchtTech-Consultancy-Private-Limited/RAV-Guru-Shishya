@@ -132,7 +132,7 @@
                   <div class="col-md-12 mb-2">
 
                      <div class="form-group  ">
-                            <h5 class="text-center d-flex justify-content-center">1 – CHURNA YOGAS</h5>
+                            <h5 class="text-center d-flex justify-content-center">CHURNA YOGAS</h5>
                             <h5 class="d-block text-left">Name of the Drug</h5>
                             <h5 class="d-block text-left">
                                Reference
@@ -215,7 +215,7 @@
                 <div class="row">
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
-                          <label  class="form-control-label @if(isset($data->churna_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Enter Yogas Name</label>
+                          <label  class="form-control-label @if(isset($data->churna_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Churan Yogas Name</label>
                           <input type="text" name="churna_yoga_type_individual" class="form-control"  value="{{ $churandrug->churna_yoga_type_individual }}" >@error('rasa_yoga_type_individual')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
@@ -413,7 +413,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1<span class="text-danger">*</span></label>
-                          <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="(i)" aria-label="(i)" value="{{ $churandrug->reasons_for_loss_first }}" >@error('(i)')
+                          <input type="text" name="reasons_for_loss_first" class="form-control" placeholder=" " aria-label="(i)" value="{{ $churandrug->reasons_for_loss_first }}" >@error('(i)')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
                        </div>
@@ -421,7 +421,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2<span class="text-danger">*</span></label>
-                          <input type="text" name="reasons_for_loss_second" class="form-control" placeholder="(ii)" aria-label="Name" value="{{ $churandrug->reasons_for_loss_second }}" >
+                          <input type="text" name="reasons_for_loss_second" class="form-control" placeholder="" aria-label="Name" value="{{ $churandrug->reasons_for_loss_second }}" >
                           @error('(ii)')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror

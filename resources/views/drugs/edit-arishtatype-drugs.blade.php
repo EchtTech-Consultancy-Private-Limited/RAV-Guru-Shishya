@@ -160,7 +160,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 mb-2">
                                                     <div class="form-group  ">
-                                                        <h5 class="text-center d-flex justify-content-center">3- ARISHTA
+                                                        <h5 class="text-center d-flex justify-content-center">ARISHTA
                                                             – GHRITA YOGAS</h5>
                                                         <h5 class="d-block text-left">Name of the Drug</h5>
                                                         <h5 class="d-block text-left">
@@ -171,7 +171,7 @@
                                                     </div>
                                                 </div>
 
-                                            </div>
+                                              </div>
 
                                             <div class="h-100">
                                                 <h5 class="mb-1 p-0">
@@ -279,11 +279,10 @@
                                                     <div class="form-group">
                                                         <label
                                                             class="form-control-label @if(isset($data->arishtayoga_type_individual)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Enter
-                                                            Yogas Name</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Arishta Yogas Name</label>
                                                         <input type="text" name="arishtayoga_type_individual"
                                                             class="form-control"
-                                                            placeholder="Churna Yoga Type Individual"
+                                                            placeholder="Arishta Yoga Type Individual"
                                                             value="{{ $drug->arishtayoga_type_individual }}"
                                                             maxlength="50">@error('churna_yoga_type_individual')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -297,7 +296,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             I</label>
                                                         <input type="text" name="main_ingredients_step_one"
-                                                            class="form-control" placeholder="1" aria-label="1"
+                                                            class="form-control" placeholder=" " aria-label="1"
                                                             value="{{ $drug->main_ingredients_step_one }}">@error('1')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -310,7 +309,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             II</label>
                                                         <input type="text" name="main_ingredients_step_two"
-                                                            class="form-control" placeholder="2" aria-label="Step 2"
+                                                            class="form-control" placeholder=" " aria-label="Step 2"
                                                             value="{{ $drug->main_ingredients_step_two }}">
                                                         @error('2')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -324,7 +323,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             III</label>
                                                         <input type="text" name="main_ingredients_step_three"
-                                                            class="form-control" placeholder="3" aria-label="Step 1"
+                                                            class="form-control" placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->main_ingredients_step_three }}">@error('1')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -343,7 +342,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             I</label>
                                                         <input type="text" name="prakshepa_dravyas_step_one"
-                                                            class="form-control" placeholder="1" aria-label="Step 1"
+                                                            class="form-control" placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->prakshepa_dravyas_step_one }}">@error('1')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -356,7 +355,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             II</label>
                                                         <input type="text" name="prakshepa_dravyas_step_two"
-                                                            class="form-control" placeholder="2" aria-label="Step 2"
+                                                            class="form-control" placeholder=" " aria-label="Step 2"
                                                             value="{{ $drug->prakshepa_dravyas_step_two }}">
                                                         @error('2')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -370,7 +369,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             III</label>
                                                         <input type="text" name="prakshepa_dravyas_step_three"
-                                                            class="form-control" placeholder="3" aria-label="Step 1"
+                                                            class="form-control" placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->prakshepa_dravyas_step_three }}">@error('1')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -389,7 +388,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             I</label>
                                                         <input type="text" name="method_of_preparation"
-                                                            class="form-control" placeholder="1" aria-label="Step 1"
+                                                            class="form-control" placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->method_of_preparation }}">@error('1')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -402,7 +401,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             II</label>
                                                         <input type="text" name="packing" class="form-control"
-                                                            placeholder="2" aria-label="Step 2"
+                                                            placeholder=" " aria-label="Step 2"
                                                             value="{{ $drug->packing }}">
                                                         @error('2')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -415,7 +414,7 @@
                                                             class="form-control-label @if(isset($data->storage)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">3</label>
                                                         <input type="text" name="storage" class="form-control"
-                                                            placeholder="3" aria-label="Step 1"
+                                                            placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->storage }}">@error('1')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
