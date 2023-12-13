@@ -1363,7 +1363,7 @@ i.fa.fa-plus {
 .select2-container .select2-search--inline .select2-search__field {
     font-size: 100%;
     height: auto !important;
-    padding: 0 !important;
+    padding: 5px 0 !important;
   }
 
   .select2-container .select2-selection--multiple{
@@ -1413,7 +1413,7 @@ i.fa.fa-plus {
 }
 
 #Name_Clinic {
-    padding: 0 !important;
+    padding: 5px 0 !important;
   }
 #delete_remark{
     height: auto;

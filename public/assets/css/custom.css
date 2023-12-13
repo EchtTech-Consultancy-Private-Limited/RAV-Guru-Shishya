@@ -149,6 +149,8 @@ section.content1 {
 @media(min-width:991px) and (max-width:1300px){
    .slimScrollBar{
       display: block !important;
+      overflow: visible;
+    overflow-y: scroll;
   }
    /* .sidebar .menu .list {
       list-style: none;

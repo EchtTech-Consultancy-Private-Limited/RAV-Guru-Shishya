@@ -471,7 +471,7 @@ p{
   margin-bottom: 54px;
 }
 .reset-password .login-btn {
-  padding: 4px 16px;
+  /* padding: 4px 16px; */
   background-color: #000;
   border-radius: 10px;
   font-size: 15px;

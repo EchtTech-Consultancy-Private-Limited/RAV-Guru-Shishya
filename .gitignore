@@ -19,3 +19,4 @@ Homestead.json
 .idea
 .vscode
 .zshrc
+composer.lock
