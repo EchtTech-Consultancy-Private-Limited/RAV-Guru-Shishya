@@ -651,7 +651,7 @@
                                        <input type="file" name="profile_image" id="profile_image" class="form-control" >
 
                                        @if($profile_record[0]->user_image)
-                                       <img src="{{ asset('uploads/'.$profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
+                                       <img src="{{ getImagePath($profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @else
                                        <img src="{{ asset('assets/images/user.png') }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @endif
