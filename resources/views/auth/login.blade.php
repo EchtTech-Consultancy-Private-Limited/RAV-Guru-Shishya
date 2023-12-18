@@ -125,7 +125,7 @@
         @endif
 
 
-        <form action="{{ route('login') }}" id="loginForm" method="POST" autocomplete="off">
+        <form action="{{ url('user-login') }}" id="loginForm" method="POST" autocomplete="off">
           @csrf
           <div class="form-group position-relative">
             <label for="email" class="sr-only">Email</label>

@@ -3,25 +3,23 @@
 
 
 <section class="content">
-            @if (count($errors) > 0)
-              <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                   @foreach ($errors->all() as $error)
-                     <li>{{ $error }}</li>
-                   @endforeach
-                </ul>
-              </div>
-            @endif
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        </div>
+    @endif
          <div class="container-fluid">
             <div class="block-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
                        <ul class="breadcrumb breadcrumb-style ">
                           <li class="breadcrumb-item">
                              <h6 class="page-title">List of Drug Details </h6>
-
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
                             <a href="{{url('/dashboard')}}">
@@ -70,13 +68,11 @@
                </div>
                <div class="body p-0">
                    <div id="wizard_horizontal1">
-
                         <div class="card">
                             <form role="form" method="GET" action="{{ url('admin-filter-drug-report') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
-
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label   class="form-control-label">Name of the Shishya</label>
@@ -94,13 +90,13 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">From:</label>                                                  
-                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}">
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">To:</label>
-                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}">
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
 
                                                 </div>
                                             </div>
@@ -118,16 +114,11 @@
                                                       </select>
                                                </div>
                                             </div>
-
-
-
                                     </div>
                                     <div class= "float-right">
                                     <button class="btn filter btn-primary btn-sm ms-auto  " type="submit" >Filter Drug Report</button>
-                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn float-right">Reset</button>    
-
-                                    </div>
-                                   
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn float-right">Reset</button></a>
+                                    </div>                                   
                                 </div>
                             </form>
                         </div>
@@ -136,7 +127,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 </section>
 
     <section class="content content-section">
@@ -175,7 +166,7 @@
                                 @isset($drugslist)
                                 @if(strlen($drugslist)>3)
                                 @if($drugslist[0]->yoga_type==1)
-                                <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
                                 <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                        <tr role="row">
@@ -227,7 +218,7 @@
                                 @isset($drugslist)
                                 @if(strlen($drugslist)>3)
                                 @if($drugslist[0]->yoga_type==2)
-                                <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
                                 <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                        <tr role="row">
@@ -273,7 +264,7 @@
                                 @isset($drugslist)
                                 @if(strlen($drugslist)>3)
                                 @if($drugslist[0]->yoga_type==3)
-                                <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
                                 <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                        <tr role="row">
@@ -322,7 +313,7 @@
                                 @isset($drugslist)
                                 @if(strlen($drugslist)>3)
                                 @if($drugslist[0]->yoga_type==4)
-                                <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
                                 <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                        <tr role="row">
@@ -370,7 +361,7 @@
                                 @isset($drugslist)
                                 @if(strlen($drugslist)>3)
                                 @if($drugslist[0]->yoga_type==5)
-                                <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
                                 <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                        <tr role="row">
@@ -429,7 +420,7 @@
          </div>
       </div>
    </div>
-      </section>
+</section>
 
 
       <script>

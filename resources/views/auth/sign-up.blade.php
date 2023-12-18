@@ -183,13 +183,14 @@
                                             <label>User Type<span class="text-danger">*</span></label>
                                             <select name="user_type" class="form-control" id="user_type">
                                                 <option value="">Select User Type</option>
-                                                @foreach($user_type as $key=>$user_type)
-                                                <option value="{{$key}}">{{$user_type}}</option>
-                                                @if($key == old('user_type'))
-                                                <option value="{{ $key }}" selected>{{ $user_type }}</option>
-                                                @endif
+                                                <?php
+                                                    $uniqueUserTypes = array_unique($user_type);
+                                                ?>
+                                                @foreach($uniqueUserTypes as $key => $user_type)
+                                                    <option value="{{ $key }}" @if($key == old('user_type')) selected @endif>{{ $user_type }}</option>
                                                 @endforeach
                                             </select>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -309,27 +310,22 @@
 
                                 <div class="col-md-3 pl-0">
                                     <label>Enter Captcha<span class="text-danger">*</span></label>
-                                    <input id="captcha" type="text" class="form-control" autocomplete="off"
-                                        placeholder="Enter Captcha" name="captcha">
+                                    <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
                                     @if ($errors->has('captcha'))
-                                    <span class="help-block">
-                                        <strong style="color:red;">{{ $errors->first('captcha') }}</strong>
+                                    <span class="text-danger">
+                                    {{ $errors->first('captcha') }}
                                     </span>
                                     @endif
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="" class="">Captcha</label>
-                                    <div class="captcha d-flex">
-                                       <span class="me-2">{!! captcha_img('math') !!}</span>
-                                       <button type="button" class="btn btn-secondary btn-refresh me-2">
-                                           <i class="fa fa-refresh"></i>
-                                       </button>
-
-                                    </div>
+                                    <label for="password" class="sr-only">Captcha</label>
+                                      <div class="captcha ">
+                                        <span>{!! captcha_img('math') !!}</span>
+                                        <button type="button" class="btn btn-secondary btn-refresh me-2">
+                                          <i class="fa fa-refresh"></i>
+                                        </button>
+                                      </div>
                                 </div>
-
-
-
                             </div>
                             <div class="col-lg-12  text-center">
                                 <a href="{{ route('newLogin') }}" class="btn login waves-effect">Back To Login</a>
@@ -351,6 +347,17 @@
 <script src="{{ asset('assets/js/custom/sign-up.js') }}"></script>
 <script src="{{ asset('assets/js/custom/password-policy.js') }}"></script>
 <script>
+
+$(".btn-refresh").click(function() {
+    $.ajax({
+      type: 'GET',
+      url: '{{ url("refresh_captcha") }}',
+      success: function(data) {
+        $(".captcha span").html(data.captcha);
+      }
+    });
+  });
+  
 $(function() {
 
     $(function() {

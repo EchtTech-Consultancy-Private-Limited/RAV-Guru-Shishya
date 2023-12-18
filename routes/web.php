@@ -84,8 +84,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid']], function() {
     // Route::middleware(['CustomAuth'])->group(function () {
-        Route::middleware('throttle:4,1')->group(function () {
-            Route::resource('users', UserController::class);
+        Route::resource('users', UserController::class);
+        Route::middleware('throttle:4,1')->group(function () {            
             Route::post('/user-update', '\App\Http\Controllers\UserController@update');
             Route::post('new-patient-registration', [PatientController::class, 'new_patient_registration']);
             Route::post('follow-up-patients', [PatientController::class, 'follow_up_patients']);
