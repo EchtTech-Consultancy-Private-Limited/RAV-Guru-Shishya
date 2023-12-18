@@ -78,7 +78,7 @@
                                     <div class="col-sm-12">
                                         <form role="form" method="POST" action="{{ url('/send-php-to-guru') }}">
                                             @csrf
-                                            <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                            <table class="table table-striped table-bordered" id="patient_table" role="grid" aria-describedby="DataTables_Table_0_info">
                                                 <thead>
                                                     <tr role="row">
                                                         <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending">
@@ -250,10 +250,8 @@
                                                             @endif
                                                         </td>
                                                         <td class="center"> {{ $patientlist->patient_type }} </td>
-
                                                     </tr>
                                                     @endforeach
-
                                                 </tbody>
                                             </table>
                                     </div>
@@ -268,14 +266,25 @@
 </section>
 
 <script>
-    $("#addall").click(function() {
-        $("input[class=add]").prop("checked", $(this).prop("checked"));
-    });
+    $(document).ready(function() {
+        var table = $('#patient_table').DataTable({
+            "columnDefs": [{
+                "targets": 0,
+                "orderable": false,
+                "className": 'select-checkbox',
+            }],
+            "select": {
+                "style": 'multi',
+                "selector": 'td:first-child',
+            },
+            "order": [[1, 'asc']], // Order by the second column by default
+        });
 
-    $("input[class=add]").click(function() {
-        if (!$(this).prop("checked")) {
-            $("#addall").prop("checked", false);
-        }
+        // Handle the "Select All" checkbox
+        $('#addall').on('click', function() {
+            var rows = table.rows({ 'search': 'applied' }).nodes();
+            $('input[type="checkbox"]', rows).prop('checked', this.checked);
+        });
     });
 </script>
 @endsection
