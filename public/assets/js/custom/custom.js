@@ -137,7 +137,7 @@ $(function(){
                 $('.emsgpsw').addClass('hidden');
                }
          });*/
-});
+// });
 
 /*ajax code for login user*/
 

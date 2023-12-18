@@ -114,6 +114,8 @@ class AttendanceController extends Controller
             'from_date' => 'required',
             'to_date' => 'required',
             'attendance' => 'required',
+        ],[
+            'shishya_ids' => "Please select a shishya",
         ]);
         $fdate = $request->from_date;
         $tdate = $request->to_date;

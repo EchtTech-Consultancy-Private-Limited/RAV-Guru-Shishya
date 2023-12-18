@@ -485,7 +485,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >IFSC Code<span class="text-danger">*</span></label>
-                                       <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" placeholder="IFSC Code"  value="{{ old('ifsc_code', @$profile_record[0]->ifsc_code) }}">
+                                       <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" placeholder="IFSC Code" maxlength="11" value="{{ old('ifsc_code', @$profile_record[0]->ifsc_code) }}">
                                        <p id="ifsc_code_err" class="position-absolute"></p>
                                        @if($errors->has('ifsc_code'))
                                           <span class="help-block">
@@ -497,7 +497,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Account Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="account_no" id="account_no" class="form-control" placeholder="Account Number"  value="{{ old('account_no', @$profile_record[0]->account_no) }}">
+                                       <input type="text" name="account_no" id="account_no" class="form-control" placeholder="Account Number" oninput="validateInput(this)" value="{{ old('account_no', @$profile_record[0]->account_no) }}">
                                        <p id="account_no_err" class="position-absolute"></p>
                                        @if($errors->has('account_no'))
                                        <span class="help-block">
@@ -633,7 +633,7 @@
                                  <div class="col-sm-12 col-md-6">
                                     <!-- guru name -->
                                     <div class="form-group">
-                                       <label >E-Signature<span class="text-danger">*</span></label>
+                                       <label >E-Signature</label>
                                        <input type="file" name="e_sign" id="e_sign" class="form-control" >
                                        @if($profile_record[0]->e_sign)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
