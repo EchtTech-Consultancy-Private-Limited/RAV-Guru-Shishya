@@ -87,6 +87,7 @@ body{
 .sign-up .select2-container .select2-selection--single{
     height: auto !important;
     padding: 5px;
+    background: transparent;
 }
 
 .sign-up .select2-container .select2-selection--single .select2-selection__rendered{
@@ -105,4 +106,8 @@ body{
 
 .select2-container{
     width: 100% !important;
+}
+
+.form-group .form-control{
+    background: transparent;
 }

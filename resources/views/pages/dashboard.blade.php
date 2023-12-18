@@ -161,7 +161,7 @@
                     <div class="info-box-5 p-4">
                         <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
                         <div class="">
-                            <h5 class="font-20 mb-0">Total Patients Discharge</h5>
+                            <h5 class="font-20 mb-0">Total No. of Patients Discharge</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">

@@ -540,7 +540,7 @@
                     <div class="row">
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label Field" for="date">(I) Starting Date
+                                <label class="control-label Field" for="date">Starting Date
                                 </label>
 
                                 <input class="form-control" id="date" name="starting_date" placeholder="MM/DD/YYYY"
@@ -551,7 +551,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label Field" for="date">(II) Ending Date
+                                <label class="control-label Field" for="date">Starting Date
                                 </label>
 
                                 <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
@@ -861,7 +861,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label"> Starting date of
                                     experiment</label>
-                                <input type="text" name="starting_date_of_experiment" class="form-control"
+                                <input type="date" name="starting_date_of_experiment" class="form-control"
                                     placeholder="Wholesome activities" aria-label="Wholesome activities"
                                     value="{{ old('starting_date_of_experiment') }}"
                                     maxlength="50">@error('starting_date_of_experiment')
@@ -873,7 +873,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label"> Ending date of
                                     experiment</label>
-                                <input type="text" name="ending_date_of_experiment" class="form-control"
+                                <input type="date" name="ending_date_of_experiment" class="form-control"
                                     placeholder=" Ending date of experiment" aria-label="Wholesome behavior"
                                     value="{{ old('ending_date_of_experiment') }}" maxlength="50">
                                 @error('ending_date_of_experiment')
@@ -1240,7 +1240,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label " for="date">(I) Starting Date
+                                <label class="control-label " for="date">Starting Date
                                 </label>
                                 <div class="input-group">
                                 </div>
@@ -1253,7 +1253,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label" for="date">(II) Ending Date
+                                <label class="control-label" for="date">Starting Date
                                 </label>
                                 <div class="input-group">
                                 </div>
@@ -1777,7 +1777,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label " for="date">(I) Starting Date
+                                <label class="control-label " for="date">Starting Date
                                 </label>
 
                                 <input class="form-control" id="date" name="starting_date" placeholder="MM/DD/YYYY"
@@ -1789,7 +1789,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label " for="date">(II) Ending Date
+                                <label class="control-label " for="date">Starting Date
                                 </label>
 
                                 <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
@@ -2287,7 +2287,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group ">
-                            <label class="control-label  " for="date">(I) Starting Date
+                            <label class="control-label  " for="date">Starting Date
                             </label>
                             <div class="input-group">
                             </div>
@@ -2300,7 +2300,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group ">
-                            <label class="control-label  " for="date">(II) Ending Date
+                            <label class="control-label  " for="date">Starting Date
                             </label>
                             <div class="input-group">
                             </div>

@@ -139,7 +139,7 @@
                                         <input type="hidden" name="drug_id" value="{{ $drug->id }}">
                                         <div class="row px-2">
                                             <div class="form-group  ">
-                                                <h5 class="text-center d-flex justify-content-center"> 3- Vati YOGAS
+                                                <h5 class="text-center d-flex justify-content-center"> Vati YOGAS
                                                 </h5>
                                                 <h5 class="d-block text-left">Name of the Drug</h5>
                                                 <h5 class="d-block text-left">

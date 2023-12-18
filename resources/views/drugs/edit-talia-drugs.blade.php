@@ -139,7 +139,7 @@
                                         <input type="hidden" name="drug_id" value="{{ $drug->id }}">
                                         <div class="row px-2">
                                             <div class="form-group  ">
-                                                <h5 class="text-center d-flex justify-content-center">3- TAILA – GHRITA
+                                                <h5 class="text-center d-flex justify-content-center"> TAILA – GHRITA
                                                     YOGAS</h5>
                                                 <h5 class="d-block text-left">Name of the Drug</h5>
                                                 <h5 class="d-block text-left">
@@ -278,7 +278,7 @@
                                                             1</label>
                                                         <input type="text" name="kalka_dravyas_step_first"
                                                             value="{{ $drug->kalka_dravyas_step_first }}"
-                                                            class="form-control" placeholder="1" maxlength="50">
+                                                            class="form-control" placeholder="" maxlength="50">
                                                         @error('kalka_dravyas_step_first')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -292,7 +292,7 @@
                                                             2</label>
                                                         <input type="text" name="kalka_dravyas_step_second"
                                                             value="{{ $drug->kalka_dravyas_step_second }}"
-                                                            class="form-control" placeholder="2" maxlength="50">
+                                                            class="form-control" placeholder="" maxlength="50">
                                                         @error('kalka_dravyas_step_second')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -306,7 +306,7 @@
                                                             3</label>
                                                         <input type="text" name="kalka_dravyas_step_three"
                                                             value="{{ $drug->kalka_dravyas_step_three }}"
-                                                            class="form-control" placeholder="3" maxlength="50">
+                                                            class="form-control" placeholder="" maxlength="50">
                                                         @error('kalka_dravyas_step_three')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -326,7 +326,7 @@
                                                             1</label>
                                                         <input type="text" name="taila_dravys_step_first"
                                                             value="{{ $drug->taila_dravys_step_first }}"
-                                                            class="form-control" placeholder="1" maxlength="50">
+                                                            class="form-control" placeholder="" maxlength="50">
                                                         @error('taila_dravys_step_first')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
@@ -339,7 +339,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             2</label>
                                                         <input type="text" name="taila_dravys_step_second"
-                                                            class="form-control" placeholder="2" aria-label="Step 2"
+                                                            class="form-control" placeholder="" aria-label="Step 2"
                                                             value="{{ $drug->taila_dravys_step_second }}"
                                                             maxlength="50">
                                                         @error('taila_dravys_step_second')
@@ -355,7 +355,7 @@
                                                             3</label>
                                                         <input type="text" name="taila_dravys_step_three"
                                                             class="form-control"
-                                                            value="{{ $drug->taila_dravys_step_three }}" placeholder="3"
+                                                            value="{{ $drug->taila_dravys_step_three }}" placeholder=""
                                                             aria-label="Step 1" maxlength="50">
                                                         @error('taila_dravys_step_second')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -375,7 +375,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             1</label>
                                                         <input type="text" name="kvatha_dravyas_step_first"
-                                                            class="form-control" placeholder="1" aria-label="Step 1"
+                                                            class="form-control" placeholder="" aria-label="Step 1"
                                                             value="{{ $drug->kvatha_dravyas_step_first }}"
                                                             maxlength="50">@error('kvatha_dravyas_step_first')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -389,7 +389,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             2</label>
                                                         <input type="text" name="kvatha_dravyas_step_second"
-                                                            class="form-control" placeholder="2" aria-label="Step 2"
+                                                            class="form-control" placeholder="" aria-label="Step 2"
                                                             value="{{ $drug->kvatha_dravyas_step_second }}"
                                                             maxlength="50">
                                                         @error('kvatha_dravyas_step_second')
@@ -404,7 +404,7 @@
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
                                                             3</label>
                                                         <input type="text" name="kvatha_dravyas_step_three"
-                                                            class="form-control" placeholder="3" aria-label="Step 1"
+                                                            class="form-control" placeholder="" aria-label="Step 1"
                                                             value="{{ $drug->kvatha_dravyas_step_three }}"
                                                             maxlength="50">@error('kvatha_dravyas_step_three')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
