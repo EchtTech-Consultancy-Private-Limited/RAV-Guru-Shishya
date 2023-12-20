@@ -503,7 +503,6 @@ class PatientController extends Controller
             } else {
                 $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['read_by_guru'=>0]);
             }
-
             //Mail sending script start here
 
                 $guru=User::find($data->guru_id);
@@ -526,7 +525,6 @@ class PatientController extends Controller
 
     public function delete_follow_up_sheet($id)
     {
-
         if($id!=0)$id=decrypt($id);
         if(Auth::user()->user_type==1){
             if(FollowUpPatient::where('id',$id)->where('send_to_admin','1')->delete())
