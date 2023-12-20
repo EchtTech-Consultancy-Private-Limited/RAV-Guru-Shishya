@@ -255,6 +255,8 @@ class AddUserController extends Controller
                 'per_country' => 'required',
                 'per_state' => 'required',
                 'per_city' => 'required',
+            ],[
+                'f_name' => "The father name format is invalid",
             ],);
         }
         $profile_id=$request->profile_id;

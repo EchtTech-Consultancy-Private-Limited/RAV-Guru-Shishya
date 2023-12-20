@@ -78,11 +78,15 @@
                             <div class="col-md-6 col-6">
                                 <h2>New Drug Report</h2>
                             </div>
-                            <div class="col-md-6 col-6">
-                                <a href="{{url('drug-report-history')}}"><button type="button"
-                                        class="btn back btn-danger waves-effect float-right"> &nbsp; Back
-                                        &nbsp;</button></a>
-                            </div>
+                            @if(Auth::user()->user_type==2 || Auth::user()->user_type==1 || Auth::user()->user_type==4)
+                                <div class="col-md-6 col-6">
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                </div>
+                                @else
+                                <div class="col-md-6 col-6">
+                                    <a href="{{url('drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                </div>
+                                @endif
                         </div>
 
                         <div id="wizard_horizontal">

@@ -251,8 +251,7 @@
                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                   <label for="passwordinput">
-                                                  Password
-                                                  <span class="text-danger">*</span></label>
+                                                  Password</label>
                                                   <input id="password" class="form-control input-md"
                                                      name="password" type="password"
                                                      placeholder="Enter your password">
@@ -304,7 +303,7 @@
                                         <div class="col-sm-6">
                                            <div class="form-group">
                                               <div class="form-line">
-                                                 <label>Confirm Password<span class="text-danger">*</span></label>
+                                                 <label>Confirm Password</label>
                                                  <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password" onkeyup='check()'>
                                                  <i class="fas fa-eye-slash field-icon" id="eye1"></i>
                                                  <span id="confirm_password_msg"></span>
