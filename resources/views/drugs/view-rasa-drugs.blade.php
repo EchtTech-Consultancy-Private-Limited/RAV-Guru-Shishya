@@ -253,32 +253,32 @@
                                                         <td> {{ $rasadrug->bhavana_dravayas_second }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> VI Changes seen during bhavana therapy</td>
+                                                        <td>Changes seen during bhavana therapy</td>
                                                         <td> {{ $rasadrug->changes_seen_during_bhavana_therapy }}
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td> VII Organoleptic properties of raw material</td>
+                                                        <td>Organoleptic properties of raw material</td>
                                                         <td> {{ $rasadrug->organoleptic_properties_of_raw_material }}
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>VIII organoleptic_properties_of_raw_material </td>
+                                                        <td>organoleptic_properties_of_raw_material </td>
                                                         <td> {{ $rasadrug->organoleptic_properties_of_finished_product }}
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>IX Time taken for the experiment </td>
+                                                        <td>Time taken for the experiment </td>
                                                         <td> {{ $rasadrug->time_taken_for_the_experiment }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> X Starting date of experiment</td>
-                                                        <td> {{ $rasadrug->starting_date_of_experiment }}</td>
+                                                        <td>Starting date of experiment</td>
+                                                        <td> {{date('d-m-Y',strtotime(@$rasadrug->starting_date_of_experiment))}}</td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td>XI Ending date of experiment </td>
-                                                        <td>{{ $rasadrug->ending_date_of_experiment }} </td>
+                                                        <td>Ending date of experiment </td>
+                                                        <td> {{date('d-m-Y',strtotime(@$rasadrug->ending_date_of_experiment))}}</td>
                                                     </tr>
 
                                                 </tbody>

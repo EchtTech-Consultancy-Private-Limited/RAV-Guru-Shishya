@@ -66,8 +66,15 @@
                      <div class="col-sm-12">
                   <div class="row clearfix">
                      <div class="col-md-12">
-                     <a href="{{ url('/new-patient-registration') }}"><button type="button"   class="btn back btn-danger waves-effect float-right"> &nbsp; Back
-                                                                &nbsp;</button></a>
+                        @if(Auth::user()->user_type == 1)
+                        <a href="{{ url('/patients/In-Patient') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
+                        @endif
+                        @if(Auth::user()->user_type == 2)
+                        <a href="{{ url('/guru-patient-list') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
+                        @endif
+                        @if(Auth::user()->user_type == 3)
+                        <a href="{{ url('/new-patient-registration') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
+                        @endif
                      </div>
                      <div class="col-sm-6">
                         <div class="form-group">
