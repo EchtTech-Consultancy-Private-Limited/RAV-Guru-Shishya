@@ -92,8 +92,7 @@ class AttendanceController extends Controller
                 'attendance' => $attendance->attendance
             );
         }
-        return Excel::download(new AttendanceExport($data_array), 'attendance.xlsx');
-        
+        return Excel::download(new AttendanceExport($data_array), 'attendance.xlsx');      
 
     }
 

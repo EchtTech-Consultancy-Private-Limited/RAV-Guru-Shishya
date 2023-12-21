@@ -913,7 +913,6 @@ class PatientController extends Controller
         if($request->user_type==1)
         {
            //Mail sending scripts starts here
-
             $guru_id=$patient->guru_id;
             $guru=User::find($guru_id);
             $guruname=$guru->firstname;
@@ -1029,6 +1028,9 @@ class PatientController extends Controller
                 return redirect('/new-patient-registration')->with('success', 'Your remark has been sent to guru successfully');
             }
             if(Auth::user()->user_type == 2){
+                if($request->user_type==3){
+                    return redirect('guru-patient-list')->with('success', 'Your remark has been send to shishya successfully');
+                }
                 return redirect('guru-patient-list')->with('success', 'Your remark has been send to admin successfully');
             }
 

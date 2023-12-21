@@ -551,7 +551,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label Field" for="date">Starting Date
+                                <label class="control-label Field" for="date">Ending Date
                                 </label>
 
                                 <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
@@ -1253,7 +1253,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label" for="date">Starting Date
+                                <label class="control-label" for="date">Ending Date
                                 </label>
                                 <div class="input-group">
                                 </div>
@@ -1789,7 +1789,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label " for="date">Starting Date
+                                <label class="control-label " for="date">Ending Date
                                 </label>
 
                                 <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
@@ -2300,7 +2300,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group ">
-                            <label class="control-label  " for="date">Starting Date
+                            <label class="control-label  " for="date">Ending Date
                             </label>
                             <div class="input-group">
                             </div>

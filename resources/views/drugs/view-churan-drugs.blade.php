@@ -68,12 +68,15 @@
                                                 <div class="col-md-6 col-6">
                                                     <h3>Basic Information</h3>
                                                 </div>
-                                                <div class="col-md-6 col-6">
-                                                    <a href="{{url('drug-report-history')}}"><button type="button"
-                                                            class="btn back btn-danger waves-effect float-right"> &nbsp;
-                                                            Back
-                                                            &nbsp;</button></a>
-                                                </div>
+                                                @if(Auth::user()->user_type==2 || Auth::user()->user_type==1 || Auth::user()->user_type==4)
+                                <div class="col-md-6 col-6">
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                </div>
+                                @else
+                                <div class="col-md-6 col-6">
+                                    <a href="{{url('drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                </div>
+                                @endif
                                             </div>
 
                                             <table class="view-table">
@@ -340,11 +343,11 @@
 
                                                         </tr>
                                                         <tr>
-                                                            <td> (i) Starting Date</td>
+                                                            <td>Starting Date</td>
                                                             <td>{{ $churandrug->starting_date }} </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>(ii) Ending Date </td>
+                                                            <td>Ending Date </td>
                                                             <td> {{ $churandrug->ending_date }} </td>
                                                         </tr>
 
