@@ -12,6 +12,7 @@ use App\Models\ProfileClinical;
 use App\Models\ProfileEducational;
 use App\Models\ProfilePublication;
 use App\Models\ProfileSpecificDetails;
+use App\Rules\FileNameValidation;
 use DataTables;
 use Validator;
 use DB;
@@ -221,8 +222,6 @@ class AddUserController extends Controller
         return view("users.multi-step",compact('form_step_type','countries','profile_record','per_profile_record','language_record','educational_record','form_step_type','clinic','publication_record','specific_details_record'));
     }
 
-
-
     public function manage_profile_form(Request $request)
     {
         $formId = $request->input('form_step_type');
@@ -241,8 +240,10 @@ class AddUserController extends Controller
                 'per_pincode' => 'max:6',
                 'aadhaar_no' => 'required|min:12|max:12',
                 'pan_no' => 'required|max:12',
-                'e_sign'   => 'mimes:jpeg,png,jpg|max:200',
-                'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
+                // 'e_sign'   => 'mimes:jpeg,png,jpg|max:200',
+                'e_sign' => ['mimes:jpeg,png,jpg|max:200', new FileNameValidation],
+                // 'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
+                'profile_image' => ['mimes:jpeg,png,jpg|max:200', new FileNameValidation],
                 'mobile_no' => 'required|digits:10',
                 'title' => 'required',
                 'bank_name' => 'required',

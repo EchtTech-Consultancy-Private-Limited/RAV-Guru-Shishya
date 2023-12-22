@@ -344,11 +344,12 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Starting Date</td>
-                                                            <td>{{ $churandrug->starting_date }} </td>
+                                                            <td> {{date('d-m-Y',strtotime(@$churandrug->starting_date))}}</td>
+                                                            
                                                         </tr>
                                                         <tr>
                                                             <td>Ending Date </td>
-                                                            <td> {{ $churandrug->ending_date }} </td>
+                                                            <td> {{date('d-m-Y',strtotime(@$churandrug->ending_date))}}</td>
                                                         </tr>
 
                                                     </tbody>

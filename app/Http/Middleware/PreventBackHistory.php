@@ -24,8 +24,7 @@ class PreventBackHistory
         $response = $next($request);
         foreach($headers as $key => $value) {
             $response->headers->set($key, $value);
-        }
- 
+        } 
         return $response;
     }
 }

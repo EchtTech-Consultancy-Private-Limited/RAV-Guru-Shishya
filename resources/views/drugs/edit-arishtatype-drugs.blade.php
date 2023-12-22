@@ -416,7 +416,7 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->storage)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">3</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step III</label>
                                                         <input type="text" name="storage" class="form-control"
                                                             placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->storage }}">@error('1')

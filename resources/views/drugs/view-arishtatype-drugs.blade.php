@@ -365,12 +365,12 @@
 
                                                     <tr>
                                                         <td>Starting Date </td>
-                                                        <td>{{ $drug->starting_date }} </td>
+                                                        <td> {{date('d-m-Y',strtotime(@$drug->starting_date))}}  </td>
                                                     </tr>
 
                                                     <tr>
                                                         <td>Ending Date</td>
-                                                        <td>{{ $drug->ending_date }} </td>
+                                                        <td> {{date('d-m-Y',strtotime(@$drug->ending_date))}}  </td>
                                                     </tr>
 
 

@@ -255,7 +255,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
-                          <label for="example-text-input" class="form-control-label @if(isset($data->step_four)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 4,  etc.</label>
+                          <label for="example-text-input" class="form-control-label @if(isset($data->step_four)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 4</label>
                           <input type="text" name="step_four" class="form-control" placeholder="Step 4" aria-label="Step 4" value="{{ $churandrug->step_four }}" >
                           @error('step_four')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
