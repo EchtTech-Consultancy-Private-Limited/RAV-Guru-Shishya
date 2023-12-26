@@ -271,7 +271,7 @@
                                                 $followup->send_to_admin != '1') ||
                                                 (Auth::user()->user_type == 1 && $followup->send_to_admin == '1')) -->
                                             @if(Auth::user()->user_type == 1)
-                                            <a href="{{ url('/delete-follow-up/' . encrypt($followup->id)) }}"
+                                            <a href="{{ url('/delete-follow-up' . encrypt($followup->id)) }}"
                                                 class="btn btn-tbl-delete" title="Delete Record"
                                                 onclick="return confirm_option(' delete ')">
                                                 <i class="material-icons">delete_forever</i>

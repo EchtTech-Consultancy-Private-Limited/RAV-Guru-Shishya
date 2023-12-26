@@ -208,15 +208,15 @@
                                                  <td class="center"> {{$drug->churna_yoga_type_individual}}  </td>
                                                  <td class="center">{{ date('d-m-Y', strtotime($drug->date_of_yogas)) }}</td>
                                                  <td class="text-center">
-                                                    <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                    <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" target="_blanck" target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
                                                     @if(isset($drug->drugHistory->drug_id))
                                                         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                     @endif
                                                     </i>
                                                     </a>
-                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" target="_blanck" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
-                                                    <a  href="{{ url('delete-churnayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                    <a  href="{{ url('delete-churnayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete">
                                                      <i class="material-icons">delete_forever</i>
                                                      </a>
                                                  </td>
@@ -255,13 +255,13 @@
                                                  <td class="text-center">@if($drug->yoga_type==2) {{__('phr.yogas')[2]}} @endif</td>
                                                  <td class="center"> {{$drug->rasa_yoga_type_individual}}  </td>
                                                  <td class="text-center">
-                                                    <a href="{{ url('edit-rasa-drugs/'.encrypt($drug->id) ) }}" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                    <a href="{{ url('edit-rasa-drugs/'.encrypt($drug->id) ) }}" target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
                                                         @if(isset($drug->drugHistory->rasa_id))
                                                         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                     @endif
                                                     </i>
                                                     </a>
-                                                    <a href="{{ url('view-rasa-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-rasa-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-rasayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
@@ -301,14 +301,15 @@
                                                  <td class="text-center">@if($drug->yoga_type==3) {{__('phr.yogas')[3]}} @endif</td>
                                                  <td class="center"> {{$drug->vati_yoga_type_individual}}  </td>
                                                  <td class="text-center">
-                                                    <a href="{{ url('edit-vati-drugs/'.encrypt($drug->id)) }}" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                    <a href="{{ url('edit-vati-drugs/'.encrypt($drug->id)) }}" 
+                                                        target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
                                                         @if(isset($drug->drugHistory->vati_id))
                                                         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                     @endif
                                                     </i>
                                                     </a>
 
-                                                    <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
 
                                                     <a  href="{{ url('delete-vatiyogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
@@ -352,14 +353,14 @@
                                                  <td class="text-center">@if($drug->yoga_type==4) {{__('phr.yogas')[4]}} @endif</td>
                                                  <td class="center"> {{$drug->talia_yoga_type_individual}}  </td>
                                                  <td class="text-center">
-                                                    <a href="{{ url('edit-talia-drugs/'.encrypt($drug->id)) }}" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                    <a href="{{ url('edit-talia-drugs/'.encrypt($drug->id)) }}" target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
                                                         @if(isset($drug->drugHistory->taila_id))
                                                         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                     @endif
                                                     </i>
                                                     </a>
 
-                                                    <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
 
                                                     <a  href="{{ url('delete-taliayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
@@ -403,14 +404,14 @@
                                                  <td class="text-center">@if($drug->yoga_type==5) {{__('phr.yogas')[5]}} @endif</td>
                                                  <td class="center"> {{$drug->arishtayoga_type_individual}}  </td>
                                                  <td class="text-center">
-                                                    <a href="{{ url('edit-arishta-drugs/'.encrypt($drug->id)) }}" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                    <a href="{{ url('edit-arishta-drugs/'.encrypt($drug->id)) }}" target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
                                                         @if(isset($drug->drugHistory->aswa_id))
                                                         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                     @endif
                                                     </i>
                                                     </a>
 
-                                                    <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
 
                                                     <a  href="{{ url('delete-arishtayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">

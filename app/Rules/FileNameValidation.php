@@ -3,18 +3,27 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Http\UploadedFile;
 
 class FileNameValidation implements Rule
 {
     public function passes($attribute, $value)
     {
-        $extension = strtolower($value->getClientOriginalExtension());
+        if (!($value instanceof UploadedFile)) {
+            return false;
+        }
+        $originalExtension = strtolower($value->getClientOriginalExtension());
         $allowedExtensions = ['png', 'jpg', 'jpeg'];
-        return in_array($extension, $allowedExtensions);
+        if (!in_array($originalExtension, $allowedExtensions)) {
+            return false;
+        }
+
+        $dotCount = substr_count($value->getClientOriginalName(), '.');
+        return $dotCount === 1;
     }
 
     public function message()
     {
-        return 'The :attribute must have a valid extension (png, jpg, jpeg).';
+        return 'The :File formate is Invalid !';
     }
 }

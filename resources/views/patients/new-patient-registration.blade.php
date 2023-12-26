@@ -143,7 +143,7 @@
                                                                 <i class="material-icons">visibility</i>
                                                             </a>
                                                             @if ($patientlist->phr_s_status == 1)
-                                                                <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
+                                                                <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit" title="Edit Patient">
                                                                     <i class="material-icons">edit
                                                                     @if(isset($patientlist->patientHistory->patient_id))
                                                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>

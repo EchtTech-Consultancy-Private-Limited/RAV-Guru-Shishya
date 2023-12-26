@@ -249,9 +249,8 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
 Route::get('education/edit-company', [AddUserController::class, 'edit_manage_profile_education']);
 Route::post('education-delete', [AddUserController::class, 'education_delete']);
 Route::get('language-delete/{lang_id}', [AddUserController::class, 'language_delete']);
-
+Route::post('manage_profile_form_step2', [AddUserController::class, 'manageProfileStep2']);
 Route::post('manage_profile_form_step3', [AddUserController::class, 'manage_profile_form_step3']);
-
 Route::post('manage_profile_form_step4', [AddUserController::class, 'manage_profile_form_step4']);
 Route::get('publication/edit-publication', [AddUserController::class, 'edit_manage_profile_publication']);
 Route::post('publication-delete', [AddUserController::class, 'publication_delete']);
