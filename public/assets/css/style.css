@@ -1364,6 +1364,7 @@ i.fa.fa-plus {
     font-size: 100%;
     height: auto !important;
     padding: 5px 0 !important;
+    border-bottom: 0 !important;
   }
 
   .select2-container .select2-selection--multiple{
@@ -1529,4 +1530,7 @@ input::placeholder{
 
  input[type=date]::placeholder{
 
+}
+.total-record{
+    pointer-events: none;
 }

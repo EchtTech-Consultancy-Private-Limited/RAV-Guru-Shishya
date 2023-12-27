@@ -519,15 +519,15 @@
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-6 mb-3">
-                                    <div class="form-group d-flex">
+                                    <div class="form-group ">
                                        <input type="checkbox"  name="bank_aadhar_link" id="bank_aadhar_link" class="checkbox"  value="{{ old('0',@$profile_record[0]->bank_aadhar_link) }}" @if(@$profile_record[0]->bank_aadhar_link==1) checked @endif>
-                                       <label for="central">Account is linked with (Aadhar & Pan Card No.)</label>
+                                       <label for="central" class="ps-2">Account is linked with (Aadhar & Pan Card No.)</label>
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-6 mb-3">
-                                    <div class="form-group d-flex">
+                                    <div class="form-group">
                                        <input type="checkbox"  name="bank_mobile_link" id="bank_mobile_link" class="checkbox"  value="{{ old('0',@$profile_record[0]->bank_mobile_link) }}" @if(@$profile_record[0]->bank_mobile_link==1) checked @endif>
-                                       <label for="central">Mobile Number ( Linked with Account Number)</label>
+                                       <label for="central" class="ps-2">Mobile Number ( Linked with Account Number)</label>
                                     </div>
                                  </div>
 

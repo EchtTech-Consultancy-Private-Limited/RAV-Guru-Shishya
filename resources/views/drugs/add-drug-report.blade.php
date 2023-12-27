@@ -2005,7 +2005,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">3</label>
+                            <label for="example-text-input" class="form-control-label">Step III</label>
                             <input type="text" name="storage" class="form-control" placeholder="Enter Step 3" aria-label="Step 1"
                                 value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
