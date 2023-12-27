@@ -176,7 +176,6 @@ class AddUserController extends Controller
             ->get();
         /*end basic information record*/
 
-
         /*educational record*/
         $educational_record=ProfileEducational::where('user_id',$id)->get();
 
@@ -374,7 +373,17 @@ class AddUserController extends Controller
             ->get();
         $language_record=ProfileLanguage::where('user_id',Auth::user()->id)->get();
         //return $language_record;
+        //here we create session for user redirection and we use this session above function
+        $session_for_redirection=$request->form_step_type;
+        Session::put('session_for_redirections', $session_for_redirection);
+        $session_for_redirections= Session::get('session_for_redirections');
 
+        return redirect('/profile')->with('success',"Basic Details Updated Successfully");
+        //return view("users.multi-step",compact('form_step_type','countries','basic_info_session','lang','profile_record','per_profile_record','language_record'));
+    }
+
+    public function manageProfileStep2(Request $request)
+    {
         //second form code
         if($request->form_step_type=="step2")
         {
@@ -438,18 +447,12 @@ class AddUserController extends Controller
             else{
                 dd("reload");
             }
+            $session_for_redirection=$request->form_step_type;
+            Session::put('session_for_redirections', $session_for_redirection);
+            $session_for_redirections= Session::get('session_for_redirections');
             return redirect('/profile')->with('success',"Education Details Updated Successfully");
         }
-
-        //here we create session for user redirection and we use this session above function
-        $session_for_redirection=$request->form_step_type;
-        Session::put('session_for_redirections', $session_for_redirection);
-        $session_for_redirections= Session::get('session_for_redirections');
-
-        return redirect('/profile')->with('success',"Basic Details Updated Successfully");
-        //return view("users.multi-step",compact('form_step_type','countries','basic_info_session','lang','profile_record','per_profile_record','language_record'));
     }
-
     public function manage_profile_form_step3(Request $request)
     {
         $clinical_id=$request->clinical_id;
@@ -529,10 +532,7 @@ class AddUserController extends Controller
 
         else
         {
-
-
             ProfileSpecificDetails::create($input);
-
         }
         $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
@@ -564,7 +564,6 @@ class AddUserController extends Controller
 
     public function language_delete($lang_id)
     {
-
          $lang=ProfileLanguage::find($lang_id);
          $lang->delete();
          return redirect()->back()->with("danger","Language Deleted Successfully");

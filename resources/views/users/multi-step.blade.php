@@ -671,7 +671,7 @@
                            </form>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
-                           <form action="{{ url('manage_profile_form') }}" method="POST" id="step2" enctype="multipart/form-data">
+                           <form action="{{ url('manage_profile_form_step2') }}" method="POST" id="step2" enctype="multipart/form-data">
                               @csrf
                               <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
@@ -1207,7 +1207,7 @@
             </button>
          </div>
          <div class="modal-body">
-            <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('manage_profile_form_step2') }}" method="POST" enctype="multipart/form-data">
                @csrf
                <input type="hidden"  name="education_id"  class="form-control capitalize" id="edit_educational_id">
                <input type="hidden"  name="form_step_type" value="step2"  class="form-control capitalize">
