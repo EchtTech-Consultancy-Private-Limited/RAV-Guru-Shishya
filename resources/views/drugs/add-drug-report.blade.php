@@ -551,7 +551,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label Field" for="date">Starting Date
+                                <label class="control-label Field" for="date">Ending Date
                                 </label>
 
                                 <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
@@ -1187,7 +1187,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">First reason of loss</label>
-                                <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="(i)"
+                                <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="First reason of loss"
                                     aria-label="(i)"
                                     value="{{ old('reasons_for_loss_first') }}">@error('reasons_for_loss_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1198,7 +1198,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Second reason of loss</label>
                                 <input type="text" name="reasons_for_loss_second" class="form-control"
-                                    placeholder="(ii)" aria-label="Name" value="{{ old('reasons_for_loss_second') }}">
+                                    placeholder="Second reason of loss" aria-label="Name" value="{{ old('reasons_for_loss_second') }}">
                                 @error('reasons_for_loss_second')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1253,7 +1253,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label" for="date">Starting Date
+                                <label class="control-label" for="date">Ending Date
                                 </label>
                                 <div class="input-group">
                                 </div>
@@ -1789,7 +1789,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group ">
-                                <label class="control-label " for="date">Starting Date
+                                <label class="control-label " for="date">Ending Date
                                 </label>
 
                                 <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
@@ -1899,9 +1899,9 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label class="form-control-label"> Asava/Arishta Yogas Name</label>
+                            <label class="form-control-label">Asawa/Arishta Yogas Name</label>
                             <input type="text" name="arishtayoga_type_individual" class="form-control"
-                                placeholder="Asava/Arishta Yogas Name"
+                                placeholder="Enter Asawa/Arishta Yogas Name"
                                 value="{{ old('churna_yoga_type_individual') }}" maxlength="50" required>
 
                             @if ($errors->has('churna_yoga_type_individual'))
@@ -2300,7 +2300,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group ">
-                            <label class="control-label  " for="date">Starting Date
+                            <label class="control-label  " for="date">Ending Date
                             </label>
                             <div class="input-group">
                             </div>

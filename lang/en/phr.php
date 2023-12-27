@@ -368,9 +368,9 @@ return [
         ],
 
     'education_course' => [
-        '1'=>'php',
+        '1'=>'PHD',
         '2'=>'BMS',
-        '3'=>'MB',
+        '3'=>'MBA',
         '4'=>'MS',
         '5'=>'MCA',
         '6'=>'BCA',

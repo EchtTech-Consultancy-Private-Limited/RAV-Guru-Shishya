@@ -485,7 +485,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >IFSC Code<span class="text-danger">*</span></label>
-                                       <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" placeholder="IFSC Code"  value="{{ old('ifsc_code', @$profile_record[0]->ifsc_code) }}">
+                                       <input type="text" name="ifsc_code" id="ifsc_code" class="form-control" placeholder="IFSC Code" maxlength="15" value="{{ old('ifsc_code', @$profile_record[0]->ifsc_code) }}">
                                        <p id="ifsc_code_err" class="position-absolute"></p>
                                        @if($errors->has('ifsc_code'))
                                           <span class="help-block">
@@ -497,7 +497,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Account Number<span class="text-danger">*</span></label>
-                                       <input type="text" name="account_no" id="account_no" class="form-control" placeholder="Account Number"  value="{{ old('account_no', @$profile_record[0]->account_no) }}">
+                                       <input type="text" name="account_no" id="account_no" class="form-control" maxlength="25" placeholder="Account Number" oninput="validateInput(this)" value="{{ old('account_no', @$profile_record[0]->account_no) }}">
                                        <p id="account_no_err" class="position-absolute"></p>
                                        @if($errors->has('account_no'))
                                        <span class="help-block">
@@ -633,33 +633,32 @@
                                  <div class="col-sm-12 col-md-6">
                                     <!-- guru name -->
                                     <div class="form-group">
-                                       <label >E-Signature<span class="text-danger">*</span></label>
+                                       <label >E-Signature</label>
                                        <input type="file" name="e_sign" id="e_sign" class="form-control" >
+                                       @if($errors->has('e_sign'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
+                                       </span><br>
+                                       @endif
                                        @if($profile_record[0]->e_sign)
                                        <img src="{{ asset('uploads/'.$profile_record[0]->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
-                                       @endif
-                                       @if($errors->has('e_sign'))
-                                          <span class="help-block">
-                                             <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
-                                          </span>
-                                          @endif
+                                       @endif                                      
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-6">
                                     <div class="form-group ">
                                        <label >Profile Picture<span class="text-danger"></span></label>
                                        <input type="file" name="profile_image" id="profile_image" class="form-control" >
-
+                                       @if($errors->has('profile_image'))
+                                       <span class="help-block">
+                                          <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
+                                       </span><br>
+                                       @endif
                                        @if($profile_record[0]->user_image)
-                                       <img src="{{ asset('uploads/'.$profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
+                                       <img src="{{ getImagePath($profile_record[0]->user_image) }}" alt="Profile-Image" width="100px;" height="80px;">
                                        @else
                                        <img src="{{ asset('assets/images/user.png') }}" alt="Profile-Image" width="100px;" height="80px;">
-                                       @endif
-                                       @if($errors->has('profile_image'))
-                                          <span class="help-block">
-                                             <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
-                                          </span>
-                                          @endif
+                                       @endif                                      
                                     </div>
                                  </div>
                               </div>
@@ -672,7 +671,7 @@
                            </form>
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step2') active @endif @endif" role="tabpanel" id="step2">
-                           <form action="{{ url('manage_profile_form') }}" method="POST" id="step2" enctype="multipart/form-data">
+                           <form action="{{ url('manage_profile_form_step2') }}" method="POST" id="step2" enctype="multipart/form-data">
                               @csrf
                               <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step2">
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
@@ -1208,7 +1207,7 @@
             </button>
          </div>
          <div class="modal-body">
-            <form action="{{ url('manage_profile_form') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('manage_profile_form_step2') }}" method="POST" enctype="multipart/form-data">
                @csrf
                <input type="hidden"  name="education_id"  class="form-control capitalize" id="edit_educational_id">
                <input type="hidden"  name="form_step_type" value="step2"  class="form-control capitalize">

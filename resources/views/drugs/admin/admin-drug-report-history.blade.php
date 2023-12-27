@@ -4,26 +4,24 @@
 
 <section class="content">
     @if (count($errors) > 0)
-    <div class="alert alert-danger">
+        <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li>{{ $error }}</li>
             @endforeach
         </ul>
-    </div>
+        </div>
     @endif
-    <div class="container-fluid">
-        <div class="block-header">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-                    <ul class="breadcrumb breadcrumb-style ">
-                        <li class="breadcrumb-item">
-                            <h6 class="page-title">List of Drug Details </h6>
-
-                        </li>
-                        <li class="breadcrumb-item bcrumb-1">
+         <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                       <ul class="breadcrumb breadcrumb-style ">
+                          <li class="breadcrumb-item">
+                             <h6 class="page-title">List of Drug Details </h6>
+                          </li>
+                          <li class="breadcrumb-item bcrumb-1">
                             <a href="{{url('/dashboard')}}">
                                 <i class="fas fa-home"></i> Home</a>
                         </li>
@@ -64,17 +62,16 @@
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-                    <div class="body p-0">
-                        <div id="wizard_horizontal1">
-
-                            <div class="card">
-                                <form role="form" method="GET" action="{{ url('admin-filter-drug-report') }}"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="card-body">
-                                        <div class="row">
-
+                     </li>
+                  </ul>
+               </div>
+               <div class="body p-0">
+                   <div id="wizard_horizontal1">
+                        <div class="card">
+                            <form role="form" method="GET" action="{{ url('admin-filter-drug-report') }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="card-body">
+                                    <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">Name of the Shishya</label>
@@ -95,20 +92,14 @@
 
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">From:</label>
-                                                    <input type="date" name="from_date"
-                                                        class="form-control datetimepicker flatpickr-input active"
-                                                        value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"
-                                                        max="{{date('Y-m-d',time())}}">
+                                                    <label class="form-control-label">From:</label>                                                  
+                                                    <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label">To:</label>
-                                                    <input type="date" name="to_date"
-                                                        class="form-control datetimepicker flatpickr-input active"
-                                                        value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif"
-                                                        max="{{date('Y-m-d',time())}}">
+                                                    <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
 
                                                 </div>
                                             </div>
@@ -127,26 +118,19 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-
-
-                                        </div>
-                                        <div class="float-right">
-                                            <button class="btn filter btn-primary btn-sm ms-auto  " type="submit">Filter
-                                                Drug Report</button>
-                                            <a href="{{url('admin-drug-report-history')}}"><button type="button"
-                                                    class="btn reset btn-primary btn-sm ms-auto nextBtn float-right">Reset</button>
-                                                   </a>
-                                        </div>
-
                                     </div>
-                                </form>
-                            </div>
+                                    <div class= "float-right">
+                                    <button class="btn filter btn-primary btn-sm ms-auto  " type="submit" >Filter Drug Report</button>
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn reset btn-primary btn-sm ms-auto nextBtn float-right">Reset</button></a>
+                                    </div>                                   
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 
@@ -183,27 +167,15 @@
                                 <div class="row">
                                     <div class="col-sm-12">
 
-                                        @isset($drugslist)
-                                        @if(strlen($drugslist)>3)
-                                        @if($drugslist[0]->yoga_type==1)
-                                        <p class="text-right text-primary float-right total-record">Total Records:
-                                            {{ count($drugslist) }}</p>
-                                        <table
-                                            class="table table-hover js-basic-example contact_list dataTable no-footer"
-                                            id="DataTables_Table_0" role="grid"
-                                            aria-describedby="DataTables_Table_0_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> S.No.
-                                                    </th>
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> Yoga Type
-                                                    </th>
+                                @isset($drugslist)
+                                @if(strlen($drugslist)>3)
+                                @if($drugslist[0]->yoga_type==1)
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                       <tr role="row">
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
                                                     <th class="center sorting" tabindex="0"
                                                         aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -234,30 +206,21 @@
                                                     <td class="center"><?php echo get_user_name($drug->shishya_id); ?>
                                                     </td>
 
-                                                    <td class="text-center">
-                                                        <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}"
-                                                            class="btn edit btn-tbl-edit"> <i
-                                                                class="material-icons">edit
-                                                                @if(isset($drug->drugHistory->drug_id))
-                                                                <span
-                                                                    class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
-                                                                    title="Some changes"></span>
-                                                                @endif
-                                                            </i>
-                                                        </a>
-                                                        <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}"
-                                                            class="btn view btn-tbl-edit"><i
-                                                                class="material-icons">visibility</i>
-                                                        </a>
-                                                        <a href="{{ url('delete-churnayogas/'.encrypt($drug->id)) }}"
-                                                            onclick="return confirm_option('delete')"
-                                                            class="btn btn-tbl-delete"
-                                                            onclick="return confirm_option('delete')">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+                                                 <td class="text-center">
+                                                    <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                    @if(isset($drug->drugHistory->drug_id))
+                                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                                    @endif
+                                                    </i>
+                                                    </a>
+                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
+                                                    <a  href="{{ url('delete-churnayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                     <i class="material-icons">delete_forever</i>
+                                                     </a>
+                                                 </td>
+                                            </tr>
+                                        @endforeach
 
                                             </tbody>
                                         </table>
@@ -266,27 +229,16 @@
                                         @endisset
 
 
-                                        <!-- Rasa Yogas -->
-                                        @isset($drugslist)
-                                        @if(strlen($drugslist)>3)
-                                        @if($drugslist[0]->yoga_type==2)
-                                        <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
-                                        <table
-                                            class="table table-hover js-basic-example contact_list dataTable no-footer"
-                                            id="DataTables_Table_0" role="grid"
-                                            aria-describedby="DataTables_Table_0_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> S.No.
-                                                    </th>
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> Yoga Type
-                                                    </th>
+                                <!-- Rasa Yogas -->
+                                @isset($drugslist)
+                                @if(strlen($drugslist)>3)
+                                @if($drugslist[0]->yoga_type==2)
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                       <tr role="row">
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
                                                     <th class="center sorting" tabindex="0"
                                                         aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -305,33 +257,23 @@
                                                 <tr class="gradeX odd ">
                                                     <td class="center sorting_1">{{ ++$key }}</td>
 
-                                                    <td class="text-center">@if($drug->yoga_type==2)
-                                                        {{__('phr.yogas')[2]}} @endif</td>
-                                                    <td class="center"> {{$drug->rasa_yoga_type_individual}} </td>
-                                                    <td class="text-center">
-                                                        <a href="{{ url('edit-rasa-drugs/'.encrypt($drug->id) ) }}"
-                                                            class="btn edit btn-tbl-edit"> <i
-                                                                class="material-icons">edit
-                                                                @if(isset($drug->drugHistory->rasa_id))
-                                                                <span
-                                                                    class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
-                                                                    title="Some changes"></span>
-                                                                @endif
-                                                            </i>
-                                                        </a>
-                                                        <a href="{{ url('view-rasa-drugs/'.encrypt($drug->id) ) }}"
-                                                            class="btn view btn-tbl-edit"><i
-                                                                class="material-icons">visibility</i>
-                                                        </a>
-                                                        <a href="{{ url('delete-rasayogas/'.encrypt($drug->id)) }}"
-                                                            onclick="return confirm_option('delete')"
-                                                            class="btn btn-tbl-delete"
-                                                            onclick="return confirm_option('delete')">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+                                                 <td class="text-center">@if($drug->yoga_type==2) {{__('phr.yogas')[2]}} @endif</td>
+                                                 <td class="center"> {{$drug->rasa_yoga_type_individual}}  </td>
+                                                 <td class="text-center">
+                                                    <a href="{{ url('edit-rasa-drugs/'.encrypt($drug->id) ) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                        @if(isset($drug->drugHistory->rasa_id))
+                                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                                    @endif
+                                                    </i>
+                                                    </a>
+                                                    <a href="{{ url('view-rasa-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
+                                                    <a  href="{{ url('delete-rasayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                        <i class="material-icons">delete_forever</i>
+                                                    </a>
+                                                 </td>
+                                            </tr>
+                                        @endforeach
 
                                             </tbody>
                                         </table>
@@ -339,27 +281,16 @@
                                         @endif
                                         @endisset
 
-                                        <!-- vati yoga -->
-                                        @isset($drugslist)
-                                        @if(strlen($drugslist)>3)
-                                        @if($drugslist[0]->yoga_type==3)
-                                        <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
-                                        <table
-                                            class="table table-hover js-basic-example contact_list dataTable no-footer"
-                                            id="DataTables_Table_0" role="grid"
-                                            aria-describedby="DataTables_Table_0_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> S.No.
-                                                    </th>
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> Yoga Type
-                                                    </th>
+                                <!-- vati yoga -->
+                                @isset($drugslist)
+                                @if(strlen($drugslist)>3)
+                                @if($drugslist[0]->yoga_type==3)
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                       <tr role="row">
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
                                                     <th class="center sorting" tabindex="0"
                                                         aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -378,30 +309,20 @@
                                                 <tr class="gradeX odd ">
                                                     <td class="center sorting_1">{{ ++$key }}</td>
 
-                                                    <td class="text-center">@if($drug->yoga_type==3)
-                                                        {{__('phr.yogas')[3]}} @endif</td>
-                                                    <td class="center"> {{$drug->vati_yoga_type_individual}} </td>
-                                                    <td class="text-center">
-                                                        <a href="{{ url('edit-vati-drugs/'.encrypt($drug->id)) }}"
-                                                            class="btn edit btn-tbl-edit"> <i
-                                                                class="material-icons">edit
-                                                                @if(isset($drug->drugHistory->vati_id))
-                                                                <span
-                                                                    class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
-                                                                    title="Some changes"></span>
-                                                                @endif
-                                                            </i>
-                                                        </a>
-                                                        <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}"
-                                                            class="btn view btn-tbl-edit"><i
-                                                                class="material-icons">visibility</i>
-                                                        </a>
-                                                        <a href="{{ url('delete-vatiyogas/'.encrypt($drug->id)) }}"
-                                                            onclick="return confirm_option('delete')"
-                                                            class="btn btn-tbl-delete"
-                                                            onclick="return confirm_option('delete')">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </a>
+                                                 <td class="text-center">@if($drug->yoga_type==3) {{__('phr.yogas')[3]}} @endif</td>
+                                                 <td class="center"> {{$drug->vati_yoga_type_individual}}  </td>
+                                                 <td class="text-center">
+                                                    <a href="{{ url('edit-vati-drugs/'.encrypt($drug->id)) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                        @if(isset($drug->drugHistory->vati_id))
+                                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                                    @endif
+                                                    </i>
+                                                    </a>
+                                                    <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
+                                                    <a  href="{{ url('delete-vatiyogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                        <i class="material-icons">delete_forever</i>
+                                                    </a>
 
                                                     </td>
                                                 </tr>
@@ -415,27 +336,16 @@
 
 
 
-                                        <!-- talia yoga -->
-                                        @isset($drugslist)
-                                        @if(strlen($drugslist)>3)
-                                        @if($drugslist[0]->yoga_type==4)
-                                        <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
-                                        <table
-                                            class="table table-hover js-basic-example contact_list dataTable no-footer"
-                                            id="DataTables_Table_0" role="grid"
-                                            aria-describedby="DataTables_Table_0_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> S.No.
-                                                    </th>
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> Yoga Type
-                                                    </th>
+                                <!-- talia yoga -->
+                                @isset($drugslist)
+                                @if(strlen($drugslist)>3)
+                                @if($drugslist[0]->yoga_type==4)
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                       <tr role="row">
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
                                                     <th class="center sorting" tabindex="0"
                                                         aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -454,33 +364,23 @@
                                                 <tr class="gradeX odd ">
                                                     <td class="center sorting_1">{{ ++$key }}</td>
 
-                                                    <td class="text-center">@if($drug->yoga_type==4)
-                                                        {{__('phr.yogas')[4]}} @endif</td>
-                                                    <td class="center"> {{$drug->talia_yoga_type_individual}} </td>
-                                                    <td class="text-center">
-                                                        <a href="{{ url('edit-talia-drugs/'.encrypt($drug->id)) }}"
-                                                            class="btn edit btn-tbl-edit"> <i
-                                                                class="material-icons">edit
-                                                                @if(isset($drug->drugHistory->taila_id))
-                                                                <span
-                                                                    class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
-                                                                    title="Some changes"></span>
-                                                                @endif
-                                                            </i>
-                                                        </a>
-                                                        <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}"
-                                                            class="btn view btn-tbl-edit"><i
-                                                                class="material-icons">visibility</i>
-                                                        </a>
-                                                        <a href="{{ url('delete-taliayogas/'.encrypt($drug->id)) }}"
-                                                            onclick="return confirm_option('delete')"
-                                                            class="btn btn-tbl-delete"
-                                                            onclick="return confirm_option('delete')">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+                                                 <td class="text-center">@if($drug->yoga_type==4) {{__('phr.yogas')[4]}} @endif</td>
+                                                 <td class="center"> {{$drug->talia_yoga_type_individual}}  </td>
+                                                 <td class="text-center">
+                                                    <a href="{{ url('edit-talia-drugs/'.encrypt($drug->id)) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                        @if(isset($drug->drugHistory->taila_id))
+                                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                                    @endif
+                                                    </i>
+                                                    </a>
+                                                    <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
+                                                    <a  href="{{ url('delete-taliayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                        <i class="material-icons">delete_forever</i>
+                                                    </a>
+                                                 </td>
+                                            </tr>
+                                        @endforeach
 
                                             </tbody>
                                         </table>
@@ -490,27 +390,16 @@
 
 
 
-                                        <!-- arishta yoga -->
-                                        @isset($drugslist)
-                                        @if(strlen($drugslist)>3)
-                                        @if($drugslist[0]->yoga_type==5)
-                                        <a style="float:right;">Total Records: {{ count($drugslist) }}</a><br>
-                                        <table
-                                            class="table table-hover js-basic-example contact_list dataTable no-footer"
-                                            id="DataTables_Table_0" role="grid"
-                                            aria-describedby="DataTables_Table_0_info">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> S.No.
-                                                    </th>
-                                                    <th class="center sorting sorting_asc" tabindex="0"
-                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                                        aria-sort="ascending"
-                                                        aria-label=" No : activate to sort column descending"> Yoga Type
-                                                    </th>
+                                <!-- arishta yoga -->
+                                @isset($drugslist)
+                                @if(strlen($drugslist)>3)
+                                @if($drugslist[0]->yoga_type==5)
+                                <p style="float:right;">Total Records: {{ count($drugslist) }}</p><br>
+                                <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                       <tr role="row">
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
+                                            <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
                                                     <th class="center sorting" tabindex="0"
                                                         aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
@@ -529,33 +418,23 @@
                                                 <tr class="gradeX odd ">
                                                     <td class="center sorting_1">{{ ++$key }}</td>
 
-                                                    <td class="text-center">@if($drug->yoga_type==5)
-                                                        {{__('phr.yogas')[5]}} @endif</td>
-                                                    <td class="center"> {{$drug->arishtayoga_type_individual}} </td>
-                                                    <td class="text-center">
-                                                        <a href="{{ url('edit-arishta-drugs/'.encrypt($drug->id)) }}"
-                                                            class="btn edit btn-tbl-edit"> <i
-                                                                class="material-icons">edit
-                                                                @if(isset($drug->drugHistory->aswa_id))
-                                                                <span
-                                                                    class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
-                                                                    title="Some changes"></span>
-                                                                @endif
-                                                            </i>
-                                                        </a>
-                                                        <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}"
-                                                            class="btn view btn-tbl-edit"><i
-                                                                class="material-icons">visibility</i>
-                                                        </a>
-                                                        <a href="{{ url('delete-arishtayogas/'.encrypt($drug->id)) }}"
-                                                            onclick="return confirm_option('delete')"
-                                                            class="btn btn-tbl-delete"
-                                                            onclick="return confirm_option('delete')">
-                                                            <i class="material-icons">delete_forever</i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
+                                                 <td class="text-center">@if($drug->yoga_type==5) {{__('phr.yogas')[5]}} @endif</td>
+                                                 <td class="center"> {{$drug->arishtayoga_type_individual}}  </td>
+                                                 <td class="text-center">
+                                                    <a href="{{ url('edit-arishta-drugs/'.encrypt($drug->id)) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                        @if(isset($drug->drugHistory->aswa_id))
+                                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
+                                                    @endif
+                                                    </i>
+                                                    </a>
+                                                    <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    </a>
+                                                    <a  href="{{ url('delete-arishtayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
+                                                        <i class="material-icons">delete_forever</i>
+                                                    </a>
+                                                 </td>
+                                            </tr>
+                                        @endforeach
 
                                             </tbody>
                                         </table>
@@ -578,7 +457,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
+      </div>
+   </div>
 </section>
 
 

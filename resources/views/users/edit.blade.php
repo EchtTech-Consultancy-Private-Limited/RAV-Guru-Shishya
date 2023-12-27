@@ -251,8 +251,7 @@
                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                   <label for="passwordinput">
-                                                  Password
-                                                  <span class="text-danger">*</span></label>
+                                                  Password</label>
                                                   <input id="password" class="form-control input-md"
                                                      name="password" type="password"
                                                      placeholder="Enter your password">
@@ -304,8 +303,8 @@
                                         <div class="col-sm-6">
                                            <div class="form-group">
                                               <div class="form-line">
-                                                 <label>Confirm Password<span class="text-danger">*</span></label>
-                                                 <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password checkPassword" onkeyup='check()'>
+                                                 <label>Confirm Password</label>
+                                                 <input type="password" class="form-control" name="confirm-password" id="checkPassword" placeholder="Confirm Password" onkeyup='check()'>
                                                  <i class="fas fa-eye-slash field-icon" id="eye1"></i>
                                                  <span id="confirm_password_msg"></span>
                                                  <span id="confirm_password_error" class="text-danger"></span>
@@ -322,7 +321,7 @@
                                 <div class="col-sm-12 col-md-6">
                                     <!-- guru name -->
                                        <div class="form-group">
-                                          <label >E-Signature<span class="text-danger">*</span></label>
+                                          <label >E-Signature</label>
                                             <input type="file" name="e_sign" id="e_sign" class="form-control" >
                                             @if ($errors->has('e_sign'))
                                                 <span class="help-block">
@@ -337,7 +336,7 @@
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group ">
-                                            <label >Profile Picture<span class="text-danger">*</span></label>
+                                            <label >Profile Picture</label>
                                             <input type="file" name="profile_image" id="profile_image" class="form-control" >
                                             @if ($errors->has('profile_image'))
                                                 <span class="help-block">

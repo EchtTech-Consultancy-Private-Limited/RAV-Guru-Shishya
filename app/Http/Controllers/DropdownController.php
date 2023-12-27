@@ -16,7 +16,7 @@ class DropdownController extends Controller
      */
     public function index()
     {
-        $data['countries'] = Country::get(["name", "id"]);
+        $data['countries'] = Country::orderBy('name')->get(["name", "id"]);
         return view('dropdown', $data);
     }
     /**
@@ -26,7 +26,7 @@ class DropdownController extends Controller
      */
     public function fetchState(Request $request)
     {
-        $data['states'] = State::where("country_id", $request->country_id)->get(["name", "id"]);
+        $data['states'] = State::where("country_id", $request->country_id)->orderBy('name')->get(["name", "id"]);
         return response()->json($data);
     }
     /**
@@ -36,8 +36,7 @@ class DropdownController extends Controller
      */
     public function fetchCity(Request $request)
     {
-        $data['cities'] = City::where("state_id", $request->state_id)
-                                    ->get(["name", "id"]);
+        $data['cities'] = City::where("state_id", $request->state_id)->orderBy('name')->get(["name", "id"]);
 
         return response()->json($data);
     }

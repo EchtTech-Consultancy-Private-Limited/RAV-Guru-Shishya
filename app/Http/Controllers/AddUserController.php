@@ -12,6 +12,7 @@ use App\Models\ProfileClinical;
 use App\Models\ProfileEducational;
 use App\Models\ProfilePublication;
 use App\Models\ProfileSpecificDetails;
+use App\Rules\FileNameValidation;
 use DataTables;
 use Validator;
 use DB;
@@ -86,8 +87,12 @@ class AddUserController extends Controller
                 'lastname' =>'required|max:32|min:2|regex:/^[a-zA-Z0-9\s]+$/',
                 'email' => ['required','email','max:50','unique:users','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'mobile_no'=>'required|numeric|unique:users|min:10,mobile_no|digits:10',
-                // 'captcha' => 'required|captcha'
-           ]);
+                'captcha' => 'required|captcha',
+                          
+            ],
+            [
+            'captcha.captcha'=>"Kindly check the captcha code you have entered."
+            ]);
 
            //Userdetails for mail
 
@@ -171,7 +176,6 @@ class AddUserController extends Controller
             ->get();
         /*end basic information record*/
 
-
         /*educational record*/
         $educational_record=ProfileEducational::where('user_id',$id)->get();
 
@@ -217,40 +221,42 @@ class AddUserController extends Controller
         return view("users.multi-step",compact('form_step_type','countries','profile_record','per_profile_record','language_record','educational_record','form_step_type','clinic','publication_record','specific_details_record'));
     }
 
-
-
     public function manage_profile_form(Request $request)
     {
         $formId = $request->input('form_step_type');
         if ($formId === 'step1') {
             $this->validate($request, [
-                'firstname' => 'required|max:200|min:2|regex:/^[a-zA-Z0-9\s]+$/',
-                'lastname' => 'max:200|min:2|regex:/^[a-zA-Z0-9\s]+$/',
+                'firstname' => 'required|max:200|min:2|regex:/^[a-zA-Z\s]+$/',
+                'lastname' => 'max:200|min:2|regex:/^[a-zA-Z\s]+$/',
                 'email' => 'required',
                 'date_of_birth' => 'required',
                 'age' => 'required|numeric|digits:2',
-                'f_name' => 'required|max:200|min:2|regex:/^[a-zA-Z0-9\s]+$/',
+                'f_name' => 'required|max:200|min:2|regex:/^[a-zA-Z\s]+$/',
                 'address1' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
                 'address2' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
                 'country' => 'required',
                 'pincode' => 'required|max:6|min:6',
                 'per_pincode' => 'max:6',
-                'aadhaar_no' => 'required|max:12',
+                'aadhaar_no' => 'required|min:12|max:12',
                 'pan_no' => 'required|max:12',
-                'e_sign'   => 'mimes:jpeg,png,jpg|max:200',
-                'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
+                // 'e_sign'   => 'mimes:jpeg,png,jpg|max:200',
+                'e_sign' => ['mimes:jpeg,png,jpg|max:200', new FileNameValidation],
+                // 'profile_image'   => 'mimes:jpeg,png,jpg|max:200',
+                'profile_image' => ['mimes:jpeg,png,jpg|max:200', new FileNameValidation],
                 'mobile_no' => 'required|digits:10',
                 'title' => 'required',
                 'bank_name' => 'required',
-                'ifsc_code' => 'required',
+                'ifsc_code' => 'required|regex:/^[A-Z]{4}[0-9]{7}$/',
                 'account_no' => 'required',
-                'account_holder_name' => 'required',
+                'account_holder_name' => 'required|regex:/^[a-zA-Z\s]+$/',
                 'per_address1' => 'required',
                 'per_address2' => 'required',
                 'per_pincode' => 'required',
                 'per_country' => 'required',
                 'per_state' => 'required',
                 'per_city' => 'required',
+            ],[
+                'f_name' => "The father name format is invalid",
             ],);
         }
         $profile_id=$request->profile_id;
@@ -367,7 +373,17 @@ class AddUserController extends Controller
             ->get();
         $language_record=ProfileLanguage::where('user_id',Auth::user()->id)->get();
         //return $language_record;
+        //here we create session for user redirection and we use this session above function
+        $session_for_redirection=$request->form_step_type;
+        Session::put('session_for_redirections', $session_for_redirection);
+        $session_for_redirections= Session::get('session_for_redirections');
 
+        return redirect('/profile')->with('success',"Basic Details Updated Successfully");
+        //return view("users.multi-step",compact('form_step_type','countries','basic_info_session','lang','profile_record','per_profile_record','language_record'));
+    }
+
+    public function manageProfileStep2(Request $request)
+    {
         //second form code
         if($request->form_step_type=="step2")
         {
@@ -431,18 +447,12 @@ class AddUserController extends Controller
             else{
                 dd("reload");
             }
+            $session_for_redirection=$request->form_step_type;
+            Session::put('session_for_redirections', $session_for_redirection);
+            $session_for_redirections= Session::get('session_for_redirections');
             return redirect('/profile')->with('success',"Education Details Updated Successfully");
         }
-
-        //here we create session for user redirection and we use this session above function
-        $session_for_redirection=$request->form_step_type;
-        Session::put('session_for_redirections', $session_for_redirection);
-        $session_for_redirections= Session::get('session_for_redirections');
-
-        return redirect('/profile')->with('success',"Basic Details Updated Successfully");
-        //return view("users.multi-step",compact('form_step_type','countries','basic_info_session','lang','profile_record','per_profile_record','language_record'));
     }
-
     public function manage_profile_form_step3(Request $request)
     {
         $clinical_id=$request->clinical_id;
@@ -522,10 +532,7 @@ class AddUserController extends Controller
 
         else
         {
-
-
             ProfileSpecificDetails::create($input);
-
         }
         $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
@@ -557,7 +564,6 @@ class AddUserController extends Controller
 
     public function language_delete($lang_id)
     {
-
          $lang=ProfileLanguage::find($lang_id);
          $lang->delete();
          return redirect()->back()->with("danger","Language Deleted Successfully");

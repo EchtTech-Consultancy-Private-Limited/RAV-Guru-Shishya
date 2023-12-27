@@ -70,9 +70,15 @@
                                  <div class="col-md-6">
                                  <h3> Basic Information</h3>
                                  </div>
+                                 @if(Auth::user()->user_type == 3)
                                  <div class="col-md-6">
-                                 <a href="{{url('new-patient-registration')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                    <a href="{{url('new-patient-registration')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
                                  </div>
+                                 @else
+                                 <div class="col-md-6">
+                                    <a href="{{url('guru-patient-list')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                 </div>
+                                 @endif
                               </div>
 
                              <table>

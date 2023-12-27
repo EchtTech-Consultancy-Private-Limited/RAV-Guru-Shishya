@@ -78,11 +78,15 @@
                             <div class="col-md-6 col-6">
                                 <h2>New Drug Report</h2>
                             </div>
-                            <div class="col-md-6 col-6">
-                                <a href="{{url('drug-report-history')}}"><button type="button"
-                                        class="btn back btn-danger waves-effect float-right"> &nbsp; Back
-                                        &nbsp;</button></a>
-                            </div>
+                            @if(Auth::user()->user_type==2 || Auth::user()->user_type==1 || Auth::user()->user_type==4)
+                                <div class="col-md-6 col-6">
+                                    <a href="{{url('admin-drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                </div>
+                                @else
+                                <div class="col-md-6 col-6">
+                                    <a href="{{url('drug-report-history')}}"><button type="button" class="btn back btn-danger waves-effect float-right"> &nbsp; Back &nbsp;</button></a>
+                                </div>
+                                @endif
                         </div>
 
                         <div id="wizard_horizontal">
@@ -412,7 +416,7 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->storage)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">3</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step III</label>
                                                         <input type="text" name="storage" class="form-control"
                                                             placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->storage }}">@error('1')

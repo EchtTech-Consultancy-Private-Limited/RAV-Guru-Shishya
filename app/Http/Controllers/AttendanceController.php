@@ -92,8 +92,7 @@ class AttendanceController extends Controller
                 'attendance' => $attendance->attendance
             );
         }
-        return Excel::download(new AttendanceExport($data_array), 'attendance.xlsx');
-        
+        return Excel::download(new AttendanceExport($data_array), 'attendance.xlsx');      
 
     }
 
@@ -114,6 +113,8 @@ class AttendanceController extends Controller
             'from_date' => 'required',
             'to_date' => 'required',
             'attendance' => 'required',
+        ],[
+            'shishya_ids' => "Please select a shishya",
         ]);
         $fdate = $request->from_date;
         $tdate = $request->to_date;
