@@ -1364,6 +1364,7 @@ i.fa.fa-plus {
     font-size: 100%;
     height: auto !important;
     padding: 5px 0 !important;
+    border-bottom: 0 !important;
   }
 
   .select2-container .select2-selection--multiple{
@@ -1433,7 +1434,8 @@ textarea[name="remark"].form-control{
 
 .form-group textarea.form-control{
     overflow: auto;
-    height: 36px !important;
+    height: 32px !important;
+    padding: 6px 0 !important;
 }
 
 .form-group .form-line.focused .form-label{
@@ -1530,3 +1532,31 @@ input::placeholder{
  input[type=date]::placeholder{
 
 }
+.total-record{
+    pointer-events: none;
+}
+
+
+.wizard .steps .disabled.done.active a{
+    background: #66615c !important;
+    color: #fff !important;
+}
+
+input:required { 
+    background-color: #000 !important;
+    color:#ffffff !important;
+}
+
+.form-group input[required] {
+    background-color: yellow !important;
+}
+
+
+
+input:invalid {
+    border: 2px solid red !important;
+ }
+ input:invalid + span {
+    color: red !important;
+    font-weight: bold;
+ }

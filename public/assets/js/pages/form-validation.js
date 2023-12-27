@@ -169,3 +169,19 @@ $(document).ready(function() {
         $("i.fa.fa-plus.fa-x").toggleClass("fa-minus");
     })
 });
+
+
+
+$(document).ready(()=>{
+    $('#remark-from-guru').validate({
+
+        rules: {
+            user_type: true,
+            remarks: true,
+    },
+        
+        messages: {}, //optional function for custom messages for each rule type });
+    })
+
+    console.log("hellow world")
+})
