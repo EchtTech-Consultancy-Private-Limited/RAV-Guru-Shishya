@@ -824,7 +824,7 @@
                                 <label for="example-text-input" class="form-control-label"> Changes seen during bhavana
                                     therapy</label>
                                 <input type="text" name="changes_seen_during_bhavana_therapy" class="form-control"
-                                    placeholder=" Changes seen during bhavana therapy" aria-label="Dose"
+                                    placeholder="Enter Changes seen during bhavana therapy" aria-label="Dose"
                                     value="{{ old('changes_seen_during_bhavana_therapy') }}"
                                     maxlength="50">@error('changes_seen_during_bhavana_therapy')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -836,7 +836,7 @@
                                 <label for="example-text-input" class="form-control-label"> Organoleptic properties of
                                     raw material</label>
                                 <input type="text" name="organoleptic_properties_of_raw_material" class="form-control"
-                                    placeholder=" Organoleptic properties of raw material" aria-label="VII"
+                                    placeholder="Enter Organoleptic properties of raw material" aria-label="VII"
                                     value="{{ old('organoleptic_properties_of_raw_material') }}" maxlength="50">
                                 @error('VII Organoleptic properties of raw material')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -849,7 +849,7 @@
                                 <label for="example-text-input" class="form-control-label"> Time taken for the
                                     experiment</label>
                                 <input type="text" name="time_taken_for_the_experiment" class="form-control"
-                                    placeholder="Wholesome diet" aria-label="Wholesome diet"
+                                    placeholder="Enter Wholesome diet" aria-label="Wholesome diet"
                                     value="{{ old('time_taken_for_the_experiment') }}" maxlength="50">
                                 @error('time_taken_for_the_experiment')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -862,7 +862,7 @@
                                 <label for="example-text-input" class="form-control-label"> Starting date of
                                     experiment</label>
                                 <input type="date" name="starting_date_of_experiment" class="form-control"
-                                    placeholder="Wholesome activities" aria-label="Wholesome activities"
+                                    placeholder="Enter Wholesome activities" aria-label="Wholesome activities"
                                     value="{{ old('starting_date_of_experiment') }}"
                                     maxlength="50">@error('starting_date_of_experiment')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -874,7 +874,7 @@
                                 <label for="example-text-input" class="form-control-label"> Ending date of
                                     experiment</label>
                                 <input type="date" name="ending_date_of_experiment" class="form-control"
-                                    placeholder=" Ending date of experiment" aria-label="Wholesome behavior"
+                                    placeholder="Enter Ending date of experiment" aria-label="Wholesome behavior"
                                     value="{{ old('ending_date_of_experiment') }}" maxlength="50">
                                 @error('ending_date_of_experiment')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -991,7 +991,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Step 1</label>
-                                <input type="text" name="step_first" class="form-control" placeholder="Step 1"
+                                <input type="text" name="step_first" class="form-control" placeholder="Enter Step 1"
                                     aria-label="Step 1" value="{{ old('step_first') }}">@error('Step 1')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1000,7 +1000,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Packing</label>
-                                <input type="text" name="packing" class="form-control" placeholder="Packing"
+                                <input type="text" name="packing" class="form-control" placeholder="Enter Packing"
                                     aria-label="Packing" value="{{ old('packing') }}">@error('packing')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1010,7 +1010,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Storage</label>
-                                <input type="text" name="storage" class="form-control" placeholder="Storage"
+                                <input type="text" name="storage" class="form-control" placeholder="Enter Storage"
                                     aria-label="Storage" value="{{ old('storage') }}">
                                 @error('storage')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1022,7 +1022,7 @@
                                 <label for="example-text-input" class="form-control-label">Method of
                                     Administration</label>
                                 <input type="text" name="method_of_administration" class="form-control"
-                                    placeholder="Method of Administration" aria-label="Method of Administration"
+                                    placeholder="Enter Method of Administration" aria-label="Method of Administration"
                                     value="{{ old('method_of_administration') }}">
                                 @error('method_of_administration')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1033,7 +1033,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Dose</label>
-                                <input type="text" name="dose" class="form-control" placeholder="Dose" aria-label="Dose"
+                                <input type="text" name="dose" class="form-control" placeholder="Enter Dose" aria-label="Dose"
                                     value="{{ old('dose') }}">@error('dose')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1044,7 +1044,7 @@
                                 <label for="example-text-input" class="form-control-label">Time of
                                     administration</label>
                                 <input type="text" name="time_of_administration" class="form-control"
-                                    placeholder="Time of administration" aria-label="Time of administration"
+                                    placeholder="Enter Time of administration" aria-label="Time of administration"
                                     value="{{ old('time_of_administration') }}">
                                 @error('time_of_administration')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1056,7 +1056,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Duration of Therapy</label>
                                 <input type="text" name="duration_of_therapy" class="form-control"
-                                    placeholder="Duration of Therapy" aria-label="Duration of Therapy"
+                                    placeholder="Enter Duration of Therapy" aria-label="Duration of Therapy"
                                     value="{{ old('duration_of_therapy') }}">
                                 @error('duration_of_therapy')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1066,7 +1066,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Vehicle</label>
-                                <input type="text" name="vehicle" class="form-control" placeholder="Vehicle"
+                                <input type="text" name="vehicle" class="form-control" placeholder="Enter Vehicle"
                                     aria-label="Vehicle" value="{{ old('vehicle') }}">
                                 @error('vehicle')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1078,7 +1078,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Indications</label>
                                 <input type="text" name="indicationsduration_of_therapy" class="form-control"
-                                    placeholder="Indications" aria-label="Duration of Therapy"
+                                    placeholder="Enter Indications" aria-label="Duration of Therapy"
                                     value="{{ old('indicationsduration_of_therapy') }}">
                                 @error('indicationsduration_of_therapy')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1089,7 +1089,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Contra indications</label>
                                 <input type="text" name="contraindicationsduration_of_therapy" class="form-control"
-                                    placeholder="Contra indications" aria-label="Duration of Therapy"
+                                    placeholder="Enter Contra indications" aria-label="Duration of Therapy"
                                     value="{{ old('contraindicationsduration_of_therapy') }}">
                                 @error('contraindicationsduration_of_therapy')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1101,7 +1101,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Wholesome diet</label>
                                 <input type="text" name="wholesome_diet" class="form-control"
-                                    placeholder="Wholesome diet" aria-label="Wholesome diet"
+                                    placeholder="Enter Wholesome diet" aria-label="Wholesome diet"
                                     value="{{ old('wholesome_diet') }}">
                                 @error('wholesome_diet')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1112,7 +1112,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Whole some activities</label>
                                 <input type="text" name="wholesome_activities" class="form-control"
-                                    placeholder="Whole some activities" aria-label="Wholesome activities"
+                                    placeholder="Enter Whole some activities" aria-label="Wholesome activities"
                                     value="{{ old('wholesome_activities') }}">@error('wholesome_activities')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1122,7 +1122,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Wholesome behavior</label>
                                 <input type="text" name="wholesome_behavior" class="form-control"
-                                    placeholder="Wholesome behavior" aria-label="Wholesome behavior"
+                                    placeholder="Enter Wholesome behavior" aria-label="Wholesome behavior"
                                     value="{{ old('wholesome_behavior') }}">
                                 @error('wholesome_behavior')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1165,7 +1165,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Loss</label>
-                                <input type="text" name="loss" class="form-control" placeholder="Loss" aria-label="Loss"
+                                <input type="text" name="loss" class="form-control" placeholder="Enter Loss" aria-label="Loss"
                                     value="{{ old('loss') }}">
                                 @error('loss')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1176,7 +1176,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Reasons for Loss</label>
                                 <input type="text" name="reasons_for_loss" class="form-control"
-                                    placeholder="Reasons for Loss" aria-label="Name"
+                                    placeholder="Enter Reasons for Loss" aria-label="Name"
                                     value="{{ old('reasons_for_loss') }}">
                                 @error('reasons_for_loss')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1187,8 +1187,8 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">First reason of loss</label>
-                                <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="First reason of loss"
-                                    aria-label="(i)"
+                                <input type="text" name="reasons_for_loss_first" class="form-control" placeholder="Enter first reason of loss"
+                                    aria-label="Enter reason of loss"
                                     value="{{ old('reasons_for_loss_first') }}">@error('reasons_for_loss_first')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1198,7 +1198,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Second reason of loss</label>
                                 <input type="text" name="reasons_for_loss_second" class="form-control"
-                                    placeholder="Second reason of loss" aria-label="Name" value="{{ old('reasons_for_loss_second') }}">
+                                    placeholder="Enter second reason of loss" aria-label="Name" value="{{ old('reasons_for_loss_second') }}">
                                 @error('reasons_for_loss_second')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1209,7 +1209,7 @@
                                 <label for="example-text-input" class="form-control-label">Organoleptic properties of
                                     raw materials</label>
                                 <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control"
-                                    placeholder="Organoleptic properties of raw materials" aria-label="Name"
+                                    placeholder="Enter Organoleptic properties of raw materials" aria-label="Name"
                                     value="{{ old('organoleptic_properties_of_raw_materials') }}">
                                 @error('organoleptic_properties_of_raw_materials')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1221,7 +1221,7 @@
                                 <label for="example-text-input" class="form-control-label">Organoleptic properties of
                                     finished product</label>
                                 <input type="text" name="organoleptic_properties_of_finished_product"
-                                    class="form-control" placeholder="Organoleptic properties of finished product"
+                                    class="form-control" placeholder="Enter Organoleptic properties of finished product"
                                     aria-label="Organoleptic properties of finished product "
                                     value="{{ old('organoleptic_properties_of_finished_product') }}">
                                 @error('organoleptic_properties_of_finished_product')
@@ -1490,10 +1490,10 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(i) Taila/ghrita
+                                <label for="example-text-input" class="form-control-label">(I) Taila/ghrita
                                     murchana</label>
                                 <input type="text" name="kvatha_dravyas_step_murchana" class="form-control"
-                                    placeholder="(i) Taila/ghrita murchana" aria-label="Step 1"
+                                    placeholder="Enter Taila/ghrita murchana" aria-label="Step 1"
                                     value="{{ old('kvatha_dravyas_step_murchana') }}"
                                     maxlength="50">@error('kvatha_dravyas_step_murchana')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1502,10 +1502,10 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(ii) Preparation of
+                                <label for="example-text-input" class="form-control-label">(II) Preparation of
                                     Kalka</label>
                                 <input type="text" name="preparation_of_kalka" class="form-control"
-                                    placeholder="(ii) Preparation of Kalka" aria-label="Step 2"
+                                    placeholder="Enter preparation of Kalka" aria-label="Step 2"
                                     value="{{ old('preparation_of_kalka') }}" maxlength="50">
                                 @error('preparation_of_kalka')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1515,10 +1515,10 @@
 
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(iii) Preparation of
+                                <label for="example-text-input" class="form-control-label">(III) Preparation of
                                     kvatha/drava dravyas</label>
                                 <input type="text" name="preparation_of_kavatha_dravyas" class="form-control"
-                                    placeholder="(iii) Preparation of kvatha/drava dravyas" aria-label="Name"
+                                    placeholder="Enter preparation of kvatha/drava dravyas" aria-label="Name"
                                     value="{{ old('preparation_of_kavatha_dravyas') }}" maxlength="50">
                                 @error('preparation_of_kavatha_dravyas')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1527,9 +1527,9 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(iv) Order of mixing</label>
+                                <label for="example-text-input" class="form-control-label">(IV) Order of mixing</label>
                                 <input type="text" name="order_of_mixing" class="form-control"
-                                    placeholder="(iv) Order of mixing" aria-label="Name"
+                                    placeholder="Enter order of mixing" aria-label="Name"
                                     value="{{ old('order_of_mixing') }}" maxlength="50">
                                 @error('order_of_mixing')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1539,9 +1539,9 @@
 
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(v) Paka procedure</label>
+                                <label for="example-text-input" class="form-control-label">(V) Paka procedure</label>
                                 <input type="text" name="paka_procedure" class="form-control"
-                                    placeholder="(v) Paka procedure" aria-label="Name"
+                                    placeholder="Enter paka procedure" aria-label="Name"
                                     value="{{ old('paka_procedure') }}" maxlength="50">
                                 @error('paka_procedure')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1552,7 +1552,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Packing</label>
-                                <input type="text" name="packing" class="form-control" placeholder="Packing"
+                                <input type="text" name="packing" class="form-control" placeholder="Enter Packing"
                                     aria-label="Packing" value="{{ old('packing') }}" maxlength="50">@error('packing')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1561,7 +1561,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Storage</label>
-                                <input type="text" name="storage" class="form-control" placeholder="Storage"
+                                <input type="text" name="storage" class="form-control" placeholder="Enter Storage"
                                     aria-label="Storage" value="{{ old('storage') }}" maxlength="50">
                                 @error('storage')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1573,7 +1573,7 @@
                                 <label for="example-text-input" class="form-control-label">Method of
                                     Administration</label>
                                 <input type="text" name="method_of_administration" class="form-control"
-                                    placeholder="Method of Administration" aria-label="Method of Administration"
+                                    placeholder="Enter Method of Administration" aria-label="Method of Administration"
                                     value="{{ old('method_of_administration') }}" maxlength="50">
                                 @error('method_of_administration')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1585,7 +1585,7 @@
                                 <label for="example-text-input" class="form-control-label">Time of
                                     administration</label>
                                 <input type="text" name="time_of_administration" class="form-control"
-                                    placeholder="Time of administration" aria-label="Time of administration"
+                                    placeholder="Enter Time of administration" aria-label="Time of administration"
                                     value="{{ old('time_of_administration') }}" maxlength="50">
                                 @error('time_of_administration')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1596,7 +1596,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Dose</label>
-                                <input type="text" name="dose" class="form-control" placeholder="Dose"
+                                <input type="text" name="dose" class="form-control" placeholder="Enter Dose"
                                     value="{{ old('dose') }}" maxlength="50">
                                 @error('dose')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1606,7 +1606,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Vehicle</label>
-                                <input type="text" name="vehicle" class="form-control" placeholder="Vehicle"
+                                <input type="text" name="vehicle" class="form-control" placeholder="Enter Vehicle"
                                     value="{{ old('vehicle') }}" maxlength="50">
                                 @error('vehicle')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1628,7 +1628,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Wholesome diet</label>
                                 <input type="text" name="wholesome_diet" class="form-control"
-                                    placeholder="wholesome diet" value="{{ old('wholesome_diet') }}" maxlength="50">
+                                    placeholder="Enter wholesome diet" value="{{ old('wholesome_diet') }}" maxlength="50">
                                 @error('Wholesome diet')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1639,7 +1639,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Wholesome activities</label>
                                 <input type="text" name="wholesome_activities" class="form-control"
-                                    placeholder="Wholesome activities" value="{{ old('wholesome_activities') }}"
+                                    placeholder="Enter Wholesome activities" value="{{ old('wholesome_activities') }}"
                                     maxlength="50">
                                 @error('wholesome_activities')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1650,7 +1650,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Wholesome behavior</label>
                                 <input type="text" name="wholesome_behaviour" class="form-control"
-                                    placeholder="Wholesome behavior" value="{{ old('wholesome_behaviour') }}"
+                                    placeholder="Enter Wholesome behavior" value="{{ old('wholesome_behaviour') }}"
                                     maxlength="50">
                                 @error('Wholesome behavior')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1660,7 +1660,7 @@
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Indications</label>
-                                <input type="text" name="indications" class="form-control" placeholder="Indications"
+                                <input type="text" name="indications" class="form-control" placeholder="Enter Indications"
                                     value="{{ old('indications') }}" maxlength="50">
                                 @error('indications')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1671,7 +1671,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Contra indications</label>
                                 <input type="text" name="contra_indications" class="form-control"
-                                    placeholder="Contra indications" aria-label="Contra indications"
+                                    placeholder="Enter Contra indications" aria-label="Contra indications"
                                     value="{{ old('contra_indications') }}" maxlength="50">
                                 @error('contra_indications')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1714,7 +1714,7 @@
                         <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Loss</label>
-                                <input type="text" name="loss" class="form-control" placeholder="Loss"
+                                <input type="text" name="loss" class="form-control" placeholder="Enter Loss"
                                     value="{{ old('Loss') }}">
                                 @error('loss')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1725,7 +1725,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Reasons for Loss</label>
                                 <input type="text" name="reasons_for_loss" class="form-control"
-                                    placeholder="Reasons for Loss" value="{{ old('reasons_for_loss') }}">
+                                    placeholder="Enter Reasons for Loss" value="{{ old('reasons_for_loss') }}">
                                 @error('Reasons for Loss')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1738,7 +1738,7 @@
                                 <label for="example-text-input" class="form-control-label">Signs of mridu – madhyama –
                                     khara paka</label>
                                 <input type="text" name="mridu" class="form-control"
-                                    placeholder="Signs of mridu – madhyama – khara paka"
+                                    placeholder="Enter Signs of mridu – madhyama – khara paka"
                                     value="{{ old('mridu') }}">@error('(i)')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1748,7 +1748,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">Organoleptic properties of raw materials</label>
                                 <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control"
-                                    placeholder="Organoleptic properties of raw materials"
+                                    placeholder="Enter Organoleptic properties of raw materials"
                                     value="{{ old('organoleptic_properties_of_raw_materials') }}" maxlength="50">
                                 @error('Organoleptic properties of raw materials')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1759,7 +1759,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">Organoleptic properties of finished product</label>
                                 <input type="text" name="organoleptic_properties_of_finished_product"
-                                    class="form-control" placeholder="Organoleptic properties of finished product"
+                                    class="form-control" placeholder="Enter Organoleptic properties of finished product"
                                     value="{{ old('organoleptic_properties_of_finished_product') }}" maxlength="50">
                                 @error('Organoleptic properties of finished product ')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2024,7 +2024,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Step 1</label>
-                            <input type="text" name="method_of_administration" class="form-control" placeholder="Step 1"
+                            <input type="text" name="method_of_administration" class="form-control" placeholder="Enter Step 1"
                                 aria-label="Step 1" value="{{ old('Step 1') }}">@error('Step 1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -2033,7 +2033,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Packing</label>
-                            <input type="text" name="packing" class="form-control" placeholder="Packing"
+                            <input type="text" name="packing" class="form-control" placeholder="Enter Packing"
                                 aria-label="Packing" value="{{ old('Packing') }}">@error('Packing')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -2043,7 +2043,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Storage</label>
-                            <input type="text" name="storage" class="form-control" placeholder="Storage"
+                            <input type="text" name="storage" class="form-control" placeholder="Enter Storage"
                                 aria-label="Storage" value="{{ old('Storage') }}">
                             @error('Storage')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2054,7 +2054,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Method of Administration</label>
                             <input type="text" name="method_of_administration" class="form-control"
-                                placeholder="Method of Administration" aria-label="Method of Administration"
+                                placeholder="Enter Method of Administration" aria-label="Method of Administration"
                                 value="{{ old('Method of Administration') }}">
                             @error('Method of Administration')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2066,7 +2066,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Time of administration</label>
                             <input type="text" name="time_of_administration" class="form-control"
-                                placeholder="Time of administration" aria-label="Time of administration"
+                                placeholder="Enter Time of administration" aria-label="Time of administration"
                                 value="{{ old('Time of administration') }}">
                             @error('Time of administration')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2076,7 +2076,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Dose</label>
-                            <input type="text" name="dose" class="form-control" placeholder="Dose" aria-label="Dose"
+                            <input type="text" name="dose" class="form-control" placeholder="Enter Dose" aria-label="Dose"
                                 value="{{ old('Dose') }}">@error('Dose')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -2086,7 +2086,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Vehicle (Anupana)</label>
-                            <input type="text" name="vehicle" class="form-control" placeholder="Vehicle (Anupana)"
+                            <input type="text" name="vehicle" class="form-control" placeholder="Enter Vehicle (Anupana)"
                                 aria-label="Vehicle" value="{{ old('Vehicle') }}">
                             @error('Vehicle')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2096,7 +2096,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Indications</label>
-                            <input type="text" name="indications" class="form-control" placeholder="Indications"
+                            <input type="text" name="indications" class="form-control" placeholder="Enter Indications"
                                 aria-label="Indications" value="{{ old('Indications') }}">
                             @error('Indications')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2108,7 +2108,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Contra indications</label>
                             <input type="text" name="contra_indications" class="form-control"
-                                placeholder="Contra indications" aria-label="Contra indications"
+                                placeholder="Enter Contra indications" aria-label="Contra indications"
                                 value="{{ old('Contra indications') }}">
                             @error('Contra indications')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2119,7 +2119,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Duration of Therapy</label>
                             <input type="text" name="duration_of_therapy" class="form-control"
-                                placeholder="Duration of Therapy" aria-label="Duration of Therapy"
+                                placeholder="Enter Duration of Therapy" aria-label="Duration of Therapy"
                                 value="{{ old('Duration of Therapy') }}">
                             @error('Duration of Therapy')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2130,7 +2130,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Wholesome diet</label>
-                            <input type="text" name="wholesome_diet" class="form-control" placeholder="Wholesome diet"
+                            <input type="text" name="wholesome_diet" class="form-control" placeholder="Enter Wholesome diet"
                                 aria-label="Wholesome diet" value="{{ old('Wholesome diet') }}">
                             @error('Wholesome diet')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2141,7 +2141,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Wholesome activities</label>
                             <input type="text" name="wholesome_activities" class="form-control"
-                                placeholder="Wholesome activities" aria-label="Wholesome activities"
+                                placeholder="Enter Wholesome activities" aria-label="Wholesome activities"
                                 value="{{ old('Wholesome activities') }}">@error('Wholesome activities')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -2151,7 +2151,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Wholesome behavior</label>
                             <input type="text" name="wholesome_behavior" class="form-control"
-                                placeholder="Wholesome behavior" aria-label="Wholesome behavior"
+                                placeholder="Enter Wholesome behavior" aria-label="Wholesome behavior"
                                 value="{{ old('Wholesome behavior') }}">
                             @error('Wholesome behavior')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2171,7 +2171,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Quantity of Raw Material</label>
                             <input type="text" name="quantity_of_raw_material" class="form-control"
-                                placeholder="Enter Quantity of Raw Material" aria-label="Quantity of Raw Material"
+                                placeholder="Enter Enter Quantity of Raw Material" aria-label="Quantity of Raw Material"
                                 value="{{ old('Quantity of Raw Material') }}">@error('Quantity of Raw Material')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -2194,7 +2194,7 @@
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Loss</label>
-                            <input type="text" name="loss" class="form-control" placeholder="Loss" aria-label="Loss"
+                            <input type="text" name="loss" class="form-control" placeholder="Enter Loss" aria-label="Loss"
                                 value="{{ old('Loss') }}">
                             @error('Loss')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2205,7 +2205,7 @@
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Reasons for Loss</label>
                             <input type="text" name="reasons_for_loss" class="form-control"
-                                placeholder="Reasons for Loss" aria-label="Name" value="{{ old('Reasons for Loss') }}">
+                                placeholder="Enter Reasons for Loss" aria-label="Name" value="{{ old('Reasons for Loss') }}">
                             @error('Reasons for Loss')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -2217,7 +2217,7 @@
                             <label for="example-text-input" class="form-control-label">Organoleptic properties of raw
                                 materials</label>
                             <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control"
-                                placeholder="Organoleptic properties of raw materials" aria-label="Name"
+                                placeholder="Enter Organoleptic properties of raw materials" aria-label="Name"
                                 value="{{ old('Organoleptic properties of raw materials') }}">
                             @error('Organoleptic properties of raw materials')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2229,7 +2229,7 @@
                             <label for="example-text-input" class="form-control-label">Organoleptic properties of
                                 finished product</label>
                             <input type="text" name="organoleptic_properties_of_finished_product" class="form-control"
-                                placeholder="Organoleptic properties of finished product" aria-label="Organoleptic properties of finished product "
+                                placeholder="Enter Organoleptic properties of finished product" aria-label="Organoleptic properties of finished product "
                                 value="{{ old('Organoleptic properties of finished product ') }}">
                             @error('Organoleptic properties of finished product ')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2242,7 +2242,7 @@
                             <label for="example-text-input" class="form-control-label">Time taken for the sandhana
                                 process</label>
                             <input type="text" name="time_taken_sandhana" class="form-control"
-                                placeholder="Time taken for the sandhana process" aria-label="Name"
+                                placeholder="Enter Time taken for the sandhana process" aria-label="Name"
                                 value="{{ old('Organoleptic properties of raw materials') }}">
                             @error('Organoleptic properties of raw materials')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2254,7 +2254,7 @@
                             <label for="example-text-input" class="form-control-label">Duration for the entire
                                 experiment</label>
                             <input type="text" name="duration_for_entire_experiment" class="form-control"
-                                placeholder="Duration  for the entire experiment"
+                                placeholder="Enter Duration  for the entire experiment"
                                 aria-label="Organoleptic properties of finished product "
                                 value="{{ old('Organoleptic properties of finished product ') }}">
                             @error('Organoleptic properties of finished product ')
@@ -2268,7 +2268,7 @@
                             <label for="example-text-input" class="form-control-label">Tests performed during
                                 experiment</label>
                             <input type="text" name="tests_performed_during_experiment" class="form-control"
-                                placeholder="Tests performed during experiment"
+                                placeholder="Enter Tests performed during experiment"
                                 aria-label="Organoleptic properties of finished product "
                                 value="{{ old('Organoleptic properties of finished product ') }}">
                             @error('Organoleptic properties of finished product ')
