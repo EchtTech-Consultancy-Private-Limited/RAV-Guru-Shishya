@@ -520,7 +520,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                        <div class=" col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Organoleptic properties of
                                     finished product</label>
@@ -1216,7 +1216,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-6 col-md-6 col-6">
+                        <div class="col-xxl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label for="example-text-input" class="form-control-label">Organoleptic properties of
                                     finished product</label>
@@ -1755,7 +1755,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                        <div class=" col-xl-4 col-md-6 col-6">
                             <div class="form-group">
                                 <label class="form-control-label">Organoleptic properties of finished product</label>
                                 <input type="text" name="organoleptic_properties_of_finished_product"
@@ -2224,7 +2224,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                    <div class=" col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input" class="form-control-label">Organoleptic properties of
                                 finished product</label>
