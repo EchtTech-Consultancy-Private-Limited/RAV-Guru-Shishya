@@ -121,6 +121,14 @@
                                         <td> {{ @$patient->registration_no }}</td>
                                     </tr>
                                     <tr>
+                                        <td>Age </td>
+                                        <td>{{@$patient->age}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registration Date </td>
+                                        <td> {{date('d-m-Y',strtotime(@$patient->registration_date))}} </td>
+                                    </tr>
+                                    <tr>
                                         <td>Patients Type </td>
                                         <td>{{@$patient->patient_type}} </td>
                                     </tr>
@@ -130,14 +138,8 @@
                                             {{@$patient->gender == $key  ? $value : ''}}</option>
                                             @endforeach </td>
                                     </tr>
-                                    <tr>
-                                        <td>Age </td>
-                                        <td>{{@$patient->age}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Registration Date </td>
-                                        <td> {{date('d-m-Y',strtotime(@$patient->registration_date))}} </td>
-                                    </tr>
+                                    
+                                    
                                     <tr>
                                         <td>Age Group </td>
                                         <td>@foreach(__('phr.age_group') as $key=>$value)
@@ -306,7 +308,7 @@
                                         <td>{{@$patient->prayogashaliya_parikshana }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Roga Viniishchaya Pramukh Nidana </td>
+                                        <td>Roga Vinishchaya Pramukh Nidana </td>
                                         <td> {{@$patient->roga_vinishchaya_pramukh_nidana }}</td>
                                     </tr>
                                     <tr>

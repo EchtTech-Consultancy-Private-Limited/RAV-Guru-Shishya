@@ -461,8 +461,7 @@
                        <div class="form-group ">
                           <label class="control-label mb-2 requiredField  @if(isset($data->starting_date)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif" for="date"> Starting Date
                           </label>
-                          <div class="input-group">
-                          </div>
+                         
                           <input class="form-control" id="date" name="starting_date" placeholder="MM/DD/YYYY" type="date" aria-label="(i)  Starting Date" value="{{ $churandrug->starting_date }}" >@error('(i) Starting Date')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
@@ -472,8 +471,7 @@
                        <div class="form-group ">
                           <label class="control-label mb-2 requiredField @if(isset($data->ending_date)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif" for="date">  Ending Date
                           </label>
-                          <div class="input-group">
-                          </div>
+                         
                           <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY" type="date" aria-label="(i)  Ending Date" value="{{ $churandrug->ending_date }}" >@error('(i) Ending Date')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror

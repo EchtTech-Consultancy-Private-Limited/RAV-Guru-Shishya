@@ -2289,8 +2289,7 @@
                         <div class="form-group ">
                             <label class="control-label  " for="date">Starting Date
                             </label>
-                            <div class="input-group">
-                            </div>
+                           
                             <input class="form-control" id="date" name="starting_date" placeholder="MM/DD/YYYY"
                                 type="date" aria-label="(i)  Starting Date"
                                 value="{{ old('(i)   Starting Date') }}">@error('(i) Starting Date')
@@ -2302,8 +2301,7 @@
                         <div class="form-group ">
                             <label class="control-label  " for="date">Ending Date
                             </label>
-                            <div class="input-group">
-                            </div>
+                           
                             <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
                                 type="date" aria-label="(i)  Ending Date"
                                 value="{{ old('(i)   Starting Date') }}">@error('(i) Ending Date')

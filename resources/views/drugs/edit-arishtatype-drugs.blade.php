@@ -763,12 +763,11 @@
                                                         <label
                                                             class="control-label requiredField @if(isset($data->starting_date)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"
-                                                            for="date">(i) Starting Date
+                                                            for="date">Starting Date
                                                         </label>
-                                                        <div class="input-group">
-                                                        </div>
+                                                       
                                                         <input class="form-control" id="date" name="starting_date"
-                                                            placeholder="MM/DD/YYYY" type="date"
+                                                             type="date"
                                                             value="{{ $drug->starting_date }}">@error('(i) Starting
                                                         Date')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -780,12 +779,11 @@
                                                         <label
                                                             class="control-label requiredField @if(isset($data->ending_date)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"
-                                                            for="date">(ii) Ending Date
+                                                            for="date">Ending Date
                                                         </label>
-                                                        <div class="input-group">
-                                                        </div>
+                                                       
                                                         <input class="form-control" id="date" name="ending_date"
-                                                            placeholder="MM/DD/YYYY" type="date"
+                                                             type="date"
                                                             value="{{ $drug->ending_date }}">@error('(i) Ending Date')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
