@@ -23,45 +23,44 @@
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
                             <a href="{{url('/dashboard')}}">
-                             <i class="fas fa-home"></i> Home</a>
-                          </li>
+                                <i class="fas fa-home"></i> Home</a>
+                        </li>
 
-                          <li class="breadcrumb-item active">List of Drug Details </li>
-                       </ul>
-                       @if ($message = Session::get('success'))
-                         <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                         </div>
-                      @endif
+                        <li class="breadcrumb-item active">List of Drug Details </li>
+                    </ul>
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
                     </div>
+                    @endif
                 </div>
-              </div>
-         <!-- Basic Example | Horizontal Layout -->
-         <div class="row clearfix">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-               <div class="header">
-                  <ul class="header-dropdown m-r--5">
-                     <li class="dropdown">
-                        <a href="#" onClick="return false;"
-                           class="dropdown-toggle"
-                           data-bs-toggle="dropdown"
-                           role="button" aria-haspopup="true"
-                           aria-expanded="false">
-                        </a>
-                        <ul class="dropdown-menu float-start">
-                           <li>
-                              <a href="#" onClick="return
+            </div>
+        </div>
+        <!-- Basic Example | Horizontal Layout -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <ul class="header-dropdown m-r--5">
+                            <li class="dropdown">
+                                <a href="#" onClick="return false;" class="dropdown-toggle" data-bs-toggle="dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false">
+                                </a>
+                                <ul class="dropdown-menu float-start">
+                                    <li>
+                                        <a href="#" onClick="return
                                  false;">Action</a>
-                           </li>
-                           <li>
-                              <a href="#" onClick="return
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return
                                  false;">Another action</a>
-                           </li>
-                           <li>
-                              <a href="#" onClick="return
+                                    </li>
+                                    <li>
+                                        <a href="#" onClick="return
                                  false;">Something else here</a>
-                           </li>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                      </li>
                   </ul>
@@ -75,12 +74,16 @@
                                     <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label   class="form-control-label">Name of the Shishya</label>
-                                                    <select class="form-control" id="shishya_id" name="shishya_id" required>
-                                                         <option value="">Please Select </option>
-                                                         @foreach($shishya as $key=>$value)
-                                                       
-                                                         <option value="{{$value->id == request()->shishya_id ? $value->id:$value->id}}" {{$value->id == request()->shishya_id ? 'selected':''}}>{{$value->firstname}} ({{$value->email}})</option>
+                                                    <label class="form-control-label">Name of the Shishya</label>
+                                                    <select class="form-control" id="shishya_id" name="shishya_id"
+                                                        required>
+                                                        <option value="">Please Select </option>
+                                                        @foreach($shishya as $key=>$value)
+
+                                                        <option
+                                                            value="{{$value->id == request()->shishya_id ? $value->id:$value->id}}"
+                                                            {{$value->id == request()->shishya_id ? 'selected':''}}>
+                                                            {{$value->firstname}} ({{$value->email}})</option>
                                                         @endforeach
                                                     </select>
 
@@ -89,30 +92,31 @@
 
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">From:</label>                                                  
+                                                    <label class="form-control-label">From Date:</label>                                                  
                                                     <input type="date" name="from_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">To:</label>
+                                                    <label class="form-control-label">To Date:</label>
                                                     <input type="date" name="to_date" class="form-control datetimepicker flatpickr-input active" value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif" max="{{date('Y-m-d',time())}}" required>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                               <div class="form-group">
-                                                  <label
-                                                     for="example-text-input"
-                                                     class="form-control-label">Select Yogas<span
-                                                     class="text-danger">*</span></label>
-                                                      <select class="form-control" id="yogas_type" name="yogas_type" required>
-                                                         <option value="">Please Select </option>
-                                                         @foreach(__('phr.yogas') as $key=>$value)
-                                                            <option value="{{$key}}" {{ ($key == request()->yogas_type) ? 'selected' : '' }}>{{$value}}</option>
+                                                <div class="form-group">
+                                                    <label for="example-text-input" class="form-control-label">Select
+                                                        Yogas<span class="text-danger">*</span></label>
+                                                    <select class="form-control" id="yogas_type" name="yogas_type"
+                                                        required>
+                                                        <option value="">Please Select </option>
+                                                        @foreach(__('phr.yogas') as $key=>$value)
+                                                        <option value="{{$key}}"
+                                                            {{ ($key == request()->yogas_type) ? 'selected' : '' }}>
+                                                            {{$value}}</option>
                                                         @endforeach
-                                                      </select>
-                                               </div>
+                                                    </select>
+                                                </div>
                                             </div>
                                     </div>
                                     <div class= "float-right">
@@ -130,38 +134,38 @@
     </div>
 </section>
 
-    <section class="content content-section">
-           @if (count($errors) > 0)
-              <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                   @foreach ($errors->all() as $error)
-                     <li>{{ $error }}</li>
-                   @endforeach
-                </ul>
-              </div>
-            @endif
-            <div class="container-fluid">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                 <p>{{ $message }}</p>
-                </div>
+<section class="content content-section">
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <div class="container-fluid">
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
 
-                @endif
-                @if ($message = Session::get('Error'))
-                <div class="alert alert-danger">
-                 <p>{{ $message }}</p>
-                </div>
+        @endif
+        @if ($message = Session::get('Error'))
+        <div class="alert alert-danger">
+            <p>{{ $message }}</p>
+        </div>
 
-                @endif
-            <div class="row">
-         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card">
-               <div class="card-body">
-               <div class="table-responsive">
-                     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <div class="row">
-                            <div class="col-sm-12">
+        @endif
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                <div class="row">
+                                    <div class="col-sm-12">
 
                                 @isset($drugslist)
                                 @if(strlen($drugslist)>3)
@@ -173,23 +177,34 @@
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Yogas Name </th>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Yogas
+                                                        Name </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Shishya Name </th>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Shishya
+                                                        Name </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Action </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        @foreach($drugslist as $key=>$drug)
-                                            <tr class="gradeX odd ">
-                                                 <td class="center sorting_1">{{ ++$key }}</td>
+                                                @foreach($drugslist as $key=>$drug)
+                                                <tr class="gradeX odd ">
+                                                    <td class="center sorting_1">{{ ++$key }}</td>
 
-                                                 <td class="text-center">@if($drug->yoga_type==1) {{__('phr.yogas')[1]}} @endif</td>
-                                                 <td class="center"> {{$drug->churna_yoga_type_individual}}  </td>
+                                                    <td class="text-center">@if($drug->yoga_type==1)
+                                                        {{__('phr.yogas')[1]}} @endif</td>
+                                                    <td class="center"> {{$drug->churna_yoga_type_individual}} </td>
 
-                                                 <td class="center"><?php echo get_user_name($drug->shishya_id); ?>  </td>
+                                                    <td class="center"><?php echo get_user_name($drug->shishya_id); ?>
+                                                    </td>
 
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
@@ -207,11 +222,11 @@
                                             </tr>
                                         @endforeach
 
-                                    </tbody>
-                                </table>
-                                @endif
-                                @endif
-                                @endisset
+                                            </tbody>
+                                        </table>
+                                        @endif
+                                        @endif
+                                        @endisset
 
 
                                 <!-- Rasa Yogas -->
@@ -225,16 +240,22 @@
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Yogas Name </th>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Yogas
+                                                        Name </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Action </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        @foreach($drugslist as $key=>$drug)
-                                            <tr class="gradeX odd ">
-                                                 <td class="center sorting_1">{{ ++$key }}</td>
+                                                @foreach($drugslist as $key=>$drug)
+                                                <tr class="gradeX odd ">
+                                                    <td class="center sorting_1">{{ ++$key }}</td>
 
                                                  <td class="text-center">@if($drug->yoga_type==2) {{__('phr.yogas')[2]}} @endif</td>
                                                  <td class="center"> {{$drug->rasa_yoga_type_individual}}  </td>
@@ -254,11 +275,11 @@
                                             </tr>
                                         @endforeach
 
-                                    </tbody>
-                                </table>
-                                @endif
-                                @endif
-                                @endisset
+                                            </tbody>
+                                        </table>
+                                        @endif
+                                        @endif
+                                        @endisset
 
                                 <!-- vati yoga -->
                                 @isset($drugslist)
@@ -271,16 +292,22 @@
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Yogas Name </th>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Yogas
+                                                        Name </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        @foreach($drugslist as $key=>$drug)
-                                            <tr class="gradeX odd ">
-                                                 <td class="center sorting_1">{{ ++$key }}</td>
+                                                @foreach($drugslist as $key=>$drug)
+                                                <tr class="gradeX odd ">
+                                                    <td class="center sorting_1">{{ ++$key }}</td>
 
                                                  <td class="text-center">@if($drug->yoga_type==3) {{__('phr.yogas')[3]}} @endif</td>
                                                  <td class="center"> {{$drug->vati_yoga_type_individual}}  </td>
@@ -297,15 +324,15 @@
                                                         <i class="material-icons">delete_forever</i>
                                                     </a>
 
-                                                 </td>
-                                            </tr>
-                                        @endforeach
+                                                    </td>
+                                                </tr>
+                                                @endforeach
 
-                                    </tbody>
-                                </table>
-                                @endif
-                                @endif
-                                @endisset
+                                            </tbody>
+                                        </table>
+                                        @endif
+                                        @endif
+                                        @endisset
 
 
 
@@ -320,16 +347,22 @@
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Yogas Name </th>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Yogas
+                                                        Name </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        @foreach($drugslist as $key=>$drug)
-                                            <tr class="gradeX odd ">
-                                                 <td class="center sorting_1">{{ ++$key }}</td>
+                                                @foreach($drugslist as $key=>$drug)
+                                                <tr class="gradeX odd ">
+                                                    <td class="center sorting_1">{{ ++$key }}</td>
 
                                                  <td class="text-center">@if($drug->yoga_type==4) {{__('phr.yogas')[4]}} @endif</td>
                                                  <td class="center"> {{$drug->talia_yoga_type_individual}}  </td>
@@ -349,11 +382,11 @@
                                             </tr>
                                         @endforeach
 
-                                    </tbody>
-                                </table>
-                                @endif
-                                @endif
-                                @endisset
+                                            </tbody>
+                                        </table>
+                                        @endif
+                                        @endif
+                                        @endisset
 
 
 
@@ -368,16 +401,22 @@
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> S.No. </th>
                                             <th class="center sorting sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=" No : activate to sort column descending"> Yoga Type </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Yogas Name </th>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Yogas
+                                                        Name </th>
 
-                                            <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                                    <th class="center sorting" tabindex="0"
+                                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                        aria-label=" Name : activate to sort column ascending">Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        @foreach($drugslist as $key=>$drug)
-                                            <tr class="gradeX odd ">
-                                                 <td class="center sorting_1">{{ ++$key }}</td>
+                                                @foreach($drugslist as $key=>$drug)
+                                                <tr class="gradeX odd ">
+                                                    <td class="center sorting_1">{{ ++$key }}</td>
 
                                                  <td class="text-center">@if($drug->yoga_type==5) {{__('phr.yogas')[5]}} @endif</td>
                                                  <td class="center"> {{$drug->arishtayoga_type_individual}}  </td>
@@ -397,25 +436,26 @@
                                             </tr>
                                         @endforeach
 
-                                    </tbody>
-                                </table>
-                                @endif
-                                @endif
-                                @endisset
+                                            </tbody>
+                                        </table>
+                                        @endif
+                                        @endif
+                                        @endisset
 
 
-                                @isset($drugslist)
-                                @if(strlen($drugslist)<3)
-                                    <p class="text-center">No Records Found</p>
-                                @endif
-                                @endisset
+                                        @isset($drugslist)
+                                        @if(strlen($drugslist)<3) <p class="text-center">No Records Found</p>
+                                            @endif
+                                            @endisset
 
+
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
-
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
          </div>
       </div>
@@ -423,16 +463,14 @@
 </section>
 
 
-      <script>
-        function confirm_option(action){
-           if(!confirm("Are you sure to "+action+", this record!")){
-              return false;
-           }
+<script>
+function confirm_option(action) {
+    if (!confirm("Are you sure to " + action + ", this record!")) {
+        return false;
+    }
 
-           return true;
+    return true;
 
-        }
-     </script>
+}
+</script>
 @endsection
-
-

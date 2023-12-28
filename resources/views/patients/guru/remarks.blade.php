@@ -56,7 +56,7 @@
                <div class="header">
 
                </div>
-               <form  action="{{ url('guru-remarks') }}" method="post" enctype="multipart/form-data">
+               <form  action="{{ url('guru-remarks') }}" method="post" enctype="multipart/form-data" id="remark-from-guru">
 
                   <input type="hidden" name="guru_id" value="{{$patient->guru_id}}">
                   <input type="hidden" name="shishya_id" value="{{$patient->shishya_id}}">
@@ -78,7 +78,7 @@
                      </div>
                      <div class="col-sm-6">
                         <div class="form-group">
-                           <div class="form-line">
+                           <div class="">
                               <label >Select User<span class="text-danger">*</span></label>
                                  <select class="form-control" name="user_type" required>
                                     <option value="">Select User</option>
@@ -99,7 +99,7 @@
                      </div>
                      <div class="col-sm-6">
                         <div class="form-group">
-                            <div class="form-line">
+                            <div class="">
                                <label
                                      for="examp
                                      le-text-input"
