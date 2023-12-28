@@ -84,8 +84,8 @@
 
                                         <tbody>
                                             <tr>
-                                                <td> {{Auth::user()->firstname}}</td>
-                                                <td> @if(Auth::user()->guru_id) {{$guru->firstname}} @endif</td>
+                                                <td> {{Auth::user()->firstname}} {{Auth::user()->lastname}}</td>
+                                                <td> @if(Auth::user()->guru_id) {{$guru->firstname}} {{$guru->lastname}} @endif</td>
                                             </tr>
                                         </tbody>
                                     </table>
