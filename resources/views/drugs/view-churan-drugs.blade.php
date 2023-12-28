@@ -245,7 +245,7 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td>Step 4, etc. </td>
+                                                            <td>Step 4 </td>
                                                             <td> {{ $churandrug->step_four }} </td>
                                                         </tr>
                                                         <tr>

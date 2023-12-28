@@ -413,7 +413,7 @@
                                 Changes seen during bhavana therapy</label>
                             <input type="text" name="changes_seen_during_bhavana_therapy"
                                 class="form-control"
-                                placeholder="VI Changes seen during bhavana therapy"
+                                placeholder="Changes seen during bhavana therapy"
                                 value="{{ $rasadrug->changes_seen_during_bhavana_therapy }}">@error('changes_seen_during_bhavana_therapy')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -427,7 +427,7 @@
                                 Organoleptic properties of raw material</label>
                             <input type="text" name="organoleptic_properties_of_raw_material"
                                 class="form-control"
-                                placeholder="VII Organoleptic properties of raw material"
+                                placeholder="Organoleptic properties of raw material"
                                 value="{{ $rasadrug->organoleptic_properties_of_raw_material }}">
                             @error('VII Organoleptic properties of raw material')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -439,10 +439,10 @@
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif"
                                 title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">VIII
-                                organoleptic_properties_of_raw_material</label>
+                                Organoleptic properties of raw material</label>
                             <input type="text"
                                 name="organoleptic_properties_of_finished_product"
-                                class="form-control" placeholder="VIII"
+                                class="form-control" placeholder="Organoleptic properties of raw material"
                                 value="{{ $rasadrug->organoleptic_properties_of_finished_product }}">
                             @error('organoleptic_properties_of_finished_product')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -456,7 +456,7 @@
                                 title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">IX
                                 Time taken for the experiment</label>
                             <input type="text" name="time_taken_for_the_experiment"
-                                class="form-control" placeholder="Wholesome diet"
+                                class="form-control" placeholder="Enter  Time taken for the experiment"
                                 value="{{ $rasadrug->time_taken_for_the_experiment }}">
                             @error('time_taken_for_the_experiment')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -469,10 +469,9 @@
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->starting_date_of_experiment)) patient-highlight @endif"
-                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">X
-                                Starting date of experiment</label>
+                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"> Starting date of experiment</label>
                             <input type="text" name="starting_date_of_experiment"
-                                class="form-control" placeholder="Wholesome activities"
+                                class="form-control" placeholder="Enter Starting date of experiment"
                                 value="{{ $rasadrug->starting_date_of_experiment }}">@error('starting_date_of_experiment')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
@@ -482,10 +481,10 @@
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->ending_date_of_experiment)) patient-highlight @endif"
-                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">XI
+                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                 Ending date of experiment</label>
                             <input type="text" name="ending_date_of_experiment"
-                                class="form-control" placeholder="XI Ending date of experiment"
+                                class="form-control" placeholder="Enter Ending date of experiment"
                                 value="{{ $rasadrug->ending_date_of_experiment }}">
                             @error('ending_date_of_experiment')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>

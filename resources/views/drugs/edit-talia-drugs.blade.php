@@ -425,10 +425,10 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->kvatha_dravyas_step_murchana)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(i)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(I)
                                                             Taila/ghrita murchana</label>
                                                         <input type="text" name="kvatha_dravyas_step_murchana"
-                                                            class="form-control" placeholder="(i) Taila/ghrita murchana"
+                                                            class="form-control" placeholder="Taila/ghrita murchana"
                                                             value="{{ $drug->kvatha_dravyas_step_murchana }}"
                                                             maxlength="50">@error('kvatha_dravyas_step_murchana')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -439,10 +439,10 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->preparation_of_kalka)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(ii)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(II)
                                                             Preparation of Kalka</label>
                                                         <input type="text" name="preparation_of_kalka"
-                                                            class="form-control" placeholder="(ii) Preparation of Kalka"
+                                                            class="form-control" placeholder="Preparation of Kalka"
                                                             aria-label="Step 2"
                                                             value="{{ $drug->preparation_of_kalka }}" maxlength="50">
                                                         @error('preparation_of_kalka')
@@ -455,11 +455,11 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->preparation_of_kavatha_dravyas)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(iii)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(III)
                                                             Preparation of kvatha/drava dravyas</label>
                                                         <input type="text" name="preparation_of_kavatha_dravyas"
                                                             class="form-control"
-                                                            placeholder="(iii) Preparation of kvatha/drava dravyas"
+                                                            placeholder="Preparation of kvatha/drava dravyas"
                                                             value="{{ $drug->preparation_of_kavatha_dravyas }}"
                                                             maxlength="50">
                                                         @error('preparation_of_kavatha_dravyas')
@@ -471,10 +471,10 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->order_of_mixing)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(iv)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(IV)
                                                             Order of mixing</label>
                                                         <input type="text" name="order_of_mixing" class="form-control"
-                                                            placeholder="(iv) Order of mixing" aria-label="Name"
+                                                            placeholder="Order of mixing" aria-label="Name"
                                                             value="{{ $drug->order_of_mixing }}" maxlength="50">
                                                         @error('order_of_mixing')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -487,10 +487,10 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->paka_procedure)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(v)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(V)
                                                             Paka procedure</label>
                                                         <input type="text" name="paka_procedure" class="form-control"
-                                                            placeholder="(v) Paka procedure" aria-label="Name"
+                                                            placeholder="Paka procedure" aria-label="Name"
                                                             value="{{ $drug->paka_procedure }}" maxlength="50">
                                                         @error('paka_procedure')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -787,10 +787,9 @@
                                                         <label
                                                             class="control-label requiredField @if(isset($data->starting_date)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"
-                                                            for="date">(i) Starting Date
+                                                            for="date">Starting Date
                                                         </label>
-                                                        <div class="input-group">
-                                                        </div>
+                                                       
                                                         <input class="form-control" id="date" name="starting_date"
                                                             placeholder="MM/DD/YYYY" type="date"
                                                             value="{{ $drug->starting_date }}">
@@ -804,14 +803,13 @@
                                                         <label
                                                             class="control-label requiredField @if(isset($data->ending_date)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"
-                                                            for="date">(ii) Ending Date
+                                                            for="date">Ending Date
                                                         </label>
-                                                        <div class="input-group">
-                                                        </div>
+                                                       
                                                         <input class="form-control" id="date" name="ending_date"
                                                             placeholder="MM/DD/YYYY" type="date"
                                                             value="{{ $drug->ending_date }}">
-                                                        @error('(i) Ending Date')
+                                                        @error(' Ending Date')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
                                                     </div>

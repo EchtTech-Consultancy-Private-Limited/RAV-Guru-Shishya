@@ -1542,21 +1542,3 @@ input::placeholder{
     color: #fff !important;
 }
 
-input:required { 
-    background-color: #000 !important;
-    color:#ffffff !important;
-}
-
-.form-group input[required] {
-    background-color: yellow !important;
-}
-
-
-
-input:invalid {
-    border: 2px solid red !important;
- }
- input:invalid + span {
-    color: red !important;
-    font-weight: bold;
- }
