@@ -390,7 +390,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                    <div class="col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->bhavana_dravayas_second)) patient-highlight @endif"
@@ -405,7 +405,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                    <div class="col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->changes_seen_during_bhavana_therapy)) patient-highlight @endif"
@@ -419,7 +419,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                    <div class="col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->organoleptic_properties_of_raw_material)) patient-highlight @endif"
@@ -434,7 +434,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
+                    <div class="col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif"
