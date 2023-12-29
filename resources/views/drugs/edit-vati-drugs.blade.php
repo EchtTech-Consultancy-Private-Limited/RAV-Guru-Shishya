@@ -524,7 +524,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class="col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->reasons_for_loss_first)) patient-highlight @endif"
@@ -536,7 +536,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class="col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->reasons_for_loss_second)) patient-highlight @endif"
@@ -549,7 +549,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class=" col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->organoleptic_properties_of_raw_materials)) patient-highlight @endif"
@@ -565,7 +565,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class="col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif"

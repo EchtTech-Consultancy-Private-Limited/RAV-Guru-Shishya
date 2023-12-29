@@ -416,7 +416,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                    <div class="col-xl-4 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1</label>
                           <input type="text" name="reasons_for_loss_first" class="form-control" aria-label="(i)" value="{{ $churandrug->reasons_for_loss_first }}" >@error('(i)')
@@ -424,7 +424,7 @@
                           @enderror
                        </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                    <div class="col-xl-4 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->reasons_for_loss_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2</label>
                           <input type="text" name="reasons_for_loss_second" class="form-control" aria-label="Name" value="{{ $churandrug->reasons_for_loss_second }}" >
@@ -433,7 +433,7 @@
                           @enderror
                        </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                    <div class=" col-xl-4 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->organoleptic_properties_of_raw_materials)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Organoleptic properties of raw materials</label>
                           <input type="text" name="organoleptic_properties_of_raw_materials" class="form-control" placeholder="Organoleptic properties of raw materials" aria-label="Name" value="{{ $churandrug->organoleptic_properties_of_raw_materials }}" >
@@ -442,7 +442,7 @@
                           @enderror
                        </div>
                     </div>
-                    <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                    <div class="col-xl-4 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Organoleptic properties of finished product</label>
                           <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Organoleptic"  value="{{ $churandrug->organoleptic_properties_of_finished_product }}" >
