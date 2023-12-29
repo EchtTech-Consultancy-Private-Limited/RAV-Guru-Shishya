@@ -232,7 +232,7 @@
 
                                         <tr>
                                             <td> Registration Date</td>
-                                            <td> {{ date('Y-m-d', strtotime($patient->registration_date))  }}</td>
+                                            <td> {{ date('d-m-Y', strtotime($patient->registration_date))  }}</td>
                                         </tr>
 
                                         <tr>

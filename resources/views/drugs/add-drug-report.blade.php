@@ -1913,7 +1913,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step I</label>
+                            <label for="example-text-input" class="form-control-label">Step 1</label>
                             <input type="text" name="main_ingredients_step_one" class="form-control" placeholder="Enter Step 1"
                                 aria-label="1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1922,7 +1922,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step II</label>
+                            <label for="example-text-input" class="form-control-label">Step 2</label>
                             <input type="text" name="main_ingredients_step_two" class="form-control" placeholder="Enter Step 2"
                                 aria-label="Step 2" value="{{ old('2') }}">
                             @error('2')
@@ -1932,7 +1932,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step III</label>
+                            <label for="example-text-input" class="form-control-label">Step 3</label>
                             <input type="text" name="main_ingredients_step_three" class="form-control" placeholder="Enter Step 3"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1950,7 +1950,7 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step I</label>
+                            <label for="example-text-input" class="form-control-label">Step 1</label>
                             <input type="text" name="prakshepa_dravyas_step_one" class="form-control" placeholder="Enter Step 1"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1959,7 +1959,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step II</label>
+                            <label for="example-text-input" class="form-control-label">Step 2</label>
                             <input type="text" name="prakshepa_dravyas_step_two" class="form-control" placeholder="Enter Step 2"
                                 aria-label="Step 2" value="{{ old('2') }}">
                             @error('2')
@@ -1969,7 +1969,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step III</label>
+                            <label for="example-text-input" class="form-control-label">Step 3</label>
                             <input type="text" name="prakshepa_dravyas_step_three" class="form-control" placeholder="Enter Step 3"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1986,7 +1986,7 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step I</label>
+                            <label for="example-text-input" class="form-control-label">Step 1</label>
                             <input type="text" name="method_of_preparation" class="form-control" placeholder="Enter Step 1"
                                 aria-label="Step 1" value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -1995,7 +1995,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step II</label>
+                            <label for="example-text-input" class="form-control-label">Step 2</label>
                             <input type="text" name="packing" class="form-control" placeholder="Enter Step 2" aria-label="Step 2"
                                 value="{{ old('2') }}">
                             @error('2')
@@ -2005,7 +2005,7 @@
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
-                            <label for="example-text-input" class="form-control-label">Step III</label>
+                            <label for="example-text-input" class="form-control-label">Step 3</label>
                             <input type="text" name="storage" class="form-control" placeholder="Enter Step 3" aria-label="Step 1"
                                 value="{{ old('1') }}">@error('1')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -2289,8 +2289,7 @@
                         <div class="form-group ">
                             <label class="control-label  " for="date">Starting Date
                             </label>
-                            <div class="input-group">
-                            </div>
+                           
                             <input class="form-control" id="date" name="starting_date" placeholder="MM/DD/YYYY"
                                 type="date" aria-label="(i)  Starting Date"
                                 value="{{ old('(i)   Starting Date') }}">@error('(i) Starting Date')
@@ -2302,8 +2301,7 @@
                         <div class="form-group ">
                             <label class="control-label  " for="date">Ending Date
                             </label>
-                            <div class="input-group">
-                            </div>
+                           
                             <input class="form-control" id="date" name="ending_date" placeholder="MM/DD/YYYY"
                                 type="date" aria-label="(i)  Ending Date"
                                 value="{{ old('(i)   Starting Date') }}">@error('(i) Ending Date')

@@ -121,6 +121,14 @@
                                         <td> {{ @$patient->registration_no }}</td>
                                     </tr>
                                     <tr>
+                                        <td>Age </td>
+                                        <td>{{@$patient->age}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Registration Date </td>
+                                        <td> {{date('d-m-Y',strtotime(@$patient->registration_date))}} </td>
+                                    </tr>
+                                    <tr>
                                         <td>Patients Type </td>
                                         <td>{{@$patient->patient_type}} </td>
                                     </tr>
@@ -130,14 +138,8 @@
                                             {{@$patient->gender == $key  ? $value : ''}}</option>
                                             @endforeach </td>
                                     </tr>
-                                    <tr>
-                                        <td>Age </td>
-                                        <td>{{@$patient->age}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Registration Date </td>
-                                        <td> {{date('d-m-Y',strtotime(@$patient->registration_date))}} </td>
-                                    </tr>
+                                    
+                                    
                                     <tr>
                                         <td>Age Group </td>
                                         <td>@foreach(__('phr.age_group') as $key=>$value)
@@ -176,14 +178,6 @@
                                         <td>{{@$patient->address}} </td>
                                     </tr>
                                     <tr>
-                                        <td> Main Complaint(As said by patient) </td>
-                                        <td>{{@$patient->main_complaintsaid_by_patient}} </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Duration </td>
-                                        <td> {{@$patient->said_by_patient_duration}}</td>
-                                    </tr>
-                                    <tr>
                                         <td> Main Complaint(As said by family member) </td>
                                         <td> {{@$patient->main_complaint_as_said_by_family}}</td>
                                     </tr>
@@ -195,6 +189,17 @@
                                         <td> Past illness</td>
                                         <td>{{@$patient->past_illness}} </td>
                                     </tr>
+                                    <tr>
+                                        <td> Main Complaint(As said by patient) </td>
+                                        <td>{{@$patient->main_complaintsaid_by_patient}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Duration </td>
+                                        <td> {{@$patient->said_by_patient_duration}}</td>
+                                    </tr>
+                                  
+                                   
+                                   
                                     <tr>
                                         <td> Family History</td>
                                         <td>{{@$patient->family_history}} </td>
@@ -286,36 +291,6 @@
                                             @endforeach </td>
                                     </tr>
                                     <tr>
-                                        <td>Artava Pravritti Kala </td>
-                                        <td> @foreach(__('phr.aartava_pravratti_kala') as $key=>$value)
-                                            {{@$patient->aartava_pravratti_kala == $key  ? $value : ''}}
-                                            @endforeach </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Dehoshma </td>
-                                        <td> @foreach(__('phr.dehoshma') as $key=>$value)
-                                            {{@$patient->dehoshma == $key  ? $value : ''}}
-                                            @endforeach </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bhara</td>
-                                        <td> {{@$patient->bhara }} </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Prayogshaliya Parikshana </td>
-                                        <td>{{@$patient->prayogashaliya_parikshana }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Roga Viniishchaya Pramukh Nidana </td>
-                                        <td> {{@$patient->roga_vinishchaya_pramukh_nidana }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Samodhana Kriyas </td>
-                                        <td> {{@$patient->samodhana_kriyas }} </td>
-                                    </tr>
-
-                                    <!-- ******************************* -->
-                                    <tr>
                                         <td> Mala
                                             Pravritti</td>
                                         <td> @foreach(__('phr.mala_pravritti') as $key=>$value)
@@ -342,6 +317,22 @@
                                         <td> @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
                                             {{@$patient->shukrakshana_pravritti == $key  ? $value : ''}}
                                             @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artava Pravritti Kala </td>
+                                        <td> @foreach(__('phr.aartava_pravratti_kala') as $key=>$value)
+                                            {{@$patient->aartava_pravratti_kala == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dehoshma </td>
+                                        <td> @foreach(__('phr.dehoshma') as $key=>$value)
+                                            {{@$patient->dehoshma == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bhara</td>
+                                        <td> {{@$patient->bhara }} </td>
                                     </tr>
                                     <tr>
                                         <td>Raktachapa </td>
@@ -377,6 +368,10 @@
                                             @endforeach </td>
                                     </tr>
                                     <tr>
+                                        <td>Prayogshaliya Parikshana </td>
+                                        <td>{{@$patient->prayogashaliya_parikshana }}</td>
+                                    </tr>
+                                    <tr>
                                         <td> Samprapti
                                             Vivarana </td>
                                         <td> {{@$patient->samprapti_vivarana}}</td>
@@ -387,8 +382,8 @@
                                         <td> {{@$patient->vibhedaka_pariksha}}</td>
                                     </tr>
                                     <tr>
-                                        <td> Roga Vinishchaya- Pramukh Nidana</td>
-                                        <td>{{@$patient->roga_vinishchaya_pramukh_nidana}} </td>
+                                        <td>Roga Vinishchaya Pramukh Nidana </td>
+                                        <td> {{@$patient->roga_vinishchaya_pramukh_nidana }}</td>
                                     </tr>
                                     <tr>
                                         <td> Chikitsa
@@ -397,9 +392,10 @@
                                             Sahita</td>
                                         <td> {{@$patient->chikitsa_kalpana_anupana_sahita}}</td>
                                     </tr>
+
                                     <tr>
-                                        <td> Samshamana Kriyas</td>
-                                        <td>{{@$patient->samshamana_kriyas}} </td>
+                                        <td>Samodhana Kriyas </td>
+                                        <td> {{@$patient->samodhana_kriyas }} </td>
                                     </tr>
                                     <tr>
                                         <td> Pathya-Apathya <span class="fs-12
@@ -407,6 +403,10 @@
                                                     href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span></td>
                                         <td>{{@$patient->pathya_apathya}} </td>
                                     </tr>
+
+                                    <!-- ******************************* -->
+                                 
+                                   
                                     <!-- ******************addedd new fild **************** -->
                                     <tr>
                                         <td> Soft drink/Peya Padarth</td>

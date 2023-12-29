@@ -524,32 +524,32 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class="col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->reasons_for_loss_first)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(i)</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">First Reason Of Loss</label>
                                                         <input type="text" name="reasons_for_loss_first"
-                                                            class="form-control" placeholder="" aria-label="(I)"
+                                                            class="form-control" placeholder="Enter First Reason Of Loss" aria-label="(I)"
                                                             value="{{ $drug->reasons_for_loss_first }}">@error('reasons_for_loss_first')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class="col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->reasons_for_loss_second)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(II)</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Second Reason Of Loss</label>
                                                         <input type="text" name="reasons_for_loss_second"
-                                                            class="form-control" placeholder="" aria-label="Name"
+                                                            class="form-control" placeholder="Entre Second Reason Of Loss" aria-label="Name"
                                                             value="{{ $drug->reasons_for_loss_second }}" maxlength="50">
                                                         @error('reasons_for_loss_second')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class=" col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->organoleptic_properties_of_raw_materials)) patient-highlight @endif"
@@ -565,7 +565,7 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class="col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif"
@@ -594,10 +594,9 @@
                                                         <label
                                                             class="control-label requiredField  @if(isset($data->starting_date)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"
-                                                            for="date">(i) Starting Date
+                                                            for="date">Starting Date
                                                         </label>
-                                                        <div class="input-group">
-                                                        </div>
+                                                        
                                                         <input class="form-control" id="date" name="starting_date"
                                                             placeholder="MM/DD/YYYY" type="date"
                                                             aria-label="(i)  Starting Date"
@@ -611,10 +610,9 @@
                                                         <label
                                                             class="control-label requiredField  @if(isset($data->ending_date)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"
-                                                            for="date">(ii) Ending Date
+                                                            for="date">Ending Date
                                                         </label>
-                                                        <div class="input-group">
-                                                        </div>
+                                                        
                                                         <input class="form-control" id="date" name="ending_date"
                                                             placeholder="MM/DD/YYYY" type="date"
                                                             aria-label="(i)  Ending Date"
