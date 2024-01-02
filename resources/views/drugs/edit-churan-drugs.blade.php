@@ -230,7 +230,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->step_first)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 1</label>
-                          <input type="text" name="step_first" class="form-control" placeholder="Step 1" aria-label="Step 1" value="{{ $churandrug->step_first }}" >@error('step_first')
+                          <input type="text" name="step_first" class="form-control" placeholder="Enter Step 1" aria-label="Step 1" value="{{ $churandrug->step_first }}" >@error('step_first')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
                        </div>
@@ -238,7 +238,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->step_second)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 2</label>
-                          <input type="text" name="step_second" class="form-control" placeholder="Step 2" aria-label="Step 2" value="{{ $churandrug->step_second }}" >
+                          <input type="text" name="step_second" class="form-control" placeholder="Enter Step 2" aria-label="Step 2" value="{{ $churandrug->step_second }}" >
                           @error('step_second')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
@@ -247,7 +247,7 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->step_three)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 3</label>
-                          <input type="text" name="step_three" class="form-control" placeholder="Step 3" aria-label="Name" value="{{ $churandrug->step_three }}" >
+                          <input type="text" name="step_three" class="form-control" placeholder="Enter Step 3" aria-label="Name" value="{{ $churandrug->step_three }}" >
                           @error('step_three')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
@@ -256,14 +256,13 @@
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->step_four)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step 4</label>
-                          <input type="text" name="step_four" class="form-control" placeholder="Step 4" aria-label="Step 4" value="{{ $churandrug->step_four }}" >
+                          <input type="text" name="step_four" class="form-control" placeholder="Enter Step 4" aria-label="Step 4" value="{{ $churandrug->step_four }}" >
                           @error('step_four')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
                        </div>
                     </div>
-                </div>
-                <div class="row">
+              
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->packing)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Packing</label>
@@ -299,8 +298,7 @@
                           @enderror
                        </div>
                     </div>
-                </div>
-                <div class="row">
+                
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->dose)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Dose</label>
@@ -336,8 +334,7 @@
                           @enderror
                        </div>
                     </div>
-                </div>
-                <div class="row">
+               
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->wholesome_activities)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome activities</label>
