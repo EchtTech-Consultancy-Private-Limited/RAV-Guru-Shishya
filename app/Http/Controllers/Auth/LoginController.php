@@ -140,7 +140,7 @@ class LoginController extends Controller
           $ub = "Firefox";
         }elseif(preg_match('/OPR/i',$u_agent)){
           $bname = 'Opera';
-          $ub = "Opera";
+          $ub = "OPR";
         }elseif(preg_match('/Chrome/i',$u_agent) && !preg_match('/Edge/i',$u_agent)){
           $bname = 'Google Chrome';
           $ub = "Chrome";
