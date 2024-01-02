@@ -177,7 +177,7 @@ class AddUserController extends Controller
         /*end basic information record*/
 
         /*educational record*/
-        $educational_record=ProfileEducational::where('user_id',$id)->get();
+        $educational_record=ProfileEducational::where('user_id',$id)->orderBy('id', 'DESC')->get();
 
 
        // return $per_profile_record[0];
