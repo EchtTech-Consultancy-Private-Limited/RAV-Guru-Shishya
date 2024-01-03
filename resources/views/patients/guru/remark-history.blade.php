@@ -86,7 +86,7 @@
                                     @elseif(@$remark_history->send_to=='1')Admin @endif
                                  </td>
                                  <td class="center"><a ><b>{{$remark_history->remarks}}</b></a></td>
-                                 <td class="center">{{ date('d-m-Y', strtotime($remark_history->created_at)) }}</td>
+                                 <td class="center text-nowrap">{{ date('d-m-Y', strtotime($remark_history->created_at)) }}</td>
                         </tr>
                         @endforeach
                         
