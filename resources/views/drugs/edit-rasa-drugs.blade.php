@@ -409,7 +409,7 @@
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->changes_seen_during_bhavana_therapy)) patient-highlight @endif"
-                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">VI
+                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                 Changes seen during bhavana therapy</label>
                             <input type="text" name="changes_seen_during_bhavana_therapy"
                                 class="form-control"
@@ -423,7 +423,7 @@
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->organoleptic_properties_of_raw_material)) patient-highlight @endif"
-                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">VII
+                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                 Organoleptic properties of raw material</label>
                             <input type="text" name="organoleptic_properties_of_raw_material"
                                 class="form-control"
@@ -438,7 +438,7 @@
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif"
-                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">VIII
+                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                 Organoleptic properties of raw material</label>
                             <input type="text"
                                 name="organoleptic_properties_of_finished_product"
@@ -453,7 +453,7 @@
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->time_taken_for_the_experiment)) patient-highlight @endif"
-                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">IX
+                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                 Time taken for the experiment</label>
                             <input type="text" name="time_taken_for_the_experiment"
                                 class="form-control" placeholder="Enter  Time taken for the experiment"
@@ -470,7 +470,7 @@
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->starting_date_of_experiment)) patient-highlight @endif"
                                 title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif"> Starting date of experiment</label>
-                            <input type="text" name="starting_date_of_experiment"
+                            <input type="date" name="starting_date_of_experiment"
                                 class="form-control" placeholder="Enter Starting date of experiment"
                                 value="{{ $rasadrug->starting_date_of_experiment }}">@error('starting_date_of_experiment')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -483,7 +483,7 @@
                                 class="form-control-label @if(isset($data->ending_date_of_experiment)) patient-highlight @endif"
                                 title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                 Ending date of experiment</label>
-                            <input type="text" name="ending_date_of_experiment"
+                            <input type="date" name="ending_date_of_experiment"
                                 class="form-control" placeholder="Enter Ending date of experiment"
                                 value="{{ $rasadrug->ending_date_of_experiment }}">
                             @error('ending_date_of_experiment')

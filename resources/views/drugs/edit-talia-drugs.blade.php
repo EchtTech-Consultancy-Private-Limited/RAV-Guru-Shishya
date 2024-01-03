@@ -421,11 +421,11 @@
                                                 <p class="text-capatilize text-sm">Method of Preparation (SOP)</p>
                                             </div>
                                             <div class="row">
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class=" col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->kvatha_dravyas_step_murchana)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(I)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                                             Taila/ghrita murchana</label>
                                                         <input type="text" name="kvatha_dravyas_step_murchana"
                                                             class="form-control" placeholder="Taila/ghrita murchana"
@@ -435,11 +435,11 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class=" col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->preparation_of_kalka)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(II)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                                             Preparation of Kalka</label>
                                                         <input type="text" name="preparation_of_kalka"
                                                             class="form-control" placeholder="Preparation of Kalka"
@@ -451,11 +451,11 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
+                                                <div class=" col-xl-4 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->preparation_of_kavatha_dravyas)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(III)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                                             Preparation of kvatha/drava dravyas</label>
                                                         <input type="text" name="preparation_of_kavatha_dravyas"
                                                             class="form-control"
@@ -471,7 +471,7 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->order_of_mixing)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(IV)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                                             Order of mixing</label>
                                                         <input type="text" name="order_of_mixing" class="form-control"
                                                             placeholder="Order of mixing" aria-label="Name"
@@ -481,13 +481,12 @@
                                                         @enderror
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
+                                            
                                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->paka_procedure)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">(V)
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">
                                                             Paka procedure</label>
                                                         <input type="text" name="paka_procedure" class="form-control"
                                                             placeholder="Paka procedure" aria-label="Name"
