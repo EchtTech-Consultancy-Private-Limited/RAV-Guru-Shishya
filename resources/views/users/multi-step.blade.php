@@ -802,7 +802,7 @@
                            @endif
                         </div>
                         <div class="tab-pane @if(isset($form_step_type)) @if($form_step_type=='step3') active @endif @endif" role="tabpanel" id="step3">
-                           <form action="{{ url('manage_profile_form_step3') }}" method="POST" enctype="multipart/form-data">
+                           <form action="{{ url('manage_profile_form_step3') }}" method="POST" id="manage_profile_form_step3" enctype="multipart/form-data">
                               @csrf
                               <input type="hidden"  name="form_step_type"  class="form-control capitalize" value="step4">
                               <input type="hidden"  name="user_id"  class="form-control capitalize" value="{{ Auth::user()->id }}">
@@ -891,13 +891,15 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif" required>
+                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif">
+                                       <p id="address1_error" class="position-absolute"></p>
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
                                        <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2"  value="@if(isset($clinic->address2)){{$clinic->address2}}@endif" required>
+                                       <p id="address2_error" class="position-absolute"></p>
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -911,6 +913,7 @@
                                           </option>
                                           @endforeach
                                        </select>
+                                       <p id="country_error" class="position-absolute"></p>
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -919,11 +922,12 @@
                                        <select id="state-dropdown-clinical" class="form-control  state " name="state">
                                           <option  @if(isset($clinic_record->state)) value="{{$clinic_record->state}}" @endif>@if(isset($clinic_record->state_name)){{ $clinic_record->state_name }} @endif</option>
                                        </select>
+                                       <p id="state_error" class="position-absolute"></p>
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group option-selector">
-                                       <label>City<span class="text-danger">*</span></label>
+                                       <label>City</label>
                                        <select id="city-dropdown-clinical" class="form-control state " name="city">
                                           <option value="@if(isset($clinic_record->city)) {{$clinic_record->city}} @endif">@if(isset($clinic_record->city)){{ $clinic_record->city_name }}@endif</option>
                                        </select>
@@ -933,12 +937,14 @@
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
                                        <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="8" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
+                                       <p id="pincode_error" class="position-absolute"></p>
                                     </div>
                                  </div>
                                  <div class=" col-xl-6  col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Average number of patients seen daily in OPD<span class="text-danger">*</span></label>
                                        <input type="text" name="average_no_of_patients_in_opd" class="form-control" oninput="validateInput(this)" maxlength="12" placeholder="Average number"  value="@if(isset($clinic->average_no_of_patients_in_opd)) {{ $clinic->average_no_of_patients_in_opd }} @endif">
+                                       <p id="average_no_of_patients_in_opd_error" class="position-absolute"></p>
                                     </div>
                                  </div>
                                  <div class=" col-xl-5  col-md-6 col-6">

@@ -779,6 +779,59 @@ $(document).ready(function() {
     });
   });
 
+// manage step form 3
+$(document).ready(function() {
+    $("#manage_profile_form_step3").validate({
+      // ignore: ':hidden:not(.summernote),.note-editable.card-block',
+
+      rules: {
+        address1: {
+          required: true
+        },
+        address2: {
+            required: true
+        },
+        country: {
+            required: true
+        },
+        state: {
+            required: true
+        },
+        pincode: {
+            required: true
+        },
+        average_no_of_patients_in_opd: {
+            required: true
+        }
+      },
+      errorPlacement: function(error, element) {
+        var name = $(element).attr("name");
+        error.appendTo($("#" + name + "_error"));
+      },
+      messages: {
+        address1: {
+          required: "Address field is required",
+        },
+        address2: {
+            required: "Address field is required",
+        },
+        country:{
+            required:"Please select country"
+        },
+        state:{
+            required:"Please select State"
+        },
+        pincode:{
+            required:"Pincode field is required"
+        },
+        average_no_of_patients_in_opd:{
+            required:"Average Number field is required"
+        }
+      }
+    });
+  });
+// End manage step form 3
+
 //   patient form validation
 $(document).ready(function() {
     $("#php_form").validate({
