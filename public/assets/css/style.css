@@ -1112,12 +1112,10 @@ button.btn.submit {
 .btn.permission{
     background: #555 !important;
 }
-
-
 .form-group input, .form-group select {
     height: auto !important;
     padding: 8px 0px !important;
-    line-height: auto !important;
+    line-height: 1 !important;
 }
 .form-group .select2-selection{
     /* padding: 0px 15px !important; */
@@ -1493,7 +1491,7 @@ i.fa.fa-history {
 }
 
 .option-selector .select2-selection{
-  padding: 17px 0 !important;
+  padding: 16px 0 !important;
 }
 
 
