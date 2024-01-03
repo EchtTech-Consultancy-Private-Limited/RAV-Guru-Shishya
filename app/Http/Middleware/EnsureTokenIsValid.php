@@ -42,7 +42,6 @@ class EnsureTokenIsValid
         }elseif (preg_match('/windows|win32/i', $u_agent)) {
           $platform = 'windows';
         }
-
         // Next get the name of the useragent yes seperately and for good reason
         if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)){
           $bname = 'Internet Explorer';
@@ -52,7 +51,7 @@ class EnsureTokenIsValid
           $ub = "Firefox";
         }elseif(preg_match('/OPR/i',$u_agent)){
           $bname = 'Opera';
-          $ub = "Opera";
+          $ub = "OPR";
         }elseif(preg_match('/Chrome/i',$u_agent) && !preg_match('/Edge/i',$u_agent)){
           $bname = 'Google Chrome';
           $ub = "Chrome";
@@ -68,8 +67,7 @@ class EnsureTokenIsValid
         }elseif(preg_match('/Trident/i',$u_agent)){
           $bname = 'Internet Explorer';
           $ub = "MSIE";
-        }
-
+        }        
         // finally get the correct version number
         $known = array('Version', $ub, 'other');
         $pattern = '#(?<browser>' . join('|', $known) .

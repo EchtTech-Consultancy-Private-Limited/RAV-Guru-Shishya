@@ -90,7 +90,7 @@
 
                                                                 <label for="report_type"
                                                                     class="form-control-label">Progress Duration<span
-                                                                        class="text-danger"></span></label>
+                                                                        class="text-danger">*</span></label>
                                                                 <select name="report_type" id="report_type"
                                                                     class="form-control" required>
                                                                     <option value="">Select Duration</option>
@@ -124,7 +124,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <div class="form-line">
-                                                                <label for="progress" class="form-control-label">Progress <span class="text-danger"></span></label>
+                                                                <label for="progress" class="form-control-label">Progress <span class="text-danger">* </span></label>
                                                                 <textarea cols="45" rows="1" name="progress" class="form-control" value="" aria-label="progress" placeholder="Please enter progress" maxlength="200" required>{{ (@$data->progress)?$data->progress:old('progress') }}</textarea>
                                                             @if($errors->has('progress'))
                                                             <span class="help-block">

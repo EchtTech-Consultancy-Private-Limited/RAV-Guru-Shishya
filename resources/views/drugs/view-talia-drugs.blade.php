@@ -258,27 +258,27 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td>(i) Taila/ghrita murchana </td>
+                                                            <td>Taila/ghrita murchana </td>
                                                             <td> {{ $drug->kvatha_dravyas_step_murchana }}</td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td>(ii) Preparation of Kalka </td>
+                                                            <td>Preparation of Kalka </td>
                                                             <td>{{ $drug->preparation_of_kalka }} </td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td>(iii) Preparation of kvatha/drava dravyas </td>
+                                                            <td>Preparation of kvatha/drava dravyas </td>
                                                             <td> {{ $drug->preparation_of_kavatha_dravyas }}</td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td> (iv) Order of mixing</td>
+                                                            <td>Order of mixing</td>
                                                             <td>{{ $drug->order_of_mixing }} </td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td> (v) Paka procedure</td>
+                                                            <td>Paka procedure</td>
                                                             <td>{{ $drug->paka_procedure }} </td>
                                                         </tr>
 
