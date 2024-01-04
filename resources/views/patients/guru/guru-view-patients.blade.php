@@ -99,6 +99,8 @@
                                        </tbody>
 
                                     </table>
+
+
                                     <table class="view-table" >
                                        <h3>Patient Information</h3>
                                        <thead>
@@ -108,14 +110,10 @@
                                           </tr>
                                        </thead>
                                        <tbody>
-                                          <tr>
+                                          <!-- <tr>
                                              <td>Name of the Shishya</td>
                                              <td>{{$shishya->firstname}} {{$shishya->lastname}}</td>
-                                          </tr>
-                                          <tr>
-                                             <td>Date of Report</td>
-                                             <td><?php echo date('d-m-Y'); ?></td>
-                                          </tr>
+                                          </tr> -->
                                           <tr>
                                              <td>Name of the Patient</td>
                                              <td>{{ $patient->patient_name }}</td>
@@ -124,6 +122,8 @@
                                              <td>Registration No</td>
                                              <td>{{ $patient->registration_no }}</td>
                                           </tr>
+                                        
+                                          
                                           <tr>
                                              <td>Age</td>
                                              <td>{{ $patient->age }}</td>
@@ -181,14 +181,6 @@
                                              <td>{{ $patient->address }}</td>
                                           </tr>
                                           <tr>
-                                             <td>Main Complaint(As Said By Patient)</td>
-                                             <td>{{ $patient->main_complaintsaid_by_patient }}</td>
-                                          </tr>
-                                          <tr>
-                                             <td>Duration</td>
-                                             <td>{{ $patient->said_by_patient_duration }}</td>
-                                          </tr>
-                                          <tr>
                                              <td>Main Complaint(As said by family member)</td>
                                              <td>{{ $patient->main_complaint_as_said_by_family }}</td>
                                           </tr>
@@ -200,6 +192,16 @@
                                              <td>Past Illness</td>
                                              <td>{{ $patient->past_illness }}</td>
                                           </tr>
+                                          <tr>
+                                             <td>Main Complaint(As Said By Patient)</td>
+                                             <td>{{ $patient->main_complaintsaid_by_patient }}</td>
+                                          </tr>
+                                          <tr>
+                                             <td>Duration</td>
+                                             <td>{{ $patient->said_by_patient_duration }}</td>
+                                          </tr>
+                                         
+                                         
                                           <tr>
                                              <td>Family History</td>
                                              <td>{{ $patient->family_history }}</td>

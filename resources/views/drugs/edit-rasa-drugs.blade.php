@@ -427,14 +427,14 @@
                                 Organoleptic properties of raw material</label>
                             <input type="text" name="organoleptic_properties_of_raw_material"
                                 class="form-control"
-                                placeholder="Organoleptic properties of raw material"
+                                placeholder="Enter Organoleptic properties of raw material"
                                 value="{{ $rasadrug->organoleptic_properties_of_raw_material }}">
                             @error('VII Organoleptic properties of raw material')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-6 col-6">
+                    <!-- <div class="col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input"
                                 class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif"
@@ -448,7 +448,7 @@
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                         <div class="form-group">
                             <label for="example-text-input"

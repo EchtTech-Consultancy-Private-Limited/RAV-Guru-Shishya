@@ -367,8 +367,12 @@
                                             <td>{{$patient->age}} </td>
                                         </tr>
                                         <tr>
-                                            <td class= "title">Registration </td>
+                                            <td class= "title">Registration Date</td>
                                             <td>{{date('d-m-Y',strtotime($patient->registration_date))}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Patients Type </td>
+                                            <td>{{@$patient->patient_type}} </td>
                                         </tr>
                                         <tr>
                                             <td class= "title">Gender </td>
@@ -415,15 +419,6 @@
                                             <td> {{$patient->address}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Main
-                                                Complaint(As said by patient) </td>
-                                            <td>{{$patient->main_complaintsaid_by_patient}} </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Duration </td>
-                                            <td> {{$patient->said_by_patient_duration}}</td>
-                                        </tr>
-                                        <tr>
                                             <td> Main
                                                 Complaint(As said by family member)</td>
                                             <td>{{$patient->main_complaint_as_said_by_family}} </td>
@@ -438,6 +433,16 @@
                                             <td> {{$patient->past_illness}}</td>
                                         </tr>
                                         <tr>
+                                            <td>Main
+                                                Complaint(As said by patient) </td>
+                                            <td>{{$patient->main_complaintsaid_by_patient}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Duration </td>
+                                            <td> {{$patient->said_by_patient_duration}}</td>
+                                        </tr>
+                                       
+                                        <tr>
                                             <td>   Family
                                                 History </td>
                                             <td>{{$patient->family_history}} </td>
@@ -450,177 +455,256 @@
 
                                         </tr>
                                         <tr>
-                                            <td>Skin </td>
-                                            <td>  @foreach(__('phr.skin') as $key=>$value)
-                                                    {{$patient->skin == $key  ? $value : ''}}
-                                                    @endforeach </td>
-                                        </tr>
-                                        <tr>
-                                            <td> Anguli
-                                                sandhi </td>
-                                            <td>    @foreach(__('phr.anguli_sandhi') as $key=>$value)
-                                                    {{$patient->anguli_sandhi == $key  ? $value : ''}}
-                                                    @endforeach</td>
-                                        </tr>
-                                        <tr>
-                                            <td> Jihwa</td>
-                                            <td> @foreach(__('phr.jihwa') as $key=>$value)
-                                                    {{$patient->jihwa == $key  ? $value : ''}}
-                                                    @endforeach </td>
-                                        </tr>
-                                        <tr>
-                                            <td> Agni</td>
-                                            <td>   @foreach(__('phr.agni') as $key=>$value)
-                                                    {{$patient->agni == $key  ? $value : ''}}
-                                                    @endforeach </td>
-                                        </tr>
-                                        <tr>
-                                            <td> Shukrakshana
-                                                pravritti</td>
-                                            <td>   @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
-                                                    {{$patient->shukrakshana_pravritti == $key  ? $value : ''}}
-                                                    @endforeach </td>
-                                        </tr>
-                                        <tr>
-                                            <td> Raktachapa</td>
-                                            <td> @foreach(__('phr.raktachapa') as $key=>$value)
-                                                    {{$patient->raktachapa == $key  ? $value : ''}}
-                                                    @endforeach </td>
-                                        </tr>
-                                        <tr>
-                                            <td>  Examination
-                                                by
-                                                Physician </td>
-                                            <td> @foreach(__('phr.examination_by_physician') as $key=>$value)
-                                                    {{$patient->examination_by_physician == $key  ? $value : ''}}
-                                                    @endforeach </td>
-                                        </tr>
+                                        <td> Skin</td>
+                                        <td>@foreach(__('phr.skin') as $key=>$value)
+                                            {{@$patient->skin == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Nadi</td>
+                                        <td> @foreach(__('phr.nadi') as $key=>$value)
+                                            {{@$patient->nadi == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Place </td>
+                                        <td> @foreach(__('phr.place') as $key=>$value)
+                                            {{@$patient->nadi_place == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Nails</td>
+                                        <td>@foreach(__('phr.nails') as $key=>$value)
+                                            {{@$patient->nails == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anguli sandhi </td>
+                                        <td> @foreach(__('phr.anguli_sandhi') as $key=>$value)
+                                            {{@$patient->anguli_sandhi == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Netra </td>
+                                        <td>@foreach(__('phr.netra') as $key=>$value)
+                                            {{@$patient->netra == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Adhovartma </td>
+                                        <td>@foreach(__('phr.adhovartma') as $key=>$value)
+                                            {{@$patient->adhovartma == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hastatala </td>
+                                        <td> @foreach(__('phr.hastatala') as $key=>$value)
+                                            {{@$patient->hastatala == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jihwa </td>
+                                        <td> @foreach(__('phr.jihwa') as $key=>$value)
+                                            {{@$patient->jihwa == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Aakriti </td>
+                                        <td> @foreach(__('phr.aakriti') as $key=>$value)
+                                            {{@$patient->aakriti == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shabda </td>
+                                        <td> @foreach(__('phr.shabda') as $key=>$value)
+                                            {{@$patient->shabda == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
 
-                                        <tr>
-                                             <td>Examination
-                                                by
-                                                Physician</td>
-                                                <td>
-                                                   @foreach(__('phr.examination_by_physician') as $key=>$value)
-                                                   {{$patient->examination_by_physician == $key  ? $value : ''}}
-                                                   @endforeach
-                                                </td>
-                                          </tr>
+                                    <tr>
+                                        <td>Koshtha </td>
+                                        <td> @foreach(__('phr.koshtha') as $key=>$value)
+                                            {{@$patient->koshtha == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <!-- ******************************* -->
+                                    <tr>
+                                        <td>Agni </td>
+                                        <td> @foreach(__('phr.agni') as $key=>$value)
+                                            {{@$patient->agni == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Mala
+                                            Pravritti</td>
+                                        <td> @foreach(__('phr.mala_pravritti') as $key=>$value)
+                                            {{@$patient->mala_pravritti == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mutra
+                                            Pravritti </td>
+                                        <td> @foreach(__('phr.mutra_pravritti') as $key=>$value)
+                                            {{@$patient->mutra_pravritti == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Vyavay
+                                            Pravritti</td>
+                                        <td> @foreach(__('phr.vyavay_pravritti') as $key=>$value)
+                                            {{@$patient->vyavay_pravritti == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Shukrakshana
+                                            pravritti</td>
+                                        <td> @foreach(__('phr.shukrakshana_pravritti') as $key=>$value)
+                                            {{@$patient->shukrakshana_pravritti == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artava Pravritti Kala </td>
+                                        <td> @foreach(__('phr.aartava_pravratti_kala') as $key=>$value)
+                                            {{@$patient->aartava_pravratti_kala == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dehoshma </td>
+                                        <td> @foreach(__('phr.dehoshma') as $key=>$value)
+                                            {{@$patient->dehoshma == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bhara</td>
+                                        <td> {{@$patient->bhara }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Raktachapa </td>
+                                        <td> @foreach(__('phr.raktachapa') as $key=>$value)
+                                            {{@$patient->raktachapa == $key  ? $value : ''}}
+                                            @endforeach
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hrid
+                                            gati </td>
+                                        <td> @foreach(__('phr.hrid_gati') as $key=>$value)
+                                            {{@$patient->hrid_gati == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shvasagati </td>
+                                        <td> @foreach(__('phr.shvasagati') as $key=>$value)
+                                            {{@$patient->shvasagati == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Parkriti
+                                            Parikshana </td>
+                                        <td> @foreach(__('phr.parkriti_parikshana') as $key=>$value)
+                                            {{@$patient->parkriti_parikshana == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Examination by Physician</td>
+                                        <td> @foreach(__('phr.examination_by_physician') as $key=>$value)
+                                            {{@$patient->examination_by_physician == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prayogshaliya Parikshana </td>
+                                        <td>{{@$patient->prayogashaliya_parikshana }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Samprapti
+                                            Vivarana </td>
+                                        <td> {{@$patient->samprapti_vivarana}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vibhedaka
+                                            Pariksha </td>
+                                        <td> {{@$patient->vibhedaka_pariksha}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Roga Vinishchaya Pramukh Nidana </td>
+                                        <td> {{@$patient->roga_vinishchaya_pramukh_nidana }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Chikitsa
+                                            Kalpana
+                                            Anupana
+                                            Sahita</td>
+                                        <td> {{@$patient->chikitsa_kalpana_anupana_sahita}}</td>
+                                    </tr>
 
-                                           <tr>
-                                             <td>Prayogashaliya Parikshana
-                                             </td>
-                                             <td>{{ $patient->prayogashaliya_parikshana }}</td>
-                                           </tr>
+                                    <tr>
+                                        <td>Samodhana Kriyas </td>
+                                        <td> {{@$patient->samodhana_kriyas }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Pathya-Apathya <span class="fs-12
+                                             text-info"><a target="_blank"
+                                                    href="{{ asset('annexure-file.pdf') }}">Annexure-1</a></span></td>
+                                        <td>{{@$patient->pathya_apathya}} </td>
+                                    </tr>
 
-                                           <tr>
-                                             <td>
-                                                Samprapti
-                                                Vivarana
-                                             </td>
-                                             <td>
-                                                {{ $patient->samprapti_vivarana }}
-                                             </td>
-                                           </tr>
-                                           <tr>
-                                             <td>
-                                                Vibhedaka Pariksha
-                                             </td>
-                                             <td>
-                                                {{ $patient->vibhedaka_pariksha }}
-                                             </td>
-                                           </tr>
-                                           <tr>
-                                             <td>Roga
-                                                Vinishchaya-
-                                                Pramukh
-                                                Nidana</td>
-                                             <td>
-                                                {{ $patient->roga_vinishchaya_pramukh_nidana }}
-                                             </td>
-                                           </tr>
-                                           <tr>
-                                             <td>Chikitsa Kalpana Anupana Sahita</td>
-                                             <td>
-                                                {{ $patient->chikitsa_kalpana_anupana_sahita }}
-                                             </td>
-                                           </tr>
-                                           <tr>
-                                             <td>Samshodhana Kriyas</td>
-                                             <td>
-                                                {{ $patient->samshodhana_kriyas }}
-                                             </td>
-                                           </tr>
-                                           <tr>
-                                             <td>Samshamana Kriyas</td>
-                                             <td>
-                                                {{ $patient->samshamana_kriyas }}
-                                             </td>
-                                           </tr>
-                                           <tr>
-                                             <td>Pathya-Apathya
-                                                <a target="_blank" href="{{ asset('annexure-file.pdf') }}">(Annexure-1)</a>
-                                             </td>
-                                             <td>
-                                                {{ $patient->pathya_apathya }}
-                                             </td>
-                                           </tr>
+                                    <!-- ******************************* -->
+                                 
+                                   
+                                    <!-- ******************addedd new fild **************** -->
+                                    <tr>
+                                        <td> Soft drink/Peya Padarth</td>
+                                        <td> @foreach(__('phr.soft_drink') as $key=>$value)
+                                            {{@$patient->soft_drink == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
 
-                                              <!-- ******************addedd new fild **************** -->
-                    <tr>
-                           <td>  Soft drink/Peya Padarth</td>
-                           <td>   @foreach(__('phr.soft_drink') as $key=>$value)
-                                    {{@$patient->soft_drink == $key  ? $value : ''}}
-                                 @endforeach </td>
-                        </tr>
-
-                        <tr>
-                           <td>  Madhyahan Bhojana</td>
-                           <td>  @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
-                                    {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}
-                                 @endforeach </td>
-                        </tr>
-                        <tr>
-                           <td> Prataraasha</td>
-                        <td>  @foreach(__('phr.prataraasha') as $key=>$value)
-                                 {{@$patient->prataraasha == $key  ? $value : ''}}
-                              @endforeach</td>
-                        </tr>
-                        <tr>
-                           <td> Pulses</td>
-                           <td>    @foreach(__('phr.pulses') as $key=>$value)
-                                       {{@$patient->pulses == $key  ? $value : ''}}
-                                    @endforeach</td>
-                        </tr>
-                        <tr>
-                           <td> Pulpy vegetables</td>
-                           <td>   @foreach(__('phr.pulpy_vegetables') as $key=>$value)
-                           {{@$patient->pulpy_vegetables == $key  ? $value : ''}}
-                                 @endforeach</td>
-                        </tr>
-                        <tr>
-                           <td>Oil/Tail</td>
-                           <td> @foreach(__('phr.oil_tail') as $key=>$value)
-                                    {{@$patient->oil_tail == $key  ? $value : ''}}
-                                 @endforeach </td>
-                        </tr>
-                        <tr>
-                           <td> Afternoon Fruit</td>
-                           <td>  @foreach(__('phr.afternoon_fruit') as $key=>$value)
-                                     {{@$patient->afternoon_fruit == $key  ? $value : ''}}
-                                 @endforeach</td>
-                        </tr>
-                        <tr>
-                           <td>Evening Meals</td>
-                           <td>{{ @$patient->evening_meals }} </td>
-                        </tr>
-                        <tr>
-                           <td>  Bed time </td>
-                           <td>  @foreach(__('phr.bed_time') as $key=>$value)
-                                    {{@$patient->bed_time == $key  ? $value : ''}}
-                                 @endforeach</td>
-                        </tr>
-
+                                    <tr>
+                                        <td> Madhyahan Bhojana</td>
+                                        <td> @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
+                                            {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Prataraasha</td>
+                                        <td> @foreach(__('phr.prataraasha') as $key=>$value)
+                                            {{@$patient->prataraasha == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Pulses</td>
+                                        <td> @foreach(__('phr.pulses') as $key=>$value)
+                                            {{@$patient->pulses == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Pulpy vegetables</td>
+                                        <td> @foreach(__('phr.pulpy_vegetables') as $key=>$value)
+                                            {{@$patient->pulpy_vegetables == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oil/Tail</td>
+                                        <td> @foreach(__('phr.oil_tail') as $key=>$value)
+                                            {{@$patient->oil_tail == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Afternoon Fruit</td>
+                                        <td> @foreach(__('phr.afternoon_fruit') as $key=>$value)
+                                            {{@$patient->afternoon_fruit == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Evening Meals</td>
+                                        <td>{{ @$patient->evening_meals }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Bed time </td>
+                                        <td> @foreach(__('phr.bed_time') as $key=>$value)
+                                            {{@$patient->bed_time == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
                         <!-- ******************addedd new fild **************** -->
                                         <!-- <tr>
                                             <td>Shishya's

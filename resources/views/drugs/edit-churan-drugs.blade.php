@@ -442,7 +442,7 @@
                     <div class="col-xl-4 col-md-6 col-6">
                        <div class="form-group">
                           <label for="example-text-input" class="form-control-label @if(isset($data->organoleptic_properties_of_finished_product)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Organoleptic properties of finished product</label>
-                          <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Organoleptic"  value="{{ $churandrug->organoleptic_properties_of_finished_product }}" >
+                          <input type="text" name="organoleptic_properties_of_finished_product" class="form-control" placeholder="Enter Organoleptic properties of finished product"  value="{{ $churandrug->organoleptic_properties_of_finished_product }}" >
                           @error('Organoleptic properties of finished product ')
                           <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                           @enderror
