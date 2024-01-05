@@ -206,7 +206,7 @@
 
                                                  <td class="text-center">@if($drug->yoga_type==1) {{__('phr.yogas')[1]}} @endif</td>
                                                  <td class="center"> {{$drug->churna_yoga_type_individual}}  </td>
-                                                 <td class="center">{{ date('d-m-Y', strtotime($drug->date_of_yogas)) }}</td>
+                                                 <td class="center text-nowrap">{{ date('d-m-Y', strtotime($drug->date_of_yogas)) }}</td>
                                                  <td class="text-center">
                                                     <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" target="_blanck" target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
                                                     @if(isset($drug->drugHistory->drug_id))

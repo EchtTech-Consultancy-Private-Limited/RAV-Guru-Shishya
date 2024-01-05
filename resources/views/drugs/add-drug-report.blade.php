@@ -66,7 +66,7 @@
                                     <div class="card">
                                         <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                                         <!-- @csrf -->
-                                        <div class=" card-body p-0">
+                                        <div class=" card-body p-0 table-responsive">
                                             <table class="my-3">
                                                 <thead>
                                                     <th> Name of the Guru</th>
@@ -84,7 +84,7 @@
                                                         <p>{{Auth::user()->firstname.' '.Auth::user()->middlename.' '.Auth::user()->lastname}}
                                                         </p>
                                                     </td>
-                                                    <td>
+                                                    <td class="text-nowrap">
                                                         <p><?php echo date('d-m-Y'); ?></p>
                                                     </td>
                                                 </tbody>
@@ -601,9 +601,9 @@
                             <div class="row  d-flex justify-content-center">
                                 <div class="col-lg-12 grid-margin stretch-card mb-0">
                                     <div class="card mb-0">
-                                        <div class=" card-body p-0">
-                                            <div class="">
-                                                <table id="faqs" class="table table-hover composition-form table-responsive">
+                                        <div class=" card-body p-0 ">
+                                            <div class="table-responsive">
+                                                <table id="faqs" class="table table-hover composition-form ">
                                                     <thead>
                                                         <tr>
                                                             <th>Name of the ingredients </th>
@@ -849,7 +849,7 @@
                                 <label for="example-text-input" class="form-control-label"> Time taken for the
                                     experiment</label>
                                 <input type="text" name="time_taken_for_the_experiment" class="form-control"
-                                    placeholder="Enter Wholesome diet" aria-label="Wholesome diet"
+                                    placeholder="Enter Time taken for the experiment" aria-label="Wholesome diet"
                                     value="{{ old('time_taken_for_the_experiment') }}" maxlength="50">
                                 @error('time_taken_for_the_experiment')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
@@ -919,8 +919,8 @@
                     <div class="row pb-0 mb-0">
                         <div class="card mb-0">
                             <div class=" card-body p-0">
-                                <div class="">
-                                    <table id="faqs" class="table table-hover composition-form table-responsive">
+                                <div class="table-responsive">
+                                    <table id="faqs" class="table table-hover composition-form ">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1301,8 +1301,8 @@
                     <div class="row mb-0 pb-0">
                         <div class="card mb-0 pb-0">
                             <div class=" card-body p-0">
-                                <div class="">
-                                    <table id="faqs" class="table table-hover composition-form table-responsive">
+                                <div class=" table-responsive">
+                                    <table id="faqs" class="table table-hover composition-form">
                                         <thead>
                                             <tr>
                                                 <th>Name of the Ingredients </th>
@@ -1836,8 +1836,8 @@
                         <div class="card mb-0 p-0">
                             <div class="card mb-0 p-0">
                                 <div class=" card-body  mb-0 p-0">
-                                    <div class="">
-                                        <table id="faqs" class="table table-hover composition-form table-responsive">
+                                    <div class="table-responsive">
+                                        <table id="faqs" class="table table-hover composition-form ">
                                             <thead>
                                                 <tr>
                                                     <th>Name of the ingredients </th>

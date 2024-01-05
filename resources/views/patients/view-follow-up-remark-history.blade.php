@@ -74,7 +74,7 @@
                                                         <td class="center">@if($remark->send_to=='2')Guru
                                                             @elseif($remark->send_to=='3')Shishya
                                                             @elseif($remark->send_to=='1')Admin @endif</td>
-                                                            <td class="center">
+                                                            <td class="center text-nowrap">
                                                             {{date('d-m-Y',strtotime($remark->created_at))}}
                                                         </td>
 

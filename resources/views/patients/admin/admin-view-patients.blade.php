@@ -177,14 +177,6 @@
                                              <td>{{ $patient->address }}</td>
                                            </tr>
                                            <tr>
-                                             <td>Main Complaint(As said by patient)</td>
-                                             <td>{{$patient->main_complaintsaid_by_patient}}</td>
-                                           </tr>
-                                           <tr>
-                                             <td>Duration</td>
-                                             <td>{{ $patient->said_by_patient_duration }}</td>
-                                           </tr>
-                                           <tr>
                                              <td>Main Complaint(As said by family member)</td>
                                              <td>{{ $patient->main_complaint_as_said_by_family }}</td>
                                            </tr>
@@ -196,6 +188,15 @@
                                              <td>Past Illness</td>
                                              <td>{{ $patient->past_illness }}</td>
                                            </tr>
+                                           <tr>
+                                             <td>Main Complaint(As said by patient)</td>
+                                             <td>{{$patient->main_complaintsaid_by_patient}}</td>
+                                           </tr>
+                                           <tr>
+                                             <td>Duration</td>
+                                             <td>{{ $patient->said_by_patient_duration }}</td>
+                                           </tr>
+                                         
                                            <tr>
                                              <td>Family History</td>
                                              <td>{{ $patient->family_history }}</td>
@@ -322,6 +323,10 @@
                                              {{$patient->dehoshma == $key  ? $value : ''}}
                                              @endforeach
                                           </td>
+                                          </tr>
+                                          <tr>
+                                             <td>Bhara</td>
+                                             <td> {{@$patient->bhara }} </td>
                                           </tr>
                                           <tr>
                                              <td>Raktachapa </td>
