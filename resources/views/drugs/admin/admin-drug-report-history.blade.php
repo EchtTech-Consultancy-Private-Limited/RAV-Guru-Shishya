@@ -266,7 +266,7 @@
                                                     @endif
                                                     </i>
                                                     </a>
-                                                    <a href="{{ url('view-rasa-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-rasa-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-rasayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
@@ -318,7 +318,7 @@
                                                     @endif
                                                     </i>
                                                     </a>
-                                                    <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-vati-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-vatiyogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
@@ -373,7 +373,7 @@
                                                     @endif
                                                     </i>
                                                     </a>
-                                                    <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-talia-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-taliayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
@@ -427,7 +427,7 @@
                                                     @endif
                                                     </i>
                                                     </a>
-                                                    <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-arishta-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-arishtayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                         <i class="material-icons">delete_forever</i>
