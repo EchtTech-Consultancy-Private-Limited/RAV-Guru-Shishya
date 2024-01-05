@@ -877,7 +877,7 @@
                                  </div>
                                  <div class="col-xxl-2  col-xl-2  col-6">
                                     <div class="form-group">
-                                       <label>Weekend Off <span class="text-danger">*</span></label>
+                                       <label>Weekend Off</label>
                                        <select name="weekend_off" class="form-control" >
                                           <option value="">Select</option>
                                           <option value="1" @if(isset($clinic->weekend_off)) {{$clinic->weekend_off == 1 ?'selected':''}} @endif>Yes</option>

@@ -207,13 +207,13 @@
                                                     </td>
 
                                                  <td class="text-center">
-                                                    <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" target="_blanck" target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
+                                                    <a href="{{ url('edit-drugs/'.encrypt($drug->id) ) }}" target="_blanck" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit"> <i class="material-icons">edit
                                                     @if(isset($drug->drugHistory->drug_id))
                                                         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                     @endif
                                                     </i>
                                                     </a>
-                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
+                                                    <a href="{{ url('view-drugs/'.encrypt($drug->id) ) }}" target="_blanck" class="btn view btn-tbl-edit"><i class="material-icons">visibility</i>
                                                     </a>
                                                     <a  href="{{ url('delete-churnayogas/'.encrypt($drug->id)) }}" onclick="return confirm_option('delete')" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                                      <i class="material-icons">delete_forever</i>
