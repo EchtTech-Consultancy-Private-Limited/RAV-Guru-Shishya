@@ -698,7 +698,7 @@
                                                             properties of finished product</label>
                                                         <input type="text"
                                                             name="organoleptic_properties_of_finished_product"
-                                                            class="form-control" placeholder="Date"
+                                                            class="form-control" placeholder="Enter Organoleptic properties of finished product"
                                                             value="{{ $drug->organoleptic_properties_of_finished_product }}">
                                                         @error('Organoleptic properties of finished product ')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
