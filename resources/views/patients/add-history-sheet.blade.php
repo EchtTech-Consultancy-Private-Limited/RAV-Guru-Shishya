@@ -868,14 +868,14 @@
 
                                     </div>
                                     <div class="row">
-                                       <!-- <div class="col-md-4">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="samshodhana_kriyas" class="form-control-label">Samshodhana
                                                 Kriyas</label>
                                              <textarea cols="45" rows="1" name="samshodhana_kriyas" class="form-control" value="" aria-label="samshodhana_kriyas
                                              " placeholder="Enter Samshodhana Kriyas" maxlength="100">{{ old('samshodhana_kriyas') }}</textarea>
                                           </div>
-                                       </div> -->
+                                       </div>
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="samshamana_kriyas" class="form-control-label">Samshamana

@@ -211,7 +211,7 @@
                                                                 $data->send_to_shishya=='0') ||
                                                                 (Auth::user()->user_type==2 &&
                                                                 $data->send_to_guru=='0')) disabled @else
-                                                                onclick="javascript: confirm_option()" @endif >
+                                                                onclick="javascript: confirm_remark_send()" @endif >
                                                                 @if((Auth::user()->user_type==3) ||
                                                                 (Auth::user()->user_type==1))Send to Guru
                                                                 @elseif(Auth::user()->user_type==2)Send @endif</button>
@@ -792,7 +792,7 @@ $(document).ready(function() {
     });
 });
 
-function confirm_option(action) {
+function confirm_remark_send(action) {  
     var msg = '';
     if ($("#send_to").val() == 3) msg =
         "Are you sure to send record to Shishya? Please note that once you send this to your Shishya, he/she can modify this record!";

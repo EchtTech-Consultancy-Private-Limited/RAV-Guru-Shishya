@@ -280,10 +280,7 @@ class PatientController extends Controller
 
                  $patient=Patient::find($data->patient_id);
                  $remarks=Remark::where('followup_id',$id)->orderby('id','Desc')->get();
-
                  return view("patients.view-follow-up-sheet",compact('guru','shishya','patient','data','remarks'));
-
-
             } else {
                 return redirect('/follow-up-patients')->with('error', 'Patient registration not found.');
             }
