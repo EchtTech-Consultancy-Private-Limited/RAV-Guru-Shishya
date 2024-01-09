@@ -638,8 +638,12 @@
                                     </tr>
 
                                     <tr>
-                                        <td>Samodhana Kriyas </td>
-                                        <td> {{@$patient->samodhana_kriyas }} </td>
+                                        <td>Samshodhana Kriyas </td>
+                                        <td> {{@$patient->samshodhana_kriyas }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Samshamana Kriyas </td>
+                                        <td> {{@$patient->samshamana_kriyas }} </td>
                                     </tr>
                                     <tr>
                                         <td> Pathya-Apathya <span class="fs-12
