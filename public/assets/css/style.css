@@ -1695,7 +1695,7 @@ input::placeholder{
 }
 
 
-
+/* 
 
 @supports (-webkit-appearance: none) {
     .form-group .form-control {
@@ -1713,4 +1713,4 @@ input::placeholder{
     .form-group input, .form-group select{
         -o-border: none !important;
     }
-}
+} */
