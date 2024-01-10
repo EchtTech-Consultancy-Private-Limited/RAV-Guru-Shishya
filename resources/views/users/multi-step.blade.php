@@ -936,7 +936,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Pincode<span class="text-danger">*</span></label>
-                                       <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="8" placeholder="Pincode"  value="@if(isset($clinic->pincode)) {{ $clinic->pincode }} @endif">
+                                       <input type="text" name="pincode" id="Pincode" class="form-control" oninput="validateInput(this)" maxlength="8" placeholder="Pincode"  value="@if(isset($clinic->pincode)){{$clinic->pincode}}@endif">
                                        <p id="pincode_error" class="position-absolute"></p>
                                     </div>
                                  </div>

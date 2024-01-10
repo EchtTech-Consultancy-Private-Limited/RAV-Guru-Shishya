@@ -200,8 +200,6 @@
                                                     </div>
                                                 </div>
                                                 @endif
-
-
                                                     <div class="row clearfix">
                                                         <div class="col-sm-12 text-left">
 
@@ -211,7 +209,7 @@
                                                                 $data->send_to_shishya=='0') ||
                                                                 (Auth::user()->user_type==2 &&
                                                                 $data->send_to_guru=='0')) disabled @else
-                                                                onclick="javascript: confirm_remark_send()" @endif >
+                                                                onclick="return confirm_remark_send()" @endif >
                                                                 @if((Auth::user()->user_type==3) ||
                                                                 (Auth::user()->user_type==1))Send to Guru
                                                                 @elseif(Auth::user()->user_type==2)Send @endif</button>
