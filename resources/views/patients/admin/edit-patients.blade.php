@@ -285,18 +285,7 @@
                                              </span>
                                           @endif
                                        </div>
-                                       <div class="col-md-4">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label @if(isset($data->main_complaintsaid_by_patient)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Main Complaint(As said by patient)</label>
-                                             <textarea cols="45" rows="1" name="main_complaintsaid_by_patient" class="form-control" value="{{ $patient->main_complaintsaid_by_patient }}" aria-label="main_complaintsaid_by_patient" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaintsaid_by_patient }}</textarea>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label @if(isset($data->said_by_patient_duration)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Duration</label>
-                                             <input type="text" name="said_by_patient_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->said_by_patient_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
-                                          </div>
-                                       </div>
+
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->main_complaint_as_said_by_family)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Main Complaint(As said by family member)</label>
@@ -309,17 +298,27 @@
                                              <input type="text" name="complaint_as_said_by_family_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->complaint_as_said_by_family_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="50">
                                           </div>
                                        </div>
-                                    </div>
-                                    
-                                    
-                                    
-                                    <div class="row">
+                                   
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->past_illness)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Past illness</label>
                                              <textarea cols="45" rows="1" name="past_illness" class="form-control" value="{{ $patient->past_illness }}" aria-label="Address" placeholder="Past illness" maxlength="80">{{ $patient->past_illness }}</textarea>
                                           </div>
                                        </div>
+                                       <div class="col-md-4">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->main_complaintsaid_by_patient)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Main Complaint(As said by patient)</label>
+                                             <textarea cols="45" rows="1" name="main_complaintsaid_by_patient" class="form-control" value="{{ $patient->main_complaintsaid_by_patient }}" aria-label="main_complaintsaid_by_patient" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaintsaid_by_patient }}</textarea>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-3">
+                                          <div class="form-group">
+                                             <label for="example-text-input" class="form-control-label @if(isset($data->said_by_patient_duration)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Duration</label>
+                                             <input type="text" name="said_by_patient_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->said_by_patient_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">
+                                          </div>
+                                       </div>
+                                      
+                                   
                                        <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->family_history)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">

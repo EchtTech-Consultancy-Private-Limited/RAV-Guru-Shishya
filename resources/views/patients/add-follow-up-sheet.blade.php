@@ -234,8 +234,13 @@
                                             <td> Registration Date</td>
                                             <td> {{ date('d-m-Y', strtotime($patient->registration_date))  }}</td>
                                         </tr>
+                                        <tr>
+                                        <td>Patients Type </td>
+                                        <td>{{@$patient->patient_type}} </td>
+                                    </tr>
 
                                         <tr>
+
                                             <td>Gender </td>
                                             <td>   @foreach (__('phr.gender') as $key => $value)
                                                         {{ $patient->gender == $key ? $value : '' }}
@@ -289,24 +294,32 @@
                                         </tr>
 
                                         <tr>
-                                            <td> Main  Complaint(As said by patient) </td>
-                                            <td> {{ $patient->main_complaintsaid_by_patient  }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>Duration </td>
-                                            <td> {{ $patient->complaint_as_said_by_family_duration  }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>  Past  illness</td>
-                                            <td> {{ $patient->past_illness  }}</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td> Family  History </td>
-                                            <td> {{ $patient->family_history  }}</td>
-                                        </tr>
+                                        <td> Main Complaint(As said by family member) </td>
+                                        <td> {{@$patient->main_complaint_as_said_by_family}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Duration</td>
+                                        <td> {{@$patient->complaint_as_said_by_family_duration}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Past illness</td>
+                                        <td>{{@$patient->past_illness}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Main Complaint(As said by patient) </td>
+                                        <td>{{@$patient->main_complaintsaid_by_patient}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Duration </td>
+                                        <td> {{@$patient->said_by_patient_duration}}</td>
+                                    </tr>
+                                  
+                                   
+                                   
+                                    <tr>
+                                        <td> Family History</td>
+                                        <td>{{@$patient->family_history}} </td>
+                                    </tr>
 
                                         <tr>
                                             <td colspan="2"> <h3> Examination  of the  patient</h3> </td>
@@ -405,7 +418,7 @@
                                         </tr>
 
                                         <tr>
-                                            <td> Shukrakshana</td>
+                                            <td> Shukrakshana pravritti</td>
                                             <td> @foreach (__('phr.shukrakshana_pravritti') as $key =>
                                                         $value)
                                                         {{ $patient->shukrakshana_pravritti == $key ? $value : '' }}
@@ -508,6 +521,61 @@
                                                                 class="fs-12 text-info">Annexure-1</span></a>) </td>
                                             <td>  {{ $patient->pathya_apathya  }}</td>
                                         </tr>
+
+                                        <tr>
+                                        <td> Soft drink/Peya Padarth</td>
+                                        <td> @foreach(__('phr.soft_drink') as $key=>$value)
+                                            {{@$patient->soft_drink == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td> Madhyahan Bhojana</td>
+                                        <td> @foreach(__('phr.madhyahan_bhojana') as $key=>$value)
+                                            {{@$patient->madhyahan_bhojana == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Prataraasha</td>
+                                        <td> @foreach(__('phr.prataraasha') as $key=>$value)
+                                            {{@$patient->prataraasha == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Pulses</td>
+                                        <td> @foreach(__('phr.pulses') as $key=>$value)
+                                            {{@$patient->pulses == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td> Pulpy vegetables</td>
+                                        <td> @foreach(__('phr.pulpy_vegetables') as $key=>$value)
+                                            {{@$patient->pulpy_vegetables == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Oil/Tail</td>
+                                        <td> @foreach(__('phr.oil_tail') as $key=>$value)
+                                            {{@$patient->oil_tail == $key  ? $value : ''}}
+                                            @endforeach </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Afternoon Fruit</td>
+                                        <td> @foreach(__('phr.afternoon_fruit') as $key=>$value)
+                                            {{@$patient->afternoon_fruit == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Evening Meals</td>
+                                        <td>{{ @$patient->evening_meals }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Bed time </td>
+                                        <td> @foreach(__('phr.bed_time') as $key=>$value)
+                                            {{@$patient->bed_time == $key  ? $value : ''}}
+                                            @endforeach</td>
+                                    </tr>
+
 
                                         </tbody>
                                     </table>
