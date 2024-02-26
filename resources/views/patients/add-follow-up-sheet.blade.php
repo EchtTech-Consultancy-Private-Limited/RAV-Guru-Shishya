@@ -195,7 +195,7 @@
                                                 <td> @if (!empty($guru->id))
                                                 {{ $guru->firstname . ' ' . $guru->lastname }}
                                                     @endif </td>
-                                                <td> {{$shishya->firstname}}</td>
+                                                <td> {{$shishya->firstname . ' '. $shishya->lastname}}</td>
                                                 <td>{{@$guru->city_name}}</td>
                                                 <td> <?php echo date('d-m-Y'); ?></td>
 
