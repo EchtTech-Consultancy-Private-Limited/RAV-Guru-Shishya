@@ -53,17 +53,12 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {
-      if(Session::get('capcode') != $request->captcha){
-        //return response()->json(['message' => "Captcha Invalid!.",'status'=>401],401);
-         return Redirect::back()->with('Error', 'Captcha Invalid!');
-      }
-      else{
-        $request['password'] = decode5t($request->password); #SKP
+            $request['password'] = decode5t($request->password); #SKP
 
             $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
-                          
+            'captcha' => 'required',            
             ]);
 
             $usercredentials = $request->validate([
@@ -71,6 +66,11 @@ class LoginController extends Controller
             'password' => ['required'],
             ]);
 
+            if(Session::get('capcode') != $request->captcha){
+              //return response()->json(['message' => "Captcha Invalid!.",'status'=>401],401);
+              return Redirect::back()->with('Error', 'Captcha Invalid!');
+            }
+            
             $userDet = Auth::getProvider()->retrieveByCredentials($usercredentials);
             // login code
             $loggedUser = User::where('email',$request->email)->first();
@@ -91,7 +91,6 @@ class LoginController extends Controller
             }
             return Redirect::back()->with('Error', 'Your Credentials Not Match (Try Again)');
             // end login code
-          }
     }
 
     public function logout () {

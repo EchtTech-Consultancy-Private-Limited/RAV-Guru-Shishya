@@ -153,11 +153,11 @@
 
             <div class="col-md-6">
             <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
-              {{-- @if ($errors->has('captcha'))
+              @if ($errors->has('captcha'))
               <span class="error">
               {{ $errors->first('captcha') }}
               </span>
-              @endif --}}
+              @endif
 
             </div>
 
