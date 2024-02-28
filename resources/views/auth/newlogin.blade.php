@@ -129,7 +129,7 @@
           @csrf
           <div class="form-group position-relative">
             <label for="email" class="sr-only">Email</label>
-            <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control" autocomplete="off" placeholder="Email" required>
+            <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control" autocomplete="off" placeholder="Email">
             <i class="fa fa-user field-icon1 user-icon"></i>
             <span class="text-danger" id="email-error"></span>
             @if($errors->has('email'))
@@ -153,21 +153,21 @@
 
             <div class="col-md-6">
             <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
-              @if ($errors->has('captcha'))
+              {{-- @if ($errors->has('captcha'))
               <span class="error">
               {{ $errors->first('captcha') }}
               </span>
-              @endif
+              @endif --}}
 
             </div>
 
             <div class="col-md-6 pl-0">
             <label for="password" class="sr-only">Captcha</label>
               <div class="captcha ">
-                <span>{!! captcha_img('math') !!}</span>
-                <button type="button" class="btn btn-secondary btn-refresh me-2">
+                <span>{{$CustomCaptch['expression'] }}</span>
+                {{-- <button type="button" class="btn btn-secondary btn-refresh me-2">
                   <i class="fa fa-refresh"></i>
-                </button>
+                </button> --}}
               </div>
             </div>
 
