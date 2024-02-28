@@ -164,7 +164,7 @@
             <div class="col-md-6 pl-0">
             <label for="password" class="sr-only">Captcha</label>
               <div class="captcha ">
-                <span>{{$CustomCaptch['expression'] }}</span>
+                <span id="captcha-show">{{$CustomCaptch['expression'] }}</span>
                 {{-- <button type="button" class="btn btn-secondary btn-refresh me-2">
                   <i class="fa fa-refresh"></i>
                 </button> --}}

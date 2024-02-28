@@ -8,7 +8,11 @@ h1>a {
   text-decoration: none;
   color: #fff !important;
 }
-
+#captcha-show{
+  background: beige;
+  padding: 6px;
+  border: 1px solid;
+}
 .intro-section {
   /* background-image: url(http://localhost/RAV-Guru-Shishyapublic/assets/images/login_bg.jpg); */
   background-image: url("assets/../../images/login_bg.jpg");
