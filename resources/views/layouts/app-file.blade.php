@@ -31,7 +31,7 @@
          <div class="page-loader-wrapper">
             <div class="loader">
                 <div class="m-t-30">
-                    <img class="loading-img-spin" src="{{ asset('assets/images/loading.png') }} " alt="loader">
+                    <img class="loading-img-spin" src="{{ asset('assets/images/loading-7528_256.gif') }} " alt="loader">
                 </div>
                 <p>Please wait...</p>
             </div>
