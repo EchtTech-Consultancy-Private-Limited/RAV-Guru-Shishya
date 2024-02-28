@@ -68,10 +68,10 @@ Route::get('/multi-stepform', function () {
 });
 
 
-Route::get('/', function () {
-    //return view('auth.login');
-    return view('auth.newlogin');
-})->middleware('guest')->name('newLogin');
+// Route::get('/', function () {
+//     //return view('auth.login');
+//     return view('auth.newlogin');
+// })->middleware('guest')->name('newLogin');
 
 Route::get('/no-access', function () {
     return view('permission.notaccess');
@@ -79,6 +79,7 @@ Route::get('/no-access', function () {
 
 Auth::routes();
 
+Route::get('/', '\App\Http\Controllers\Auth\LoginController@index')->middleware('guest')->name('newLogin');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid']], function() {

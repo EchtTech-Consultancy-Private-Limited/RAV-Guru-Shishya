@@ -11,6 +11,7 @@ use App\Models\User;
 use Redirect;
 use Session;
 use Validator;
+use App\Http\Helpers\CustomCaptcha;
 
 
 class LoginController extends Controller
@@ -44,20 +45,26 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
+    public function index(){
+      $CustomCaptchas = new CustomCaptcha;
+      $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+      Session::put('capcode', $CustomCaptch['answer']);
+      return view('auth.newlogin',['CustomCaptch' => $CustomCaptch]);
+    }
     public function login(Request $request)
     {
+      if(Session::get('capcode') != $request->captcha){
+        //return response()->json(['message' => "Captcha Invalid!.",'status'=>401],401);
+         return Redirect::back()->with('Error', 'Captcha Invalid!');
+      }
+      else{
         $request['password'] = decode5t($request->password); #SKP
 
             $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
-            'captcha' => 'required|captcha',
                           
-            ],
-              [
-              'captcha.captcha'=>"Kindly check the captcha code you have entered."
-              ]);
+            ]);
 
             $usercredentials = $request->validate([
             'email' => ['required', 'email'],
@@ -84,6 +91,7 @@ class LoginController extends Controller
             }
             return Redirect::back()->with('Error', 'Your Credentials Not Match (Try Again)');
             // end login code
+          }
     }
 
     public function logout () {
