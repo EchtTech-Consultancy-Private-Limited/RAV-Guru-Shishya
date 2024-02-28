@@ -11,7 +11,7 @@
         var $baseurl="{{url('/')}}";
     </script>
     <!-- vendor css -->
-    <link rel="icon" href="{{ asset('assets/images/favicon.ico') }} " type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/images/rav-logo.png') }} " type="image/x-icon">
     <!-- Plugins Core Css -->
     <link href="{{ asset('assets/css/app.min.css') }} " rel="stylesheet">
     <link href="{{ asset('assets/css/form.min.css') }}" rel="stylesheet">
