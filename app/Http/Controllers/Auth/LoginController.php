@@ -45,7 +45,29 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function welcomePage(){
+
+      if(isset($_COOKIE['welcome_cookies']) && $_COOKIE['welcome_cookies'] == 'false'){
+        $CustomCaptchas = new CustomCaptcha;
+        $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+        Session::put('capcode', $CustomCaptch['answer']);
+        return view('auth.newlogin',['CustomCaptch' => $CustomCaptch]);
+      }
+      if(isset($_COOKIE['welcome_cookies']) && $_COOKIE['welcome_cookies'] !='true' && $_COOKIE['welcome_cookies'] !='false'){
+          setcookie('welcome_cookies','false'); 
+          $CustomCaptchas = new CustomCaptcha;
+          $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+          Session::put('capcode', $CustomCaptch['answer']);
+          return view('auth.newlogin',['CustomCaptch' => $CustomCaptch]);
+          
+      }else{
+          setcookie('welcome_cookies','true');
+          return view('welcomePage');
+      }
+        
+    }
     public function index(){
+      setcookie('welcome_cookies','false');
       $CustomCaptchas = new CustomCaptcha;
       $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
       Session::put('capcode', $CustomCaptch['answer']);

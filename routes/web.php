@@ -79,7 +79,8 @@ Route::get('/no-access', function () {
 
 Auth::routes();
 
-Route::get('/', '\App\Http\Controllers\Auth\LoginController@index')->middleware('guest')->name('newLogin');
+Route::get('/', '\App\Http\Controllers\Auth\LoginController@welcomePage')->middleware('guest')->name('/');
+Route::get('/login-page', '\App\Http\Controllers\Auth\LoginController@index')->middleware('guest')->name('newLogin');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid']], function() {
