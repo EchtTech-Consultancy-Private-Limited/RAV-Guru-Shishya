@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Crypt;
+use App\Models\ModelPermission;
+use Illuminate\Support\Facades\Auth;
 
     function format_user_id($type='',$id='',$created_at=''){
         //1 admin, 2 guru, 3 shishya
@@ -50,10 +52,17 @@ use Illuminate\Support\Facades\Crypt;
         return $data;
     }
 
-        function main_child($id = 0)
+    function main_child($id = 0)
     {
         $child=App\Models\ModelName::orderBy('shorting','ASC')->whereparent_id($id)->get();
         return $child;
+    }
+
+    function check_permission($modelId = '')
+    {
+        $permission = ModelPermission::where(['user_id' => Auth::id(), 'model_id' => $modelId])->value('permission_id');
+        // dd(Auth::id());
+        return $permission;
     }
 
     function get_guru_list($id = 0)

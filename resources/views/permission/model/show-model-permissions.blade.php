@@ -212,9 +212,9 @@
 <!-- here -->
 
 <script>
-    $("#addall").click(function() {
-        alert("yes");
-     $("input[class=add]").prop("checked", $(this).prop("checked"));
+$("#addall").click(function() {
+    alert("yes");
+    $("input[class=add]").prop("checked", $(this).prop("checked"));
 });
 
 $("input[class=add]").click(function() {
@@ -223,12 +223,8 @@ $("input[class=add]").click(function() {
     }
 });
 
-
-
-</script>
-<script>
-    $("#editall").click(function() {
-     $("input[class=edit]").prop("checked", $(this).prop("checked"));
+$("#editall").click(function() {
+    $("input[class=edit]").prop("checked", $(this).prop("checked"));
 });
 
 $("input[class=edit]").click(function() {
@@ -237,13 +233,8 @@ $("input[class=edit]").click(function() {
     }
 });
 
-
-
-</script>
-
-<script>
-    $("#deleteall").click(function() {
-     $("input[class=delete]").prop("checked", $(this).prop("checked"));
+$("#deleteall").click(function() {
+    $("input[class=delete]").prop("checked", $(this).prop("checked"));
 });
 
 $("input[class=delete]").click(function() {
@@ -253,10 +244,6 @@ $("input[class=delete]").click(function() {
 });
 
 /*jackHarnerSig();*/
-
-</script>
-
-<script>
     $("#viewall").click(function() {
      $("input[class=view]").prop("checked", $(this).prop("checked"));
 });
@@ -266,8 +253,6 @@ $("input[class=view]").click(function() {
         $("#viewall").prop("checked", false);
     }
 });
-
-
 
 </script>
 
@@ -339,9 +324,6 @@ $("input[class=view]").click(function() {
 
             var model_ids = $("input[name='model_id[]']").map(function(){return $(this).val();}).get();
 
-            console.log(model_ids);
-
-
           $.ajax({
           url:$baseurl+"/user-multiple-permissions",
            type:"POST",
@@ -370,14 +352,9 @@ $("input[class=view]").click(function() {
 
            error: function (err)
             {
-
                 alert("No");
-
-
             },
-
            });
-
         };
 
 
