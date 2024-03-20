@@ -134,9 +134,7 @@ class ModelController extends Controller
     
 
     public function user_multiple_permissions(Request $request)
-    {    
-        //return response()->json([$request->model_ids]);
-        
+    {
         $delete=ModelPermission::where("user_id",$request->user_id)->where("permission_id",$request->permission_id)->delete();
         if($request->action_id){
             foreach($request->model_ids as $model_id)
@@ -150,8 +148,7 @@ class ModelController extends Controller
             } 
             return response()->json(['success'=>'Permission Granted Successfully']);
               
-        }
-        
+        }        
         return response()->json(['success'=>'Permission Removed Successfully']);
     }
 
