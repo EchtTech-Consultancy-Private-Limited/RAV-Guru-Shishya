@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Crypt;
 use App\Models\ModelPermission;
+use App\Models\ModelName;
 use Illuminate\Support\Facades\Auth;
 
     function format_user_id($type='',$id='',$created_at=''){
@@ -40,28 +41,33 @@ use Illuminate\Support\Facades\Auth;
     /*models for provide permisions*/
     function main_models()
     {
-        $model=App\Models\ModelName::orderBy('shorting','ASC')->get();
+        $model = ModelName::orderBy('shorting','ASC')->get();
         return $model;
     }
     /*end models for provide permisions*/
+    function showModelPermission($userType = '')
+    {
+        $data = ModelName::whereIn('user_type', [0,$userType])
+                 ->orderBy('shorting', 'ASC')
+                 ->get();
+        return $data;
+    }
 
     function main_menu()
     {
-        $user_type=Auth::user()->user_type;
-        $data=App\Models\ModelName::orderBy('shorting','ASC')->whereparent_id('0')->get();
+        $data = ModelName::orderBy('shorting','ASC')->whereparent_id('0')->get();
         return $data;
     }
 
     function main_child($id = 0)
     {
-        $child=App\Models\ModelName::orderBy('shorting','ASC')->whereparent_id($id)->get();
+        $child = ModelName::orderBy('shorting','ASC')->whereparent_id($id)->get();
         return $child;
     }
 
     function check_permission($modelId = '')
     {
         $permission = ModelPermission::where(['user_id' => Auth::id(), 'model_id' => $modelId])->value('permission_id');
-        // dd(Auth::id());
         return $permission;
     }
 
