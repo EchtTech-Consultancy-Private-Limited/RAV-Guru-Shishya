@@ -262,11 +262,11 @@
                                                         <td> {{ $rasadrug->organoleptic_properties_of_raw_material }}
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    <!-- <tr>
                                                         <td>organoleptic_properties_of_raw_material </td>
                                                         <td> {{ $rasadrug->organoleptic_properties_of_finished_product }}
                                                         </td>
-                                                    </tr>
+                                                    </tr> -->
                                                     <tr>
                                                         <td>Time taken for the experiment </td>
                                                         <td> {{ $rasadrug->time_taken_for_the_experiment }}</td>
