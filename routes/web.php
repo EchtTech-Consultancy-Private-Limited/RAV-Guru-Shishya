@@ -109,9 +109,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
             Route::post('add-new-routes', [RouteController::class, 'create']);
             Route::post('update-routes/{id}', [RouteController::class, 'update_route']);
             Route::post('add-model-routes', [ModelController::class, 'add_model_routes']);
-            Route::post('update-model-routes/{id}', [ModelController::class, 'update_model_routes']);
-            Route::post('add-user-permissions', [ModelController::class, 'add_user_permissions']);
-            Route::post('user-multiple-permissions', [ModelController::class, 'user_multiple_permissions']);
+            Route::post('update-model-routes/{id}', [ModelController::class, 'update_model_routes']);            
             Route::post('add-drug-details', [DrugController::class, 'add_drug_details']);
             Route::post('update-drug-details', [DrugController::class, 'update_drug_details']);
             Route::post('add-rasayoga-details', [DrugController::class, 'add_rasayoga_details']);
@@ -124,15 +122,12 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
             Route::post('update-arishtayogas-details', [DrugController::class, 'update_arishta_details']);
             Route::post('system-configration', [DashboardController::class, 'save_system_configration'])->name('system-configrations');
         });
+        Route::post('add-user-permissions', [ModelController::class, 'add_user_permissions']);
+        Route::post('user-multiple-permissions', [ModelController::class, 'user_multiple_permissions']);
         Route::get('dashboard', [DashboardController::class, 'index']);
-        //Route::get('shishya', [DashboardController::class, 'shishya']);
-        //Route::resource('roles', RoleController::class);        
-        //Route::resource('products', ProductController::class);
         Route::get('add-user', [AddUserController::class, 'add_user']);
         Route::get('alluser', [AddUserController::class, 'show_user']);
         Route::get('delete-user/{id}', [UserController::class, 'user_delete']);
-        //Route::get('patients-history', [PatientController::class, 'patients_history']);
-        //Route::get('manage-history-sheet', [PatientController::class, 'manage_history_sheet']);
         Route::get('new-patient-registration/{id?}', [PatientController::class, 'new_patient_registration']);
         Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet']);
         Route::get('follow-up-patients', [PatientController::class, 'follow_up_patients']);

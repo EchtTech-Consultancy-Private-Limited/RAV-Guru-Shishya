@@ -1,5 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Crypt;
+use App\Models\ModelPermission;
+use App\Models\ModelName;
+use Illuminate\Support\Facades\Auth;
 
     function format_user_id($type='',$id='',$created_at=''){
         //1 admin, 2 guru, 3 shishya
@@ -38,22 +41,34 @@ use Illuminate\Support\Facades\Crypt;
     /*models for provide permisions*/
     function main_models()
     {
-        $model=App\Models\ModelName::orderBy('shorting','ASC')->get();
+        $model = ModelName::orderBy('shorting','ASC')->get();
         return $model;
     }
     /*end models for provide permisions*/
-
-    function main_menu()
+    function showModelPermission($userType = '')
     {
-        $user_type=Auth::user()->user_type;
-        $data=App\Models\ModelName::orderBy('shorting','ASC')->whereparent_id('0')->get();
+        $data = ModelName::whereIn('user_type', [0,$userType])
+                 ->orderBy('shorting', 'ASC')
+                 ->get();
         return $data;
     }
 
-        function main_child($id = 0)
+    function main_menu()
     {
-        $child=App\Models\ModelName::orderBy('shorting','ASC')->whereparent_id($id)->get();
+        $data = ModelName::orderBy('shorting','ASC')->whereparent_id('0')->get();
+        return $data;
+    }
+
+    function main_child($id = 0)
+    {
+        $child = ModelName::orderBy('shorting','ASC')->whereparent_id($id)->get();
         return $child;
+    }
+
+    function check_permission($modelId = '')
+    {
+        $permission = ModelPermission::where(['user_id' => Auth::id(), 'model_id' => $modelId])->value('permission_id');
+        return $permission;
     }
 
     function get_guru_list($id = 0)
