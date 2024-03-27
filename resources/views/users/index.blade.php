@@ -17,7 +17,7 @@
    <div class="container-fluid">
       <div class="block-header">
          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col">
                   
                <ul class="breadcrumb breadcrumb-style ">
                   <li class="breadcrumb-item">
@@ -33,17 +33,7 @@
                   <li class="breadcrumb-item active">  @if(request()->path()=="users") Guru @elseif(request()->path()=="shishya-list") Shishya @elseif(request()->path()=="rav-admin") Admin @endif</li>
                </ul>
             </div>
-         </div>
-      </div>
-      @if ($message = Session::get('success'))
-         <div class="alert alert-success">
-            <p>{{ $message }}</p>
-         </div>
-      @endif
-      <div class="row">
-         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="card">
-               <div class="m-2">
+            <div class="col m-2">
                   <h2>                    
                     @if(Auth::user()->user_type==4 || Auth::user()->user_type==1)
                     <span style="float:right;" >
@@ -59,6 +49,17 @@
                   </h2>
                   
                </div>
+         </div>
+      </div>
+      @if ($message = Session::get('success'))
+         <div class="alert alert-success">
+            <p>{{ $message }}</p>
+         </div>
+      @endif
+      <div class="row">
+         <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+             
                <div class="body">
                   <div class="table-responsive">
                      <table class="table table-hover js-basic-example contact_list">
@@ -116,7 +117,7 @@
                                     </a>
                                  @endif
                                  </td>
-                                 <td class="center">
+                                 <td class="center text-nowrap">
                                     <!-- <a class="btn btn-primary btn-sm" href="#"><i style="line-height:1.5 !important;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
 
                                     <a href="{{ route('users.edit',encrypt($user->id)) }}" class="btn edit btn-tbl-edit" @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4') title="Edit" @else  title="View" @endif onclick="return confirm_option('edit history sheet')">
