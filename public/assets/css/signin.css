@@ -519,3 +519,7 @@ a.back_to_login {
   display: block;
   margin-top: 20px;
 }
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}

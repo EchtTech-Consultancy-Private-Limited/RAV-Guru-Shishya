@@ -293,7 +293,7 @@
                                              </span>
                                           @endif
                                        </div>
-                                       <div class="col-xxl-4 col-md-5">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->main_complaint_as_said_by_family)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Main Complaint(As said by family member)</label>
                                              <textarea cols="45" rows="1" name="main_complaint_as_said_by_family" class="form-control" value="{{ $patient->main_complaint_as_said_by_family }}" aria-label="main_complaint_as_said_by_family" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaint_as_said_by_family }}</textarea>
@@ -318,7 +318,7 @@
                                              <textarea cols="45" rows="1" name="main_complaintsaid_by_patient" class="form-control" value="{{ $patient->main_complaintsaid_by_patient }}" aria-label="main_complaintsaid_by_patient" placeholder="Main Complaint" maxlength="100">{{ $patient->main_complaintsaid_by_patient }}</textarea>
                                           </div>
                                        </div>
-                                       <div class="col-md-3">
+                                       <div class="col-md-4">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->said_by_patient_duration)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Duration</label>
                                              <input type="text" name="said_by_patient_duration" class="form-control" placeholder="Duration" aria-label="Duration" value="{{ $patient->said_by_patient_duration }}" onfocus="focused(this)" onfocusout="defocused(this)" maxlength="30">

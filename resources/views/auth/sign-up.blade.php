@@ -33,7 +33,7 @@
                         @csrf
                         <div class="body p-0">
                             <div class="row clearfix">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <label>Title<span class="text-danger"> *</span></label>
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <label>Last Name<span class="text-danger"> *</span></label>
@@ -252,10 +252,11 @@
                                             autocomplete="new-password" onpaste="return false" oncopy="return false">
 
                                         <i class="fas fa-eye-slash field-icon eye1"></i>
-                                        <span class="text-danger" id="password_error"></span>
+                                        <span id="password_error" class="text-danger"></span>
+                                        <!-- <span class="text-danger" id="password_error"></span> -->
                                         <span class="show-pass" onclick="toggle()">
                                         </span>
-                                        <p class="text-sm">Please enter strong password</p>
+                                       
                                         <div id="popover-password">
                                             <p><span id="result"></span></p>
                                             <div class="progress">
@@ -291,6 +292,7 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <p class="error"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -309,13 +311,16 @@
 
 
                                 <div class="col-md-3 pl-0">
-                                    <label>Enter Captcha<span class="text-danger">*</span></label>
-                                    <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
-                                    @if ($errors->has('captcha'))
-                                    <span class="text-danger">
-                                    {{ $errors->first('captcha') }}
-                                    </span>
-                                    @endif
+                                    <div class="form-group">
+                                        <label>Enter Captcha<span class="text-danger">*</span></label>
+                                        <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
+                                        @if ($errors->has('captcha'))
+                                        <span class="text-danger">
+                                        {{ $errors->first('captcha') }}
+                                        </span>
+                                        @endif
+                                    </div>
+                                   
                                 </div>
                                 <div class="col-md-3">
                                     <label for="password" class="sr-only">Captcha</label>
