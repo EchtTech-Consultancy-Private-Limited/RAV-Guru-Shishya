@@ -81,7 +81,7 @@
                               @foreach ($data as $key => $user)
                               <tr class="odd gradeX">
                                  <td class="center">{{ ++$i }}</td>
-                                 <td class="center">{{@format_user_id($user->user_type,$user->id,$user->created_at)}}</td>
+                                 <td class="center text-nowrap">{{@format_user_id($user->user_type,$user->id,$user->created_at)}}</td>
                                  <td class="center">{{ $user->firstname }}</td>
                                  <td class="center">{{ $user->email }}</td>
                                  <td class="center">

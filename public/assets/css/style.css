@@ -1231,11 +1231,14 @@ table th:last-child, table tr:last-child, table td:last-child {
 
 .form-group label {
     /* padding: 0px 15px !important; */
+    font-size: 14px;
+    
 }
 
 .select2-container .select2-selection--single .select2-selection__rendered{
     padding: 0 !important;
     /* margin: -7px 0; */
+    font-size: 13px;
 }
 
 .form-group label[for="example-text-input"]{
@@ -1244,6 +1247,7 @@ table th:last-child, table tr:last-child, table td:last-child {
 
 label.form-control-label {
     padding: 0 !important;
+    font-size: 14px !important;
 }
 
 table tr .title{
@@ -1719,4 +1723,11 @@ input::placeholder{
 .select2-container .select2-selection--single{
     height: 33px;
     padding: 7px 0;
+}
+
+.form-group .form-line strong{
+    font-size: 14px !important;
+    font-weight: 700;
+}.field-icon {
+    font-size: 14px !important;
 }
