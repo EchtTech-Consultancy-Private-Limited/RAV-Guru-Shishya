@@ -117,3 +117,12 @@ body{
 .form-group .form-control {
     color: grey;
 }
+
+.error {
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+    color: #f44336;
+    white-space: nowrap;
+}

@@ -18,14 +18,14 @@
                         <hr>
                         <p class="text-left text-danger m-0">Note*- All field is rquired</p>
                         @if (count($errors) > 0)
-                        <div class="alert alert-danger">
+                        <!-- <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
                             <ul>
                                 @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                                 @endforeach
                             </ul>
-                        </div>
+                        </div> -->
                         @endif
                     </div>
                     <form class="validation-form123" action="{{ url('sign-up') }}" method="POST"
@@ -120,8 +120,8 @@
                                             <input type="text" name="mobile_no" id="mobile_no" class="form-control"
                                                 placeholder="Mobile No." value="{{ old('mobile_no') }}" maxlength="10">
                                             @if ($errors->has('mobile_no'))
-                                            <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
+                                            <span class="error">
+                                            {{ $errors->first('mobile_no') }}
                                             </span>
                                             @endif
                                         </div>
@@ -261,8 +261,7 @@
                                             <p><span id="result"></span></p>
                                             <div class="progress">
                                                 <div id="password-strength" class="progress-bar" role="progressbar"
-                                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width:0%">
+                                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
                                                 </div>
                                             </div>
                                             <ul class="list-unstyled" style="display: none;">
@@ -312,11 +311,11 @@
 
                                 <div class="col-md-3 pl-0">
                                     <div class="form-group">
-                                        <label>Enter Captcha<span class="text-danger">*</span></label>
+                                        <label>Captcha<span class="text-danger">*</span></label>
                                         <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
                                         @if ($errors->has('captcha'))
-                                        <span class="text-danger">
-                                        {{ $errors->first('captcha') }}
+                                        <span class="error">
+                                           {{ $errors->first('captcha') }}
                                         </span>
                                         @endif
                                     </div>
