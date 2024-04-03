@@ -114,25 +114,32 @@
      $( document ).ready(function() {
          $('#gurutype').hide();
          $('#shishyatype').hide();
+         var listvalue = $("#user_type").val();
+            if(listvalue==2)
+            {
+                $("#gurutype").show();
+                $("#shishyatype").hide();
+            } 
+            else if(listvalue==3)
+            {
+                $("#gurutype").hide();
+                $("#shishyatype").show();
+            }  
       });
 
-          $('#user_type').on('change', function(){
-
-          var listvalue = $(this).val();
-          //alert(listvalue);   
-          if(listvalue==2)
-          {
-              $("#gurutype").show();
-              $("#shishyatype").hide();
-          } 
-          else if(listvalue==3)
-          {
-             $("#gurutype").hide();
-              $("#shishyatype").show();
-          }
-             
-            
-         });
+        $('#user_type').on('change', function(){
+            var listvalue = $(this).val();
+            if(listvalue==2)
+            {
+                $("#gurutype").show();
+                $("#shishyatype").hide();
+            } 
+            else if(listvalue==3)
+            {
+                $("#gurutype").hide();
+                $("#shishyatype").show();
+            }        
+        });
 </script>
 
 </body>

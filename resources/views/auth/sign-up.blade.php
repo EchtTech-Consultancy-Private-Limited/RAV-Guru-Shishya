@@ -17,7 +17,7 @@
                         </h2>
                         <hr>
                         <p class="text-left text-danger m-0">Note*- All field is rquired</p>
-                        @if (count($errors) > 0)
+                        {{-- @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
                             <ul>
@@ -26,7 +26,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        @endif
+                        @endif --}}
                     </div>
                     <form class="validation-form123" action="{{ url('sign-up') }}" method="POST"
                         enctype="multipart/form-data">
@@ -152,9 +152,7 @@
                                         <select name="country" class="form-control select2" id="country-dropdown">
                                             <option value="">Select Country</option>
                                             @foreach ($countries as $data)
-                                            @if($key == old('country'))
-                                            <option value="{{ $data->id }}" selected>{{ $data->name }}</option>
-                                            @endif
+                                            <option value="{{ $data->id }}" {{ ($data->id == old('country')) ? 'selected':'' }}>{{ $data->name }}</option>
                                             <option value="{{$data->id}}">{{$data->name}}</option>
                                             @endforeach
                                         </select>
@@ -244,11 +242,11 @@
                               </div>
                            </div> -->
                                     <div class="form-group">
-                                        <label for="passwordinput">
+                                        <label>
                                             Password
                                             <span class="text-danger">*</span></label>
                                         <input id="password" class="form-control input-md" name="password"
-                                            type="password" placeholder="Enter your password"
+                                            type="password" value="{{old('password')}}" placeholder="Enter your password"
                                             autocomplete="new-password" onpaste="return false" oncopy="return false">
 
                                         <i class="fas fa-eye-slash field-icon eye1"></i>
@@ -297,7 +295,7 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                             <label>Confirm Password<span class="text-danger">*</span></label>
-                                            <input type="password" class="form-control" name="confirm-password"
+                                            <input type="password" value="{{old('confirm-password')}}" class="form-control" name="confirm-password"
                                                 id="checkPassword" placeholder="Confirm Password " onkeyup='check()'
                                                 onpaste="return false" oncopy="return false">
                                             <i class="fas fa-eye-slash field-icon eye2"></i>
@@ -309,13 +307,15 @@
 
 
                                 <div class="col-md-3 pl-0">
-                                    <label>Enter Captcha<span class="text-danger">*</span></label>
-                                    <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
-                                    @if ($errors->has('captcha'))
-                                    <span class="text-danger">
-                                    {{ $errors->first('captcha') }}
-                                    </span>
+                                    <div class="form-group">
+                                        <label>Enter Captcha<span class="text-danger"> *</span></label>
+                                        <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
+                                        @if ($errors->has('captcha'))
+                                        <span class="text-danger">
+                                        {{ $errors->first('captcha') }}
+                                        </span>
                                     @endif
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="password" class="sr-only">Captcha</label>
@@ -429,8 +429,9 @@ $(document).ready(function() {
     Country Dropdown Change Event
     --------------------------------------------
     --------------------------------------------*/
-    $('#country-dropdown').on('change', function() {
-        var idCountry = this.value;
+    function populateStates() {
+        var idCountry = $('#country-dropdown').val();
+        var oldValue = "{{ old('state') }}";
         $("#state-dropdown").html('');
         $.ajax({
             url: "{{url('api/fetch-states')}}",
@@ -443,21 +444,29 @@ $(document).ready(function() {
             success: function(result) {
                 $('#state-dropdown').html('<option value="">-- Select State --</option>');
                 $.each(result.states, function(key, value) {
-                    $("#state-dropdown").append('<option value="' + value
-                        .id + '">' + value.name + '</option>');
+                    var selected = (value.id == oldValue) ? 'selected' : '';
+                    $("#state-dropdown").append('<option value="' + value.id + '" ' + selected + '>' + value.name + '</option>');
                 });
                 $('#city-dropdown').html('<option value="">-- Select City --</option>');
+                populateCities();
             }
         });
-    });
+    }
+
+    // Attach the function to the on change event
+    $('#country-dropdown').on('change', populateStates);
+
+    // Call the function on page load
+    $(document).ready(populateStates);
 
     /*------------------------------------------
     --------------------------------------------
     State Dropdown Change Event
     --------------------------------------------
     --------------------------------------------*/
-    $('#state-dropdown').on('change', function() {
-        var idState = this.value;
+    function populateCities() {
+        var idState = $('#state-dropdown').val();
+        var oldValue = "{{ old('city') }}";
         $("#city-dropdown").html('');
         $.ajax({
             url: "{{url('api/fetch-cities')}}",
@@ -470,12 +479,15 @@ $(document).ready(function() {
             success: function(res) {
                 $('#city-dropdown').html('<option value="">-- Select City --</option>');
                 $.each(res.cities, function(key, value) {
-                    $("#city-dropdown").append('<option value="' + value
-                        .id + '">' + value.name + '</option>');
+                    var selected = (value.id == oldValue) ? 'selected' : '';
+                    $("#city-dropdown").append('<option value="' + value.id + '" ' + selected + '>' + value.name + '</option>');
                 });
             }
         });
-    });
+    }
+
+    // Attach the function to the on change event
+    $('#state-dropdown').on('change', populateCities);
 
 });
 </script>

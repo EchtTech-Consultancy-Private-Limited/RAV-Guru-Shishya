@@ -60,10 +60,10 @@
                               <label>First Name<span class="text-danger">*</span></label>
                               <input type="text"  name="firstname"  class="form-control capitalize preventnumeric" value="{{ old('firstname') }}" placeholder="First Name" maxlength="32" minlength="2">
                               @if ($errors->has('firstname'))
-                              <span class="help-block">
-                                  <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
-                              </span>
-                          @endif
+                                 <span class="help-block">
+                                    <strong style="color:red;">{{ $errors->first('firstname') }}</strong>
+                                 </span>
+                              @endif
                            </div>
                         </div>
                      </div>

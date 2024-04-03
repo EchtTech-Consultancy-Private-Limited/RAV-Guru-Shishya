@@ -29,13 +29,11 @@ $(document).ready(function() {
                 'title': {
                     required: true
                 },
-
                 'name': {
                     required: true,
                     maxlength: 40
 
                 },
-
                 'country': {
                     required: true,
                     
@@ -73,10 +71,10 @@ $(document).ready(function() {
                     minlength: 8,
                     maxlength: 15
                  },
-                 'gender': {
-                    required: true,
-                  },
-                'password1': {
+                'gender': {
+                required: true,
+                },
+                'password': {
                     required: true,
                     minlength: 7,
                     maxlength: 15
@@ -85,6 +83,9 @@ $(document).ready(function() {
                 'confirm-password': {
                     required: true,
                     equalTo: 'input[name="password"]'
+                },
+                'captcha':{
+                    required:true,
                 },
                 'validation-required': {
                     required: true
@@ -124,12 +125,7 @@ $(document).ready(function() {
                 'validation-checkbox-custom': {
                     required: true
                 },
-
-
-
             },
-
-
 
             // Errors //
 

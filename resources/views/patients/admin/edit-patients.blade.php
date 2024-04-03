@@ -110,7 +110,7 @@
                                        <div class="col-md-3">
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label @if(isset($data->registration_no)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Date of Report</label><br>
-                                            <p>{{date('d-m-y',strtotime($patient->registration_date))}}</p>
+                                            <p>{{date('d-m-Y',strtotime($patient->registration_date))}}</p>
 
                                           </div>
                                        </div>
