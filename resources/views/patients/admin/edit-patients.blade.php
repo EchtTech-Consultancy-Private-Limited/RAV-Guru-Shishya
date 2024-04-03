@@ -329,15 +329,15 @@
                                        </div>
                                     </div>
                                     <div class="row">
-                                       <div class="col-md-12">
-                                          <div class="form-group">
-                                             <label for="example-text-input" class="form-control-label">
-                                                Examination
-                                                of
-                                                the
-                                                patient</label>
+                                    <div class="col-md-12">
+                                          <div class="title">
+                                             <p>
+                                             Examination  of      the patient
+                                             </p>
                                           </div>
+
                                        </div>
+                                      
                                     </div>
                                     <div class="row">
                                        <div class="col-md-3">

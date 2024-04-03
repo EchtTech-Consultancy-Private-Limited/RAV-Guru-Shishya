@@ -68,7 +68,7 @@ $(document).ready(function() {
                  },
                  'mobile_no': {
                     required: true,
-                    minlength: 8,
+                    minlength: 10,
                     maxlength: 15
                  },
                 'gender': {

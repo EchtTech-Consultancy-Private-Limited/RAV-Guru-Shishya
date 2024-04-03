@@ -79,7 +79,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li class="active">
-                                <li><a href="#">In Patients (Admited Patients)</a></li>
+                                <li><a href="#">In Patients (Admitted Patients)</a></li>
                             </li>
                             <li>
                                 <a href="#">Out Patients (O.P.D Patients)</a>
@@ -131,7 +131,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li class="active">
-                                <li><a href="#">In Patients (Admited Patients)</a></li>
+                                <li><a href="#">In Patients (Admitted Patients)</a></li>
                             </li>
                             <li>
                                 <a href="#">Out Patients (O.P.D Patients)</a>

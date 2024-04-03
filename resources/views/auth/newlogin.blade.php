@@ -141,7 +141,7 @@
           <div class="form-group mb-3 position-relative">
             <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control" autocomplete="off" placeholder="Password">
-            <i class="fa fa-eye field-icon1 eye-icon" id="eye"></i>
+            <i class="fa fa-eye-slash field-icon1 eye-icon" id="eye"></i>
             @if($errors->has('password'))
             <span class="error">
             {{ $errors->first('password') }}

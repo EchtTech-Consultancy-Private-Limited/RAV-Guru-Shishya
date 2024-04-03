@@ -33,7 +33,7 @@
                         @csrf
                         <div class="body p-0">
                             <div class="row clearfix">
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <label>Title<span class="text-danger"> *</span></label>
@@ -78,7 +78,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <div class="form-line">
                                             <label>Last Name<span class="text-danger"> *</span></label>
@@ -120,8 +120,8 @@
                                             <input type="text" name="mobile_no" id="mobile_no" class="form-control"
                                                 placeholder="Mobile No." value="{{ old('mobile_no') }}" maxlength="10">
                                             @if ($errors->has('mobile_no'))
-                                            <span class="help-block">
-                                                <strong style="color:red;">{{ $errors->first('mobile_no') }}</strong>
+                                            <span class="error">
+                                            {{ $errors->first('mobile_no') }}
                                             </span>
                                             @endif
                                         </div>
@@ -250,16 +250,16 @@
                                             autocomplete="new-password" onpaste="return false" oncopy="return false">
 
                                         <i class="fas fa-eye-slash field-icon eye1"></i>
-                                        <span class="text-danger" id="password_error"></span>
+                                        <span id="password_error" class="text-danger"></span>
+                                        <!-- <span class="text-danger" id="password_error"></span> -->
                                         <span class="show-pass" onclick="toggle()">
                                         </span>
-                                        <p class="text-sm">Please enter strong password</p>
+                                       
                                         <div id="popover-password">
                                             <p><span id="result"></span></p>
                                             <div class="progress">
                                                 <div id="password-strength" class="progress-bar" role="progressbar"
-                                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
-                                                    style="width:0%">
+                                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
                                                 </div>
                                             </div>
                                             <ul class="list-unstyled" style="display: none;">
@@ -289,6 +289,7 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                        <p class="error"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
