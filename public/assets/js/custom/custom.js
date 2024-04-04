@@ -186,3 +186,33 @@ $('#mobile_no').keypress(function (e) {
     e.preventDefault();
     return false;
 });
+
+jQuery( document ).ready(function() {
+  $('form input[type=text]').focus(function(){
+      $(this).siblings(".error").hide();
+  });
+
+  $('form input[type=email]').focus(function(){
+    $(this).siblings(".error").hide();
+  });
+
+  $('form input[type=password]').focus(function(){
+    $(this).siblings(".error").hide();
+  });
+  
+  $('form input[type=number]').focus(function(){
+      $(this).siblings(".error").hide();
+  });
+
+  $('form input[type=date]').focus(function(){
+      $(this).siblings(".error").hide();
+  });
+
+  $('form input[type=file]').focus(function(){
+      $(this).siblings(".error").hide();
+  });
+
+  $('select').focus(function(){
+      $(this).siblings(".error").hide();
+  });
+});

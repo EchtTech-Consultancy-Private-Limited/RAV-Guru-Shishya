@@ -105,16 +105,6 @@ class AddUserController extends Controller
 
         $user = User::create($input);
 
-
-       /* DB::transaction(function($input)
-        {
-             $user = User::create($input);
-             if( !$user )
-             {
-                 throw new \Exception('User not created for account');
-             }
-         });*/
-
           //Mail sending scripts starts here
           $testMailData = [
             'title' => 'You have successfully registered',
@@ -548,7 +538,7 @@ class AddUserController extends Controller
          $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
-         return redirect()->back()->with("danger","Education Deleted Successfully");
+         return redirect()->back()->with("danger","Education Delails Deleted Successfully");
     }
 
      public function publication_delete(Request $request)
@@ -559,7 +549,7 @@ class AddUserController extends Controller
          $session_for_redirection=$request->form_step_type;
         Session::put('session_for_redirections', $session_for_redirection);
         $session_for_redirections= Session::get('session_for_redirections');
-         return redirect()->back()->with("danger","Publication Deleted Successfully");
+         return redirect()->back()->with("danger","Publication Delails Deleted Successfully");
     }
 
     public function language_delete($lang_id)

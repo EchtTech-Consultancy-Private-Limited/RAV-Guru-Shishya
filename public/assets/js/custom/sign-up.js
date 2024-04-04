@@ -45,3 +45,33 @@ var check = function() {
       if(!confirm("Are you sure to delete this user"))
       event.preventDefault();
   }
+
+  jQuery( document ).ready(function() {
+    $('form input[type=text]').focus(function(){
+        $(this).siblings(".text-danger").hide();
+    });
+  
+    $('form input[type=email]').focus(function(){
+      $(this).siblings(".text-danger").hide();
+    });
+  
+    $('form input[type=password]').focus(function(){
+      $(this).siblings(".text-danger").hide();
+    });
+    
+    $('form input[type=number]').focus(function(){
+        $(this).siblings(".text-danger").hide();
+    });
+  
+    $('form input[type=date]').focus(function(){
+        $(this).siblings(".text-danger").hide();
+    });
+  
+    $('form input[type=file]').focus(function(){
+        $(this).siblings(".text-danger").hide();
+    });
+  
+    $('select').focus(function(){
+        $(this).siblings(".text-danger").hide();
+    });
+  });

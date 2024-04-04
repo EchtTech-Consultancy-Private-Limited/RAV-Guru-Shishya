@@ -492,16 +492,15 @@ class PatientController extends Controller
                 return redirect('/view-follow-up-sheet/'.encrypt($request->followup_id))->with('success', 'Remark for follow up, send to shishya successfully.');
             }
 
-        } elseif(Auth::user()->user_type==1){
+        } elseif(Auth::user()->user_type==1){           
             $data=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->first();
-
             if(isset($request->remark_type) && $request->remark_type==1){
                 $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['send_to_guru'=>1,'read_by_guru'=>0]);
             } else {
                 $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['read_by_guru'=>0]);
             }
             //Mail sending script start here
-
+            if($data){
                 $guru=User::find($data->guru_id);
                 $follow_up_data = [
                     'title' => 'Admin shared a remark on Follow Up ('.format_patient_id($data->patient_id).') with you.',
@@ -510,10 +509,10 @@ class PatientController extends Controller
                     'paragraph' => 'Admin shared a remark on Follow Up for PHR having No. '.format_patient_id($data->patient_id).' with you. Kindly have a look at it <br> Remark:<br>'.$request->remark,
                     ];
                 Mail::to($guru->email)->send(new SendPhr($follow_up_data));
-
+            }
             //Mail sending script ends here
 
-            return redirect('/view-follow-up-sheet/'.encrypt($request->followup_id))->with('success', 'Remark for follow up, send to guru successfully.');
+            return redirect('/follow-up-patients')->with('success', 'Remark for follow up, send to guru successfully.');
 
         }
 
@@ -524,18 +523,18 @@ class PatientController extends Controller
     {
         if($id!=0)$id=decrypt($id);
         if(Auth::user()->user_type==1){
-            if(FollowUpPatient::where('id',$id)->where('send_to_admin','1')->delete())
-            return redirect('/follow-up-patients')->with('success', 'Patient follow up deleted successfully.');
+            if(FollowUpPatient::where('id',$id)->delete())
+                return redirect('/follow-up-patients')->with('success', 'Patient follow up deleted successfully.');
             else return redirect('/follow-up-patients')->with('success', 'You are not allowed to delete this patient follow up.');
 
         }elseif(Auth::user()->user_type==2){
             if(FollowUpPatient::where('id',$id)->where('guru_id',Auth::user()->id)->where('send_to_admin','!=','1')->delete())
-            return redirect('/follow-up-patients')->with('success', 'Patient follow up deleted successfully.');
+                return redirect('/follow-up-patients')->with('success', 'Patient follow up deleted successfully.');
             else return redirect('/follow-up-patients')->with('success', 'You are not allowed to delete this patient follow up.');
 
         }elseif(Auth::user()->user_type==3){
             if(FollowUpPatient::where('id',$id)->where('shishya_id',Auth::user()->id)->where('send_to_shishya','1')->where('send_to_admin','!=','1')->where('send_to_guru','!=','1')->delete())
-            return redirect('/follow-up-patients')->with('success', 'Patient follow up deleted successfully.');
+                return redirect('/follow-up-patients')->with('success', 'Patient follow up deleted successfully.');
             else return redirect('/follow-up-patients')->with('success', 'You are not allowed to delete this patient follow up.');
 
         }

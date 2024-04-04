@@ -181,30 +181,27 @@ function send_to_guru() {
          $('#shishyatype1').hide();
       });
 
-          $('#user_type').on('change', function(){
+    $('#user_type').on('change', function(){
+        alert('ff');
+        var listvalue = $(this).val();
+        //alert(listvalue);
+        if(listvalue==2)
+        {
+            $(".gurutype").show();
+            $(".shishyatype").hide();
+        }
+        else if(listvalue==3)
+        {
+            $(".gurutype").hide();
+            $(".shishyatype").show();
+        }
 
-          var listvalue = $(this).val();
-          //alert(listvalue);
-          if(listvalue==2)
-          {
-              $(".gurutype").show();
-              $(".shishyatype").hide();
-          }
-          else if(listvalue==3)
-          {
-             $(".gurutype").hide();
-              $(".shishyatype").show();
-          }
-
-          else if(listvalue==1 || listvalue=='')
-          {
-             $(".gurutype").hide();
-              $(".shishyatype").hide();
-          }
-
-
-
-         });
+        else if(listvalue==1 || listvalue=='')
+        {
+            $(".gurutype").hide();
+            $(".shishyatype").hide();
+        }
+    });
 
     // sweet alert msg
     window.setTimeout(function() {

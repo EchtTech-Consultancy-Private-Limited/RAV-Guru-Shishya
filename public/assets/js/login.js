@@ -49,3 +49,17 @@
       }
     });
   });
+
+  jQuery( document ).ready(function() {
+    $('form input[type=text]').focus(function(){
+        $(this).siblings(".error").hide();
+    });
+
+    $('form input[type=email]').focus(function(){
+      $(this).siblings(".error").hide();
+    });
+
+    $('form input[type=password]').focus(function(){
+      $(this).siblings(".error").hide();
+    });
+});
