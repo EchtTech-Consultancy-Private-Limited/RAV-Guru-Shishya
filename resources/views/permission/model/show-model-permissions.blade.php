@@ -70,7 +70,8 @@
                             </div>
                         <div class="table-responsive">
                             <table class="table table-hover  contact_list">
-                                <p style="float:right;padding:10px;">Username: @if($user){{ $user->firstname }} @endif</p>
+                                <p style="color:red;padding:10px;">Note like: Submenu are not allowed without main menus</p>
+                                <span style="float:right;padding:10px;">Username: @if($user){{ $user->firstname }} @endif <span>
                             <thead>
                                 <tr>
                                     <th> Model Name</th>
@@ -210,11 +211,11 @@ $("#addall").click(function() {
     if (confirm(confirmationMessage)) {
         umltiple_permission($(this), userId, userType);
         $("input.add").prop("checked", $(this).prop("checked"));
-    } else {
-        // User chose to cancel the action
-        // Do nothing or handle accordingly
+    }else{
+        $("#addall").prop("checked", false);
     }
 });
+
 
 $("input[class=add]").click(function() {
     if (!$(this).prop("checked")) {

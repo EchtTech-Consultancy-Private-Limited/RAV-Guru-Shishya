@@ -135,9 +135,7 @@
                                     </a>
                                     @endif
                                     <!-- <a class="btn btn-danger btn-sm" href="{{ url('delete-user/'.$user->id) }}" onclick="delete_user()"><i class="fa fa-trash" aria-hidden="true" style="line-height:1.5 !important;" ></i></a> -->
-
                                     <a class="btn permission btn-tbl-edit" href="{{ url('assign-role/'.$user->id) }}"  title="Assign user permissions"> <i class="icons-key">&nbsp&nbsp&nbsp&nbsp</i></a>
-                                    
                                     @if(Auth::user()->user_type==1)
                                     <!-- <input class='input-switch' type="checkbox" id="demo"/>
                                        <label class="label-switch" for="demo"></label>

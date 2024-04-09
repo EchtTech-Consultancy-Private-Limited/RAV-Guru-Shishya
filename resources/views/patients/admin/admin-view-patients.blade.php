@@ -516,7 +516,7 @@
                                  </div>
                                  <div class="col-lg-12  text-center">
 
-                                    <a href="{{ url('admin-patient-list') }}" type="button" class="btn back  waves-effect submit float-right">Back To Patient Record</a>
+                                    <a href="{{ url('patients/In-Patient') }}" type="button" class="btn back  waves-effect submit float-right">Back To Patient Record</a>
                                  </div>
                               </form>
                            </div>

@@ -72,5 +72,6 @@ class Kernel extends HttpKernel
         'CustomAuth' => \App\Http\Middleware\CustomAuth::class, #SKP
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
         'EnsureTokenIsValid' => \App\Http\Middleware\EnsureTokenIsValid::class,
+        'ModulePermission' => \App\Http\Middleware\ModulePermission::class,
     ];
 }
