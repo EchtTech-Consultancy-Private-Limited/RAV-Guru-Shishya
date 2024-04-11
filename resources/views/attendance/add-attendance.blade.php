@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 
                     <ul class="breadcrumb breadcrumb-style ">
                         <li class="breadcrumb-item">
@@ -33,6 +33,11 @@
                         <p>{{ $message }}</p>
                     </div>
                     @endif
+                </div>
+
+                <div class="col-md-2">
+                <a href="{{ url('/attendance-list') }}"><button type="button"
+                                                class="btn back waves-effect"> &nbsp; Back &nbsp;</button></a>
                 </div>
             </div>
         </div>
@@ -140,8 +145,7 @@
                                         <button type="submit" class="btn add waves-effect" style="line-height:2;"
                                             onclick="return updateAttendance('update attendance for this date range');">Update
                                             Attendance </button>
-                                        <a href="{{ url('/attendance-list') }}"><button type="button"
-                                                class="btn back waves-effect"> &nbsp; Back &nbsp;</button></a>
+                                      
                                     </div>
                                 </div>
                             </div>
