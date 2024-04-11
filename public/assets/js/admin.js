@@ -788,4 +788,7 @@ function setLtrLayout() {
   localStorage.setItem("layout", "ltr");
 }
 
+
+let status = $(".status");
+console.log(status);
 //==========================================================================================================================
