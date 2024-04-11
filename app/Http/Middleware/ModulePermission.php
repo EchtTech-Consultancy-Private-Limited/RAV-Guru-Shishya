@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ModelName;
 use App\Models\ModelPermission;
+use Illuminate\Support\Facades\Route;
 
 class ModulePermission
 {
@@ -24,13 +25,14 @@ class ModulePermission
         }
         $user = Auth::user();
         if($user->user_type != 4){
-            $routeUri = $request->route()->uri();
+            $routeUri = Route::currentRouteName();
+            // dd($routeUri);
             $modelName = ModelName::where('route', $routeUri)
                                 ->where(function($query) use ($user) {
                                     $query->where('user_type', $user->user_type)
                                             ->orWhere('user_type', 0);
                                 })
-                                ->first();
+                                ->first();           
             if (!$modelName) {
                 abort(404);
             }

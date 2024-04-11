@@ -241,15 +241,18 @@
                                         <td class="center date">
                                             {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                         <td>
+                                            @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                             <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                 class="btn view btn-tbl-edit" title="View Record">
                                                 <i class="material-icons">visibility</i>
                                             </a>
+                                            @endif
 
                                             @if (
                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                             (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
                                             (Auth::user()->user_type == 1))
+                                            @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                             <a href="{{ url('/add-follow-up-sheet/' . encrypt($followup->patient_id) . '/' . encrypt($followup->id)) }}"
                                                 class="btn edit btn-tbl-edit" title="Edit Record"
                                                 onclick="return confirm_option(' edit ')">
@@ -262,6 +265,7 @@
                                                 </i>
                                             </a>
                                             @endif
+                                            @endif
                                             <!--  (
                                                 (Auth::user()->user_type == 3 &&
                                                 $followup->send_to_shishya == '1' &&
@@ -271,11 +275,13 @@
                                                 $followup->send_to_admin != '1') ||
                                                 (Auth::user()->user_type == 1 && $followup->send_to_admin == '1')) -->
                                             @if(Auth::user()->user_type == 1)
+                                            @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
                                             <a href="{{ url('/delete-follow-up/' . encrypt($followup->id)) }}"
                                                 class="btn btn-tbl-delete" title="Delete Record"
                                                 onclick="return confirm_option(' delete ')">
                                                 <i class="material-icons">delete_forever</i>
                                             </a>
+                                            @endif
                                             @endif
                                             <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}"
                                                 class="btn comment btn-tbl-edit" title="Check Remarks"><i

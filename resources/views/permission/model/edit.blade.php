@@ -40,10 +40,26 @@
                @csrf
                <div class="body">
                   <div class="row clearfix">
+                     <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="form-label">Select Module/Action<span
+                              class="text-danger">*</span></label>
+                             <select class="form-control select2" name="module_action">
+                                 <option value="">Select Module/Action</option>
+                                 <option value="0">Module</option>
+                                 <option value="1">Action</option>
+                             </select>
+                              @if ($errors->has('module_action'))
+                                 <span class="help-block">
+                                    <strong style="color:red;">{{ $errors->first('module_action') }}</strong>
+                                 </span>
+                              @endif
+                        </div>
+                     </div>
                         <div class="col-sm-3">
                            <div class="form-group">
                               <div class="form-line">
-                                 <label>Module Name</label>
+                                 <label>Module/Action Name</label>
                                  <input type="text" class="form-control" name="name" placeholder="Module Name" value="{{ $model->name }}">
                               </div>
                            </div>

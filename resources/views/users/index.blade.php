@@ -3,7 +3,6 @@
 >
 @if (count($errors) > 0)
   <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
     <ul>
        @foreach ($errors->all() as $error)
          <li>{{ $error }}</li>
@@ -39,15 +38,13 @@
                     <span style="float:right;" >
                         <form action="{{ route('users.create') }}" method="get">
                            <input type="hidden" name="add_user_btn" value="@if(request()->path()=='rav-admin' && Auth::user()->user_type==1) {{$user_type_array['Admin']}} @elseif(request()->path()=='rav-admin') {{$user_type_array['Admin']}} @elseif(request()->path()=='users') {{$user_type_array['Guru']}} @elseif(request()->path()=='shishya-list') {{$user_type_array['Shishya']}} @endif">
-
-                           <input type="submit" value="+ Add @if(request()->path()=='users') Guru @elseif(request()->path()=='shishya-list') Shishya @elseif(request()->path()=='rav-admin') Admin @endif" class="btn add">
+                           @if(permissionCheck()->add == 1)
+                              <input type="submit" value="+ Add @if(request()->path()=='users') Guru @elseif(request()->path()=='shishya-list') Shishya @elseif(request()->path()=='rav-admin') Admin @endif" class="btn add">
+                           @endif
                         </form>
                      </span>
-                    
                     @endif
-                     
                   </h2>
-                  
                </div>
          </div>
       </div>
@@ -119,10 +116,11 @@
                                  </td>
                                  <td class="center text-nowrap">
                                     <!-- <a class="btn btn-primary btn-sm" href="#"><i style="line-height:1.5 !important;" class="fa fa-pencil-square-o" aria-hidden="true"></i></a> -->
-
+                                    @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                     <a href="{{ route('users.edit',encrypt($user->id)) }}" class="btn edit btn-tbl-edit" @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4') title="Edit" @else  title="View" @endif onclick="return confirm_option('edit history sheet')">
                                        <i class="material-icons">edit</i>
                                     </a>
+                                    @endif
                                     @if(Auth::user()->user_type=='2')
                                     <a  href="{{ url('/new-patient-registration/'.$user->id) }}" class="btn view btn-tbl-edit p-1"  title="Patient History Report" >
                                     <i class="fa fa-file-text " aria-hidden="true"></i>
@@ -130,9 +128,11 @@
                                     </a>
                                     @endif
                                     @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
+                                    @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
                                     <a  href="{{ url('delete-user/'.encrypt($user->id)) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
+                                    @endif
                                     @endif
                                     <!-- <a class="btn btn-danger btn-sm" href="{{ url('delete-user/'.$user->id) }}" onclick="delete_user()"><i class="fa fa-trash" aria-hidden="true" style="line-height:1.5 !important;" ></i></a> -->
                                     <a class="btn permission btn-tbl-edit" href="{{ url('assign-role/'.$user->id) }}"  title="Assign user permissions"> <i class="icons-key">&nbsp&nbsp&nbsp&nbsp</i></a>

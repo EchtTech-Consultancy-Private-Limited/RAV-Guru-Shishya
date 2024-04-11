@@ -335,9 +335,20 @@ $(function(){
     });
 });
 
-function confirm_option(action){
-    if(!confirm("Are you sure to "+action+", this record!")){
-       return false;
-    }
-    return true;
+function updateAttendance(action){
+    var isChecked = false;    
+    var checked = $('.attendance_check:checked');
+    checked.each(function() {
+        isChecked = true;
+        return false;
+    });
+    if (isChecked) {
+        if(!confirm("Are you sure to "+action+", this record!")){
+            return false;
+        }
+        return true;
+    } else {
+        alert('Please select a shishya');
+        return false;
+    }    
  }
