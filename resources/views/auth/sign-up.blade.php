@@ -153,7 +153,7 @@
                                             <option value="">Select Country</option>
                                             @foreach ($countries as $data)
                                             <option value="{{ $data->id }}" {{ ($data->id == old('country')) ? 'selected':'' }}>{{ $data->name }}</option>
-                                            <option value="{{$data->id}}">{{$data->name}}</option>
+                                            
                                             @endforeach
                                         </select>
                                     </div>
@@ -198,8 +198,8 @@
                                             <label>Select Guru Type<span class="text-danger">*</span></label>
                                             <select name="gurutype" class="form-control">
                                                 <option value="">Select User Type</option>
-                                                @if($key == old('gurutype'))
-                                                <option value="{{ old('gurutype') }}" selected>old('gurutype')</option>
+                                                @if(old('gurutype'))
+                                                <option value="{{ old('gurutype') }}" selected>{{old('gurutype')}}</option>
                                                 @endif
                                                 <option value="Individual">Individual</option>
                                                 <option value="Institutional">Institutional</option>
@@ -213,8 +213,8 @@
                                             <label>Select Shishya Type<span class="text-danger">*</span></label>
                                             <select name="shishyatype" class="form-control">
                                                 <option value="">Select User Type</option>
-                                                @if($key == old('shishyatype'))
-                                                <option value="{{ old('shishyatype') }}" selected>old('shishyatype')
+                                                @if(old('shishyatype'))
+                                                <option value="{{ old('shishyatype') }}" selected>{{old('shishyatype')}}
                                                 </option>
                                                 @endif
                                                 <option value="Pharmacy">Pharmacy</option>
@@ -242,11 +242,9 @@
                               </div>
                            </div> -->
                                     <div class="form-group">
-                                        <label>
-                                            Password
-                                            <span class="text-danger">*</span></label>
+                                        <label>Password<span class="text-danger">*</span></label>
                                         <input id="password" class="form-control input-md" name="password"
-                                            type="password" value="{{old('password')}}" placeholder="Enter your password"
+                                            type="password" value="{{old('confirm-password')}}" placeholder="Enter your password"
                                             autocomplete="new-password" onpaste="return false" oncopy="return false">
 
                                         <i class="fas fa-eye-slash field-icon eye1"></i>
