@@ -60,8 +60,10 @@
                                     <div class=" d-flex align-items-center justify-content-end h-100">
                                         <div>
                                             @if (Auth::user()->guru_id)
+                                            @if(permissionCheck()->add == 1 || Auth::user()->user_type == 4)
                                             <a type="button" href="{{ url('/add-history-sheet') }}" class="btn add  waves-effect " >+ Add PHR
                                             </a>
+                                            @endif
                                             @endif
                                         </div>
                                     </div>
@@ -138,25 +140,30 @@
                                                         <td class="center date" > {{ date('d-m-Y', strtotime($patientlist->registration_date)) }}</td>
 
                                                         <td>
+                                                            @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                                             <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title="View Patient">
                                                                 <i class="material-icons">visibility</i>
                                                             </a>
+                                                            @endif
                                                             @if ($patientlist->phr_s_status == 1)
+                                                                @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                                                 <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit" title="Edit Patient">
                                                                     <i class="material-icons">edit
                                                                     @if(isset($patientlist->patientHistory->patient_id))
                                                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                                                     @endif
                                                                     </i></a>
-
+                                                                @endif
                                                                 <!-- <a href="{{ url('send-patient-toguru/' . encrypt($patientlist->id) . '/' . encrypt(Auth::user()->guru_id)) }}" onclick="send_to_guru()" class="btn btn-tbl-edit" title="Send to Guru">
                                                                     <i class="material-icons">send</i>
                                                                 </a> -->
-                                                            <!-- @if ($patientlist->phr_g_status != 1)
+                                                             @if ($patientlist->phr_g_status != 1)
+                                                                @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
                                                                 <a href="{{ url('delete-phr/' . $patientlist->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                                                     <i class="material-icons">delete_forever</i>
                                                                 </a>
-                                                            @endif -->
+                                                                @endif
+                                                            @endif
                                                             @else
                                                             <!-- <a href="javascript:void(0);" class="btn btn-tbl-edit" title="Edit Patient">
                                                                     <i class="material-icons">edit</i>

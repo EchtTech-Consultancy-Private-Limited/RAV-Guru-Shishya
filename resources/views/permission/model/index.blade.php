@@ -163,6 +163,7 @@
                               <th class="center"> No </th>
                               <th class="center"> Module Name </th>
                               <th class="center"> Module/Action </th>
+                              <th class="center"> User Type </th>
                               <th class="center"> Route Name </th>                            
                               <th class="center"> Action </th>
                            </tr>
@@ -173,24 +174,22 @@
                            <tr class="odd gradeX">
                               <td class="center">{{ $loop->iteration }}</td>
                               <td class="center">{{ $models->name }}</td>
-                              <td class="center">{{ ($models->module_action == '0') ? 'Module' : 'Action' }}</td>
+                              <td class="center">
+                                 {{ ($models->module_action == '0') ? 'Module' : 'Action' }}
+                              </td>
+                              <td class="center">
+                                 {{ $models->user_type == 0 ? 'All User' : ($models->user_type == 1 ? 'Admin' : ($models->user_type == 2 ? 'Guru' : ($models->user_type == 3 ? 'Shishya' : ($models->user_type == 4 ? 'Super Admin' : '')))) }}
+                             </td>
                               <td class="center">{{ $models->route ?? '' }}</td>
-
-                              
                                <td class="center">
-                                   
-
                                     <a href="{{ url('edit-model/'.$models->id) }}" class="btn btn-tbl-edit">
                                        <i class="material-icons">edit</i>
                                     </a>
-
                                     <a  href="{{ url('model-dlt/'.$models->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
                                 </td>
-
                            </tr>
-
                               @if(count(main_child($models->id)) > 0 )
                                  @foreach(main_child($models->id) as  $key1=>$model)
                                  @php $k++; @endphp
@@ -198,6 +197,9 @@
                               <td class="center">{{ $k }}</td>
                               <td class="center">{{ $model->name }}</td>
                               <td class="center">{{ ($models->module_action == '0') ? 'Module' : 'Action' }}</td>
+                              <td class="center">
+                                 {{ $models->user_type == 0 ? 'All User' : ($models->user_type == 1 ? 'Admin' : ($models->user_type == 2 ? 'Guru' : ($models->user_type == 3 ? 'Shishya' : ($models->user_type == 4 ? 'Super Admin' : '')))) }}
+                             </td>
                               <td class="center">{{ $model->route }}</td>
 
                               

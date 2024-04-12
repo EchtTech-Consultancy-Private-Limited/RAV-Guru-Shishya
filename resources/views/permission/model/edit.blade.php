@@ -45,9 +45,8 @@
                             <label class="form-label">Select Module/Action<span
                               class="text-danger">*</span></label>
                              <select class="form-control select2" name="module_action">
-                                 <option value="">Select Module/Action</option>
-                                 <option value="0">Module</option>
-                                 <option value="1">Action</option>
+                                 <option value="0" {{($model->module_action == 0) ? 'selected' : ''}}>Module</option>
+                                 <option value="1" {{($model->module_action == 1) ? 'selected' : ''}}>Action</option>
                              </select>
                               @if ($errors->has('module_action'))
                                  <span class="help-block">

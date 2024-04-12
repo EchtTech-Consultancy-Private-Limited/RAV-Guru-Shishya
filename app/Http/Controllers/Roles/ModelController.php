@@ -72,6 +72,12 @@ class ModelController extends Controller
 
     public function update_model(Request $request, $id)
     {
+        $this->validate($request, [
+            'module_action' => 'required',
+            'name' => 'required',
+            'route' => 'required',
+            'user_type' => 'required',
+        ]);
         $model = ModelName::findOrFail($id);
         $model->module_action=$request->module_action;
         $model->name=$request->name;

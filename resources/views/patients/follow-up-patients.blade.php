@@ -251,7 +251,7 @@
                                             @if (
                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                             (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
-                                            (Auth::user()->user_type == 1))
+                                            (Auth::user()->user_type == 1) || Auth::user()->user_type == 4)
                                             @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                             <a href="{{ url('/add-follow-up-sheet/' . encrypt($followup->patient_id) . '/' . encrypt($followup->id)) }}"
                                                 class="btn edit btn-tbl-edit" title="Edit Record"
@@ -274,7 +274,7 @@
                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1' &&
                                                 $followup->send_to_admin != '1') ||
                                                 (Auth::user()->user_type == 1 && $followup->send_to_admin == '1')) -->
-                                            @if(Auth::user()->user_type == 1)
+                                            @if(Auth::user()->user_type == 1 || Auth::user()->user_type == 4)
                                             @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
                                             <a href="{{ url('/delete-follow-up/' . encrypt($followup->id)) }}"
                                                 class="btn btn-tbl-delete" title="Delete Record"
@@ -290,7 +290,7 @@
                                                 (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1')
                                                 ||
                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
-                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
+                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1') || Auth::user()->user_type == 4)
                                                 <a target="_self"
                                                     href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                     class="btn remark" title="Remarks">

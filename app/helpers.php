@@ -321,7 +321,6 @@ use Illuminate\Support\Facades\Auth;
             return $permissions;
         }
         $routeUri = Route::currentRouteName();
-                    
         $modelName = ModelName::where('route', $routeUri)
                     ->where(function($query) use ($user) {
                         $query->where('user_type', $user->user_type)
@@ -330,7 +329,7 @@ use Illuminate\Support\Facades\Auth;
                     ->first();
         if (!$modelName) {
             abort(404);
-        }                           
+        }                   
         $modulePermission = ModelPermission::where('model_id', $modelName->id)
                             ->where('permission_id', 1)
                             ->where('user_id', $user->id)

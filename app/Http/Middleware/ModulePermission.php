@@ -32,7 +32,7 @@ class ModulePermission
                                     $query->where('user_type', $user->user_type)
                                             ->orWhere('user_type', 0);
                                 })
-                                ->first();           
+                                ->first();
             if (!$modelName) {
                 abort(404);
             }

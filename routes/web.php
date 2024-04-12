@@ -168,17 +168,27 @@ Route::get('delete-taliyayoga-type/{id}', [DrugController::class, 'delete_taliya
 Route::get('edit-arishta-drugs/{id}', [DrugController::class, 'edit_arishta_drugs'])->name('edit-arishta-drugs');
 Route::get('view-arishta-drugs/{id}', [DrugController::class, 'view_arishta_drugs'])->name('view-arishta-drugs');
 Route::get('delete-arishtayoga-type/{id}', [DrugController::class, 'delete_arishta_type'])->name('delete-arishtayoga-type');
+Route::get('guru-view-patient/{id}', [PatientController::class, 'guru_view_patient'])->name('guru-view-patient');
+Route::get('edit-patient/{id}', [PatientController::class, 'edit_patient'])->name('edit-patient');
+Route::get('guru-remark-history/{phr_id}', [PatientController::class, 'guru_remark_history'])->name('guru-remark-history');
+Route::get('remarks-from-guru/{id}', [PatientController::class, 'remarks_from_guru'])->name('remarks-from-guru');
+Route::get('assign-role/{id}', [ModelController::class, 'assign_role'])->name('assign-role');
+    Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
+Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet'])->name('add-history-sheet');
+Route::get('view-patient/{id}', [PatientController::class, 'view_patient'])->name('view-patient');
+Route::get('remark-history/{phr_id}', [PatientController::class, 'remark_history'])->name('remark-history');
+Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr'])->name('delete-phr');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid','ModulePermission']], function() {
     Route::get('users', [UserController::class, 'index'])->name('users');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('add-user', [AddUserController::class, 'add_user'])->name('add-user');
     Route::get('alluser', [AddUserController::class, 'show_user'])->name('alluser');    
-    Route::get('new-patient-registration/{id?}', [PatientController::class, 'new_patient_registration'])->name('new-patient-registration');
-    Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet'])->name('add-history-sheet');
+    
     Route::get('add-drug-report', [DrugController::class, 'add_drug_report'])->name('add-drug-report');
     Route::get('drug-report-history', [DrugController::class, 'drug_report_history'])->name('drug-report-history');
-
+    Route::get('new-patient-registration/{id?}', [PatientController::class, 'new_patient_registration'])->name('new-patient-registration');
+    Route::get('shishya-notifications', [PatientController::class, 'new_patient_registration'])->name('shishya-notifications');
     Route::get('follow-up-patients', [PatientController::class, 'follow_up_patients'])->name('follow-up-patients');
     Route::get('profile', [AddUserController::class, 'manage_profile'])->name('profile');
     Route::get('active-users/{id}', [AddUserController::class, 'active_user'])->name('active-users');
@@ -188,20 +198,15 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('rav-admin', [AddUserController::class, 'rav_admin'])->name('rav-admin');
     Route::get('add-user/{$type}', [AddUserController::class, 'add_user'])->name('add-user');
 
-    /*Shishya List*/
-    Route::get('view-patient/{id}', [PatientController::class, 'view_patient'])->name('view-patient');
-    Route::get('generate-Pdft/{id}', [PatientController::class, 'generatePdf'])->name('generatePdf');        
-    Route::get('edit-patient/{id}', [PatientController::class, 'edit_patient'])->name('edit-patient');
-    Route::get('send-patient-toguru/{id}/{guru_id}', [PatientController::class, 'send_patient_to_guru'])->name('send-patient-toguru');
-    Route::get('remark-history/{phr_id}', [PatientController::class, 'remark_history'])->name('remark-history');
+    /*Shishya List*/    
+    Route::get('generate-Pdft/{id}', [PatientController::class, 'generatePdf'])->name('generatePdf');    
+    Route::get('send-patient-toguru/{id}/{guru_id}', [PatientController::class, 'send_patient_to_guru'])->name('send-patient-toguru');    
 
     /*Guru Url*/
     Route::get('guru-patient-list', [PatientController::class, 'guru_patient_list'])->name('guru-patient-list');
-    Route::get('notify-guru-patient-list', [PatientController::class, 'notify_guru_patient_list'])->name('notify-guru-patient-list');
-    Route::get('guru-view-patient/{id}', [PatientController::class, 'guru_view_patient'])->name('guru-view-patient');
-    Route::get('guru-generate-Pdft/{id}', [PatientController::class, 'generateGuruPdf'])->name('generateGuruPdf'); 
-    Route::get('remarks-from-guru/{id}', [PatientController::class, 'remarks_from_guru'])->name('remarks-from-guru');
-    Route::get('guru-remark-history/{phr_id}', [PatientController::class, 'guru_remark_history'])->name('guru-remark-history');
+    Route::get('notifications', [PatientController::class, 'guru_patient_list'])->name('notifications');
+    Route::get('notify-guru-patient-list', [PatientController::class, 'notify_guru_patient_list'])->name('notify-guru-patient-list');   
+    Route::get('guru-generate-Pdft/{id}', [PatientController::class, 'generateGuruPdf'])->name('generateGuruPdf');     
     Route::get('attendance-list', [AttendanceController::class, 'index'])->name('attendance-list');
     Route::get('attendance-list/{guru_id}', [AttendanceController::class, 'index'])->name('attendance-list');
     Route::get('view-attendance', [AttendanceController::class, 'viewAttendance'])->name('view-attendance');
@@ -212,8 +217,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
     Route::get('phr-history-sheet', [PatientController::class, 'guru_phr_history_sheet'])->name('phr-history-sheet');
     Route::get('admin-drug-report-history', [DrugController::class, 'admin_drug_report_history'])->name('admin-drug-report-history');
-    Route::get('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report'])->name('admin-filter-drug-report');
-    Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr'])->name('delete-phr');
+    Route::get('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report'])->name('admin-filter-drug-report');    
 
     Route::get('patients/In-Patient', [PatientController::class, 'in_patients'])->name('patients/In-Patient');
     Route::get('patients/OPD-Patient', [PatientController::class, 'opd_patients'])->name('patients/OPD-Patient');
@@ -229,13 +233,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
 
     Route::get('model-routes', [ModelController::class, 'model_routes'])->name('model-routes');
     Route::get('edit-model-routes/{id}', [ModelController::class, 'edit_model_routes'])->name('edit-model-routes');
-    Route::get('model-routes-dlt/{id}', [ModelController::class, 'delete_model_route'])->name('model-routes-dlt');
-
-    Route::get('assign-role/{id}', [ModelController::class, 'assign_role'])->name('assign-role');
-
-        /*Drug Details*/   
-
-    Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
+    Route::get('model-routes-dlt/{id}', [ModelController::class, 'delete_model_route'])->name('model-routes-dlt');    
 });
 
 Route::get('education/edit-company', [AddUserController::class, 'edit_manage_profile_education'])->name('education-edit-company');
