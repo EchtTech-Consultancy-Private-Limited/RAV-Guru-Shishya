@@ -309,20 +309,19 @@
                                     <div class="form-group">
                                         <label>Enter Captcha<span class="text-danger"> *</span></label>
                                         <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
-                                        @if ($errors->has('captcha'))
-                                        <span class="text-danger">
-                                        {{ $errors->first('captcha') }}
-                                        </span>
-                                    @endif
+                                        @if($errors->has('captcha'))
+                                            <div class="text-danger">{{ $errors->first('captcha') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="password" class="sr-only">Captcha</label>
                                       <div class="captcha ">
-                                        <span>{!! captcha_img('math') !!}</span>
-                                        <button type="button" class="btn btn-secondary btn-refresh me-2">
+                                        <span id="captcha-signup">{{$CustomCaptch['expression'] }}</span>
+                                        {{-- <span>{!! captcha_img('math') !!}</span> --}}
+                                        {{-- <button type="button" class="btn btn-secondary btn-refresh me-2">
                                           <i class="fa fa-refresh"></i>
-                                        </button>
+                                        </button> --}}
                                       </div>
                                 </div>
                             </div>

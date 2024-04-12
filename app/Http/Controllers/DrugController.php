@@ -746,8 +746,10 @@ class DrugController extends Controller
 
     public function arishta_yoga_details(Request $request)
     {
+        request()->validate([
+            'arishtayoga_type_individual' => 'required',
+        ]);
         $input = $request->all();
-
         //return $input;
         $arishta = ArishtaYoga::create($input);
         $name_of_the_ingredients=$request->name_of_the_ingredients;

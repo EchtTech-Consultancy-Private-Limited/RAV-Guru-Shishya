@@ -25,6 +25,7 @@ use Session;
 use Illuminate\Support\Arr;
 use Mail;
 use App\Mail\SendMail;
+use App\Http\Helpers\CustomCaptcha;
 
 class AddUserController extends Controller
 {
@@ -52,7 +53,10 @@ class AddUserController extends Controller
     {
         $countries = Country::get(["name", "id"]);
         $user_type=['2'=>'Guru','3'=>'Shishya'];
-        return view("auth.sign-up",compact('user_type','countries'));
+        $CustomCaptchas = new CustomCaptcha;
+        $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+        Session::put('capcode', $CustomCaptch['answer']);
+        return view("auth.sign-up",compact('user_type','countries','CustomCaptch'));
     }
 
     public function sign_up(Request $request)
@@ -87,13 +91,11 @@ class AddUserController extends Controller
                 'lastname' =>'required|max:32|min:2|regex:/^[a-zA-Z0-9\s]+$/',
                 'email' => ['required','email','max:50','unique:users','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'mobile_no'=>'required|numeric|unique:users|min:10,mobile_no|digits:10',
-                'captcha' => 'required|captcha',
                           
-            ],
-            [
-            'captcha.captcha'=>"Kindly check the captcha code you have entered."
             ]);
-
+        if(Session::get('capcode') != $request->captcha){
+            return back()->withErrors(['captcha' => 'Captcha Invalid!'])->withInput();
+        }
            //Userdetails for mail
 
            $userEmail = $request->email;

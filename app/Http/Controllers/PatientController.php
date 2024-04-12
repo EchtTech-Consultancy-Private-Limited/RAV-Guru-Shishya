@@ -492,7 +492,7 @@ class PatientController extends Controller
                 return redirect('/view-follow-up-sheet/'.encrypt($request->followup_id))->with('success', 'Remark for follow up, send to shishya successfully.');
             }
 
-        } elseif(Auth::user()->user_type==1){           
+        } elseif(Auth::user()->user_type==1 || Auth::user()->user_type==4){           
             $data=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->first();
             if(isset($request->remark_type) && $request->remark_type==1){
                 $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['send_to_guru'=>1,'read_by_guru'=>0]);

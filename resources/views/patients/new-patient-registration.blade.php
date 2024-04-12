@@ -56,7 +56,23 @@
                         @csrf
                         <div class="header">
                             <div class="row">
-                                <div class="col-lg-12 col-md-12 pt-2">
+                                <div class="col-md-6">
+                                    <div class="d-flex color-box-parent">
+                                        <div class="color-box box1">
+                                            <div>
+    
+                                            </div>
+                                            <p>Not Read</p>
+                                        </div>
+                                        <div class="color-box box2">
+                                            <div>
+    
+                                            </div>
+                                            <p>Read</p>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="col-md-6 pt-2">
                                     <div class=" d-flex align-items-center justify-content-end h-100">
                                         <div>
                                             @if (Auth::user()->guru_id)
@@ -116,7 +132,7 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($patientlist as $key => $patientlist)
-                                                    <tr class="gradeX odd @if ($patientlist->read_by_shishya == '0') active-row @endif">
+                                                    <tr class="gradeX odd {{($patientlist->read_by_shishya == '0') ? 'active-row' : 'not-active-row' }}">
 
                                                         <td class="center sorting_1  p-0"><input name="send_phr_to_guru[]" value="{{ $patientlist->id }}" id="find-table" type="checkbox" class="add"></td>
                                                         <td class="center sorting_1">{{ ++$key }}</td>
