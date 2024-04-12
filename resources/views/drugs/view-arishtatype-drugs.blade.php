@@ -365,12 +365,16 @@
 
                                                     <tr>
                                                         <td>Starting Date </td>
+                                                        @if(@$drug->starting_date)
                                                         <td> {{date('d-m-Y',strtotime(@$drug->starting_date))}}  </td>
+                                                        @endif
                                                     </tr>
 
                                                     <tr>
                                                         <td>Ending Date</td>
+                                                        @if(@$drug->ending_date)
                                                         <td> {{date('d-m-Y',strtotime(@$drug->ending_date))}}  </td>
+                                                        @endif
                                                     </tr>
 
 

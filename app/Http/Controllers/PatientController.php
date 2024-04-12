@@ -1175,21 +1175,19 @@ class PatientController extends Controller
     }
 
 
-    public function in_patients($phr_type)
+    public function in_patients()
     {
-        if($phr_type=="In-Patient")
-        {
-            $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
-            //dd($patientlist);
-        }
-        elseif($phr_type=="OPD-Patient")
-        {
-           $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
-        }
+        $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => 'In-Patient','soft_delete' => 0])->get();
         return view("patients.admin.patient-list",compact("patientlist"));      
          
     }
 
+    public function opd_patients()
+    {
+        $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => 'OPD-Patient','soft_delete' => 0])->get();
+        return view("patients.admin.patient-list",compact("patientlist"));      
+         
+    }
 
         
 

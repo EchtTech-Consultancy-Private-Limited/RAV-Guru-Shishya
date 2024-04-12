@@ -92,7 +92,9 @@
                                  <td class="center"> {{ date('d-m-Y', strtotime($patientlist->registration_date)) }} </td>
 
                                  <td class=" patient-list-action">
+                                    @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                     <a href="{{ url('guru-view-patient/'.encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title ="View Record"><i class="material-icons">visibility</i></a>                                   
+                                    @endif
                                  @if($patientlist->phr_a_status== 1 OR $patientlist->phr_s_status== 1)
                                     <!-- <a href="javascript:void(0);" class="btn btn-secondary" title="Edit Patient">
                                         Remarks
@@ -101,9 +103,11 @@
                                         Remarks
                                     </a> -->
 
-                                 @else                                    
+                                 @else
+                                    @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                     <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit" title="Edit Patient"><i class="material-icons">edit
-                                    @if(isset($patientlist->patientHistory->patient_id))
+                                    @endif
+                                       @if(isset($patientlist->patientHistory->patient_id))
                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                     @endif
                                     </i></a>

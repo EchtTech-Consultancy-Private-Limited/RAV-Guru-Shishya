@@ -138,7 +138,7 @@ class UserController extends Controller
         }
         elseif($input['user_type']==2)
         {
-            return redirect()->route('users.index')
+            return redirect()->route('users')
                         ->with('success','User created successfully');
         }
 
@@ -289,7 +289,7 @@ class UserController extends Controller
         }
         elseif($user->user_type==2)
         {
-            return redirect()->route('users.index')
+            return redirect()->route('users')
                         ->with('success','User Updated successfully');
         }
 
@@ -303,7 +303,7 @@ class UserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('users.index')
+        return redirect()->route('users')
                         ->with('success','User updated successfully');
 
         return Redirect::back()->with('success', 'Status Changed Successfully');
@@ -334,7 +334,6 @@ class UserController extends Controller
         $id= decrypt($id);
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+        return back()->with('success','User deleted successfully');
     }
 }

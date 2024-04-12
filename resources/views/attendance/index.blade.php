@@ -4,7 +4,6 @@
 <section class="content">
     @if (count($errors) > 0)
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -42,8 +41,10 @@
                     </a>
 
                     @if(Auth::user()->user_type==2)
+                    @if(permissionCheck()->add == 1 || Auth::user()->user_type == 4)
                     <a type="button" href="{{url('/add-attendance')}}" class="btn add waves-effect float-right">Add
                         Attendance </a>
+                    @endif
                     @endif
                 </div>
             </div>
@@ -195,12 +196,14 @@
                                     <td class="center">{{$attendance->attendance}}</td>
                                     <td class="center">{{date('d-m-Y',strtotime($attendance->attendance_date))}}
                                     </td>
-                                    <td class="d-flex justify-content-start">
+                                    @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
+                                    <td class="d-flex justify-content-start">                                       
                                         <a class="btn btn-tbl-edit view_attendance" title="View Record"
                                             data-id="{{$attendance->id}}" data-bs-toggle="modal"
                                             data-bs-target="#attendance_modal"><i
-                                                class="material-icons">visibility</i></a>
+                                                class="material-icons">visibility</i></a>                                        
                                     </td>
+                                    @endif
 
                                 </tr>
                                 @endforeach

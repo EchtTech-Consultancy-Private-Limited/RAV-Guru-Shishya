@@ -4,7 +4,6 @@
 <section class="content">
     @if (count($errors) > 0)
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -15,7 +14,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 
                     <ul class="breadcrumb breadcrumb-style ">
                         <li class="breadcrumb-item">
@@ -34,6 +33,11 @@
                         <p>{{ $message }}</p>
                     </div>
                     @endif
+                </div>
+
+                <div class="col-md-2">
+                <a href="{{ url('/attendance-list') }}"><button type="button"
+                                                class="btn back waves-effect"> &nbsp; Back &nbsp;</button></a>
                 </div>
             </div>
         </div>
@@ -139,10 +143,9 @@
                                     <div class="new-patient-input d-flex justify-content-end  ">
 
                                         <button type="submit" class="btn add waves-effect" style="line-height:2;"
-                                            onclick="return confirm_option('update attendance for this date range');">Update
+                                            onclick="return updateAttendance('update attendance for this date range');">Update
                                             Attendance </button>
-                                        <a href="{{ url('/attendance-list') }}"><button type="button"
-                                                class="btn back waves-effect"> &nbsp; Back &nbsp;</button></a>
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -161,9 +164,8 @@
                                     <tbody>
                                         @foreach($data as $k=>$user)
                                         <tr class="odd gradeX ">
-                                            <td class="center"><label class="form-check-label form-check-input1"><input
-                                                        name="shishya_ids[]" type="checkbox"
-                                                        class="form-check-input ms-4" value="{{$user->id}}"> </label>
+                                            <td class="center"><label class="form-check-label form-check-input1">
+                                                <input name="shishya_ids[]" type="checkbox" class="form-check-input ms-4 attendance_check" value="{{$user->id}}"> </label>
                                             </td>
                                             <td class="center">RAVSH-{{ $user->id }}-{{date('Y')}}</td>
                                             <td class="center">{{$user->firstname.' '.$user->lastname}}</td>

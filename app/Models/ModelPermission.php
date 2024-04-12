@@ -10,6 +10,6 @@ class ModelPermission extends Model
     use HasFactory;
     protected $table = 'model_permissions';
     protected $fillable = [
-        'model_id', 'permission_id', 'user_id'
+        'model_id', 'permission_id', 'user_id','add','edit','view','delete'
     ];
 }

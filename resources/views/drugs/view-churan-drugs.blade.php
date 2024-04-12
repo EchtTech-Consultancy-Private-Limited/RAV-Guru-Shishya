@@ -343,13 +343,17 @@
 
                                                         </tr>
                                                         <tr>
-                                                            <td>Starting Date</td>
-                                                            <td> {{date('d-m-Y',strtotime(@$churandrug->starting_date))}}</td>
-                                                            
+                                                            <td>Starting Date </td>
+                                                            @if(@$drug->starting_date)
+                                                            <td> {{date('d-m-Y',strtotime(@$drug->starting_date))}}  </td>
+                                                            @endif
                                                         </tr>
+    
                                                         <tr>
-                                                            <td>Ending Date </td>
-                                                            <td> {{date('d-m-Y',strtotime(@$churandrug->ending_date))}}</td>
+                                                            <td>Ending Date</td>
+                                                            @if(@$drug->ending_date)
+                                                            <td> {{date('d-m-Y',strtotime(@$drug->ending_date))}}  </td>
+                                                            @endif
                                                         </tr>
 
                                                     </tbody>

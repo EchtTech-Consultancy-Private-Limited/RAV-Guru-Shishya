@@ -146,7 +146,7 @@
                                                 </div>
                                             </div>
 
-                                            @if(Auth::user()->user_type==1)
+                                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==4)
 
                                               <div class="col-lg-3 col-xxl-2 col-xl-3  col-md-4 col-6">
                                                   <div class="form-group">
@@ -172,7 +172,7 @@
                                                   </div>
                                               </div>
                                               @endif
-                                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==3)
+                                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==3 || Auth::user()->user_type==4)
                                             <input type="hidden" name="send_to" id="send_to" value="2">
 
                                             @else
@@ -211,7 +211,7 @@
                                                                 $data->send_to_guru=='0')) disabled @else
                                                                 onclick="return confirm_remark_send()" @endif >
                                                                 @if((Auth::user()->user_type==3) ||
-                                                                (Auth::user()->user_type==1))Send to Guru
+                                                                (Auth::user()->user_type==1 || Auth::user()->user_type==4))Send to Guru
                                                                 @elseif(Auth::user()->user_type==2)Send @endif</button>
 
                                                         </div>

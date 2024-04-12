@@ -90,10 +90,12 @@
                                  <td class="center">{{ date('d-m-Y', strtotime($patientlist->registration_date)) }} </td>
 
                                  <td class="center">
-
+                                    @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                     <a href="{{ url('admin-view-patient/'.$patientlist->id) }}" class="btn view btn-tbl-edit" title ="View Record">
                                                     <i class="material-icons">visibility</i>
                                     </a>
+                                    @endif
+                                    @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                     <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
                                           <i class="material-icons">edit
                                           @if(isset($patientlist->patientHistory->patient_id))
@@ -101,12 +103,15 @@
                                           @endif
                                           </i>
                                     </a>
+                                    @endif
                                     <!-- <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a> -->
+                                    @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
                                     <a class="btn delete btn-tbl-delete delete_patient" data-id="{{$patientlist->id}}" data-bs-toggle="modal" data-bs-target="#delete_modal" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
+                                    @endif
                                     <a target="_self" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn comment btn-tbl-edit" title="Check Remark">
                                     <i class="fa fa-history" aria-hidden="true"></i>
                                     </a>

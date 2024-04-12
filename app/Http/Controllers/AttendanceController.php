@@ -150,7 +150,6 @@ class AttendanceController extends Controller
 
     public function viewAttendance(Request $request)
     {
-        // dd($request->all());
         $attendance = Attendance::where('id',$request->attendance_id)->first();
         return response()->json($attendance);
     }
