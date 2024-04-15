@@ -70,7 +70,7 @@
                             </div>
                         <div class="table-responsive">
                             <table class="table table-hover  contact_list">
-                                <p style="color:red;padding:10px;">Note like: Submenu are not allowed without main menus</p>
+                                <p style="color:red;padding:10px;">Note: Submenu are not allowed without main menus</p>
                                 <span style="float:right;padding:10px;">Username: @if($user){{ $user->firstname }} @endif <span>
                             <thead>
                                 <tr>

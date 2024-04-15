@@ -70,7 +70,7 @@
                                         @foreach($shishyas as $shishya)
                                         <option value="{{$shishya->id}}" @if(request()->
                                             shishya_id==$shishya->id) SELECTED
-                                            @endif>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lasttname}}
+                                            @endif>{{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}
                                         </option>
                                         @endforeach
                                     </select>
@@ -156,63 +156,39 @@
                         <table class="table table-hover" id="attendance_list">
                             <thead>
                                 <tr>
-                                    <th class="center">S.No.<i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-                                        <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
-                                    </th>
-
-                                    <th class="center"> Registration No. <i class="fa fa-long-arrow-up"
-                                            aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
-                                            aria-hidden="true"></i> </th>
-                                    <th class="center"> Shishya Name <i class="fa fa-long-arrow-up"
-                                            aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
-                                            aria-hidden="true"></i> </th>
-                                    <th class="center"> Guru Name <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-                                        <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
-                                    </th>
-                                    <th class="center"> Attendance <i class="fa fa-long-arrow-up"
-                                            aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
-                                            aria-hidden="true"></i> </th>
-                                    <th class="center"> Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-                                        <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
-                                    </th>
-                                    <th class="center"> Action <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i
-                                            class="fa fa-long-arrow-down" aria-hidden="true"></i>
-                                    </th>
-
+                                    <th>S.No.</th>
+                                    <th>Registration No.</th>
+                                    <th>Shishya Name</th>
+                                    <th>Guru Name</th>
+                                    <th>Attendance</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($data as $k=>$attendance)
                                 <tr class="odd gradeX">
-                                    <td class="center">
+                                    <td>
                                         @if(request()->page){{(((request()->page-1)*10)+$k+1)}}@else{{($k+1)}}@endif
                                     </td>
-
-                                    <td class="center">RAVSH-{{ $attendance->shishya_id }}-{{date('Y')}}</td>
-                                    <td class="center">
-                                        {{$attendance->shishya_firstname.' '.$attendance->shishya_lastname}}</td>
-                                    <td class="center">
-                                        {{$attendance->guru_firstname.' '.$attendance->guru_lastname}}</td>
-                                    <td class="center">{{$attendance->attendance}}</td>
-                                    <td class="center">{{date('d-m-Y',strtotime($attendance->attendance_date))}}
-                                    </td>
+                                    <td>RAVSH-{{ $attendance->shishya_id }}-{{date('Y')}}</td>
+                                    <td>{{$attendance->shishya_firstname.' '.$attendance->shishya_lastname}}</td>
+                                    <td>{{$attendance->guru_firstname.' '.$attendance->guru_lastname}}</td>
+                                    <td>{{$attendance->attendance}}</td>
+                                    <td>{{date('d-m-Y',strtotime($attendance->attendance_date))}}</td>
                                     @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                     <td class="d-flex justify-content-start">                                       
                                         <a class="btn btn-tbl-edit view_attendance" title="View Record"
                                             data-id="{{$attendance->id}}" data-bs-toggle="modal"
-                                            data-bs-target="#attendance_modal"><i
-                                                class="material-icons">visibility</i></a>                                        
+                                            data-bs-target="#attendance_modal"><i class="material-icons">visibility</i></a>                                        
                                     </td>
                                     @endif
-
                                 </tr>
                                 @endforeach
                             </tbody>
-
                         </table>
 
                     </div>
-                    {{ $data->links('pagination::bootstrap-5') }}
                 </div>
 
             </div>
@@ -251,6 +227,9 @@
     </div>
 </section>
 <script>
+$(document).ready(function() {
+    $('#attendance_list').DataTable();
+});
 // Attendance Popup details
 $('.view_attendance').on('click', function() {
     var attendance_id = $(this).data('id');
@@ -264,7 +243,7 @@ $('.view_attendance').on('click', function() {
             $('#successMsg').show();
             const date = new Date(response.attendance_date);
             const dd = date.getDate();
-            const mm = date.getMonth();
+            const mm = date.getMonth() + 1;
             const year = date.getFullYear();
             var tabledata =
                 `<tr><td>Date</td><td>${dd}-${mm}-${year}</td></tr><tr><td>In-Time</td><td>${response.in_time}</td></tr><tr><td>Out-Time</td><td>${response.out_time}</td></tr><tr><td>Morning Shifts Timings</td><td>${response.attendance_morning_timing}</td></tr><tr><td>Evening Shifts Timings</td><td>${response.attendance_evening_timing}</td></tr><tr><td>Attendance</td><td>${response.attendance}</td></tr>`;
