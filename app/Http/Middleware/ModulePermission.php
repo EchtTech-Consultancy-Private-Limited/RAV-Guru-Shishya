@@ -41,7 +41,7 @@ class ModulePermission
                                             ->where('user_id', $user->id)
                                             ->first();
             if (!$modulePermission) {
-                abort(403, 'Module not permitted');
+                abort(403, 'Module not permitted. Please contact the appropriate authority for assistance.');
             }
         }
         return $next($request);
