@@ -133,14 +133,28 @@
                         </div>
                 </div>
 
-
-
                 </form>
                 <form role="form" method="POST" action="{{ url('/send-follow-up-sheet') }}">
                     @csrf
                     <div class="card">
                         <div class="card-body ">
                         <div class="table-responsive">
+                            <div class="col-md-6">
+                                <div class="d-flex color-box-parent">
+                                    <div class="color-box box1">
+                                        <div>
+
+                                        </div>
+                                        <p>Not Read</p>
+                                    </div>
+                                    <div class="color-box box2">
+                                        <div>
+
+                                        </div>
+                                        <p>Read</p>
+                                    </div>
+                                </div>                                    
+                            </div>
                             <table
                                 class="table table-hover js-basic-example contact_list dataTable no-footer table-arrow"
                                 id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -200,7 +214,7 @@
                                 <tbody>
                                     @foreach ($data as $k => $followup)
                                     <tr
-                                        class="odd gradeX @if (
+                                        class="odd gradeX {{($followup->read_by_shishya == '0') ? 'active-row' : 'not-active-row' }} @if (
                                                         (Auth::user()->user_type == 2 && $followup->read_by_guru == '0') ||
                                                             (Auth::user()->user_type == 3 && $followup->read_by_shishya == '0') ||
                                                             (Auth::user()->user_type == 1 && $followup->read_by_admin == '0')) active-row @endif">

@@ -45,6 +45,11 @@ class DrugController extends Controller
 
     public function add_drug_details(Request $request)
     {
+        $request->validate(
+        [
+            'churna_yoga_type_individual' => 'required',
+
+        ]);
         $input = $request->all();
         $drug = ChurnaYoga::create($input);
 
@@ -111,7 +116,7 @@ class DrugController extends Controller
     }
 
     public function edit_drugs(Request $request,$id)
-    {      
+    {
         $user_type=Auth::user()->user_type;
         $id= decrypt($id);
 
@@ -206,6 +211,11 @@ class DrugController extends Controller
 
     public function update_drug_details(Request $request)
     {
+        $request->validate(
+        [
+            'churna_yoga_type_individual' => 'required',
+
+        ]);
         $id=$request->drug_id;
         $input = $request->all();
         $drug = ChurnaYoga::find($id);
@@ -293,6 +303,11 @@ class DrugController extends Controller
 
     public function update_rasayoga_details(Request $request)
     {
+        $request->validate(
+        [
+            'rasa_yoga_type_individual' => 'required',
+
+        ]);
         $id=$request->drug_id;
         $input = $request->all();
         $drug = RasaYoga::find($id);
@@ -396,6 +411,11 @@ class DrugController extends Controller
 
     public function add_rasayoga_details(Request $request)
     {
+        $request->validate(
+        [
+            'rasa_yoga_type_individual' => 'required',
+
+        ]);
         $input = $request->all();
         $drugrasa = RasaYoga::create($input);
 
@@ -420,6 +440,11 @@ class DrugController extends Controller
     /*vati yoga*/
     public function vati_yoga_details(Request $request)
     {
+        $request->validate(
+        [
+            'vati_yoga_type_individual' => 'required',
+
+        ]);
         $input = $request->all();
         $vatiyoga = VatiYoga::create($input);
         $name_of_the_ingredients=$request->name_of_the_ingredients;
@@ -488,6 +513,11 @@ class DrugController extends Controller
 
      public function update_vatiyoga_details(Request $request)
     {
+        $request->validate(
+        [
+            'vati_yoga_type_individual' => 'required',
+
+        ]);
         $id=$request->drug_id;
         $input = $request->all();
         $drug = VatiYoga::find($id);
@@ -563,10 +593,10 @@ class DrugController extends Controller
             }
         else
         {
-            return redirect()->back()->with('success', 'churan yoga updated successfully');
+            return redirect()->back()->with('success', 'Vati yoga updated successfully');
         }
 
-         return redirect()->back()->with('success', 'churan yoga updated successfully');
+         return redirect()->back()->with('success', 'Vati yoga updated successfully');
     }
 
     public function delete_vatiyoga_type($id)
@@ -581,6 +611,11 @@ class DrugController extends Controller
 
     public function talia_yoga_details(Request $request)
     {
+        $request->validate(
+        [
+            'talia_yoga_type_individual' => 'required',
+
+        ]);
         $input = $request->all();
         $talia = TaliaYogas::create($input);
         $name_of_the_ingredients=$request->name_of_the_ingredients;
@@ -652,7 +687,11 @@ class DrugController extends Controller
 
     public function update_taliayoga_details(Request $request)
     {
+        $request->validate(
+        [
+            'talia_yoga_type_individual' => 'required',
 
+        ]);
         $id=$request->drug_id;
         $input = $request->all();
         $drug = TaliaYogas::find($id);
@@ -746,8 +785,10 @@ class DrugController extends Controller
 
     public function arishta_yoga_details(Request $request)
     {
+        request()->validate([
+            'arishtayoga_type_individual' => 'required',
+        ]);
         $input = $request->all();
-
         //return $input;
         $arishta = ArishtaYoga::create($input);
         $name_of_the_ingredients=$request->name_of_the_ingredients;
@@ -819,7 +860,9 @@ class DrugController extends Controller
 
     public function update_arishta_details(Request $request)
     {
-
+        request()->validate([
+            'arishtayoga_type_individual' => 'required',
+        ]);
         $id=$request->drug_id;
         $input = $request->all();
         $drug = ArishtaYoga::find($id);

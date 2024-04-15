@@ -184,7 +184,11 @@ table.dataTable tbody td.no-padding {
 }
 
 .active-row {
-    background-color:#f9e0e0!important;
+    background-color:#e29ea4!important;
+}
+
+.not-active-row {
+    background-color:#80d280!important;
 }
 
 .capitalize {
@@ -1731,3 +1735,24 @@ input::placeholder{
 }.field-icon {
     font-size: 14px !important;
 }
+.color-box {
+    display: flex;
+    padding: 15px 7px;
+    align-items: center;
+}
+.color-box.box2 div{
+    background-color: #80d280;
+
+}
+.color-box div {
+    width: 14px;
+    height: 14px;
+    background: #e29ea4;
+    border-radius: 2px;
+    margin-right: 10px;
+  }
+
+  .color-box-parent{
+    display: flex;
+    gap: 50px;
+  }

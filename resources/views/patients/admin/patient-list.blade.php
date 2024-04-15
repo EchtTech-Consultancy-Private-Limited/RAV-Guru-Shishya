@@ -49,6 +49,22 @@
             <div class="card">
                <div class="body">
                <div class="table-responsive">
+                  <div class="col-md-6">
+                     <div class="d-flex color-box-parent">
+                         <div class="color-box box1">
+                             <div>
+
+                             </div>
+                             <p>Not Read</p>
+                         </div>
+                         <div class="color-box box2">
+                             <div>
+
+                             </div>
+                             <p>Read</p>
+                         </div>
+                     </div>                                    
+                 </div>
                      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="row"><div class="col-sm-12">
                             <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -77,7 +93,7 @@
                         <tbody>
                                                             
                         @foreach($patientlist as $key=>$patientlist)                               
-                        <tr class="gradeX odd @if($patientlist->read_by_admin=='0') active-row @endif">
+                        <tr class="gradeX odd {{($patientlist->read_by_shishya == '0') ? 'active-row' : 'not-active-row' }}">
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <!-- <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td> -->
                                  <td class="text-center">{{$patientlist->registration_no}}</td>

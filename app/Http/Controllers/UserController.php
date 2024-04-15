@@ -13,6 +13,7 @@ use File;
 use Mail;
 use App\Mail\SendMail;
 use Illuminate\Support\Arr;
+use App\Models\ModelPermission;
 
 class UserController extends Controller
 {
@@ -88,35 +89,38 @@ class UserController extends Controller
 
         if($request->hasfile('e_sign'))
            {
-            //dd("yes");
             $file = $request->file('e_sign');
             $name = $file->getClientOriginalName();
             $filename = time().$name;
             $file->move('uploads/',$filename);
-            //dd($filename);
             $input['e_sign'] = $filename;
            }
         if($request->hasfile('profile_image'))
            {
-            //dd("yes");
             $file = $request->file('profile_image');
             $name = $file->getClientOriginalName();
             $filename = time().$name;
             $file->move('uploads/',$filename);
-            //dd($filename);
             $input['user_image'] = $filename;
            }
 
            $user = User::create($input);
-          
-          /* DB::transaction(function()
-           {
-                $user = User::create($input);
-                if( !$user )
-                {
-                    throw new \Exception('User not created for account');
+           // Grant default permissions
+            foreach (main_menu() as $item) {
+                if (in_array($item->route, ['dashboard', 'profile','admin-patient-list','notifications','shishya-notifications'])) {
+                    $existingPermission = ModelPermission::where('model_id', $item->id)
+                                            ->where('user_id', $user->id)
+                                            ->first();
+                    if (!$existingPermission) {
+                        ModelPermission::create([
+                            'model_id' => $item->id,
+                            'user_id' => $user->id,
+                            'permission_id' => 1,
+                            'add' => 1,
+                        ]);
+                    }
                 }
-            });*/
+            }
 
         $testMailData = [
             'title' => 'You have successfully registered',

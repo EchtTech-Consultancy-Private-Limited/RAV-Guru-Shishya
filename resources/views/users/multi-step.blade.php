@@ -214,7 +214,7 @@
                                  <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label>Age<span class="text-danger">*</span></label>
-                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}">
+                                       <input type="text" name="age" id="age" class="form-control" placeholder="Enter your Age"  value="{{ old('age', $profile_record[0]->age) }}" readonly>
                                        <p id="age_err" class="position-absolute"></p>
                                        @if($errors->has('age'))
                                        <span class="help-block">
@@ -274,7 +274,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1" value="{{ old('address1', $profile_record[0]->address1) }}">
+                                       <input type="textarea" name="address1" maxlength="45" id="address1" class="form-control" placeholder="Address Line 1" value="{{ old('address1', $profile_record[0]->address1) }}">
                                        <p id="address1_err" class="position-absolute"></p>
                                        @if($errors->has('address1'))
                                        <span class="help-block">
@@ -286,7 +286,7 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2" value="{{ old('address2', $profile_record[0]->address2) }}">
+                                       <input type="textarea" name="address2" maxlength="45" id="address2" class="form-control" placeholder="Address Line 2" value="{{ old('address2', $profile_record[0]->address2) }}">
                                        <p id="address2_err" class="position-absolute"></p>
                                        @if($errors->has('address2'))
                                        <span class="help-block">
@@ -680,7 +680,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                        <label for="institute_name">Institute Name</label>
-                                       <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" value="{{ old('institute_name') }}" maxlength="200">
+                                       <input type="text" id="institute_name" name="institute_name" placeholder="Institute Name" value="{{ old('institute_name') }}" maxlength="100">
                                        @if ($errors->has('institute_name'))
                                        <span class="help-block">
                                           <strong style="color:red;">{{ $errors->first('institute_name') }}</strong>
@@ -691,7 +691,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                     <label for="NOB">Name of Board</label>
-                                    <input type="text" id="NOB" placeholder="Name of Board" class="form-control" name="name_of_board" value="{{ old('name_of_board') }}">
+                                    <input type="text" id="NOB" placeholder="Name of Board" class="form-control" maxlength="100" name="name_of_board" value="{{ old('name_of_board') }}">
                                     </div>
                                  </div>
                                  <div class="col-sm-12 col-md-3">
@@ -714,7 +714,7 @@
                                  <div class="col-lg-3 mb-0">
                                     <div class="form-group">
                                     <label for="Registration_Number">Registration Number</label>
-                                    <input type="text" id="Registration_Number" placeholder="Registration Number" class="form-control" name="regis_no" value="{{ old('regis_no') }}">
+                                    <input type="text" id="Registration_Number" maxlength="22" placeholder="Registration Number" class="form-control" name="regis_no" value="{{ old('regis_no') }}">
                                     </div>
                                  </div>
 
@@ -891,14 +891,14 @@
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 1<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address1" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif">
+                                       <input type="textarea" name="address1" maxlength="45" id="address1" class="form-control" placeholder="Address Line 1"  value="@if(isset($clinic->address1)){{$clinic->address1}}@endif">
                                        <p id="address1_error" class="position-absolute"></p>
                                     </div>
                                  </div>
                                  <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                        <label >Address Line 2<span class="text-danger">*</span></label>
-                                       <input type="textarea" name="address2" id="address2" class="form-control" placeholder="Address Line 2"  value="@if(isset($clinic->address2)){{$clinic->address2}}@endif" required>
+                                       <input type="textarea" name="address2" maxlength="45" id="address2" class="form-control" placeholder="Address Line 2"  value="@if(isset($clinic->address2)){{$clinic->address2}}@endif" required>
                                        <p id="address2_error" class="position-absolute"></p>
                                     </div>
                                  </div>
@@ -1047,7 +1047,7 @@
                               <div class="row">
                                  <div class="col-md-4">
                                     <div class="form-group">
-                                       <label for="school_name">No. of case reports</label>
+                                       <label for="school_name">No. of case reports<span class="text-danger">*</span></label>
                                        <input type="text"name="no_of_case_reports"  placeholder="No. of case reports" oninput="validateInput(this)" maxlength="10" required>
                                     </div>
                                  </div>
@@ -1298,25 +1298,25 @@
                      <div class="col-md-4">
                         <div class="form-group">
                            <label for="school_name">No. of case reports</label>
-                           <input type="text"name="no_of_case_reports" id="edit_no_of_case_reports"  placeholder="No. of case reports">
+                           <input type="text"name="no_of_case_reports" id="edit_no_of_case_reports"  placeholder="No. of case reports" oninput="validateInput(this)" maxlength="10">
                         </div>
                      </div>
                      <div class="col-md-4">
                         <div class="form-group">
                            <label for="school_name">Research Papers</label>
-                           <input type="text"name="research_papers" id="edit_research_papers" placeholder="Research Papers">
+                           <input type="text"name="research_papers" id="edit_research_papers" placeholder="Research Papers" oninput="validateInput(this)" maxlength="10">
                         </div>
                      </div>
                      <div class="col-md-4">
                         <div class="form-group">
                            <label for="school_name">Books Published</label>
-                           <input type="text"name="books_published" id="edit_books_published"  placeholder="Books Published">
+                           <input type="text"name="books_published" id="edit_books_published"  placeholder="Books Published" oninput="validateInput(this)" maxlength="10">
                         </div>
                      </div>
                      <div class="col-12">
                         <div class="form-group">
                            <label for="school_name">Number of Seminars / Conference / Workshops attended</label>
-                           <input type="text"name="no_of_seminars" id="edit_no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended">
+                           <input type="text"name="no_of_seminars" id="edit_no_of_seminars" placeholder="Number of Seminars / Conference / Workshops attended" oninput="validateInput(this)" maxlength="10">
                         </div>
                      </div>
                      <div class="col-md-12 text-center">
