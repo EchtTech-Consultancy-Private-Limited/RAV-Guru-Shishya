@@ -121,66 +121,68 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
             Route::post('update-arishtayogas-details', [DrugController::class, 'update_arishta_details'])->name('update-arishtayogas-details');
             Route::post('system-configration', [DashboardController::class, 'save_system_configration'])->name('system-configrations');
         });
-        Route::post('add-user-permissions', [ModelController::class, 'add_user_permissions'])->name('add-user-permissions');
-        Route::post('user-multiple-permissions', [ModelController::class, 'user_multiple_permissions'])->name('user-multiple-permissions');
+    Route::post('add-user-permissions', [ModelController::class, 'add_user_permissions'])->name('add-user-permissions');
+    Route::post('user-multiple-permissions', [ModelController::class, 'user_multiple_permissions'])->name('user-multiple-permissions');
+
+    Route::resource('users', UserController::class);
+    Route::get('delete-user/{id}', [UserController::class, 'user_delete'])->name('delete-user');
+    Route::get('add-attendance', [AttendanceController::class, 'add_attendance'])->name('add-attendance');
+    Route::get('patients/admin-edit-patient/{id}', [PatientController::class, 'admin_edit_patient'])->name('patients-admin-edit-patient');
+    Route::get('admin-view-patient/{id}', [PatientController::class, 'admin_view_patient'])->name('admin-view-patient');
+    Route::get('add-follow-up-sheet/{patientid}', [PatientController::class, 'add_follow_up_sheet'])->name('add-follow-up-sheet');
+    Route::get('add-follow-up-sheet/{patientid}/{id}', [PatientController::class, 'add_follow_up_sheet'])->name('add-follow-up-sheet');    
+    Route::get('follow-up-sheet/{patientid}', [PatientController::class, 'follow_up_sheet'])->name('follow-up-sheet');
+    Route::get('follow-up-sheet/{patientid}/{fdate}/{tdate}/{rtype}', [PatientController::class, 'follow_up_sheet'])->name('follow-up-sheet');
+    Route::get('delete-follow-up/{id}', [PatientController::class, 'delete_follow_up_sheet'])->name('delete-follow-up');
+    Route::get('view-follow-up-sheet/{id}', [PatientController::class, 'view_follow_up_sheet'])->name('view-follow-up-sheet');
+    Route::get('follow-up-remark-history/{id}', [PatientController::class, 'viewFollowUpRemarKHistory'])->name('follow-up-remark-history');
+    Route::get('admin-remark-history/{phr_id}', [PatientController::class, 'admin_remark_history'])->name('admin-remark-history');
+    /*churna yoga Drug Details*/
+    Route::get('filter-drug-report', [DrugController::class, 'filter_drug_report'])->name('filter-drug-report');
+    Route::get('edit-drugs/{id}', [DrugController::class, 'edit_drugs'])->name('edit-drugs');
+    Route::get('view-drugs/{id}', [DrugController::class, 'viewDrugs'])->name('view-drugs');
+    Route::get('delete-churan-yoga-part/{id}', [DrugController::class, 'delete_churan_yoga_part'])->name('delete-churan-yoga-part');
+
+    /*churna yoga Drug Details Admin*/
+    Route::get('admin-edit-drugs/{id}', [DrugController::class, 'admin_edit_drugs'])->name('admin-edit-drugs');
+    Route::get('delete-churnayogas/{id}', [DrugController::class, 'delete_churan_yoga'])->name('delete-churnayogas');
+    Route::get('delete-rasayogas/{id}', [DrugController::class, 'delete_rasa_yoga'])->name('delete-rasayogas');
+    Route::get('delete-vatiyogas/{id}', [DrugController::class, 'delete_vati_yoga'])->name('delete-vatiyogas');
+    Route::get('delete-taliayogas/{id}', [DrugController::class, 'delete_talia_yoga'])->name('delete-taliayogas');
+    Route::get('delete-arishtayogas/{id}', [DrugController::class, 'delete_arishta_yoga'])->name('delete-arishtayogas');
+
+    /*rasa yoga Drug Details*/
+    Route::get('edit-rasa-drugs/{id}', [DrugController::class, 'edit_rasa_drugs'])->name('edit-rasa-drugs');
+    Route::get('view-rasa-drugs/{id}', [DrugController::class, 'view_rasa_drugs'])->name('view-rasa-drugs');
+    Route::get('delete-rasayoga-part/{id}', [DrugController::class, 'delete_rasayoga_part'])->name('delete-rasayoga-part');
+    /*vati yoga Drug Details*/
+    Route::get('edit-vati-drugs/{id}', [DrugController::class, 'edit_vati_drugs'])->name('edit-vati-drugs');
+    Route::get('view-vati-drugs/{id}', [DrugController::class, 'view_vati_drugs'])->name('view-vati-drugs');
+    Route::get('delete-vatiyoga-type/{id}', [DrugController::class, 'delete_vatiyoga_type'])->name('delete-vatiyoga-type');
+
+    /*talia yoga Drug Details*/
+    Route::get('edit-talia-drugs/{id}', [DrugController::class, 'edit_talia_drugs'])->name('edit-talia-drugs');
+    Route::get('view-talia-drugs/{id}', [DrugController::class, 'view_talia_drugs'])->name('view-talia-drugs');
+    Route::get('delete-taliyayoga-type/{id}', [DrugController::class, 'delete_taliyayoga_type'])->name('delete-taliyayoga-type');
+
+    /*arishtayoga yoga Drug Details*/
+    Route::get('edit-arishta-drugs/{id}', [DrugController::class, 'edit_arishta_drugs'])->name('edit-arishta-drugs');
+    Route::get('view-arishta-drugs/{id}', [DrugController::class, 'view_arishta_drugs'])->name('view-arishta-drugs');
+    Route::get('delete-arishtayoga-type/{id}', [DrugController::class, 'delete_arishta_type'])->name('delete-arishtayoga-type');
+    Route::get('guru-view-patient/{id}', [PatientController::class, 'guru_view_patient'])->name('guru-view-patient');
+    Route::get('edit-patient/{id}', [PatientController::class, 'edit_patient'])->name('edit-patient');
+    Route::get('guru-remark-history/{phr_id}', [PatientController::class, 'guru_remark_history'])->name('guru-remark-history');
+    Route::get('remarks-from-guru/{id}', [PatientController::class, 'remarks_from_guru'])->name('remarks-from-guru');
+    Route::get('assign-role/{id}', [ModelController::class, 'assign_role'])->name('assign-role');
+        Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
+    Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet'])->name('add-history-sheet');
+    Route::get('view-patient/{id}', [PatientController::class, 'view_patient'])->name('view-patient');
+    Route::get('remark-history/{phr_id}', [PatientController::class, 'remark_history'])->name('remark-history');
+    Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr'])->name('delete-phr');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('profile', [AddUserController::class, 'manage_profile'])->name('profile');
+    Route::get('view-attendance', [AttendanceController::class, 'viewAttendance'])->name('view-attendance');
 });
-Route::resource('users', UserController::class);
-Route::get('delete-user/{id}', [UserController::class, 'user_delete'])->name('delete-user');
-Route::get('add-attendance', [AttendanceController::class, 'add_attendance'])->name('add-attendance');
-Route::get('patients/admin-edit-patient/{id}', [PatientController::class, 'admin_edit_patient'])->name('patients-admin-edit-patient');
-Route::get('admin-view-patient/{id}', [PatientController::class, 'admin_view_patient'])->name('admin-view-patient');
-Route::get('add-follow-up-sheet/{patientid}', [PatientController::class, 'add_follow_up_sheet'])->name('add-follow-up-sheet');
-Route::get('add-follow-up-sheet/{patientid}/{id}', [PatientController::class, 'add_follow_up_sheet'])->name('add-follow-up-sheet');    
-Route::get('follow-up-sheet/{patientid}', [PatientController::class, 'follow_up_sheet'])->name('follow-up-sheet');
-Route::get('follow-up-sheet/{patientid}/{fdate}/{tdate}/{rtype}', [PatientController::class, 'follow_up_sheet'])->name('follow-up-sheet');
-Route::get('delete-follow-up/{id}', [PatientController::class, 'delete_follow_up_sheet'])->name('delete-follow-up');
-Route::get('view-follow-up-sheet/{id}', [PatientController::class, 'view_follow_up_sheet'])->name('view-follow-up-sheet');
-Route::get('follow-up-remark-history/{id}', [PatientController::class, 'viewFollowUpRemarKHistory'])->name('follow-up-remark-history');
-/*churna yoga Drug Details*/
-Route::get('filter-drug-report', [DrugController::class, 'filter_drug_report'])->name('filter-drug-report');
-Route::get('edit-drugs/{id}', [DrugController::class, 'edit_drugs'])->name('edit-drugs');
-Route::get('view-drugs/{id}', [DrugController::class, 'viewDrugs'])->name('view-drugs');
-Route::get('delete-churan-yoga-part/{id}', [DrugController::class, 'delete_churan_yoga_part'])->name('delete-churan-yoga-part');
-
-/*churna yoga Drug Details Admin*/
-Route::get('admin-edit-drugs/{id}', [DrugController::class, 'admin_edit_drugs'])->name('admin-edit-drugs');
-Route::get('delete-churnayogas/{id}', [DrugController::class, 'delete_churan_yoga'])->name('delete-churnayogas');
-Route::get('delete-rasayogas/{id}', [DrugController::class, 'delete_rasa_yoga'])->name('delete-rasayogas');
-Route::get('delete-vatiyogas/{id}', [DrugController::class, 'delete_vati_yoga'])->name('delete-vatiyogas');
-Route::get('delete-taliayogas/{id}', [DrugController::class, 'delete_talia_yoga'])->name('delete-taliayogas');
-Route::get('delete-arishtayogas/{id}', [DrugController::class, 'delete_arishta_yoga'])->name('delete-arishtayogas');
-
-/*rasa yoga Drug Details*/
-Route::get('edit-rasa-drugs/{id}', [DrugController::class, 'edit_rasa_drugs'])->name('edit-rasa-drugs');
-Route::get('view-rasa-drugs/{id}', [DrugController::class, 'view_rasa_drugs'])->name('view-rasa-drugs');
-Route::get('delete-rasayoga-part/{id}', [DrugController::class, 'delete_rasayoga_part'])->name('delete-rasayoga-part');
-/*vati yoga Drug Details*/
-Route::get('edit-vati-drugs/{id}', [DrugController::class, 'edit_vati_drugs'])->name('edit-vati-drugs');
-Route::get('view-vati-drugs/{id}', [DrugController::class, 'view_vati_drugs'])->name('view-vati-drugs');
-Route::get('delete-vatiyoga-type/{id}', [DrugController::class, 'delete_vatiyoga_type'])->name('delete-vatiyoga-type');
-
-/*talia yoga Drug Details*/
-Route::get('edit-talia-drugs/{id}', [DrugController::class, 'edit_talia_drugs'])->name('edit-talia-drugs');
-Route::get('view-talia-drugs/{id}', [DrugController::class, 'view_talia_drugs'])->name('view-talia-drugs');
-Route::get('delete-taliyayoga-type/{id}', [DrugController::class, 'delete_taliyayoga_type'])->name('delete-taliyayoga-type');
-
-/*arishtayoga yoga Drug Details*/
-Route::get('edit-arishta-drugs/{id}', [DrugController::class, 'edit_arishta_drugs'])->name('edit-arishta-drugs');
-Route::get('view-arishta-drugs/{id}', [DrugController::class, 'view_arishta_drugs'])->name('view-arishta-drugs');
-Route::get('delete-arishtayoga-type/{id}', [DrugController::class, 'delete_arishta_type'])->name('delete-arishtayoga-type');
-Route::get('guru-view-patient/{id}', [PatientController::class, 'guru_view_patient'])->name('guru-view-patient');
-Route::get('edit-patient/{id}', [PatientController::class, 'edit_patient'])->name('edit-patient');
-Route::get('guru-remark-history/{phr_id}', [PatientController::class, 'guru_remark_history'])->name('guru-remark-history');
-Route::get('remarks-from-guru/{id}', [PatientController::class, 'remarks_from_guru'])->name('remarks-from-guru');
-Route::get('assign-role/{id}', [ModelController::class, 'assign_role'])->name('assign-role');
-    Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
-Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet'])->name('add-history-sheet');
-Route::get('view-patient/{id}', [PatientController::class, 'view_patient'])->name('view-patient');
-Route::get('remark-history/{phr_id}', [PatientController::class, 'remark_history'])->name('remark-history');
-Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr'])->name('delete-phr');
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('profile', [AddUserController::class, 'manage_profile'])->name('profile');
-Route::get('view-attendance', [AttendanceController::class, 'viewAttendance'])->name('view-attendance');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid','ModulePermission']], function() {
     Route::get('users', [UserController::class, 'index'])->name('users');
@@ -212,7 +214,6 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('export-attendance', [AttendanceController::class, 'export_attendance'])->name('export-attendance');
     /*Admin Url*/
     Route::get('admin-patient-list', [PatientController::class, 'admin_patient_list'])->name('admin-patient-list');
-    Route::get('admin-remark-history/{phr_id}', [PatientController::class, 'admin_remark_history'])->name('admin-remark-history');
     Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
     Route::get('phr-history-sheet', [PatientController::class, 'guru_phr_history_sheet'])->name('phr-history-sheet');
     Route::get('admin-drug-report-history', [DrugController::class, 'admin_drug_report_history'])->name('admin-drug-report-history');

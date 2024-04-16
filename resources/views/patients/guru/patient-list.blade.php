@@ -84,7 +84,7 @@
                         <tbody>
                         @foreach($patientlist as $key=>$patientlist)
 
-                        <tr class="gradeX odd {{($patientlist->read_by_shishya == '0') ? 'active-row' : 'not-active-row' }}">
+                        <tr class="gradeX odd {{($patientlist->read_by_guru == '0') ? 'active-row' : 'not-active-row' }}">
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <td class="text-center">{{$patientlist->registration_no}}</td>
                                  <td class="center sorting_1"><?php echo get_user_name($patientlist->shishya_id); ?></td>

@@ -17,7 +17,6 @@
     @endif
     @if (count($errors) > 0)
    <div class="alert alert-danger">
-      <strong>Whoops!</strong> There were some problems with your input.<br><br>
       <ul>
          @foreach ($errors->all() as $error)
          <li>{{ $error }}</li>
@@ -134,7 +133,7 @@
          $data = json_decode($drugHistoryLog->data);
       }
       ?>
-            <form method="POST" action="{{ url('update-rasayoga-details') }}">
+            <form method="POST" action="{{ url('update-rasayoga-details') }}" id="add_rasayoga_details">
                 @csrf
                 <input type="hidden" name="drug_id" value="{{ $rasadrug->id }}">
                 <div class="row">
@@ -258,6 +257,7 @@
                                 value="{{ $rasadrug->rasa_yoga_type_individual }}">@error('rasa_yoga_type_individual')
                             <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                             @enderror
+                            <p id="rasa_yoga_type_individual_err" class="position-absolute"></p>
                         </div>
                     </div>
                     <div class="col-xxl-3 col-xl-4 col-md-6 col-6">

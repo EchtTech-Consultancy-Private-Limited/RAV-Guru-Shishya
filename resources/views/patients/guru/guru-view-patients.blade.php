@@ -91,9 +91,9 @@
                                        </thead>
                                        <tbody>
                                           <tr>
-                                             <td>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}</td>
-                                             <td>{{$guru->city_name}}</td>
-                                             <td>{{$shishya->firstname}} {{$shishya->lastname}}</td>
+                                             <td>{{@$guru->firstname.' '.@$guru->middlename.' '.@$guru->lastname}}</td>
+                                             <td>{{@$guru->city_name}}</td>
+                                             <td>{{@$shishya->firstname}} {{@$shishya->lastname}}</td>
                                              <td><?php echo date('d-m-Y'); ?></td>
                                           </tr>
                                        </tbody>
@@ -112,21 +112,21 @@
                                        <tbody>
                                           <!-- <tr>
                                              <td>Name of the Shishya</td>
-                                             <td>{{$shishya->firstname}} {{$shishya->lastname}}</td>
+                                             <td>{{@$shishya->firstname}} {{@$shishya->lastname}}</td>
                                           </tr> -->
                                           <tr>
                                              <td>Name of the Patient</td>
-                                             <td>{{ $patient->patient_name }}</td>
+                                             <td>{{ @$patient->patient_name }}</td>
                                           </tr>
                                           <tr>
                                              <td>Registration No</td>
-                                             <td>{{ $patient->registration_no }}</td>
+                                             <td>{{ @$patient->registration_no }}</td>
                                           </tr>
                                         
                                           
                                           <tr>
                                              <td>Age</td>
-                                             <td>{{ $patient->age }}</td>
+                                             <td>{{ @$patient->age }}</td>
                                           </tr>
                                           <tr>
                                              <td>Registrtion Date</td>
@@ -493,14 +493,14 @@
                                           <div class="form-group">
                                              <label for="example-text-input" class="form-control-label">Shishya's
                                                 E-Sign</label><br>
-                                             @if($shishya->e_sign!='')
-                                             <img src="{{ asset('uploads/'.$shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
+                                             @if(@$shishya->e_sign!='')
+                                             <img src="{{ asset('uploads/'.@$shishya->e_sign) }}" alt="E-Sign" width="100px;" height="80px;">
                                              @endif
                                              <br>
-                                             @if($shishya->title>0 && $shishya->title != "Select Title")
-                                                   {{__('phr.titlename')[$shishya->title]}}
+                                             @if(@$shishya->title>0 && @$shishya->title != "Select Title")
+                                                   {{__('phr.titlename')[@$shishya->title]}}
                                                 @endif
-                                                {{$shishya->firstname.' '.$shishya->middlename.' '.$shishya->lastname}}
+                                                {{@$shishya->firstname.' '.@$shishya->middlename.' '.@$shishya->lastname}}
                                           </div>
                                        </div>
                                        <div class="col-md-6">

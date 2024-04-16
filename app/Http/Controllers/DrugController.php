@@ -298,7 +298,7 @@ class DrugController extends Controller
             return redirect()->back()->with('success', 'ChurnaYoga updated successfully');
         }
 
-         return redirect()->back()->with('success', 'ChurnaYoga yoga updated successfully');
+         return redirect()->back()->with('success', 'ChurnaYoga Yogas updated successfully');
     }
 
     public function update_rasayoga_details(Request $request)
@@ -387,10 +387,10 @@ class DrugController extends Controller
         }
         else
         {
-            return redirect()->back()->with('success', 'Rasa yoga updated successfully');
+            return redirect()->back()->with('success', 'Rasa Yogas updated successfully');
         }
 
-         return redirect()->back()->with('success', 'Rasa yoga updated successfully');
+         return redirect()->back()->with('success', 'Rasa Yogas updated successfully');
     }
 
      public function delete_churan_yoga_part($id)
@@ -437,7 +437,7 @@ class DrugController extends Controller
        return redirect('add-drug-report')->with('success', 'Drug Report Added Successfully');
     }
 
-    /*vati yoga*/
+    /*vati Yogas*/
     public function vati_yoga_details(Request $request)
     {
         $request->validate(
@@ -593,10 +593,10 @@ class DrugController extends Controller
             }
         else
         {
-            return redirect()->back()->with('success', 'Vati yoga updated successfully');
+            return redirect()->back()->with('success', 'Vati Yogas updated successfully');
         }
 
-         return redirect()->back()->with('success', 'Vati yoga updated successfully');
+         return redirect()->back()->with('success', 'Vati Yogas updated successfully');
     }
 
     public function delete_vatiyoga_type($id)
@@ -604,7 +604,7 @@ class DrugController extends Controller
 
         $vatitype = VatiYogaType::find($id);
         $vatitype->delete();
-        return redirect()->back()->with('Error', 'Vati yoga type deleted successfully');
+        return redirect()->back()->with('Error', 'Vati Yogas type deleted successfully');
     }
 
     /*talia yogas*/
