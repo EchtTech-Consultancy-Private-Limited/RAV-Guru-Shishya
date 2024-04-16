@@ -965,7 +965,7 @@ class PatientController extends Controller
             $patient_id=$patient->id;
             $shishya_id=$patient->shishya_id;
             $shishya=User::find($shishya_id);
-            $shishyaname=$shishya->firstname;
+            $shishyaname=$shishya->firstname ?? '';
 
            $phrData = [
             'title' => 'Your Guru gives valuable feedbacks on your PHR  Number ('.format_patient_id($patient_id).').',
@@ -974,8 +974,9 @@ class PatientController extends Controller
             'paragraph' => 'Your Guru  '.$guruname.' give valuable feedback on your PHR  Number '.format_patient_id($patient_id).'.  Please login to the portal and check the Notifications section for further details.',
             ];
 
-
-            Mail::to($shishya->email)->send(new PhrGuruShishya($phrData));
+            if(isset($shishya->email)){
+                Mail::to($shishya->email)->send(new PhrGuruShishya($phrData));
+            }
 
            $patient->phr_g_status=1;
            $patient->phr_s_status=0;

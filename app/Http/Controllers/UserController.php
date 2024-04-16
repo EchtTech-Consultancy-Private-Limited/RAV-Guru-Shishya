@@ -107,7 +107,23 @@ class UserController extends Controller
            $user = User::create($input);
            // Grant default permissions
             foreach (main_menu() as $item) {
-                if (in_array($item->route, ['dashboard', 'profile','admin-patient-list','notifications','shishya-notifications'])) {
+                if (in_array($item->route, ['dashboard', 'profile','admin-patient-list','notifications','shishya-notifications','manage-patients'])) {
+                    $existingPermission = ModelPermission::where('model_id', $item->id)
+                                            ->where('user_id', $user->id)
+                                            ->first();
+                    if (!$existingPermission) {
+                        ModelPermission::create([
+                            'model_id' => $item->id,
+                            'user_id' => $user->id,
+                            'permission_id' => 1,
+                            'add' => 1,
+                        ]);
+                    }
+                }
+            }
+
+            foreach (module_menu($user->user_type) as $item) {
+                if (in_array($item->route, ['patients/In-Patient', 'patients/OPD-Patient','new-patient-registration','guru-patient-list'])) {
                     $existingPermission = ModelPermission::where('model_id', $item->id)
                                             ->where('user_id', $user->id)
                                             ->first();

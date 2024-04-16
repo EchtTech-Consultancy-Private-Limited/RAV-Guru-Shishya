@@ -28,20 +28,21 @@ class ModulePermission
             $routeUri = Route::currentRouteName();
             // dd($routeUri);
             $modelName = ModelName::where('route', $routeUri)
-                                ->where(function($query) use ($user) {
-                                    $query->where('user_type', $user->user_type)
-                                            ->orWhere('user_type', 0);
-                                })
-                                ->first();
+                        ->where(function($query) use ($user) {
+                            $query->where('user_type', $user->user_type)
+                                    ->orWhere('user_type', 0);
+                        })
+                        ->first();
             if (!$modelName) {
                 abort(404);
             }
             $modulePermission = ModelPermission::where('model_id', $modelName->id)
-                                            ->where('permission_id', 1)
-                                            ->where('user_id', $user->id)
-                                            ->first();
+                                ->where('permission_id', 1)
+                                ->where('user_id', $user->id)
+                                ->first();
             if (!$modulePermission) {
-                abort(403, 'Module not permitted. Please contact the appropriate authority for assistance.');
+                return response()->view('errors.402', [], 403); 
+                // abort(403, 'Module not permitted. Please contact the appropriate authority for assistance.');
             }
         }
         return $next($request);

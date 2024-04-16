@@ -118,9 +118,9 @@
                                     @if(!empty($guru->id))
                                     <input type="hidden" name="guru_id" value="{{ $guru->id }}">
                                     @endif
-                                    <input type="hidden" name="patient_id" value="{{$patient->id }}">
-                                    <input type="hidden" name="shishya_id" value="{{$shishya->id }}">
-                                    <input type="hidden" name="registration_no" value="{{$patient->registration_no }}">
+                                    <input type="hidden" name="patient_id" value="{{$patient->id ?? ''}}">
+                                    <input type="hidden" name="shishya_id" value="{{$shishya->id ?? ''}}">
+                                    <input type="hidden" name="registration_no" value="{{$patient->registration_no ?? ''}}">
 
                                     <div class="card-body">
                                     <div class="header p-0">
@@ -317,17 +317,17 @@
                                 <tbody>
                                         <tr>
                                             <td>  @if(!empty($guru->id))
-                                           {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                           {{@$guru->firstname.' '.@$guru->middlename.' '.@$guru->lastname}}
                                             @endif
                                         </td>
                                             <td>
                                             @if(!empty($guru->id))
                                             <label for="example-text-input"
-                                                class="form-control-label"><b>{{$guru->city_name}}</b></label>
+                                                class="form-control-label"><b>{{@$guru->city_name}}</b></label>
                                             @endif
                                             </td>
                                             <td>
-                                            {{$shishya->firstname.' '.$shishya->lastname}}
+                                            {{@$shishya->firstname.' '.@$shishya->lastname}}
                                             </td>
                                             <td>
                                             <?php echo date('d-m-Y'); ?>
