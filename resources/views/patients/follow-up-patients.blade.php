@@ -214,11 +214,13 @@
                                 <tbody>
                                     @foreach ($data as $k => $followup)
                                     <tr
-                                        class="odd gradeX {{($followup->read_by_shishya == '0') ? 'active-row' : 'not-active-row' }} @if (
+                                        class="odd gradeX @if (
                                                         (Auth::user()->user_type == 2 && $followup->read_by_guru == '0') ||
                                                             (Auth::user()->user_type == 3 && $followup->read_by_shishya == '0') ||
-                                                            (Auth::user()->user_type == 1 && $followup->read_by_admin == '0')) active-row @endif">
-
+                                                            (Auth::user()->user_type == 1 && $followup->read_by_admin == '0')) active-row
+                                                            @else
+                                                            not-active-row
+                                                            @endif">
                                         <td class="center sorting_1 text-end p-0">
                                             @if (Auth::user()->user_type == 2 || Auth::user()->user_type == 3)
                                             <input name="followup_ids[]" type="checkbox" value="{{ $followup->id }}"

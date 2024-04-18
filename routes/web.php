@@ -273,6 +273,5 @@ Route::get('my-captcha',[LoginController::class,'myCaptcha'])->name('myCaptcha')
 Route::post('my-captcha',[LoginController::class,'myCaptchaPost'])->name('myCaptcha.post');
 Route::get('refresh_captcha',[LoginController::class,'refreshCaptcha'])->name('refresh_captcha');
 
-
 //Routes for mails
 Route::get('/send-email', [EmailController::class, 'index'])->name('send-email');
