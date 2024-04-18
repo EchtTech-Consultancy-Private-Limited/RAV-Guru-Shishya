@@ -250,7 +250,7 @@ class AddUserController extends Controller
                 'lastname' => 'max:200|min:2|regex:/^[a-zA-Z\s]+$/',
                 'email' => 'required',
                 'date_of_birth' => 'required',
-                'age' => 'required|numeric|digits:2',
+                'age' => 'required|numeric',
                 'f_name' => 'required|max:200|min:2|regex:/^[a-zA-Z\s]+$/',
                 'address1' => 'required|regex:/^[a-zA-Z0-9\s]+$/',
                 'address2' => 'required|regex:/^[a-zA-Z0-9\s]+$/',

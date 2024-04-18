@@ -295,10 +295,10 @@ class DrugController extends Controller
         }
         else
         {
-            return redirect()->back()->with('success', 'ChurnaYoga updated successfully');
+            return redirect()->back()->with('success', 'Churna Yogas updated successfully');
         }
 
-         return redirect()->back()->with('success', 'ChurnaYoga Yogas updated successfully');
+         return redirect()->back()->with('success', 'Churna Yogas updated successfully');
     }
 
     public function update_rasayoga_details(Request $request)
@@ -398,7 +398,7 @@ class DrugController extends Controller
 
         $drugpart = DrugChuranPart::find($id);
         $drugpart->delete();
-        return redirect()->back()->with('Error', 'ChurnaYoga type deleted successfully');
+        return redirect()->back()->with('Error', 'Churna Yogas type deleted successfully');
     }
 
     public function delete_rasayoga_part($id)
@@ -406,7 +406,7 @@ class DrugController extends Controller
 
         $drugpart = DrugRasaPart::find($id);
         $drugpart->delete();
-        return redirect()->back()->with('Error', 'RasaYoga type deleted successfully');
+        return redirect()->back()->with('Error', 'Rasa Yogas type deleted successfully');
     }
 
     public function add_rasayoga_details(Request $request)
@@ -936,10 +936,10 @@ class DrugController extends Controller
             }
         else
         {
-             return redirect()->back()->with('success', 'ArishtaYogas  updated successfully');
+             return redirect()->back()->with('success', 'Arishta Yogas  updated successfully');
         }
 
-         return redirect()->back()->with('success', 'ArishtaYogas  updated successfully');
+         return redirect()->back()->with('success', 'Arishta Yogas  updated successfully');
     }
 
     public function delete_arishta_type($id)
@@ -947,7 +947,7 @@ class DrugController extends Controller
 
         $vatitype = ArishtaYogaType::find($id);
         $vatitype->delete();
-        return redirect()->back()->with('Error', 'ArishtaYoga type deleted successfully');
+        return redirect()->back()->with('Error', 'Arishta Yoga deleted successfully');
     }
 
     public function admin_drug_report_history(Request $request)
@@ -1000,7 +1000,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = ChurnaYoga::find($id);
         $drug->delete();
-        return redirect()->back()->with('success', 'ChurnaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'Churna Yogas  Deleted Successfully');
     }
 
     public function delete_rasa_yoga($id)
@@ -1008,7 +1008,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = RasaYoga::find($id);
         $drug->delete();
-        return redirect()->back()->with('success', 'RasaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'Rasa Yogas  Deleted Successfully');
     }
 
     public function delete_vati_yoga($id)
@@ -1016,7 +1016,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = VatiYoga::find($id);
         $drug->delete();
-        return redirect()->back()->with('success', 'VatiYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'Vati Yogas  Deleted Successfully');
     }
 
     public function delete_talia_yoga($id)
@@ -1024,7 +1024,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = TaliaYogas::find($id);
         $drug->delete();
-        return redirect()->back()->with('success', 'TaliaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'Talia Yogas  Deleted Successfully');
     }
 
     public function delete_arishta_yoga($id)
@@ -1032,7 +1032,7 @@ class DrugController extends Controller
         $id= decrypt($id);
         $drug = ArishtaYoga::find($id);
         $drug->delete();
-        return redirect()->back()->with('success', 'ArishtaYoga  Deleted Successfully');
+        return redirect()->back()->with('success', 'Arishta Yogas  Deleted Successfully');
     }
 
 }
