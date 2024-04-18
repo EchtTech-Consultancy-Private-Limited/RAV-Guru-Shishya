@@ -201,7 +201,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('rav-admin', [AddUserController::class, 'rav_admin'])->name('rav-admin');
     Route::get('add-user/{$type}', [AddUserController::class, 'add_user'])->name('add-user');
 
-    /*Shishya List*/    
+    /*Shishya List*/   
     Route::get('generate-Pdft/{id}', [PatientController::class, 'generatePdf'])->name('generatePdf');    
     Route::get('send-patient-toguru/{id}/{guru_id}', [PatientController::class, 'send_patient_to_guru'])->name('send-patient-toguru');    
 
