@@ -792,3 +792,27 @@ function setLtrLayout() {
 let status = $(".status");
 console.log(status);
 //==========================================================================================================================
+
+let select = $('select');
+select.each(function () {
+    $(this).on('change', () => {
+        let valueArr = $(this).find(':selected').text().trim().split(' ');
+        if (valueArr[0] !== 'Select') {
+            $(this).css('color', '#000');
+        } else {
+            $(this).css('color', 'grey');
+        }
+    });
+});
+
+ 
+let lable = $('label');
+lable.each(function(){
+    let lable_text = $(this).text();
+    let ofIndex = lable_text.indexOf('of');
+    if(ofIndex !== -1){
+      lable_text = lable_text.replace('of', '<span class = "label-of">of</span>');
+      $(this).html(lable_text);
+    }
+    console.log(lable_text);
+});

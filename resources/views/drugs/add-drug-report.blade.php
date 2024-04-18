@@ -65,8 +65,8 @@
                                     <div class="card">
                                         <!-- <form role="form" method="POST" action='' enctype="multipart/form-data"> -->
                                         <!-- @csrf -->
-                                        <div class=" card-body p-0 table-responsive">
-                                            <table class="my-3">
+                                        <div class=" card-body p-0">
+                                            <table class="my-3 table-responsive">
                                                 <thead>
                                                     <th> Name of the Guru</th>
                                                     <th>Name of the Shishya </th>
@@ -618,7 +618,7 @@
                                                                 <input type="text"
                                                                     name="name_of_the_ingredients_mineral_metal[]"
                                                                     class="form-control"
-                                                                    placeholder="Enter name of the ingredients Mineral"
+                                                                    placeholder="Enter name of the ingredients"
                                                                     aria-label="name_of_the_ingredients_mineral_metal"
                                                                     value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
                                                                     maxlength="200">
@@ -936,7 +936,7 @@
                                                 <td>
                                                     <input type="text" name="name_of_the_ingredients[]"
                                                         class="form-control"
-                                                        placeholder="Enter name of the ingredients Mineral"
+                                                        placeholder="Enter name of the ingredients"
                                                         aria-label="name_of_the_ingredients_mineral_metal"
                                                         value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
                                                         maxlength="100">
@@ -1114,9 +1114,9 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">Whole some activities</label>
+                                <label for="example-text-input" class="form-control-label">Wholesome activities</label>
                                 <input type="text" name="wholesome_activities" class="form-control"
-                                    placeholder="Enter Whole some activities" maxlength="45" aria-label="Wholesome activities"
+                                    placeholder="Enter Wholesome activities" maxlength="45" aria-label="Wholesome activities"
                                     value="{{ old('wholesome_activities') }}">@error('wholesome_activities')
                                 <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                 @enderror
@@ -1283,7 +1283,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group  ">
-                            <h5 class="text-center d-flex justify-content-center">  TALIA YOGAS</h5>
+                            <h5 class="text-center d-flex justify-content-center">  TALIA-GHRITA YOGAS</h5>
                             <h5 class="d-block text-left">Name of the Drug</h5>
                             <h5 class="d-block text-left">
                                 Reference
@@ -1322,7 +1322,7 @@
                                                 <td>
                                                     <input type="text" name="name_of_the_ingredients[]"
                                                         class="form-control"
-                                                        placeholder="Enter name of the ingredients Mineral"
+                                                        placeholder="Enter name of the ingredients"
                                                         aria-label="name_of_the_ingredients_mineral_metal"
                                                         value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
                                                         maxlength="150">
@@ -1367,9 +1367,9 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label class="form-control-label">Talia Yogas Name</label>
+                            <label class="form-control-label">Taila Yogas Name</label>
                             <input type="text" name="talia_yoga_type_individual" class="form-control"
-                                placeholder="Enter Talia Yogas Name" value="{{ old('talia_yoga_type_individual') }}"
+                                placeholder="Enter Taila Yogas Name" value="{{ old('talia_yoga_type_individual') }}"
                                 maxlength="50">
                             <p id="talia_yoga_type_individual_err" class="position-absolute"></p>
                             @error('talia_yoga_type_individual')
@@ -1410,7 +1410,7 @@
                     <div class="col-md-12">
                         <div class="title">
 
-                            <p class="text-capitalize text-sm">(II) Taila/ghrita dravys</p>
+                            <p class="text-capitalize text-sm">(II) Taila/ghrita dravyas</p>
                         </div>
 
                     </div>
@@ -1495,7 +1495,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(I) Taila/ghrita
+                                <label for="example-text-input" class="form-control-label"> Taila/ghrita
                                     murchana</label>
                                 <input type="text" name="kvatha_dravyas_step_murchana" class="form-control"
                                     placeholder="Enter Taila/ghrita murchana" aria-label="Step 1"
@@ -1507,7 +1507,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(II) Preparation of
+                                <label for="example-text-input" class="form-control-label">Preparation of
                                     Kalka</label>
                                 <input type="text" name="preparation_of_kalka" class="form-control"
                                     placeholder="Enter preparation of Kalka" aria-label="Step 2"
@@ -1520,7 +1520,7 @@
 
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(III) Preparation of
+                                <label for="example-text-input" class="form-control-label"> Preparation of
                                     kvatha/drava dravyas</label>
                                 <input type="text" name="preparation_of_kavatha_dravyas" class="form-control"
                                     placeholder="Enter preparation of kvatha/drava dravyas" aria-label="Name"
@@ -1532,7 +1532,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(IV) Order of mixing</label>
+                                <label for="example-text-input" class="form-control-label"> Order of mixing</label>
                                 <input type="text" name="order_of_mixing" class="form-control"
                                     placeholder="Enter order of mixing" aria-label="Name"
                                     value="{{ old('order_of_mixing') }}" maxlength="50">
@@ -1544,7 +1544,7 @@
 
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label for="example-text-input" class="form-control-label">(V) Paka procedure</label>
+                                <label for="example-text-input" class="form-control-label"> Paka procedure</label>
                                 <input type="text" name="paka_procedure" class="form-control"
                                     placeholder="Enter paka procedure" aria-label="Name"
                                     value="{{ old('paka_procedure') }}" maxlength="50">
@@ -1805,7 +1805,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn add btn-secondary mb-4">Add Talia Yogas</button>
+                    <button type="submit" class="btn add btn-secondary mb-4">Add Taila Yogas</button>
             </form>
         </div>
 
@@ -1857,7 +1857,7 @@
                                                     <td>
                                                         <input type="text" name="name_of_the_ingredients[]"
                                                             class="form-control"
-                                                            placeholder="Enter name of the ingredients Mineral"
+                                                            placeholder="Enter name of the ingredients"
                                                             aria-label="name_of_the_ingredients_mineral_metal"
                                                             value="{{ old('name_of_the_ingredients_mineral_metal[]') }}"
                                                             maxlength="200">
@@ -1904,9 +1904,9 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label class="form-control-label">Asawa/Arishta Yogas Name</label>
+                            <label class="form-control-label">Asava/Arishta Yogas Name</label>
                             <input type="text" name="arishtayoga_type_individual" class="form-control"
-                                placeholder="Enter Asawa/Arishta Yogas Name"
+                                placeholder="Enter Asava/Arishta Yogas Name"
                                 value="{{ old('churna_yoga_type_individual') }}" maxlength="50" required>
                             <p id="arishtayoga_type_individual_err" class="position-absolute"></p>
                             @if ($errors->has('churna_yoga_type_individual'))

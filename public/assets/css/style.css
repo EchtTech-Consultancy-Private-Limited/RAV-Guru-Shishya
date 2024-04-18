@@ -493,7 +493,7 @@ input[name="send_phr_to_guru[]"] {
 
 td, th {
 
-    font-size: 14px;
+    font-size: 13px;
 }
 [readonly="readonly"]{
     border-bottom: 1px solid rgba(0,0,0,0.42);
@@ -1192,7 +1192,7 @@ button.btn.submit {
 }
 .form-group input, .form-group select {
     height: auto !important;
-    padding: 8px 0px !important;
+    padding: 7px 0px !important;
     line-height: 1 !important;
 }
 .form-group .select2-selection{
@@ -1648,7 +1648,7 @@ input::placeholder{
 }
 
 .user .select2-container .select2-selection--single{
-    margin-top: 14px !important;
+    /* margin-top: 14px !important; */
 }
 
 
@@ -1791,3 +1791,30 @@ input::placeholder{
     position: relative !important;
     border: none !important;
   }
+  .select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border: none !important;
+
+  }
+  .select2-container--default .select2-selection--single .select2-selection__arrow b::after{
+    content: '\f078';
+    font-family: 'fontAwesome';
+    position: absolute;
+    top: -3px;
+    right: -7px;
+    font-size: 11px;
+    color: #000;
+  }
+  div.dataTables_wrapper div.dataTables_filter input {
+    padding: 0 !important;
+}
+
+span.label-of {
+    text-transform: lowercase;
+}
+input::-ms-reveal,
+input::-ms-clear {
+display: none !important;
+}
+input.form-control::placeholder {
+    color: grey !important;
+}

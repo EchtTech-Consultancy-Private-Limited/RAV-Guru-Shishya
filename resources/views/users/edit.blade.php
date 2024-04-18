@@ -101,7 +101,7 @@
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="">
-                                        <label for="" class="">>Mobile No<span class="text-danger"> *</span></label>
+                                        <label for="" class="">Mobile No<span class="text-danger"> *</span></label>
                                            <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="{{ $user->mobile_no }}" maxlength="10" readonly>
                                            @if ($errors->has('mobile_no'))
                                                 <span class="help-block">

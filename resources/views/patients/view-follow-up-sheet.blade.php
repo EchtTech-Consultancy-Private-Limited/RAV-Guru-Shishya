@@ -184,6 +184,7 @@
                                                                     class="text-danger"></span></label>
                                                             <select name="send_to" id="send_to" class="form-control"
                                                                 required>
+                                                                <option value="please select"  selected>Please Select</option>
                                                                 <option value="3" @if(old('send_to') &&
                                                                     old('send_to')=='3' ) SELECTED @endif>Shishya
                                                                 </option>
@@ -322,8 +323,7 @@
                                         </td>
                                             <td>
                                             @if(!empty($guru->id))
-                                            <label for="example-text-input"
-                                                class="form-control-label"><b>{{@$guru->city_name}}</b></label>
+                                            {{@$guru->city_name}}
                                             @endif
                                             </td>
                                             <td>

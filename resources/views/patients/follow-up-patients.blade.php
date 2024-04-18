@@ -206,7 +206,7 @@
                                         <th class="center"> Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
                                             <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
                                         </th>
-                                        <th class="center"> Action <i class="fa fa-long-arrow-up"
+                                        <th class="center text-nowrap"> Action <i class="fa fa-long-arrow-up"
                                                 aria-hidden="true"></i> <i class="fa fa-long-arrow-down"
                                                 aria-hidden="true"></i></th>
                                     </tr>
@@ -256,7 +256,7 @@
                                         <td class="center">{{ $followup->report_type }}</td>
                                         <td class="center date">
                                             {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
-                                        <td>
+                                        <td class="text-nowrap">
                                             @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                             <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                 class="btn view btn-tbl-edit" title="View Record">

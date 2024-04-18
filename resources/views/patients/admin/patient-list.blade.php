@@ -97,9 +97,9 @@
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <!-- <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td> -->
                                  <td class="text-center">{{$patientlist->registration_no}}</td>
-                                 <td class="center sorting_1"> <?php echo get_user_name($patientlist->guru_id); ?></td>
+                                 <td class="center sorting_1 text-nowrap"> <?php echo get_user_name($patientlist->guru_id); ?></td>
                                  <td class="center sorting_1"><?php echo get_user_name($patientlist->shishya_id); ?></td>
-                                 <td class="center"> {{$patientlist->patient_name}} </td>
+                                 <td class="center text-nowrap"> {{$patientlist->patient_name}} </td>
                                  <td class="center"> {{$patientlist->patient_type}} </td>
                                  <td class="center">@if($patientlist->gender==1) Male @elseif($patientlist->gender==2) Female @elseif($patientlist->gender==3)Others @endif</td>
 

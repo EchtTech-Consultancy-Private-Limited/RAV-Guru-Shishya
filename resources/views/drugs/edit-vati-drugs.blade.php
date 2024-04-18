@@ -172,8 +172,7 @@
                                                                         <table id="faqs" class="table table-hover composition-form">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th>Name of the ingredients mineral
-                                                                                        metal</th>
+                                                                                    <th>Name of the ingredients   </th>
                                                                                     <th>Part used </th>
                                                                                     <th>Quantity</th>
                                                                                     <th>Action</th>
@@ -262,8 +261,7 @@
                                                     <div class="form-group">
                                                         <label
                                                             class="form-control-label @if(isset($data->vati_yoga_type_individual)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Enter
-                                                            Yogas Name</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Vati  Yogas Name</label>
                                                         <input type="text" name="vati_yoga_type_individual"
                                                             class="form-control" placeholder="Vati Yoga Type Individual"
                                                             value="{{ $drug->vati_yoga_type_individual }}"
@@ -279,7 +277,7 @@
                                                         <label
                                                             class="form-control-label @if(isset($data->step_first)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step
-                                                            1<span class="text-danger">*</span></label>
+                                                            1</label>
                                                         <input type="text" name="step_first" class="form-control"
                                                             placeholder="Step 1" aria-label="Step 1"
                                                             value="{{ $drug->step_first }}" maxlength="50">
@@ -320,7 +318,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->method_of_administration)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Method
-                                                            of Administration<span class="text-danger">*</span></label>
+                                                            of Administration</label>
                                                         <input type="text" name="method_of_administration"
                                                             class="form-control" placeholder="Method of Administration"
                                                             value="{{ $drug->method_of_administration }}"
@@ -349,7 +347,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->time_of_administration)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Time
-                                                            of administration<span class="text-danger">*</span></label>
+                                                            of administration</label>
                                                         <input type="text" name="time_of_administration"
                                                             class="form-control" placeholder="Time of administration"
                                                             value="{{ $drug->time_of_administration }}" maxlength="50">
@@ -364,7 +362,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->duration_of_therapy)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Duration
-                                                            of Therapy<span class="text-danger">*</span></label>
+                                                            of Therapy</label>
                                                         <input type="text" name="duration_of_therapy"
                                                             class="form-control" placeholder="Duration of Therapy"
                                                             value="{{ $drug->duration_of_therapy }}" maxlength="50">
@@ -407,7 +405,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->contraindicationsduration_of_therapy)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Contra
-                                                            indications<span class="text-danger">*</span></label>
+                                                            indications</label>
                                                         <input type="text" name="contraindicationsduration_of_therapy"
                                                             class="form-control" placeholder="Contra indications"
                                                             value="{{ $drug->contraindicationsduration_of_therapy }}"
@@ -423,7 +421,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->wholesome_diet)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome
-                                                            diet<span class="text-danger">*</span></label>
+                                                            diet</label>
                                                         <input type="text" name="wholesome_diet" class="form-control"
                                                             placeholder="Wholesome diet"
                                                             value="{{ $drug->wholesome_diet }}" maxlength="50">
@@ -437,7 +435,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->wholesome_activities)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Whole
-                                                            some activities<span class="text-danger">*</span></label>
+                                                            some activities</label>
                                                         <input type="text" name="wholesome_activities"
                                                             class="form-control" placeholder="Whole some activities"
                                                             value="{{ $drug->wholesome_activities }}">
@@ -451,7 +449,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->wholesome_behavior)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome
-                                                            behavior<span class="text-danger">*</span></label>
+                                                            behavior</label>
                                                         <input type="text" name="wholesome_behavior"
                                                             class="form-control" placeholder="Wholesome behavior"
                                                             aria-label="Wholesome behavior"
@@ -472,7 +470,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->quantity_of_raw_material)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Quantity
-                                                            of Raw Material<span class="text-danger">*</span></label>
+                                                            of Raw Material</label>
                                                         <input type="text" name="quantity_of_raw_material"
                                                             class="form-control" placeholder="Quantity of Raw Material"
                                                             value="{{ $drug->quantity_of_raw_material }}">
@@ -514,7 +512,7 @@
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->reasons_for_loss)) patient-highlight @endif"
                                                             title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Reasons
-                                                            for Loss<span class="text-danger">*</span></label>
+                                                            for Loss</label>
                                                         <input type="text" name="reasons_for_loss" class="form-control"
                                                             placeholder="Reasons for Loss" aria-label="Name"
                                                             value="{{ $drug->reasons_for_loss }}">

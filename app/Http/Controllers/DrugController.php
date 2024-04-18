@@ -767,10 +767,10 @@ class DrugController extends Controller
             }
         else
         {
-             return redirect()->back()->with('success', 'TaliaYogas  updated successfully');
+             return redirect()->back()->with('success', 'Taila Yogas  updated successfully');
         }
 
-         return redirect()->back()->with('success', 'TaliaYogas  updated successfully');
+         return redirect()->back()->with('success', 'Taila Yogas  updated successfully');
     }
 
      public function delete_taliyayoga_type($id)
@@ -778,7 +778,7 @@ class DrugController extends Controller
 
         $vatitype = TaliaYogasType::find($id);
         $vatitype->delete();
-        return redirect()->back()->with('Error', 'TaliaYogas type deleted successfully');
+        return redirect()->back()->with('Error', 'Taila Yogas type deleted successfully');
     }
 
     /*ArishtaYoga Yogas*/

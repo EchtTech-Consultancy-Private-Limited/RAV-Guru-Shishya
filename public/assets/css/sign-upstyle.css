@@ -98,6 +98,7 @@ body{
 
 .sign-up .form-group{
     margin: 0;
+    
 }
 
 .sign-up .login-logo{
@@ -112,6 +113,9 @@ body{
 
 .form-group .form-control{
     background: transparent;
+}
+input{
+    color: #000 !important;
 }
 
 .form-group .form-control {

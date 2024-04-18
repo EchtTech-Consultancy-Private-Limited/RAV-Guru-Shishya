@@ -83,7 +83,7 @@
                                             </table>
 
                                                 <div class="row">
-                                                    <h3> Enter Detials</h3>
+                                                    <h3> Enter Details</h3>
                                                     <div class="col-md-3 col-6">
                                                         <div class="form-group">
                                                             <div class="form-line">
