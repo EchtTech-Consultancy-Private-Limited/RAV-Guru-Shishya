@@ -118,9 +118,9 @@
                                     @if(!empty($guru->id))
                                     <input type="hidden" name="guru_id" value="{{ $guru->id }}">
                                     @endif
-                                    <input type="hidden" name="patient_id" value="{{$patient->id }}">
-                                    <input type="hidden" name="shishya_id" value="{{$shishya->id }}">
-                                    <input type="hidden" name="registration_no" value="{{$patient->registration_no }}">
+                                    <input type="hidden" name="patient_id" value="{{$patient->id ?? ''}}">
+                                    <input type="hidden" name="shishya_id" value="{{$shishya->id ?? ''}}">
+                                    <input type="hidden" name="registration_no" value="{{$patient->registration_no ?? ''}}">
 
                                     <div class="card-body">
                                     <div class="header p-0">
@@ -146,7 +146,7 @@
                                                 </div>
                                             </div>
 
-                                            @if(Auth::user()->user_type==1)
+                                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==4)
 
                                               <div class="col-lg-3 col-xxl-2 col-xl-3  col-md-4 col-6">
                                                   <div class="form-group">
@@ -172,7 +172,7 @@
                                                   </div>
                                               </div>
                                               @endif
-                                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==3)
+                                            @if(Auth::user()->user_type==1 || Auth::user()->user_type==3 || Auth::user()->user_type==4)
                                             <input type="hidden" name="send_to" id="send_to" value="2">
 
                                             @else
@@ -211,7 +211,7 @@
                                                                 $data->send_to_guru=='0')) disabled @else
                                                                 onclick="return confirm_remark_send()" @endif >
                                                                 @if((Auth::user()->user_type==3) ||
-                                                                (Auth::user()->user_type==1))Send to Guru
+                                                                (Auth::user()->user_type==1 || Auth::user()->user_type==4))Send to Guru
                                                                 @elseif(Auth::user()->user_type==2)Send @endif</button>
 
                                                         </div>
@@ -317,17 +317,17 @@
                                 <tbody>
                                         <tr>
                                             <td>  @if(!empty($guru->id))
-                                           {{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
+                                           {{@$guru->firstname.' '.@$guru->middlename.' '.@$guru->lastname}}
                                             @endif
                                         </td>
                                             <td>
                                             @if(!empty($guru->id))
                                             <label for="example-text-input"
-                                                class="form-control-label"><b>{{$guru->city_name}}</b></label>
+                                                class="form-control-label"><b>{{@$guru->city_name}}</b></label>
                                             @endif
                                             </td>
                                             <td>
-                                            {{$shishya->firstname.' '.$shishya->lastname}}
+                                            {{@$shishya->firstname.' '.@$shishya->lastname}}
                                             </td>
                                             <td>
                                             <?php echo date('d-m-Y'); ?>

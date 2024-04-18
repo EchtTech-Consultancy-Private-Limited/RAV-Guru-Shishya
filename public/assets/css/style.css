@@ -184,7 +184,11 @@ table.dataTable tbody td.no-padding {
 }
 
 .active-row {
-    background-color:#f9e0e0!important;
+    background-color:#e29ea4!important;
+}
+
+.not-active-row {
+    background-color:#80d280!important;
 }
 
 .capitalize {
@@ -1731,3 +1735,52 @@ input::placeholder{
 }.field-icon {
     font-size: 14px !important;
 }
+.color-box {
+    display: flex;
+    padding: 15px 7px;
+    align-items: center;
+}
+.color-box.box2 div{
+    background-color: #80d280;
+
+}
+.color-box div {
+    width: 14px;
+    height: 14px;
+    background: #e29ea4;
+    border-radius: 2px;
+    margin-right: 10px;
+  }
+
+  .color-box-parent{
+    display: flex;
+    gap: 50px;
+  }
+
+  .permissions-errors{
+    height: 70vh;
+    width: 100%;
+    display: block;
+  }
+  .permissions-errors .permission-container{
+         display: flex;
+         align-items: center;
+         height: 100%;
+         width: 100%;
+         justify-content: center;
+  }
+
+  .permissions-errors .permission-container h4 span:nth-child(2){
+    display: flex;
+  }
+  .permissions-errors .permission-container h4 .span1{
+    border-right: 2px solid #7f7f7f;
+    margin-right: 10px;
+    padding-right: 10px;
+  }
+  .permissions-errors .permission-container h4{
+        color: #878787;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 400;
+  }

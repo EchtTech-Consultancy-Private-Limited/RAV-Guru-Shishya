@@ -5,7 +5,6 @@
 <section class="content">
     @if (count($errors) > 0)
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
@@ -138,7 +137,7 @@
                   $data = json_decode($drugHistoryLog->data);
                }
             ?>
-                                    <form method="POST" action="{{ url('update-vatiyoga-details') }}">
+                                    <form method="POST" action="{{ url('update-vatiyoga-details') }}" id="vati_yoga_details">
                                         @csrf
                                         <input type="hidden" name="drug_id" value="{{ $drug->id }}">
                                         <div class="row px-2">
@@ -268,7 +267,9 @@
                                                         <input type="text" name="vati_yoga_type_individual"
                                                             class="form-control" placeholder="Vati Yoga Type Individual"
                                                             value="{{ $drug->vati_yoga_type_individual }}"
-                                                            maxlength="50">@error('vati_yoga_type_individual')
+                                                            maxlength="50">
+                                                        <p id="vati_yoga_type_individual_err" class="position-absolute"></p>
+                                                        @error('vati_yoga_type_individual')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>
                                                         @enderror
                                                     </div>

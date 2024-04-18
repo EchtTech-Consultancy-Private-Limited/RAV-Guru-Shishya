@@ -13,6 +13,7 @@ use File;
 use Mail;
 use App\Mail\SendMail;
 use Illuminate\Support\Arr;
+use App\Models\ModelPermission;
 
 class UserController extends Controller
 {
@@ -88,35 +89,54 @@ class UserController extends Controller
 
         if($request->hasfile('e_sign'))
            {
-            //dd("yes");
             $file = $request->file('e_sign');
             $name = $file->getClientOriginalName();
             $filename = time().$name;
             $file->move('uploads/',$filename);
-            //dd($filename);
             $input['e_sign'] = $filename;
            }
         if($request->hasfile('profile_image'))
            {
-            //dd("yes");
             $file = $request->file('profile_image');
             $name = $file->getClientOriginalName();
             $filename = time().$name;
             $file->move('uploads/',$filename);
-            //dd($filename);
             $input['user_image'] = $filename;
            }
 
            $user = User::create($input);
-          
-          /* DB::transaction(function()
-           {
-                $user = User::create($input);
-                if( !$user )
-                {
-                    throw new \Exception('User not created for account');
+           // Grant default permissions
+            foreach (main_menu() as $item) {
+                if (in_array($item->route, ['dashboard', 'profile','admin-patient-list','notifications','shishya-notifications','manage-patients'])) {
+                    $existingPermission = ModelPermission::where('model_id', $item->id)
+                                            ->where('user_id', $user->id)
+                                            ->first();
+                    if (!$existingPermission) {
+                        ModelPermission::create([
+                            'model_id' => $item->id,
+                            'user_id' => $user->id,
+                            'permission_id' => 1,
+                            'add' => 1,
+                        ]);
+                    }
                 }
-            });*/
+            }
+
+            foreach (module_menu($user->user_type) as $item) {
+                if (in_array($item->route, ['patients/In-Patient', 'patients/OPD-Patient','new-patient-registration','guru-patient-list'])) {
+                    $existingPermission = ModelPermission::where('model_id', $item->id)
+                                            ->where('user_id', $user->id)
+                                            ->first();
+                    if (!$existingPermission) {
+                        ModelPermission::create([
+                            'model_id' => $item->id,
+                            'user_id' => $user->id,
+                            'permission_id' => 1,
+                            'add' => 1,
+                        ]);
+                    }
+                }
+            }
 
         $testMailData = [
             'title' => 'You have successfully registered',
@@ -138,7 +158,7 @@ class UserController extends Controller
         }
         elseif($input['user_type']==2)
         {
-            return redirect()->route('users.index')
+            return redirect()->route('users')
                         ->with('success','User created successfully');
         }
 
@@ -289,7 +309,7 @@ class UserController extends Controller
         }
         elseif($user->user_type==2)
         {
-            return redirect()->route('users.index')
+            return redirect()->route('users')
                         ->with('success','User Updated successfully');
         }
 
@@ -303,7 +323,7 @@ class UserController extends Controller
 
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('users.index')
+        return redirect()->route('users')
                         ->with('success','User updated successfully');
 
         return Redirect::back()->with('success', 'Status Changed Successfully');
@@ -334,7 +354,6 @@ class UserController extends Controller
         $id= decrypt($id);
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+        return back()->with('success','User deleted successfully');
     }
 }

@@ -70,7 +70,7 @@
                             </div>
                         <div class="table-responsive">
                             <table class="table table-hover  contact_list">
-                                <p style="color:red;padding:10px;">Note like: Submenu are not allowed without main menus</p>
+                                <p style="color:red;padding:10px;">Note: Submenu are not allowed without main menus</p>
                                 <span style="float:right;padding:10px;">Username: @if($user){{ $user->firstname }} @endif <span>
                             <thead>
                                 <tr>
@@ -78,13 +78,13 @@
                                     <th>
                                         <input type="checkbox" 
                                                attr-data="{{ $user->user_type == 1 ? 'Admin' : ($user->user_type == 2 ? 'Guru' : ($user->user_type == 3 ? 'Shishya' : '')) }}"
-                                               id="addall" attr-userId="{{$user->id}}"
+                                               id="addall" @if(@$allSelected->add==1) checked @endif attr-userId="{{$user->id}}"
                                         >Add
                                     </th>
                                      
-                                    <th><input type="checkbox" id="editall"  onclick="umltiple_permission(this,'{{$user->id}}','2')"> Edit/Update</th>
-                                    <th><input type="checkbox" id="viewall"  onclick="umltiple_permission(this,'{{$user->id}}','3')"> View</th>
-                                    <th><input type="checkbox" id="deleteall"  onclick="umltiple_permission(this,'{{$user->id}}','4')"> Delete</th>
+                                    <th><input type="checkbox" id="editall" @if(@$allSelected->edit==2) checked @endif  onclick="umltiple_permission(this,'{{$user->id}}','2','edit')"> Edit/Update</th>
+                                    <th><input type="checkbox" id="viewall" @if(@$allSelected->view==3) checked @endif onclick="umltiple_permission(this,'{{$user->id}}','3','view')"> View</th>
+                                    <th><input type="checkbox" id="deleteall" @if(@$allSelected->delete==4) checked @endif onclick="umltiple_permission(this,'{{$user->id}}','4','delete')"> Delete</th>
                                 </tr>
                             </thead>                                
                                 <tbody>
@@ -95,11 +95,11 @@
                                             <td>
                                                 @php $check='0'; @endphp
                                                 @foreach($permission as $per)
-                                                @if($per->permission_id==1 && $per->model_id==$models->id)
+                                                @if($per->add==1 && $per->model_id==$models->id)
                                                     @php $check='1'; @endphp @break;
                                                 @endif
                                                 @endforeach
-                                                <input type="checkbox" name="add_checkbox_field[]" value="1" @if($check==1) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','1')" class="add" >
+                                                <input type="checkbox" name="add_checkbox_field[]" value="1" @if($check==1) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','1','add')" class="add" >
 
                                                 <input type="hidden" name="model_id[]" id="model_id"  value="{{ $models->id }}">
                                                 <input type="hidden" name="user_id[]" value="{{ $user->id }}">
@@ -108,11 +108,11 @@
                                             <td>
                                                 @php $editcheck='0'; @endphp
                                                 @foreach($editpermission as $per)
-                                                @if($per->permission_id==2 && $per->model_id==$models->id)
-                                                    @php $editcheck='1'; @endphp @break;
+                                                @if($per->edit==2 && $per->model_id==$models->id)
+                                                    @php $editcheck='2'; @endphp @break;
                                                 @endif
                                                 @endforeach
-                                                <input type="checkbox" name="edit_checkbox_field[]" value="2" class="edit" @if($editcheck==1) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','2')">
+                                                <input type="checkbox" name="edit_checkbox_field[]" value="2" class="edit" @if($editcheck==2) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','2','edit')">
 
 
                                             </td>
@@ -120,22 +120,22 @@
                                             <td>
                                                 @php $viewcheck='0'; @endphp
                                                 @foreach($viewpermission as $per)
-                                                @if($per->permission_id==3 && $per->model_id==$models->id)
-                                                    @php $viewcheck='1'; @endphp @break;
+                                                @if($per->view==3 && $per->model_id==$models->id)
+                                                    @php $viewcheck='3'; @endphp @break;
                                                 @endif
                                                 @endforeach
-                                                <input type="checkbox" name="view_checkbox_field[]" value="3" class="view" @if($viewcheck==1) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','3')">
+                                                <input type="checkbox" name="view_checkbox_field[]" value="3" class="view" @if($viewcheck==3) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','3','view')">
 
 
                                             </td>
                                             <td>
                                                 @php $dltcheck='0'; @endphp
                                                 @foreach($dltpermission as $per)
-                                                @if($per->permission_id==4 && $per->model_id==$models->id)
-                                                    @php $dltcheck='1'; @endphp @break;
+                                                @if($per->delete==4 && $per->model_id==$models->id)
+                                                    @php $dltcheck='4'; @endphp @break;
                                                 @endif
                                                 @endforeach
-                                                <input type="checkbox" name="dlt_checkbox_field" value="4" class="delete" @if($dltcheck==1) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','4')"></td>
+                                                <input type="checkbox" name="dlt_checkbox_field" value="4" class="delete" @if($dltcheck==4) checked @endif onclick="add_permission(this,'{{$models->id}}','{{$user->id}}','4','delete')"></td>
                                         </tr>
                                         {{-- @if(count(main_child($models->id)) > 0 )
                                             @foreach(main_child($models->id) as  $model)
@@ -209,7 +209,7 @@ $("#addall").click(function() {
         'Are you sure you want to remove all permissions to ' + userName + ' ?';
     
     if (confirm(confirmationMessage)) {
-        umltiple_permission($(this), userId, userType);
+        umltiple_permission($(this), userId, userType,'add');
         $("input.add").prop("checked", $(this).prop("checked"));
     }else{
         $("#addall").prop("checked", false);
@@ -259,7 +259,7 @@ $("input[class=view]").click(function() {
 <script type="text/javascript">
 
 
-         function add_permission(obj,model_id,user_id,permission_id)
+         function add_permission(obj,model_id,user_id,permission_id,type)
          {
 
             $.ajaxSetup({
@@ -272,7 +272,7 @@ $("input[class=view]").click(function() {
 
            url:$baseurl+"/add-user-permissions",
            type:"POST",
-           data: {"user_id":user_id,"model_id":model_id,"permission_id":permission_id,"action_id":($(obj).prop("checked")?'1':'0')},
+           data: {"user_id":user_id,"model_id":model_id,"permission_id":permission_id,"type":type,"action_id":($(obj).prop("checked")?'1':'0')},
           // processData:false,
            dataType:'json',
            //contentType:false,
@@ -313,9 +313,8 @@ $("input[class=view]").click(function() {
 <script type="text/javascript">
 
 
-         function umltiple_permission(obj,user_id,permission_id)
+         function umltiple_permission(obj,user_id,permission_id,type)
          {
-
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -327,7 +326,7 @@ $("input[class=view]").click(function() {
           $.ajax({
           url:$baseurl+"/user-multiple-permissions",
            type:"POST",
-           data: {"user_id":user_id,"model_ids":model_ids,"permission_id":permission_id,"action_id":($(obj).prop("checked")?'1':'0')},
+           data: {"user_id":user_id,"model_ids":model_ids,"permission_id":permission_id,"type":type,"action_id":($(obj).prop("checked")?'1':'0')},
           // processData:false,
            dataType:'json',
            //contentType:false,

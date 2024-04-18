@@ -48,6 +48,22 @@
          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
                <div class="body">
+                  <div class="col-md-6">
+                     <div class="d-flex color-box-parent">
+                         <div class="color-box box1">
+                             <div>
+
+                             </div>
+                             <p>Not Read</p>
+                         </div>
+                         <div class="color-box box2">
+                             <div>
+
+                             </div>
+                             <p>Read</p>
+                         </div>
+                     </div>                                    
+                 </div>
                <div class="table-responsive">
                      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="row"><div class="col-sm-12">
@@ -60,28 +76,15 @@
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">Patient Name<i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Patients Type <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>   
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Gender <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
-                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending"> Reg. Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
-                               
-
-                                <!-- <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" Name : activate to sort column ascending">System Reg. No <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th> -->
-                               
-                              
-                               
-                              
-
-                                                            
+                                <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=" User Type : activate to sort column ascending"> Reg. Date <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>                         
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Action <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                 <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending"> Remark <i class="fa fa-long-arrow-up" aria-hidden="true"></i> <i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                             </tr>
                         </thead>
                         <tbody>
-
-
-
-
                         @foreach($patientlist as $key=>$patientlist)
 
-                        <tr class="gradeX odd @if($patientlist->read_by_guru=='0') active-row @endif">
+                        <tr class="gradeX odd {{($patientlist->read_by_guru == '0') ? 'active-row' : 'not-active-row' }}">
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <td class="text-center">{{$patientlist->registration_no}}</td>
                                  <td class="center sorting_1"><?php echo get_user_name($patientlist->shishya_id); ?></td>
@@ -92,7 +95,9 @@
                                  <td class="center"> {{ date('d-m-Y', strtotime($patientlist->registration_date)) }} </td>
 
                                  <td class=" patient-list-action">
+                                    @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                     <a href="{{ url('guru-view-patient/'.encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title ="View Record"><i class="material-icons">visibility</i></a>                                   
+                                    @endif
                                  @if($patientlist->phr_a_status== 1 OR $patientlist->phr_s_status== 1)
                                     <!-- <a href="javascript:void(0);" class="btn btn-secondary" title="Edit Patient">
                                         Remarks
@@ -101,9 +106,11 @@
                                         Remarks
                                     </a> -->
 
-                                 @else                                    
+                                 @else
+                                    @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                     <a href="{{ url('edit-patient/' . encrypt($patientlist->id)) }}" onclick="return confirm_option('edit')" class="btn edit btn-tbl-edit" title="Edit Patient"><i class="material-icons">edit
-                                    @if(isset($patientlist->patientHistory->patient_id))
+                                    @endif
+                                       @if(isset($patientlist->patientHistory->patient_id))
                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle" title="Some changes"></span>
                                     @endif
                                     </i></a>

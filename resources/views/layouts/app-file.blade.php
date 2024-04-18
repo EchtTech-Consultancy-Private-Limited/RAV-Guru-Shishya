@@ -73,7 +73,7 @@
 
 
        <!-- [ Content ] End -->
-       @include('layouts/partials.footer')
+@include('layouts/partials.footer')
 
 
 <script src="{{ asset('assets/js/app.min.js') }}"></script>
@@ -95,6 +95,7 @@
 <script src="{{ asset('assets/js/form.min.js') }}"></script>
 <script src="{{ asset('assets/js/bundles/multiselect/js/jquery.multi-select.js') }}"></script>
 <script src="{{ asset('assets/js/footer-custom-script.js') }}"></script>
+<script src="{{ asset('assets/js/drug-custom-script.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/sweetalert.js') }}"></script>
 </body>
 </html>

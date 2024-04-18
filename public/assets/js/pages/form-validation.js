@@ -178,6 +178,4 @@ $(document).ready(()=>{
         
         messages: {}, //optional function for custom messages for each rule type });
     })
-
-    console.log("hellow world")
 })

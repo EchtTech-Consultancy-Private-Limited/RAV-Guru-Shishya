@@ -25,6 +25,8 @@ use Session;
 use Illuminate\Support\Arr;
 use Mail;
 use App\Mail\SendMail;
+use App\Http\Helpers\CustomCaptcha;
+use App\Models\ModelPermission;
 
 class AddUserController extends Controller
 {
@@ -52,7 +54,10 @@ class AddUserController extends Controller
     {
         $countries = Country::get(["name", "id"]);
         $user_type=['2'=>'Guru','3'=>'Shishya'];
-        return view("auth.sign-up",compact('user_type','countries'));
+        $CustomCaptchas = new CustomCaptcha;
+        $CustomCaptch = $CustomCaptchas->generateRandomAdditionExpression();
+        Session::put('capcode', $CustomCaptch['answer']);
+        return view("auth.sign-up",compact('user_type','countries','CustomCaptch'));
     }
 
     public function sign_up(Request $request)
@@ -87,32 +92,56 @@ class AddUserController extends Controller
                 'lastname' =>'required|max:32|min:2|regex:/^[a-zA-Z0-9\s]+$/',
                 'email' => ['required','email','max:50','unique:users','regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],
                 'mobile_no'=>'required|numeric|unique:users|min:10,mobile_no|digits:10',
-                'captcha' => 'required|captcha',
                           
-            ],
-            [
-            'captcha.captcha'=>"Kindly check the captcha code you have entered."
             ]);
-
-           //Userdetails for mail
-
-           $userEmail = $request->email;
-
-
-
+        if(Session::get('capcode') != $request->captcha){
+            return back()->withErrors(['captcha' => 'Captcha Invalid!'])->withInput();
+        }
+        $userEmail = $request->email;
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
-
         $user = User::create($input);
+        // Grant default permissions
+        foreach (main_menu() as $item) {
+            if (in_array($item->route, ['dashboard', 'profile','admin-patient-list','notifications','shishya-notifications','manage-patients'])) {
+                $existingPermission = ModelPermission::where('model_id', $item->id)
+                                        ->where('user_id', $user->id)
+                                        ->first();
+                if (!$existingPermission) {
+                    ModelPermission::create([
+                        'model_id' => $item->id,
+                        'user_id' => $user->id,
+                        'permission_id' => 1,
+                        'add' => 1,
+                    ]);
+                }
+            }
+        }
 
-          //Mail sending scripts starts here
-          $testMailData = [
+        foreach (module_menu($user->user_type) as $item) {
+            if (in_array($item->route, ['patients/In-Patient', 'patients/OPD-Patient','new-patient-registration','guru-patient-list'])) {
+                $existingPermission = ModelPermission::where('model_id', $item->id)
+                                        ->where('user_id', $user->id)
+                                        ->first();
+                if (!$existingPermission) {
+                    ModelPermission::create([
+                        'model_id' => $item->id,
+                        'user_id' => $user->id,
+                        'permission_id' => 1,
+                        'add' => 1,
+                    ]);
+                }
+            }
+        }
+
+        //Mail sending scripts starts here
+        $testMailData = [
             'title' => 'You have successfully registered',
             'body' => 'Welcome to RAV Guru Shishya Parampara Portal. Please login on the portal with your login details'
-            ];
+        ];
 
-            Mail::to($userEmail)->send(new SendMail($testMailData));
-           //Mail sending script ends here
+        Mail::to($userEmail)->send(new SendMail($testMailData));
+        //Mail sending script ends here
 
         return redirect('/')->with('success', 'You have successfully registered');
     }
@@ -247,6 +276,7 @@ class AddUserController extends Controller
                 'per_city' => 'required',
             ],[
                 'f_name' => "The father name format is invalid",
+                'aadhaar_no' => "The aadhaar number must be 12 digit.",
             ],);
         }
         $profile_id=$request->profile_id;

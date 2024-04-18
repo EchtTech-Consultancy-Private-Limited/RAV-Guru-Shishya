@@ -49,6 +49,22 @@
             <div class="card">
                <div class="body">
                <div class="table-responsive">
+                  <div class="col-md-6">
+                     <div class="d-flex color-box-parent">
+                         <div class="color-box box1">
+                             <div>
+
+                             </div>
+                             <p>Not Read</p>
+                         </div>
+                         <div class="color-box box2">
+                             <div>
+
+                             </div>
+                             <p>Read</p>
+                         </div>
+                     </div>                                    
+                 </div>
                      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="row"><div class="col-sm-12">
                             <table class="table table-hover js-basic-example contact_list dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -77,7 +93,7 @@
                         <tbody>
                                                             
                         @foreach($patientlist as $key=>$patientlist)                               
-                        <tr class="gradeX odd @if($patientlist->read_by_admin=='0') active-row @endif">
+                        <tr class="gradeX odd {{($patientlist->read_by_admin == '0') ? 'active-row' : 'not-active-row' }}">
                                  <td class="center sorting_1">{{ ++$key }}</td>
                                  <!-- <td class="center"><a href="{{ url('view-patient/'.encrypt($patientlist->id)) }}">{{@format_patient_id($patientlist->id)}}</a></td> -->
                                  <td class="text-center">{{$patientlist->registration_no}}</td>
@@ -90,10 +106,12 @@
                                  <td class="center">{{ date('d-m-Y', strtotime($patientlist->registration_date)) }} </td>
 
                                  <td class="center">
-
+                                    @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                     <a href="{{ url('admin-view-patient/'.$patientlist->id) }}" class="btn view btn-tbl-edit" title ="View Record">
                                                     <i class="material-icons">visibility</i>
                                     </a>
+                                    @endif
+                                    @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                     <a href="{{ url('patients/admin-edit-patient/'.$patientlist->id) }}" class="btn edit btn-tbl-edit" title="Edit Patient">
                                           <i class="material-icons">edit
                                           @if(isset($patientlist->patientHistory->patient_id))
@@ -101,12 +119,15 @@
                                           @endif
                                           </i>
                                     </a>
+                                    @endif
                                     <!-- <a href="{{ url('delete-phr/'.$patientlist->id) }}" class="btn delete btn-tbl-delete" onclick="return confirm_option('delete')" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a> -->
+                                    @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
                                     <a class="btn delete btn-tbl-delete delete_patient" data-id="{{$patientlist->id}}" data-bs-toggle="modal" data-bs-target="#delete_modal" title="Patient Delete">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
+                                    @endif
                                     <a target="_self" href="{{ url('admin-remark-history/'.$patientlist->id) }}" class="btn comment btn-tbl-edit" title="Check Remark">
                                     <i class="fa fa-history" aria-hidden="true"></i>
                                     </a>
@@ -142,7 +163,7 @@
                                     <div class="col-md-12">
                                        <div class="form-group">
                                           <label for="remark">Write A Proper Remark<span class="text-danger">*</span></label>
-                                          <textarea id="delete_remark" name="delete_remark" rows="6" cols="25" required></textarea>
+                                          <textarea id="delete_remark" name="delete_remark" rows="6" cols="25" maxlength="250" required></textarea>
                                           
                                        </div>
                                     </div>

@@ -20,6 +20,12 @@
    z-index: 2;
    }
 
+   #captcha-signup{
+      background: beige;
+      padding: 6px;
+      border: 1px solid;
+    }
+
 
 
 

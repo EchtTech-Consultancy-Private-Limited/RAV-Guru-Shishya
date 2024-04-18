@@ -122,8 +122,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 mb-2">
                                                     <div class="form-group  ">
-                                                        <h5 class="text-center d-flex justify-content-center">ARISHTA
-                                                            – GHRITA YOGAS</h5>
+                                                        <h5 class="text-center d-flex justify-content-center">ASAVA-ARISHTA YOGAS</h5>
                                                         <h5 class="d-block text-left">Name of the Drug</h5>
                                                         <h5 class="d-block text-left">
                                                             Reference
@@ -365,12 +364,16 @@
 
                                                     <tr>
                                                         <td>Starting Date </td>
+                                                        @if(@$drug->starting_date)
                                                         <td> {{date('d-m-Y',strtotime(@$drug->starting_date))}}  </td>
+                                                        @endif
                                                     </tr>
 
                                                     <tr>
                                                         <td>Ending Date</td>
+                                                        @if(@$drug->ending_date)
                                                         <td> {{date('d-m-Y',strtotime(@$drug->ending_date))}}  </td>
+                                                        @endif
                                                     </tr>
 
 

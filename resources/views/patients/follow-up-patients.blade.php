@@ -133,14 +133,28 @@
                         </div>
                 </div>
 
-
-
                 </form>
                 <form role="form" method="POST" action="{{ url('/send-follow-up-sheet') }}">
                     @csrf
                     <div class="card">
                         <div class="card-body ">
                         <div class="table-responsive">
+                            <div class="col-md-6">
+                                <div class="d-flex color-box-parent">
+                                    <div class="color-box box1">
+                                        <div>
+
+                                        </div>
+                                        <p>Not Read</p>
+                                    </div>
+                                    <div class="color-box box2">
+                                        <div>
+
+                                        </div>
+                                        <p>Read</p>
+                                    </div>
+                                </div>                                    
+                            </div>
                             <table
                                 class="table table-hover js-basic-example contact_list dataTable no-footer table-arrow"
                                 id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -203,8 +217,10 @@
                                         class="odd gradeX @if (
                                                         (Auth::user()->user_type == 2 && $followup->read_by_guru == '0') ||
                                                             (Auth::user()->user_type == 3 && $followup->read_by_shishya == '0') ||
-                                                            (Auth::user()->user_type == 1 && $followup->read_by_admin == '0')) active-row @endif">
-
+                                                            (Auth::user()->user_type == 1 && $followup->read_by_admin == '0')) active-row
+                                                            @else
+                                                            not-active-row
+                                                            @endif">
                                         <td class="center sorting_1 text-end p-0">
                                             @if (Auth::user()->user_type == 2 || Auth::user()->user_type == 3)
                                             <input name="followup_ids[]" type="checkbox" value="{{ $followup->id }}"
@@ -241,15 +257,18 @@
                                         <td class="center date">
                                             {{ date('d-m-Y', strtotime($followup->follow_up_date)) }}</td>
                                         <td>
+                                            @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                             <a href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                 class="btn view btn-tbl-edit" title="View Record">
                                                 <i class="material-icons">visibility</i>
                                             </a>
+                                            @endif
 
                                             @if (
                                             (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1') ||
                                             (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
-                                            (Auth::user()->user_type == 1))
+                                            (Auth::user()->user_type == 1) || Auth::user()->user_type == 4)
+                                            @if(permissionCheck()->edit == 2 || Auth::user()->user_type == 4)
                                             <a href="{{ url('/add-follow-up-sheet/' . encrypt($followup->patient_id) . '/' . encrypt($followup->id)) }}"
                                                 class="btn edit btn-tbl-edit" title="Edit Record"
                                                 onclick="return confirm_option(' edit ')">
@@ -262,6 +281,7 @@
                                                 </i>
                                             </a>
                                             @endif
+                                            @endif
                                             <!--  (
                                                 (Auth::user()->user_type == 3 &&
                                                 $followup->send_to_shishya == '1' &&
@@ -270,12 +290,14 @@
                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1' &&
                                                 $followup->send_to_admin != '1') ||
                                                 (Auth::user()->user_type == 1 && $followup->send_to_admin == '1')) -->
-                                            @if(Auth::user()->user_type == 1)
+                                            @if(Auth::user()->user_type == 1 || Auth::user()->user_type == 4)
+                                            @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
                                             <a href="{{ url('/delete-follow-up/' . encrypt($followup->id)) }}"
                                                 class="btn btn-tbl-delete" title="Delete Record"
                                                 onclick="return confirm_option(' delete ')">
                                                 <i class="material-icons">delete_forever</i>
                                             </a>
+                                            @endif
                                             @endif
                                             <a href="{{ url('follow-up-remark-history/' . encrypt($followup->id)) }}"
                                                 class="btn comment btn-tbl-edit" title="Check Remarks"><i
@@ -284,7 +306,7 @@
                                                 (Auth::user()->user_type == 3 && $followup->send_to_shishya == '1')
                                                 ||
                                                 (Auth::user()->user_type == 2 && $followup->send_to_guru == '1') ||
-                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1'))
+                                                (Auth::user()->user_type == 1 && $followup->send_to_admin == '1') || Auth::user()->user_type == 4)
                                                 <a target="_self"
                                                     href="{{ url('view-follow-up-sheet/' . encrypt($followup->id)) }}"
                                                     class="btn remark" title="Remarks">

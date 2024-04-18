@@ -272,15 +272,18 @@
                                                         <td> {{ $rasadrug->time_taken_for_the_experiment }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Starting date of experiment</td>
-                                                        <td> {{date('d-m-Y',strtotime(@$rasadrug->starting_date_of_experiment))}}</td>
+                                                        <td>Starting Date </td>
+                                                        @if(@$drug->starting_date)
+                                                        <td> {{date('d-m-Y',strtotime(@$drug->starting_date))}}  </td>
+                                                        @endif
                                                     </tr>
 
                                                     <tr>
-                                                        <td>Ending date of experiment </td>
-                                                        <td> {{date('d-m-Y',strtotime(@$rasadrug->ending_date_of_experiment))}}</td>
+                                                        <td>Ending Date</td>
+                                                        @if(@$drug->ending_date)
+                                                        <td> {{date('d-m-Y',strtotime(@$drug->ending_date))}}  </td>
+                                                        @endif
                                                     </tr>
-
                                                 </tbody>
                                             </table>
 

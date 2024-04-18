@@ -15,17 +15,17 @@
                 <div class="profile-usertitle">
                     <div class="sidebar-userpic-name">
                         @if (Auth::user()->user_type == 1)
-                            {{ Auth::user()->firstname }}
+                            {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                             <br><span class="designation"> ( Admin )</span>
                     </div>
                 @elseif(Auth::user()->user_type == 4)
-                    {{ Auth::user()->firstname }}<br>
+                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}<br>
                     <span class="designation">( Super Admin )</span>
                 @elseif(Auth::user()->user_type == 2)
-                    {{ Auth::user()->firstname }}<br>
+                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}<br>
                     <span class="designation"> ( Guru - {{ Auth::user()->gurutype }} )</span>
                 @elseif(Auth::user()->user_type == 3)
-                    {{ Auth::user()->firstname }}<br>
+                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}<br>
                     <span class="designation"> ( Shishya - {{ Auth::user()->shishyatype }} )</span>
                     @endif
                 </div>

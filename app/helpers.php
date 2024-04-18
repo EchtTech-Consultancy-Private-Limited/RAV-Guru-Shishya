@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Crypt;
 use App\Models\ModelPermission;
 use App\Models\ModelName;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
     function format_user_id($type='',$id='',$created_at=''){
@@ -55,7 +56,7 @@ use Illuminate\Support\Facades\Auth;
 
     function main_menu()
     {
-        $data = ModelName::orderBy('shorting','ASC')->whereparent_id('0')->get();
+        $data = ModelName::orderBy('shorting','ASC')->whereparent_id('0')->where('module_action',0)->get();
         return $data;
     }
 
@@ -301,6 +302,51 @@ use Illuminate\Support\Facades\Auth;
         {
             return asset("uploads/$path");
         }
+    }
+
+    function permissionCheck()
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }        
+        $user = Auth::user();
+        if($user->user_type == 4){
+            $permissions = new \stdClass();
+            $permissions->permission_id = 1;
+            $permissions->add = 1;
+            $permissions->edit = 1;
+            $permissions->view = 1;
+            $permissions->delete = 1;
+            
+            return $permissions;
+        }
+        $routeUri = Route::currentRouteName();
+        $modelName = ModelName::where('route', $routeUri)
+                    ->where(function($query) use ($user) {
+                        $query->where('user_type', $user->user_type)
+                        ->orWhere('user_type', 0);
+                    })
+                    ->first();
+        if (!$modelName) {
+            abort(404);
+        }                   
+        $modulePermission = ModelPermission::where('model_id', $modelName->id)
+                            ->where('permission_id', 1)
+                            ->where('user_id', $user->id)
+                            ->first();
+        if ($modulePermission === null) {
+            $permissionCheck = null;
+        } else {
+            $permissionCheck = $modulePermission;
+        }
+        return $permissionCheck;
+    }
+
+    // get specific module permission for usertype
+    function module_menu($userType)
+    {
+        $data = ModelName::orderBy('shorting','ASC')->where('module_action',0)->where('user_type',$userType)->get();
+        return $data;
     }
     
 ?>

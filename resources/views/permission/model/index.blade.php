@@ -12,17 +12,8 @@
                      <p>{{ $message }}</p>
                     </div>
   
-                  @endif
-                  @if (count($errors) > 0)
-                  <div class="alert alert-danger">
-                     <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                     <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                     </ul>
-                  </div>
-                  @endif
+               @endif
+                  
                <ul class="breadcrumb breadcrumb-style ">
                   <li class="breadcrumb-item">
                      <h4 class="page-title">Add Module</h4>
@@ -51,17 +42,45 @@
                      <div class="row clearfix">
                         <div class="col-sm-3">
                            <div class="form-group">
+                               <label class="form-label">Select Module/Action<span
+                                 class="text-danger">*</span></label>
+                                <select class="form-control select2" name="module_action">
+                                    <option value="">Select Module/Action</option>
+                                    <option value="0">Module</option>
+                                    <option value="1">Action</option>
+                                </select>
+                                 @if ($errors->has('module_action'))
+                                    <span class="help-block">
+                                       <strong style="color:red;">{{ $errors->first('module_action') }}</strong>
+                                    </span>
+                                 @endif
+                           </div>
+                        </div>
+                        <div class="col-sm-3">
+                           <div>
                               <div class="form-line">
-                                 <label>Module Name</label>
+                                 <label>Module/Action Name<span
+                                    class="text-danger">*</span></label>
                                  <input type="text" class="form-control" name="name" placeholder="Module Name">
+                                 @if ($errors->has('name'))
+                                    <span class="help-block">
+                                       <strong style="color:red;">{{ $errors->first('name') }}</strong>
+                                    </span>
+                                 @endif
                               </div>
                            </div>
                         </div>
                         <div class="col-sm-3">
-                           <div class="form-group">
+                           <div>
                               <div class="form-line">
-                                 <label >Route</label>
+                                 <label >Route<span
+                                    class="text-danger">*</span></label>
                                  <input type="text" class="form-control" name="route" placeholder="Route">
+                                 @if ($errors->has('route'))
+                                    <span class="help-block">
+                                       <strong style="color:red;">{{ $errors->first('route') }}</strong>
+                                    </span>
+                                 @endif
                               </div>
                            </div>
                         </div>
@@ -78,13 +97,19 @@
                         </div>
                         <div class="col-sm-3">
                            <div class="form-group">
-                               <label class="form-label">Select User Type</label>
+                               <label class="form-label">Select User Type<span
+                                 class="text-danger">*</span></label>
                                 <select class="form-control select2" name="user_type">
                                     <option value>Select User Type...</option>
                                     @foreach(__('phr.user_type_model') as $key=>$value)
                                        <option value="{{$key}}">{{$value}}</option>
                                     @endforeach
                                 </select>
+                                 @if ($errors->has('user_type'))
+                                    <span class="help-block">
+                                       <strong style="color:red;">{{ $errors->first('user_type') }}</strong>
+                                    </span>
+                                 @endif
                            </div>
                         </div>
                         <div class="col-sm-3">
@@ -137,41 +162,44 @@
 
                               <th class="center"> No </th>
                               <th class="center"> Module Name </th>
-                              <th class="center"> Route Name </th>
-                            
+                              <th class="center"> Module/Action </th>
+                              <th class="center"> User Type </th>
+                              <th class="center"> Route Name </th>                            
                               <th class="center"> Action </th>
                            </tr>
                         </thead>
                         <tbody>
                         @php $k=0; @endphp
-                        @foreach(main_menu() as  $key=>$models)
-                        @php $k++; @endphp
+                        @foreach($model as  $key=>$models)
                            <tr class="odd gradeX">
-                              <td class="center">{{ $k }}</td>
+                              <td class="center">{{ $loop->iteration }}</td>
                               <td class="center">{{ $models->name }}</td>
-                              <td class="center">{{ $models->route }}</td>
-
-                              
+                              <td class="center">
+                                 {{ ($models->module_action == '0') ? 'Module' : 'Action' }}
+                              </td>
+                              <td class="center">
+                                 {{ $models->user_type == 0 ? 'All User' : ($models->user_type == 1 ? 'Admin' : ($models->user_type == 2 ? 'Guru' : ($models->user_type == 3 ? 'Shishya' : ($models->user_type == 4 ? 'Super Admin' : '')))) }}
+                             </td>
+                              <td class="center">{{ $models->route ?? '' }}</td>
                                <td class="center">
-                                   
-
                                     <a href="{{ url('edit-model/'.$models->id) }}" class="btn btn-tbl-edit">
                                        <i class="material-icons">edit</i>
                                     </a>
-
                                     <a  href="{{ url('model-dlt/'.$models->id) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')">
                                        <i class="material-icons">delete_forever</i>
                                     </a>
                                 </td>
-
                            </tr>
-
                               @if(count(main_child($models->id)) > 0 )
                                  @foreach(main_child($models->id) as  $key1=>$model)
                                  @php $k++; @endphp
                            <tr class="odd gradeX">
                               <td class="center">{{ $k }}</td>
                               <td class="center">{{ $model->name }}</td>
+                              <td class="center">{{ ($models->module_action == '0') ? 'Module' : 'Action' }}</td>
+                              <td class="center">
+                                 {{ $models->user_type == 0 ? 'All User' : ($models->user_type == 1 ? 'Admin' : ($models->user_type == 2 ? 'Guru' : ($models->user_type == 3 ? 'Shishya' : ($models->user_type == 4 ? 'Super Admin' : '')))) }}
+                             </td>
                               <td class="center">{{ $model->route }}</td>
 
                               

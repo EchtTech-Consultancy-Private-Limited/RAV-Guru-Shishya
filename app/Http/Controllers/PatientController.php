@@ -492,7 +492,7 @@ class PatientController extends Controller
                 return redirect('/view-follow-up-sheet/'.encrypt($request->followup_id))->with('success', 'Remark for follow up, send to shishya successfully.');
             }
 
-        } elseif(Auth::user()->user_type==1){           
+        } elseif(Auth::user()->user_type==1 || Auth::user()->user_type==4){           
             $data=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->first();
             if(isset($request->remark_type) && $request->remark_type==1){
                 $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['send_to_guru'=>1,'read_by_guru'=>0]);
@@ -965,7 +965,7 @@ class PatientController extends Controller
             $patient_id=$patient->id;
             $shishya_id=$patient->shishya_id;
             $shishya=User::find($shishya_id);
-            $shishyaname=$shishya->firstname;
+            $shishyaname=$shishya->firstname ?? '';
 
            $phrData = [
             'title' => 'Your Guru gives valuable feedbacks on your PHR  Number ('.format_patient_id($patient_id).').',
@@ -974,8 +974,9 @@ class PatientController extends Controller
             'paragraph' => 'Your Guru  '.$guruname.' give valuable feedback on your PHR  Number '.format_patient_id($patient_id).'.  Please login to the portal and check the Notifications section for further details.',
             ];
 
-
-            Mail::to($shishya->email)->send(new PhrGuruShishya($phrData));
+            if(isset($shishya->email)){
+                Mail::to($shishya->email)->send(new PhrGuruShishya($phrData));
+            }
 
            $patient->phr_g_status=1;
            $patient->phr_s_status=0;
@@ -1175,21 +1176,19 @@ class PatientController extends Controller
     }
 
 
-    public function in_patients($phr_type)
+    public function in_patients()
     {
-        if($phr_type=="In-Patient")
-        {
-            $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
-            //dd($patientlist);
-        }
-        elseif($phr_type=="OPD-Patient")
-        {
-           $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => $phr_type,'soft_delete' => 0])->get();
-        }
+        $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => 'In-Patient','soft_delete' => 0])->get();
         return view("patients.admin.patient-list",compact("patientlist"));      
          
     }
 
+    public function opd_patients()
+    {
+        $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['patient_type' => 'OPD-Patient','soft_delete' => 0])->get();
+        return view("patients.admin.patient-list",compact("patientlist"));      
+         
+    }
 
         
 

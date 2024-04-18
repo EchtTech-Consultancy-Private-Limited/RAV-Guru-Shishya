@@ -23,37 +23,46 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 class AttendanceController extends Controller
 {
     //
-    public function index(Request $request,$guruid=0)
+    public function index(Request $request, $guruid = 0)
     {
-        $guru_id=0;
-        $gurus=[];
-        if(Auth::user()->user_type==1 || Auth::user()->user_type==4){
-            if($guruid==0)$guru_id=$request->guru_id;
-            else $guru_id=$guruid;
-            $request->guru_id=$guru_id;
-            $gurus=User::where('user_type','2')->where('status','1')->orderby('firstname','Asc')->get();
-        } else if(Auth::user()->user_type==2){
-            $guru_id=Auth::user()->id;
-        }
-        if($guru_id>0){
-            $shishyas=User::where('guru_id',$guru_id)->where('user_type','3')->where('status','1')->orderby('firstname','Asc')->get();
-        }else{
-            $shishyas=User::where('user_type','3')->where('status','1')->orderby('firstname','Asc')->get();
-        }
-        $data=Attendance::select('attendances.*', 'students.firstname as shishya_firstname','students.lastname as shishya_lastname', 'gurus.firstname as guru_firstname','gurus.lastname as guru_lastname')
-        ->leftJoin('users as students', 'students.id', '=', 'attendances.shishya_id')->leftJoin('users as gurus', 'gurus.id', '=', 'attendances.guru_id');
-        
-        if(!empty($request->guru_id))$data->where('attendances.guru_id',$guru_id);
-        if(!empty($request->shishya_id))$data->where('attendances.shishya_id',$request->shishya_id);
-        if(!empty($request->from_date))$data->where('attendances.attendance_date','>=',date("Y-m-d",strtotime($request->from_date)));
-        if(!empty($request->to_date))$data->where('attendances.attendance_date','<=',date("Y-m-d",strtotime($request->to_date)));
-        if(!empty($request->attendance))$data->where('attendances.attendance',$request->attendance);
-        $data=$data->orderby('attendance_date','Desc')->paginate(10);
-        $data->appends(['guru_id' => $request->guru_id,'shishya_id' => $request->shishya_id,'from_date' => $request->from_date,'to_date' => $request->to_date,'attendance' => $request->attendance]);
-        return view('attendance.index',compact('data','gurus','shishyas'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);
+        $guru_id = 0;
+        $gurus = [];
 
+        // Determine the user's role and set the appropriate guru_id
+        if (Auth::user()->user_type == 1 || Auth::user()->user_type == 4) {
+            $guru_id = ($guruid == 0) ? $request->guru_id : $guruid;
+            $request->guru_id = $guru_id;
+            $gurus = User::where('user_type', '2')->where('status', '1')->orderBy('firstname', 'asc')->get();
+        } else if (Auth::user()->user_type == 2) {
+            $guru_id = Auth::user()->id;
+        }else if (Auth::user()->user_type == 3) {
+            $shishyaId = Auth::user()->id;
+        }
+
+        // Fetch shishyas based on guru_id
+        if ($guru_id > 0) {
+            $shishyas = User::where('guru_id', $guru_id)->where('user_type', '3')->where('status', '1')->orderBy('firstname', 'asc')->get();
+        } else {
+            $shishyas = User::where('user_type', '3')->where('status', '1')->orderBy('firstname', 'asc')->get();
+        }
+
+        // Retrieve attendance data based on filters
+        $data = Attendance::select('attendances.*', 'students.firstname as shishya_firstname', 'students.lastname as shishya_lastname', 'gurus.firstname as guru_firstname', 'gurus.lastname as guru_lastname')
+            ->leftJoin('users as students', 'students.id', '=', 'attendances.shishya_id')
+            ->leftJoin('users as gurus', 'gurus.id', '=', 'attendances.guru_id');
+
+        if (!empty($guru_id)) $data->where('attendances.guru_id', $guru_id);
+        if (!empty($shishyaId)) $data->where('attendances.shishya_id', $shishyaId);
+        if (!empty($request->from_date)) $data->where('attendances.attendance_date', '>=', date("Y-m-d", strtotime($request->from_date)));
+        if (!empty($request->to_date)) $data->where('attendances.attendance_date', '<=', date("Y-m-d", strtotime($request->to_date)));
+        if (!empty($request->attendance)) $data->where('attendances.attendance', $request->attendance);
+
+        // Fetch filtered data
+        $data = $data->orderBy('attendance_date', 'desc')->get();
+
+        return view('attendance.index', compact('data', 'gurus', 'shishyas'));
     }
+
 
     public function export_attendance(Request $request,$guruid=0)
     {        
@@ -150,7 +159,6 @@ class AttendanceController extends Controller
 
     public function viewAttendance(Request $request)
     {
-        // dd($request->all());
         $attendance = Attendance::where('id',$request->attendance_id)->first();
         return response()->json($attendance);
     }
