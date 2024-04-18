@@ -357,6 +357,7 @@ div.dataTables_wrapper div.dataTables_paginate {
 button.btn.btn-primary.waves-effect {
     margin-right: 10px;
     background-color: #E67E22 !important;
+    z-index: 0;
 }
 .new-patient-input select{
     cursor: pointer;
@@ -1783,4 +1784,10 @@ input::placeholder{
         align-items: center;
         font-size: 18px;
         font-weight: 400;
+  }
+
+  .form-group .form-line:after{
+    content: " ";
+    position: relative !important;
+    border: none !important;
   }
