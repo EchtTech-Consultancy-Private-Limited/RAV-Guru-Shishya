@@ -123,6 +123,7 @@ class AddUserController extends Controller
                 $existingPermission = ModelPermission::where('model_id', $item->id)
                                         ->where('user_id', $user->id)
                                         ->first();
+                                        
                 if (!$existingPermission) {
                     ModelPermission::create([
                         'model_id' => $item->id,

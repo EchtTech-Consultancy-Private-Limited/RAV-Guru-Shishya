@@ -343,6 +343,7 @@ use Illuminate\Support\Facades\Auth;
     }
 
     // get specific module permission for usertype
+    
     function module_menu($userType)
     {
         $data = ModelName::orderBy('shorting','ASC')->where('module_action',0)->where('user_type',$userType)->get();
