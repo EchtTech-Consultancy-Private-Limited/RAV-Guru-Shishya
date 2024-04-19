@@ -443,7 +443,6 @@ class PatientController extends Controller
                 'body' => 'Dear ' .$guru->firstname.',',
                 'paragraph' => 'Your Shishya '.$shishya->firstname.'  shared a remark on Follow Up for PHR having No. '.format_patient_id($data->patient_id).' with you. Kindly have a look at it and provide your valuable feedback <br> Remark:<br>'.$request->remark,
                 ];
-
                 Mail::to($guru->email)->send(new SendPhr($follow_up_data));
 
             //Mail sending script ends here
@@ -452,7 +451,7 @@ class PatientController extends Controller
         } elseif(Auth::user()->user_type==2){
             if($request->send_to==1){
                 $data=FollowUpPatient::where('id',$request->followup_id)->where('guru_id',Auth::user()->id)->where('send_to_guru',1)->first();
-                $data1=FollowUpPatient::where('id',$request->followup_id)->where('guru_id',Auth::user()->id)->where('send_to_guru',1)->update(['send_to_admin'=>1,'send_to_guru'=>0,'read_by_admin'=>0]);
+                $data1=FollowUpPatient::where('id',$request->followup_id)->where('guru_id',Auth::user()->id)->where('send_to_guru',1)->update(['send_to_admin'=>1,'send_to_guru'=>0,'read_by_admin'=>1]);
 
                 //Mail sending script start here
 
@@ -473,7 +472,7 @@ class PatientController extends Controller
                 return redirect('/view-follow-up-sheet/'.encrypt($request->followup_id))->with('success', 'Remark for follow up, send to admin successfully.');
             } elseif($request->send_to==3){
                 $data=FollowUpPatient::where('id',$request->followup_id)->where('guru_id',Auth::user()->id)->where('send_to_guru',1)->first();
-                $data1=FollowUpPatient::where('id',$request->followup_id)->where('guru_id',Auth::user()->id)->where('send_to_guru',1)->update(['send_to_shishya'=>1,'read_by_shishya'=>0]);
+                $data1=FollowUpPatient::where('id',$request->followup_id)->where('guru_id',Auth::user()->id)->where('send_to_guru',1)->update(['send_to_shishya'=>1,'read_by_shishya'=>1]);
 
                 //Mail sending script start here
 
@@ -495,7 +494,7 @@ class PatientController extends Controller
         } elseif(Auth::user()->user_type==1 || Auth::user()->user_type==4){           
             $data=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->first();
             if(isset($request->remark_type) && $request->remark_type==1){
-                $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['send_to_guru'=>1,'read_by_guru'=>0]);
+                $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['send_to_guru'=>1,'read_by_guru'=>1]);
             } else {
                 $data1=FollowUpPatient::where('id',$request->followup_id)->where('send_to_admin',1)->update(['read_by_guru'=>0]);
             }
@@ -914,7 +913,7 @@ class PatientController extends Controller
 
             $shishya_id=$patient->shishya_id;
             $shishya=User::find($shishya_id);
-            $shishyaname=$shishya->firstname;
+            $shishyaname=$shishya->firstname ?? '';
             $admin=User::where('user_type',1)->first();
             $adminname=$admin->firstname;
 
@@ -928,7 +927,9 @@ class PatientController extends Controller
             ];
 
             $adminmail="vishal@yopmail.com";
-            Mail::to($shishya->email)->send(new PhrAdmin($phrData));
+            if(isset($shishya->email)){
+                Mail::to($shishya->email)->send(new PhrAdmin($phrData));
+            }
 
 
             $phrData1 = [
@@ -948,8 +949,12 @@ class PatientController extends Controller
 
            $patient->save();
            if(Auth::user()->user_type == 1){
-            return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
-        }
+                if($request->patient_type == 'OPD-Patient'){
+                    return redirect('/patients/OPD-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                }else{
+                    return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                }
+            }
         if(Auth::user()->user_type == 3){
             return redirect('/new-patient-registration')->with('success', 'Your remark has been sent to guru successfully');
         }
@@ -983,7 +988,11 @@ class PatientController extends Controller
            $patient->read_by_shishya=1;
            $patient->save();
             if(Auth::user()->user_type == 1){
-                return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                if($request->patient_type == 'OPD-Patient'){
+                    return redirect('/patients/OPD-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                }else{
+                    return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                }
             }
             if(Auth::user()->user_type == 3){
                 return redirect('/new-patient-registration')->with('success', 'Your remark has been sent to guru successfully');
@@ -1018,7 +1027,11 @@ class PatientController extends Controller
            $patient->read_by_shishya=1;
            $patient->save();
             if(Auth::user()->user_type == 1){
-                return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                if($request->patient_type == 'OPD-Patient'){
+                    return redirect('/patients/OPD-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                }else{
+                    return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
+                }
             }
             if(Auth::user()->user_type == 3){
                 return redirect('/new-patient-registration')->with('success', 'Your remark has been sent to guru successfully');
