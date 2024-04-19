@@ -211,7 +211,7 @@
                         </div>
                      </div>
                   <div class="row clearfix">
-                     <div class="col-sm-6">
+                     <div class="col-md-3">
                         <div class="form-group">
                               <label for="passwordinput">
                               Password
@@ -262,7 +262,7 @@
                               </div>
                            </div>
                      </div>
-                     <div class="col-sm-6">
+                     <div class="col-md-3">
                         <div class="form-group">
                            <div class="form-line">
                               <label>Confirm Password<span class="text-danger">*</span></label>

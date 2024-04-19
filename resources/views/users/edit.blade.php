@@ -33,9 +33,10 @@
                             <div class="row clearfix">
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                        <div class="form-line">
+                                        <div class="">
+                                        <label for="" class="">Title</label>
 
-                                            <strong>Title</strong>
+                                            <strong></strong>
                                             <select name="title" class="form-control">
                                                 <option>Select Title </option>
                                                 @foreach(__('phr.titlename') as $key=>$value)
@@ -48,8 +49,9 @@
                            
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            <strong>First Name<span class="text-danger"> *</span></strong>
+                                        <div class="">
+                                        <label for="passwordinput" class="">First Name<span class="text-danger"> *</span> </label>
+                                          
                                              {!! Form::text('firstname', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
                                              @if ($errors->has('firstname'))
                                             <span class="help-block">
@@ -62,15 +64,16 @@
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <strong>Middle Name</strong>
+                                        <label for="" class="">Middle Name</label>
                                              {!! Form::text('middlename', null, array('placeholder' => 'Middle Name','class' => 'form-control')) !!}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            <strong>Last Name<span class="text-danger"> *</span></strong>
+                                        <div class="">
+                                        <label for="" class="">Last Name<span class="text-danger"> *</span></label>
+
                                             {!! Form::text('lastname', null, array('placeholder' => 'Lastname','class' => 'form-control')) !!}
                                             @if ($errors->has('lastname'))
                                                 <span class="help-block">
@@ -84,8 +87,8 @@
 
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            <strong>Email<span class="text-danger"> *</span></strong>
+                                        <div class="">
+                                        <label for="" class="">Email<span class="text-danger"> *</span></label>
                                             {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control', 'readonly' => 'true' )) !!}
                                             @if ($errors->has('email'))
                                                 <span class="help-block">
@@ -97,9 +100,8 @@
                                 </div>
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            <strong>Mobile No<span class="text-danger"> *</span></strong>
-
+                                        <div class="">
+                                        <label for="" class="">Mobile No<span class="text-danger"> *</span></label>
                                            <input type="text" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No."  value="{{ $user->mobile_no }}" maxlength="10" readonly>
                                            @if ($errors->has('mobile_no'))
                                                 <span class="help-block">
@@ -112,17 +114,9 @@
                                 </div>
                                 <div class="col-xxl-2 col-xl-3 col-md-6 col-6">
                                     <div  class="form-group">
-                                        <label for="Gender"
-                                            class="form-control-label">Gender<span
-                                            class="text-danger">*</span></label>
-                                        <select
-                                            name="gender"
-                                            id="Gender"
-                                            class="form-control">
-                                            <option
-                                            value="">Please
-                                            select
-                                            </option>
+                                        <label for="Gender"   class="form-control-label">Gender<span  class="text-danger">*</span></label>
+                                        <select  name="gender"    id="Gender" class="form-control">
+                                            <option  value="">Please select</option>
                                             @foreach(__('phr.gender') as $key=>$value)
                                             <option value="{{$key}}" {{$user->gender == $key  ? 'selected' : ''}}>{{$value}}</option>
                                         @endforeach
@@ -185,7 +179,7 @@
                              
                                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                        <div class="form-group">
-                                          <div class="form-line">
+                                          <div class="">
                                              <label >User Type<span class="text-danger">*</span></label>
                                              <select name="user_type" id="user_type" class="form-control">
                                                 <option value="">Select User Type</option>
@@ -216,7 +210,7 @@
                                              <select name="shishyatype" class="form-control">
                                                 <option value="">Select User Type</option>
                                                 @foreach(__('phr.shishya_type') as $key=>$value)
-                                                   <option @if( $key==$user->shishyatype) SELECTED @endif value="{{$key}}">{{$value}}</option>
+                                                   <option @if( $key==$user->shishyatype) SELECTED @endif value="{{$key}}">{{$value}}</option>          
                                                 @endforeach
                                               </select>
                                           </div>
@@ -255,7 +249,7 @@
                                                   <input id="password" class="form-control input-md"
                                                      name="password" type="password"
                                                      placeholder="Enter your password">
-                                                     <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                                     <span toggle="#password" class="fas fa-eye-slash field-icon toggle-password"></span>
                                                   <span class="text-danger" id="password_error"></span>
                                                   <span class="show-pass" onclick="toggle()">
                                                   </span>
@@ -324,7 +318,7 @@
                                           <label >E-Signature</label>
                                             <input type="file" name="e_sign" id="e_sign" class="form-control" >
                                             @if ($errors->has('e_sign'))
-                                                <span class="help-block">
+                                                <span class="help-block d-block">
                                                     <strong style="color:red;">{{ $errors->first('e_sign') }}</strong>
                                                 </span>
                                             @endif
@@ -339,7 +333,7 @@
                                             <label >Profile Picture</label>
                                             <input type="file" name="profile_image" id="profile_image" class="form-control" >
                                             @if ($errors->has('profile_image'))
-                                                <span class="help-block">
+                                                <span class="help-block d-block">
                                                     <strong style="color:red;">{{ $errors->first('profile_image') }}</strong>
                                                 </span>
                                             @endif

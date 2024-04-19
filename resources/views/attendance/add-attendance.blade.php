@@ -35,7 +35,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                 <a href="{{ url('/attendance-list') }}"><button type="button"
                                                 class="btn back waves-effect"> &nbsp; Back &nbsp;</button></a>
                 </div>

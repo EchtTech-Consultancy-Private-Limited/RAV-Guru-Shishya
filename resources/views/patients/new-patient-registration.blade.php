@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-md-6 col-lg-6">
 
                     <ul class="breadcrumb breadcrumb-style ">
                         <li class="breadcrumb-item">
@@ -31,9 +31,13 @@
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
                             <a href="{{ url('/dashboard') }}">
-                                <i class="fas fa-home"></i> Home</a>
+                                <i class="fas fa-home"></i> Dashboard</a>
                         </li>
-                        <li class="breadcrumb-item active"> New Patients </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a href="{{ url('/dashboard') }}">
+                                 Manage Patients  </a>
+                        </li>
+                        <li class="breadcrumb-item active"> New Patient Registration </li>
                     </ul>
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -45,6 +49,19 @@
                         <p>{{ $message }}</p>
                     </div>
                     @endif
+                </div>
+                <div class="col-md-6 pt-2">
+                    <div class=" d-flex align-items-center justify-content-end h-100">
+                        <div>
+                            @if (Auth::user()->guru_id)
+                            @if(permissionCheck()->add == 1 || Auth::user()->user_type == 4)
+                            <a type="button" href="{{ url('/add-history-sheet') }}" class="btn add  waves-effect " >+ Add PHR
+                            </a>
+                            @endif
+                            @endif
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -72,19 +89,7 @@
                                         </div>
                                     </div>                                    
                                 </div>
-                                <div class="col-md-6 pt-2">
-                                    <div class=" d-flex align-items-center justify-content-end h-100">
-                                        <div>
-                                            @if (Auth::user()->guru_id)
-                                            @if(permissionCheck()->add == 1 || Auth::user()->user_type == 4)
-                                            <a type="button" href="{{ url('/add-history-sheet') }}" class="btn add  waves-effect " >+ Add PHR
-                                            </a>
-                                            @endif
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                </div>
+                              
                             </div>
                         </div>
                     </form>
@@ -125,7 +130,7 @@
 
 
 
-                                                        <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
+                                                        <th class="center sorting text-nowrap" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Created Date : activate to sort column ascending">
                                                             Action <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                                         <th class="center sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label=""> Remarks <i class="fa fa-long-arrow-up" aria-hidden="true"></i><i class="fa fa-long-arrow-down" aria-hidden="true"></i></th>
                                                     </tr>
@@ -155,7 +160,7 @@
                                                         </td>
                                                         <td class="center date" > {{ date('d-m-Y', strtotime($patientlist->registration_date)) }}</td>
 
-                                                        <td>
+                                                        <td class="text-nowrap">
                                                             @if(permissionCheck()->view == 3 || Auth::user()->user_type == 4)
                                                             <a href="{{ url('view-patient/' . encrypt($patientlist->id)) }}" class="btn view btn-tbl-edit" title="View Patient">
                                                                 <i class="material-icons">visibility</i>

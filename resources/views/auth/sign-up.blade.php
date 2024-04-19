@@ -253,7 +253,10 @@
                                         <span class="show-pass" onclick="toggle()">
                                         </span>
                                        
-                                        <div id="popover-password">
+                                       
+                                        <p class="error"></p>
+                                    </div>
+                                    <div id="popover-password">
                                             <p><span id="result"></span></p>
                                             <div class="progress">
                                                 <div id="password-strength" class="progress-bar" role="progressbar"
@@ -287,8 +290,6 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <p class="error"></p>
-                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">

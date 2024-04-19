@@ -619,7 +619,7 @@ class PatientController extends Controller
         $input['phr_a_status']=0;
         $input['phr_g_status']=0;
         $input['phr_s_status']=1;        
-        //dd($input['phr_s_status']);
+        // dd($input['phr_s_status']);
         $patient = Patient::create($input);
         return redirect('/new-patient-registration')->with('success', 'Patient Registered Successfully');
     }
@@ -630,7 +630,6 @@ class PatientController extends Controller
         $patient=Patient::find($id);
         $patient->read_by_shishya=1;
         $patient->save();
-        //$guru=User::where('id',$patient->guru_id)->first();
 
         $guru=DB::table('users')->where('users.id',$patient->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
 
@@ -944,8 +943,8 @@ class PatientController extends Controller
 
            $patient->phr_a_status=1;
            $patient->phr_g_status=0;
-           $patient->phr_s_status=0;
-           $patient->read_by_admin=0;
+           $patient->phr_s_status=1;
+           $patient->read_by_admin=1;
 
            $patient->save();
            if(Auth::user()->user_type == 1){
@@ -981,7 +980,7 @@ class PatientController extends Controller
            $patient->phr_g_status=1;
            $patient->phr_s_status=0;
            $patient->phr_a_status=0;
-           $patient->read_by_shishya=0;
+           $patient->read_by_shishya=1;
            $patient->save();
             if(Auth::user()->user_type == 1){
                 return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
@@ -1016,7 +1015,7 @@ class PatientController extends Controller
            $patient->phr_g_status=0;
            $patient->phr_s_status=1;
            $patient->phr_a_status=0;
-           $patient->read_by_shishya=0;
+           $patient->read_by_shishya=1;
            $patient->save();
             if(Auth::user()->user_type == 1){
                 return redirect('/patients/In-Patient')->with('success', 'Your remark has been sent to guru successfully');
