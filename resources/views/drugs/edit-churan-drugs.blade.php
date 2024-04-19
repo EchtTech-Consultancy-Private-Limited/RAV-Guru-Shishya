@@ -452,7 +452,7 @@
                 </div>
                 <div class="title">
 
-                   <p class="text-capatilize text-sm">Duration required for the experiment</p>
+                   <p class="text-capatilize text-sm">Duration for the experiment</p>
                 </div>
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">

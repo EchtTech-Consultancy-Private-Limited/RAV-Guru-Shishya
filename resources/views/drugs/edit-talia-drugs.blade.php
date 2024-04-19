@@ -172,8 +172,7 @@
                                                                         <table id="faqs" class="table table-hover composition-form">
                                                                             <thead>
                                                                                 <tr>
-                                                                                    <th>Name of the ingredients mineral
-                                                                                        metal</th>
+                                                                                    <th>Name of the ingredients </th>
                                                                                     <th>Part used </th>
                                                                                     <th>Quantity</th>
                                                                                     <th>Action</th>

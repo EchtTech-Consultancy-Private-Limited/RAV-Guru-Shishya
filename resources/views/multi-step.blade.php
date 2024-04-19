@@ -23,8 +23,7 @@
                              <!-- <p style="color:#000;">{{ request()->path() }}</p>   -->
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{url('/dashboard')}}">
-                             <i class="fas fa-home"></i> Home</a>
+                            <a href="{{url('/dashboard')}}">Dashboard</a>
                           </li>
 
                           <li class="breadcrumb-item active"> @if(request()->path()=="patients/In-Patient") In Patients @elseif(request()->path()=="patients/OPD-Patient") OPD Patients @elseif(request()->path()=="admin-patient-list") Patients @endif  </li>

@@ -812,7 +812,36 @@ lable.each(function(){
     let ofIndex = lable_text.indexOf('of');
     if(ofIndex !== -1){
       lable_text = lable_text.replace('of', '<span class = "label-of">of</span>');
+      lable_text = lable_text.replace('*', '<span class = "text-danger">*</span>');
+      $(this).html(lable_text);
+      console.log($(this).html(lable_text))
+    }
+});
+
+let td = $('td');
+td.each(function(){
+    let lable_text = $(this).text();
+    let ofIndex = lable_text.indexOf('of');
+    if(ofIndex !== -1){
+      lable_text = lable_text.replace('of', '<span class = "label-of">of</span>');
       $(this).html(lable_text);
     }
-    console.log(lable_text);
+});
+
+$('.submit').on('click', () => {
+  let labels = $('label.error');
+  console.log(labels);
+
+  labels.each(function() {
+      let labelText = $(this).html();
+      console.log(labelText);
+
+      let indexOfIs = labelText.indexOf('is');
+      if (indexOfIs !== -1) {
+          labelText = labelText.replace('is', '<span class="text-lowercase">is</span>');
+          $(this).html(labelText);
+      }
+
+      console.log(labelText);
+  }, 1000);
 });
