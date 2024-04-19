@@ -1823,3 +1823,8 @@ display: none !important;
 input.form-control::placeholder {
     color: grey !important;
 }
+
+.captcha{
+    display: block;
+    margin-top: 13px;
+}

@@ -316,7 +316,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="password" class="sr-only">Captcha</label>
+                                    <label for="password" class="">Captcha</label>
                                       <div class="captcha ">
                                         <span id="captcha-signup">{{$CustomCaptch['expression'] }}</span>
                                         {{-- <span>{!! captcha_img('math') !!}</span> --}}
