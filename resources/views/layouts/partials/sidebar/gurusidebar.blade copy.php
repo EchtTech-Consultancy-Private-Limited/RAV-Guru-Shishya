@@ -23,20 +23,20 @@
                     
                     <li class="{{ Request::is('dashboard')?'active':''; }}">
                         <a href="{{url('/dashboard')}}">
-                            <i data-feather="check-circle"></i>
+                           <img src="{{ asset('assets/images/dashboard.png') }}" alt="dashboard">
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{url('/profile')}}" >
-                            <i data-feather="check-circle"></i>
+                        <img src="{{ asset('assets/images/profile.png') }}" alt="dashboard">
                             <span>Manage Profile</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('shishya-list')?'active':''; }}">
                         <a href="#" onClick="return false;" class="menu-toggle">
-                            <i data-feather="monitor"></i>
+                        <img src="{{ asset('assets/images/dashboard.png') }}" alt="dashboard">
                             <span>Manage Shishya</span>
                         </a>
                         <ul class="ml-menu">
@@ -51,19 +51,19 @@
 
                     <li onclick="unclick();">
                         <a href="{{url('/profile')}}" class="disabled" >
-                            <i data-feather="check-circle"></i>
+                             <img src="{{ asset('assets/images/notification.png') }}" alt="dashboard">
                             <span>Notification</span>
                         </a>
                     </li>
                     <li onclick="unclick();">
                         <a href="{{url('/profile')}}" class="disabled">
-                            <i data-feather="check-circle"></i>
+                             <img src="{{ asset('assets/images/dashboard.png') }}" alt="dashboard">
                             <span>History Sheet</span>
                         </a>
                     </li>
                     <li onclick="unclick();">
                         <a href="{{url('/profile')}}"class="disabled">
-                            <i data-feather="check-circle"></i>
+                             <img src="{{ asset('assets/images/dashboard.png') }}" alt="dashboard">
                             <span>Daily History Sheet</span>
                         </a>
                     </li>

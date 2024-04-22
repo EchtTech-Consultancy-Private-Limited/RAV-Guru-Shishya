@@ -792,17 +792,25 @@ function setLtrLayout() {
 let status = $(".status");
 console.log(status);
 //==========================================================================================================================
-
-let select = $('select');
-select.each(function () {
-    $(this).on('change', () => {
+let selects = $('select');
+selects.each(function () {
+    $(this).on('change', function () {
         let valueArr = $(this).find(':selected').text().trim().split(' ');
-        if (valueArr[0] !== 'Select') {
-            $(this).css('color', '#000');
-        } else {
+        if (valueArr.includes('select') || valueArr.includes('Select')) {
             $(this).css('color', 'grey');
+        } else {
+            $(this).css('color', '#000');
         }
     });
+});
+
+selects.each(function () {
+  let valueArr = $(this).find(':selected').text().trim().split(' ');
+      if (valueArr.includes('select') || valueArr.includes('Select')) {
+          $(this).css('color', 'grey');
+      } else {
+          $(this).css('color', '#000');
+      }
 });
 
  
@@ -814,7 +822,7 @@ lable.each(function(){
       lable_text = lable_text.replace('of', '<span class = "label-of">of</span>');
       lable_text = lable_text.replace('*', '<span class = "text-danger">*</span>');
       $(this).html(lable_text);
-      console.log($(this).html(lable_text))
+    
     }
 });
 
@@ -845,3 +853,13 @@ $('.submit').on('click', () => {
       console.log(labelText);
   }, 1000);
 });
+
+let selectTime = $(".select2-container .select2-search--inline .select2-search__field");
+
+$("button.btn.next").on('click', ()=>{
+ 
+  console.log(selectTime);
+  selectTime.on('change', () => {
+    console.log(selectTime.val());
+  });
+})
