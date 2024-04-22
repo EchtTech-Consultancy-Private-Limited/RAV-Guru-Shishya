@@ -23,9 +23,11 @@
 
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{ url('/dashboard') }}">
-                                <i class="fas fa-home"></i> Home</a>
+                        <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
                         </li>
+                            <li class="breadcrumb-item bcrumb-1">
+                                <a href="{{ url('/dashboard') }}">Manage Patients</a>
+                            </li>
 
                         <li class="breadcrumb-item active"> Follow Up Patients </li>
                     </ul>

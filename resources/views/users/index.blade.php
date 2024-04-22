@@ -25,11 +25,10 @@
                      
                   </li>
                   <li class="breadcrumb-item bcrumb-1">
-                     <a  href="{{url('/dashboard')}}">
-                     <i class="fas fa-home"></i> Home</a>
+                  <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
                   </li>
                   
-                  <li class="breadcrumb-item active">  @if(request()->path()=="users") Guru @elseif(request()->path()=="shishya-list") Shishya @elseif(request()->path()=="rav-admin") Admin @endif</li>
+                  <li class="breadcrumb-item active">  @if(request()->path()=="users") Guru @elseif(request()->path()=="shishya-list") Manage Shishya @elseif(request()->path()=="rav-admin") Admin @endif</li>
                </ul>
             </div>
             <div class="col m-2">

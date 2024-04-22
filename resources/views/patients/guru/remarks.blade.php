@@ -61,13 +61,18 @@
                   <input type="hidden" name="guru_id" value="{{$patient->guru_id}}">
                   <input type="hidden" name="shishya_id" value="{{$patient->shishya_id}}">
                   <input type="hidden" name="patient_id" value="{{$patient->id}}">
+                  <input type="hidden" name="patient_type" value="{{$patient->patient_type ?? ''}}">
                @csrf
                <div class="body">
                      <div class="col-sm-12">
                   <div class="row clearfix">
                      <div class="col-md-12">
                         @if(Auth::user()->user_type == 1)
-                        <a href="{{ url('/patients/In-Patient') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
+                           @if($patient->patient_type == 'In-Patient')
+                              <a href="{{ url('/patients/In-Patient') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
+                           @else
+                              <a href="{{ url('/patients/OPD-Patient') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>
+                           @endif
                         @endif
                         @if(Auth::user()->user_type == 2)
                         <a href="{{ url('/guru-patient-list') }}"><button type="button" class="btn back waves-effect float-right me-3"> &nbsp; Back &nbsp;</button></a>

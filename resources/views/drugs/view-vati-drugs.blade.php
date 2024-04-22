@@ -166,7 +166,7 @@
 
                                                         </tr>
                                                         <tr>
-                                                            <td>Enter Yogas Name </td>
+                                                            <td> Yogas Name </td>
                                                             <td> {{ $drug->vati_yoga_type_individual }}</td>
                                                         </tr>
                                                         <tr>

@@ -30,8 +30,7 @@
 
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{ url('/dashboard') }}">
-                                <i class="fas fa-home"></i> Dashboard</a>
+                            <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
                             <a href="{{ url('/dashboard') }}">

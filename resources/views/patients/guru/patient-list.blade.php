@@ -30,11 +30,13 @@
 
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{url('/dashboard')}}">
-                             <i class="fas fa-home"></i> Home</a>
+                          <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
+                          </li>
+                          <li class="breadcrumb-item bcrumb-1">
+                           <a > Manage Patients</a>
                           </li>
 
-                          <li class="breadcrumb-item active">   New Patients </li>
+                          <li class="breadcrumb-item active"> <a > Patient List</a></li>
                        </ul>
                        @if ($message = Session::get('success'))
                          <div class="alert alert-success">

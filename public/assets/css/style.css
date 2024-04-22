@@ -1219,6 +1219,9 @@ table th, table tr, table td {
     border-left: 1px solid #ddd;
     padding: 10px 10px;
 }
+table td{
+    color: #000;
+}
 table th:last-child, table tr:last-child, table td:last-child {
 
     border-right: 1px solid #ddd;
@@ -1242,7 +1245,7 @@ table th:last-child, table tr:last-child, table td:last-child {
 
 .select2-container .select2-selection--single .select2-selection__rendered{
     padding: 0 !important;
-    /* margin: -7px 0; */
+    margin: -7px 0;
     font-size: 13px;
 }
 
@@ -1259,9 +1262,11 @@ table tr .title{
     font-weight: bold;
 }
 
+
 .view-table tr td:first-child{
     font-weight: bold !important;
     color: #000;
+    text-transform: capitalize;
 }
 
 
@@ -1817,4 +1822,9 @@ display: none !important;
 }
 input.form-control::placeholder {
     color: grey !important;
+}
+
+.captcha{
+    display: block;
+    margin-top: 13px;
 }

@@ -22,10 +22,10 @@
                              <h6 class="page-title">List of Drug Details </h6>
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{url('/dashboard')}}">
-                                <i class="fas fa-home"></i> Home</a>
+                          <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
                         </li>
 
+                        <li class="breadcrumb-item active">Manage Drugs </li>
                         <li class="breadcrumb-item active">List of Drug Details </li>
                     </ul>
                     @if ($message = Session::get('success'))
@@ -105,8 +105,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Select
-                                                        Yogas<span class="text-danger">*</span></label>
+                                                    <label for="example-text-input" class="form-control-label">Select  Yogas</label>
                                                     <select class="form-control" id="yogas_type" name="yogas_type"
                                                         required>
                                                         <option value="">Please Select </option>
