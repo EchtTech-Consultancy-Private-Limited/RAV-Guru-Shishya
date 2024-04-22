@@ -10,6 +10,7 @@
     <script>
         var $baseurl="{{url('/')}}";
     </script>
+    <link rel="stylesheet" href="{{ asset('assets/css/filter_multi_select.css') }}">
     <!-- vendor css -->
     <link rel="icon" href="{{ asset('assets/images/rav-logo.png') }} " type="image/x-icon">
     <!-- Plugins Core Css -->
@@ -75,7 +76,6 @@
        <!-- [ Content ] End -->
 @include('layouts/partials.footer')
 
-
 <script src="{{ asset('assets/js/app.min.js') }}"></script>
 <script src="{{ asset('assets/js/table.min.js') }} "></script>
 <!-- Custom Js -->
@@ -97,5 +97,12 @@
 <script src="{{ asset('assets/js/footer-custom-script.js') }}"></script>
 <script src="{{ asset('assets/js/drug-custom-script.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/sweetalert.js') }}"></script>
+<script src="{{ asset('assets/js/filter-multi-select-bundle.min.js') }}"></script>
+
+<script>
+   let select2 = $('#mySelect2').filterMultiSelect();
+   let select3 = $('#mySelect3').filterMultiSelect();
+   let select4 = $('#mySelect4').filterMultiSelect();
+</script>
 </body>
 </html>

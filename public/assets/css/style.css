@@ -1498,7 +1498,7 @@ i.fa.fa-plus {
 }
 
 #Name_Clinic {
-    padding: 5px 0 !important;
+    padding: 7px 0 !important;
   }
 #delete_remark{
     height: auto;
@@ -1823,8 +1823,12 @@ display: none !important;
 input.form-control::placeholder {
     color: grey !important;
 }
-
-.captcha{
-    display: block;
-    margin-top: 13px;
+input::placeholder {
+    color: grey !important;
+}
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: grey;
+}
+.viewbar.form-control.dropdown-toggle {
+    min-height: 30px !important;
 }

@@ -11,7 +11,7 @@
                   </li>
                   <li class="breadcrumb-item bcrumb-1">
                      <a href="{{url('/dashboard')}}">
-                        <i class="fas fa-home"></i> Home
+                        <i class="fas fa-home"></i> Dashboard
                      </a>
                   </li>
                   <li class="breadcrumb-item active">  @if(request()->path()=="profile") Manage Profile  @endif   </li>
@@ -824,8 +824,8 @@
 
 
                                        <div class="form-group default-select select2Style p-0">
-                                       <label for="Registration_year">Working days </label>
-                                          <select class="form-control select2 width p-0"  multiple="" data-placeholder="Select" name="working_days[]">
+                                       <!-- <label for="Registration_year">Working days </label> -->
+                                          <!-- <select class="form-control select2 width p-0"  multiple="" data-placeholder="Select" name="working_days[]">
                                              @foreach(__('phr.working_days') as $key=>$value)
                                              @if(isset($clinic_working_record))
                                              <option @if(in_array($value, $clinic_working_record))  selected @endif value="{{$value}}">{{$value}}</option>
@@ -833,7 +833,26 @@
                                              <option  value="{{$value}}">{{$value}}</option>
                                              @endif
                                              @endforeach
-                                          </select>
+                                          </select> -->
+
+                                          <div class="col-lg-12 col-md-2 col-4" id="test_performed">
+                                                <div class="form-group">
+                                                <label for="Registration_year">Working days </label>
+                                                    <select class="form-control select2 width p-0" data-placeholder="Select" name="working_days[]" id="mySelect2" multiple="multiple"
+                                                        aria-label="Default select" onKeyPress = "handleTest(event)">
+                                                        <!-- <option value="" selected>--All--</option> -->
+                                                        @foreach(__('phr.working_days') as $key=>$value)
+                                                         @if(isset($clinic_working_record))
+                                                         <option @if(in_array($value, $clinic_working_record))  selected @endif value="{{$value}}">{{$value}}</option>
+                                                         @else
+                                                         <option  value="{{$value}}">{{$value}}</option>
+                                                         @endif
+                                                         @endforeach
+                                                    </select>
+                                                    <small id="testPerformed-error" class="form-text text-muted">
+                                                    </small>
+                                                </div>
+                                            </div>
                                        </div>
 
                                  </div>
@@ -845,16 +864,18 @@
 
                                        <div class="form-group default-select select2Style">
                                        <label for="Registration_year">Morning Shifts Timings</label>
-                                          <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_morning_timing[]">
-                                             <option value="">Select Morning Timing</option>
-                                             @foreach(__('phr.clinic_morning_timing') as $key=>$value)
-                                             @if(isset($clinic_morning_timing))
-                                             <option @if(in_array($value, $clinic_morning_timing))  selected @endif value="{{$value}}">{{$value}}</option>
-                                             @else
-                                             <option  value="{{$value}}">{{$value}}</option>
-                                             @endif
-                                             @endforeach
-                                          </select>
+                                                    <select class="form-control width" data-placeholder="Select" name="clinic_morning_timing[]" id="mySelect3" multiple="multiple"
+                                                        aria-label="Default select" onKeyPress = "handleTest(event)">
+                                                        <option value="Select Morning Timing">Select Morning Timing</option>
+                                                         @foreach(__('phr.clinic_morning_timing') as $key=>$value)
+                                                         @if(isset($clinic_morning_timing))
+                                                         <option @if(in_array($value, $clinic_morning_timing))  selected @endif value="{{$value}}">{{$value}}</option>
+                                                         @else
+                                                         <option  value="{{$value}}">{{$value}}</option>
+                                                         @endif
+                                                         @endforeach
+                                                    </select>
+                                       
                                        </div>
 
                                  </div>
@@ -862,8 +883,9 @@
 
                                        <div class="form-group default-select select2Style">
                                        <label for="Registration_year">Evening Shifts Timings</label>
-                                          <select class="form-control select2 width" multiple="" data-placeholder="Select" name="clinic_evening_timing[]">
-                                             <option value="">Select Morning Timing</option>
+                                          <select class="form-control width" data-placeholder="Select" name="clinic_evening_timing[]" id="mySelect4" multiple="multiple"
+                                                        aria-label="Default select" onKeyPress = "handleTest(event)">
+                                             <option value="Select Morning Timing">Select Morning Timing</option>
                                              @foreach(__('phr.clinic_evening_timing') as $key=>$value)
                                              @if(isset($clinic_evening_timing))
                                              <option @if(in_array($value, $clinic_evening_timing))  selected @endif value="{{$value}}">{{$value}}</option>

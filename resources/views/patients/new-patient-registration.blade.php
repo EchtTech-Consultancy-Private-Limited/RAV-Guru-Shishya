@@ -22,7 +22,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
-                <div class="col-md-6 col-lg-6">
+                <div class="col-md-9 col-lg-9">
 
                     <ul class="breadcrumb breadcrumb-style ">
                         <li class="breadcrumb-item">
@@ -49,7 +49,7 @@
                     </div>
                     @endif
                 </div>
-                <div class="col-md-6 pt-2">
+                <div class="col-md-3 pt-2">
                     <div class=" d-flex align-items-center justify-content-end h-100">
                         <div>
                             @if (Auth::user()->guru_id)

@@ -51,7 +51,7 @@
                             <div class="row">
                                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
                                     <div class="form-group">
-                                        <label class="active">From:<span class="text-danger"></span></label>
+                                        <label class="active">From Date:<span class="text-danger"></span></label>
                                         <input type="date" name="from_date"
                                             class="form-control datetimepicker flatpickr-input active"
                                             value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
                                     <div class="form-group">
-                                        <label class="active">To:<span class="text-danger"></span></label>
+                                        <label class="active">To Date:<span class="text-danger"></span></label>
                                         <input type="date" name="to_date"
                                             class="form-control datetimepicker flatpickr-input active"
                                             value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
