@@ -254,7 +254,7 @@
                                         </span>
                                        
                                        
-                                        <p class="error"></p>
+                                        <span class="error"></span>
                                     </div>
                                     <div id="popover-password">
                                             <p><span id="result"></span></p>
