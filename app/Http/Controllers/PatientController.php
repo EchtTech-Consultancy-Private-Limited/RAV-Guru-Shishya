@@ -21,6 +21,9 @@ use App\Mail\PhrGuruShishya2;
 use App\Mail\PhrGuruShishya;
 use Carbon\Carbon;
 use PDF;
+use App\Models\PhrReport;
+use App\Models\PhrReportSubmitted;
+use App\Models\PhrReportRemarks;
 
 use DB;
 class PatientController extends Controller
@@ -171,7 +174,221 @@ class PatientController extends Controller
         $guru=DB::table('users')->where('users.id',$guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
         return view("patients.add-history-sheet",['guru'=>$guru]);
     }
+    
+    //Code definition by Gaurav for PHR Reporting
+    public function phr_reporting()
+    {
+        $guru_id=Auth::user()->guru_id;
+        $shishya_id=Auth::user()->id;
+        
+        //$guru=User::find($guru_id);
 
+        $guru=DB::table('users')->where('users.id',$guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
+        $phrData = PhrReport::where('shishya_id',$shishya_id)->get();
+        return view("patients.phr-reporting",['guru'=>$guru,'phrData'=>$phrData]);
+    }
+    
+    public function save_phrreport(Request $request)
+    {
+        request()->validate([
+            'guru_id' => 'required',
+            'shishya_id' => 'required',
+            'registration_no' => 'required',
+            'patient_name' => 'required',
+            'date' => 'required',
+            'diagnosis' => 'required'
+        ]);
+                $data=[
+                    'guru_id'=>$request->guru_id,
+                    'shishya_id'=>$request->shishya_id,
+                    'registration_no'=>$request->registration_no,
+                    'patient_name'=>$request->patient_name,
+                    'date'=>$request->date,
+                    'status'=>1,
+                    'diagnosis'=>$request->diagnosis
+                ];
+                //dd($data);
+            PhrReport::create($data);
+            $guru=DB::table('users')->where('users.id',$request->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
+            
+            //Getting the list of PHR
+            $phrData = PhrReport::where('shishya_id',$request->shishya_id)->get();
+            
+            //return view("patients.phr-reporting",['guru'=>$guru,'phrData'=>$phrData]);
+            return redirect('phr-report')->with('data', ['guru'=>$guru,'phrData'=>$phrData]);
+    }
+    public function view_phr_reporting()
+    {
+        $shishya_id = Auth::user()->id;
+        //Getting the list of PHR
+        $phrData = PhrReport::where([
+                                        'shishya_id'=>$shishya_id,
+                                        'date'=>date('Y-m-d')
+                                    ])->get();
+        return view("patients.view-phr-reporting",['phrData'=>$phrData]);
+    }
+    
+    public function guru_view_phr_reporting(Request $request)
+    {
+        $guru_id = Auth::user()->id;
+        //Getting the list of Shishyas
+        $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3','Super User'=>'4'];
+        if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
+            $data = User::orderBy('id','DESC')->where('user_type',"3")->get();
+        else if(Auth::user()->user_type=='2')
+            $data = User::orderBy('id','DESC')->where('guru_id',Auth::user()->id)->where('user_type',"3")->get();
+        else
+            abort(404);
+        return view('patients.guru-view-phr-reporting',compact('data','user_type_array'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+        
+//        $phrData = PhrReport::where([
+//                                        'guru_id'=>$guru_id
+//                                    ])->get();
+        //return view("patients.guru-view-phr-reporting",['phrData'=>$phrData]);
+    }
+    
+    public function guru_view_today_report($id)
+    {
+        //Getting the list of PHR
+        $phrData = PhrReport::where(
+                [
+                    'shishya_id'=>$id,
+                    'date'=>date('Y-m-d')
+                ])->get();
+        return view("patients.guru-view-today-phr-reporting",['phrData'=>$phrData,'id'=>$id]);
+    }
+    
+    public function report_data_search(Request $request)
+    {
+        $date = $request->from_date;
+        $shishya_id = Auth::user()->id;
+        //Getting the list of PHR
+        $phrData = PhrReport::where(
+                [
+                    'shishya_id'=>$shishya_id,
+                    'date'=>$date
+                ])->get();
+        return view("patients.view-phr-reporting",['phrData'=>$phrData]);
+    }
+    
+    public function guru_report_data_search(Request $request) {
+        $date = $request->from_date;
+        $shishya_id = $request->shishya_id;
+        //Getting the list of PHR
+        $phrData = PhrReport::where(
+                [
+                    'shishya_id'=>$shishya_id,
+                    'date'=>$date
+                ])->get();
+        return view("patients.guru-view-today-phr-reporting",['phrData'=>$phrData,'id'=>$shishya_id]); 
+    }
+    
+    public function send_phr_report(Request $request)
+    {
+        $date = $request->from_date;
+        $shishya_id = Auth::user()->id;
+        $guru_id = Auth::user()->guru_id;
+        $phrData = PhrReport::where(
+                [
+                    'shishya_id'=>$shishya_id,
+                    'date'=>$date
+                ])->get();
+        
+        $data=[
+                'guru_id'=>$guru_id,
+                'shishya_id'=>$shishya_id,
+                'submitted_date'=>$date,
+                'report_details'=>$phrData,
+                'status'=>1
+              ];
+        //Check the previous report for the same date and same shishya
+        if(PhrReportSubmitted::where(['shishya_id'=>$shishya_id,'submitted_date'=>$date])->exists()){
+            echo "2";
+        }
+        else
+        {
+           PhrReportSubmitted::create($data);
+           echo "1";    
+        }
+        
+        
+    }
+    
+    public function save_comment_from_guru(Request $request)
+    {
+        $data=[
+                    'sender_id'=>Auth::user()->id,
+                    'reciever_id'=>$request->shishya_id,
+                    'sender_type'=>2,
+                    'reciever_type'=>3,
+                    'date'=>date('Y-m-d'),
+                    'shishya_read_status'=>0,
+                    'guru_read_status'=>0,
+                    'comment_by_guru'=>$request->remarks
+                ];
+              
+            PhrReportRemarks::create($data);
+            
+            $guru_id = Auth::user()->id;
+        //Getting the list of Shishyas
+        $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3','Super User'=>'4'];
+        if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
+            $data = User::orderBy('id','DESC')->where('user_type',"3")->get();
+        else if(Auth::user()->user_type=='2')
+            $data = User::orderBy('id','DESC')->where('guru_id',Auth::user()->id)->where('user_type',"3")->get();
+        else
+            abort(404);
+        return view('patients.guru-view-phr-reporting',compact('data','user_type_array'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+    }
+    
+    public function save_comment_from_shishya(Request $request)
+    {
+        $notificationId = $request->notification_id;
+        
+        //update the read status for the shishya
+        PhrReportRemarks::where('id', $notificationId)->update([
+                                            'shishya_read_status' => 1,
+                                            'comment_by_shishya' => $request->remarks
+                                          ]);
+            
+            $shishya_id = Auth::user()->id;
+            $phrNotificationData = PhrReportRemarks::where(
+                [
+                    'reciever_id'=>$shishya_id,
+                    'sender_type'=>2,
+                    'reciever_type'=>3
+                ])->get();
+        return view("patients.shishya-phr-notification-list",['phrNotificationData'=>$phrNotificationData]); 
+    }
+    
+    public function shishya_phr_notification_list()
+    {
+        $shishya_id = Auth::user()->id;
+        $phrNotificationData = PhrReportRemarks::where(
+                [
+                    'reciever_id'=>$shishya_id,
+                    'sender_type'=>2,
+                    'reciever_type'=>3
+                ])->orderBy('id', 'DESC')->get();
+        return view("patients.shishya-phr-notification-list",['phrNotificationData'=>$phrNotificationData]); 
+    }
+    
+    public function guru_phr_notification_list()
+    {
+        //dd(Auth::user());
+        $guru_id = Auth::user()->id;
+        $phrNotificationData = PhrReportRemarks::where(
+                [
+                    'sender_id'=>$guru_id,
+                    'sender_type'=>2,
+                    'reciever_type'=>3
+                ])->orderBy('id', 'DESC')->get();
+        return view("patients.guru-phr-notification-list",['phrNotificationData'=>$phrNotificationData]); 
+    }
+    
+   
     public function follow_up_patients(Request $request)
     {
         $data=FollowUpPatient::with('followUpHistory')->select('follow_up_patients.*','patients.patient_name', 'students.firstname as shishya_firstname','students.lastname as shishya_lastname', 'gurus.firstname as guru_firstname','gurus.lastname as guru_lastname')

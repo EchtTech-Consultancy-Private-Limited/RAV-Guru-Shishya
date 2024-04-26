@@ -1832,3 +1832,20 @@ input[type=date]:invalid::-webkit-datetime-edit {
 .viewbar.form-control.dropdown-toggle {
     min-height: 30px !important;
 }
+
+div#addphrtable_wrapper .dt-search input{
+    margin-bottom: 0;
+}
+div#addphrtable_wrapper .dt-search{
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+div#addphrtable_wrapper button.dt-button.buttons-print{
+    background: #e3761c !important;
+}
+
+.text-left{
+    text-align: left !important;
+}

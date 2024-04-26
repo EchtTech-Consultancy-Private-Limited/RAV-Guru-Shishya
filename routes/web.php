@@ -174,7 +174,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('guru-remark-history/{phr_id}', [PatientController::class, 'guru_remark_history'])->name('guru-remark-history');
     Route::get('remarks-from-guru/{id}', [PatientController::class, 'remarks_from_guru'])->name('remarks-from-guru');
     Route::get('assign-role/{id}', [ModelController::class, 'assign_role'])->name('assign-role');
-        Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
+    Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
     Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet'])->name('add-history-sheet');
     Route::get('view-patient/{id}', [PatientController::class, 'view_patient'])->name('view-patient');
     Route::get('remark-history/{phr_id}', [PatientController::class, 'remark_history'])->name('remark-history');
@@ -182,7 +182,23 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('profile', [AddUserController::class, 'manage_profile'])->name('profile');
     Route::get('view-attendance', [AttendanceController::class, 'viewAttendance'])->name('view-attendance');
+    
+    //Routes define by Gaurav for PHR Reporting
+    Route::get('phr-report', [PatientController::class, 'phr_reporting'])->name('phr-report');
+    Route::get('view-phr-report', [PatientController::class, 'view_phr_reporting'])->name('view-phr-report');
+    Route::post('save/phrreport', [PatientController::class, 'save_phrreport'])->name('save.phrreport');
+    Route::post('send-phr-report', [PatientController::class, 'send_phr_report'])->name('send-phr-report');
+    
+    Route::get('guru-view-phr-report', [PatientController::class, 'guru_view_phr_reporting'])->name('guru-view-phr-report');
+    Route::get('guru-view-today-report/{id}', [PatientController::class, 'guru_view_today_report'])->name('guru-view-today-report');
+    Route::post('save-comment-from-guru', [PatientController::class, 'save_comment_from_guru'])->name('save-comment-from-guru');
+    Route::post('save-comment-from-shishya', [PatientController::class, 'save_comment_from_shishya'])->name('save-comment-from-shishya');
+    Route::get('phr-notification-list', [PatientController::class, 'shishya_phr_notification_list'])->name('phr-notification-list');
+    Route::get('phr-notification-list-guru', [PatientController::class, 'guru_phr_notification_list'])->name('phr-notification-list-guru');
 });
+
+Route::post('report-data-search', [PatientController::class, 'report_data_search'])->name('report-data-search');
+Route::post('guru-report-data-search', [PatientController::class, 'guru_report_data_search'])->name('guru-report-data-search');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid','ModulePermission']], function() {
     Route::get('users', [UserController::class, 'index'])->name('users');

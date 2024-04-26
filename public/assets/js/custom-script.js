@@ -880,3 +880,33 @@ return false;
 });
 
 
+$("#submit-phr-report").click(function(e) {
+    var from_date = $("#from_date").val();
+    $.ajax({
+     type:'POST',
+     headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+     url:'send-phr-report',
+     dataType:'json',
+     data: {
+         from_date: from_date,
+      },
+        success:function(result){
+         if(result == 1)
+         {
+             alert("Your report submitted successfuly!");
+         }
+         else if(result == 2)
+         {
+             alert("You have already submitted your today's report.");
+         }
+        },
+        error: function(result) {
+            alert("Some error occured. We are working on it and will fix it as soon as possible.");
+        }
+    });
+});
+
+
+
