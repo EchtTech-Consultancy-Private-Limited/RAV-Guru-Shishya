@@ -123,7 +123,6 @@
                                     @if(Auth::user()->user_type=='2')
                                     <a  href="{{ url('/new-patient-registration/'.$user->id) }}" class="btn view btn-tbl-edit p-1"  title="Patient History Report" >
                                     <i class="fa fa-file-text " aria-hidden="true"></i>
-
                                     </a>
                                     @endif
                                     @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')

@@ -862,4 +862,13 @@ $("button.btn.next").on('click', ()=>{
   selectTime.on('change', () => {
     console.log(selectTime.val());
   });
-})
+});
+
+new DataTable('#addphrtable', {
+  buttons: [ 'excelHtml5', 'csvHtml5', '', 'print'],
+layout: {
+    topStart: {
+        buttons: [ 'csv', 'print']
+    }
+}
+});

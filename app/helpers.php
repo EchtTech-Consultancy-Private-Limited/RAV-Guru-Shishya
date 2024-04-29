@@ -350,4 +350,14 @@ use Illuminate\Support\Facades\Auth;
         return $data;
     }
     
+    function checkReportStatus($shishyaid,$date)
+    {
+        if(App\Models\PhrReportSubmitted::where(['shishya_id'=>$shishyaid,'submitted_date'=>$date])->exists()){
+            return "Yes";
+        }
+        else
+        {
+           return "No";    
+        }
+    }
 ?>
