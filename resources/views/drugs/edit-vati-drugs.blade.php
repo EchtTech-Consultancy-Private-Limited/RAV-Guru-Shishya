@@ -261,9 +261,9 @@
                                                     <div class="form-group">
                                                         <label
                                                             class="form-control-label @if(isset($data->vati_yoga_type_individual)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Vati  Yogas Name</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Vati Yogas Name<span class="text-danger">*</span></label>
                                                         <input type="text" name="vati_yoga_type_individual"
-                                                            class="form-control" placeholder="Vati Yoga Type Individual"
+                                                            class="form-control" placeholder="Vati Yogas Name"
                                                             value="{{ $drug->vati_yoga_type_individual }}"
                                                             maxlength="50">
                                                         <p id="vati_yoga_type_individual_err" class="position-absolute"></p>
@@ -434,10 +434,9 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->wholesome_activities)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Whole
-                                                            some activities</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Wholesome activities</label>
                                                         <input type="text" name="wholesome_activities"
-                                                            class="form-control" placeholder="Whole some activities"
+                                                            class="form-control" placeholder="Wholesome activities"
                                                             value="{{ $drug->wholesome_activities }}">
                                                         @error('wholesome_activities')
                                                         <p class='text-danger text-xs pt-1'> {{ $message }} </p>

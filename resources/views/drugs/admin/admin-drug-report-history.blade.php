@@ -74,7 +74,7 @@
                                     <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Name of the Shishya</label>
+                                                    <label class="form-control-label">Shishya Name</label>
                                                     <select class="form-control" id="shishya_id" name="shishya_id"
                                                         required>
                                                         <option value="">Please Select </option>

@@ -253,15 +253,14 @@
                                             </div>
                                             <div class="title">
 
-                                                <p class="text-capatilize text-sm">I Kalka dravyas</p>
+                                                <p class="text-capatilize text-sm">(I) Kalka dravyas</p>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label
                                                             class="form-control-label @if(isset($data->talia_yoga_type_individual)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Enter
-                                                            Yogas Name</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Taila Yogas Name<span class="text-danger">*</span></label>
                                                         <input type="text" name="talia_yoga_type_individual"
                                                             class="form-control"
                                                             placeholder="Talia Yoga Type Individual"
@@ -318,7 +317,7 @@
                                             </div>
                                             <div class="title">
 
-                                                <p class="text-capatilize text-sm">II Taila/ghrita dravys</p>
+                                                <p class="text-capatilize text-sm">(II) Taila/ghrita dravyas</p>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -368,7 +367,7 @@
                                             </div>
                                             <div class="title">
 
-                                                <p class="text-capatilize text-sm">III Kvatha/drava dravyas</p>
+                                                <p class="text-capatilize text-sm">(III) Kvatha/drava dravyas</p>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
@@ -815,7 +814,7 @@
                                             </div>
 
                                         </div>
-                                        <button type="submit" class="btn add btn-secondary">Update Talia Yogas</button>
+                                        <button type="submit" class="btn add btn-secondary">Update Taila Yogas</button>
                                     </form>
                                 </div>
                             </div>
