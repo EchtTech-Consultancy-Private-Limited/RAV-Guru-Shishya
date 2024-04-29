@@ -90,7 +90,7 @@
                                             @foreach($gurus as $guru)
                                             <option value="{{$guru->id}}" @if(request()->guru_id==$guru->id)
                                                 SELECTED
-                                                @endif>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lasttname}}
+                                                @endif>{{$guru->firstname.' '.$guru->middlename.' '.$guru->lastname}}
                                             </option>
                                             @endforeach
                                         </select>
@@ -242,8 +242,8 @@ $('.view_attendance').on('click', function() {
         success: function(response) {
             $('#successMsg').show();
             const date = new Date(response.attendance_date);
-            const dd = date.getDate();
-            const mm = date.getMonth() + 1;
+            const dd = date.getDate().toString().padStart(2, '0');
+            const mm = (date.getMonth() + 1).toString().padStart(2, '0');
             const year = date.getFullYear();
             var tabledata =
                 `<tr><td>Date</td><td>${dd}-${mm}-${year}</td></tr><tr><td>In-Time</td><td>${response.in_time}</td></tr><tr><td>Out-Time</td><td>${response.out_time}</td></tr><tr><td>Morning Shifts Timings</td><td>${response.attendance_morning_timing}</td></tr><tr><td>Evening Shifts Timings</td><td>${response.attendance_evening_timing}</td></tr><tr><td>Attendance</td><td>${response.attendance}</td></tr>`;
@@ -255,5 +255,6 @@ $('.view_attendance').on('click', function() {
         },
     });
 });
+
 </script>
 @endsection

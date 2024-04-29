@@ -174,13 +174,14 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('guru-remark-history/{phr_id}', [PatientController::class, 'guru_remark_history'])->name('guru-remark-history');
     Route::get('remarks-from-guru/{id}', [PatientController::class, 'remarks_from_guru'])->name('remarks-from-guru');
     Route::get('assign-role/{id}', [ModelController::class, 'assign_role'])->name('assign-role');
-        Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
+    Route::get('system-configration', [DashboardController::class, 'system_configration'])->name('system-configration');
     Route::get('add-history-sheet', [PatientController::class, 'add_history_sheet'])->name('add-history-sheet');
     Route::get('view-patient/{id}', [PatientController::class, 'view_patient'])->name('view-patient');
     Route::get('remark-history/{phr_id}', [PatientController::class, 'remark_history'])->name('remark-history');
     Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr'])->name('delete-phr');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('profile', [AddUserController::class, 'manage_profile'])->name('profile');
+    Route::get('export-attendance', [AttendanceController::class, 'export_attendance'])->name('export-attendance');
     Route::get('view-attendance', [AttendanceController::class, 'viewAttendance'])->name('view-attendance');
 });
 
@@ -210,11 +211,10 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('notifications', [PatientController::class, 'guru_patient_list'])->name('notifications');
     Route::get('notify-guru-patient-list', [PatientController::class, 'notify_guru_patient_list'])->name('notify-guru-patient-list');   
     Route::get('guru-generate-Pdft/{id}', [PatientController::class, 'generateGuruPdf'])->name('generateGuruPdf');     
-    Route::get('attendance-list', [AttendanceController::class, 'index'])->name('attendance-list');
-    Route::get('export-attendance', [AttendanceController::class, 'export_attendance'])->name('export-attendance');
+    Route::get('attendance-list', [AttendanceController::class, 'index'])->name('attendance-list');    
     /*Admin Url*/
     Route::get('admin-patient-list', [PatientController::class, 'admin_patient_list'])->name('admin-patient-list');
-    Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
+    // Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
     Route::get('phr-history-sheet', [PatientController::class, 'guru_phr_history_sheet'])->name('phr-history-sheet');
     Route::get('admin-drug-report-history', [DrugController::class, 'admin_drug_report_history'])->name('admin-drug-report-history');
     Route::get('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report'])->name('admin-filter-drug-report');    

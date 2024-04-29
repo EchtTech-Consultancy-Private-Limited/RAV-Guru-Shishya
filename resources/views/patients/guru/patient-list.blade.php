@@ -34,7 +34,7 @@
                              <i class="fas fa-home"></i> Home</a>
                           </li>
 
-                          <li class="breadcrumb-item active">   New Patients </li>
+                          <li class="breadcrumb-item active"> Patients </li>
                        </ul>
                        @if ($message = Session::get('success'))
                          <div class="alert alert-success">
