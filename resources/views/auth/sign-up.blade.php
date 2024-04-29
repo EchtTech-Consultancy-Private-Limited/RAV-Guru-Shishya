@@ -16,7 +16,7 @@
 
                         </h2>
                         <hr>
-                        <p class="text-left text-danger m-0">Note*- All field is rquired</p>
+                        <p class="text-left text-danger m-0">Note*- All fields are required</p>
                         {{-- @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -109,7 +109,7 @@
                                                 <strong style="color:red;">{{ $errors->first('email') }}</strong>
                                             </span>
                                             @endif
-                                            <span id="email_error" class="text-danger"></span>
+                                            <span id="email_error" class="text-danger error"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -248,13 +248,13 @@
                                             autocomplete="new-password" onpaste="return false" oncopy="return false">
 
                                         <i class="fas fa-eye-slash field-icon eye1"></i>
-                                        <span id="password_error" class="text-danger"></span>
+                                        <span id="password_error" class="text-danger error"></span>
                                         <!-- <span class="text-danger" id="password_error"></span> -->
                                         <span class="show-pass" onclick="toggle()">
                                         </span>
                                        
                                        
-                                        <p class="error"></p>
+                                        <span class="error"></span>
                                     </div>
                                     <div id="popover-password">
                                             <p><span id="result"></span></p>
@@ -300,7 +300,7 @@
                                                 onpaste="return false" oncopy="return false">
                                             <i class="fas fa-eye-slash field-icon eye2"></i>
                                             <span id="confirm_password_msg"></span>
-                                            <span id="confirm_password_error" class="text-danger"></span>
+                                            <span id="confirm_password_error" class="text-danger error"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -311,12 +311,12 @@
                                         <label>Enter Captcha<span class="text-danger"> *</span></label>
                                         <input id="captcha" type="text" class="form-control" autocomplete="off" placeholder="Enter Captcha" name="captcha">
                                         @if($errors->has('captcha'))
-                                            <div class="text-danger">{{ $errors->first('captcha') }}</div>
+                                            <div class="text-danger error">{{ $errors->first('captcha') }}</div>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <label for="password" class="sr-only">Captcha</label>
+                                    <label for="password" class="">Captcha</label>
                                       <div class="captcha ">
                                         <span id="captcha-signup">{{$CustomCaptch['expression'] }}</span>
                                         {{-- <span>{!! captcha_img('math') !!}</span> --}}

@@ -22,8 +22,7 @@
 
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{url('/dashboard')}}">
-                                <i class="fas fa-home"></i> Home</a>
+                        <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
                         </li>
 
                         <li class="breadcrumb-item active"> Add Attendance </li>
@@ -52,7 +51,7 @@
                             <div class="row">
                                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
                                     <div class="form-group">
-                                        <label class="active">From:<span class="text-danger"></span></label>
+                                        <label class="active">From Date:<span class="text-danger"></span></label>
                                         <input type="date" name="from_date"
                                             class="form-control datetimepicker flatpickr-input active"
                                             value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
@@ -60,7 +59,7 @@
                                 </div>
                                 <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6">
                                     <div class="form-group">
-                                        <label class="active">To:<span class="text-danger"></span></label>
+                                        <label class="active">To Date:<span class="text-danger"></span></label>
                                         <input type="date" name="to_date"
                                             class="form-control datetimepicker flatpickr-input active"
                                             value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
@@ -144,6 +143,9 @@
 
                                         <button type="submit" class="btn add waves-effect" style="line-height:2;"
                                             onclick="return updateAttendance('update attendance for this date range');">Update
+                                            Attendance </button>
+                                        <button type="submit" class="btn add waves-effect" style="line-height:2;"
+                                            onclick="return updateAttendance('update attendance for this date range');">Reset
                                             Attendance </button>
                                       
                                     </div>

@@ -167,8 +167,7 @@
                                                 class="table table-hover composition-form">
                                                 <thead>
                                                     <tr>
-                                                        <th>Name of the ingredients mineral
-                                                            metal</th>
+                                                        <th>Name of the ingredients </th>
                                                         <th>Part used </th>
                                                         <th>Quantity</th>
                                                         <th>Action</th>
@@ -250,8 +249,7 @@
                         <div class="form-group">
                             <label
                                 class="form-control-label @if(isset($data->rasa_yoga_type_individual)) patient-highlight @endif"
-                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Rasa
-                                Yogas Name</label>
+                                title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Rasa Yogas Name<span class="text-danger">*</span></label>
                             <input type="text" name="rasa_yoga_type_individual"
                                 class="form-control"
                                 value="{{ $rasadrug->rasa_yoga_type_individual }}">@error('rasa_yoga_type_individual')

@@ -79,7 +79,7 @@
                                 @endif
                                             </div>
 
-                                            <table class="view-table">
+                                            <table class="">
 
                                                 <thead>
                                                     <tr>
@@ -225,7 +225,7 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td>Enter Yogas Name </td>
+                                                            <td> Yogas Name </td>
                                                             <td>{{ $churandrug->churna_yoga_type_individual }} </td>
                                                         </tr>
 

@@ -37,8 +37,10 @@
 
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{url('/dashboard')}}">
-                                <i class="fas fa-home"></i> Home</a>
+                            <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item bcrumb-1">
+                            <a >  Manage Drugs</a>
                         </li>
 
                         <li class="breadcrumb-item active">Add Drug Details </li>
@@ -672,7 +674,7 @@
                     <div class="row">
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label class="form-control-label">Rasa Yogas Name</label>
+                                <label class="form-control-label">Rasa Yogas Name<span class="text-danger">*</span></label>
                                 <input type="text" name="rasa_yoga_type_individual" class="form-control"
                                     placeholder="Enter Rasa Yogas Name"
                                     value="{{ old('rasa_yoga_type_individual') }}" maxlength="30"
@@ -980,7 +982,7 @@
                         </div>
                         <div class="col-xxl-3 col-xl-4 col-md-6 col-6">
                             <div class="form-group">
-                                <label class="form-control-label">Vati Yogas Name</label>
+                                <label class="form-control-label">Vati Yogas Name<span class="text-danger">*</span></label>
                                 <input type="text" name="vati_yoga_type_individual" class="form-control"
                                     placeholder="Enter Vati Yogas Name"
                                     value="{{ old('vati_yoga_type_individual') }}" maxlength="50"
@@ -1367,7 +1369,7 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label class="form-control-label">Taila Yogas Name</label>
+                            <label class="form-control-label">Taila Yogas Name<span class="text-danger">*</span></label>
                             <input type="text" name="talia_yoga_type_individual" class="form-control"
                                 placeholder="Enter Taila Yogas Name" value="{{ old('talia_yoga_type_individual') }}"
                                 maxlength="50">
@@ -1904,7 +1906,7 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                         <div class="form-group">
-                            <label class="form-control-label">Asava/Arishta Yogas Name</label>
+                            <label class="form-control-label">Asava/Arishta Yogas Name<span class="text-danger">*</span></label>
                             <input type="text" name="arishtayoga_type_individual" class="form-control"
                                 placeholder="Enter Asava/Arishta Yogas Name"
                                 value="{{ old('churna_yoga_type_individual') }}" maxlength="50" required>

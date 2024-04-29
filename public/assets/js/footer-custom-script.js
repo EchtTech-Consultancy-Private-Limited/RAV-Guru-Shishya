@@ -353,3 +353,4 @@ function updateAttendance(action){
         return false;
     }    
  }
+

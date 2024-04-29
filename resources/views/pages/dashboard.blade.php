@@ -6,14 +6,14 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <ul class="breadcrumb breadcrumb-style ">
-                            <li class="breadcrumb-item">
-                                <h4 class="page-title">Dashboard</h4>
+                            <li class="breadcrumb-item ">
+                                <h4 class="page-title border-0">Dashboard</h4>
                             </li>
-                            <li class="breadcrumb-item bcrumb-1">
+                            <!-- <li class="breadcrumb-item bcrumb-1">
                                 <a >
                                     <i class="fas fa-home"></i> Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Dashboard </li>
+                            <li class="breadcrumb-item active">Dashboard </li> -->
                         </ul>
                     </div>
                 </div>

@@ -10,6 +10,7 @@
     <script>
         var $baseurl="{{url('/')}}";
     </script>
+    <link rel="stylesheet" href="{{ asset('assets/css/filter_multi_select.css') }}">
     <!-- vendor css -->
     <link rel="icon" href="{{ asset('assets/images/rav-logo.png') }} " type="image/x-icon">
     <!-- Plugins Core Css -->
@@ -22,6 +23,7 @@
     <link href="{{ asset('assets/css/styles/all-themes.css') }} " rel="stylesheet" />
     <!-- OLD LINK -->
     <link href="{{ asset('assets/plugins/font-awesome.min.css') }} " rel="stylesheet" />
+    <link href="{{ asset('assets/css/dataTables.dataTables.css') }} " rel="stylesheet" />
     <link href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }} " rel="stylesheet" />
     <script type='text/javascript' src='#'></script>
     <script src="{{ asset('assets/js/pages/jquerylocal.js') }} "></script>
@@ -74,10 +76,16 @@
 
        <!-- [ Content ] End -->
 @include('layouts/partials.footer')
+<script src="{{ asset('assets/js/dataTables.js') }}"></script>
+<script src="{{ asset('assets/js/buttons.dataTables.js') }}"></script>
+<script src="{{ asset('assets/js/dataTables.buttons.js') }}"></script>
+<script src="{{ asset('assets/js/buttons.print.min.js') }}"></script>
 
 
 <script src="{{ asset('assets/js/app.min.js') }}"></script>
 <script src="{{ asset('assets/js/table.min.js') }} "></script>
+
+
 <!-- Custom Js -->
 <script src="{{ asset('assets/js/admin.js') }}"></script>
 <script src="{{ asset('assets/js/pages/tables/jquery-datatable.js') }}"></script>
@@ -97,5 +105,13 @@
 <script src="{{ asset('assets/js/footer-custom-script.js') }}"></script>
 <script src="{{ asset('assets/js/drug-custom-script.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/sweetalert.js') }}"></script>
+<script src="{{ asset('assets/js/filter-multi-select-bundle.min.js') }}"></script>
+
+
+<script>
+   let select2 = $('#mySelect2').filterMultiSelect();
+   let select3 = $('#mySelect3').filterMultiSelect();
+   let select4 = $('#mySelect4').filterMultiSelect();
+</script>
 </body>
 </html>

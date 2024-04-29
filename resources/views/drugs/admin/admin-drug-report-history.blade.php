@@ -22,10 +22,10 @@
                              <h6 class="page-title">List of Drug Details </h6>
                           </li>
                           <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{url('/dashboard')}}">
-                                <i class="fas fa-home"></i> Home</a>
+                          <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
                         </li>
 
+                        <li class="breadcrumb-item active">Manage Drugs </li>
                         <li class="breadcrumb-item active">List of Drug Details </li>
                     </ul>
                     @if ($message = Session::get('success'))
@@ -74,7 +74,7 @@
                                     <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label class="form-control-label">Name of the Shishya</label>
+                                                    <label class="form-control-label">Shishya Name</label>
                                                     <select class="form-control" id="shishya_id" name="shishya_id"
                                                         required>
                                                         <option value="">Please Select </option>
@@ -105,8 +105,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="example-text-input" class="form-control-label">Select
-                                                        Yogas<span class="text-danger">*</span></label>
+                                                    <label for="example-text-input" class="form-control-label">Select  Yogas</label>
                                                     <select class="form-control" id="yogas_type" name="yogas_type"
                                                         required>
                                                         <option value="">Please Select </option>
@@ -140,7 +139,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="">
                             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                                 <div class="row">
                                     <div class="col-sm-12">

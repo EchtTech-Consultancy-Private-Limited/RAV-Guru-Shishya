@@ -220,7 +220,7 @@
                 <div class="row">
                      <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                        <div class="form-group">
-                          <label  class="form-control-label @if(isset($data->churna_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Churna Yogas Name</label>
+                          <label  class="form-control-label @if(isset($data->churna_yoga_type_individual)) patient-highlight @endif" title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Churna Yogas Name<span class="text-danger">*</span></label>
                           <input type="text" name="churna_yoga_type_individual" class="form-control"  value="{{ $churandrug->churna_yoga_type_individual }}" >
                           <p id="churna_yoga_type_individual_err" class="position-absolute"></p>
                           @error('rasa_yoga_type_individual')
@@ -452,7 +452,7 @@
                 </div>
                 <div class="title">
 
-                   <p class="text-capatilize text-sm">Duration required for the experiment</p>
+                   <p class="text-capatilize text-sm">Duration for the experiment</p>
                 </div>
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-md-6 col-6">

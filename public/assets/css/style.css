@@ -1219,6 +1219,9 @@ table th, table tr, table td {
     border-left: 1px solid #ddd;
     padding: 10px 10px;
 }
+table td{
+    color: #000;
+}
 table th:last-child, table tr:last-child, table td:last-child {
 
     border-right: 1px solid #ddd;
@@ -1242,7 +1245,7 @@ table th:last-child, table tr:last-child, table td:last-child {
 
 .select2-container .select2-selection--single .select2-selection__rendered{
     padding: 0 !important;
-    /* margin: -7px 0; */
+    margin: -7px 0;
     font-size: 13px;
 }
 
@@ -1259,9 +1262,11 @@ table tr .title{
     font-weight: bold;
 }
 
+
 .view-table tr td:first-child{
     font-weight: bold !important;
     color: #000;
+    text-transform: capitalize;
 }
 
 
@@ -1493,7 +1498,7 @@ i.fa.fa-plus {
 }
 
 #Name_Clinic {
-    padding: 5px 0 !important;
+    padding: 7px 0 !important;
   }
 #delete_remark{
     height: auto;
@@ -1817,4 +1822,30 @@ display: none !important;
 }
 input.form-control::placeholder {
     color: grey !important;
+}
+input::placeholder {
+    color: grey !important;
+}
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: grey;
+}
+.viewbar.form-control.dropdown-toggle {
+    min-height: 30px !important;
+}
+
+div#addphrtable_wrapper .dt-search input{
+    margin-bottom: 0;
+}
+div#addphrtable_wrapper .dt-search{
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+div#addphrtable_wrapper button.dt-button.buttons-print{
+    background: #e3761c !important;
+}
+
+.text-left{
+    text-align: left !important;
 }

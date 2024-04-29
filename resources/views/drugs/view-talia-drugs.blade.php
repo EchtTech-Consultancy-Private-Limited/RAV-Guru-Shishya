@@ -77,7 +77,7 @@
                                                 </div>
                                                 @endif
                                             </div>
-                                            <table class="view-table">
+                                            <table class="">
 
                                                 <thead>
                                                     <tr>
@@ -186,13 +186,13 @@
                                                     <tbody>
                                                         <tr>
                                                             <td colspan="2">
-                                                                <h3> I Kalka dravyas</h3>
+                                                                <h3> (I) Kalka dravyas</h3>
                                                             </td>
 
                                                         </tr>
 
                                                         <tr>
-                                                            <td> Enter Yogas Name</td>
+                                                            <td> Yogas Name</td>
                                                             <td> {{ $drug->talia_yoga_type_individual }}</td>
                                                         </tr>
 
@@ -213,7 +213,7 @@
 
                                                         <tr>
                                                             <td colspan="2">
-                                                                <h3> II Taila/ghrita dravys</h3>
+                                                                <h3> (II) Taila/ghrita dravys</h3>
                                                             </td>
 
                                                         </tr>
@@ -230,7 +230,7 @@
 
                                                         <tr>
                                                             <td colspan="2">
-                                                                <h3>III Kvatha/drava dravyas</h3>
+                                                                <h3>(III) Kvatha/drava dravyas</h3>
                                                             </td>
 
                                                         </tr>

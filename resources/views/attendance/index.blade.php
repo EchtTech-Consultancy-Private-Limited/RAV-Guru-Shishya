@@ -23,11 +23,10 @@
 
                         </li>
                         <li class="breadcrumb-item bcrumb-1">
-                            <a href="{{url('/dashboard')}}">
-                                <i class="fas fa-home"></i> Home</a>
+                        <a href="{{ url('/dashboard') }}"> <i class="fas fa-home"></i> Dashboard</a>
                         </li>
 
-                        <li class="breadcrumb-item active"> Add Attendance </li>
+                        <li class="breadcrumb-item active"> Attendance </li>
                     </ul>
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success">
