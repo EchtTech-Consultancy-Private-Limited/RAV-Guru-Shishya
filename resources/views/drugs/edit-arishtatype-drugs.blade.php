@@ -163,7 +163,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 mb-2">
                                                     <div class="form-group  ">
-                                                        <h5 class="text-center d-flex justify-content-center">ASAVA-ARISHTA YOGAS</h5>
+                                                        <h5 class="text-center d-flex justify-content-center">ASAVA/ARISHTA YOGAS</h5>
                                                         <h5 class="d-block text-left">Name of the Drug</h5>
                                                         <h5 class="d-block text-left">
                                                             Reference
@@ -273,14 +273,14 @@
                                             </div>
                                             <div class="title">
 
-                                                <p class="text-capatilize text-sm">I Main ingredients</p>
+                                                <p class="text-capatilize text-sm">(I) Main ingredients</p>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xxl-3 col-xl-3 col-md-6 col-6">
                                                     <div class="form-group">
                                                         <label
                                                             class="form-control-label @if(isset($data->arishtayoga_type_individual)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Arishta Yogas Name</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">ASAVA/ARISHTA Yogas Name<span class="text-danger">*</span></label>
                                                         <input type="text" name="arishtayoga_type_individual"
                                                             class="form-control"
                                                             placeholder="Arishta Yoga Type Individual"
@@ -321,7 +321,7 @@
                                                     <div class="form-group">
                                                         <label for="example-text-input"
                                                             class="form-control-label @if(isset($data->main_ingredients_step_three)) patient-highlight @endif"
-                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step=  3</label>
+                                                            title="Updated by @if(@$drugHistoryLog->user_type == '1')Admin @elseif(@$drugHistoryLog->user_type == '2')Guru @else (@$drugHistoryLog->user_type == '3')Shishya @endif">Step  3</label>
                                                         <input type="text" name="main_ingredients_step_three"
                                                             class="form-control" placeholder=" " aria-label="Step 1"
                                                             value="{{ $drug->main_ingredients_step_three }}">@error('1')
@@ -332,7 +332,7 @@
                                             </div>
                                             <div class="title">
 
-                                                <p class="text-capatilize text-sm">II Sandhana dravyas</p>
+                                                <p class="text-capatilize text-sm">(II) Sandhana dravyas</p>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xxl-4 col-xl-4 col-md-6 col-6">
@@ -375,7 +375,7 @@
                                             </div>
                                             <div class="title">
 
-                                                <p class="text-capatilize text-sm">III Prakshepa dravyas</p>
+                                                <p class="text-capatilize text-sm">(III) Prakshepa dravyas</p>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xxl-4 col-xl-4 col-md-6 col-6">

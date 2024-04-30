@@ -186,7 +186,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td colspan="2">
-                                                                <h3> I Kalka dravyas</h3>
+                                                                <h3> (I) Kalka dravyas</h3>
                                                             </td>
 
                                                         </tr>
@@ -213,7 +213,7 @@
 
                                                         <tr>
                                                             <td colspan="2">
-                                                                <h3> II Taila/ghrita dravys</h3>
+                                                                <h3> (II) Taila/ghrita dravys</h3>
                                                             </td>
 
                                                         </tr>
@@ -230,7 +230,7 @@
 
                                                         <tr>
                                                             <td colspan="2">
-                                                                <h3>III Kvatha/drava dravyas</h3>
+                                                                <h3>(III) Kvatha/drava dravyas</h3>
                                                             </td>
 
                                                         </tr>

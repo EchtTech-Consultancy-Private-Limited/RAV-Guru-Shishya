@@ -122,7 +122,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 mb-2">
                                                     <div class="form-group  ">
-                                                        <h5 class="text-center d-flex justify-content-center">ASAVA-ARISHTA YOGAS</h5>
+                                                        <h5 class="text-center d-flex justify-content-center">ASAVA/ARISHTA YOGAS</h5>
                                                         <h5 class="d-block text-left">Name of the Drug</h5>
                                                         <h5 class="d-block text-left">
                                                             Reference
@@ -173,12 +173,12 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="" colspan="2">
-                                                            <h3>I Main ingredients</h3>
+                                                            <h3>(I) Main ingredients</h3>
                                                         </td>
 
                                                     </tr>
                                                     <tr>
-                                                        <td> Enter Yogas Name</td>
+                                                        <td> ASAVA/ARISHTA YOGAS Name</td>
                                                         <td> {{ $drug->arishtayoga_type_individual }}</td>
                                                     </tr>
                                                     <tr>
@@ -197,7 +197,7 @@
 
                                                     <tr>
                                                         <td colspan="2">
-                                                            <h3>II Sandhana dravyas</h3>
+                                                            <h3>(II) Sandhana dravyas</h3>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -217,7 +217,7 @@
 
                                                     <tr>
                                                         <td colspan="2">
-                                                            <h3> III Prakshepa dravyas</h3>
+                                                            <h3> (III) Prakshepa dravyas</h3>
                                                         </td>
 
                                                     </tr>

@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <div class="row">
-                <div class=" col-md-6">
+                <div class=" col-md-8">
 
                     <ul class="breadcrumb breadcrumb-style ">
                         <li class="breadcrumb-item">
@@ -38,13 +38,11 @@
                     @endif
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     @if (Auth::user()->user_type == 3)
                     <div class="d-flex justify-content-end m-2">
                         <a type="button" href="javascript:void(0);" data-bs-toggle="modal"
-                            data-bs-target="#add-follow-up-sheet-model" class="btn add btn-danger waves-effect">+
-                            Add Follow
-                            Up </a>
+                            data-bs-target="#add-follow-up-sheet-model" class="btn add btn-danger waves-effect">+ Add Follow Up </a>
                     </div>
                     @endif
                 </div>

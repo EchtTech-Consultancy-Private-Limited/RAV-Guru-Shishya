@@ -173,7 +173,7 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td> Yogas Name </td>
+                                                        <td>Rasa Yogas Name </td>
                                                         <td>{{ $rasadrug->rasa_yoga_type_individual }} </td>
                                                     </tr>
 

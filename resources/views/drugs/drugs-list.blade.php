@@ -77,8 +77,8 @@
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>Name of the Shishya </th>
-                                                <th>Name of the Guru </th>
+                                                <th> Shishya Name</th>
+                                                <th> Guru Name</th>
                                             </tr>
                                         </thead>
 
@@ -114,8 +114,7 @@
                                                <div class="form-group">
                                                   <label
                                                      for="example-text-input"
-                                                     class="form-control-label">Select Yogas<span
-                                                     class="text-danger">*</span></label>
+                                                     class="form-control-label">Select Yogas</label>
                                                   <select class="form-control" id="yogas_type" name="yogas_type" required>
                                                      <option value="">Please Select </option>
                                                      @foreach(__('phr.yogas') as $key=>$value)
