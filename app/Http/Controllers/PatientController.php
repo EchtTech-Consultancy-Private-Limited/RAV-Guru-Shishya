@@ -198,25 +198,25 @@ class PatientController extends Controller
             'date' => 'required',
             'diagnosis' => 'required'
         ]);
-                $data=[
-                    'guru_id'=>$request->guru_id,
-                    'shishya_id'=>$request->shishya_id,
-                    'registration_no'=>$request->registration_no,
-                    'patient_name'=>$request->patient_name,
-                    'date'=>$request->date,
-                    'status'=>1,
-                    'diagnosis'=>$request->diagnosis
-                ];
-                //dd($data);
-            PhrReport::create($data);
-            $guru=DB::table('users')->where('users.id',$request->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
-            
-            //Getting the list of PHR
-            $phrData = PhrReport::where('shishya_id',$request->shishya_id)->get();
-            
-            //return view("patients.phr-reporting",['guru'=>$guru,'phrData'=>$phrData]);
-            return redirect('phr-report')->with('data', ['guru'=>$guru,'phrData'=>$phrData]);
+        $data=[
+            'guru_id'=>$request->guru_id,
+            'shishya_id'=>$request->shishya_id,
+            'registration_no'=>$request->registration_no,
+            'patient_name'=>$request->patient_name,
+            'date'=>$request->date,
+            'status'=>1,
+            'diagnosis'=>$request->diagnosis
+        ];
+        PhrReport::create($data);
+        $guru=DB::table('users')->where('users.id',$request->guru_id)->select('users.*','cities.name as city_name','states.name as state_name')->join('cities','users.city', '=', 'cities.id')->join('states','users.state', '=', 'states.id')->first();
+
+        $phrData = PhrReport::where('shishya_id',$request->shishya_id)->get();
+        return redirect('phr-report')->with('data', [
+            'guru' => $guru,
+            'phrData' => $phrData,
+        ])->with('success', 'PHR Report Add Successfull');
     }
+
     public function view_phr_reporting()
     {
         $shishya_id = Auth::user()->id;
@@ -233,19 +233,20 @@ class PatientController extends Controller
         $guru_id = Auth::user()->id;
         //Getting the list of Shishyas
         $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3','Super User'=>'4'];
-        if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
-            $data = User::orderBy('id','DESC')->where('user_type',"3")->get();
-        else if(Auth::user()->user_type=='2')
+        $gurus = User::orderBy('id','DESC')->where('user_type',"2")->get();
+        if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4'){
+            if($request->report_guru_id){
+                $data = User::orderBy('id','DESC')->where('guru_id',$request->report_guru_id)->where('user_type',"3")->get();
+            }else{
+                $data = User::orderBy('id','DESC')->where('user_type',"3")->get();
+            }            
+        }else if(Auth::user()->user_type=='2'){
             $data = User::orderBy('id','DESC')->where('guru_id',Auth::user()->id)->where('user_type',"3")->get();
-        else
+        }else{
             abort(404);
-        return view('patients.guru-view-phr-reporting',compact('data','user_type_array'))
+        }
+        return view('patients.guru-view-phr-reporting',compact('data','user_type_array','gurus'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
-        
-//        $phrData = PhrReport::where([
-//                                        'guru_id'=>$guru_id
-//                                    ])->get();
-        //return view("patients.guru-view-phr-reporting",['phrData'=>$phrData]);
     }
     
     public function guru_view_today_report($id)
@@ -272,17 +273,55 @@ class PatientController extends Controller
         return view("patients.view-phr-reporting",['phrData'=>$phrData]);
     }
     
-    public function guru_report_data_search(Request $request) {
-        $date = $request->from_date;
+    public function guru_report_data_search(Request $request) 
+    {
         $shishya_id = $request->shishya_id;
-        //Getting the list of PHR
-        $phrData = PhrReport::where(
-                [
-                    'shishya_id'=>$shishya_id,
-                    'date'=>$date
-                ])->get();
-        return view("patients.guru-view-today-phr-reporting",['phrData'=>$phrData,'id'=>$shishya_id]); 
+        $query = PhrReport::where('shishya_id', $shishya_id);
+        if ($request->filled('from_date') && $request->filled('to_date')) {
+            $from_date = $request->from_date;
+            $to_date = $request->to_date;
+            $query->whereBetween('date', [$from_date, $to_date]);
+        } elseif ($request->filled('from_date')) {
+            $from_date = $request->from_date;
+            $query->where('date', '>=', $from_date);
+        } elseif ($request->filled('to_date')) {
+            $to_date = $request->to_date;
+            $query->where('date', '<=', $to_date);
+        }
+        
+        if ($request->filled('report_type')) {
+            $report_type = $request->report_type;
+            $currentDate = now()->toDateString(); // Get the current date
+        
+            switch ($report_type) {
+                case 'Daily':
+                    $query->whereDate('date', $currentDate);
+                    break;
+                case 'Monthly':
+                    $query->whereYear('date', now()->year)
+                          ->whereMonth('date', now()->month);
+                    break;
+                case 'Weekly':
+                    // Get the start and end dates of the current week
+                    $startOfWeek = now()->startOfWeek()->toDateString();
+                    $endOfWeek = now()->endOfWeek()->toDateString();
+                    $query->whereDate('date', '>=', $startOfWeek)
+                          ->whereDate('date', '<=', $endOfWeek);
+                    break;
+                default:
+                    // Handle other cases if needed
+                    break;
+            }
+        }
+        if ($request->filled('status')) {
+            $status = $request->status;
+            $query->where('status', $status);
+        }
+        $phrData = $query->get();
+
+        return view("patients.guru-view-today-phr-reporting", ['phrData' => $phrData, 'id' => $shishya_id]); 
     }
+
     
     public function send_phr_report(Request $request)
     {
@@ -309,10 +348,8 @@ class PatientController extends Controller
         else
         {
            PhrReportSubmitted::create($data);
-           echo "1";    
+           echo "1";
         }
-        
-        
     }
     
     public function save_comment_from_guru(Request $request)
@@ -422,7 +459,7 @@ class PatientController extends Controller
         $data=$data->orderby('updated_at','Desc')->paginate(10);
         $guru=get_guru_list(Auth::user()->guru_id);
         $gurus=get_guru_list();
-        return view("patients.follow-up-patients",['guru'=>$guru,'gurus'=>$gurus,'data'=>$data])->with('i', (request()->input('page', 1) - 1) * 10);;
+        return view("patients.follow-up-patients",['guru'=>$guru,'gurus'=>$gurus,'data'=>$data])->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     public function find_phr_registration(Request $request)

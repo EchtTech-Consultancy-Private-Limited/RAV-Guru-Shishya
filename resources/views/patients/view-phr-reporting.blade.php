@@ -70,15 +70,23 @@
                         <div class="col-md-12">
                            <div class="card">
                               <div class="card-body">
-                                  <form name="report_search_form" id="report_search_form" method="POST" action="{{url('report-data-search')}}">
+                                  <form name="report_search_form" id="report_search_form" method="get" action="{{url('report-data-search')}}">
                                   @csrf    
-                                  <div class="row">
-                                          <div class="col-md-2">
-                                            <div class="form-group focused">
-                                               <label for="example-text-input" class="form-control-label">Report Filter<span class="text-danger">*</span></label>
-                                               <input type="date" name="from_date" id="from_date" class="form-control datetimepicker flatpickr-input active" value="{{date('Y-m-d',time())}}" max="{{date('Y-m-d',time())}}" required>
-                                            </div>
-                                          </div>   
+                                       <div class="row">
+                                          <div class="col-md-3">
+                                             <div class="form-group">
+                                                <label class="active">From Date:</label>
+                                                <input type="date" name="from_date"
+                                                   class="form-control datetimepicker flatpickr-input active dateInput"
+                                                   value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"
+                                                   max="<?php echo date('d-m-Y'); ?>">
+                                                   @if ($errors->has('from_date'))
+                                                      <span class="help-block">
+                                                         <strong  >{{ $errors->first('from_date') }}</strong>
+                                                      </span>
+                                                   @endif
+                                             </div>
+                                          </div>  
                                           <div class="col-md-2">
                                             <div class="form-group">
                                                 <button type="submit" class="btn submit waves-effect m-r-15" id="report_filter_btn">Filter</button>

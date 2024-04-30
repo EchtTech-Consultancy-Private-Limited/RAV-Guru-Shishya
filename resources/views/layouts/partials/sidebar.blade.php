@@ -110,36 +110,51 @@
             @endforeach
             
                 <!--  Guru -->
-                @if(Auth::user()->user_type == 2) 
-                
-                    <li class="">
-                                <a href="{{url('guru-view-phr-report')}}">
-                                    <i data-feather="check-circle"></i>
-                                    <span>PHR Reporting</span>
-                                </a>
+                @if(Auth::user()->user_type == 2)                
+                    <li class="{{ Request::is('guru-view-phr-report') ? 'active' : '' }}">
+                        <a href="{{url('guru-view-phr-report')}}">
+                            <i data-feather="check-circle"></i>
+                            <span>PHR Reporting</span>
+                        </a>
                     </li>
-                    <li class="">
-                                <a href="{{url('phr-notification-list-guru')}}">
-                                    <i data-feather="check-circle"></i>
-                                    <span>PHR Notification</span>
-                                </a>
+                    <li class="{{ Request::is('phr-notification-list-guru') ? 'active' : '' }}">
+                        <a href="{{url('phr-notification-list-guru')}}">
+                            <i data-feather="check-circle"></i>
+                            <span>PHR Notification</span>
+                        </a>
+                    </li>
+                @endif
+                
+                 <!--  Admin -->
+                @if(Auth::user()->user_type == 1)                
+                    <li class="{{ Request::is('guru-view-phr-report') ? 'active' : '' }}">
+                        <a href="{{url('guru-view-phr-report')}}">
+                            <i data-feather="check-circle"></i>
+                            <span>PHR Reporting</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('phr-notification-list-guru') ? 'active' : '' }}">
+                        <a href="{{url('phr-notification-list-guru')}}">
+                            <i data-feather="check-circle"></i>
+                            <span>PHR Notification</span>
+                        </a>
                     </li>
                 @endif 
                 
                 <!--  Shishya -->
                 @if(Auth::user()->user_type == 3) 
                 
-                    <li class="">
-                                <a href="{{url('phr-report')}}">
-                                    <i data-feather="check-circle"></i>
-                                    <span>PHR Reporting</span>
-                                </a>
+                    <li class="{{ Request::is('phr-report') ? 'active' : '' }}">
+                        <a href="{{url('phr-report')}}">
+                            <i data-feather="check-circle"></i>
+                            <span>PHR Reporting</span>
+                        </a>
                     </li>
-                    <li class="">
-                                <a href="{{url('phr-notification-list')}}">
-                                    <i data-feather="check-circle"></i>
-                                    <span>PHR Notification</span>
-                                </a>
+                    <li class="{{ Request::is('phr-notification-list') ? 'active' : '' }}">
+                        <a href="{{url('phr-notification-list')}}">
+                            <i data-feather="check-circle"></i>
+                            <span>PHR Notification</span>
+                        </a>
                     </li>
                 
                 @endif 

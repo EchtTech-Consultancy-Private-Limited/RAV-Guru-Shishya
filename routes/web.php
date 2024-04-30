@@ -198,8 +198,8 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('phr-notification-list-guru', [PatientController::class, 'guru_phr_notification_list'])->name('phr-notification-list-guru');
 });
 
-Route::post('report-data-search', [PatientController::class, 'report_data_search'])->name('report-data-search');
-Route::post('guru-report-data-search', [PatientController::class, 'guru_report_data_search'])->name('guru-report-data-search');
+Route::get('report-data-search', [PatientController::class, 'report_data_search'])->name('report-data-search');
+Route::get('guru-report-data-search', [PatientController::class, 'guru_report_data_search'])->name('guru-report-data-search');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid','ModulePermission']], function() {
     Route::get('users', [UserController::class, 'index'])->name('users');

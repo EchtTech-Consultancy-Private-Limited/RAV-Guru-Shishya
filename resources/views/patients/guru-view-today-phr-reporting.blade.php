@@ -68,21 +68,92 @@
                         <div class="col-md-12">
                            <div class="card">
                                <div class="card-body">
-                                 <form name="report_search_form" id="report_search_form" method="POST" action="{{url('guru-report-data-search')}}">
+                                 <form name="report_search_form" id="report_search_form" method="get" action="{{url('guru-report-data-search')}}">
                                   @csrf 
                                   <input type="hidden" name="shishya_id" id="shishya_id" value="{{$id}}"/>
                                   <div class="row">
+                                       <div class="col-md-2">
+                                          <div class="form-group">
+                                             <label class="active">From Date:</label>
+                                             <input type="date" name="from_date"
+                                                class="form-control datetimepicker flatpickr-input active dateInput"
+                                                value="@if(request()->from_date){{date('Y-m-d',strtotime(request()->from_date))}}@endif"
+                                                max="<?php echo date('d-m-Y'); ?>">
+                                                @if ($errors->has('from_date'))
+                                                   <span class="help-block">
+                                                      <strong  >{{ $errors->first('from_date') }}</strong>
+                                                   </span>
+                                                @endif
+                                          </div>
+                                       </div>
+                                       <div class="col-md-2">
+                                          <div class="form-group">
+                                             <label class="active">To Date:</label>
+                                             <input type="date" name="to_date"
+                                                class="form-control datetimepicker flatpickr-input active dateInput"
+                                                value="@if(request()->to_date){{date('Y-m-d',strtotime(request()->to_date))}}@endif"
+                                                max="<?php echo date('d-m-Y'); ?>">
+                                                @if ($errors->has('to_date'))
+                                                   <span class="help-block">
+                                                      <strong  >{{ $errors->first('to_date') }}</strong>
+                                                   </span>
+                                                @endif
+                                          </div>
+                                       </div>
                                           <div class="col-md-2">
-                                            <div class="form-group focused">
-                                               <label for="example-text-input" class="form-control-label">Report Filter<span class="text-danger">*</span></label>
-                                               <input type="date" name="from_date" id="from_date" class="form-control datetimepicker flatpickr-input active" max="{{date('Y-m-d',time())}}" required>
-                                            </div>
-                                          </div>   
+                                             <div class="form-group">
+                                                 <label class="active">Select Duration:</label>
+                                                 <select name="report_type" class="form-control active">
+                                                     <option>Select Duration</option>
+                                                         @if(@request()->report_type == "Daily")
+                                                         <option value="{{ request()->report_type }}" selected>
+                                                         Daily Progress</option>
+                                                         @else
+                                                         <option value="Daily">Daily Progress</option>
+                                                         @endif
+                                                         @if(@request()->report_type == "Weekly")
+                                                         <option value="{{ request()->report_type }}" selected>
+                                                         Weekly Progress</option>
+                                                         @else
+                                                         <option value="Weekly">Weekly Progress</option>
+                                                         @endif
+                                                         @if(@request()->report_type == "Monthly")
+                                                         <option value="{{ request()->report_type }}" selected>
+                                                         Monthly Progress</option>
+                                                         @else
+                                                         <option value="Monthly">Monthly Progress</option>
+                                                         @endif
+                                                 </select>
+                                             </div> 
+                                          </div>
                                           <div class="col-md-2">
-                                            <div class="form-group">
+                                             <div class="form-group">
+                                                 <label class="active">Select Status</label>
+                                                 <select name="status" class="form-control active">
+                                                     <option value="">Select Status</option>
+                                                         @if(@request()->status == "1")
+                                                         <option value="{{ request()->status }}" selected>
+                                                         Active</option>
+                                                         @else
+                                                         <option value="1">Active</option>
+                                                         @endif
+                                                         @if(@request()->status == "0")
+                                                         <option value="{{ request()->status }}" selected>
+                                                            In-Active</option>
+                                                         @else
+                                                         <option value="0">In-Active</option>
+                                                         @endif
+                                                 </select>
+                                             </div> 
+                                         </div>
+                                          <div class="col-md-2">
+                                             <div class="form-group">
                                                 <button type="submit" class="btn submit waves-effect m-r-15" id="report_filter_btn">Filter</button>
+                                                <a href="{{ url('/guru-view-today-report/' . $id) }}"><button type="button" class="btn reset waves-effect">Reset</button></a>
+                                                </a>
+                                             </div>
                                             </div>
-                                          </div>  
+                                          </div>
                                   </div>
                                   </form>  
                                  <h3>Today's PHR Report Details of {{get_user_name($id)}}</h3>

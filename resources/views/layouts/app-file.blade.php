@@ -23,6 +23,7 @@
     <link href="{{ asset('assets/css/styles/all-themes.css') }} " rel="stylesheet" />
     <!-- OLD LINK -->
     <link href="{{ asset('assets/plugins/font-awesome.min.css') }} " rel="stylesheet" />
+
     <link href="{{ asset('assets/css/dataTables.dataTables.css') }} " rel="stylesheet" />
     <link href="{{ asset('assets/font-awesome-4.7.0/css/font-awesome.min.css') }} " rel="stylesheet" />
     <script type='text/javascript' src='#'></script>
@@ -107,6 +108,10 @@
 <script src="{{ asset('assets/js/plugins/sweetalert.js') }}"></script>
 <script src="{{ asset('assets/js/filter-multi-select-bundle.min.js') }}"></script>
 
+<script src="{{ asset('assets/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/js/jszip.min.js') }}"></script>
+<script src="{{ asset('assets/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/js/print.min.js') }}"></script>
 
 <script>
    let select2 = $('#mySelect2').filterMultiSelect();
