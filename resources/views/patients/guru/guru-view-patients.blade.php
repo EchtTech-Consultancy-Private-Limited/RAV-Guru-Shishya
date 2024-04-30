@@ -44,7 +44,10 @@
                <div class="header">
                <ul class="header-dropdown m-r-5">
                   <li>
-                     <a href="{{ route('generateGuruPdf',$patient->id) }}"><button type="button" class="btn print waves-effect" style="margin-top: -15px;"> &nbsp; Print &nbsp;</button></a>
+                     <button type="button" onclick="printDiv('printableArea')"
+                        class="btn print btn-danger waves-effect float-right"> &nbsp; Print
+                        &nbsp;
+                     </button>
                   </li>
                </ul>
                   <ul class="header-dropdown m-r--5">

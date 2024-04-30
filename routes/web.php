@@ -181,6 +181,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('delete-phr/{id}', [PatientController::class, 'delete_phr'])->name('delete-phr');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('profile', [AddUserController::class, 'manage_profile'])->name('profile');
+    Route::get('export-attendance', [AttendanceController::class, 'export_attendance'])->name('export-attendance');
     Route::get('view-attendance', [AttendanceController::class, 'viewAttendance'])->name('view-attendance');
     
     //Routes define by Gaurav for PHR Reporting
@@ -197,8 +198,8 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('phr-notification-list-guru', [PatientController::class, 'guru_phr_notification_list'])->name('phr-notification-list-guru');
 });
 
-Route::post('report-data-search', [PatientController::class, 'report_data_search'])->name('report-data-search');
-Route::post('guru-report-data-search', [PatientController::class, 'guru_report_data_search'])->name('guru-report-data-search');
+Route::get('report-data-search', [PatientController::class, 'report_data_search'])->name('report-data-search');
+Route::get('guru-report-data-search', [PatientController::class, 'guru_report_data_search'])->name('guru-report-data-search');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid','ModulePermission']], function() {
     Route::get('users', [UserController::class, 'index'])->name('users');
@@ -226,11 +227,10 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('notifications', [PatientController::class, 'guru_patient_list'])->name('notifications');
     Route::get('notify-guru-patient-list', [PatientController::class, 'notify_guru_patient_list'])->name('notify-guru-patient-list');   
     Route::get('guru-generate-Pdft/{id}', [PatientController::class, 'generateGuruPdf'])->name('generateGuruPdf');     
-    Route::get('attendance-list', [AttendanceController::class, 'index'])->name('attendance-list');
-    Route::get('export-attendance', [AttendanceController::class, 'export_attendance'])->name('export-attendance');
+    Route::get('attendance-list', [AttendanceController::class, 'index'])->name('attendance-list');    
     /*Admin Url*/
     Route::get('admin-patient-list', [PatientController::class, 'admin_patient_list'])->name('admin-patient-list');
-    Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
+    // Route::get('admin-generate-Pdft/{id}', [PatientController::class, 'generateAdminPdf'])->name('generateAdminPdf');
     Route::get('phr-history-sheet', [PatientController::class, 'guru_phr_history_sheet'])->name('phr-history-sheet');
     Route::get('admin-drug-report-history', [DrugController::class, 'admin_drug_report_history'])->name('admin-drug-report-history');
     Route::get('admin-filter-drug-report', [DrugController::class, 'admin_filter_drug_report'])->name('admin-filter-drug-report');    

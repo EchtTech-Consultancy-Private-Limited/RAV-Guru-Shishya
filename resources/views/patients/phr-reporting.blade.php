@@ -17,7 +17,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <ul class="breadcrumb breadcrumb-style ">
                   <li class="breadcrumb-item">
-                     <h6 class="page-title"> New Patient History </h6>
+                     <h6 class="page-title"> PHR Reporting </h6>
                   </li>
                   <li class="breadcrumb-item bcrumb-1">
                      <a href="{{url('/dashboard')}}">
@@ -25,14 +25,14 @@
                   </li>
                   <li class="breadcrumb-item bcrumb-1">
                      <a href="{{url('/new-patient-registration')}}">
-                        <i class="breadcrumb-item bcrumb-1"></i> New Patient </a>
+                        <i class="breadcrumb-item bcrumb-1"></i> PHR Reporting </a>
                   </li>
-                  <li class="breadcrumb-item active"> New Patient History </li>
+                  {{-- <li class="breadcrumb-item active"> New Patient History </li> --}}
                </ul>
-               @if ($message = Session::get('success'))
-               <div class="alert alert-success">
-                  <p>{{ $message }}</p>
-               </div>
+               @if(session()->has('success'))
+                  <div class="alert alert-success">
+                     {{ session()->get('success') }}
+                  </div>
                @endif
             </div>
          </div>

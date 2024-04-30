@@ -864,11 +864,19 @@ $("button.btn.next").on('click', ()=>{
   });
 });
 
-new DataTable('#addphrtable', {
-  buttons: [ 'excelHtml5', 'csvHtml5', '', 'print'],
-layout: {
-    topStart: {
-        buttons: [ 'csv', 'print']
-    }
-}
-});
+// new DataTable('#addphrtable', {
+//   layout: {
+//       topStart: {
+//           buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+//       }
+//   }
+// });
+
+$(document).ready(function() {
+  $('#addphrtable').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+          'excel', 'print'
+      ]
+  } );
+} );

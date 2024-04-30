@@ -36,7 +36,7 @@
                            <a > Manage Patients</a>
                           </li>
 
-                          <li class="breadcrumb-item active"> <a > Patient List</a></li>
+                          <li class="breadcrumb-item active"> Patients </li>
                        </ul>
                        @if ($message = Session::get('success'))
                          <div class="alert alert-success">

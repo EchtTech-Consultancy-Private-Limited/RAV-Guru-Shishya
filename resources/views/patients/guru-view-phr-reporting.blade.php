@@ -68,8 +68,31 @@
                            <div class="card">
                               <div class="card-body">
                                  <h3>Today's PHR Report Details</h3>
+                                 @if(Auth::user()->user_type == 1)
+                                 <form method="get" action="guru-view-phr-report">
+                                    @csrf
+                                 <div class="col-md-12 d-flex align-items-end">
+                                    <div>
+                                       <label class="form-control-label">Select Guru Name</label>
+                                       <select class="form-control" id="report_guru_id" name="report_guru_id"
+                                          required>
+                                          <option value="0">Please Select </option>
+                                          @foreach($gurus as $key=>$value)
+                                          <option
+                                             value="{{$value->id == request()->report_guru_id ? $value->id:$value->id}}"
+                                             {{$value->id == request()->report_guru_id ? 'selected':''}}>
+                                             {{$value->firstname}} {{$value->lastname}} ({{$value->email}})
+                                          </option>
+                                          @endforeach
+                                       </select>
+                                    </div>
+                                
+                                    <button type="submit" class="btn submit waves-effect  ms-3">Filter</button>
+                                </div>
+                                 </form>
+                                @endif
                                  <div id="report-data">
-                                    <table>
+                                    <table class="table table-hover  contact_list no-footer" id="addphrtable" role="grid" aria-describedby="DataTables_Table_0_info">
                                     <thead>
                                        <th>S.No </th>
                                        <th>Name of Shishya</th>
@@ -84,7 +107,7 @@
                                         
                                         <tr>    
                                             <td>{{ $i; }}</td>
-                                            <td>{{ $user->firstname }}</td>
+                                            <td>{{ @$user->firstname }} {{ @$user->lastname }}</td>
                                             <td><?php echo checkReportStatus($user->id, date('Y-m-d')); ?></td>
                                             <td><a href="{{url('guru-view-today-report')}}/{{$user->id}}">View Report</a></td>
                                             <td>

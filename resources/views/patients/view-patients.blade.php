@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-md-6 col-6">
                                 <div id="non-printable" class=" text-left no-printme d-inline">
-                                        <a href="{{ url('/new-patient-registration') }}"><button type="button"
+                                        <a href="{{ url('/shishya-notifications') }}"><button type="button"
                                                 class="btn back btn-danger waves-effect float-right"> &nbsp; Back
                                                 &nbsp;</button></a>
                                     </div>
