@@ -34,11 +34,11 @@
                           </li>
                           <li class="breadcrumb-item active"> <a > PHR Notifications</a></li>
                        </ul>
-                       @if ($message = Session::get('success'))
-                         <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                         </div>
-                      @endif
+                        @if ($message = Session::get('success'))
+                           <div class="alert alert-success">
+                              <p>{{ $message }}</p>
+                           </div>
+                        @endif
                     </div>
                 </div>
               </div>
@@ -46,22 +46,6 @@
          <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
                <div class="body">
-                  <div class="col-md-6">
-                     <div class="d-flex color-box-parent">
-                         <div class="color-box box1">
-                             <div>
-
-                             </div>
-                             <p>Not Read</p>
-                         </div>
-                         <div class="color-box box2">
-                             <div>
-
-                             </div>
-                             <p>Read</p>
-                         </div>
-                     </div>                                    
-                 </div>
                <div class="table-responsive">
                      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                         <div class="row"><div class="col-sm-12">
@@ -78,18 +62,18 @@
                         @foreach($phrNotificationData as $key=>$phrNotificationDatalist)
 
                         <tr class="gradeX odd {{($phrNotificationDatalist->shishya_read_status == '0') ? 'active-row' : 'not-active-row' }}">
-                                 <td class="center sorting_1">{{ ++$key }}</td>
-                                 <td class="text-center">{{$phrNotificationDatalist->date}}</td>
-                                 <td class="center sorting_1">{{$phrNotificationDatalist->comment_by_guru}}</td>
-                                 <td class="center sorting_1">
-                                     <?php if($phrNotificationDatalist->comment_by_shishya == null) { ?>
-                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_{{$phrNotificationDatalist->id}}">
-                                                    Reply
-                                     </button>
-                                     <?php } else { ?>
-                                     {{$phrNotificationDatalist->comment_by_shishya}}
-                                     <?php } ?>
-                                 </td>
+                           <td class="center sorting_1">{{ ++$key }}</td>
+                           <td class="text-center">{{$phrNotificationDatalist->date}}</td>
+                           <td class="center sorting_1">{{$phrNotificationDatalist->comment_by_guru}}</td>
+                           <td class="center sorting_1">
+                                 <?php if($phrNotificationDatalist->comment_by_shishya == null) { ?>
+                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal_{{$phrNotificationDatalist->id}}">
+                                                Reply
+                                 </button>
+                                 <?php } else { ?>
+                                 {{$phrNotificationDatalist->comment_by_shishya}}
+                                 <?php } ?>
+                           </td>
                         </tr>
                         
                         <div class="modal" id="myModal_{{$phrNotificationDatalist->id}}">
@@ -128,8 +112,6 @@
                                               </div>
                                             </div>
                                         </div>
-                        
-                        
                         @endforeach
 
                     </tbody>

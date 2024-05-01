@@ -355,29 +355,32 @@ class PatientController extends Controller
     public function save_comment_from_guru(Request $request)
     {
         $data=[
-                    'sender_id'=>Auth::user()->id,
-                    'reciever_id'=>$request->shishya_id,
-                    'sender_type'=>2,
-                    'reciever_type'=>3,
-                    'date'=>date('Y-m-d'),
-                    'shishya_read_status'=>0,
-                    'guru_read_status'=>0,
-                    'comment_by_guru'=>$request->remarks
-                ];
+            'sender_id'=>Auth::user()->id,
+            'reciever_id'=>$request->shishya_id,
+            'sender_type'=>2,
+            'reciever_type'=>3,
+            'date'=>date('Y-m-d'),
+            'shishya_read_status'=>0,
+            'guru_read_status'=>0,
+            'comment_by_guru'=>$request->remarks
+        ];
               
-            PhrReportRemarks::create($data);
+        PhrReportRemarks::create($data);
             
-            $guru_id = Auth::user()->id;
+        $guru_id = Auth::user()->id;
         //Getting the list of Shishyas
         $user_type_array=['Admin'=>'1','Guru'=>'2','Shishya'=>'3','Super User'=>'4'];
+        $gurus = User::orderBy('id','DESC')->where('user_type',"2")->get();
         if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
             $data = User::orderBy('id','DESC')->where('user_type',"3")->get();
         else if(Auth::user()->user_type=='2')
             $data = User::orderBy('id','DESC')->where('guru_id',Auth::user()->id)->where('user_type',"3")->get();
         else
             abort(404);
-        return view('patients.guru-view-phr-reporting',compact('data','user_type_array'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        
+        return redirect('guru-view-phr-report')->with('data','gurus','user_type_array')->with('success', 'Comment Add successfull');
+
+        // return view('patients.guru-view-phr-reporting',compact('data','user_type_array','gurus'))->with('success', 'PHR Report Add Successfull');
     }
     
     public function save_comment_from_shishya(Request $request)
