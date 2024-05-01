@@ -86,7 +86,6 @@
                                           @endforeach
                                        </select>
                                     </div>
-                                
                                     <button type="submit" class="btn submit waves-effect  ms-3">Filter</button>
                                 </div>
                                  </form>
