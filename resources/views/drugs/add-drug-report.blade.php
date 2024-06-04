@@ -1285,7 +1285,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group  ">
-                            <h5 class="text-center d-flex justify-content-center">  TALIA-GHRITA YOGAS</h5>
+                            <h5 class="text-center d-flex justify-content-center">  TAILA-GHRITA YOGAS</h5>
                             <h5 class="d-block text-left">Name of the Drug</h5>
                             <h5 class="d-block text-left">
                                 Reference

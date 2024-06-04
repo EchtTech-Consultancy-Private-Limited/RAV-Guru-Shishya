@@ -144,7 +144,7 @@
                                         <button type="submit" class="btn add waves-effect" style="line-height:2;"
                                             onclick="return updateAttendance('update attendance for this date range');">Update
                                             Attendance </button>
-                                        <button type="submit" class="btn add waves-effect" style="line-height:2;"
+                                        <button type="submit" class="btn add waves-effect bg-red" style="line-height:2;"
                                             onclick="return updateAttendance('update attendance for this date range');">Reset
                                             Attendance </button>
                                       

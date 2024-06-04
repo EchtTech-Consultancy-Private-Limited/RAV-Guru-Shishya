@@ -67,7 +67,7 @@
                      <section>
                         <div class="col-md-12">
                            <div class="card">
-                               <div class="card-body">
+                               <div class="card-body p-0">
                                  <form name="report_search_form" id="report_search_form" method="get" action="{{url('guru-report-data-search')}}">
                                   @csrf 
                                   <input type="hidden" name="shishya_id" id="shishya_id" value="{{$id}}"/>
@@ -146,7 +146,7 @@
                                                  </select>
                                              </div> 
                                          </div>
-                                          <div class="col-md-2">
+                                          <div class="col-md-3">
                                              <div class="form-group">
                                                 <button type="submit" class="btn submit waves-effect m-r-15" id="report_filter_btn">Filter</button>
                                                 <a href="{{ url('/guru-view-today-report/' . $id) }}"><button type="button" class="btn reset waves-effect">Reset</button></a>
