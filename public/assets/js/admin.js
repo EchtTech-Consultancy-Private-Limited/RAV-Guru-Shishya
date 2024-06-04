@@ -817,7 +817,7 @@ selects.each(function () {
 let lable = $('label');
 lable.each(function(){
     let lable_text = $(this).text();
-    let ofIndex = lable_text.indexOf('of');
+    let ofIndex = lable_text.indexOf(' of');
     if(ofIndex !== -1){
       lable_text = lable_text.replace('of', '<span class = "label-of">of</span>');
       lable_text = lable_text.replace('*', '<span class = "text-danger">*</span>');
