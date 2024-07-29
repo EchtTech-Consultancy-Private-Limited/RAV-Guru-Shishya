@@ -32,13 +32,13 @@
                </ul>
             </div>
             <div class="col m-2">
-                  <h2>                    
+                  <h2>                  
                     @if(Auth::user()->user_type==4 || Auth::user()->user_type==1)
                     <span style="float:right;" >
                         <form action="{{ route('users.create') }}" method="get">
-                           <input type="hidden" name="add_user_btn" value="@if(request()->path()=='rav-admin' && Auth::user()->user_type==1) {{$user_type_array['Admin']}} @elseif(request()->path()=='rav-admin') {{$user_type_array['Admin']}} @elseif(request()->path()=='users') {{$user_type_array['Guru']}} @elseif(request()->path()=='shishya-list') {{$user_type_array['Shishya']}} @endif">
+                           <input type="hidden" name="add_user_btn" value="@if(request()->path()=='rav-admin' && Auth::user()->user_type==1) {{$user_type_array['Admin']}} @elseif(request()->path()=='rav-admin') {{$user_type_array['Admin']}} @elseif(request()->path()=='users') {{$user_type_array['Guru']}} @elseif(request()->route()->getName()=='shishya-list') {{$user_type_array['Shishya']}} @endif">
                            @if(permissionCheck()->add == 1)
-                              <input type="submit" value="+ Add @if(request()->path()=='users') Guru @elseif(request()->path()=='shishya-list') Shishya @elseif(request()->path()=='rav-admin') Admin @endif" class="btn add">
+                              <input type="submit" value="+ Add @if(request()->path()=='users') Guru @elseif(request()->route()->getName()=='shishya-list') Shishya @elseif(request()->path()=='rav-admin') Admin @endif" class="btn add">
                            @endif
                         </form>
                      </span>
@@ -126,18 +126,25 @@
                                     </a>
                                     @endif
                                     @if(Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
-                                    @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
-                                    <a  href="{{ url('delete-user/'.encrypt($user->id)) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Delete">
-                                       <i class="material-icons">delete_forever</i>
-                                    </a>
-                                    @endif
+                                       @if(permissionCheck()->delete == 4 || Auth::user()->user_type == 4)
+                                       <a  href="{{ url('delete-user/'.encrypt($user->id)) }}" class="btn btn-tbl-delete" onclick="return confirm_option('delete')" title="Delete">
+                                          <i class="material-icons">delete_forever</i>
+                                       </a>                                    
+                                       @endif
                                     @endif
                                     <!-- <a class="btn btn-danger btn-sm" href="{{ url('delete-user/'.$user->id) }}" onclick="delete_user()"><i class="fa fa-trash" aria-hidden="true" style="line-height:1.5 !important;" ></i></a> -->
+                                    @if($user->user_type == '2')
+                                       <a  href="{{ route('shishya-list',encrypt($user->id)) }}" class="btn view btn-tbl-edit p-1"  title="Shishya List" >
+                                          <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                       </a>
+                                    @endif
+                                    @if($user->user_type == '3' && Auth::user()->user_type=='1' || Auth::user()->user_type=='4')
+                                    <a  href="{{ route('patient-list',encrypt($user->id)) }}" class="btn view btn-tbl-edit p-1"  title="Shishya Patient List" >
+                                       <i class="fa fa-file-text" aria-hidden="true"></i>
+                                    </a>
+                                    @endif
                                     <a class="btn permission btn-tbl-edit" href="{{ url('assign-role/'.$user->id) }}"  title="Assign user permissions"> <i class="icons-key">&nbsp&nbsp&nbsp&nbsp</i></a>
                                     @if(Auth::user()->user_type==1)
-                                    <!-- <input class='input-switch' type="checkbox" id="demo"/>
-                                       <label class="label-switch" for="demo"></label>
-                                       <span class="info-text"></span> -->
                                     @endif
                                  
                                  </td>

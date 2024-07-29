@@ -1459,9 +1459,11 @@ class PatientController extends Controller
          
     }
 
-        
-
-       
-
+    public function patientList(Request $request , $id ='')
+    {
+        $shishyaId = decrypt($id);
+        $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['shishya_id' => $shishyaId,'soft_delete' => 0])->get();
+        return view("patients.admin.patient-list",compact("patientlist")); 
+    }
 
 }
