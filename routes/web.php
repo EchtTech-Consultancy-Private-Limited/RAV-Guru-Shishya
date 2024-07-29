@@ -84,8 +84,8 @@ Route::get('/login-page', '\App\Http\Controllers\Auth\LoginController@index')->m
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid']], function() {
-    // Route::middleware(['CustomAuth'])->group(function () {        
-        Route::middleware('throttle:4,1')->group(function () {            
+    // Route::middleware(['CustomAuth'])->group(function () {
+        Route::middleware('throttle:4,1')->group(function () {
             Route::post('/user-update', '\App\Http\Controllers\UserController@update')->name('user-update');
             Route::post('new-patient-registration', [PatientController::class, 'new_patient_registration'])->name('new-patient-registration');
             Route::post('follow-up-patients', [PatientController::class, 'follow_up_patients'])->name('follow-up-patients');
@@ -214,7 +214,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
     Route::get('active-users/{id}', [AddUserController::class, 'active_user'])->name('active-users');
     Route::get('unauthorized', [AddUserController::class, 'unauthorized'])->name('unauthorized');
 
-    Route::get('shishya-list', [AddUserController::class, 'shishya_list'])->name('shishya-list');
+    Route::get('shishya-list/{id?}', [AddUserController::class, 'shishya_list'])->name('shishya-list');
     Route::get('rav-admin', [AddUserController::class, 'rav_admin'])->name('rav-admin');
     Route::get('add-user/{$type}', [AddUserController::class, 'add_user'])->name('add-user');
 
@@ -237,7 +237,8 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
 
     Route::get('patients/In-Patient', [PatientController::class, 'in_patients'])->name('patients/In-Patient');
     Route::get('patients/OPD-Patient', [PatientController::class, 'opd_patients'])->name('patients/OPD-Patient');
-
+    Route::get('patient-list/{id?}', [PatientController::class, 'patientList'])->name('patient-list');
+    
     /*Admin Url Roles and Permissions Routes*/
     Route::get('admin-models', [ModelController::class, 'index'])->name('admin-models');
     Route::get('edit-model/{id}', [ModelController::class, 'edit_model'])->name('edit-model');

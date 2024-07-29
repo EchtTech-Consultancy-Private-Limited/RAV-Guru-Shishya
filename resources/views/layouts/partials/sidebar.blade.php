@@ -110,7 +110,7 @@
             @endforeach
             
                 <!--  Guru -->
-                @if(Auth::user()->user_type == 2)                
+                @if(Auth::user()->user_type == 2)
                     <li class="{{ Request::is('guru-view-phr-report') ? 'active' : '' }}">
                         <a href="{{url('guru-view-phr-report')}}">
                             <i data-feather="check-circle"></i>
@@ -126,7 +126,7 @@
                 @endif
                 
                  <!--  Admin -->
-                @if(Auth::user()->user_type == 1)                
+                @if(Auth::user()->user_type == 1)
                     <li class="{{ Request::is('guru-view-phr-report') ? 'active' : '' }}">
                         <a href="{{url('guru-view-phr-report')}}">
                             <i data-feather="check-circle"></i>
@@ -142,7 +142,7 @@
                 @endif 
                 
                 <!--  Shishya -->
-                @if(Auth::user()->user_type == 3) 
+                @if(Auth::user()->user_type == 3)
                 
                     <li class="{{ Request::is('phr-report') ? 'active' : '' }}">
                         <a href="{{url('phr-report')}}">
@@ -156,9 +156,7 @@
                             <span>PHR Notification</span>
                         </a>
                     </li>
-                
-                @endif 
-           
+                @endif
         </ul>
     </div>
 <!-- #Menu -->
