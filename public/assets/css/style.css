@@ -1849,3 +1849,18 @@ div#addphrtable_wrapper button.dt-button.buttons-print{
 .text-left{
     text-align: left !important;
 }
+
+.fc .fc-button-primary:disabled {
+    color: #fff;
+    opacity: 1 !important;
+    background-color: #000cff !important;
+    border-color: #000cff !important;
+}
+
+.fc-theme-standard th{
+    background: #5c4e3f !important;
+    padding: 10px 0 !important;
+}
+tr th .fc-scrollgrid-sync-inner a {
+    color: #fff !important;
+}

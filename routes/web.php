@@ -237,7 +237,7 @@ Route::group(['middleware' => ['auth','prevent-back-history','EnsureTokenIsValid
 
     Route::get('patients/In-Patient', [PatientController::class, 'in_patients'])->name('patients/In-Patient');
     Route::get('patients/OPD-Patient', [PatientController::class, 'opd_patients'])->name('patients/OPD-Patient');
-    Route::get('patient-list/{id?}', [PatientController::class, 'patientList'])->name('patient-list');
+    Route::get('patient-list/{id?}/{date?}', [PatientController::class, 'patientList'])->name('patient-list');
     
     /*Admin Url Roles and Permissions Routes*/
     Route::get('admin-models', [ModelController::class, 'index'])->name('admin-models');
