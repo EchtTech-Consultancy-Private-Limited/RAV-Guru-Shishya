@@ -447,8 +447,6 @@
                 eventStartEditable: false,
                 eventLimit: true, // allow "more" link when too many events
                 dayMaxEvents: true, // allow "more" link when too many events
-
-
                 events: <?php echo json_encode(@$attendances); ?>
             });
             calendar.render();

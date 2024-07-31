@@ -1481,7 +1481,6 @@ class PatientController extends Controller
 
         $interval = DateInterval::createFromDateString('1 day');
         $period = new DatePeriod($begin, $interval, $end);
-
         foreach ($period as $date) {
             $curDate = $date->format("Y-m-d");
             $curWeekDay = $date->format("l");
