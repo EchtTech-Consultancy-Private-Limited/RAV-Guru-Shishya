@@ -155,7 +155,7 @@
                                        <div class="col-md-2">
                                           <div class="form-group">
                                           <label for="example-text-input" class="form-control-label @if(isset($data->registration_date)) patient-highlight @endif" title="Updated by @if(@$patientHistoryLog->user_type == '1')Admin @elseif(@$patientHistoryLog->user_type == '2')Guru @else (@$patientHistoryLog->user_type == '3')Shishya @endif">Registration Date</label>
-                                             <input type="text" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{date('d-m-Y',strtotime($patient->registration_date))}}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
+                                             <input type="date" name="registration_date" class="form-control" placeholder="Date" aria-label="Date" value="{{$patient->registration_date}}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                                           </div>
                                        </div>
                                        <div class="col-xxl-2 col-md-2">

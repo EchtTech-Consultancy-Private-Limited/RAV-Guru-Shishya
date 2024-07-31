@@ -19,13 +19,16 @@ use App\Mail\SendPhrAdmin;
 use App\Mail\PhrAdmin;
 use App\Mail\PhrGuruShishya2;
 use App\Mail\PhrGuruShishya;
-use Carbon\Carbon;
 use PDF;
 use App\Models\PhrReport;
 use App\Models\PhrReportSubmitted;
 use App\Models\PhrReportRemarks;
-
 use DB;
+use Carbon\Carbon;
+use DateInterval;
+use DatePeriod;
+use DateTime;
+
 class PatientController extends Controller
 {
     /**
@@ -1459,11 +1462,57 @@ class PatientController extends Controller
          
     }
 
-    public function patientList(Request $request , $id ='')
+    public function patientList(Request $request , $id = 'null')
     {
         $shishyaId = decrypt($id);
-        $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['shishya_id' => $shishyaId,'soft_delete' => 0])->get();
-        return view("patients.admin.patient-list",compact("patientlist")); 
+        $year = $request->check_date ? date("Y", strtotime($request->check_date)) : date("Y");
+        $month = $request->check_date ? date("m", strtotime($request->check_date)) : date("m");
+        $patientlist=Patient::with('patientHistory')->orderBy('updated_at','DESC')->where(['shishya_id' => $shishyaId,'soft_delete' => 0])->whereYear('registration_date', $year)->whereMonth('registration_date', $month)->get();
+        // Attendance calender
+        $attendances = [];        
+        $startDate = date("Y-m-d", strtotime("$year-$month-01"));
+        $prewDate = date('Y-m-d', strtotime("$year-$month-01" . ' -1 months'));
+        $nextDate = date('Y-m-d', strtotime("$year-$month-01" . ' +1 months'));
+        $startDate = Carbon::create($year, $month)->startOfMonth()->format('Y-m-d');
+
+        $endDate = date('Y-m-d');
+        $begin = new DateTime($startDate);
+        $end = new DateTime($endDate);
+
+        $interval = DateInterval::createFromDateString('1 day');
+        $period = new DatePeriod($begin, $interval, $end);
+
+        foreach ($period as $date) {
+            $curDate = $date->format("Y-m-d");
+            $curWeekDay = $date->format("l");
+
+            $title = 'Absent';
+            $color = 'red';
+            $status = 'A';
+            $attendance = Patient::where('shishya_id', $shishyaId)->whereDate('registration_date', $date)->first();
+            
+            if (!isset($attendance)) {
+                if ($curWeekDay == 'Sunday') {
+                    $title = 'Week Off';
+                    $color = 'orange';
+                    $status = 'Week_off';
+                }
+            }else{
+                $title = 'Present';
+                $color = 'green';
+                $status = 'P';
+            }
+
+            $attendances[] = [
+                'title' => $title,
+                'date' => date('Y-m-d', strtotime($curDate)),
+                'color' => $color,
+                'status' => $status
+            ];
+        }
+        // dd($attendances);
+        // End Attendance calender
+        return view("patients.admin.patient-list",compact('patientlist','shishyaId', 'startDate', 'prewDate', 'nextDate', 'attendances')); 
     }
 
 }
